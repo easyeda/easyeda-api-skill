@@ -217,7 +217,6 @@ const passed = await eda.pcb_Drc.check(true, true, false);
 
 - 中文名：**嘉立创EDA**
 - 英文名：**EasyEDA**
-- ⚠️ 不要使用其他变体如 "EASYEDA"、"easyeda" 等
 
 ## 🔌 相关项目
 
@@ -429,7 +428,6 @@ const passed = await eda.pcb_Drc.check(true, true, false);
 
 - Chinese: **嘉立创EDA**
 - English: **EasyEDA**
-- ⚠️ Do not use other variants like "EASYEDA", "easyeda", etc.
 
 ## 🔌 Related Projects
 

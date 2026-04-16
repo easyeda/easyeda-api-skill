@@ -170,6 +170,23 @@ The full API reference is in the [references/](references/) directory:
 - `references/interfaces/` — 70 interface docs
 - `references/types/` — 19 type alias docs
 
+## File Format Documentation
+
+When the task involves directly reading, writing, or parsing EasyEDA project files (rather than using the live API), use the [format/](format/) directory:
+
+- [format/index.md](format/index.md) — Format overview, V2.2 vs V3 differences, and base conventions
+- [format/project/](format/project/index.md) — Project-level structures (config, blobs, instances, variants)
+- [format/schematic/](format/schematic/index.md) — Schematic primitives (components, wires, pins, text, shapes)
+- [format/pcb/](format/pcb/index.md) — PCB primitives (pads, vias, tracks, 3D models, rules, panels)
+
+**V3 format key rules** (EasyEDA 3.0+):
+- Each line = two JSON objects joined by `||`: `{outer}||{inner}|`
+- Outer object: `{ type, id, ticket }` — used by the consistency framework
+- Inner object: key-value primitive data
+- Deletion: set inner to empty string `""`
+- Conflict resolution: higher `ticket` wins; equal ticket → lower `client` ID wins
+- All coordinates use `0.01 inch` unless otherwise noted
+
 ### How to look up API
 
 1. **Start with `_index.md`** to find the right class/module for the task

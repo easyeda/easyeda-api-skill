@@ -118,6 +118,17 @@ curl -X POST http://localhost:49620/execute \
 - [📦 扩展市场](guide/extensions-marketplace.md)
 - [🔧 辅助项目](guide/ancillary-projects.md)
 
+### 文件格式规范
+
+当需要直接读写或解析嘉立创EDA工程文件时，可参考 [format/](format/) 目录中的格式文档：
+
+- [📑 格式总览](format/index.md) — V2.2 与 V3 格式说明及基础约定
+- [📁 工程格式](format/project/index.md) — 工程配置、实例属性、变体等
+- [📁 原理图格式](format/schematic/index.md) — 元件、导线、引脚、文本等图元格式
+- [📁 PCB格式](format/pcb/index.md) — 焊盘、过孔、走线、3D模型等图元格式
+
+> V3格式（嘉立创EDA 3.0）采用日志增量存储，每行由两个JSON对象拼接（`||`分隔），外层用于一致性框架，内层为图元原子数据。
+
 ### 用户指南
 
 - [📖 使用扩展](user-guide/using-extension.md)
@@ -328,6 +339,17 @@ Complete API documentation is located in the [references/](references/) director
 - [🖼️ Inline Frame](guide/inline-frame.md)
 - [📦 Extensions Marketplace](guide/extensions-marketplace.md)
 - [🔧 Ancillary Projects](guide/ancillary-projects.md)
+
+### File Format Specifications
+
+When you need to directly read, write, or parse EasyEDA project files, refer to the format documentation in [format/](format/):
+
+- [📑 Format Overview](format/index.md) — V2.2 & V3 format descriptions and basic conventions
+- [📁 Project Format](format/project/index.md) — Project config, instance attributes, variants, etc.
+- [📁 Schematic Format](format/schematic/index.md) — Component, wire, pin, text primitives
+- [📁 PCB Format](format/pcb/index.md) — Pad, via, track, 3D model primitives
+
+> V3 format (EasyEDA 3.0) uses incremental log storage. Each line contains two JSON objects separated by `||`: outer layer for consistency framework, inner layer for primitive atomic data.
 
 ### User Guide
 

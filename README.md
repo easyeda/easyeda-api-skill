@@ -1,123 +1,125 @@
+[English](#) | [简体中文](./README.zh-Hans.md)
+
 # EasyEDA API Skill
 
-供 AI 编程工具（Claude Code、OpenCode、QwenCode 等所有支持 [Agent Skills](https://agentskills.io/) 标准的工具）使用的 EasyEDA Pro API 技能包（Skill）。
+An EasyEDA Pro API skill package for AI coding tools such as Claude Code, OpenCode, QwenCode, and any other tool that supports the [Agent Skills](https://agentskills.io/) standard.
 
-这个 SKILL 不仅支持 AI 在线调试嘉立创EDA，也支持辅助开发嘉立创EDA扩展。
-在开发嘉立创EDA扩展时，AI 可以使用本 SKILL 提供的扩展开发相关文档、API 参考、类型信息、调用示例以及桥接调试能力，帮助完成接口查询、代码编写与联调验证。
-如果用户准备自行分析或修改嘉立创EDA文档源码，而不是通过 API 操作，也可以使用本项目提供的文档源码格式说明。
+This skill supports both online debugging of EasyEDA Pro through AI and extension development for EasyEDA Pro.
+When developing EasyEDA extensions, AI can use the extension-development documentation, API references, type information, usage examples, and bridge debugging capabilities provided by this skill to help with API lookup, code generation, and integration debugging.
+If you want to analyze or modify EasyEDA document source files directly instead of operating through the API, this project also provides documentation for the source file formats.
 
-- 📚 **结构化 API 文档** — 自动从参考文档生成分层索引，便于 AI 快速查阅
-- 🧾 **文档源码格式规范** — 说明工程、原理图、PCB 文档源码格式，适合直接分析和修改源码的场景
-- 🔌 **WebSocket Bridge** — Node.js 服务端，桥接 AI 和 EasyEDA 客户端
-- 🤖 **SKILL.md** — 完整的技能指导文件
+- 📚 **Structured API documentation** — Automatically builds hierarchical indexes from reference docs for fast AI lookup
+- 🧾 **Document source format specifications** — Explains project, schematic, and PCB source formats for direct source analysis and modification
+- 🔌 **WebSocket Bridge** — A Node.js server that bridges AI tools and the EasyEDA client
+- 🤖 **SKILL.md** — A complete skill instruction file
 
-## 快速开始
+## Quick Start
 
-### 1. 安装依赖
+### 1. Install dependencies
 
 ```bash
 npm install
 ```
 
-### 2. 构建 API 文档
+### 2. Build API documentation
 
 ```bash
 npm run build:docs
 ```
 
-这会从 `reference/` 目录读取原始 API 文档，生成结构化文档到 `docs/` 目录。
+This reads the raw API documentation from the `reference/` directory and generates structured docs into the `docs/` directory.
 
-### 3. 启动 WebSocket Bridge 服务器
+### 3. Start the WebSocket Bridge server
 
 ```bash
 npm run server
 ```
 
-服务器自动在端口范围 `49620-49629` 中选择可用端口启动，等待 EasyEDA 客户端连接。
+The server automatically chooses an available port in the `49620-49629` range and waits for the EasyEDA client to connect.
 
-### 4. EasyEDA 端连接
+### 4. Connect from EasyEDA
 
-在嘉立创EDA中安装 `run-api-gateway.eext` 扩展，下载地址：
+Install the `run-api-gateway.eext` extension in EasyEDA. Download:
 
 - https://ext.lceda.cn/item/oshwhub/run-api-gateway
 
-扩展加载后会自动连接到 Bridge 服务器（自动扫描端口范围，验证握手后连接）。
+After the extension is loaded, it connects to the Bridge server automatically by scanning the port range and verifying the handshake.
 
-### 5. 使用 AI 编程工具
+### 5. Use from an AI coding tool
 
-AI 编程工具（Claude Code、OpenCode、QwenCode 等）会自动读取 `SKILL.md` 获取技能指导，通过 HTTP API 向 EDA 发送代码：
+AI coding tools such as Claude Code, OpenCode, and QwenCode automatically read `SKILL.md` for instructions, then use the HTTP API to send code to EasyEDA:
 
 ```bash
-# 检查 EDA 连接状态（端口自动发现，此处假设服务在 49620）
+# Check EasyEDA connection status (assuming the service is on port 49620)
 curl http://localhost:49620/health
 
-# 执行 EDA 代码
+# Execute EasyEDA code
 curl -X POST http://localhost:49620/execute \
   -H "Content-Type: application/json" \
   -d '{"code": "return await eda.dmt_Project.getCurrentProjectInfo();"}'
 ```
 
-## 一键打包
+## One-Command Packaging
 
 ```bash
 npm run pack
 ```
 
-这会执行以下步骤：
-1. 构建 API 文档（`docs/`）
-2. 将 SKILL.md、文档、服务器打包到 `dist/easyeda-api/`
-3. 生成 `dist/easyeda-api.zip` 用于上传
+This performs the following steps:
+1. Build API documentation (`docs/`)
+2. Package `SKILL.md`, documentation, and the server into `dist/easyeda-api/`
+3. Generate `dist/easyeda-api.zip` for upload
 
-如果文档已构建好，可跳过构建步骤：
+If the documentation has already been built, you can skip that step:
 
 ```bash
 npm run pack:fast
 ```
 
-### 发布到 ClawHub
+### Publish to ClawHub
 
 ```bash
 npx clawhub@latest publish dist/easyeda-api/
 ```
 
-或上传 zip 文件到 https://clawhub.ai/upload
+Or upload the zip file at https://clawhub.ai/upload
 
-## 架构
+## Architecture
 
-```
+```text
 ┌──────────────┐   HTTP/WS     ┌────────────────┐   WebSocket    ┌──────────┐
-│   AI Agent    │ ◄───────────► │  Bridge Server  │ ◄───────────► │  EasyEDA  │
-│  (Skill Tool) │  Port Range   │  (Node.js)      │  Port Range   │  (Client) │
+│   AI Agent   │ ◄───────────► │ Bridge Server  │ ◄───────────► │  EasyEDA │
+│ (Skill Tool) │  Port Range   │   (Node.js)    │  Port Range   │ (Client) │
 └──────────────┘  49620-49629   └────────────────┘  49620-49629   └──────────┘
 ```
 
-## 通信协议
+## Communication Protocol
 
-| 消息类型 | 方向 | 说明 |
-|----------|------|------|
-| `execute` | AI → EDA | 执行 JS 代码 |
-| `result` | EDA → AI | 返回执行结果 |
-| `error` | EDA → AI | 返回执行错误 |
-| `handshake` | Server → Client | 连接验证（含 `service: "easyeda-bridge"`） |
-| `ping/pong` | 双向 | 心跳检测 |
+| Message Type | Direction | Description |
+|--------------|-----------|-------------|
+| `execute` | AI → EDA | Execute JavaScript code |
+| `result` | EDA → AI | Return execution result |
+| `error` | EDA → AI | Return execution error |
+| `handshake` | Server → Client | Connection verification (includes `service: "easyeda-bridge"`) |
+| `ping/pong` | Bidirectional | Heartbeat |
 
-## 目录结构
+## Directory Structure
 
-```
+```text
 easyeda-api-skill/
-  SKILL.md              # AgentSkills 标准技能定义
-  AGENTS.md              # Agent 提示指南
-  package.json          # 项目配置
-  reference/            # 原始 API 参考文档（gitignore）
-  docs/                 # 构建后的结构化文档（gitignore）
-  format/               # 嘉立创EDA文档源码格式规范（project/schematic/pcb）
-  guide/                # API 开发指南（人工撰写）
-  user-guide/           # 用户指南（人工撰写）
-  server/index.mjs      # WebSocket Bridge 服务器
+  SKILL.md              # AgentSkills standard skill definition
+  AGENTS.md             # Agent prompt guide
+  package.json          # Project configuration
+  reference/            # Raw API reference docs (gitignored)
+  docs/                 # Built structured docs (gitignored)
+  format/               # EasyEDA document source format specs (project/schematic/pcb)
+  guide/                # API development guides
+  user-guide/           # User guides
+  server/index.mjs      # WebSocket Bridge server
   scripts/
-    build-docs.mjs      # 文档构建脚本
-    pack.mjs            # 打包脚本
-  dist/                 # 打包输出（gitignore）
-    easyeda-api/        # 可发布的 skill 目录
-    easyeda-api.zip     # 用于 ClawHub 上传的 zip 文件
+    build-docs.mjs      # Documentation build script
+    pack.mjs            # Packaging script
+  dist/                 # Packaging output (gitignored)
+    easyeda-api/        # Publishable skill directory
+    easyeda-api.zip     # Zip archive for ClawHub upload
 ```

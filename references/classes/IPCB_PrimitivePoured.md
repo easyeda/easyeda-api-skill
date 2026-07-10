@@ -128,6 +128,20 @@ Description
 
 
 </td></tr>
+<tr><td>
+
+[reset()](./IPCB_PrimitivePoured.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 将异步图元重置为当前画布状态
+
+
+</td></tr>
 </tbody></table>
 
 ---
@@ -379,3 +393,24 @@ getState_PrimitiveType(): EPCB_PrimitiveType;
 [EPCB\_PrimitiveType](../enums/EPCB_PrimitiveType.md)
 
 图元类型
+
+### reset
+
+# IPCB\_PrimitivePoured.reset() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+将异步图元重置为当前画布状态
+
+## Signature
+
+```typescript
+reset(): Promise<IPCB_PrimitivePoured>;
+```
+
+
+## Returns
+
+Promise&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md)<!-- -->&gt;
+
+覆铜填充图元对象

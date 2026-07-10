@@ -138,6 +138,20 @@ Description
 
 
 </td></tr>
+<tr><td>
+
+[searchByProperties(properties, libraryUuid, classification, symbolType, itemsOfPage, page)](./LIB_Device.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 使用属性精确搜索器件
+
+
+</td></tr>
 </tbody></table>
 
 ---
@@ -1029,6 +1043,146 @@ classification
 </td><td>
 
 _(Optional)_ 分类，默认为全部
+
+
+</td></tr>
+<tr><td>
+
+symbolType
+
+
+</td><td>
+
+[ELIB\_SymbolType](../enums/ELIB_SymbolType.md)
+
+
+</td><td>
+
+_(Optional)_ 符号类型，默认为全部
+
+
+</td></tr>
+<tr><td>
+
+itemsOfPage
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_ 一页搜索结果的数量
+
+
+</td></tr>
+<tr><td>
+
+page
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_ 页数
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;Array&lt;[ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)<!-- -->&gt;&gt;
+
+搜索到的器件属性的列表
+
+### searchbyproperties
+
+# LIB\_Device.searchByProperties() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+使用属性精确搜索器件
+
+## Signature
+
+```typescript
+searchByProperties(properties: ILIB_DevicePropertiesForSearch, libraryUuid?: string, classification?: Array<string>, symbolType?: ELIB_SymbolType, itemsOfPage?: number, page?: number): Promise<Array<ILIB_DeviceSearchItem>>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+properties
+
+
+</td><td>
+
+ILIB\_DevicePropertiesForSearch
+
+
+</td><td>
+
+属性
+
+
+</td></tr>
+<tr><td>
+
+libraryUuid
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_ 库 UUID，默认为系统库，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+
+
+</td></tr>
+<tr><td>
+
+classification
+
+
+</td><td>
+
+Array&lt;string&gt;
+
+
+</td><td>
+
+_(Optional)_ 分类，默认为全部
+
+ADD since EDA v4
 
 
 </td></tr>

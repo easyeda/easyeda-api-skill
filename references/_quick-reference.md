@@ -61,6 +61,20 @@ declare class DMT_EditorControl
 
 ---
 
+## DMT_Event
+
+文档树 / 事件类
+
+```typescript
+declare class DMT_Event
+```
+
+- **addeditortabeventlistener**: `addEditorTabEventListener(id: string, eventType: 'all' | EDMT_EditorTabEventType, callFn: (eventType: EDMT_EditorTabEventType, props: {         documentType: EDMT_EditorDocumentType;         title: string;         tabId: string;     }) => void | Promise<void>, onlyOnce?: boolean): void;`
+- **iseventlisteneralreadyexist**: `isEventListenerAlreadyExist(id: string): boolean;`
+- **removeeventlistener**: `removeEventListener(id: string): boolean;`
+
+---
+
 ## DMT_Folder
 
 文档树 / 文件夹类
@@ -210,6 +224,7 @@ eda: EDA
 
 - **dmt_board**: `dmt_Board: DMT_Board;`
 - **dmt_editorcontrol**: `dmt_EditorControl: DMT_EditorControl;`
+- **dmt_event**: `dmt_Event: DMT_Event;`
 - **dmt_folder**: `dmt_Folder: DMT_Folder;`
 - **dmt_panel**: `dmt_Panel: DMT_Panel;`
 - **dmt_pcb**: `dmt_Pcb: DMT_Pcb;`
@@ -286,6 +301,7 @@ eda: EDA
 - **sys_iframe**: `sys_IFrame: SYS_IFrame;`
 - **sys_loadingandprogressbar**: `sys_LoadingAndProgressBar: SYS_LoadingAndProgressBar;`
 - **sys_log**: `sys_Log: SYS_Log;`
+- **sys_math**: `sys_Math: SYS_Math;`
 - **sys_message**: `sys_Message: SYS_Message;`
 - **sys_messagebox**: `sys_MessageBox: SYS_MessageBox;`
 - **sys_messagebus**: `sys_MessageBus: SYS_MessageBus;`
@@ -312,8 +328,10 @@ declare class IPCB_ComplexPolygon
 ```
 
 - **addsource**: `addSource(complexPolygon: TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray> | IPCB_Polygon | Array<IPCB_Polygon>): IPCB_ComplexPolygon;`
+- **getcenter**: `getCenter(): {         x: number;         y: number;     };`
 - **getsource**: `getSource(): TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray>;`
 - **getsourcestrictcomplex**: `getSourceStrictComplex(): Array<TPCB_PolygonSourceArray>;`
+- **topolygon**: `toPolygon(): Array<IPCB_Polygon>;`
 
 ---
 
@@ -325,6 +343,8 @@ declare class IPCB_ComplexPolygon
 declare class IPCB_Polygon
 ```
 
+- **discretize**: `discretize(options?: IPCB_DiscretizeOptions): Array<IPCB_DiscretizedPoint>;`
+- **getcenter**: `getCenter(): Promise<{         x: number;         y: number;     }>;`
 - **getsource**: `getSource(): TPCB_PolygonSourceArray;`
 
 ---
@@ -379,6 +399,7 @@ declare class IPCB_PrimitiveAttribute implements IPCB_Primitive
 ```
 
 - **_constructor_**: `constructor(layer: TPCB_LayersOfImage, x: number | null, y: number | null, key: string, value: string, keyVisible: boolean, valueVisible: boolean, fontFamily: string, fontSize: number, lineWidth: number, alignMode: EPCB_PrimitiveStringAlignMode, rotation: number, reverse: boolean, expansion: number, mirror: boolean, primitiveLock: boolean, primitiveId: string, parentPrimitiveId: string);`
+- **done**: `done(): Promise<IPCB_PrimitiveAttribute>;`
 - **getstate_alignmode**: `getState_AlignMode(): EPCB_PrimitiveStringAlignMode;`
 - **getstate_expansion**: `getState_Expansion(): number;`
 - **getstate_fontfamily**: `getState_FontFamily(): string;`
@@ -399,6 +420,7 @@ declare class IPCB_PrimitiveAttribute implements IPCB_Primitive
 - **getstate_x**: `getState_X(): number | null;`
 - **getstate_y**: `getState_Y(): number | null;`
 - **isasync**: `isAsync(): boolean;`
+- **reset**: `reset(): Promise<IPCB_PrimitiveAttribute>;`
 - **setstate_alignmode**: `setState_AlignMode(alignMode: EPCB_PrimitiveStringAlignMode): IPCB_PrimitiveAttribute;`
 - **setstate_expansion**: `setState_Expansion(expansion: number): IPCB_PrimitiveAttribute;`
 - **setstate_fontfamily**: `setState_FontFamily(fontFamily: string): IPCB_PrimitiveAttribute;`
@@ -452,6 +474,7 @@ declare class IPCB_PrimitiveComponent implements IPCB_Primitive
 - **getstate_y**: `getState_Y(): number;`
 - **isasync**: `isAsync(): boolean;`
 - **reset**: `reset(): Promise<IPCB_PrimitiveComponent>;`
+- **setattribute**: `setAttribute(key: string, value?: string | number | boolean, keyVisible?: boolean, valueVisible?: boolean): Promise<IPCB_PrimitiveAttribute>;`
 - **setstate_addintobom**: `setState_AddIntoBom(addIntoBom: boolean): IPCB_PrimitiveComponent;`
 - **setstate_designator**: `setState_Designator(designator: string | undefined): IPCB_PrimitiveComponent;`
 - **setstate_layer**: `setState_Layer(layer: TPCB_LayersOfComponent): IPCB_PrimitiveComponent;`
@@ -779,6 +802,7 @@ declare class IPCB_PrimitivePour implements IPCB_Primitive
 - **converttopolyline**: `convertToPolyline(): Promise<IPCB_PrimitivePolyline>;`
 - **converttoregion**: `convertToRegion(): Promise<IPCB_PrimitiveRegion>;`
 - **done**: `done(): Promise<IPCB_PrimitivePour>;`
+- **getcopperregion**: `getCopperRegion(): Promise<IPCB_PrimitivePoured | undefined>;`
 - **getstate_complexpolygon**: `getState_ComplexPolygon(): IPCB_Polygon;`
 - **getstate_layer**: `getState_Layer(): TPCB_LayersOfCopper;`
 - **getstate_linewidth**: `getState_LineWidth(): number;`
@@ -791,6 +815,7 @@ declare class IPCB_PrimitivePour implements IPCB_Primitive
 - **getstate_primitivelock**: `getState_PrimitiveLock(): boolean;`
 - **getstate_primitivetype**: `getState_PrimitiveType(): EPCB_PrimitiveType;`
 - **isasync**: `isAsync(): boolean;`
+- **rebuildcopperregion**: `rebuildCopperRegion(): Promise<IPCB_PrimitivePoured | undefined>;`
 - **reset**: `reset(): Promise<IPCB_PrimitivePour>;`
 - **setstate_complexpolygon**: `setState_ComplexPolygon(complexPolygon: IPCB_Polygon): IPCB_PrimitivePour;`
 - **setstate_layer**: `setState_Layer(layer: TPCB_LayersOfCopper): IPCB_PrimitivePour;`
@@ -821,6 +846,7 @@ declare class IPCB_PrimitivePoured implements IPCB_Primitive
 - **getstate_pourprimitiveid**: `getState_PourPrimitiveId(): string;`
 - **getstate_primitiveid**: `getState_PrimitiveId(): string;`
 - **getstate_primitivetype**: `getState_PrimitiveType(): EPCB_PrimitiveType;`
+- **reset**: `reset(): Promise<IPCB_PrimitivePoured>;`
 
 ---
 
@@ -866,6 +892,7 @@ declare class IPCB_PrimitiveString implements IPCB_Primitive
 ```
 
 - **_constructor_**: `constructor(layer: TPCB_LayersOfImage, x: number, y: number, text: string, fontFamily?: string, fontSize?: number, lineWidth?: number, alignMode?: EPCB_PrimitiveStringAlignMode, rotation?: number, reverse?: boolean, expansion?: number, mirror?: boolean, primitiveLock?: boolean, primitiveId?: string);`
+- **done**: `done(): Promise<IPCB_PrimitiveString>;`
 - **getstate_alignmode**: `getState_AlignMode(): EPCB_PrimitiveStringAlignMode;`
 - **getstate_expansion**: `getState_Expansion(): number;`
 - **getstate_fontfamily**: `getState_FontFamily(): string;`
@@ -882,6 +909,7 @@ declare class IPCB_PrimitiveString implements IPCB_Primitive
 - **getstate_x**: `getState_X(): number;`
 - **getstate_y**: `getState_Y(): number;`
 - **isasync**: `isAsync(): boolean;`
+- **reset**: `reset(): Promise<IPCB_PrimitiveString>;`
 - **setstate_alignmode**: `setState_AlignMode(alignMode: EPCB_PrimitiveStringAlignMode): IPCB_PrimitiveString;`
 - **setstate_expansion**: `setState_Expansion(expansion: number): IPCB_PrimitiveString;`
 - **setstate_fontfamily**: `setState_FontFamily(fontFamily: string): IPCB_PrimitiveString;`
@@ -1059,8 +1087,10 @@ declare class ISCH_PrimitiveBus implements ISCH_Primitive
 declare class ISCH_PrimitiveCbbSymbolComponent extends ISCH_PrimitiveComponent
 ```
 
+- **done**: `done(): Promise<ISCH_PrimitiveCbbSymbolComponent>;`
 - **getstate_cbb**: `getState_Cbb(): {         libraryUuid: string;         uuid: string;     };`
 - **getstate_cbbsymbol**: `getState_CbbSymbol(): {         libraryUuid: string;         cbbUuid: string;         uuid?: string;         name?: string;     };`
+- **reset**: `reset(): Promise<ISCH_PrimitiveCbbSymbolComponent>;`
 
 ---
 
@@ -1072,7 +1102,7 @@ declare class ISCH_PrimitiveCbbSymbolComponent extends ISCH_PrimitiveComponent
 declare class ISCH_PrimitiveCircle implements ISCH_Primitive
 ```
 
-- **done**: `done(): ISCH_PrimitiveCircle;`
+- **done**: `done(): Promise<ISCH_PrimitiveCircle>;`
 - **getstate_centerx**: `getState_CenterX(): number;`
 - **getstate_centery**: `getState_CenterY(): number;`
 - **getstate_color**: `getState_Color(): string | null;`
@@ -1109,6 +1139,7 @@ declare class ISCH_PrimitiveComponent implements ISCH_Primitive
 - **async**: `protected async: boolean;`
 - **designator**: `protected designator?: string;`
 - **done**: `done(): Promise<ISCH_PrimitiveComponent>;`
+- **getallpins**: `getAllPins(): Promise<Array<ISCH_PrimitiveComponentPin> | undefined>;`
 - **getstate_addintobom**: `getState_AddIntoBom(): boolean | undefined;`
 - **getstate_addintopcb**: `getState_AddIntoPcb(): boolean | undefined;`
 - **getstate_component**: `getState_Component(): {         libraryUuid: string;         uuid: string;         name?: string;     } | undefined;`
@@ -1168,6 +1199,7 @@ declare class ISCH_PrimitiveComponent implements ISCH_Primitive
 declare class ISCH_PrimitiveComponentPin extends ISCH_PrimitivePin
 ```
 
+- **done**: `done(): Promise<ISCH_PrimitiveComponentPin>;`
 - **getstate_noconnected**: `getState_NoConnected(): boolean;`
 - **primitivetype**: `protected readonly primitiveType: ESCH_PrimitiveType.COMPONENT_PIN;`
 - **setstate_noconnected**: `setState_NoConnected(noConnected: boolean): ISCH_PrimitiveComponentPin;`
@@ -1232,7 +1264,7 @@ declare class ISCH_PrimitivePin implements ISCH_Primitive
 declare class ISCH_PrimitivePolygon implements ISCH_Primitive
 ```
 
-- **done**: `done(): ISCH_PrimitivePolygon;`
+- **done**: `done(): Promise<ISCH_PrimitivePolygon>;`
 - **getstate_color**: `getState_Color(): string | null;`
 - **getstate_fillcolor**: `getState_FillColor(): string | null;`
 - **getstate_line**: `getState_Line(): Array<number>;`
@@ -1260,7 +1292,7 @@ declare class ISCH_PrimitivePolygon implements ISCH_Primitive
 declare class ISCH_PrimitiveRectangle implements ISCH_Primitive
 ```
 
-- **done**: `done(): ISCH_PrimitiveRectangle;`
+- **done**: `done(): Promise<ISCH_PrimitiveRectangle>;`
 - **getstate_color**: `getState_Color(): string | null;`
 - **getstate_cornerradius**: `getState_CornerRadius(): number;`
 - **getstate_fillcolor**: `getState_FillColor(): string | null;`
@@ -1430,6 +1462,7 @@ declare class LIB_Device
 - **getbylcscids_1**: `getByLcscIds(lcscIds: Array<string>, libraryUuid?: string, allowMultiMatch?: boolean): Promise<Array<ILIB_DeviceSearchItem>>;`
 - **modify**: *(签名过长，请查看详细文档)*
 - **search**: `search(key: string, libraryUuid?: string, classification?: ILIB_ClassificationIndex | Array<string>, symbolType?: ELIB_SymbolType, itemsOfPage?: number, page?: number): Promise<Array<ILIB_DeviceSearchItem>>;`
+- **searchbyproperties**: `searchByProperties(properties: ILIB_DevicePropertiesForSearch, libraryUuid?: string, classification?: Array<string>, symbolType?: ELIB_SymbolType, itemsOfPage?: number, page?: number): Promise<Array<ILIB_DeviceSearchItem>>;`
 
 ---
 
@@ -1449,6 +1482,7 @@ declare class LIB_Footprint
 - **modify**: `modify(footprintUuid: string, libraryUuid: string, footprintName?: string, classification?: ILIB_ClassificationIndex | Array<string> | null, description?: string | null): Promise<boolean>;`
 - **openineditor**: `openInEditor(footprintUuid: string, libraryUuid: string, splitScreenId?: string): Promise<string | undefined>;`
 - **search**: `search(key: string, libraryUuid?: string, classification?: ILIB_ClassificationIndex | Array<string>, itemsOfPage?: number, page?: number): Promise<Array<ILIB_FootprintSearchItem>>;`
+- **searchbyproperties**: `searchByProperties(properties: ILIB_FootprintPropertiesForSearch, libraryUuid?: string): Promise<Array<ILIB_FootprintSearchItem>>;`
 - **updatedocumentsource**: `updateDocumentSource(footprintUuid: string, libraryUuid: string, documentSource: string): Promise<boolean | undefined>;`
 
 ---
@@ -1466,6 +1500,7 @@ declare class LIB_LibrariesList
 - **getpersonallibraryuuid**: `getPersonalLibraryUuid(): Promise<string | undefined>;`
 - **getprojectlibraryuuid**: `getProjectLibraryUuid(): Promise<string | undefined>;`
 - **getsystemlibraryuuid**: `getSystemLibraryUuid(): Promise<string | undefined>;`
+- **registerextendlibrary**: `registerExtendLibrary(title: string, libraryFunctions: {         device?: ILIB_ExtendLibraryDeviceFunctions;         symbol?: ILIB_ExtendLibrarySymbolFunctions;         footprint?: ILIB_ExtendLibraryFootprintFunctions;         cbb?: ILIB_ExtendLibraryCbbFunctions;         model3d?: ILIB_ExtendLibrary3DModelFunctions;     }): Promise<string | undefined>;`
 
 ---
 
@@ -1515,6 +1550,7 @@ declare class LIB_Symbol
 - **modify**: `modify(symbolUuid: string, libraryUuid: string, symbolName?: string, classification?: ILIB_ClassificationIndex | Array<string> | null, description?: string | null): Promise<boolean>;`
 - **openineditor**: `openInEditor(symbolUuid: string, libraryUuid: string, splitScreenId?: string): Promise<string | undefined>;`
 - **search**: `search(key: string, libraryUuid?: string, classification?: ILIB_ClassificationIndex | Array<string>, symbolType?: ELIB_SymbolType, itemsOfPage?: number, page?: number): Promise<Array<ILIB_SymbolSearchItem>>;`
+- **searchbyproperties**: `searchByProperties(properties: ILIB_SymbolPropertiesForSearch, libraryUuid?: string): Promise<Array<ILIB_SymbolSearchItem>>;`
 - **updatedocumentsource**: `updateDocumentSource(symbolUuid: string, libraryUuid: string, documentSource: string): Promise<boolean | undefined>;`
 
 ---
@@ -1527,6 +1563,8 @@ PCB &amp; 封装 / 文档操作类
 declare class PCB_Document
 ```
 
+- **autorouting**: `autoRouting(props?: IPCB_AutoRoutingProps): Promise<IPCB_AutoRoutingResult>;`
+- **clearrouting**: `clearRouting(type?: 'all' | 'net' | 'connection'): Promise<boolean>;`
 - **convertcanvasorigintodataorigin**: `convertCanvasOriginToDataOrigin(x: number, y: number): Promise<{         x: number;         y: number;     }>;`
 - **convertdataorigintocanvasorigin**: `convertDataOriginToCanvasOrigin(x: number, y: number): Promise<{         x: number;         y: number;     }>;`
 - **getcalculatingratlinestatus**: `getCalculatingRatlineStatus(): Promise<EPCB_DocumentRatlineCalculatingActiveStatus>;`
@@ -1540,7 +1578,7 @@ declare class PCB_Document
 - **importchanges**: `importChanges(uuid?: string): Promise<boolean>;`
 - **navigatetocoordinates**: `navigateToCoordinates(x: number, y: number): Promise<boolean>;`
 - **navigatetoregion**: `navigateToRegion(left: number, right: number, top: number, bottom: number): Promise<boolean>;`
-- **save**: `save(uuid: string): Promise<boolean>;`
+- **save**: `save(): Promise<boolean>;`
 - **setcanvasorigin**: `setCanvasOrigin(offsetX: number, offsetY: number): Promise<boolean>;`
 - **startcalculatingratline**: `startCalculatingRatline(): Promise<boolean>;`
 - **stopcalculatingratline**: `stopCalculatingRatline(): Promise<boolean>;`
@@ -1614,6 +1652,9 @@ declare class PCB_Event
 - **addmouseeventlistener**: `addMouseEventListener(id: string, eventType: 'all' | EPCB_MouseEventType, callFn: (eventType: EPCB_MouseEventType, props: [         {             primitiveId: string;             primitiveType: EPCB_PrimitiveType;             net?: string;             designator?: string;             parentComponentPrimitiveId?: string;             parentComponentDesignator?: string;         }     ]) => void | Promise<void>, onlyOnce?: boolean): void;`
 - **addneteventlistener**: `addNetEventListener(id: string, eventType: 'all' | EPCB_NetEventType, callFn: (eventType: EPCB_NetEventType, props: [{         net: string;     }]) => void | Promise<void>, onlyOnce?: boolean): void;`
 - **addprimitiveeventlistener**: `addPrimitiveEventListener(id: string, eventType: 'all' | EPCB_PrimitiveEventType, callFn: (eventType: EPCB_PrimitiveEventType, props: [         {             primitiveId: string;             primitiveType: EPCB_PrimitiveType;             net?: string;             designator?: string;             parentComponentPrimitiveId?: string;             parentComponentDesignator?: string;         }     ]) => void | Promise<void>, onlyOnce?: boolean): void;`
+- **addraytracerengine3dviewcamerachangeeventlistener**: `addRayTracerEngine3DViewCameraChangeEventListener(id: string, callFn: (props: {         position: {             x: number;             y: number;             z: number;         };         rotation: {             x: number;             y: number;             z: number;         };         focalLength: number;     }) => void | Promise<void>, onlyOnce?: boolean): void;`
+- **addraytracerengine3dviewclickmaterialeventlistener**: `addRayTracerEngine3DViewClickMaterialEventListener(id: string, callFn: (props: {         materialId: number;         material: any;     }) => void | Promise<void>, onlyOnce?: boolean): void;`
+- **addrealtimedrcresulteventlistener**: `addRealTimeDrcResultEventListener(id: string, eventType: 'all', callFn: (eventType: undefined, props: [{         drcResult: any;     }]) => void | Promise<void>): void;`
 - **iseventlisteneralreadyexist**: `isEventListenerAlreadyExist(id: string): boolean;`
 - **removeeventlistener**: `removeEventListener(id: string): boolean;`
 
@@ -1667,6 +1708,7 @@ declare class PCB_ManufactureData
 - **getflyingprobetestfile**: `getFlyingProbeTestFile(fileName?: string): Promise<File | undefined>;`
 - **getgerberfile**: *(签名过长，请查看详细文档)*
 - **getidxfile**: `getIdxFile(fileName?: string): Promise<File | undefined>;`
+- **getipc2581cfile**: `getIpc2581CFile(fileName?: string, fileType?: 'xml' | 'cvg' | '2581', unit?: ESYS_Unit.INCH | ESYS_Unit.MILLIMETER, oemNumber?: 'Device' | 'Manufacturer Part' | 'Supplier Part' | 'Comment'): Promise<File | undefined>;`
 - **getipcd356afile**: `getIpcD356AFile(fileName?: string): Promise<File | undefined>;`
 - **getmanufacturedata**: `getManufactureData(): Promise<File | undefined>;`
 - **getnetlistfile**: `getNetlistFile(fileName?: string, netlistType?: ESYS_NetlistType): Promise<File | undefined>;`
@@ -1693,10 +1735,12 @@ declare class PCB_MathPolygon
 ```
 
 - **calculatebboxheight**: `calculateBBoxHeight(complexPolygon: TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray>): number;`
-- **calculatebboxwidth**: `calculateBBoxWidth(complexPolygon: TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray>): number;`
+- **calculateheight**: `calculateHeight(complexPolygon: TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray> | IPCB_Polygon | IPCB_ComplexPolygon): number;`
+- **calculatewidth**: `calculateWidth(complexPolygon: TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray> | IPCB_Polygon | IPCB_ComplexPolygon): number;`
 - **convertimagetocomplexpolygon**: `convertImageToComplexPolygon(imageBlob: Blob, imageWidth: number, imageHeight: number, tolerance?: number, simplification?: number, smoothing?: number, despeckling?: number, whiteAsBackgroundColor?: boolean, inversion?: boolean): Promise<IPCB_ComplexPolygon | undefined>;`
 - **createcomplexpolygon**: `createComplexPolygon(complexPolygon: TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray> | IPCB_Polygon | Array<IPCB_Polygon>): IPCB_ComplexPolygon | undefined;`
 - **createpolygon**: `createPolygon(polygon: TPCB_PolygonSourceArray): IPCB_Polygon | undefined;`
+- **discretize**: `discretize(polygon: IPCB_Polygon | TPCB_PolygonSourceArray, options?: IPCB_DiscretizeOptions): Array<IPCB_DiscretizedPoint>;`
 - **splitpolygon**: `splitPolygon(...complexPolygons: Array<IPCB_ComplexPolygon>): Array<IPCB_Polygon>;`
 
 ---
@@ -1736,6 +1780,7 @@ PCB &amp; 封装 / 图元类
 declare class PCB_Primitive
 ```
 
+- **getprimitiveboardline**: `getPrimitiveBoardLine(primitiveId: string, layers?: Array<EPCB_LayerId>): IPCB_ComplexPolygon | undefined;`
 - **getprimitivesbbox**: `getPrimitivesBBox(primitiveIds: Array<string | IPCB_Primitive>): Promise<{         minX: number;         minY: number;         maxX: number;         maxY: number;     } | undefined>;`
 
 ---
@@ -1766,6 +1811,12 @@ PCB &amp; 封装 / 属性图元类
 declare class PCB_PrimitiveAttribute implements IPCB_PrimitiveAPI
 ```
 
+- **delete**: `delete(primitiveIds: string | IPCB_PrimitiveAttribute | Array<string> | Array<IPCB_PrimitiveAttribute>): Promise<boolean>;`
+- **get**: `get(primitiveIds: string): Promise<IPCB_PrimitiveAttribute | undefined>;`
+- **get_1**: `get(primitiveIds: Array<string>): Promise<Array<IPCB_PrimitiveAttribute>>;`
+- **getall**: `getAll(parentPrimitiveId?: string, layer?: TPCB_LayersOfImage, primitiveLock?: boolean): Promise<Array<IPCB_PrimitiveAttribute>>;`
+- **getallprimitiveid**: `getAllPrimitiveId(parentPrimitiveId?: string, layer?: TPCB_LayersOfImage, primitiveLock?: boolean): Promise<Array<string>>;`
+- **modify**: *(签名过长，请查看详细文档)*
 
 ---
 
@@ -1784,8 +1835,10 @@ declare class PCB_PrimitiveComponent implements IPCB_PrimitiveAPI
 - **getall**: `getAll(layer?: TPCB_LayersOfComponent, primitiveLock?: boolean): Promise<Array<IPCB_PrimitiveComponent>>;`
 - **getallpinsbyprimitiveid**: `getAllPinsByPrimitiveId(primitiveId: string): Promise<Array<IPCB_PrimitiveComponentPad> | undefined>;`
 - **getallprimitiveid**: `getAllPrimitiveId(layer?: TPCB_LayersOfComponent, primitiveLock?: boolean): Promise<Array<string>>;`
+- **getallpropertynames**: `getAllPropertyNames(): Promise<Array<string>>;`
 - **modify**: *(签名过长，请查看详细文档)*
 - **placecomponentwithmouse**: `placeComponentWithMouse(component: {         libraryUuid: string;         uuid: string;     } | ILIB_DeviceItem | ILIB_DeviceSearchItem): Promise<boolean>;`
+- **placefootprintwithmouse**: `placeFootprintWithMouse(footprint: {         libraryUuid: string;         uuid: string;     } | ILIB_FootprintItem | ILIB_FootprintSearchItem, properties?: {         [key: string]: boolean | number | string | undefined;     }): Promise<boolean>;`
 
 ---
 
@@ -1975,6 +2028,13 @@ PCB &amp; 封装 / 文本图元类
 declare class PCB_PrimitiveString implements IPCB_PrimitiveAPI
 ```
 
+- **create**: `create(layer: TPCB_LayersOfImage, x: number, y: number, text: string, fontFamily: string, fontSize: number, lineWidth: number, alignMode: EPCB_PrimitiveStringAlignMode, rotation: number, reverse: boolean, expansion: number, mirror: boolean, primitiveLock: boolean): Promise<IPCB_PrimitiveString | undefined>;`
+- **delete**: `delete(primitiveIds: string | IPCB_PrimitiveString | Array<string> | Array<IPCB_PrimitiveString>): Promise<boolean>;`
+- **get**: `get(primitiveIds: string): Promise<IPCB_PrimitiveString | undefined>;`
+- **get_1**: `get(primitiveIds: Array<string>): Promise<Array<IPCB_PrimitiveString>>;`
+- **getall**: `getAll(layer?: TPCB_LayersOfImage, primitiveLock?: boolean): Promise<Array<IPCB_PrimitiveString>>;`
+- **getallprimitiveid**: `getAllPrimitiveId(layer?: TPCB_LayersOfImage, primitiveLock?: boolean): Promise<Array<string>>;`
+- **modify**: `modify(primitiveId: string | IPCB_PrimitiveString, property: {         layer?: TPCB_LayersOfImage;         x?: number;         y?: number;         text?: string;         fontFamily?: string;         fontSize?: number;         lineWidth?: number;         alignMode?: EPCB_PrimitiveStringAlignMode;         rotation?: number;         reverse?: boolean;         expansion?: number;         mirror?: boolean;         primitiveLock?: boolean;     }): Promise<IPCB_PrimitiveString | undefined>;`
 
 ---
 
@@ -2004,6 +2064,11 @@ PCB &amp; 封装 / 光线追踪引擎类
 declare class PCB_RayTracerEngine
 ```
 
+- **dispose**: `dispose(): Promise<void>;`
+- **getlightconfigurations**: `getLightConfigurations(lightName: string): Promise<any>;`
+- **getrenderconfigurations**: `getRenderConfigurations(): Promise<any>;`
+- **init**: `init(): Promise<void>;`
+- **setrenderconfigurations**: `setRenderConfigurations(configurations: any): Promise<void>;`
 
 ---
 
@@ -2089,13 +2154,17 @@ declare class SCH_Event
 declare class SCH_ManufactureData
 ```
 
+- **deletebomtemplate**: `deleteBomTemplate(template: string): Promise<boolean>;`
 - **getassemblyvariantsconfigs**: `getAssemblyVariantsConfigs(): Promise<Array<{         text: string;         value: string;     }>>;`
 - **getbomfile**: `getBomFile(fileName?: string, fileType?: 'xlsx' | 'csv', template?: string, filterOptions?: Array<{         property: string;         includeValue: boolean | string;     }>, statistics?: Array<string>, property?: Array<string>, columns?: Array<IPCB_BomPropertiesTableColumns>, assemblyVariantsConfig?: {         text: string;         value: string;     }): Promise<File | undefined>;`
+- **getbomtemplatefile**: `getBomTemplateFile(template: string): Promise<File | undefined>;`
+- **getbomtemplates**: `getBomTemplates(): Promise<Array<string>>;`
 - **getexportdocumentfile**: *(签名过长，请查看详细文档)*
 - **getnetlistfile**: `getNetlistFile(fileName?: string, netlistType?: ESYS_NetlistType): Promise<File | undefined>;`
 - **getsimulationnetlistfile**: `getSimulationNetlistFile(fileName?: string, netlistType?: ESCH_SimulationNetlistType): Promise<File | undefined>;`
 - **placecomponentsorder**: `placeComponentsOrder(interactive?: boolean, ignoreWarning?: boolean): Promise<boolean>;`
 - **placesmtcomponentsorder**: `placeSmtComponentsOrder(interactive?: boolean, ignoreWarning?: boolean): Promise<boolean>;`
+- **uploadbomtemplatefile**: `uploadBomTemplateFile(templateFile: File, template?: string): Promise<string | undefined>;`
 
 ---
 
@@ -2163,6 +2232,7 @@ declare class SCH_PrimitiveArc implements ISCH_PrimitiveAPI
 declare class SCH_PrimitiveAttribute implements ISCH_PrimitiveAPI
 ```
 
+- **createnetlabel**: `createNetLabel(x: number, y: number, net: string): Promise<ISCH_PrimitiveAttribute | undefined>;`
 - **get**: `get(primitiveIds: string): Promise<ISCH_PrimitiveAttribute | undefined>;`
 - **get_1**: `get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitiveAttribute>>;`
 - **getall**: `getAll(parentPrimitiveId?: string): Promise<Array<ISCH_PrimitiveAttribute>>;`
@@ -2246,6 +2316,13 @@ declare class SCH_PrimitiveComponent implements ISCH_PrimitiveAPI
 declare class SCH_PrimitiveObject implements ISCH_PrimitiveAPI
 ```
 
+- **create**: `create(content: File | string, startX: number, startY: number, width?: number, height?: number, rotation?: number, mirror?: boolean, fileName?: string): Promise<ISCH_PrimitiveObject | undefined>;`
+- **delete**: `delete(primitiveIds: string | ISCH_PrimitiveObject | Array<string> | Array<ISCH_PrimitiveObject>): Promise<boolean>;`
+- **get**: `get(primitiveIds: string): Promise<ISCH_PrimitiveObject | undefined>;`
+- **get_1**: `get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitiveObject>>;`
+- **getall**: `getAll(): Promise<Array<ISCH_PrimitiveObject>>;`
+- **getallprimitiveid**: `getAllPrimitiveId(): Promise<Array<string>>;`
+- **modify**: `modify(primitiveId: string | ISCH_PrimitiveObject, property: {         content?: File | string;         startX?: number;         startY?: number;         width?: number;         height?: number;         rotation?: number;         mirror?: boolean;         fileName?: string;     }): Promise<ISCH_PrimitiveObject | undefined>;`
 
 ---
 
@@ -2355,7 +2432,6 @@ declare class SCH_SelectControl
 - **getcurrentmouseposition**: `getCurrentMousePosition(): Promise<{         x: number;         y: number;     } | undefined>;`
 - **getselectedprimitives**: `getSelectedPrimitives(): Promise<Array<Object>>;`
 - **getselectedprimitives_primitiveid**: `getSelectedPrimitives_PrimitiveId(): Promise<Array<string>>;`
-- **refactorgetallselectedprimitives**: `refactorGetAllSelectedPrimitives(): Promise<Array<ISCH_Primitive>>;`
 
 ---
 
@@ -2379,6 +2455,7 @@ declare class SCH_SimulationEngine
 declare class SCH_Utils
 ```
 
+- **splitlines**: `splitLines(lines: Array<number | Array<number>>): Array<Array<number | Array<number>>> | undefined;`
 
 ---
 
@@ -2402,6 +2479,7 @@ declare class SYS_ClientUrl
 declare class SYS_Dialog
 ```
 
+- **createreactcomponentizationdialoginterface**: `createReactComponentizationDialogInterface(React: ISYS_ReactComponentizationDialogReactInstance, Reconciler: ISYS_ReactComponentizationDialogReconcilerInstance): Promise<ISYS_ReactComponentizationDialogInterface>;`
 - **showconfirmationmessage**: `showConfirmationMessage(content: string, title?: string, mainButtonTitle?: string, buttonTitle?: string, callbackFn?: (mainButtonClicked: boolean) => void): void;`
 - **showinformationmessage**: `showInformationMessage(content: string, title?: string, buttonTitle?: string): void;`
 - **showinputdialog**: *(签名过长，请查看详细文档)*
@@ -2451,6 +2529,7 @@ declare class SYS_FileManager
 - **getpanellibraryfilebypanellibraryuuid**: `getPanelLibraryFileByPanelLibraryUuid(panelLibraryUuid: string | Array<string>, libraryUuid?: string, fileType?: 'elibz' | 'elibz2'): Promise<File | undefined>;`
 - **getprojectfile**: `getProjectFile(fileName?: string, password?: string, fileType?: 'epro' | 'epro2'): Promise<File | undefined>;`
 - **getprojectfilebyprojectuuid**: `getProjectFileByProjectUuid(projectUuid: string, fileName?: string, password?: string, fileType?: 'epro' | 'epro2'): Promise<File | undefined>;`
+- **getsymbolfilebysymboluuid**: `getSymbolFileBySymbolUuid(symbolUuid: string | Array<string>, libraryUuid?: string, fileType?: 'elibz' | 'elibz2'): Promise<File | undefined>;`
 - **importprojectbyprojectfile**: *(签名过长，请查看详细文档)*
 - **importprojectbyprojectfile_1**: *(签名过长，请查看详细文档)*
 - **setdocumentsource**: `setDocumentSource(source: string): Promise<boolean>;`
@@ -2465,6 +2544,8 @@ declare class SYS_FileManager
 declare class SYS_FileSystem
 ```
 
+- **createdirectoryinfilesystem**: `createDirectoryInFileSystem(folderPath: string): Promise<boolean>;`
+- **createobjecturl**: `createObjectURL(blob: Blob | File): string;`
 - **deletefileinfilesystem**: `deleteFileInFileSystem(uri: string, force?: boolean): Promise<boolean>;`
 - **getdocumentspath**: `getDocumentsPath(): Promise<string>;`
 - **getedapath**: `getEdaPath(): Promise<string>;`
@@ -2475,6 +2556,7 @@ declare class SYS_FileSystem
 - **openreadfiledialog**: `openReadFileDialog(filenameExtensions?: string | Array<string>, multiFiles?: true): Promise<Array<File> | undefined>;`
 - **openreadfiledialog_1**: `openReadFileDialog(filenameExtensions?: string | Array<string>, multiFiles?: false): Promise<File | undefined>;`
 - **readfilefromfilesystem**: `readFileFromFileSystem(uri: string): Promise<File | undefined>;`
+- **revokeobjecturl**: `revokeObjectURL(url: string): void;`
 - **savefile**: `saveFile(fileData: File | Blob, fileName?: string): Promise<void>;`
 - **savefiletofilesystem**: `saveFileToFileSystem(uri: string, fileData: File | Blob, fileName?: string, force?: boolean): Promise<boolean>;`
 
@@ -2556,7 +2638,7 @@ declare class SYS_IFrame
 
 - **closeiframe**: `closeIFrame(id?: string): Promise<boolean>;`
 - **hideiframe**: `hideIFrame(id?: string): Promise<boolean>;`
-- **openiframe**: `openIFrame(htmlFileName: string, width?: number, height?: number, id?: string, props?: {         maximizeButton?: boolean;         minimizeButton?: boolean;         minimizeStyle?: 'collapsed' | 'constricted';         buttonCallbackFn?: (button: 'close' | 'minimize' | 'maximize') => void | Promise<void>;         onBeforeCloseCallFn?: () => boolean | undefined | Promise<boolean | undefined>;         grayscaleMask?: boolean;         title?: string;     }): Promise<boolean>;`
+- **openiframe**: *(签名过长，请查看详细文档)*
 - **showiframe**: `showIFrame(id?: string): Promise<boolean>;`
 
 ---
@@ -2589,6 +2671,33 @@ declare class SYS_Log
 - **export**: `export(types?: ESYS_LogType | Array<ESYS_LogType>): void;`
 - **find**: `find(message: string | Array<string | {         text: string;         attr?: {             id?: string;             path?: string;             sheet?: string;             pcbid?: string;             type?: string;         };     }>, types?: ESYS_LogType | Array<ESYS_LogType>): Promise<Array<ISYS_LogLine>>;`
 - **sort**: `sort(types?: ESYS_LogType | Array<ESYS_LogType>): Promise<Array<ISYS_LogLine>>;`
+
+---
+
+## SYS_Math
+
+系统 / 数学计算类
+
+```typescript
+declare class SYS_Math
+```
+
+- **bboxintersects**: `bboxIntersects(bbox1: ISYS_MathBBox, bbox2: ISYS_MathBBox): boolean;`
+- **calculatearea**: `calculateArea(polygon: TSYS_MathPolygonInput): number;`
+- **calculateperimeter**: `calculatePerimeter(polygon: TSYS_MathPolygonInput): number;`
+- **contains**: `contains(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): boolean;`
+- **containspoint**: `containsPoint(polygon: TSYS_MathPolygonInput, point: ISYS_MathPoint): boolean;`
+- **distancetopoint**: `distanceToPoint(polygon: TSYS_MathPolygonInput, point: ISYS_MathPoint): number;`
+- **getbbox**: `getBBox(polygon: TSYS_MathPolygonInput): ISYS_MathBBox;`
+- **getcentroid**: `getCentroid(polygon: TSYS_MathPolygonInput): ISYS_MathPoint;`
+- **intersection**: `intersection(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): Array<Array<ISYS_MathPoint>>;`
+- **intersects**: `intersects(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): boolean;`
+- **rotate**: `rotate(polygon: TSYS_MathPolygonInput, angle: number, centerX?: number, centerY?: number): Array<ISYS_MathPoint>;`
+- **scale**: `scale(polygon: TSYS_MathPolygonInput, scaleX: number, scaleY?: number, centerX?: number, centerY?: number): Array<ISYS_MathPoint>;`
+- **subtract**: `subtract(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): Array<Array<ISYS_MathPoint>>;`
+- **translate**: `translate(polygon: TSYS_MathPolygonInput, dx: number, dy: number): Array<ISYS_MathPoint>;`
+- **union**: `union(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): Array<Array<ISYS_MathPoint>>;`
+- **xor**: `xor(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): Array<Array<ISYS_MathPoint>>;`
 
 ---
 
@@ -2809,6 +2918,9 @@ declare class SYS_Window
 - **getcurrenttheme**: `getCurrentTheme(): Promise<ESYS_Theme>;`
 - **geturlanchor**: `getUrlAnchor(): string;`
 - **geturlparam**: `getUrlParam(key: string): string | null;`
+- **getviewportsize**: `getViewportSize(): {         width: number;         height: number;     };`
+- **hidestartpagequickstartitems**: `hideStartPageQuickStartItems(items: Array<ESYS_StartPageQuickStartItem>): Promise<boolean>;`
+- **hidestartpagesupportfloatbaritems**: `hideStartPageSupportFloatBarItems(): Promise<boolean>;`
 - **open**: `open(url: string, target?: ESYS_WindowOpenTarget): void;`
 - **openui**: `openUI(uiName: string, args?: {         [key: string]: any;     }): Promise<void>;`
 - **removeeventlistener**: `removeEventListener(removableObject: ISYS_WindowEventListenerRemovableObject): void;`

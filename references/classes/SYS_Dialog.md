@@ -32,6 +32,20 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+[createReactComponentizationDialogInterface(React, Reconciler)](./SYS_Dialog.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 创建 React 组件化弹出窗口接口
+
+
+</td></tr>
+<tr><td>
+
 [showConfirmationMessage(content, title, mainButtonTitle, buttonTitle, callbackFn)](./SYS_Dialog.md)
 
 
@@ -105,6 +119,80 @@ Description
 ---
 
 ## 方法详情
+
+### createreactcomponentizationdialoginterface
+
+# SYS\_Dialog.createReactComponentizationDialogInterface() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+创建 React 组件化弹出窗口接口
+
+## Signature
+
+```typescript
+createReactComponentizationDialogInterface(React: ISYS_ReactComponentizationDialogReactInstance, Reconciler: ISYS_ReactComponentizationDialogReconcilerInstance): Promise<ISYS_ReactComponentizationDialogInterface>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+React
+
+
+</td><td>
+
+[ISYS\_ReactComponentizationDialogReactInstance](../interfaces/ISYS_ReactComponentizationDialogReactInstance.md)
+
+
+</td><td>
+
+扩展的 React 实例
+
+
+</td></tr>
+<tr><td>
+
+Reconciler
+
+
+</td><td>
+
+[ISYS\_ReactComponentizationDialogReconcilerInstance](../interfaces/ISYS_ReactComponentizationDialogReconcilerInstance.md)
+
+
+</td><td>
+
+扩展的 react-reconciler 实例
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;[ISYS\_ReactComponentizationDialogInterface](../interfaces/ISYS_ReactComponentizationDialogInterface.md)<!-- -->&gt;
+
+包含 Components、LC\_DESIGN\_COMPONENTS\_NAMES、WorkerPortal 类和 VirtualRender 类的对象
 
 ### showconfirmationmessage
 

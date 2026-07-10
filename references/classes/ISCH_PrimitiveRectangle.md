@@ -453,13 +453,13 @@ Description
 ## Signature
 
 ```typescript
-done(): ISCH_PrimitiveRectangle;
+done(): Promise<ISCH_PrimitiveRectangle>;
 ```
 
 
 ## Returns
 
-[ISCH\_PrimitiveRectangle](./ISCH_PrimitiveRectangle.md)
+Promise&lt;[ISCH\_PrimitiveRectangle](./ISCH_PrimitiveRectangle.md)<!-- -->&gt;
 
 矩形图元对象
 

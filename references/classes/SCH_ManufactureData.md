@@ -32,6 +32,20 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+[deleteBomTemplate(template)](./SCH_ManufactureData.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 删除 BOM 模板
+
+
+</td></tr>
+<tr><td>
+
 [getAssemblyVariantsConfigs()](./SCH_ManufactureData.md)
 
 
@@ -55,6 +69,34 @@ Description
 </td><td>
 
 **_(BETA)_** 获取 BOM 文件
+
+
+</td></tr>
+<tr><td>
+
+[getBomTemplateFile(template)](./SCH_ManufactureData.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 获取 BOM 模板文件
+
+
+</td></tr>
+<tr><td>
+
+[getBomTemplates()](./SCH_ManufactureData.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 获取 BOM 模板列表
 
 
 </td></tr>
@@ -128,11 +170,83 @@ Description
 
 
 </td></tr>
+<tr><td>
+
+[uploadBomTemplateFile(templateFile, template)](./SCH_ManufactureData.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 上传 BOM 模板文件
+
+
+</td></tr>
 </tbody></table>
 
 ---
 
 ## 方法详情
+
+### deletebomtemplate
+
+# SCH\_ManufactureData.deleteBomTemplate() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+删除 BOM 模板
+
+## Signature
+
+```typescript
+deleteBomTemplate(template: string): Promise<boolean>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+template
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+BOM 模板名称
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;boolean&gt;
+
+操作是否成功
 
 ### getassemblyvariantsconfigs
 
@@ -337,6 +451,85 @@ BOM 文件数据
 ## Remarks
 
 可以使用 [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) 接口将文件导出到本地文件系统
+
+### getbomtemplatefile
+
+# SCH\_ManufactureData.getBomTemplateFile() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+获取 BOM 模板文件
+
+## Signature
+
+```typescript
+getBomTemplateFile(template: string): Promise<File | undefined>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+template
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+BOM 模板名称
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;File \| undefined&gt;
+
+BOM 模板文件
+
+### getbomtemplates
+
+# SCH\_ManufactureData.getBomTemplates() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+获取 BOM 模板列表
+
+## Signature
+
+```typescript
+getBomTemplates(): Promise<Array<string>>;
+```
+
+
+## Returns
+
+Promise&lt;Array&lt;string&gt;&gt;
+
+BOM 模板列表
 
 ### getexportdocumentfile
 
@@ -795,3 +988,77 @@ _(Optional)_ 在非交互式检查时忽略警告
 Promise&lt;boolean&gt;
 
 是否通过下单检查
+
+### uploadbomtemplatefile
+
+# SCH\_ManufactureData.uploadBomTemplateFile() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+上传 BOM 模板文件
+
+## Signature
+
+```typescript
+uploadBomTemplateFile(templateFile: File, template?: string): Promise<string | undefined>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+templateFile
+
+
+</td><td>
+
+File
+
+
+</td><td>
+
+BOM 模板文件
+
+
+</td></tr>
+<tr><td>
+
+template
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_ BOM 模板名称，如若为 `undefined` 则自动从 `templateFile` 中取值
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;string \| undefined&gt;
+
+BOM 模板名称

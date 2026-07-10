@@ -108,22 +108,6 @@ NO\_POURS
 </td></tr>
 <tr><td>
 
-NO\_VIAS
-
-
-</td><td>
-
-`3`
-
-
-</td><td>
-
-禁止过孔
-
-
-</td></tr>
-<tr><td>
-
 NO\_WIRES
 
 

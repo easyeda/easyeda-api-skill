@@ -111,7 +111,7 @@ Array&lt;[IDMT\_SchematicPageItem](./IDMT_SchematicPageItem.md)<!-- -->&gt;
 </td></tr>
 <tr><td>
 
-[parentBoardUuid?](./IDMT_SchematicItem.md)
+[parentBoardName?](./IDMT_SchematicItem.md)
 
 
 </td><td>
@@ -124,7 +124,7 @@ string
 
 </td><td>
 
-_(Optional)_ 所属板子 UUID
+_(Optional)_ 所属板子名称
 
 
 </td></tr>
@@ -220,16 +220,16 @@ name: string;
 page: Array<IDMT_SchematicPageItem>;
 ```
 
-### parentboarduuid
+### parentboardname
 
-# IDMT\_SchematicItem.parentBoardUuid property
+# IDMT\_SchematicItem.parentBoardName property
 
-所属板子 UUID
+所属板子名称
 
 ## Signature
 
 ```typescript
-parentBoardUuid?: string;
+parentBoardName?: string;
 ```
 
 ### parentprojectuuid

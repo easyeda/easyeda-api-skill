@@ -169,7 +169,11 @@ _(Optional)_ 自动布局参数
 
 Promise&lt;any&gt;
 
-结果
+自动布局结果
+
+## Remarks
+
+如不传入任何参数，将对所有器件进行自动布局
 
 ### autorouting
 
@@ -248,7 +252,11 @@ _(Optional)_ 自动布线参数
 
 Promise&lt;any&gt;
 
-结果
+自动布线结果
+
+## Remarks
+
+如不传入任何参数，将对所有未布线的网络进行自动布线
 
 ### importchanges
 

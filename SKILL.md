@@ -105,7 +105,7 @@ echo "Bridge running on port: ${BRIDGE_PORT:-unknown}"
 
 Install the `run-api-gateway.eext` extension in EasyEDA Pro. Download link:
 
-- https://ext.lceda.cn/item/oshwhub/run-api-gateway
+- https://jlc-ext.com/item/oshwhub/run-api-gateway
 
 After the extension is loaded, it will automatically establish the WebSocket connection.
 
@@ -132,7 +132,7 @@ The `/eda-windows` response looks like:
 ```
 
 **Handle based on window count**:
-- **0 windows**: Tell user "No EasyEDA window is connected. Please ensure the EasyEDA extension (run-api-gateway.eext) is installed and loaded in EasyEDA. Download: https://ext.lceda.cn/item/oshwhub/run-api-gateway"
+- **0 windows**: Tell user "No EasyEDA window is connected. Please ensure the EasyEDA extension (run-api-gateway.eext) is installed and loaded in EasyEDA. Download: https://jlc-ext.com/item/oshwhub/run-api-gateway"
 - **1 window**: Auto-selected as active. Tell user: "✅ Connected! Active EDA window: abc-123. Ready to work."
 - **2+ windows**: Show the available windows and ask user to select:
   ```
@@ -674,7 +674,7 @@ If only one EDA window is connected, it's automatically selected as active.
 ### Troubleshooting
 
 1. **Always check health first**: Scan ports 49620-49629 for `{"service":"easyeda-bridge"}`
-2. **EDA not connected?**: Ensure bridge extension is loaded in EasyEDA. Download: https://ext.lceda.cn/item/oshwhub/run-api-gateway
+2. **EDA not connected?**: Ensure bridge extension is loaded in EasyEDA. Download: https://jlc-ext.com/item/oshwhub/run-api-gateway
 3. **Timeout errors**: Default 30s timeout. If timeout occurs:
    - Check if the correct project and document are opened (use `dmt_Project.getCurrentProjectInfo()`)
    - If no project is opened, use `dmt_Project.openProject(projectPath)` to open one

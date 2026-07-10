@@ -140,6 +140,20 @@ Description
 </td></tr>
 <tr><td>
 
+[searchByProperties(properties, libraryUuid)](./LIB_Footprint.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 使用属性精确搜索封装
+
+
+</td></tr>
+<tr><td>
+
 [updateDocumentSource(footprintUuid, libraryUuid, documentSource)](./LIB_Footprint.md)
 
 
@@ -930,6 +944,80 @@ _(Optional)_ 页数
 Promise&lt;Array&lt;[ILIB\_FootprintSearchItem](../interfaces/ILIB_FootprintSearchItem.md)<!-- -->&gt;&gt;
 
 搜索到的封装属性列表
+
+### searchbyproperties
+
+# LIB\_Footprint.searchByProperties() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+使用属性精确搜索封装
+
+## Signature
+
+```typescript
+searchByProperties(properties: ILIB_FootprintPropertiesForSearch, libraryUuid?: string): Promise<Array<ILIB_FootprintSearchItem>>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+properties
+
+
+</td><td>
+
+ILIB\_FootprintPropertiesForSearch
+
+
+</td><td>
+
+属性
+
+
+</td></tr>
+<tr><td>
+
+libraryUuid
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_ 库 UUID，默认为系统库，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;Array&lt;[ILIB\_FootprintSearchItem](../interfaces/ILIB_FootprintSearchItem.md)<!-- -->&gt;&gt;
+
+搜索到的封装属性的列表
 
 ### updatedocumentsource
 

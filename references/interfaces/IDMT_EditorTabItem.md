@@ -33,6 +33,25 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+[documentType](./IDMT_EditorTabItem.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[EDMT\_EditorDocumentType](../enums/EDMT_EditorDocumentType.md)
+
+
+</td><td>
+
+文档类型
+
+
+</td></tr>
+<tr><td>
+
 [draggable](./IDMT_EditorTabItem.md)
 
 
@@ -112,6 +131,18 @@ string
 ---
 
 ## 属性详情
+
+### documenttype
+
+# IDMT\_EditorTabItem.documentType property
+
+文档类型
+
+## Signature
+
+```typescript
+documentType: EDMT_EditorDocumentType;
+```
 
 ### draggable
 

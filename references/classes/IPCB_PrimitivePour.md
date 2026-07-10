@@ -88,6 +88,20 @@ Description
 </td></tr>
 <tr><td>
 
+[getCopperRegion()](./IPCB_PrimitivePour.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 获取铺铜区域覆铜填充图元
+
+
+</td></tr>
+<tr><td>
+
 [getState\_ComplexPolygon()](./IPCB_PrimitivePour.md)
 
 
@@ -251,6 +265,20 @@ Description
 </td><td>
 
 查询图元是否为异步图元
+
+
+</td></tr>
+<tr><td>
+
+[rebuildCopperRegion()](./IPCB_PrimitivePour.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 重建铺铜区域覆铜填充
 
 
 </td></tr>
@@ -512,6 +540,27 @@ Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)<!-- -->&gt;
 
 覆铜边框图元对象
 
+### getcopperregion
+
+# IPCB\_PrimitivePour.getCopperRegion() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+获取铺铜区域覆铜填充图元
+
+## Signature
+
+```typescript
+getCopperRegion(): Promise<IPCB_PrimitivePoured | undefined>;
+```
+
+
+## Returns
+
+Promise&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md) \| undefined&gt;
+
+覆铜填充图元，如若不存在关联的覆铜填充图元则返回 `undefined`
+
 ### getstate_complexpolygon
 
 # IPCB\_PrimitivePour.getState\_ComplexPolygon() method
@@ -739,6 +788,27 @@ isAsync(): boolean;
 boolean
 
 是否为异步图元
+
+### rebuildcopperregion
+
+# IPCB\_PrimitivePour.rebuildCopperRegion() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+重建铺铜区域覆铜填充
+
+## Signature
+
+```typescript
+rebuildCopperRegion(): Promise<IPCB_PrimitivePoured | undefined>;
+```
+
+
+## Returns
+
+Promise&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md) \| undefined&gt;
+
+覆铜填充图元，如若未重建出覆铜填充图元则返回 `undefined`
 
 ### reset
 

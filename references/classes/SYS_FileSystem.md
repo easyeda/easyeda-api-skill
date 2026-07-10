@@ -31,6 +31,34 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+[createDirectoryInFileSystem(folderPath)](./SYS_FileSystem.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 在文件系统内创建文件夹
+
+
+</td></tr>
+<tr><td>
+
+[createObjectURL(blob)](./SYS_FileSystem.md)
+
+
+</td><td>
+
+
+</td><td>
+
+创建 ObjectURL
+
+
+</td></tr>
+<tr><td>
+
 [deleteFileInFileSystem(uri, force)](./SYS_FileSystem.md)
 
 
@@ -171,6 +199,20 @@ Description
 </td></tr>
 <tr><td>
 
+[revokeObjectURL(url)](./SYS_FileSystem.md)
+
+
+</td><td>
+
+
+</td><td>
+
+吊销 ObjectURL
+
+
+</td></tr>
+<tr><td>
+
 [saveFile(fileData, fileName)](./SYS_FileSystem.md)
 
 
@@ -202,6 +244,134 @@ Description
 ---
 
 ## 方法详情
+
+### createdirectoryinfilesystem
+
+# SYS\_FileSystem.createDirectoryInFileSystem() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+在文件系统内创建文件夹
+
+## Signature
+
+```typescript
+createDirectoryInFileSystem(folderPath: string): Promise<boolean>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+folderPath
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+文件夹路径
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;boolean&gt;
+
+创建操作是否成功
+
+## Remarks
+
+支持递归创建多层目录
+
+注意 1：本接口仅客户端有效，在浏览器环境内调用将始终 `throw Error`
+
+注意 2：本接口需要使用者启用扩展的外部交互权限，如若未启用将始终 `throw Error`
+
+### createobjecturl
+
+# SYS\_FileSystem.createObjectURL() method
+
+创建 ObjectURL
+
+## Signature
+
+```typescript
+createObjectURL(blob: Blob | File): string;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+blob
+
+
+</td><td>
+
+Blob \| File
+
+
+</td><td>
+
+Blob 或 File 对象
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+string
+
+ObjectURL 字符串
+
+## Remarks
+
+创建一个指向传入 Blob / File 对象的 ObjectURL
+
+ADD since EDA v3.2.162
 
 ### deletefileinfilesystem
 
@@ -746,6 +916,66 @@ File 格式文件
 注意 1：本接口仅客户端有效，在浏览器环境内调用将始终 `throw Error`
 
 注意 2：本接口需要使用者启用扩展的外部交互权限，如若未启用将始终 `throw Error`
+
+### revokeobjecturl
+
+# SYS\_FileSystem.revokeObjectURL() method
+
+吊销 ObjectURL
+
+## Signature
+
+```typescript
+revokeObjectURL(url: string): void;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+url
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+ObjectURL 字符串
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+void
+
+## Remarks
+
+吊销指定的 ObjectURL
+
+ADD since EDA v3.2.162
 
 ### savefile
 

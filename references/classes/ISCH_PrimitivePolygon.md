@@ -285,13 +285,13 @@ Description
 ## Signature
 
 ```typescript
-done(): ISCH_PrimitivePolygon;
+done(): Promise<ISCH_PrimitivePolygon>;
 ```
 
 
 ## Returns
 
-[ISCH\_PrimitivePolygon](./ISCH_PrimitivePolygon.md)
+Promise&lt;[ISCH\_PrimitivePolygon](./ISCH_PrimitivePolygon.md)<!-- -->&gt;
 
 多边形图元对象
 

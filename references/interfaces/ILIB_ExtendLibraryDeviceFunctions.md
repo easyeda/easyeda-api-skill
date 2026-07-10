@@ -42,7 +42,7 @@ Description
 
 </td><td>
 
-(props: [ILIB\_ExtendLibrarySearchProperty](./ILIB_ExtendLibrarySearchProperty.md)<!-- -->&lt;{ attributes?: { \[key: string\]: string; }; symbolType?: [ELIB\_SymbolType](../enums/ELIB_SymbolType.md)<!-- -->; }&gt;) =&gt; Promise&lt;[ILIB\_ExtendLibrarySearchResult](./ILIB_ExtendLibrarySearchResult.md)<!-- -->&lt;[ILIB\_ExtendLibraryItemIndex](./ILIB_ExtendLibraryItemIndex.md) &amp; { classification?: [ILIB\_ExtendLibraryClassificationIndex](./ILIB_ExtendLibraryClassificationIndex.md) \| Array&lt;string&gt;; symbol?: [ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md) &amp; { symbolType: [ELIB\_SymbolType](../enums/ELIB_SymbolType.md)<!-- -->; }; footprint?: [ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md)<!-- -->; model3d?: [ILIB\_ExtendLibraryItemIndex](./ILIB_ExtendLibraryItemIndex.md) &amp; { adjustment?: { size?: { x: number; y: number; z: number; }; rotation?: { x: number; y: number; z: number; }; offset?: { x: number; y: number; z: number; }; }; }; value?: string; supplierPart?: string; manufacturer?: string; description?: string; updateTime?: number; createTime?: number; attributes?: { \[key: string\]: string; }; }&gt;&gt;
+(props: [ILIB\_ExtendLibrarySearchProperty](./ILIB_ExtendLibrarySearchProperty.md)<!-- -->&lt;{ attributes?: { \[key: string\]: string; }; symbolType?: [ELIB\_SymbolType](../enums/ELIB_SymbolType.md)<!-- -->; }&gt;) =&gt; Promise&lt;[ILIB\_ExtendLibrarySearchResult](./ILIB_ExtendLibrarySearchResult.md)<!-- -->&lt;[ILIB\_ExtendLibraryItemIndex](./ILIB_ExtendLibraryItemIndex.md) &amp; { classification?: [ILIB\_ExtendLibraryClassificationIndex](./ILIB_ExtendLibraryClassificationIndex.md) \| Array&lt;string&gt;; symbol?: [ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md) &amp; { symbolType: [ELIB\_SymbolType](../enums/ELIB_SymbolType.md)<!-- -->; }; footprint?: [ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md)<!-- -->; model3d?: [ILIB\_ExtendLibraryItemIndex](./ILIB_ExtendLibraryItemIndex.md) &amp; { adjustment?: { size?: { x: number; y: number; z: number; }; rotation?: { x: number; y: number; z: number; }; offset?: { x: number; y: number; z: number; }; }; }; images?: Array&lt;[ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md)<!-- -->&gt;; value?: string; supplierPart?: string; manufacturer?: string; description?: string; updateTime?: number; createTime?: number; attributes?: { \[key: string\]: string; }; }&gt;&gt;
 
 
 </td><td>
@@ -130,6 +130,7 @@ getList: (props: ILIB_ExtendLibrarySearchProperty<{
                 };
             };
         };
+        images?: Array<ILIB_ExtendLibraryItem>;
         value?: string;
         supplierPart?: string;
         manufacturer?: string;

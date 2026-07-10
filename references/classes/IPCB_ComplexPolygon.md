@@ -47,6 +47,20 @@ Description
 </td></tr>
 <tr><td>
 
+[getCenter()](./IPCB_ComplexPolygon.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 获取复杂多边形中心点
+
+
+</td></tr>
+<tr><td>
+
 [getSource()](./IPCB_ComplexPolygon.md)
 
 
@@ -70,6 +84,20 @@ Description
 </td><td>
 
 获取复杂多边形数据
+
+
+</td></tr>
+<tr><td>
+
+[toPolygon()](./IPCB_ComplexPolygon.md)
+
+
+</td><td>
+
+
+</td><td>
+
+拆分为单多边形数组
 
 
 </td></tr>
@@ -135,6 +163,30 @@ complexPolygon
 
 复杂多边形对象
 
+### getcenter
+
+# IPCB\_ComplexPolygon.getCenter() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+获取复杂多边形中心点
+
+## Signature
+
+```typescript
+getCenter(): {
+        x: number;
+        y: number;
+    };
+```
+
+
+## Returns
+
+\{ x: number; y: number; \}
+
+复杂多边形中心点
+
 ### getsource
 
 # IPCB\_ComplexPolygon.getSource() method
@@ -180,3 +232,26 @@ Array&lt;[TPCB\_PolygonSourceArray](../types/TPCB_PolygonSourceArray.md)<!-- -->
 ## Remarks
 
 强制返回复杂多边形格式数据，即使它仅包含单一的单多边形
+
+### topolygon
+
+# IPCB\_ComplexPolygon.toPolygon() method
+
+拆分为单多边形数组
+
+## Signature
+
+```typescript
+toPolygon(): Array<IPCB_Polygon>;
+```
+
+
+## Returns
+
+Array&lt;[IPCB\_Polygon](./IPCB_Polygon.md)<!-- -->&gt;
+
+单多边形数组
+
+## Remarks
+
+将复杂多边形拆分为单多边形对象数组

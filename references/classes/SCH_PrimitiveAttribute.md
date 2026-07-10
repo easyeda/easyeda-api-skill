@@ -29,6 +29,20 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+[createNetLabel(x, y, net)](./SCH_PrimitiveAttribute.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 创建网络标签
+
+
+</td></tr>
+<tr><td>
+
 [get(primitiveIds)](./SCH_PrimitiveAttribute.md)
 
 
@@ -102,6 +116,100 @@ Description
 ---
 
 ## 方法详情
+
+### createnetlabel
+
+# SCH\_PrimitiveAttribute.createNetLabel() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+创建网络标签
+
+## Signature
+
+```typescript
+createNetLabel(x: number, y: number, net: string): Promise<ISCH_PrimitiveAttribute | undefined>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+x
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+坐标 X
+
+
+</td></tr>
+<tr><td>
+
+y
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+坐标 Y
+
+
+</td></tr>
+<tr><td>
+
+net
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+网络名称
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;[ISCH\_PrimitiveAttribute](./ISCH_PrimitiveAttribute.md) \| undefined&gt;
+
+网络标签属性图元
+
+## Remarks
+
+ADD since EDA v4
 
 ### get
 

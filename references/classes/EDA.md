@@ -32,6 +32,16 @@ dmt_Board: DMT_Board;
 dmt_EditorControl: DMT_EditorControl;
 ```
 
+### dmt_event
+
+# EDA.dmt\_Event property
+
+## Signature
+
+```typescript
+dmt_Event: DMT_Event;
+```
+
 ### dmt_folder
 
 # EDA.dmt\_Folder property
@@ -790,6 +800,16 @@ sys_LoadingAndProgressBar: SYS_LoadingAndProgressBar;
 
 ```typescript
 sys_Log: SYS_Log;
+```
+
+### sys_math
+
+# EDA.sys\_Math property
+
+## Signature
+
+```typescript
+sys_Math: SYS_Math;
 ```
 
 ### sys_message

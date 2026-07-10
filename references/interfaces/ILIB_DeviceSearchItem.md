@@ -136,107 +136,12 @@ string
 
 </td><td>
 
-string
+string \| string\[\]
 
 
 </td><td>
 
 _(Optional)_ 关联图片 UUID
-
-
-</td></tr>
-<tr><td>
-
-[jlcInventory?](./ILIB_DeviceSearchItem.md)
-
-
-</td><td>
-
-
-</td><td>
-
-number
-
-
-</td><td>
-
-_(Optional)_ 嘉立创库存
-
-
-</td></tr>
-<tr><td>
-
-[jlcLibraryCategory?](./ILIB_DeviceSearchItem.md)
-
-
-</td><td>
-
-
-</td><td>
-
-[ELIB\_DeviceJlcLibraryCategory](../enums/ELIB_DeviceJlcLibraryCategory.md)
-
-
-</td><td>
-
-_(Optional)_ 嘉立创库类别
-
-
-</td></tr>
-<tr><td>
-
-[jlcPrice?](./ILIB_DeviceSearchItem.md)
-
-
-</td><td>
-
-
-</td><td>
-
-number
-
-
-</td><td>
-
-_(Optional)_ 嘉立创价格
-
-
-</td></tr>
-<tr><td>
-
-[lcscInventory?](./ILIB_DeviceSearchItem.md)
-
-
-</td><td>
-
-
-</td><td>
-
-number
-
-
-</td><td>
-
-_(Optional)_ 立创商城库存
-
-
-</td></tr>
-<tr><td>
-
-[lcscPrice?](./ILIB_DeviceSearchItem.md)
-
-
-</td><td>
-
-
-</td><td>
-
-number
-
-
-</td><td>
-
-_(Optional)_ 立创商城价格
 
 
 </td></tr>
@@ -256,44 +161,6 @@ string
 </td><td>
 
 所属库 UUID
-
-
-</td></tr>
-<tr><td>
-
-[manufacturer?](./ILIB_DeviceSearchItem.md)
-
-
-</td><td>
-
-
-</td><td>
-
-string
-
-
-</td><td>
-
-_(Optional)_ 制造商
-
-
-</td></tr>
-<tr><td>
-
-[manufacturerId?](./ILIB_DeviceSearchItem.md)
-
-
-</td><td>
-
-
-</td><td>
-
-string
-
-
-</td><td>
-
-_(Optional)_ 制造商编号
 
 
 </td></tr>
@@ -408,44 +275,6 @@ number
 </td><td>
 
 _(Optional)_ 其它属性
-
-
-</td></tr>
-<tr><td>
-
-[supplier?](./ILIB_DeviceSearchItem.md)
-
-
-</td><td>
-
-
-</td><td>
-
-string
-
-
-</td><td>
-
-_(Optional)_ 供应商
-
-
-</td></tr>
-<tr><td>
-
-[supplierId?](./ILIB_DeviceSearchItem.md)
-
-
-</td><td>
-
-
-</td><td>
-
-string
-
-
-</td><td>
-
-_(Optional)_ 供应商编号
 
 
 </td></tr>
@@ -612,87 +441,7 @@ footprintUuid: string;
 ## Signature
 
 ```typescript
-imageUuid?: string;
-```
-
-### jlcinventory
-
-# ILIB\_DeviceSearchItem.jlcInventory property
-
-> Warning: This API is now obsolete.
->
-> 在 `otherProperty` 中替代
-
-嘉立创库存
-
-## Signature
-
-```typescript
-jlcInventory?: number;
-```
-
-### jlclibrarycategory
-
-# ILIB\_DeviceSearchItem.jlcLibraryCategory property
-
-> Warning: This API is now obsolete.
->
-> 在 `otherProperty` 中替代
-
-嘉立创库类别
-
-## Signature
-
-```typescript
-jlcLibraryCategory?: ELIB_DeviceJlcLibraryCategory;
-```
-
-### jlcprice
-
-# ILIB\_DeviceSearchItem.jlcPrice property
-
-> Warning: This API is now obsolete.
->
-> 在 `otherProperty` 中替代
-
-嘉立创价格
-
-## Signature
-
-```typescript
-jlcPrice?: number;
-```
-
-### lcscinventory
-
-# ILIB\_DeviceSearchItem.lcscInventory property
-
-> Warning: This API is now obsolete.
->
-> 在 `otherProperty` 中替代
-
-立创商城库存
-
-## Signature
-
-```typescript
-lcscInventory?: number;
-```
-
-### lcscprice
-
-# ILIB\_DeviceSearchItem.lcscPrice property
-
-> Warning: This API is now obsolete.
->
-> 在 `otherProperty` 中替代
-
-立创商城价格
-
-## Signature
-
-```typescript
-lcscPrice?: number;
+imageUuid?: string | string[];
 ```
 
 ### libraryuuid
@@ -705,38 +454,6 @@ lcscPrice?: number;
 
 ```typescript
 libraryUuid: string;
-```
-
-### manufacturer
-
-# ILIB\_DeviceSearchItem.manufacturer property
-
-> Warning: This API is now obsolete.
->
-> 在 `otherProperty` 中替代
-
-制造商
-
-## Signature
-
-```typescript
-manufacturer?: string;
-```
-
-### manufacturerid
-
-# ILIB\_DeviceSearchItem.manufacturerId property
-
-> Warning: This API is now obsolete.
->
-> 在 `otherProperty` 中替代
-
-制造商编号
-
-## Signature
-
-```typescript
-manufacturerId?: string;
 ```
 
 ### model3d
@@ -823,38 +540,6 @@ ordinal: number;
 otherProperty?: {
         [key: string]: boolean | number | string | undefined;
     };
-```
-
-### supplier
-
-# ILIB\_DeviceSearchItem.supplier property
-
-> Warning: This API is now obsolete.
->
-> 在 `otherProperty` 中替代
-
-供应商
-
-## Signature
-
-```typescript
-supplier?: string;
-```
-
-### supplierid
-
-# ILIB\_DeviceSearchItem.supplierId property
-
-> Warning: This API is now obsolete.
->
-> 在 `otherProperty` 中替代
-
-供应商编号
-
-## Signature
-
-```typescript
-supplierId?: string;
 ```
 
 ### symbol

@@ -152,7 +152,7 @@ Description
 
 > Warning: This API is now obsolete.
 >
-> - since EDA v3.2; dropped EDA v3.3
+> since EDA v3.2; dropped EDA v3.3
 
 创建一级分类
 
@@ -246,7 +246,7 @@ Promise&lt;[ILIB\_ClassificationIndex](../interfaces/ILIB_ClassificationIndex.md
 
 > Warning: This API is now obsolete.
 >
-> - since EDA v3.2; dropped EDA v3.3
+> since EDA v3.2; dropped EDA v3.3
 
 创建二级分类
 
@@ -356,7 +356,7 @@ Promise&lt;[ILIB\_ClassificationIndex](../interfaces/ILIB_ClassificationIndex.md
 
 > Warning: This API is now obsolete.
 >
-> - since EDA v3.2; dropped EDA v3.3
+> since EDA v3.2; dropped EDA v3.3
 
 删除指定索引的分类
 
@@ -571,7 +571,7 @@ Promise&lt;Array&lt;{ name: string; uuid: string; children?: Array&lt;{ name: st
 
 > Warning: This API is now obsolete.
 >
-> - since EDA v3.2; dropped EDA v3.3
+> since EDA v3.2; dropped EDA v3.3
 
 获取指定名称的分类的分类索引
 
@@ -685,7 +685,7 @@ Promise&lt;[ILIB\_ClassificationIndex](../interfaces/ILIB_ClassificationIndex.md
 
 > Warning: This API is now obsolete.
 >
-> - since EDA v3.2; dropped EDA v3.3
+> since EDA v3.2; dropped EDA v3.3
 
 获取指定索引的分类的名称
 

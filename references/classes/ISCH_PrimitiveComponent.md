@@ -260,6 +260,20 @@ Description
 </td></tr>
 <tr><td>
 
+[getAllPins()](./ISCH_PrimitiveComponent.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 获取器件关联的所有引脚
+
+
+</td></tr>
+<tr><td>
+
 [getState\_AddIntoBom()](./ISCH_PrimitiveComponent.md)
 
 
@@ -973,6 +987,27 @@ done(): Promise<ISCH_PrimitiveComponent>;
 Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)<!-- -->&gt;
 
 器件图元对象
+
+### getallpins
+
+# ISCH\_PrimitiveComponent.getAllPins() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+获取器件关联的所有引脚
+
+## Signature
+
+```typescript
+getAllPins(): Promise<Array<ISCH_PrimitiveComponentPin> | undefined>;
+```
+
+
+## Returns
+
+Promise&lt;Array&lt;[ISCH\_PrimitiveComponentPin](./ISCH_PrimitiveComponentPin.md)<!-- -->&gt; \| undefined&gt;
+
+器件引脚图元数组
 
 ### getstate_addintobom
 

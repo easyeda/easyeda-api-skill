@@ -238,6 +238,8 @@ openIFrame(htmlFileName: string, width?: number, height?: number, id?: string, p
         onBeforeCloseCallFn?: () => boolean | undefined | Promise<boolean | undefined>;
         grayscaleMask?: boolean;
         title?: string;
+        x?: number;
+        y?: number;
     }): Promise<boolean>;
 ```
 
@@ -330,7 +332,7 @@ props
 
 </td><td>
 
-{ maximizeButton?: boolean; minimizeButton?: boolean; minimizeStyle?: 'collapsed' \| 'constricted'; buttonCallbackFn?: (button: 'close' \| 'minimize' \| 'maximize') =&gt; void \| Promise&lt;void&gt;; onBeforeCloseCallFn?: () =&gt; boolean \| undefined \| Promise&lt;boolean \| undefined&gt;; grayscaleMask?: boolean; title?: string; }
+{ maximizeButton?: boolean; minimizeButton?: boolean; minimizeStyle?: 'collapsed' \| 'constricted'; buttonCallbackFn?: (button: 'close' \| 'minimize' \| 'maximize') =&gt; void \| Promise&lt;void&gt;; onBeforeCloseCallFn?: () =&gt; boolean \| undefined \| Promise&lt;boolean \| undefined&gt;; grayscaleMask?: boolean; title?: string; x?: number; y?: number; }
 
 
 </td><td>

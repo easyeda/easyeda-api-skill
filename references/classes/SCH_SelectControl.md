@@ -142,20 +142,6 @@ Description
 
 
 </td></tr>
-<tr><td>
-
-[refactorGetAllSelectedPrimitives()](./SCH_SelectControl.md)
-
-
-</td><td>
-
-
-</td><td>
-
-**_(BETA)_** 3.0版：查询所有已选中图元的图元对象
-
-
-</td></tr>
 </tbody></table>
 
 ---
@@ -470,24 +456,3 @@ getSelectedPrimitives_PrimitiveId(): Promise<Array<string>>;
 Promise&lt;Array&lt;string&gt;&gt;
 
 选中图元的图元 ID
-
-### refactorgetallselectedprimitives
-
-# SCH\_SelectControl.refactorGetAllSelectedPrimitives() method
-
-> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
-
-3.0版：查询所有已选中图元的图元对象
-
-## Signature
-
-```typescript
-refactorGetAllSelectedPrimitives(): Promise<Array<ISCH_Primitive>>;
-```
-
-
-## Returns
-
-Promise&lt;Array&lt;[ISCH\_Primitive](../interfaces/ISCH_Primitive.md)<!-- -->&gt;&gt;
-
-所有已选中图元的图元对象

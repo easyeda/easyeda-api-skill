@@ -2,7 +2,7 @@
 
 > Warning: This API is now obsolete.
 >
-> - since EDA v3.2; dropped EDA v3.3
+> since EDA v3.2; dropped EDA v3.3
 
 分类索引
 

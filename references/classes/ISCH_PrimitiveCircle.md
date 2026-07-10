@@ -369,13 +369,13 @@ Description
 ## Signature
 
 ```typescript
-done(): ISCH_PrimitiveCircle;
+done(): Promise<ISCH_PrimitiveCircle>;
 ```
 
 
 ## Returns
 
-[ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md)
+Promise&lt;[ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md)<!-- -->&gt;
 
 圆图元对象
 

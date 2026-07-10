@@ -40,13 +40,29 @@ Description
 </td></tr>
 <tr><td>
 
-[calculateBBoxWidth(complexPolygon)](./PCB_MathPolygon.md)
+[calculateHeight(complexPolygon)](./PCB_MathPolygon.md)
 
 
 </td><td>
 
 
 </td><td>
+
+**_(BETA)_** 计算复杂多边形 BBox 高度
+
+
+</td></tr>
+<tr><td>
+
+[calculateWidth(complexPolygon)](./PCB_MathPolygon.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 计算复杂多边形 BBox 宽度
 
 
 </td></tr>
@@ -89,6 +105,20 @@ Description
 </td><td>
 
 创建单多边形
+
+
+</td></tr>
+<tr><td>
+
+[discretize(polygon, options)](./PCB_MathPolygon.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 将单多边形离散化为点数据
 
 
 </td></tr>
@@ -162,14 +192,18 @@ complexPolygon
 
 number
 
-### calculatebboxwidth
+### calculateheight
 
-# PCB\_MathPolygon.calculateBBoxWidth() method
+# PCB\_MathPolygon.calculateHeight() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+计算复杂多边形 BBox 高度
 
 ## Signature
 
 ```typescript
-calculateBBoxWidth(complexPolygon: TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray>): number;
+calculateHeight(complexPolygon: TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray> | IPCB_Polygon | IPCB_ComplexPolygon): number;
 ```
 
 ## Parameters
@@ -197,10 +231,12 @@ complexPolygon
 
 </td><td>
 
-[TPCB\_PolygonSourceArray](../types/TPCB_PolygonSourceArray.md) \| Array&lt;[TPCB\_PolygonSourceArray](../types/TPCB_PolygonSourceArray.md)<!-- -->&gt;
+[TPCB\_PolygonSourceArray](../types/TPCB_PolygonSourceArray.md) \| Array&lt;[TPCB\_PolygonSourceArray](../types/TPCB_PolygonSourceArray.md)<!-- -->&gt; \| [IPCB\_Polygon](./IPCB_Polygon.md) \| [IPCB\_ComplexPolygon](./IPCB_ComplexPolygon.md)
 
 
 </td><td>
+
+复杂多边形
 
 
 </td></tr>
@@ -211,6 +247,66 @@ complexPolygon
 ## Returns
 
 number
+
+BBox 高度
+
+### calculatewidth
+
+# PCB\_MathPolygon.calculateWidth() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+计算复杂多边形 BBox 宽度
+
+## Signature
+
+```typescript
+calculateWidth(complexPolygon: TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray> | IPCB_Polygon | IPCB_ComplexPolygon): number;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+complexPolygon
+
+
+</td><td>
+
+[TPCB\_PolygonSourceArray](../types/TPCB_PolygonSourceArray.md) \| Array&lt;[TPCB\_PolygonSourceArray](../types/TPCB_PolygonSourceArray.md)<!-- -->&gt; \| [IPCB\_Polygon](./IPCB_Polygon.md) \| [IPCB\_ComplexPolygon](./IPCB_ComplexPolygon.md)
+
+
+</td><td>
+
+复杂多边形
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+number
+
+BBox 宽度
 
 ### convertimagetocomplexpolygon
 
@@ -509,6 +605,84 @@ polygon
 [IPCB\_Polygon](./IPCB_Polygon.md) \| undefined
 
 单多边形对象，`undefined` 表示数据不合法
+
+### discretize
+
+# PCB\_MathPolygon.discretize() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+将单多边形离散化为点数据
+
+## Signature
+
+```typescript
+discretize(polygon: IPCB_Polygon | TPCB_PolygonSourceArray, options?: IPCB_DiscretizeOptions): Array<IPCB_DiscretizedPoint>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+polygon
+
+
+</td><td>
+
+[IPCB\_Polygon](./IPCB_Polygon.md) \| [TPCB\_PolygonSourceArray](../types/TPCB_PolygonSourceArray.md)
+
+
+</td><td>
+
+单多边形对象
+
+
+</td></tr>
+<tr><td>
+
+options
+
+
+</td><td>
+
+[IPCB\_DiscretizeOptions](../interfaces/IPCB_DiscretizeOptions.md)
+
+
+</td><td>
+
+_(Optional)_ 离散化选项
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Array&lt;[IPCB\_DiscretizedPoint](../interfaces/IPCB_DiscretizedPoint.md)<!-- -->&gt;
+
+离散化点数据
+
+## Remarks
+
+将单多边形的边界离散化为一系列点
 
 ### splitpolygon
 

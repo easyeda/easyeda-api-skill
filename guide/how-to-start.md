@@ -21,7 +21,7 @@ All user extensions run locally on the client, which means you can write them in
 
 EasyEDA offers a wide range of extension examples, allowing users to view the source code and compile it for use:
 Extensions source code: [https://github.com/easyeda](https://github.com/easyeda)
-Extensions marketplace (China Site, the global site is under developing): [https://ext.lceda.cn/](https://ext.lceda.cn/)
+Extensions marketplace (China Site, the global site is under developing): [https://jlc-ext.com/](https://jlc-ext.com/)
 
 :::
 

@@ -89,6 +89,48 @@ Description
 </td></tr>
 <tr><td>
 
+[addRayTracerEngine3DViewCameraChangeEventListener(id, callFn, onlyOnce)](./PCB_Event.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 新增光线追踪引擎 3D 预览相机变动（拖动 3D 模型）事件监听
+
+
+</td></tr>
+<tr><td>
+
+[addRayTracerEngine3DViewClickMaterialEventListener(id, callFn, onlyOnce)](./PCB_Event.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 新增光线追踪引擎 3D 预览点击材质事件监听
+
+
+</td></tr>
+<tr><td>
+
+[addRealTimeDrcResultEventListener(id, eventType, callFn)](./PCB_Event.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 新增实时 DRC 结果事件监听
+
+
+</td></tr>
+<tr><td>
+
 [isEventListenerAlreadyExist(id)](./PCB_Event.md)
 
 
@@ -534,6 +576,303 @@ boolean
 </td><td>
 
 _(Optional)_ 是否仅监听一次
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+void
+
+## Remarks
+
+注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error`
+
+### addraytracerengine3dviewcamerachangeeventlistener
+
+# PCB\_Event.addRayTracerEngine3DViewCameraChangeEventListener() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+新增光线追踪引擎 3D 预览相机变动（拖动 3D 模型）事件监听
+
+## Signature
+
+```typescript
+addRayTracerEngine3DViewCameraChangeEventListener(id: string, callFn: (props: {
+        position: {
+            x: number;
+            y: number;
+            z: number;
+        };
+        rotation: {
+            x: number;
+            y: number;
+            z: number;
+        };
+        focalLength: number;
+    }) => void | Promise<void>, onlyOnce?: boolean): void;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+id
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+事件 ID，用以防止重复注册事件
+
+
+</td></tr>
+<tr><td>
+
+callFn
+
+
+</td><td>
+
+(props: { position: { x: number; y: number; z: number; }; rotation: { x: number; y: number; z: number; }; focalLength: number; }) =&gt; void \| Promise&lt;void&gt;
+
+
+</td><td>
+
+事件触发时的回调函数
+
+
+</td></tr>
+<tr><td>
+
+onlyOnce
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+_(Optional)_ 是否仅监听一次
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+void
+
+## Remarks
+
+注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error`
+
+ADD since EDA v4
+
+### addraytracerengine3dviewclickmaterialeventlistener
+
+# PCB\_Event.addRayTracerEngine3DViewClickMaterialEventListener() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+新增光线追踪引擎 3D 预览点击材质事件监听
+
+## Signature
+
+```typescript
+addRayTracerEngine3DViewClickMaterialEventListener(id: string, callFn: (props: {
+        materialId: number;
+        material: any;
+    }) => void | Promise<void>, onlyOnce?: boolean): void;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+id
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+事件 ID，用以防止重复注册事件
+
+
+</td></tr>
+<tr><td>
+
+callFn
+
+
+</td><td>
+
+(props: { materialId: number; material: any; }) =&gt; void \| Promise&lt;void&gt;
+
+
+</td><td>
+
+事件触发时的回调函数
+
+
+</td></tr>
+<tr><td>
+
+onlyOnce
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+_(Optional)_ 是否仅监听一次
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+void
+
+## Remarks
+
+注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error`
+
+ADD since EDA v4
+
+### addrealtimedrcresulteventlistener
+
+# PCB\_Event.addRealTimeDrcResultEventListener() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+新增实时 DRC 结果事件监听
+
+## Signature
+
+```typescript
+addRealTimeDrcResultEventListener(id: string, eventType: 'all', callFn: (eventType: undefined, props: [{
+        drcResult: any;
+    }]) => void | Promise<void>): void;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+id
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+事件 ID，用以防止重复注册事件
+
+
+</td></tr>
+<tr><td>
+
+eventType
+
+
+</td><td>
+
+'all'
+
+
+</td><td>
+
+事件类型
+
+
+</td></tr>
+<tr><td>
+
+callFn
+
+
+</td><td>
+
+(eventType: undefined, props: \[{ drcResult: any; }\]) =&gt; void \| Promise&lt;void&gt;
+
+
+</td><td>
+
+事件触发时的回调函数
 
 
 </td></tr>

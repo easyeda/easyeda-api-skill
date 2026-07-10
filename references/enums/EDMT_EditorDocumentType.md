@@ -172,6 +172,22 @@ PCB 3D 预览
 </td></tr>
 <tr><td>
 
+PROJECT
+
+
+</td><td>
+
+`5`
+
+
+</td><td>
+
+工程
+
+
+</td></tr>
+<tr><td>
+
 SCHEMATIC\_PAGE
 
 
@@ -183,6 +199,70 @@ SCHEMATIC\_PAGE
 </td><td>
 
 原理图图页
+
+
+</td></tr>
+<tr><td>
+
+SIMULATION\_SCHEMATIC\_PAGE\_NGSPICE
+
+
+</td><td>
+
+`8`
+
+
+</td><td>
+
+仿真原理图图页：NGspice
+
+
+</td></tr>
+<tr><td>
+
+SIMULATION\_SCHEMATIC\_PAGE\_SIMULIDE
+
+
+</td><td>
+
+`9`
+
+
+</td><td>
+
+仿真原理图图页：SimulIDE
+
+
+</td></tr>
+<tr><td>
+
+SIMULATION\_SYMBOL\_COMPONENT\_NGSPICE
+
+
+</td><td>
+
+`7`
+
+
+</td><td>
+
+仿真元件符号：NGspice
+
+
+</td></tr>
+<tr><td>
+
+SIMULATION\_SYMBOL\_COMPONENT\_SIMULIDE
+
+
+</td><td>
+
+`32`
+
+
+</td><td>
+
+仿真元件符号：SimulIDE
 
 
 </td></tr>
@@ -279,6 +359,22 @@ SYMBOL\_NON\_ELECTRICAL
 </td><td>
 
 无电气符号
+
+
+</td></tr>
+<tr><td>
+
+SYMBOL\_OFF\_PAGE\_CONNECTOR\_FLAG
+
+
+</td><td>
+
+`25`
+
+
+</td><td>
+
+跨页连接标识符号
 
 
 </td></tr>

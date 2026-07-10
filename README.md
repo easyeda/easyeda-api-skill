@@ -41,7 +41,7 @@ The server automatically chooses an available port in the `49620-49629` range an
 
 Install the `run-api-gateway.eext` extension in EasyEDA. Download:
 
-- https://ext.lceda.cn/item/oshwhub/run-api-gateway
+- https://jlc-ext.com/item/oshwhub/run-api-gateway
 
 After the extension is loaded, it connects to the Bridge server automatically by scanning the port range and verifying the handshake.
 

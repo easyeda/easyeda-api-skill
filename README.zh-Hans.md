@@ -41,7 +41,7 @@ npm run server
 
 在嘉立创EDA中安装 `run-api-gateway.eext` 扩展，下载地址：
 
-- https://ext.lceda.cn/item/oshwhub/run-api-gateway
+- https://jlc-ext.com/item/oshwhub/run-api-gateway
 
 扩展加载后会自动连接到 Bridge 服务器（自动扫描端口范围，验证握手后连接）。
 

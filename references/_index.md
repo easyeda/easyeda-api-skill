@@ -26,6 +26,7 @@
 |------|------|------|
 | [DMT_Board](classes/DMT_Board.md) | 文档树 / 板子管理类 |  |
 | [DMT_EditorControl](classes/DMT_EditorControl.md) | 文档树 / 编辑器控制类 |  |
+| [DMT_Event](classes/DMT_Event.md) | 文档树 / 事件类 |  |
 | [DMT_Folder](classes/DMT_Folder.md) | 文档树 / 文件夹类 |  |
 | [DMT_Panel](classes/DMT_Panel.md) | 文档树 / 面板管理类 |  |
 | [DMT_Pcb](classes/DMT_Pcb.md) | 文档树 / PCB 管理类 |  |
@@ -133,6 +134,7 @@
 | [SYS_IFrame](classes/SYS_IFrame.md) | 系统 / 内联框架窗口类 |  |
 | [SYS_LoadingAndProgressBar](classes/SYS_LoadingAndProgressBar.md) | 系统 / 加载与进度条类 |  |
 | [SYS_Log](classes/SYS_Log.md) | 系统 / 日志类 |  |
+| [SYS_Math](classes/SYS_Math.md) | 系统 / 数学计算类 |  |
 | [SYS_Message](classes/SYS_Message.md) | 系统 / 消息通知类 |  |
 | [SYS_MessageBox](classes/SYS_MessageBox.md) | 系统 / 消息框类 |  |
 | [SYS_MessageBus](classes/SYS_MessageBus.md) | 系统 / 消息总线类 |  |
@@ -157,6 +159,7 @@
 |--------|------|------|
 | [EDMT_EditorDocumentType](enums/EDMT_EditorDocumentType.md) | 编辑器文档类型 |  |
 | [EDMT_EditorSplitScreenDirection](enums/EDMT_EditorSplitScreenDirection.md) | 编辑器分屏方向 |  |
+| [EDMT_EditorTabEventType](enums/EDMT_EditorTabEventType.md) | 编辑器标签页事件类型 |  |
 | [EDMT_IndicatorMarkerType](enums/EDMT_IndicatorMarkerType.md) | 指示标记类型 |  |
 | [EDMT_ItemType](enums/EDMT_ItemType.md) | 文档树项目类型 |  |
 | [EDMT_ProjectCollaborationMode](enums/EDMT_ProjectCollaborationMode.md) | 工程协作模式 |  |
@@ -164,6 +167,9 @@
 | [ELIB_LibraryType](enums/ELIB_LibraryType.md) | 综合库库类型 |  |
 | [ELIB_PreviewType](enums/ELIB_PreviewType.md) | 预览视图类型 |  |
 | [ELIB_SymbolType](enums/ELIB_SymbolType.md) | 符号类型 |  |
+| [EPCB_AutoRoutingCornerStyle](enums/EPCB_AutoRoutingCornerStyle.md) | 自动布线拐角风格 |  |
+| [EPCB_AutoRoutingExistingPrimitiveMode](enums/EPCB_AutoRoutingExistingPrimitiveMode.md) | 自动布线对已有导线/过孔的处理方式 |  |
+| [EPCB_AutoRoutingOptimization](enums/EPCB_AutoRoutingOptimization.md) | 自动布线效果优先级 |  |
 | [EPCB_DocumentRatlineCalculatingActiveStatus](enums/EPCB_DocumentRatlineCalculatingActiveStatus.md) | 文档飞线计算功能状态 |  |
 | [EPCB_InactiveLayerDisplayMode](enums/EPCB_InactiveLayerDisplayMode.md) | 非激活层展示模式 |  |
 | [EPCB_LayerColorConfiguration](enums/EPCB_LayerColorConfiguration.md) | 图层颜色配置 |  |
@@ -212,6 +218,7 @@
 | [ESYS_RightPanelTab](enums/ESYS_RightPanelTab.md) | 右侧面板标签页 |  |
 | [ESYS_ShortcutKeyEffectiveEditorDocumentType](enums/ESYS_ShortcutKeyEffectiveEditorDocumentType.md) | 快捷键生效页面范围 |  |
 | [ESYS_ShortcutKeyEffectiveEditorScene](enums/ESYS_ShortcutKeyEffectiveEditorScene.md) | 快捷键生效场景范围 |  |
+| [ESYS_StartPageQuickStartItem](enums/ESYS_StartPageQuickStartItem.md) | 开始页快速启动项 |  |
 | [ESYS_Theme](enums/ESYS_Theme.md) | 主题 |  |
 | [ESYS_ToastMessageType](enums/ESYS_ToastMessageType.md) | 吐司消息类型 |  |
 | [ESYS_Unit](enums/ESYS_Unit.md) | 单位 |  |
@@ -269,8 +276,13 @@
 | [ILIB_PanelLibrarySearchItem](interfaces/ILIB_PanelLibrarySearchItem.md) | 搜索到的面板库属性 |  |
 | [ILIB_SymbolItem](interfaces/ILIB_SymbolItem.md) | 符号属性 |  |
 | [ILIB_SymbolSearchItem](interfaces/ILIB_SymbolSearchItem.md) | 搜索到的符号属性 |  |
+| [IPCB_AutoLayoutResult](interfaces/IPCB_AutoLayoutResult.md) | 自动布局结果 |  |
+| [IPCB_AutoRoutingProps](interfaces/IPCB_AutoRoutingProps.md) | 自动布线入参 |  |
+| [IPCB_AutoRoutingResult](interfaces/IPCB_AutoRoutingResult.md) | 自动布线结果 |  |
 | [IPCB_BomPropertiesTableColumns](interfaces/IPCB_BomPropertiesTableColumns.md) | BOM 列的属性及排序规则 |  |
 | [IPCB_DifferentialPairItem](interfaces/IPCB_DifferentialPairItem.md) | 差分对属性 |  |
+| [IPCB_DiscretizedPoint](interfaces/IPCB_DiscretizedPoint.md) | 离散化点 |  |
+| [IPCB_DiscretizeOptions](interfaces/IPCB_DiscretizeOptions.md) | 离散化选项 |  |
 | [IPCB_EqualLengthNetGroupItem](interfaces/IPCB_EqualLengthNetGroupItem.md) | 等长网络组属性 |  |
 | [IPCB_LayerItem](interfaces/IPCB_LayerItem.md) | 图层属性 |  |
 | [IPCB_NetClassItem](interfaces/IPCB_NetClassItem.md) | 网络类属性 |  |
@@ -293,6 +305,8 @@
 | [ISYS_HeaderMenuTopMenuItem](interfaces/ISYS_HeaderMenuTopMenuItem.md) | 顶部一级菜单项 |  |
 | [ISYS_LanguageKeyValuePairs](interfaces/ISYS_LanguageKeyValuePairs.md) | 语言数据键值对 |  |
 | [ISYS_LogLine](interfaces/ISYS_LogLine.md) | 日志行 |  |
+| [ISYS_MathBBox](interfaces/ISYS_MathBBox.md) | BBox（最小外接矩形） |  |
+| [ISYS_MathPoint](interfaces/ISYS_MathPoint.md) | 离散点 |  |
 | [ISYS_MessageBusTask](interfaces/ISYS_MessageBusTask.md) | 消息总线任务 |  |
 | [ISYS_MultilingualLanguagesData](interfaces/ISYS_MultilingualLanguagesData.md) | 多语言数据 |  |
 | [ISYS_ReactComponentizationDialogInterface](interfaces/ISYS_ReactComponentizationDialogInterface.md) | **_(ALPHA)_** React 组件化弹出窗口接口 |  |
@@ -329,5 +343,6 @@
 | [TPCB_PrimitivePadHole](types/TPCB_PrimitivePadHole.md) | 焊盘钻孔 |  |
 | [TPCB_PrimitivePadShape](types/TPCB_PrimitivePadShape.md) | 焊盘外形 |  |
 | [TPCB_PrimitiveSpecialPadShape](types/TPCB_PrimitiveSpecialPadShape.md) | 特殊焊盘外形 |  |
+| [TSYS_MathPolygonInput](types/TSYS_MathPolygonInput.md) | 多边形输入类型 |  |
 | [TSYS_ShortcutKeys](types/TSYS_ShortcutKeys.md) | 快捷键按键 |  |
 

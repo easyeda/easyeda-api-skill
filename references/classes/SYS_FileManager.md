@@ -182,6 +182,20 @@ Description
 </td></tr>
 <tr><td>
 
+[getSymbolFileBySymbolUuid(symbolUuid, libraryUuid, fileType)](./SYS_FileManager.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 使用符号 UUID 获取符号文件
+
+
+</td></tr>
+<tr><td>
+
 [importProjectByProjectFile(projectFile, fileType, props, saveTo, librariesImportSetting)](./SYS_FileManager.md)
 
 
@@ -406,7 +420,7 @@ string
 
 </td><td>
 
-_(Optional)_ 库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+_(Optional)_ 库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取，如若不传入，则为系统库
 
 
 </td></tr>
@@ -735,7 +749,7 @@ string
 
 </td><td>
 
-_(Optional)_ 库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+_(Optional)_ 库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取，如若不传入，则为系统库
 
 
 </td></tr>
@@ -831,7 +845,7 @@ string
 
 </td><td>
 
-_(Optional)_ 库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+_(Optional)_ 库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取，如若不传入，则为系统库
 
 
 </td></tr>
@@ -1073,6 +1087,102 @@ Promise&lt;File \| undefined&gt;
 
 注意：本接口需要启用 \*\*工程管理 &gt; 下载工程\*\* 权限，没有权限调用将始终 `throw Error`
 
+### getsymbolfilebysymboluuid
+
+# SYS\_FileManager.getSymbolFileBySymbolUuid() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+使用符号 UUID 获取符号文件
+
+## Signature
+
+```typescript
+getSymbolFileBySymbolUuid(symbolUuid: string | Array<string>, libraryUuid?: string, fileType?: 'elibz' | 'elibz2'): Promise<File | undefined>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+symbolUuid
+
+
+</td><td>
+
+string \| Array&lt;string&gt;
+
+
+</td><td>
+
+符号 UUID 或符号 UUID 列表
+
+
+</td></tr>
+<tr><td>
+
+libraryUuid
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_ 库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取，如若不传入，则为系统库
+
+
+</td></tr>
+<tr><td>
+
+fileType
+
+
+</td><td>
+
+'elibz' \| 'elibz2'
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;File \| undefined&gt;
+
+符号文件数据，`undefined` 表示数据获取失败
+
+## Remarks
+
+可以使用 [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) 接口将文件导出到本地文件系统
+
+注意：本接口需要启用 \*\*团队库 &gt; 下载库\*\* 权限，没有权限调用将始终 `throw Error`
+
 ### importprojectbyprojectfile
 
 # SYS\_FileManager.importProjectByProjectFile() method
@@ -1103,7 +1213,11 @@ importProjectByProjectFile(projectFile: File, fileType?: 'JLCEDA' | 'JLCEDA Pro'
         existingProjectUuid: IDMT_BriefProjectItem['uuid'];
     }, librariesImportSetting?: {
         ownerTeamUuid: IDMT_TeamItem['uuid'];
+        deviceClassification?: Array<string>;
+        symbolClassification?: Array<string>;
+        footprintClassification?: Array<string>;
         createDeviceForSingleSymbol?: boolean;
+        updateExistingLibrariesWithTheSameName?: boolean;
     }): Promise<IDMT_BriefProjectItem | undefined>;
 ```
 
@@ -1196,7 +1310,7 @@ librariesImportSetting
 
 </td><td>
 
-{ ownerTeamUuid: [IDMT\_TeamItem](../interfaces/IDMT_TeamItem.md)<!-- -->\['uuid'\]; createDeviceForSingleSymbol?: boolean; }
+{ ownerTeamUuid: [IDMT\_TeamItem](../interfaces/IDMT_TeamItem.md)<!-- -->\['uuid'\]; deviceClassification?: Array&lt;string&gt;; symbolClassification?: Array&lt;string&gt;; footprintClassification?: Array&lt;string&gt;; createDeviceForSingleSymbol?: boolean; updateExistingLibrariesWithTheSameName?: boolean; }
 
 
 </td><td>
@@ -1251,7 +1365,11 @@ importProjectByProjectFile(projectFile: File, fileType?: 'Altium Designer' | 'Pr
         existingProjectUuid: IDMT_BriefProjectItem['uuid'];
     }, librariesImportSetting?: {
         ownerTeamUuid: IDMT_TeamItem['uuid'];
+        deviceClassification?: Array<string>;
+        symbolClassification?: Array<string>;
+        footprintClassification?: Array<string>;
         createDeviceForSingleSymbol?: boolean;
+        updateExistingLibrariesWithTheSameName?: boolean;
     }): Promise<IDMT_BriefProjectItem | undefined>;
 ```
 
@@ -1344,7 +1462,7 @@ librariesImportSetting
 
 </td><td>
 
-{ ownerTeamUuid: [IDMT\_TeamItem](../interfaces/IDMT_TeamItem.md)<!-- -->\['uuid'\]; createDeviceForSingleSymbol?: boolean; }
+{ ownerTeamUuid: [IDMT\_TeamItem](../interfaces/IDMT_TeamItem.md)<!-- -->\['uuid'\]; deviceClassification?: Array&lt;string&gt;; symbolClassification?: Array&lt;string&gt;; footprintClassification?: Array&lt;string&gt;; createDeviceForSingleSymbol?: boolean; updateExistingLibrariesWithTheSameName?: boolean; }
 
 
 </td><td>

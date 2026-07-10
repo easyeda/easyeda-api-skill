@@ -11,6 +11,10 @@ declare class ISCH_PrimitiveBus implements ISCH_Primitive
 
 ## Remarks
 
+尚未解决的问题：
+
+`ISCH_PrimitiveWire.net` 全局网络名属性因其涉及多图页刷新，当前获取的值可能为 \*\*错误\*\* 的。 当你尝试为一个导线、总线设置多个名称（放置多个网络标签）时，获取到的 `net` 属性可能并不是当前最新的， 需要等待画布事件异步刷新全局网络后，再行获取。
+
 
 ## Methods
 

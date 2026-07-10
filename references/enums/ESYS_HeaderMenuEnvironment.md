@@ -92,6 +92,22 @@ PANEL
 </td></tr>
 <tr><td>
 
+PANEL\_LIBRARY
+
+
+</td><td>
+
+`"panelLibrary"`
+
+
+</td><td>
+
+面板库
+
+
+</td></tr>
+<tr><td>
+
 PANEL\_VIEW
 
 
@@ -151,6 +167,38 @@ SCHEMATIC
 </td><td>
 
 原理图
+
+
+</td></tr>
+<tr><td>
+
+SIMULATION\_SCHEMATIC\_NGSPICE
+
+
+</td><td>
+
+`"simulationSchematicNGspice"`
+
+
+</td><td>
+
+仿真原理图：NGspice
+
+
+</td></tr>
+<tr><td>
+
+SIMULATION\_SCHEMATIC\_SIMULIDE
+
+
+</td><td>
+
+`"simulationSchematicSimulIDE"`
+
+
+</td><td>
+
+仿真原理图：SimulIDE
 
 
 </td></tr>

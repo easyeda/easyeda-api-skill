@@ -101,6 +101,20 @@ Description
 
 
 </td></tr>
+<tr><td>
+
+[registerExtendLibrary(title, libraryFunctions)](./LIB_LibrariesList.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 注册外部库
+
+
+</td></tr>
 </tbody></table>
 
 ---
@@ -217,3 +231,85 @@ getSystemLibraryUuid(): Promise<string | undefined>;
 Promise&lt;string \| undefined&gt;
 
 系统库的 UUID
+
+### registerextendlibrary
+
+# LIB\_LibrariesList.registerExtendLibrary() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+注册外部库
+
+## Signature
+
+```typescript
+registerExtendLibrary(title: string, libraryFunctions: {
+        device?: ILIB_ExtendLibraryDeviceFunctions;
+        symbol?: ILIB_ExtendLibrarySymbolFunctions;
+        footprint?: ILIB_ExtendLibraryFootprintFunctions;
+        cbb?: ILIB_ExtendLibraryCbbFunctions;
+        model3d?: ILIB_ExtendLibrary3DModelFunctions;
+    }): Promise<string | undefined>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+title
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+标题
+
+
+</td></tr>
+<tr><td>
+
+libraryFunctions
+
+
+</td><td>
+
+{ device?: [ILIB\_ExtendLibraryDeviceFunctions](../interfaces/ILIB_ExtendLibraryDeviceFunctions.md)<!-- -->; symbol?: [ILIB\_ExtendLibrarySymbolFunctions](../interfaces/ILIB_ExtendLibrarySymbolFunctions.md)<!-- -->; footprint?: [ILIB\_ExtendLibraryFootprintFunctions](../interfaces/ILIB_ExtendLibraryFootprintFunctions.md)<!-- -->; cbb?: [ILIB\_ExtendLibraryCbbFunctions](../interfaces/ILIB_ExtendLibraryCbbFunctions.md)<!-- -->; model3d?: [ILIB\_ExtendLibrary3DModelFunctions](../interfaces/ILIB_ExtendLibrary3DModelFunctions.md)<!-- -->; }
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;string \| undefined&gt;
+
+库 UUID
+
+## Remarks
+
+注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error`

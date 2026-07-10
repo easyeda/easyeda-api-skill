@@ -127,6 +127,20 @@ Description
 </td></tr>
 <tr><td>
 
+[getAllPropertyNames()](./PCB_PrimitiveComponent.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 获取所有器件的所有属性名称集合
+
+
+</td></tr>
+<tr><td>
+
 [modify(primitiveId, property)](./PCB_PrimitiveComponent.md)
 
 
@@ -150,6 +164,20 @@ Description
 </td><td>
 
 **_(BETA)_** 使用鼠标放置器件
+
+
+</td></tr>
+<tr><td>
+
+[placeFootprintWithMouse(footprint, properties)](./PCB_PrimitiveComponent.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 使用鼠标放置封装
 
 
 </td></tr>
@@ -688,6 +716,27 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 器件的图元 ID 数组
 
+### getallpropertynames
+
+# PCB\_PrimitiveComponent.getAllPropertyNames() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+获取所有器件的所有属性名称集合
+
+## Signature
+
+```typescript
+getAllPropertyNames(): Promise<Array<string>>;
+```
+
+
+## Returns
+
+Promise&lt;Array&lt;string&gt;&gt;
+
+所有器件的所有属性名称集合
+
 ### modify
 
 # PCB\_PrimitiveComponent.modify() method
@@ -843,3 +892,90 @@ Promise&lt;boolean&gt;
 本接口模拟前端点击放置按钮，指定的器件将绑定到当前鼠标，并在用户后续点击时放置于画布
 
 本接口的返回时机并不会等待用户的放置操作，一旦器件被绑定到鼠标，本接口将立即返回 `true` 的结果
+
+### placefootprintwithmouse
+
+# PCB\_PrimitiveComponent.placeFootprintWithMouse() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+使用鼠标放置封装
+
+## Signature
+
+```typescript
+placeFootprintWithMouse(footprint: {
+        libraryUuid: string;
+        uuid: string;
+    } | ILIB_FootprintItem | ILIB_FootprintSearchItem, properties?: {
+        [key: string]: boolean | number | string | undefined;
+    }): Promise<boolean>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+footprint
+
+
+</td><td>
+
+{ libraryUuid: string; uuid: string; } \| [ILIB\_FootprintItem](../interfaces/ILIB_FootprintItem.md) \| [ILIB\_FootprintSearchItem](../interfaces/ILIB_FootprintSearchItem.md)
+
+
+</td><td>
+
+关联库封装
+
+
+</td></tr>
+<tr><td>
+
+properties
+
+
+</td><td>
+
+\{ \[key: string\]: boolean \| number \| string \| undefined; \}
+
+
+</td><td>
+
+_(Optional)_ 器件属性
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;boolean&gt;
+
+是否找到封装
+
+## Remarks
+
+ADD since API v0.2.26
+
+本接口模拟前端点击放置按钮，指定的封装将绑定到当前鼠标，并在用户后续点击时放置于画布
+
+本接口的返回时机并不会等待用户的放置操作，一旦封装被绑定到鼠标，本接口将立即返回 `true` 的结果

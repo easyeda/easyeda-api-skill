@@ -32,6 +32,34 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+[autoRouting(props)](./PCB_Document.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 自动布线
+
+
+</td></tr>
+<tr><td>
+
+[clearRouting(type)](./PCB_Document.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 清除布线
+
+
+</td></tr>
+<tr><td>
+
 [convertCanvasOriginToDataOrigin(x, y)](./PCB_Document.md)
 
 
@@ -214,7 +242,7 @@ Description
 </td></tr>
 <tr><td>
 
-[save(uuid)](./PCB_Document.md)
+[save()](./PCB_Document.md)
 
 
 </td><td>
@@ -287,6 +315,141 @@ Description
 ---
 
 ## 方法详情
+
+### autorouting
+
+# PCB\_Document.autoRouting() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+自动布线
+
+## Signature
+
+```typescript
+autoRouting(props?: IPCB_AutoRoutingProps): Promise<IPCB_AutoRoutingResult>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+props
+
+
+</td><td>
+
+[IPCB\_AutoRoutingProps](../interfaces/IPCB_AutoRoutingProps.md)
+
+
+</td><td>
+
+_(Optional)_ 自动布线参数
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;[IPCB\_AutoRoutingResult](../interfaces/IPCB_AutoRoutingResult.md)<!-- -->&gt;
+
+自动布线结果
+
+## Remarks
+
+如不传入任何参数，将对所有未布线的网络进行自动布线
+
+## Example
+
+
+```javascript
+// 对所有未布线的网络进行自动布线
+const result = await eda.pcb_Document.autoRouting();
+console.log(`布线完成：${result.routedNets}/${result.totalNets}`);
+
+// 指定网络进行自动布线，并忽略部分网络
+const result = await eda.pcb_Document.autoRouting({
+    nets: ['VCC', 'GND', 'SDA', 'SCL'],
+    ignoreNets: ['NC'],
+    cornerStyle: EPCB_AutoRoutingCornerStyle.DEGREE_45,
+    optimization: EPCB_AutoRoutingOptimization.COMPLETION,
+});
+```
+
+### clearrouting
+
+# PCB\_Document.clearRouting() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+清除布线
+
+## Signature
+
+```typescript
+clearRouting(type?: 'all' | 'net' | 'connection'): Promise<boolean>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+type
+
+
+</td><td>
+
+'all' \| 'net' \| 'connection'
+
+
+</td><td>
+
+_(Optional)_ 清除类型，如若需要指定清除类型，请提前选择指定图元
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;boolean&gt;
 
 ### convertcanvasorigintodataorigin
 
@@ -1163,43 +1326,8 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-save(uuid: string): Promise<boolean>;
+save(): Promise<boolean>;
 ```
-
-## Parameters
-
-<table><thead><tr><th>
-
-Parameter
-
-
-</th><th>
-
-Type
-
-
-</th><th>
-
-Description
-
-
-</th></tr></thead>
-<tbody><tr><td>
-
-uuid
-
-
-</td><td>
-
-string
-
-
-</td><td>
-
-
-</td></tr>
-</tbody></table>
-
 
 
 ## Returns

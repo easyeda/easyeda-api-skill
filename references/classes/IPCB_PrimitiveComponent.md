@@ -368,6 +368,20 @@ Description
 </td></tr>
 <tr><td>
 
+[setAttribute(key, value, keyVisible, valueVisible)](./IPCB_PrimitiveComponent.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 设置属性
+
+
+</td></tr>
+<tr><td>
+
 [setState\_AddIntoBom(addIntoBom)](./IPCB_PrimitiveComponent.md)
 
 
@@ -1075,6 +1089,112 @@ reset(): Promise<IPCB_PrimitiveComponent>;
 Promise&lt;[IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md)<!-- -->&gt;
 
 器件图元对象
+
+### setattribute
+
+# IPCB\_PrimitiveComponent.setAttribute() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+设置属性
+
+## Signature
+
+```typescript
+setAttribute(key: string, value?: string | number | boolean, keyVisible?: boolean, valueVisible?: boolean): Promise<IPCB_PrimitiveAttribute>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+key
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+属性名，如若器件不存在该属性名的属性，将会新增该属性
+
+
+</td></tr>
+<tr><td>
+
+value
+
+
+</td><td>
+
+string \| number \| boolean
+
+
+</td><td>
+
+_(Optional)_ 属性值
+
+
+</td></tr>
+<tr><td>
+
+keyVisible
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+_(Optional)_ 属性名可见性
+
+
+</td></tr>
+<tr><td>
+
+valueVisible
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+_(Optional)_ 属性值可见性
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;[IPCB\_PrimitiveAttribute](./IPCB_PrimitiveAttribute.md)<!-- -->&gt;
+
+属性图元对象
 
 ### setstate_addintobom
 

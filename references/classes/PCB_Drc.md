@@ -502,7 +502,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 覆写目前规则配置
+**_(BETA)_** 覆写当前设计规则配置
 
 
 </td></tr>
@@ -2536,7 +2536,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-覆写目前规则配置
+覆写当前设计规则配置
 
 ## Signature
 
@@ -2576,6 +2576,8 @@ ruleConfiguration
 
 </td><td>
 
+设计规则配置
+
 
 </td></tr>
 </tbody></table>
@@ -2590,7 +2592,7 @@ Promise&lt;boolean&gt;
 
 ## Remarks
 
-将会覆写当前 PCB 的目前规则管理，请注意数据丢失风险
+将会覆写 PCB 当前的设计规则配置，请注意数据丢失风险
 
 ### overwritenetbynetrules
 

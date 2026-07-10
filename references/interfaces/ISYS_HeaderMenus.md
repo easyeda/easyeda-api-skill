@@ -109,6 +109,25 @@ _(Optional)_ 面板
 </td></tr>
 <tr><td>
 
+[panelLibrary?](./ISYS_HeaderMenus.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Array&lt;[ISYS\_HeaderMenuTopMenuItem](./ISYS_HeaderMenuTopMenuItem.md)<!-- -->&gt;
+
+
+</td><td>
+
+_(Optional)_ 面板库
+
+
+</td></tr>
+<tr><td>
+
 [panelView?](./ISYS_HeaderMenus.md)
 
 
@@ -204,6 +223,44 @@ _(Optional)_ 原理图
 </td></tr>
 <tr><td>
 
+[simulationSchematicNGspice?](./ISYS_HeaderMenus.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Array&lt;[ISYS\_HeaderMenuTopMenuItem](./ISYS_HeaderMenuTopMenuItem.md)<!-- -->&gt;
+
+
+</td><td>
+
+_(Optional)_ 仿真原理图：NGspice
+
+
+</td></tr>
+<tr><td>
+
+[simulationSchematicSimulIDE?](./ISYS_HeaderMenus.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Array&lt;[ISYS\_HeaderMenuTopMenuItem](./ISYS_HeaderMenuTopMenuItem.md)<!-- -->&gt;
+
+
+</td><td>
+
+_(Optional)_ 仿真原理图：SimulIDE
+
+
+</td></tr>
+<tr><td>
+
 [symbol?](./ISYS_HeaderMenus.md)
 
 
@@ -275,6 +332,18 @@ home?: Array<ISYS_HeaderMenuTopMenuItem>;
 panel?: Array<ISYS_HeaderMenuTopMenuItem>;
 ```
 
+### panellibrary
+
+# ISYS\_HeaderMenus.panelLibrary property
+
+面板库
+
+## Signature
+
+```typescript
+panelLibrary?: Array<ISYS_HeaderMenuTopMenuItem>;
+```
+
 ### panelview
 
 # ISYS\_HeaderMenus.panelView property
@@ -337,6 +406,30 @@ sch?: Array<ISYS_HeaderMenuTopMenuItem>;
 
 ```typescript
 schematic?: Array<ISYS_HeaderMenuTopMenuItem>;
+```
+
+### simulationschematicngspice
+
+# ISYS\_HeaderMenus.simulationSchematicNGspice property
+
+仿真原理图：NGspice
+
+## Signature
+
+```typescript
+simulationSchematicNGspice?: Array<ISYS_HeaderMenuTopMenuItem>;
+```
+
+### simulationschematicsimulide
+
+# ISYS\_HeaderMenus.simulationSchematicSimulIDE property
+
+仿真原理图：SimulIDE
+
+## Signature
+
+```typescript
+simulationSchematicSimulIDE?: Array<ISYS_HeaderMenuTopMenuItem>;
 ```
 
 ### symbol

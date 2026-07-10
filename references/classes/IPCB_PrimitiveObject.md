@@ -454,6 +454,12 @@ string
 
 二进制数据
 
+## Remarks
+
+从画布取回的 `binaryData` 数据可能为 `hashId`<!-- -->，这是由于我们后端存储二进制内嵌对象数据的是对象存储，
+
+对象存储以 `hashId` 作为索引，需要完整取回数据将会造成额外请求消耗性能
+
 ### getstate_filename
 
 # IPCB\_PrimitiveObject.getState\_FileName() method
@@ -758,6 +764,12 @@ string
 [IPCB\_PrimitiveObject](./IPCB_PrimitiveObject.md)
 
 二进制内嵌对象图元对象
+
+## Remarks
+
+从画布重新取回的 `binaryData` 数据可能为 `hashId`<!-- -->，这是由于我们后端存储二进制内嵌对象数据的是对象存储，
+
+对象存储以 `hashId` 作为索引，需要完整取回数据将会造成额外请求消耗性能
 
 ### setstate_filename
 

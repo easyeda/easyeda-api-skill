@@ -12,6 +12,7 @@ declare class SYS_Window
 
 为了保证安全性，仅提供有限的窗口跳转与监听支持，更多操作请使用内联框架窗口 [SYS\_IFrame](./SYS_IFrame.md)
 
+
 ## Methods
 
 <table><thead><tr><th>
@@ -83,6 +84,48 @@ Description
 </td><td>
 
 获取 URL 参数
+
+
+</td></tr>
+<tr><td>
+
+[getViewportSize()](./SYS_Window.md)
+
+
+</td><td>
+
+
+</td><td>
+
+获取页面当前视口大小
+
+
+</td></tr>
+<tr><td>
+
+[hideStartPageQuickStartItems(items)](./SYS_Window.md)
+
+
+</td><td>
+
+
+</td><td>
+
+隐藏开始页快速启动选项
+
+
+</td></tr>
+<tr><td>
+
+[hideStartPageSupportFloatBarItems()](./SYS_Window.md)
+
+
+</td><td>
+
+
+</td><td>
+
+隐藏开始页支持信息悬浮组件
 
 
 </td></tr>
@@ -352,6 +395,123 @@ string
 string \| null
 
 参数值
+
+### getviewportsize
+
+# SYS\_Window.getViewportSize() method
+
+获取页面当前视口大小
+
+## Signature
+
+```typescript
+getViewportSize(): {
+        width: number;
+        height: number;
+    };
+```
+
+
+## Returns
+
+\{ width: number; height: number; \}
+
+视口宽高（单位：像素）
+
+## Remarks
+
+ADD since EDA v3.2.162
+
+### hidestartpagequickstartitems
+
+# SYS\_Window.hideStartPageQuickStartItems() method
+
+隐藏开始页快速启动选项
+
+## Signature
+
+```typescript
+hideStartPageQuickStartItems(items: Array<ESYS_StartPageQuickStartItem>): Promise<boolean>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+items
+
+
+</td><td>
+
+Array&lt;[ESYS\_StartPageQuickStartItem](../enums/ESYS_StartPageQuickStartItem.md)<!-- -->&gt;
+
+
+</td><td>
+
+欲隐藏的快速启动项数组
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;boolean&gt;
+
+是否全部隐藏成功（若存在未知项或已隐藏的项则返回 `false`<!-- -->）
+
+## Remarks
+
+隐藏开始页快速启动模块中的指定项
+
+注意：本接口需要使用者启用扩展的外部交互权限，如若未启用将始终 `throw Error`
+
+ADD since EDA v3.2.162
+
+### hidestartpagesupportfloatbaritems
+
+# SYS\_Window.hideStartPageSupportFloatBarItems() method
+
+隐藏开始页支持信息悬浮组件
+
+## Signature
+
+```typescript
+hideStartPageSupportFloatBarItems(): Promise<boolean>;
+```
+
+
+## Returns
+
+Promise&lt;boolean&gt;
+
+是否隐藏成功
+
+## Remarks
+
+隐藏开始页右侧悬浮组件（微信、客服、电话、反馈）
+
+注意：本接口需要使用者启用扩展的外部交互权限，如若未启用将始终 `throw Error`
+
+ADD since EDA v3.2.162
 
 ### open
 

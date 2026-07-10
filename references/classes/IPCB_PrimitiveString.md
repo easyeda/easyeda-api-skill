@@ -63,6 +63,20 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+[done()](./IPCB_PrimitiveString.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 将对图元的更改应用到画布
+
+
+</td></tr>
+<tr><td>
+
 [getState\_AlignMode()](./IPCB_PrimitiveString.md)
 
 
@@ -282,6 +296,20 @@ Description
 </td><td>
 
 查询图元是否为异步图元
+
+
+</td></tr>
+<tr><td>
+
+[reset()](./IPCB_PrimitiveString.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 将异步图元重置为当前画布状态
 
 
 </td></tr>
@@ -754,6 +782,27 @@ _(Optional)_
 
 ## 方法详情
 
+### done
+
+# IPCB\_PrimitiveString.done() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+将对图元的更改应用到画布
+
+## Signature
+
+```typescript
+done(): Promise<IPCB_PrimitiveString>;
+```
+
+
+## Returns
+
+Promise&lt;[IPCB\_PrimitiveString](./IPCB_PrimitiveString.md)<!-- -->&gt;
+
+文本图元对象
+
 ### getstate_alignmode
 
 # IPCB\_PrimitiveString.getState\_AlignMode() method
@@ -1057,6 +1106,27 @@ isAsync(): boolean;
 boolean
 
 是否为异步图元
+
+### reset
+
+# IPCB\_PrimitiveString.reset() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+将异步图元重置为当前画布状态
+
+## Signature
+
+```typescript
+reset(): Promise<IPCB_PrimitiveString>;
+```
+
+
+## Returns
+
+Promise&lt;[IPCB\_PrimitiveString](./IPCB_PrimitiveString.md)<!-- -->&gt;
+
+���本图元对象
 
 ### setstate_alignmode
 
@@ -1579,6 +1649,10 @@ boolean
 [IPCB\_PrimitiveString](./IPCB_PrimitiveString.md)
 
 文本图元对象
+
+## Remarks
+
+默认字体不支持反相
 
 ### setstate_rotation
 

@@ -242,6 +242,20 @@ Description
 </td></tr>
 <tr><td>
 
+[getIpc2581CFile(fileName, fileType, unit, oemNumber)](./PCB_ManufactureData.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 获取 IPC-2581C 文件
+
+
+</td></tr>
+<tr><td>
+
 [getIpcD356AFile(fileName)](./PCB_ManufactureData.md)
 
 
@@ -326,7 +340,7 @@ Description
 </td></tr>
 <tr><td>
 
-[getPdfFile(fileName, outputMethod, contentConfig, watermark)](./PCB_ManufactureData.md)
+[getPdfFile(fileName, outputMethod, contentConfig, watermark, graphPageConfig)](./PCB_ManufactureData.md)
 
 
 </td><td>
@@ -1863,6 +1877,116 @@ if (idxFile) {
 }
 ```
 
+### getipc2581cfile
+
+# PCB\_ManufactureData.getIpc2581CFile() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+获取 IPC-2581C 文件
+
+## Signature
+
+```typescript
+getIpc2581CFile(fileName?: string, fileType?: 'xml' | 'cvg' | '2581', unit?: ESYS_Unit.INCH | ESYS_Unit.MILLIMETER, oemNumber?: 'Device' | 'Manufacturer Part' | 'Supplier Part' | 'Comment'): Promise<File | undefined>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+fileName
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_ 文件名
+
+
+</td></tr>
+<tr><td>
+
+fileType
+
+
+</td><td>
+
+'xml' \| 'cvg' \| '2581'
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+unit
+
+
+</td><td>
+
+[ESYS\_Unit.INCH](../enums/ESYS_Unit.md) \| [ESYS\_Unit.MILLIMETER](../enums/ESYS_Unit.md)
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+oemNumber
+
+
+</td><td>
+
+'Device' \| 'Manufacturer Part' \| 'Supplier Part' \| 'Comment'
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;File \| undefined&gt;
+
+IPC-2581C 文件数据
+
+## Remarks
+
+可以使用 [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) 接口将文件导出到本地文件系统
+
 ### getipcd356afile
 
 # PCB\_ManufactureData.getIpcD356AFile() method
@@ -2399,7 +2523,9 @@ getPdfFile(fileName?: string, outputMethod?: EPCB_PdfOutputMethod, contentConfig
             slope: 0 | 45 | 90;
             denseness: 'Single' | 'Sparse' | 'Std' | 'Dense';
         };
-    }): Promise<File | undefined>;
+    }, graphPageConfig?: Array<{
+        [key: string]: any;
+    }>): Promise<File | undefined>;
 ```
 
 ## Parameters
@@ -2484,6 +2610,22 @@ _(Optional)_ 水印
 
 
 </td></tr>
+<tr><td>
+
+graphPageConfig
+
+
+</td><td>
+
+Array&lt;{ \[key: string\]: any; }&gt;
+
+
+</td><td>
+
+_(Optional)_ 图页配置
+
+
+</td></tr>
 </tbody></table>
 
 
@@ -2498,7 +2640,7 @@ PDF 文件数据（或压缩包）
 
 可以使用 [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) 接口将文件导出到本地文件系统
 
-`outputMethod`<!-- -->、`contentConfig`<!-- -->、`watermark` 参数暂不可用，等待后期规划
+`outputMethod`<!-- -->、`contentConfig`<!-- -->、`watermark`<!-- -->、`graphPageConfig` 参数暂不可用，等待后期规划
 
 ## Example
 
@@ -2793,7 +2935,7 @@ _(Optional)_ 在非交互式检查时忽略警告
 
 Promise&lt;boolean&gt;
 
-是否通过下单检查
+是否通过下单检查；在入参开发完成前，返回值没有实际作用，不会等待执行结果
 
 ## Remarks
 
@@ -2879,7 +3021,7 @@ _(Optional)_ 在非交互式检查时忽略警告
 
 Promise&lt;boolean&gt;
 
-是否通过下单检查
+是否通过下单检查；在入参开发完成前，返回值没有实际作用，不会等待执行结果
 
 ## Remarks
 
@@ -2965,7 +3107,7 @@ _(Optional)_ 在非交互式检查时忽略警告
 
 Promise&lt;boolean&gt;
 
-是否通过下单检查
+是否通过下单检查；在入参开发完成前，返回值没有实际作用，不会等待执行结果
 
 ## Remarks
 
@@ -3051,7 +3193,7 @@ _(Optional)_ 在非交互式检查时忽略警告
 
 Promise&lt;boolean&gt;
 
-是否通过下单检查
+是否通过下单检查；在入参开发完成前，返回值没有实际作用，不会等待执行结果
 
 ## Remarks
 

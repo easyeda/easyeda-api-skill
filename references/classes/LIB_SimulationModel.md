@@ -1,11 +1,11 @@
-# LIB\_3DModel class
+# LIB\_SimulationModel class
 
-综合库 / 3D 模型类
+综合库 / 仿真模型类
 
 ## Signature
 
 ```typescript
-declare class LIB_3DModel 
+declare class LIB_SimulationModel 
 ```
 
 ## Methods
@@ -28,7 +28,7 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-[copy(modelUuid, libraryUuid, targetLibraryUuid, targetClassification, newModelName)](./LIB_3DModel.md)
+[copy(simulationModelUuid, libraryUuid, targetLibraryUuid, targetClassification, newSimulationModelName)](./LIB_SimulationModel.md)
 
 
 </td><td>
@@ -36,13 +36,13 @@ Description
 
 </td><td>
 
-**_(BETA)_** 复制 3D 模型
+**_(BETA)_** 复制仿真模型
 
 
 </td></tr>
 <tr><td>
 
-[create(libraryUuid, modelFile, classification, unit)](./LIB_3DModel.md)
+[create(libraryUuid, model, classification, description)](./LIB_SimulationModel.md)
 
 
 </td><td>
@@ -50,13 +50,13 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建 3D 模型
+**_(BETA)_** 创建仿真模型
 
 
 </td></tr>
 <tr><td>
 
-[delete(modelUuid, libraryUuid)](./LIB_3DModel.md)
+[delete(simulationModelUuid, libraryUuid)](./LIB_SimulationModel.md)
 
 
 </td><td>
@@ -64,13 +64,13 @@ Description
 
 </td><td>
 
-**_(BETA)_** 删除 3D 模型
+**_(BETA)_** 删除仿真模型
 
 
 </td></tr>
 <tr><td>
 
-[get(modelUuid, libraryUuid)](./LIB_3DModel.md)
+[get(simulationModelUuid, libraryUuid)](./LIB_SimulationModel.md)
 
 
 </td><td>
@@ -78,13 +78,13 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取 3D 模型的所有属性
+**_(BETA)_** 获取仿真模型的所有属性
 
 
 </td></tr>
 <tr><td>
 
-[modify(modelUuid, libraryUuid, modelName, classification, description)](./LIB_3DModel.md)
+[modify(simulationModelUuid, libraryUuid, modelProps, classification, description)](./LIB_SimulationModel.md)
 
 
 </td><td>
@@ -92,13 +92,13 @@ Description
 
 </td><td>
 
-**_(BETA)_** 修改 3D 模型
+**_(BETA)_** 修改仿真模型
 
 
 </td></tr>
 <tr><td>
 
-[search(key, libraryUuid, classification, itemsOfPage, page)](./LIB_3DModel.md)
+[search(key, libraryUuid, classification, simulationModelType, itemsOfPage, page)](./LIB_SimulationModel.md)
 
 
 </td><td>
@@ -106,7 +106,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 搜索 3D 模型
+**_(BETA)_** 搜索仿真模型
 
 
 </td></tr>
@@ -118,16 +118,16 @@ Description
 
 ### copy
 
-# LIB\_3DModel.copy() method
+# LIB\_SimulationModel.copy() method
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-复制 3D 模型
+复制仿真模型
 
 ## Signature
 
 ```typescript
-copy(modelUuid: string, libraryUuid: string, targetLibraryUuid: string, targetClassification?: ILIB_ClassificationIndex | Array<string>, newModelName?: string): Promise<string | undefined>;
+copy(simulationModelUuid: string, libraryUuid: string, targetLibraryUuid: string, targetClassification?: Array<string>, newSimulationModelName?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -150,7 +150,7 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-modelUuid
+simulationModelUuid
 
 
 </td><td>
@@ -160,7 +160,7 @@ string
 
 </td><td>
 
-3D 模型 UUID
+仿真模型 UUID
 
 
 </td></tr>
@@ -203,7 +203,7 @@ targetClassification
 
 </td><td>
 
-[ILIB\_ClassificationIndex](../interfaces/ILIB_ClassificationIndex.md) \| Array&lt;string&gt;
+Array&lt;string&gt;
 
 
 </td><td>
@@ -214,7 +214,7 @@ _(Optional)_ 目标库内的分类
 </td></tr>
 <tr><td>
 
-newModelName
+newSimulationModelName
 
 
 </td><td>
@@ -224,7 +224,7 @@ string
 
 </td><td>
 
-_(Optional)_ 新 3D 模型名称，如若目标库内存在重名 3D 模型将导致复制失败
+_(Optional)_ 新仿真模型名称，如若目标库内存在重名符号将导致复制失败
 
 
 </td></tr>
@@ -236,20 +236,36 @@ _(Optional)_ 新 3D 模型名称，如若目标库内存在重名 3D 模型将�
 
 Promise&lt;string \| undefined&gt;
 
-目标库内新 3D 模型的 UUID
+目标库内新仿真模型的 UUID
+
+## Remarks
+
+ADD since EDA v3.2.167
 
 ### create
 
-# LIB\_3DModel.create() method
+# LIB\_SimulationModel.create() method
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-创建 3D 模型
+创建仿真模型
 
 ## Signature
 
 ```typescript
-create(libraryUuid: string, modelFile: Blob, classification?: ILIB_ClassificationIndex | Array<string>, unit?: ESYS_Unit.MILLIMETER | ESYS_Unit.CENTIMETER | ESYS_Unit.METER | ESYS_Unit.MIL | ESYS_Unit.INCH): Promise<Array<string> | undefined>;
+create(libraryUuid: string, model: {
+        modelType: 'Ngspice';
+    } & ({
+        modelFile: Blob;
+        modelName?: string;
+        modelCategory?: string;
+        modelPin?: string;
+    } | {
+        modelData: string;
+        modelName?: string;
+        modelCategory?: string;
+        modelPin?: string;
+    }), classification?: Array<string>, description?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -288,17 +304,17 @@ string
 </td></tr>
 <tr><td>
 
-modelFile
+model
 
 
 </td><td>
 
-Blob
+{ modelType: 'Ngspice'; } &amp; ({ modelFile: Blob; modelName?: string; modelCategory?: string; modelPin?: string; } \| { modelData: string; modelName?: string; modelCategory?: string; modelPin?: string; })
 
 
 </td><td>
 
-3D 模型文件数据
+仿真模型数据
 
 
 </td></tr>
@@ -309,7 +325,7 @@ classification
 
 </td><td>
 
-[ILIB\_ClassificationIndex](../interfaces/ILIB_ClassificationIndex.md) \| Array&lt;string&gt;
+Array&lt;string&gt;
 
 
 </td><td>
@@ -320,17 +336,17 @@ _(Optional)_ 分类
 </td></tr>
 <tr><td>
 
-unit
+description
 
 
 </td><td>
 
-[ESYS\_Unit.MILLIMETER](../enums/ESYS_Unit.md) \| [ESYS\_Unit.CENTIMETER](../enums/ESYS_Unit.md) \| [ESYS\_Unit.METER](../enums/ESYS_Unit.md) \| [ESYS\_Unit.MIL](../enums/ESYS_Unit.md) \| [ESYS\_Unit.INCH](../enums/ESYS_Unit.md)
+string
 
 
 </td><td>
 
-_(Optional)_ 单位
+_(Optional)_ 描述
 
 
 </td></tr>
@@ -340,26 +356,26 @@ _(Optional)_ 单位
 
 ## Returns
 
-Promise&lt;Array&lt;string&gt; \| undefined&gt;
+Promise&lt;string \| undefined&gt;
 
-创建的所有 3D 模型的 UUID
+仿真模型 UUID
 
 ## Remarks
 
-传入的 `modelFile` 可以为多个模型文件的压缩包，EDA 将会自动提取多个模型
+ADD since EDA v3.2.167
 
 ### delete
 
-# LIB\_3DModel.delete() method
+# LIB\_SimulationModel.delete() method
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-删除 3D 模型
+删除仿真模型
 
 ## Signature
 
 ```typescript
-delete(modelUuid: string, libraryUuid: string): Promise<boolean>;
+delete(simulationModelUuid: string, libraryUuid: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -382,7 +398,7 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-modelUuid
+simulationModelUuid
 
 
 </td><td>
@@ -392,7 +408,7 @@ string
 
 </td><td>
 
-3D 模型 UUID
+仿真模型 UUID
 
 
 </td></tr>
@@ -422,18 +438,22 @@ Promise&lt;boolean&gt;
 
 操作是否成功
 
+## Remarks
+
+ADD since EDA v3.2.167
+
 ### get
 
-# LIB\_3DModel.get() method
+# LIB\_SimulationModel.get() method
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取 3D 模型的所有属性
+获取仿真模型的所有属性
 
 ## Signature
 
 ```typescript
-get(modelUuid: string, libraryUuid?: string): Promise<ILIB_3DModelItem | undefined>;
+get(simulationModelUuid: string, libraryUuid?: string): Promise<ILIB_SimulationModelItem | undefined>;
 ```
 
 ## Parameters
@@ -456,7 +476,7 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-modelUuid
+simulationModelUuid
 
 
 </td><td>
@@ -466,7 +486,7 @@ string
 
 </td><td>
 
-3D 模型 UUID
+仿真模型 UUID
 
 
 </td></tr>
@@ -492,22 +512,32 @@ _(Optional)_ 库 UUID，默认为系统库，可以使用 [LIB\_LibrariesList](.
 
 ## Returns
 
-Promise&lt;[ILIB\_3DModelItem](../interfaces/ILIB_3DModelItem.md) \| undefined&gt;
+Promise&lt;[ILIB\_SimulationModelItem](../interfaces/ILIB_SimulationModelItem.md) \| undefined&gt;
 
-3D 模型属性
+仿真模型属性
+
+## Remarks
+
+注意：本接口仅私有化部署版本有效，如若在其他版本调用将始终 `throw Error`
+
+ADD since EDA v3.2.167
 
 ### modify
 
-# LIB\_3DModel.modify() method
+# LIB\_SimulationModel.modify() method
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-修改 3D 模型
+修改仿真模型
 
 ## Signature
 
 ```typescript
-modify(modelUuid: string, libraryUuid: string, modelName?: string, classification?: ILIB_ClassificationIndex | Array<string> | null, description?: string | null): Promise<boolean>;
+modify(simulationModelUuid: string, libraryUuid: string, modelProps?: {
+        modelName?: string;
+        modelCategory?: string;
+        modelPin?: string;
+    }, classification?: Array<string> | null, description?: string | null): Promise<boolean>;
 ```
 
 ## Parameters
@@ -530,7 +560,7 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-modelUuid
+simulationModelUuid
 
 
 </td><td>
@@ -540,7 +570,7 @@ string
 
 </td><td>
 
-3D 模型 UUID
+仿真模型 UUID
 
 
 </td></tr>
@@ -562,17 +592,17 @@ string
 </td></tr>
 <tr><td>
 
-modelName
+modelProps
 
 
 </td><td>
 
-string
+\{ modelName?: string; modelCategory?: string; modelPin?: string; \}
 
 
 </td><td>
 
-_(Optional)_ 3D 模型名称
+_(Optional)_ 仿真模型属性
 
 
 </td></tr>
@@ -583,7 +613,7 @@ classification
 
 </td><td>
 
-[ILIB\_ClassificationIndex](../interfaces/ILIB_ClassificationIndex.md) \| Array&lt;string&gt; \| null
+Array&lt;string&gt; \| null
 
 
 </td><td>
@@ -622,18 +652,20 @@ Promise&lt;boolean&gt;
 
 如希望清除某些属性，则将其的值设置为 `null`
 
+ADD since EDA v3.2.167
+
 ### search
 
-# LIB\_3DModel.search() method
+# LIB\_SimulationModel.search() method
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-搜索 3D 模型
+搜索仿真模型
 
 ## Signature
 
 ```typescript
-search(key: string, libraryUuid?: string, classification?: ILIB_ClassificationIndex | Array<string>, itemsOfPage?: number, page?: number): Promise<Array<ILIB_3DModelSearchItem>>;
+search(key: string, libraryUuid?: string, classification?: Array<string>, simulationModelType?: ELIB_SimulationModelType, itemsOfPage?: number, page?: number): Promise<Array<ILIB_SimulationModelSearchItem>>;
 ```
 
 ## Parameters
@@ -693,12 +725,28 @@ classification
 
 </td><td>
 
-[ILIB\_ClassificationIndex](../interfaces/ILIB_ClassificationIndex.md) \| Array&lt;string&gt;
+Array&lt;string&gt;
 
 
 </td><td>
 
 _(Optional)_ 分类，默认为全部
+
+
+</td></tr>
+<tr><td>
+
+simulationModelType
+
+
+</td><td>
+
+[ELIB\_SimulationModelType](../enums/ELIB_SimulationModelType.md)
+
+
+</td><td>
+
+_(Optional)_ 仿真模型类型，默认为全部
 
 
 </td></tr>
@@ -740,6 +788,10 @@ _(Optional)_ 页数
 
 ## Returns
 
-Promise&lt;Array&lt;[ILIB\_3DModelSearchItem](../interfaces/ILIB_3DModelSearchItem.md)<!-- -->&gt;&gt;
+Promise&lt;Array&lt;[ILIB\_SimulationModelSearchItem](../interfaces/ILIB_SimulationModelSearchItem.md)<!-- -->&gt;&gt;
 
-搜索到的 3D 模型属性列表
+搜索到的仿真模型属性列表
+
+## Remarks
+
+ADD since EDA v3.2.167

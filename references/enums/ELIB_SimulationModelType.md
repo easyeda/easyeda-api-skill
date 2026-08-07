@@ -1,11 +1,11 @@
-# ESCH\_SimulationNetlistType enum
+# ELIB\_SimulationModelType enum
 
-仿真网表类型
+仿真模型类型
 
 ## Signature
 
 ```typescript
-declare enum ESCH_SimulationNetlistType 
+declare enum ELIB_SimulationModelType 
 ```
 
 ## Enumeration Members
@@ -39,6 +39,22 @@ NGSPICE
 </td><td>
 
 Ngspice
+
+
+</td></tr>
+<tr><td>
+
+SIMULIDE
+
+
+</td><td>
+
+`"SimulIDE"`
+
+
+</td><td>
+
+SimulIDE
 
 
 </td></tr>

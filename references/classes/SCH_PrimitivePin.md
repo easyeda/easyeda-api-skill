@@ -562,6 +562,8 @@ modify(primitiveId: string | ISCH_PrimitivePin | ISCH_PrimitiveComponentPin, pro
         pinColor?: string | null;
         pinShape?: ESCH_PrimitivePinShape;
         pinType?: ESCH_PrimitivePinType;
+        noConnected?: boolean;
+        otherProperty?: Record<string, string | number | boolean>;
     }): Promise<ISCH_PrimitivePin | ISCH_PrimitiveComponentPin | undefined>;
 ```
 
@@ -606,7 +608,7 @@ property
 
 </td><td>
 
-{ x?: number; y?: number; pinNumber?: string; pinName?: string; rotation?: number; pinLength?: number; pinColor?: string \| null; pinShape?: [ESCH\_PrimitivePinShape](../enums/ESCH_PrimitivePinShape.md)<!-- -->; pinType?: [ESCH\_PrimitivePinType](../enums/ESCH_PrimitivePinType.md)<!-- -->; }
+{ x?: number; y?: number; pinNumber?: string; pinName?: string; rotation?: number; pinLength?: number; pinColor?: string \| null; pinShape?: [ESCH\_PrimitivePinShape](../enums/ESCH_PrimitivePinShape.md)<!-- -->; pinType?: [ESCH\_PrimitivePinType](../enums/ESCH_PrimitivePinType.md)<!-- -->; noConnected?: boolean; otherProperty?: Record&lt;string, string \| number \| boolean&gt;; }
 
 
 </td><td>

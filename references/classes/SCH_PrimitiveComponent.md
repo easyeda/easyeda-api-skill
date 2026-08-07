@@ -46,6 +46,20 @@ Description
 </td></tr>
 <tr><td>
 
+[createCbbSymbol(cbbSymbol, x, y, rotation, mirror)](./SCH_PrimitiveComponent.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 创建复用模块符号
+
+
+</td></tr>
+<tr><td>
+
 [createNetFlag(identification, net, x, y, rotation, mirror)](./SCH_PrimitiveComponent.md)
 
 
@@ -200,6 +214,20 @@ Description
 </td></tr>
 <tr><td>
 
+[placeCbbSchematicPage(cbbSchematicPage, x, y)](./SCH_PrimitiveComponent.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 放置复用模块原理图图页
+
+
+</td></tr>
+<tr><td>
+
 [placeComponentWithMouse(component, subPartName)](./SCH_PrimitiveComponent.md)
 
 
@@ -209,6 +237,20 @@ Description
 </td><td>
 
 **_(BETA)_** 使用鼠标放置器件
+
+
+</td></tr>
+<tr><td>
+
+[placeSymbolWithMouse(symbol, subPartName, properties)](./SCH_PrimitiveComponent.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 使用鼠标放置符号
 
 
 </td></tr>
@@ -328,9 +370,14 @@ Description
 
 ```typescript
 create(component: {
+        libraryType?: ELIB_LibraryType.DEVICE;
         libraryUuid: string;
         uuid: string;
-    } | ILIB_DeviceItem | ILIB_DeviceSearchItem, x: number, y: number, subPartName?: string, rotation?: number, mirror?: boolean, addIntoBom?: boolean, addIntoPcb?: boolean): Promise<ISCH_PrimitiveComponent$1 | undefined>;
+    } | ILIB_DeviceItem | ILIB_DeviceSearchItem | {
+        libraryType: ELIB_LibraryType.SYMBOL;
+        libraryUuid: string;
+        uuid: string;
+    } | ILIB_SymbolItem | ILIB_SymbolSearchItem, x: number, y: number, subPartName?: string, rotation?: number, mirror?: boolean, addIntoBom?: boolean, addIntoPcb?: boolean): Promise<ISCH_PrimitiveComponent | undefined>;
 ```
 
 ## Parameters
@@ -358,7 +405,7 @@ component
 
 </td><td>
 
-{ libraryUuid: string; uuid: string; } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)
+{ libraryType?: [ELIB\_LibraryType.DEVICE](../enums/ELIB_LibraryType.md)<!-- -->; libraryUuid: string; uuid: string; } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md) \| { libraryType: [ELIB\_LibraryType.SYMBOL](../enums/ELIB_LibraryType.md)<!-- -->; libraryUuid: string; uuid: string; } \| [ILIB\_SymbolItem](../interfaces/ILIB_SymbolItem.md) \| [ILIB\_SymbolSearchItem](../interfaces/ILIB_SymbolSearchItem.md)
 
 
 </td><td>
@@ -411,7 +458,7 @@ string
 
 </td><td>
 
-_(Optional)_ 子图块名称
+_(Optional)_ 子部件名称
 
 
 </td></tr>
@@ -485,9 +532,135 @@ _(Optional)_ 是否转到 PCB
 
 ## Returns
 
-Promise&lt;ISCH\_PrimitiveComponent$1 \| undefined&gt;
+Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined&gt;
 
 器件图元对象
+
+### createcbbsymbol
+
+# SCH\_PrimitiveComponent.createCbbSymbol() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+创建复用模块符号
+
+## Signature
+
+```typescript
+createCbbSymbol(cbbSymbol: {
+        libraryUuid: string;
+        cbbUuid: string;
+        uuid?: string;
+    }, x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveCbbSymbolComponent | undefined>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+cbbSymbol
+
+
+</td><td>
+
+\{ libraryUuid: string; cbbUuid: string; uuid?: string; \}
+
+
+</td><td>
+
+关联库复用模块符号，libraryUuid 是 CBB 工程所在库的 UUID，cbbUuid 是 CBB 工程的 UUID，uuid 是 CBB 工程内符号的 UUID，name 是符号的显示名称
+
+
+</td></tr>
+<tr><td>
+
+x
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+坐标 X
+
+
+</td></tr>
+<tr><td>
+
+y
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+坐标 Y
+
+
+</td></tr>
+<tr><td>
+
+rotation
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_ 旋转角度
+
+
+</td></tr>
+<tr><td>
+
+mirror
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+_(Optional)_ 是否镜像
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;[ISCH\_PrimitiveCbbSymbolComponent](./ISCH_PrimitiveCbbSymbolComponent.md) \| undefined&gt;
+
+复用模块符号图元对象
 
 ### createnetflag
 
@@ -500,7 +673,7 @@ Promise&lt;ISCH\_PrimitiveComponent$1 \| undefined&gt;
 ## Signature
 
 ```typescript
-createNetFlag(identification: 'Power' | 'Ground' | 'AnalogGround' | 'ProtectGround', net: string, x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveComponent$1 | undefined>;
+createNetFlag(identification: 'Power' | 'Ground' | 'AnalogGround' | 'ProtectGround', net: string, x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveComponent | undefined>;
 ```
 
 ## Parameters
@@ -623,7 +796,7 @@ _(Optional)_ 是否镜像
 
 ## Returns
 
-Promise&lt;ISCH\_PrimitiveComponent$1 \| undefined&gt;
+Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined&gt;
 
 器件图元对象
 
@@ -638,7 +811,7 @@ Promise&lt;ISCH\_PrimitiveComponent$1 \| undefined&gt;
 ## Signature
 
 ```typescript
-createNetPort(direction: 'IN' | 'OUT' | 'BI', net: string, x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveComponent$1 | undefined>;
+createNetPort(direction: 'IN' | 'OUT' | 'BI', net: string, x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveComponent | undefined>;
 ```
 
 ## Parameters
@@ -761,7 +934,7 @@ _(Optional)_ 是否镜像
 
 ## Returns
 
-Promise&lt;ISCH\_PrimitiveComponent$1 \| undefined&gt;
+Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined&gt;
 
 器件图元对象
 
@@ -776,7 +949,7 @@ Promise&lt;ISCH\_PrimitiveComponent$1 \| undefined&gt;
 ## Signature
 
 ```typescript
-createShortCircuitFlag(x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveComponent$1 | undefined>;
+createShortCircuitFlag(x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveComponent | undefined>;
 ```
 
 ## Parameters
@@ -867,7 +1040,7 @@ _(Optional)_ 是否镜像
 
 ## Returns
 
-Promise&lt;ISCH\_PrimitiveComponent$1 \| undefined&gt;
+Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined&gt;
 
 器件图元对象
 
@@ -882,7 +1055,7 @@ Promise&lt;ISCH\_PrimitiveComponent$1 \| undefined&gt;
 ## Signature
 
 ```typescript
-delete(primitiveIds: string | ISCH_PrimitiveComponent$1 | Array<string> | Array<ISCH_PrimitiveComponent$1>): Promise<boolean>;
+delete(primitiveIds: string | ISCH_PrimitiveComponent | Array<string> | Array<ISCH_PrimitiveComponent>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -910,7 +1083,7 @@ primitiveIds
 
 </td><td>
 
-string \| ISCH\_PrimitiveComponent$1 \| Array&lt;string&gt; \| Array&lt;ISCH\_PrimitiveComponent$1&gt;
+string \| [ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| Array&lt;string&gt; \| Array&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)<!-- -->&gt;
 
 
 </td><td>
@@ -940,7 +1113,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-get(primitiveIds: string): Promise<ISCH_PrimitiveComponent$1 | undefined>;
+get(primitiveIds: string): Promise<ISCH_PrimitiveComponent | undefined>;
 ```
 
 ## Parameters
@@ -983,7 +1156,7 @@ string
 
 ## Returns
 
-Promise&lt;ISCH\_PrimitiveComponent$1 \| undefined&gt;
+Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined&gt;
 
 器件图元对象，`undefined` 表示获取失败
 
@@ -998,7 +1171,7 @@ Promise&lt;ISCH\_PrimitiveComponent$1 \| undefined&gt;
 ## Signature
 
 ```typescript
-get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitiveComponent$1>>;
+get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitiveComponent>>;
 ```
 
 ## Parameters
@@ -1041,7 +1214,7 @@ Array&lt;string&gt;
 
 ## Returns
 
-Promise&lt;Array&lt;ISCH\_PrimitiveComponent$1&gt;&gt;
+Promise&lt;Array&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)<!-- -->&gt;&gt;
 
 器件图元对象，空数组表示获取失败
 
@@ -1060,7 +1233,7 @@ Promise&lt;Array&lt;ISCH\_PrimitiveComponent$1&gt;&gt;
 ## Signature
 
 ```typescript
-getAll(componentType?: ESCH_PrimitiveComponentType$1, allSchematicPages?: boolean): Promise<Array<ISCH_PrimitiveComponent$1>>;
+getAll(componentType?: ESCH_PrimitiveComponentType, allSchematicPages?: boolean): Promise<Array<ISCH_PrimitiveComponent>>;
 ```
 
 ## Parameters
@@ -1088,7 +1261,7 @@ componentType
 
 </td><td>
 
-[ESCH\_PrimitiveComponentType$1](../enums/ESCH_PrimitiveComponentType.md)
+[ESCH\_PrimitiveComponentType](../enums/ESCH_PrimitiveComponentType.md)
 
 
 </td><td>
@@ -1119,7 +1292,7 @@ _(Optional)_ 是否获取所有原理图图页的器件
 
 ## Returns
 
-Promise&lt;Array&lt;ISCH\_PrimitiveComponent$1&gt;&gt;
+Promise&lt;Array&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)<!-- -->&gt;&gt;
 
 器件图元对象数组
 
@@ -1192,7 +1365,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveComponentPin](./ISCH_PrimitiveComponentPin.m
 ## Signature
 
 ```typescript
-getAllPrimitiveId(componentType?: ESCH_PrimitiveComponentType$1, allSchematicPages?: boolean): Promise<Array<string>>;
+getAllPrimitiveId(componentType?: ESCH_PrimitiveComponentType, allSchematicPages?: boolean): Promise<Array<string>>;
 ```
 
 ## Parameters
@@ -1220,7 +1393,7 @@ componentType
 
 </td><td>
 
-[ESCH\_PrimitiveComponentType$1](../enums/ESCH_PrimitiveComponentType.md)
+[ESCH\_PrimitiveComponentType](../enums/ESCH_PrimitiveComponentType.md)
 
 
 </td><td>
@@ -1287,7 +1460,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 ## Signature
 
 ```typescript
-modify(primitiveId: string | ISCH_PrimitiveComponent$1, property: {
+modify(primitiveId: string | ISCH_PrimitiveComponent, property: {
         x?: number;
         y?: number;
         rotation?: number;
@@ -1301,10 +1474,8 @@ modify(primitiveId: string | ISCH_PrimitiveComponent$1, property: {
         manufacturerId?: string | null;
         supplier?: string | null;
         supplierId?: string | null;
-        otherProperty?: {
-            [key: string]: string | number | boolean;
-        };
-    }): Promise<ISCH_PrimitiveComponent$1 | undefined>;
+        otherProperty?: Record<string, string | number | boolean>;
+    }): Promise<ISCH_PrimitiveComponent | undefined>;
 ```
 
 ## Parameters
@@ -1332,7 +1503,7 @@ primitiveId
 
 </td><td>
 
-string \| ISCH\_PrimitiveComponent$1
+string \| [ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)
 
 
 </td><td>
@@ -1348,7 +1519,7 @@ property
 
 </td><td>
 
-\{ x?: number; y?: number; rotation?: number; mirror?: boolean; addIntoBom?: boolean; addIntoPcb?: boolean; designator?: string \| null; name?: string \| null; uniqueId?: string \| null; manufacturer?: string \| null; manufacturerId?: string \| null; supplier?: string \| null; supplierId?: string \| null; otherProperty?: \{ \[key: string\]: string \| number \| boolean; \}; \}
+{ x?: number; y?: number; rotation?: number; mirror?: boolean; addIntoBom?: boolean; addIntoPcb?: boolean; designator?: string \| null; name?: string \| null; uniqueId?: string \| null; manufacturer?: string \| null; manufacturerId?: string \| null; supplier?: string \| null; supplierId?: string \| null; otherProperty?: Record&lt;string, string \| number \| boolean&gt;; }
 
 
 </td><td>
@@ -1361,13 +1532,107 @@ property
 
 ## Returns
 
-Promise&lt;ISCH\_PrimitiveComponent$1 \| undefined&gt;
+Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined&gt;
 
 器件图元对象
 
 ## Remarks
 
 仅当器件类型为 [COMPONENT](../enums/ESCH_PrimitiveComponentType.md) 时允许使用该方法进行修改
+
+### placecbbschematicpage
+
+# SCH\_PrimitiveComponent.placeCbbSchematicPage() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+放置复用模块原理图图页
+
+## Signature
+
+```typescript
+placeCbbSchematicPage(cbbSchematicPage: {
+        libraryUuid: string;
+        cbbUuid: string;
+        uuid: string;
+    }, x: number, y: number): Promise<boolean>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+cbbSchematicPage
+
+
+</td><td>
+
+\{ libraryUuid: string; cbbUuid: string; uuid: string; \}
+
+
+</td><td>
+
+复用模块原理图图页
+
+
+</td></tr>
+<tr><td>
+
+x
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+坐标 X
+
+
+</td></tr>
+<tr><td>
+
+y
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+坐标 Y
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;boolean&gt;
+
+放置操作是否成功
 
 ### placecomponentwithmouse
 
@@ -1432,7 +1697,7 @@ string
 
 </td><td>
 
-_(Optional)_
+_(Optional)_ 子部件名称
 
 
 </td></tr>
@@ -1451,6 +1716,109 @@ Promise&lt;boolean&gt;
 本接口模拟前端点击放置按钮，指定的器件将绑定到当前鼠标，并在用户后续点击时放置于画布
 
 本接口的返回时机并不会等待用户的放置操作，一旦器件被绑定到鼠标，本接口将立即返回 `true` 的结果
+
+### placesymbolwithmouse
+
+# SCH\_PrimitiveComponent.placeSymbolWithMouse() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+使用鼠标放置符号
+
+## Signature
+
+```typescript
+placeSymbolWithMouse(symbol: {
+        libraryUuid: string;
+        uuid: string;
+    } | ILIB_SymbolItem | ILIB_SymbolSearchItem, subPartName?: string, properties?: {
+        [key: string]: boolean | number | string | undefined;
+    }): Promise<boolean>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+symbol
+
+
+</td><td>
+
+{ libraryUuid: string; uuid: string; } \| [ILIB\_SymbolItem](../interfaces/ILIB_SymbolItem.md) \| [ILIB\_SymbolSearchItem](../interfaces/ILIB_SymbolSearchItem.md)
+
+
+</td><td>
+
+关联库符号
+
+
+</td></tr>
+<tr><td>
+
+subPartName
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_ 子部件名称
+
+
+</td></tr>
+<tr><td>
+
+properties
+
+
+</td><td>
+
+\{ \[key: string\]: boolean \| number \| string \| undefined; \}
+
+
+</td><td>
+
+_(Optional)_ 器件属性
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;boolean&gt;
+
+是否找到符号
+
+## Remarks
+
+ADD since API v0.2.26
+
+本接口模拟前端点击放置按钮，指定的符号将绑定到当前鼠标，并在用户后续点击时放置于画布
+
+本接口的返回时机并不会等待用户的放置操作，一旦符号被绑定到鼠标，本接口将立即返回 `true` 的结果
 
 ### setnetflagcomponentuuid_analogground
 

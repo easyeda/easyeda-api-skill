@@ -202,6 +202,16 @@ lib_PanelLibrary: LIB_PanelLibrary;
 lib_SelectControl: LIB_SelectControl;
 ```
 
+### lib_simulationmodel
+
+# EDA.lib\_SimulationModel property
+
+## Signature
+
+```typescript
+lib_SimulationModel: LIB_SimulationModel;
+```
+
 ### lib_symbol
 
 # EDA.lib\_Symbol property
@@ -589,7 +599,7 @@ sch_PrimitiveCircle: SCH_PrimitiveCircle;
 ## Signature
 
 ```typescript
-sch_PrimitiveComponent: SCH_PrimitiveComponent | SCH_PrimitiveComponent3;
+sch_PrimitiveComponent: SCH_PrimitiveComponent;
 ```
 
 ### sch_primitiveobject

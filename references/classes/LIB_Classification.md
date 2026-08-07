@@ -416,6 +416,10 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
+> Warning: This API is now obsolete.
+>
+> since EDA v3.2; dropped EDA v3.3
+
 删除指定 UUID 的分类
 
 ## Signature
@@ -487,6 +491,10 @@ Promise&lt;boolean&gt;
 # LIB\_Classification.getAllClassificationTree() method
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+> Warning: This API is now obsolete.
+>
+> since EDA v3.2; dropped EDA v3.3
 
 获取所有分类信息组成的树
 
@@ -747,6 +755,10 @@ Promise&lt;{ primaryClassificationName: string; secondaryClassificationName?: st
 # LIB\_Classification.getNameByUuid() method
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+> Warning: This API is now obsolete.
+>
+> since EDA v3.2; dropped EDA v3.3
 
 获取指定 UUID 的分类的名称
 

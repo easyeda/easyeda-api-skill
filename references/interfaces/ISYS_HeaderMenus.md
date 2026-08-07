@@ -223,6 +223,25 @@ _(Optional)_ 原理图
 </td></tr>
 <tr><td>
 
+[simulationSchematicNgspice?](./ISYS_HeaderMenus.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Array&lt;[ISYS\_HeaderMenuTopMenuItem](./ISYS_HeaderMenuTopMenuItem.md)<!-- -->&gt;
+
+
+</td><td>
+
+_(Optional)_ 仿真原理图：Ngspice
+
+
+</td></tr>
+<tr><td>
+
 [simulationSchematicNGspice?](./ISYS_HeaderMenus.md)
 
 
@@ -236,7 +255,7 @@ Array&lt;[ISYS\_HeaderMenuTopMenuItem](./ISYS_HeaderMenuTopMenuItem.md)<!-- -->&
 
 </td><td>
 
-_(Optional)_ 仿真原理图：NGspice
+_(Optional)_ 仿真原理图：Ngspice
 
 
 </td></tr>
@@ -386,7 +405,7 @@ pcbView?: Array<ISYS_HeaderMenuTopMenuItem>;
 
 > Warning: This API is now obsolete.
 >
-> 请使用 `schematic` 替代 `sch`
+> 请使用 `schematic` 替代
 
 原理图
 
@@ -412,7 +431,11 @@ schematic?: Array<ISYS_HeaderMenuTopMenuItem>;
 
 # ISYS\_HeaderMenus.simulationSchematicNGspice property
 
-仿真原理图：NGspice
+> Warning: This API is now obsolete.
+>
+> 请使用 `simulationSchematicNgspice` 替代
+
+仿真原理图：Ngspice
 
 ## Signature
 

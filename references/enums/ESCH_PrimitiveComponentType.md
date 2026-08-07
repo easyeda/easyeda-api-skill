@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESCH_PrimitiveComponentType$1 
+declare enum ESCH_PrimitiveComponentType 
 ```
 
 ## Enumeration Members
@@ -28,6 +28,22 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+CBB\_SYMBOL
+
+
+</td><td>
+
+`"block_symbol"`
+
+
+</td><td>
+
+复用模块符号
+
+
+</td></tr>
+<tr><td>
+
 COMPONENT
 
 
@@ -38,7 +54,23 @@ COMPONENT
 
 </td><td>
 
-元件
+元件符号
+
+
+</td></tr>
+<tr><td>
+
+DIFFERENTIAL\_PAIRS\_FLAG
+
+
+</td><td>
+
+`"diffPairsFlag"`
+
+
+</td><td>
+
+差分对标识
 
 
 </td></tr>
@@ -76,22 +108,6 @@ NET\_FLAG
 </td></tr>
 <tr><td>
 
-NET\_LABEL
-
-
-</td><td>
-
-`"netlabel"`
-
-
-</td><td>
-
-网络标签
-
-
-</td></tr>
-<tr><td>
-
 NET\_PORT
 
 
@@ -119,6 +135,22 @@ NON\_ELECTRICAL\_FLAG
 </td><td>
 
 无电气标识
+
+
+</td></tr>
+<tr><td>
+
+OFF\_PAGE\_CONNECTOR
+
+
+</td><td>
+
+`"offPageConnector"`
+
+
+</td><td>
+
+跨页连接标识
 
 
 </td></tr>

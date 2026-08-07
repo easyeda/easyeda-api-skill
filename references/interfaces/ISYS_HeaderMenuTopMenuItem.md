@@ -71,25 +71,6 @@ _(Optional)_ 子菜单项
 </td></tr>
 <tr><td>
 
-[registerFn?](./ISYS_HeaderMenuTopMenuItem.md)
-
-
-</td><td>
-
-
-</td><td>
-
-string
-
-
-</td><td>
-
-_(Optional)_ 注册方法名称（需要在扩展入口文件导出该方法）
-
-
-</td></tr>
-<tr><td>
-
 [title](./ISYS_HeaderMenuTopMenuItem.md)
 
 
@@ -147,21 +128,4 @@ menuItems?: Array<ISYS_HeaderMenuSub1MenuItem | null>;
 
 ```typescript
 title: string;
-```
-
-
----
-
-## 方法详情
-
-### registerfn
-
-# ISYS\_HeaderMenuTopMenuItem.registerFn property
-
-注册方法名称（需要在扩展入口文件导出该方法）
-
-## Signature
-
-```typescript
-registerFn?: string;
 ```

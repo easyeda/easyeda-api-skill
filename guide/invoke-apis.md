@@ -4,7 +4,7 @@
 
 There are many classes under the EasyEDA Pro Extension API module, all **Classes**, **Enumerations**, **Interfaces**, **Type Aliases** are registered under the `EDA` base class by default and have been instantiated as [eda](../reference/pro-api.eda) object exists in the root scope of every extension runtime, and you can access it directly through the `eda` object.
 
-All extension's runtime get a separate `eda` object, which is not shared with other extensions. You can output this object on the console in [Debug Mode](#Entering%20Debug%20Mode) within an extension (or in [Standalone Script](#Debug%20with%20Standalone%20Scripting)) using the following code:
+All extension's runtime get a separate `eda` object, which is not shared with other extensions. You can output this object on the console in [Debug Mode](#entering-debug-mode) within an extension (or in [Standalone Script](#debugging-with-standalone-scripting)) using the following code:
 
 ```javascript
 console.log('[DEBUG] eda:', eda);
@@ -56,21 +56,25 @@ Then you can enter debug mode.
 
 When using the extension API interface, you need to compile the changes first and upload the compiled result to EasyEDA before you can see the result. If you have some logic that you want to split out for debugging, you can try using the standalone script feature.
 
-**V2 Debugging:**
+::: details EasyEDA Pro V2
 
 Entry: **Top Menu** -\> **Settings** -\> **Extensions** -\> **Standalone Script**
 
-![](/storage/images/en/api/guide/invoke-apis/invoke-apis_20250322_142403.jpg)
+![Standalone Script Window](/storage/images/en/api/guide/invoke-apis/invoke-apis_20250322_142403.jpg)
 
-**V3 Debugging:**
+:::
+
+::: details EasyEDA Pro V3
 
 Entry: **Top Menu** -\> **Advanced** -\> **Run Script**
 
-![](/storage/images/cn/api/guide/invoke-apis/invoke-apis_20260312_101848.png)
+![Run Script Window](/storage/images/cn/api/guide/invoke-apis/invoke-apis_20260312_101848.png)
 
 You can use Script Manager to save standalone scripts and run them quickly:
 
-![](/storage/images/cn/api/guide/invoke-apis/invoke-apis_20260312_102007.png)
+![Script Manager Window](/storage/images/cn/api/guide/invoke-apis/invoke-apis_20260312_102007.png)
+
+:::
 
 Standalone scripts get a unique, throw-away `eda` object each time they run, so you don't have to worry about contaminating the runtime environment with the results of previous runs. Note, however, that some of the extension API interfaces, such as `SYS_IFrame`, cannot be called from within a standalone script because they use features from extension packages or external interactions.
 

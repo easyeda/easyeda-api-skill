@@ -374,7 +374,7 @@ polygon
 
 </td><td>
 
-多边形
+多边形或多边形组
 
 
 </td></tr>
@@ -386,11 +386,11 @@ polygon
 
 number
 
-面积
+面积（单个多边形为绝对面积，多边形组为净面积）
 
 ## Remarks
 
-使用 Shoelace 公式计算，结果为绝对值
+使用 Shoelace 公式计算： - 传入单个多边形时，返回该多边形的绝对面积 - 传入多边形组（<!-- -->，如布尔运算的返回值）时， 计算所有外环面积之和减去所有孔洞面积之和，得到净面积
 
 ### calculateperimeter
 
@@ -594,7 +594,11 @@ boolean
 
 ## Remarks
 
-使用射线法（Ray Casting）判断点是否在多边形内部，边界上的点视为不在内部
+使用射线法（Ray Casting）判断点是否在多边形内部
+
+由于射线法的特性，边界上的点行为不一致：部分边界上的点可能返回 `true`<!-- -->，部分可能返回 `false`<!-- -->， 具体取决于射线方向与边界的几何关系
+
+如需严格判断点是否在边界上，请结合 [SYS\_Math.distanceToPoint()](./SYS_Math.md) 判断距离是否为 `0`
 
 ### distancetopoint
 
@@ -789,7 +793,7 @@ polygon
 ## Signature
 
 ```typescript
-intersection(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): Array<Array<ISYS_MathPoint>>;
+intersection(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): TSYS_MathPolygonGroup;
 ```
 
 ## Parameters
@@ -848,9 +852,9 @@ polygon2
 
 ## Returns
 
-Array&lt;Array&lt;[ISYS\_MathPoint](../interfaces/ISYS_MathPoint.md)<!-- -->&gt;&gt;
+TSYS\_MathPolygonGroup
 
-交集结果的离散点环数组，空数组表示无交集
+交集结果的多边形组，空数组表示无交集
 
 ### intersects
 
@@ -1161,7 +1165,7 @@ Array&lt;[ISYS\_MathPoint](../interfaces/ISYS_MathPoint.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-subtract(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): Array<Array<ISYS_MathPoint>>;
+subtract(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): TSYS_MathPolygonGroup;
 ```
 
 ## Parameters
@@ -1220,9 +1224,9 @@ polygon2
 
 ## Returns
 
-Array&lt;Array&lt;[ISYS\_MathPoint](../interfaces/ISYS_MathPoint.md)<!-- -->&gt;&gt;
+TSYS\_MathPolygonGroup
 
-差集结果的离散点环数组
+差集结果的多边形组，保留外环与孔洞的归属关系
 
 ### translate
 
@@ -1321,7 +1325,7 @@ Array&lt;[ISYS\_MathPoint](../interfaces/ISYS_MathPoint.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-union(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): Array<Array<ISYS_MathPoint>>;
+union(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): TSYS_MathPolygonGroup;
 ```
 
 ## Parameters
@@ -1380,9 +1384,9 @@ polygon2
 
 ## Returns
 
-Array&lt;Array&lt;[ISYS\_MathPoint](../interfaces/ISYS_MathPoint.md)<!-- -->&gt;&gt;
+TSYS\_MathPolygonGroup
 
-并集结果的离散点环数组，每个环为一个独立的多边形
+并集结果的多边形组，保留外环与孔洞的归属关系
 
 ### xor
 
@@ -1393,7 +1397,7 @@ Array&lt;Array&lt;[ISYS\_MathPoint](../interfaces/ISYS_MathPoint.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-xor(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): Array<Array<ISYS_MathPoint>>;
+xor(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): TSYS_MathPolygonGroup;
 ```
 
 ## Parameters
@@ -1452,6 +1456,6 @@ polygon2
 
 ## Returns
 
-Array&lt;Array&lt;[ISYS\_MathPoint](../interfaces/ISYS_MathPoint.md)<!-- -->&gt;&gt;
+TSYS\_MathPolygonGroup
 
-对称差集结果的离散点环数组
+对称差集结果的多边形组，保留外环与孔洞的归属关系

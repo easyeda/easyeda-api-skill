@@ -73,6 +73,20 @@ Description
 </td></tr>
 <tr><td>
 
+[existsPathInFileSystem(uri)](./SYS_FileSystem.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 检查文件系统内的文件或目录是否存在
+
+
+</td></tr>
+<tr><td>
+
 [getDocumentsPath()](./SYS_FileSystem.md)
 
 
@@ -311,6 +325,8 @@ Promise&lt;boolean&gt;
 
 注意 2：本接口需要使用者启用扩展的外部交互权限，如若未启用将始终 `throw Error`
 
+ADD since EDA v3.2.166
+
 ### createobjecturl
 
 # SYS\_FileSystem.createObjectURL() method
@@ -456,6 +472,72 @@ Promise&lt;boolean&gt;
 注意 1：本接口仅客户端有效，在浏览器环境内调用将始终 `throw Error`
 
 注意 2：本接口需要使用者启用扩展的外部交互权限，如若未启用将始终 `throw Error`
+
+### existspathinfilesystem
+
+# SYS\_FileSystem.existsPathInFileSystem() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+检查文件系统内的文件或目录是否存在
+
+## Signature
+
+```typescript
+existsPathInFileSystem(uri: string): Promise<boolean>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+uri
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+文件资源定位符，需要包含完整的文件名称的绝对路径
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;boolean&gt;
+
+文件或目录是否存在
+
+## Remarks
+
+注意 1：本接口仅客户端有效，在浏览器环境内调用将始终 `throw Error`
+
+注意 2：本接口需要使用者启用扩展的外部交互权限，如若未启用将始终 `throw Error`
+
+ADD since EDA v3.2.167
 
 ### getdocumentspath
 

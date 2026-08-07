@@ -131,7 +131,7 @@ _(Optional)_ Component 属性：名称
 
 </td><td>
 
-\{ \[key: string\]: string \| number \| boolean; \}
+Record&lt;string, string \| number \| boolean&gt;
 
 
 </td><td>
@@ -909,9 +909,7 @@ protected name?: string;
 ## Signature
 
 ```typescript
-protected otherProperty?: {
-        [key: string]: string | number | boolean;
-    };
+protected otherProperty?: Record<string, string | number | boolean>;
 ```
 
 ### primitiveid
@@ -1085,7 +1083,7 @@ getState_ComponentType(): ESCH_PrimitiveComponentType;
 
 ## Returns
 
-ESCH\_PrimitiveComponentType
+[ESCH\_PrimitiveComponentType](../enums/ESCH_PrimitiveComponentType.md)
 
 器件类型
 
@@ -1235,15 +1233,13 @@ string \| undefined
 ## Signature
 
 ```typescript
-getState_OtherProperty(): {
-        [key: string]: string | number | boolean;
-    } | undefined;
+getState_OtherProperty(): Record<string, string | number | boolean> | undefined;
 ```
 
 
 ## Returns
 
-{ \[key: string\]: string \| number \| boolean; } \| undefined
+Record&lt;string, string \| number \| boolean&gt; \| undefined
 
 其它参数
 
@@ -1956,9 +1952,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-setState_OtherProperty(otherProperty: {
-        [key: string]: string | number | boolean;
-    }): ISCH_PrimitiveComponent;
+setState_OtherProperty(otherProperty: Record<string, string | number | boolean>): ISCH_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1986,7 +1980,7 @@ otherProperty
 
 </td><td>
 
-\{ \[key: string\]: string \| number \| boolean; \}
+Record&lt;string, string \| number \| boolean&gt;
 
 
 </td><td>

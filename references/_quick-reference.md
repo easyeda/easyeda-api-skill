@@ -241,6 +241,7 @@ eda: EDA
 - **lib_librarieslist**: `lib_LibrariesList: LIB_LibrariesList;`
 - **lib_panellibrary**: `lib_PanelLibrary: LIB_PanelLibrary;`
 - **lib_selectcontrol**: `lib_SelectControl: LIB_SelectControl;`
+- **lib_simulationmodel**: `lib_SimulationModel: LIB_SimulationModel;`
 - **lib_symbol**: `lib_Symbol: LIB_Symbol;`
 - **pcb_document**: `pcb_Document: PCB_Document;`
 - **pcb_drc**: `pcb_Drc: PCB_Drc;`
@@ -279,7 +280,7 @@ eda: EDA
 - **sch_primitiveattribute**: `sch_PrimitiveAttribute: SCH_PrimitiveAttribute;`
 - **sch_primitivebus**: `sch_PrimitiveBus: SCH_PrimitiveBus;`
 - **sch_primitivecircle**: `sch_PrimitiveCircle: SCH_PrimitiveCircle;`
-- **sch_primitivecomponent**: `sch_PrimitiveComponent: SCH_PrimitiveComponent | SCH_PrimitiveComponent3;`
+- **sch_primitivecomponent**: `sch_PrimitiveComponent: SCH_PrimitiveComponent;`
 - **sch_primitiveobject**: `sch_PrimitiveObject: SCH_PrimitiveObject;`
 - **sch_primitivepin**: `sch_PrimitivePin: SCH_PrimitivePin;`
 - **sch_primitivepolygon**: `sch_PrimitivePolygon: SCH_PrimitivePolygon;`
@@ -1151,7 +1152,7 @@ declare class ISCH_PrimitiveComponent implements ISCH_Primitive
 - **getstate_mirror**: `getState_Mirror(): boolean;`
 - **getstate_name**: `getState_Name(): string | undefined;`
 - **getstate_net**: `getState_Net(): string | undefined;`
-- **getstate_otherproperty**: `getState_OtherProperty(): {         [key: string]: string | number | boolean;     } | undefined;`
+- **getstate_otherproperty**: `getState_OtherProperty(): Record<string, string | number | boolean> | undefined;`
 - **getstate_primitiveid**: `getState_PrimitiveId(): string;`
 - **getstate_primitivetype**: `getState_PrimitiveType(): ESCH_PrimitiveType;`
 - **getstate_rotation**: `getState_Rotation(): number;`
@@ -1165,7 +1166,7 @@ declare class ISCH_PrimitiveComponent implements ISCH_Primitive
 - **isasync**: `isAsync(): boolean;`
 - **mirror**: `protected mirror: boolean;`
 - **name**: `protected name?: string;`
-- **otherproperty**: `protected otherProperty?: {         [key: string]: string | number | boolean;     };`
+- **otherproperty**: `protected otherProperty?: Record<string, string | number | boolean>;`
 - **primitiveid**: `protected primitiveId?: string;`
 - **reset**: `reset(): Promise<ISCH_PrimitiveComponent>;`
 - **rotation**: `protected rotation: number;`
@@ -1177,7 +1178,7 @@ declare class ISCH_PrimitiveComponent implements ISCH_Primitive
 - **setstate_mirror**: `setState_Mirror(mirror: boolean): ISCH_PrimitiveComponent;`
 - **setstate_name**: `setState_Name(name: string | undefined): ISCH_PrimitiveComponent;`
 - **setstate_net**: `setState_Net(net: string | undefined): ISCH_PrimitiveComponent;`
-- **setstate_otherproperty**: `setState_OtherProperty(otherProperty: {         [key: string]: string | number | boolean;     }): ISCH_PrimitiveComponent;`
+- **setstate_otherproperty**: `setState_OtherProperty(otherProperty: Record<string, string | number | boolean>): ISCH_PrimitiveComponent;`
 - **setstate_rotation**: `setState_Rotation(rotation: number): ISCH_PrimitiveComponent;`
 - **setstate_supplier**: `setState_Supplier(supplier: string | undefined): ISCH_PrimitiveComponent;`
 - **setstate_supplierid**: `setState_SupplierId(supplierId: string | undefined): ISCH_PrimitiveComponent;`
@@ -1200,9 +1201,7 @@ declare class ISCH_PrimitiveComponentPin extends ISCH_PrimitivePin
 ```
 
 - **done**: `done(): Promise<ISCH_PrimitiveComponentPin>;`
-- **getstate_noconnected**: `getState_NoConnected(): boolean;`
 - **primitivetype**: `protected readonly primitiveType: ESCH_PrimitiveType.COMPONENT_PIN;`
-- **setstate_noconnected**: `setState_NoConnected(noConnected: boolean): ISCH_PrimitiveComponentPin;`
 
 ---
 
@@ -1216,7 +1215,8 @@ declare class ISCH_PrimitivePin implements ISCH_Primitive
 
 - **async**: `protected async: boolean;`
 - **done**: `done(): Promise<ISCH_PrimitivePin>;`
-- **getstate_otherproperty**: `getState_OtherProperty(): {         [key: string]: string | number | boolean;     } | undefined;`
+- **getstate_noconnected**: `getState_NoConnected(): boolean | undefined;`
+- **getstate_otherproperty**: `getState_OtherProperty(): Record<string, string | number | boolean> | undefined;`
 - **getstate_pincolor**: `getState_PinColor(): string | null;`
 - **getstate_pinlength**: `getState_PinLength(): number;`
 - **getstate_pinname**: `getState_PinName(): string;`
@@ -1229,6 +1229,8 @@ declare class ISCH_PrimitivePin implements ISCH_Primitive
 - **getstate_x**: `getState_X(): number;`
 - **getstate_y**: `getState_Y(): number;`
 - **isasync**: `isAsync(): boolean;`
+- **noconnected**: `protected noConnected?: boolean;`
+- **otherproperty**: `protected otherProperty?: Record<string, string | number | boolean>;`
 - **pincolor**: `protected pinColor: string | null;`
 - **pinlength**: `protected pinLength: number;`
 - **pinname**: `protected pinName: string;`
@@ -1239,7 +1241,8 @@ declare class ISCH_PrimitivePin implements ISCH_Primitive
 - **primitivetype**: `protected readonly primitiveType: ESCH_PrimitiveType;`
 - **reset**: `reset(): Promise<ISCH_PrimitivePin>;`
 - **rotation**: `protected rotation: number;`
-- **setstate_otherproperty**: `setState_OtherProperty(otherProperty: {         [key: string]: string | number | boolean;     }): ISCH_PrimitivePin;`
+- **setstate_noconnected**: `setState_NoConnected(noConnected: boolean): ISCH_PrimitivePin;`
+- **setstate_otherproperty**: `setState_OtherProperty(otherProperty: Record<string, string | number | boolean>): ISCH_PrimitivePin;`
 - **setstate_pincolor**: `setState_PinColor(pinColor: string | null): ISCH_PrimitivePin;`
 - **setstate_pinlength**: `setState_PinLength(pinLength: number): ISCH_PrimitivePin;`
 - **setstate_pinname**: `setState_PinName(pinName: string): ISCH_PrimitivePin;`
@@ -1400,7 +1403,7 @@ declare class LIB_3DModel
 ```
 
 - **copy**: `copy(modelUuid: string, libraryUuid: string, targetLibraryUuid: string, targetClassification?: ILIB_ClassificationIndex | Array<string>, newModelName?: string): Promise<string | undefined>;`
-- **create**: `create(libraryUuid: string, modelFile: Blob, classification?: ILIB_ClassificationIndex | Array<string>, unit?: ESYS_Unit.MILLIMETER | ESYS_Unit.CENTIMETER | ESYS_Unit.METER | ESYS_Unit.MIL | ESYS_Unit.INCH): Promise<string[] | undefined>;`
+- **create**: `create(libraryUuid: string, modelFile: Blob, classification?: ILIB_ClassificationIndex | Array<string>, unit?: ESYS_Unit.MILLIMETER | ESYS_Unit.CENTIMETER | ESYS_Unit.METER | ESYS_Unit.MIL | ESYS_Unit.INCH): Promise<Array<string> | undefined>;`
 - **delete**: `delete(modelUuid: string, libraryUuid: string): Promise<boolean>;`
 - **get**: `get(modelUuid: string, libraryUuid?: string): Promise<ILIB_3DModelItem | undefined>;`
 - **modify**: `modify(modelUuid: string, libraryUuid: string, modelName?: string, classification?: ILIB_ClassificationIndex | Array<string> | null, description?: string | null): Promise<boolean>;`
@@ -1531,6 +1534,23 @@ declare class LIB_SelectControl
 ```
 
 - **getselectedlibraryrowinfo**: `getSelectedLibraryRowInfo(): Promise<ILIB_LibraryItem | undefined>;`
+
+---
+
+## LIB_SimulationModel
+
+综合库 / 仿真模型类
+
+```typescript
+declare class LIB_SimulationModel
+```
+
+- **copy**: `copy(simulationModelUuid: string, libraryUuid: string, targetLibraryUuid: string, targetClassification?: Array<string>, newSimulationModelName?: string): Promise<string | undefined>;`
+- **create**: `create(libraryUuid: string, model: {         modelType: 'Ngspice';     } & ({         modelFile: Blob;         modelName?: string;         modelCategory?: string;         modelPin?: string;     } | {         modelData: string;         modelName?: string;         modelCategory?: string;         modelPin?: string;     }), classification?: Array<string>, description?: string): Promise<string | undefined>;`
+- **delete**: `delete(simulationModelUuid: string, libraryUuid: string): Promise<boolean>;`
+- **get**: `get(simulationModelUuid: string, libraryUuid?: string): Promise<ILIB_SimulationModelItem | undefined>;`
+- **modify**: `modify(simulationModelUuid: string, libraryUuid: string, modelProps?: {         modelName?: string;         modelCategory?: string;         modelPin?: string;     }, classification?: Array<string> | null, description?: string | null): Promise<boolean>;`
+- **search**: `search(key: string, libraryUuid?: string, classification?: Array<string>, simulationModelType?: ELIB_SimulationModelType, itemsOfPage?: number, page?: number): Promise<Array<ILIB_SimulationModelSearchItem>>;`
 
 ---
 
@@ -2267,7 +2287,7 @@ declare class SCH_PrimitiveBus implements ISCH_PrimitiveAPI
 declare class SCH_PrimitiveCircle implements ISCH_PrimitiveAPI
 ```
 
-- **create**: `create(centerX: number, centerY: number, radius: number, color?: string | null, fillColor?: string | null, lineWidth?: number | null, lineType?: ESCH_PrimitiveLineType | null, fillStyle?: ESCH_PrimitiveFillStyle | null): Promise<ISCH_PrimitiveCircle>;`
+- **create**: `create(centerX: number, centerY: number, radius: number, color?: string | null, fillColor?: string | null, lineWidth?: number | null, lineType?: ESCH_PrimitiveLineType | null, fillStyle?: ESCH_PrimitiveFillStyle | null): Promise<ISCH_PrimitiveCircle | undefined>;`
 - **delete**: `delete(primitiveIds: string | ISCH_PrimitiveCircle | Array<string> | Array<ISCH_PrimitiveCircle>): Promise<boolean>;`
 - **get**: `get(primitiveIds: string): Promise<ISCH_PrimitiveCircle | undefined>;`
 - **get_1**: `get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitiveCircle>>;`
@@ -2285,19 +2305,22 @@ declare class SCH_PrimitiveCircle implements ISCH_PrimitiveAPI
 declare class SCH_PrimitiveComponent implements ISCH_PrimitiveAPI
 ```
 
-- **create**: `create(component: {         libraryUuid: string;         uuid: string;     } | ILIB_DeviceItem | ILIB_DeviceSearchItem, x: number, y: number, subPartName?: string, rotation?: number, mirror?: boolean, addIntoBom?: boolean, addIntoPcb?: boolean): Promise<ISCH_PrimitiveComponent$1 | undefined>;`
-- **createnetflag**: `createNetFlag(identification: 'Power' | 'Ground' | 'AnalogGround' | 'ProtectGround', net: string, x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveComponent$1 | undefined>;`
-- **createnetport**: `createNetPort(direction: 'IN' | 'OUT' | 'BI', net: string, x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveComponent$1 | undefined>;`
-- **createshortcircuitflag**: `createShortCircuitFlag(x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveComponent$1 | undefined>;`
-- **delete**: `delete(primitiveIds: string | ISCH_PrimitiveComponent$1 | Array<string> | Array<ISCH_PrimitiveComponent$1>): Promise<boolean>;`
-- **get**: `get(primitiveIds: string): Promise<ISCH_PrimitiveComponent$1 | undefined>;`
-- **get_1**: `get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitiveComponent$1>>;`
-- **getall**: `getAll(componentType?: ESCH_PrimitiveComponentType$1, allSchematicPages?: boolean): Promise<Array<ISCH_PrimitiveComponent$1>>;`
+- **create**: `create(component: {         libraryType?: ELIB_LibraryType.DEVICE;         libraryUuid: string;         uuid: string;     } | ILIB_DeviceItem | ILIB_DeviceSearchItem | {         libraryType: ELIB_LibraryType.SYMBOL;         libraryUuid: string;         uuid: string;     } | ILIB_SymbolItem | ILIB_SymbolSearchItem, x: number, y: number, subPartName?: string, rotation?: number, mirror?: boolean, addIntoBom?: boolean, addIntoPcb?: boolean): Promise<ISCH_PrimitiveComponent | undefined>;`
+- **createcbbsymbol**: `createCbbSymbol(cbbSymbol: {         libraryUuid: string;         cbbUuid: string;         uuid?: string;     }, x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveCbbSymbolComponent | undefined>;`
+- **createnetflag**: `createNetFlag(identification: 'Power' | 'Ground' | 'AnalogGround' | 'ProtectGround', net: string, x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveComponent | undefined>;`
+- **createnetport**: `createNetPort(direction: 'IN' | 'OUT' | 'BI', net: string, x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveComponent | undefined>;`
+- **createshortcircuitflag**: `createShortCircuitFlag(x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveComponent | undefined>;`
+- **delete**: `delete(primitiveIds: string | ISCH_PrimitiveComponent | Array<string> | Array<ISCH_PrimitiveComponent>): Promise<boolean>;`
+- **get**: `get(primitiveIds: string): Promise<ISCH_PrimitiveComponent | undefined>;`
+- **get_1**: `get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitiveComponent>>;`
+- **getall**: `getAll(componentType?: ESCH_PrimitiveComponentType, allSchematicPages?: boolean): Promise<Array<ISCH_PrimitiveComponent>>;`
 - **getallpinsbyprimitiveid**: `getAllPinsByPrimitiveId(primitiveId: string): Promise<Array<ISCH_PrimitiveComponentPin> | undefined>;`
-- **getallprimitiveid**: `getAllPrimitiveId(componentType?: ESCH_PrimitiveComponentType$1, allSchematicPages?: boolean): Promise<Array<string>>;`
+- **getallprimitiveid**: `getAllPrimitiveId(componentType?: ESCH_PrimitiveComponentType, allSchematicPages?: boolean): Promise<Array<string>>;`
 - **getallpropertynames**: `getAllPropertyNames(): Promise<Array<string>>;`
 - **modify**: *(签名过长，请查看详细文档)*
+- **placecbbschematicpage**: `placeCbbSchematicPage(cbbSchematicPage: {         libraryUuid: string;         cbbUuid: string;         uuid: string;     }, x: number, y: number): Promise<boolean>;`
 - **placecomponentwithmouse**: `placeComponentWithMouse(component: {         libraryUuid: string;         uuid: string;     } | ILIB_DeviceItem | ILIB_DeviceSearchItem, subPartName?: string): Promise<boolean>;`
+- **placesymbolwithmouse**: `placeSymbolWithMouse(symbol: {         libraryUuid: string;         uuid: string;     } | ILIB_SymbolItem | ILIB_SymbolSearchItem, subPartName?: string, properties?: {         [key: string]: boolean | number | string | undefined;     }): Promise<boolean>;`
 - **setnetflagcomponentuuid_analogground**: `setNetFlagComponentUuid_AnalogGround(component: {         libraryUuid: string;         uuid: string;     } | ILIB_DeviceItem | ILIB_DeviceSearchItem): Promise<boolean>;`
 - **setnetflagcomponentuuid_ground**: `setNetFlagComponentUuid_Ground(component: {         libraryUuid: string;         uuid: string;     } | ILIB_DeviceItem | ILIB_DeviceSearchItem): Promise<boolean>;`
 - **setnetflagcomponentuuid_power**: `setNetFlagComponentUuid_Power(component: {         libraryUuid: string;         uuid: string;     } | ILIB_DeviceItem | ILIB_DeviceSearchItem): Promise<boolean>;`
@@ -2340,7 +2363,7 @@ declare class SCH_PrimitivePin implements ISCH_PrimitiveAPI
 - **get_1**: `get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitivePin | ISCH_PrimitiveComponentPin>>;`
 - **getall**: `getAll(): Promise<Array<ISCH_PrimitivePin>>;`
 - **getallprimitiveid**: `getAllPrimitiveId(): Promise<Array<string>>;`
-- **modify**: `modify(primitiveId: string | ISCH_PrimitivePin | ISCH_PrimitiveComponentPin, property: {         x?: number;         y?: number;         pinNumber?: string;         pinName?: string;         rotation?: number;         pinLength?: number;         pinColor?: string | null;         pinShape?: ESCH_PrimitivePinShape;         pinType?: ESCH_PrimitivePinType;     }): Promise<ISCH_PrimitivePin | ISCH_PrimitiveComponentPin | undefined>;`
+- **modify**: *(签名过长，请查看详细文档)*
 
 ---
 
@@ -2547,6 +2570,7 @@ declare class SYS_FileSystem
 - **createdirectoryinfilesystem**: `createDirectoryInFileSystem(folderPath: string): Promise<boolean>;`
 - **createobjecturl**: `createObjectURL(blob: Blob | File): string;`
 - **deletefileinfilesystem**: `deleteFileInFileSystem(uri: string, force?: boolean): Promise<boolean>;`
+- **existspathinfilesystem**: `existsPathInFileSystem(uri: string): Promise<boolean>;`
 - **getdocumentspath**: `getDocumentsPath(): Promise<string>;`
 - **getedapath**: `getEdaPath(): Promise<string>;`
 - **getextensionfile**: `getExtensionFile(uri: string): Promise<File | undefined>;`
@@ -2690,14 +2714,14 @@ declare class SYS_Math
 - **distancetopoint**: `distanceToPoint(polygon: TSYS_MathPolygonInput, point: ISYS_MathPoint): number;`
 - **getbbox**: `getBBox(polygon: TSYS_MathPolygonInput): ISYS_MathBBox;`
 - **getcentroid**: `getCentroid(polygon: TSYS_MathPolygonInput): ISYS_MathPoint;`
-- **intersection**: `intersection(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): Array<Array<ISYS_MathPoint>>;`
+- **intersection**: `intersection(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): TSYS_MathPolygonGroup;`
 - **intersects**: `intersects(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): boolean;`
 - **rotate**: `rotate(polygon: TSYS_MathPolygonInput, angle: number, centerX?: number, centerY?: number): Array<ISYS_MathPoint>;`
 - **scale**: `scale(polygon: TSYS_MathPolygonInput, scaleX: number, scaleY?: number, centerX?: number, centerY?: number): Array<ISYS_MathPoint>;`
-- **subtract**: `subtract(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): Array<Array<ISYS_MathPoint>>;`
+- **subtract**: `subtract(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): TSYS_MathPolygonGroup;`
 - **translate**: `translate(polygon: TSYS_MathPolygonInput, dx: number, dy: number): Array<ISYS_MathPoint>;`
-- **union**: `union(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): Array<Array<ISYS_MathPoint>>;`
-- **xor**: `xor(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): Array<Array<ISYS_MathPoint>>;`
+- **union**: `union(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): TSYS_MathPolygonGroup;`
+- **xor**: `xor(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): TSYS_MathPolygonGroup;`
 
 ---
 
@@ -2902,7 +2926,7 @@ declare class SYS_WebSocket
 
 - **close**: `close(id: string, code?: number, reason?: string, extensionUuid?: string): void;`
 - **register**: `register(id: string, serviceUri: string, receiveMessageCallFn?: (event: MessageEvent<any>) => void | Promise<void>, connectedCallFn?: () => void | Promise<void>, protocols?: string | Array<string>): void;`
-- **send**: `send(id: string, data: string | ArrayBuffer | Blob | ArrayBufferView, extensionUuid?: string): void;`
+- **send**: `send(id: string, data: string | Blob | BufferSource, extensionUuid?: string): void;`
 
 ---
 

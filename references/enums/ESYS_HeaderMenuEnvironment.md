@@ -177,12 +177,12 @@ SIMULATION\_SCHEMATIC\_NGSPICE
 
 </td><td>
 
-`"simulationSchematicNGspice"`
+`"simulationSchematicNgspice"`
 
 
 </td><td>
 
-仿真原理图：NGspice
+仿真原理图：Ngspice
 
 
 </td></tr>

@@ -108,6 +108,38 @@ PANEL\_LIBRARY
 </td></tr>
 <tr><td>
 
+SIMULATION\_MODEL\_NGSPICE
+
+
+</td><td>
+
+`"32"`
+
+
+</td><td>
+
+仿真模型：Ngspice
+
+
+</td></tr>
+<tr><td>
+
+SIMULATION\_MODEL\_SIMULIDE
+
+
+</td><td>
+
+`"33"`
+
+
+</td><td>
+
+仿真模型：SimulIDE
+
+
+</td></tr>
+<tr><td>
+
 SYMBOL
 
 

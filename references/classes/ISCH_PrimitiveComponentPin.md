@@ -96,34 +96,6 @@ Description
 
 
 </td></tr>
-<tr><td>
-
-[getState\_NoConnected()](./ISCH_PrimitiveComponentPin.md)
-
-
-</td><td>
-
-
-</td><td>
-
-获取属性状态：是否存在非连接标识
-
-
-</td></tr>
-<tr><td>
-
-[setState\_NoConnected(noConnected)](./ISCH_PrimitiveComponentPin.md)
-
-
-</td><td>
-
-
-</td><td>
-
-设置属性状态：是否存在非连接标识
-
-
-</td></tr>
 </tbody></table>
 
 ---
@@ -165,78 +137,5 @@ done(): Promise<ISCH_PrimitiveComponentPin>;
 ## Returns
 
 Promise&lt;[ISCH\_PrimitiveComponentPin](./ISCH_PrimitiveComponentPin.md)<!-- -->&gt;
-
-器件引脚图元对象
-
-### getstate_noconnected
-
-# ISCH\_PrimitiveComponentPin.getState\_NoConnected() method
-
-获取属性状态：是否存在非连接标识
-
-## Signature
-
-```typescript
-getState_NoConnected(): boolean;
-```
-
-
-## Returns
-
-boolean
-
-是否存在非连接标识
-
-### setstate_noconnected
-
-# ISCH\_PrimitiveComponentPin.setState\_NoConnected() method
-
-设置属性状态：是否存在非连接标识
-
-## Signature
-
-```typescript
-setState_NoConnected(noConnected: boolean): ISCH_PrimitiveComponentPin;
-```
-
-## Parameters
-
-<table><thead><tr><th>
-
-Parameter
-
-
-</th><th>
-
-Type
-
-
-</th><th>
-
-Description
-
-
-</th></tr></thead>
-<tbody><tr><td>
-
-noConnected
-
-
-</td><td>
-
-boolean
-
-
-</td><td>
-
-
-</td></tr>
-</tbody></table>
-
-
-
-## Returns
-
-[ISCH\_PrimitiveComponentPin](./ISCH_PrimitiveComponentPin.md)
 
 器件引脚图元对象

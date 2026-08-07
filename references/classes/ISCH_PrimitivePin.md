@@ -60,6 +60,48 @@ boolean
 </td></tr>
 <tr><td>
 
+[noConnected?](./ISCH_PrimitivePin.md)
+
+
+</td><td>
+
+`protected`
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+_(Optional)_ 是否存在非连接标识
+
+
+</td></tr>
+<tr><td>
+
+[otherProperty?](./ISCH_PrimitivePin.md)
+
+
+</td><td>
+
+`protected`
+
+
+</td><td>
+
+Record&lt;string, string \| number \| boolean&gt;
+
+
+</td><td>
+
+_(Optional)_ 其它参数
+
+
+</td></tr>
+<tr><td>
+
 [pinColor](./ISCH_PrimitivePin.md)
 
 
@@ -327,6 +369,20 @@ Description
 </td></tr>
 <tr><td>
 
+[getState\_NoConnected()](./ISCH_PrimitivePin.md)
+
+
+</td><td>
+
+
+</td><td>
+
+获取属性状态：是否存在非连接标识
+
+
+</td></tr>
+<tr><td>
+
 [getState\_OtherProperty()](./ISCH_PrimitivePin.md)
 
 
@@ -523,6 +579,20 @@ Description
 </td></tr>
 <tr><td>
 
+[setState\_NoConnected(noConnected)](./ISCH_PrimitivePin.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 设置属性状态：是否存在非连接标识
+
+
+</td></tr>
+<tr><td>
+
 [setState\_OtherProperty(otherProperty)](./ISCH_PrimitivePin.md)
 
 
@@ -707,6 +777,30 @@ Description
 protected async: boolean;
 ```
 
+### noconnected
+
+# ISCH\_PrimitivePin.noConnected property
+
+是否存在非连接标识
+
+## Signature
+
+```typescript
+protected noConnected?: boolean;
+```
+
+### otherproperty
+
+# ISCH\_PrimitivePin.otherProperty property
+
+其它参数
+
+## Signature
+
+```typescript
+protected otherProperty?: Record<string, string | number | boolean>;
+```
+
 ### pincolor
 
 # ISCH\_PrimitivePin.pinColor property
@@ -865,6 +959,25 @@ Promise&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)<!-- -->&gt;
 
 引脚图元对象
 
+### getstate_noconnected
+
+# ISCH\_PrimitivePin.getState\_NoConnected() method
+
+获取属性状态：是否存在非连接标识
+
+## Signature
+
+```typescript
+getState_NoConnected(): boolean | undefined;
+```
+
+
+## Returns
+
+boolean \| undefined
+
+是否存在非连接标识
+
 ### getstate_otherproperty
 
 # ISCH\_PrimitivePin.getState\_OtherProperty() method
@@ -874,15 +987,13 @@ Promise&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getState_OtherProperty(): {
-        [key: string]: string | number | boolean;
-    } | undefined;
+getState_OtherProperty(): Record<string, string | number | boolean> | undefined;
 ```
 
 
 ## Returns
 
-{ \[key: string\]: string \| number \| boolean; } \| undefined
+Record&lt;string, string \| number \| boolean&gt; \| undefined
 
 其它参数
 
@@ -1135,6 +1246,64 @@ Promise&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)<!-- -->&gt;
 
 引脚图元对象
 
+### setstate_noconnected
+
+# ISCH\_PrimitivePin.setState\_NoConnected() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+设置属性状态：是否存在非连接标识
+
+## Signature
+
+```typescript
+setState_NoConnected(noConnected: boolean): ISCH_PrimitivePin;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+noConnected
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+是否存在非连接标识
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)
+
+引脚图元对象
+
 ### setstate_otherproperty
 
 # ISCH\_PrimitivePin.setState\_OtherProperty() method
@@ -1146,9 +1315,7 @@ Promise&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_OtherProperty(otherProperty: {
-        [key: string]: string | number | boolean;
-    }): ISCH_PrimitivePin;
+setState_OtherProperty(otherProperty: Record<string, string | number | boolean>): ISCH_PrimitivePin;
 ```
 
 ## Parameters
@@ -1176,7 +1343,7 @@ otherProperty
 
 </td><td>
 
-\{ \[key: string\]: string \| number \| boolean; \}
+Record&lt;string, string \| number \| boolean&gt;
 
 
 </td><td>

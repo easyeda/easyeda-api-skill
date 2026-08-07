@@ -318,7 +318,7 @@ void
 ## Signature
 
 ```typescript
-send(id: string, data: string | ArrayBuffer | Blob | ArrayBufferView, extensionUuid?: string): void;
+send(id: string, data: string | Blob | BufferSource, extensionUuid?: string): void;
 ```
 
 ## Parameters
@@ -362,7 +362,7 @@ data
 
 </td><td>
 
-string \| ArrayBuffer \| Blob \| ArrayBufferView
+string \| Blob \| BufferSource
 
 
 </td><td>

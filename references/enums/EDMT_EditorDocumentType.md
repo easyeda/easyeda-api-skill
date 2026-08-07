@@ -214,7 +214,7 @@ SIMULATION\_SCHEMATIC\_PAGE\_NGSPICE
 
 </td><td>
 
-仿真原理图图页：NGspice
+仿真原理图图页：Ngspice
 
 
 </td></tr>
@@ -246,7 +246,7 @@ SIMULATION\_SYMBOL\_COMPONENT\_NGSPICE
 
 </td><td>
 
-仿真元件符号：NGspice
+仿真元件符号：Ngspice
 
 
 </td></tr>

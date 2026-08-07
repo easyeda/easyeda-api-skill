@@ -74,6 +74,7 @@
 | [LIB_LibrariesList](classes/LIB_LibrariesList.md) | 综合库 / 库列表类 |  |
 | [LIB_PanelLibrary](classes/LIB_PanelLibrary.md) | 综合库 / 面板库类 |  |
 | [LIB_SelectControl](classes/LIB_SelectControl.md) | 综合库 / 选择控制类 |  |
+| [LIB_SimulationModel](classes/LIB_SimulationModel.md) | 综合库 / 仿真模型类 |  |
 | [LIB_Symbol](classes/LIB_Symbol.md) | 综合库 / 符号类 |  |
 | [PCB_Document](classes/PCB_Document.md) | PCB &amp; 封装 / 文档操作类 |  |
 | [PCB_Drc](classes/PCB_Drc.md) | PCB &amp; 封装 / 设计规则检查（DRC）类 |  |
@@ -166,6 +167,7 @@
 | [ELIB_DeviceJlcLibraryCategory](enums/ELIB_DeviceJlcLibraryCategory.md) | 嘉立创贴片库类别 |  |
 | [ELIB_LibraryType](enums/ELIB_LibraryType.md) | 综合库库类型 |  |
 | [ELIB_PreviewType](enums/ELIB_PreviewType.md) | 预览视图类型 |  |
+| [ELIB_SimulationModelType](enums/ELIB_SimulationModelType.md) | 仿真模型类型 |  |
 | [ELIB_SymbolType](enums/ELIB_SymbolType.md) | 符号类型 |  |
 | [EPCB_AutoRoutingCornerStyle](enums/EPCB_AutoRoutingCornerStyle.md) | 自动布线拐角风格 |  |
 | [EPCB_AutoRoutingExistingPrimitiveMode](enums/EPCB_AutoRoutingExistingPrimitiveMode.md) | 自动布线对已有导线/过孔的处理方式 |  |
@@ -202,7 +204,6 @@
 | [ESCH_PrimitivePinType](enums/ESCH_PrimitivePinType.md) | 引脚类型 |  |
 | [ESCH_PrimitiveTextAlignMode](enums/ESCH_PrimitiveTextAlignMode.md) | 文本对齐模式 |  |
 | [ESCH_PrimitiveType](enums/ESCH_PrimitiveType.md) | 图元类型 |  |
-| [ESCH_ShapeType](enums/ESCH_ShapeType.md) | 图元类型 |  |
 | [ESCH_SimulationNetlistType](enums/ESCH_SimulationNetlistType.md) | 仿真网表类型 |  |
 | [ESCH_SpiceSimulationEnginePullEventType](enums/ESCH_SpiceSimulationEnginePullEventType.md) | Spice 仿真引擎拉取事件类型 |  |
 | [ESCH_SpiceSimulationEnginePushEventType](enums/ESCH_SpiceSimulationEnginePushEventType.md) | Spice 仿真引擎推送事件类型 |  |
@@ -274,6 +275,8 @@
 | [ILIB_LibraryItem](interfaces/ILIB_LibraryItem.md) | 库属性 |  |
 | [ILIB_PanelLibraryItem](interfaces/ILIB_PanelLibraryItem.md) | 面板库属性 |  |
 | [ILIB_PanelLibrarySearchItem](interfaces/ILIB_PanelLibrarySearchItem.md) | 搜索到的面板库属性 |  |
+| [ILIB_SimulationModelItem](interfaces/ILIB_SimulationModelItem.md) | 仿真模型属性 |  |
+| [ILIB_SimulationModelSearchItem](interfaces/ILIB_SimulationModelSearchItem.md) | 搜索到的仿真模型属性 |  |
 | [ILIB_SymbolItem](interfaces/ILIB_SymbolItem.md) | 符号属性 |  |
 | [ILIB_SymbolSearchItem](interfaces/ILIB_SymbolSearchItem.md) | 搜索到的符号属性 |  |
 | [IPCB_AutoLayoutResult](interfaces/IPCB_AutoLayoutResult.md) | 自动布局结果 |  |

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ELIB_SymbolType 
+export enum ELIB_SymbolType 
 ```
 
 ## Enumeration Members
@@ -38,8 +38,6 @@ CBB\_SYMBOL
 
 </td><td>
 
-复用模块符号
-
 
 </td></tr>
 <tr><td>
@@ -53,8 +51,6 @@ COMPONENT
 
 
 </td><td>
-
-元件符号
 
 
 </td></tr>
@@ -70,8 +66,6 @@ DIFFERENTIAL\_PAIRS\_FLAG
 
 </td><td>
 
-差分对标识
-
 
 </td></tr>
 <tr><td>
@@ -85,8 +79,6 @@ DRAWING
 
 
 </td><td>
-
-图纸
 
 
 </td></tr>
@@ -102,8 +94,6 @@ NET\_FLAG
 
 </td><td>
 
-网络标识
-
 
 </td></tr>
 <tr><td>
@@ -117,8 +107,6 @@ NET\_PORT
 
 
 </td><td>
-
-网络端口
 
 
 </td></tr>
@@ -134,8 +122,6 @@ NON\_ELECTRICAL
 
 </td><td>
 
-无电气
-
 
 </td></tr>
 <tr><td>
@@ -150,8 +136,6 @@ OFF\_PAGE\_CONNECTOR
 
 </td><td>
 
-跨页连接标识
-
 
 </td></tr>
 <tr><td>
@@ -165,8 +149,6 @@ SHORT\_CIRCUIT\_FLAG
 
 
 </td><td>
-
-短接标识
 
 
 </td></tr>

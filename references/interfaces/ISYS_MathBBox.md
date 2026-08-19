@@ -5,7 +5,7 @@ BBox（最小外接矩形）
 ## Signature
 
 ```typescript
-interface ISYS_MathBBox 
+export interface ISYS_MathBBox 
 ```
 
 ## Properties

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESCH_PrimitiveLineType 
+export enum ESCH_PrimitiveLineType 
 ```
 
 ## Enumeration Members
@@ -38,8 +38,6 @@ DASHED
 
 </td><td>
 
-短划线
-
 
 </td></tr>
 <tr><td>
@@ -53,8 +51,6 @@ DOT\_DASHED
 
 
 </td><td>
-
-点划线
 
 
 </td></tr>
@@ -70,8 +66,6 @@ DOTTED
 
 </td><td>
 
-点线
-
 
 </td></tr>
 <tr><td>
@@ -85,8 +79,6 @@ SOLID
 
 
 </td><td>
-
-实线
 
 
 </td></tr>

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum EDMT_ProjectCollaborationMode 
+export enum EDMT_ProjectCollaborationMode 
 ```
 
 ## Enumeration Members
@@ -38,8 +38,6 @@ FREE
 
 </td><td>
 
-自由
-
 
 </td></tr>
 <tr><td>
@@ -53,8 +51,6 @@ STRICT
 
 
 </td><td>
-
-严格
 
 
 </td></tr>

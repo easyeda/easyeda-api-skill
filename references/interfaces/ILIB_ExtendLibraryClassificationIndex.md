@@ -9,7 +9,7 @@
 ## Signature
 
 ```typescript
-interface ILIB_ExtendLibraryClassificationIndex 
+export interface ILIB_ExtendLibraryClassificationIndex 
 ```
 
 ## Remarks

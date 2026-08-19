@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IDMT_SchematicItem 
+export interface IDMT_SchematicItem 
 ```
 
 ## Properties

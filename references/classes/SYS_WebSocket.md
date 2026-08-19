@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_WebSocket 
+export class SYS_WebSocket 
 ```
 
 ## Remarks
@@ -88,7 +88,7 @@ Description
 ## Signature
 
 ```typescript
-close(id: string, code?: number, reason?: string, extensionUuid?: string): void;
+public close(id: string, code?: number, reason?: string, extensionUuid?: string): void;
 ```
 
 ## Parameters
@@ -194,7 +194,7 @@ void
 ## Signature
 
 ```typescript
-register(id: string, serviceUri: string, receiveMessageCallFn?: (event: MessageEvent<any>) => void | Promise<void>, connectedCallFn?: () => void | Promise<void>, protocols?: string | Array<string>): void;
+public register(id: string, serviceUri: string, receiveMessageCallFn?: (event: MessageEvent<any>) => void | Promise<void>, connectedCallFn?: () => void | Promise<void>, protocols?: string | Array<string>): void;
 ```
 
 ## Parameters
@@ -318,7 +318,7 @@ void
 ## Signature
 
 ```typescript
-send(id: string, data: string | Blob | BufferSource, extensionUuid?: string): void;
+public send(id: string, data: string | Blob | BufferSource, extensionUuid?: string): void;
 ```
 
 ## Parameters

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class LIB_SimulationModel 
+export class LIB_SimulationModel 
 ```
 
 ## Methods
@@ -127,7 +127,7 @@ Description
 ## Signature
 
 ```typescript
-copy(simulationModelUuid: string, libraryUuid: string, targetLibraryUuid: string, targetClassification?: Array<string>, newSimulationModelName?: string): Promise<string | undefined>;
+public copy(simulationModelUuid: string, libraryUuid: string, targetLibraryUuid: string, targetClassification?: Array<string>, newSimulationModelName?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -253,19 +253,7 @@ ADD since EDA v3.2.167
 ## Signature
 
 ```typescript
-create(libraryUuid: string, model: {
-        modelType: 'Ngspice';
-    } & ({
-        modelFile: Blob;
-        modelName?: string;
-        modelCategory?: string;
-        modelPin?: string;
-    } | {
-        modelData: string;
-        modelName?: string;
-        modelCategory?: string;
-        modelPin?: string;
-    }), classification?: Array<string>, description?: string): Promise<string | undefined>;
+public create(libraryUuid: string, model: { modelType: 'Ngspice' } & ({ modelFile: Blob; modelName?: undefined | string; modelCategory?: undefined | string; modelPin?: undefined | string } | { modelData: string; modelName?: undefined | string; modelCategory?: undefined | string; modelPin?: undefined | string }), classification?: Array<string>, description?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -309,7 +297,7 @@ model
 
 </td><td>
 
-{ modelType: 'Ngspice'; } &amp; ({ modelFile: Blob; modelName?: string; modelCategory?: string; modelPin?: string; } \| { modelData: string; modelName?: string; modelCategory?: string; modelPin?: string; })
+{ modelType: 'Ngspice' } &amp; ({ modelFile: Blob; modelName?: undefined \| string; modelCategory?: undefined \| string; modelPin?: undefined \| string } \| { modelData: string; modelName?: undefined \| string; modelCategory?: undefined \| string; modelPin?: undefined \| string })
 
 
 </td><td>
@@ -375,7 +363,7 @@ ADD since EDA v3.2.167
 ## Signature
 
 ```typescript
-delete(simulationModelUuid: string, libraryUuid: string): Promise<boolean>;
+public delete(simulationModelUuid: string, libraryUuid: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -453,7 +441,7 @@ ADD since EDA v3.2.167
 ## Signature
 
 ```typescript
-get(simulationModelUuid: string, libraryUuid?: string): Promise<ILIB_SimulationModelItem | undefined>;
+public get(simulationModelUuid: string, libraryUuid?: string): Promise<ILIB_SimulationModelItem | undefined>;
 ```
 
 ## Parameters
@@ -518,9 +506,7 @@ Promise&lt;[ILIB\_SimulationModelItem](../interfaces/ILIB_SimulationModelItem.md
 
 ## Remarks
 
-注意：本接口仅私有化部署版本有效，如若在其他版本调用将始终 `throw Error`
-
-ADD since EDA v3.2.167
+注意：本接口仅私有化部署版本有效，如若在其他版本调用将始终 `throw Error` ADD since EDA v3.2.167
 
 ### modify
 
@@ -533,11 +519,7 @@ ADD since EDA v3.2.167
 ## Signature
 
 ```typescript
-modify(simulationModelUuid: string, libraryUuid: string, modelProps?: {
-        modelName?: string;
-        modelCategory?: string;
-        modelPin?: string;
-    }, classification?: Array<string> | null, description?: string | null): Promise<boolean>;
+public modify(simulationModelUuid: string, libraryUuid: string, modelProps?: { modelName?: undefined | string; modelCategory?: undefined | string; modelPin?: undefined | string }, classification?: Array<string> | null, description?: string | null): Promise<boolean>;
 ```
 
 ## Parameters
@@ -597,7 +579,7 @@ modelProps
 
 </td><td>
 
-\{ modelName?: string; modelCategory?: string; modelPin?: string; \}
+\{ modelName?: undefined \| string; modelCategory?: undefined \| string; modelPin?: undefined \| string \}
 
 
 </td><td>
@@ -650,9 +632,7 @@ Promise&lt;boolean&gt;
 
 ## Remarks
 
-如希望清除某些属性，则将其的值设置为 `null`
-
-ADD since EDA v3.2.167
+如希望清除某些属性，则将其的值设置为 `null` ADD since EDA v3.2.167
 
 ### search
 
@@ -665,7 +645,7 @@ ADD since EDA v3.2.167
 ## Signature
 
 ```typescript
-search(key: string, libraryUuid?: string, classification?: Array<string>, simulationModelType?: ELIB_SimulationModelType, itemsOfPage?: number, page?: number): Promise<Array<ILIB_SimulationModelSearchItem>>;
+public search(key: string, libraryUuid?: string, classification?: Array<string>, simulationModelType?: ELIB_SimulationModelType, itemsOfPage?: number, page?: number): Promise<Array<ILIB_SimulationModelSearchItem>>;
 ```
 
 ## Parameters

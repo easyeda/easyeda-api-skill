@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ISYS_WindowEventListenerRemovableObject 
+export interface ISYS_WindowEventListenerRemovableObject 
 ```
 
 ## Remarks
@@ -62,7 +62,7 @@ Description
 
 </td><td>
 
-\{ capture?: boolean; \}
+\{ capture?: undefined \| false \| true \}
 
 
 </td><td>
@@ -111,9 +111,7 @@ listener: (ev: any) => any;
 ## Signature
 
 ```typescript
-options?: {
-        capture?: boolean;
-    };
+options?: { capture?: undefined | false | true };
 ```
 
 ### type

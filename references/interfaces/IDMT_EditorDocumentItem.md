@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IDMT_EditorDocumentItem 
+export interface IDMT_EditorDocumentItem 
 ```
 
 ## Properties

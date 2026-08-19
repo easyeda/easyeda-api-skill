@@ -5,7 +5,7 @@ PCB &amp; 封装 / 事件类
 ## Signature
 
 ```typescript
-declare class PCB_Event 
+export class PCB_Event 
 ```
 
 ## Remarks
@@ -174,7 +174,7 @@ Description
 ## Signature
 
 ```typescript
-addCrossProbeSelectEventListener(id: string, callFn: (props: any) => void | Promise<void>): void;
+public addCrossProbeSelectEventListener(id: string, callFn: (props: any) => void | Promise<void>): void;
 ```
 
 ## Parameters
@@ -250,16 +250,7 @@ void
 ## Signature
 
 ```typescript
-addMouseEventListener(id: string, eventType: 'all' | EPCB_MouseEventType, callFn: (eventType: EPCB_MouseEventType, props: [
-        {
-            primitiveId: string;
-            primitiveType: EPCB_PrimitiveType;
-            net?: string;
-            designator?: string;
-            parentComponentPrimitiveId?: string;
-            parentComponentDesignator?: string;
-        }
-    ]) => void | Promise<void>, onlyOnce?: boolean): void;
+public addMouseEventListener(id: string, eventType: 'all' | EPCB_MouseEventType, callFn: (eventType: EPCB_MouseEventType, props: [{ primitiveId: string; primitiveType: EPCB_PrimitiveType; net?: undefined | string; designator?: undefined | string; parentComponentPrimitiveId?: undefined | string; parentComponentDesignator?: undefined | string }]) => void | Promise<void>, onlyOnce?: boolean): void;
 ```
 
 ## Parameters
@@ -303,7 +294,7 @@ eventType
 
 </td><td>
 
-'all' \| EPCB\_MouseEventType
+'all' \| [EPCB\_MouseEventType](../enums/EPCB_MouseEventType.md)
 
 
 </td><td>
@@ -319,7 +310,7 @@ callFn
 
 </td><td>
 
-(eventType: EPCB\_MouseEventType, props: \[ { primitiveId: string; primitiveType: [EPCB\_PrimitiveType](../enums/EPCB_PrimitiveType.md)<!-- -->; net?: string; designator?: string; parentComponentPrimitiveId?: string; parentComponentDesignator?: string; } \]) =&gt; void \| Promise&lt;void&gt;
+(eventType: [EPCB\_MouseEventType](../enums/EPCB_MouseEventType.md)<!-- -->, props: \[{ primitiveId: string; primitiveType: [EPCB\_PrimitiveType](../enums/EPCB_PrimitiveType.md)<!-- -->; net?: undefined \| string; designator?: undefined \| string; parentComponentPrimitiveId?: undefined \| string; parentComponentDesignator?: undefined \| string }\]) =&gt; void \| Promise&lt;void&gt;
 
 
 </td><td>
@@ -367,9 +358,7 @@ void
 ## Signature
 
 ```typescript
-addNetEventListener(id: string, eventType: 'all' | EPCB_NetEventType, callFn: (eventType: EPCB_NetEventType, props: [{
-        net: string;
-    }]) => void | Promise<void>, onlyOnce?: boolean): void;
+public addNetEventListener(id: string, eventType: 'all' | EPCB_NetEventType, callFn: (eventType: EPCB_NetEventType, props: [{ net: string }]) => void | Promise<void>, onlyOnce?: boolean): void;
 ```
 
 ## Parameters
@@ -413,7 +402,7 @@ eventType
 
 </td><td>
 
-'all' \| EPCB\_NetEventType
+'all' \| [EPCB\_NetEventType](../enums/EPCB_NetEventType.md)
 
 
 </td><td>
@@ -429,7 +418,7 @@ callFn
 
 </td><td>
 
-(eventType: EPCB\_NetEventType, props: \[{ net: string; }\]) =&gt; void \| Promise&lt;void&gt;
+(eventType: [EPCB\_NetEventType](../enums/EPCB_NetEventType.md)<!-- -->, props: \[{ net: string }\]) =&gt; void \| Promise&lt;void&gt;
 
 
 </td><td>
@@ -485,16 +474,7 @@ void
 ## Signature
 
 ```typescript
-addPrimitiveEventListener(id: string, eventType: 'all' | EPCB_PrimitiveEventType, callFn: (eventType: EPCB_PrimitiveEventType, props: [
-        {
-            primitiveId: string;
-            primitiveType: EPCB_PrimitiveType;
-            net?: string;
-            designator?: string;
-            parentComponentPrimitiveId?: string;
-            parentComponentDesignator?: string;
-        }
-    ]) => void | Promise<void>, onlyOnce?: boolean): void;
+public addPrimitiveEventListener(id: string, eventType: 'all' | EPCB_PrimitiveEventType, callFn: (eventType: EPCB_PrimitiveEventType, props: [{ primitiveId: string; primitiveType: EPCB_PrimitiveType; net?: undefined | string; designator?: undefined | string; parentComponentPrimitiveId?: undefined | string; parentComponentDesignator?: undefined | string }]) => void | Promise<void>, onlyOnce?: boolean): void;
 ```
 
 ## Parameters
@@ -538,7 +518,7 @@ eventType
 
 </td><td>
 
-'all' \| EPCB\_PrimitiveEventType
+'all' \| [EPCB\_PrimitiveEventType](../enums/EPCB_PrimitiveEventType.md)
 
 
 </td><td>
@@ -554,7 +534,7 @@ callFn
 
 </td><td>
 
-(eventType: EPCB\_PrimitiveEventType, props: \[ { primitiveId: string; primitiveType: [EPCB\_PrimitiveType](../enums/EPCB_PrimitiveType.md)<!-- -->; net?: string; designator?: string; parentComponentPrimitiveId?: string; parentComponentDesignator?: string; } \]) =&gt; void \| Promise&lt;void&gt;
+(eventType: [EPCB\_PrimitiveEventType](../enums/EPCB_PrimitiveEventType.md)<!-- -->, props: \[{ primitiveId: string; primitiveType: [EPCB\_PrimitiveType](../enums/EPCB_PrimitiveType.md)<!-- -->; net?: undefined \| string; designator?: undefined \| string; parentComponentPrimitiveId?: undefined \| string; parentComponentDesignator?: undefined \| string }\]) =&gt; void \| Promise&lt;void&gt;
 
 
 </td><td>
@@ -602,19 +582,7 @@ void
 ## Signature
 
 ```typescript
-addRayTracerEngine3DViewCameraChangeEventListener(id: string, callFn: (props: {
-        position: {
-            x: number;
-            y: number;
-            z: number;
-        };
-        rotation: {
-            x: number;
-            y: number;
-            z: number;
-        };
-        focalLength: number;
-    }) => void | Promise<void>, onlyOnce?: boolean): void;
+public addRayTracerEngine3DViewCameraChangeEventListener(id: string, callFn: (props: { position: { x: number; y: number; z: number }; rotation: { x: number; y: number; z: number }; focalLength: number }) => void | Promise<void>, onlyOnce?: boolean): void;
 ```
 
 ## Parameters
@@ -658,7 +626,7 @@ callFn
 
 </td><td>
 
-(props: { position: { x: number; y: number; z: number; }; rotation: { x: number; y: number; z: number; }; focalLength: number; }) =&gt; void \| Promise&lt;void&gt;
+(props: { position: { x: number; y: number; z: number }; rotation: { x: number; y: number; z: number }; focalLength: number }) =&gt; void \| Promise&lt;void&gt;
 
 
 </td><td>
@@ -693,9 +661,7 @@ void
 
 ## Remarks
 
-注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error`
-
-ADD since EDA v4
+注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error` ADD since EDA v4
 
 ### addraytracerengine3dviewclickmaterialeventlistener
 
@@ -708,10 +674,7 @@ ADD since EDA v4
 ## Signature
 
 ```typescript
-addRayTracerEngine3DViewClickMaterialEventListener(id: string, callFn: (props: {
-        materialId: number;
-        material: any;
-    }) => void | Promise<void>, onlyOnce?: boolean): void;
+public addRayTracerEngine3DViewClickMaterialEventListener(id: string, callFn: (props: { materialId: number; material: any }) => void | Promise<void>, onlyOnce?: boolean): void;
 ```
 
 ## Parameters
@@ -755,7 +718,7 @@ callFn
 
 </td><td>
 
-(props: { materialId: number; material: any; }) =&gt; void \| Promise&lt;void&gt;
+(props: { materialId: number; material: any }) =&gt; void \| Promise&lt;void&gt;
 
 
 </td><td>
@@ -790,9 +753,7 @@ void
 
 ## Remarks
 
-注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error`
-
-ADD since EDA v4
+注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error` ADD since EDA v4
 
 ### addrealtimedrcresulteventlistener
 
@@ -805,9 +766,7 @@ ADD since EDA v4
 ## Signature
 
 ```typescript
-addRealTimeDrcResultEventListener(id: string, eventType: 'all', callFn: (eventType: undefined, props: [{
-        drcResult: any;
-    }]) => void | Promise<void>): void;
+public addRealTimeDrcResultEventListener(id: string, eventType: 'all', callFn: (eventType: undefined, props: [{ drcResult: any }]) => void | Promise<void>): void;
 ```
 
 ## Parameters
@@ -867,7 +826,7 @@ callFn
 
 </td><td>
 
-(eventType: undefined, props: \[{ drcResult: any; }\]) =&gt; void \| Promise&lt;void&gt;
+(eventType: undefined, props: \[{ drcResult: any }\]) =&gt; void \| Promise&lt;void&gt;
 
 
 </td><td>
@@ -897,7 +856,7 @@ void
 ## Signature
 
 ```typescript
-isEventListenerAlreadyExist(id: string): boolean;
+public isEventListenerAlreadyExist(id: string): boolean;
 ```
 
 ## Parameters
@@ -953,7 +912,7 @@ boolean
 ## Signature
 
 ```typescript
-removeEventListener(id: string): boolean;
+public removeEventListener(id: string): boolean;
 ```
 
 ## Parameters

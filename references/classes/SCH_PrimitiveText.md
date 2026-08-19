@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SCH_PrimitiveText implements ISCH_PrimitiveAPI 
+export class SCH_PrimitiveText implements ISCH_PrimitiveAPI 
 ```
 **Implements:** [ISCH\_PrimitiveAPI](../interfaces/ISCH_PrimitiveAPI.md)
 
@@ -142,7 +142,7 @@ Description
 ## Signature
 
 ```typescript
-create(x: number, y: number, content: string, rotation?: number, textColor?: string | null, fontName?: string | null, fontSize?: number | null, bold?: boolean, italic?: boolean, underLine?: boolean, alignMode?: ESCH_PrimitiveTextAlignMode): Promise<ISCH_PrimitiveText | undefined>;
+public create(x: number, y: number, content: string, rotation?: number, textColor?: string | null, fontName?: string | null, fontSize?: number | null, bold?: boolean, italic?: boolean, underLine?: boolean, alignMode?: ESCH_PrimitiveTextAlignMode): Promise<ISCH_PrimitiveText | undefined>;
 ```
 
 ## Parameters
@@ -360,7 +360,7 @@ Promise&lt;[ISCH\_PrimitiveText](./ISCH_PrimitiveText.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-delete(primitiveIds: string | ISCH_PrimitiveText | Array<string> | Array<ISCH_PrimitiveText>): Promise<boolean>;
+public delete(primitiveIds: string | ISCH_PrimitiveText | Array<string> | Array<ISCH_PrimitiveText>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -418,7 +418,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-get(primitiveIds: string): Promise<ISCH_PrimitiveText | undefined>;
+public get(primitiveIds: string): Promise<ISCH_PrimitiveText | undefined>;
 ```
 
 ## Parameters
@@ -476,7 +476,7 @@ Promise&lt;[ISCH\_PrimitiveText](./ISCH_PrimitiveText.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitiveText>>;
+public get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitiveText>>;
 ```
 
 ## Parameters
@@ -538,7 +538,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)<!-- -->&gt;&g
 ## Signature
 
 ```typescript
-getAll(): Promise<Array<ISCH_PrimitiveText>>;
+public getAll(): Promise<Array<ISCH_PrimitiveText>>;
 ```
 
 
@@ -559,7 +559,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)<!-- -->&gt;&g
 ## Signature
 
 ```typescript
-getAllPrimitiveId(): Promise<Array<string>>;
+public getAllPrimitiveId(): Promise<Array<string>>;
 ```
 
 
@@ -580,19 +580,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 ## Signature
 
 ```typescript
-modify(primitiveId: string | ISCH_PrimitiveText, property: {
-        x?: number;
-        y?: number;
-        content?: string;
-        rotation?: number;
-        textColor?: string | null;
-        fontName?: string | null;
-        fontSize?: number | null;
-        bold?: boolean;
-        italic?: boolean;
-        underLine?: boolean;
-        alignMode?: ESCH_PrimitiveTextAlignMode;
-    }): Promise<ISCH_PrimitiveText | undefined>;
+public modify(primitiveId: string | ISCH_PrimitiveText, property: { x?: undefined | number; y?: undefined | number; content?: undefined | string; rotation?: undefined | number; textColor?: undefined | null | string; fontName?: undefined | null | string; fontSize?: undefined | null | number; bold?: undefined | false | true; italic?: undefined | false | true; underLine?: undefined | false | true; alignMode?: undefined | ESCH_PrimitiveTextAlignMode.LEFT_TOP | ESCH_PrimitiveTextAlignMode.LEFT_MIDDLE | ESCH_PrimitiveTextAlignMode.LEFT_BOTTOM | ESCH_PrimitiveTextAlignMode.CENTER_TOP | ESCH_PrimitiveTextAlignMode.CENTER | ESCH_PrimitiveTextAlignMode.CENTER_BOTTOM | ESCH_PrimitiveTextAlignMode.RIGHT_TOP | ESCH_PrimitiveTextAlignMode.RIGHT_MIDDLE | ESCH_PrimitiveTextAlignMode.RIGHT_BOTTOM }): Promise<ISCH_PrimitiveText | undefined>;
 ```
 
 ## Parameters
@@ -636,7 +624,7 @@ property
 
 </td><td>
 
-{ x?: number; y?: number; content?: string; rotation?: number; textColor?: string \| null; fontName?: string \| null; fontSize?: number \| null; bold?: boolean; italic?: boolean; underLine?: boolean; alignMode?: [ESCH\_PrimitiveTextAlignMode](../enums/ESCH_PrimitiveTextAlignMode.md)<!-- -->; }
+{ x?: undefined \| number; y?: undefined \| number; content?: undefined \| string; rotation?: undefined \| number; textColor?: undefined \| null \| string; fontName?: undefined \| null \| string; fontSize?: undefined \| null \| number; bold?: undefined \| false \| true; italic?: undefined \| false \| true; underLine?: undefined \| false \| true; alignMode?: undefined \| [ESCH\_PrimitiveTextAlignMode.LEFT\_TOP](../enums/ESCH_PrimitiveTextAlignMode.md) \| [ESCH\_PrimitiveTextAlignMode.LEFT\_MIDDLE](../enums/ESCH_PrimitiveTextAlignMode.md) \| [ESCH\_PrimitiveTextAlignMode.LEFT\_BOTTOM](../enums/ESCH_PrimitiveTextAlignMode.md) \| [ESCH\_PrimitiveTextAlignMode.CENTER\_TOP](../enums/ESCH_PrimitiveTextAlignMode.md) \| [ESCH\_PrimitiveTextAlignMode.CENTER](../enums/ESCH_PrimitiveTextAlignMode.md) \| [ESCH\_PrimitiveTextAlignMode.CENTER\_BOTTOM](../enums/ESCH_PrimitiveTextAlignMode.md) \| [ESCH\_PrimitiveTextAlignMode.RIGHT\_TOP](../enums/ESCH_PrimitiveTextAlignMode.md) \| [ESCH\_PrimitiveTextAlignMode.RIGHT\_MIDDLE](../enums/ESCH_PrimitiveTextAlignMode.md) \| [ESCH\_PrimitiveTextAlignMode.RIGHT\_BOTTOM](../enums/ESCH_PrimitiveTextAlignMode.md) }
 
 
 </td><td>

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_Math 
+export class SYS_Math 
 ```
 
 ## Remarks
@@ -269,7 +269,7 @@ Description
 ## Signature
 
 ```typescript
-bboxIntersects(bbox1: ISYS_MathBBox, bbox2: ISYS_MathBBox): boolean;
+public bboxIntersects(bbox1: ISYS_MathBBox, bbox2: ISYS_MathBBox): boolean;
 ```
 
 ## Parameters
@@ -341,7 +341,7 @@ boolean
 ## Signature
 
 ```typescript
-calculateArea(polygon: TSYS_MathPolygonInput): number;
+public calculateArea(polygon: TSYS_MathPolygonInput): number;
 ```
 
 ## Parameters
@@ -390,7 +390,7 @@ number
 
 ## Remarks
 
-使用 Shoelace 公式计算： - 传入单个多边形时，返回该多边形的绝对面积 - 传入多边形组（<!-- -->，如布尔运算的返回值）时， 计算所有外环面积之和减去所有孔洞面积之和，得到净面积
+使用 Shoelace 公式计算： - 传入单个多边形时，返回该多边形的绝对面积 - 传入多边形组（[TSYS\_MathPolygonGroup](../types/TSYS_MathPolygonGroup.md)<!-- -->，如布尔运算的返回值）时， 计算所有外环面积之和减去所有孔洞面积之和，得到净面积
 
 ### calculateperimeter
 
@@ -401,7 +401,7 @@ number
 ## Signature
 
 ```typescript
-calculatePerimeter(polygon: TSYS_MathPolygonInput): number;
+public calculatePerimeter(polygon: TSYS_MathPolygonInput): number;
 ```
 
 ## Parameters
@@ -457,7 +457,7 @@ number
 ## Signature
 
 ```typescript
-contains(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): boolean;
+public contains(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): boolean;
 ```
 
 ## Parameters
@@ -529,7 +529,7 @@ polygon1 是否完全包含 polygon2
 ## Signature
 
 ```typescript
-containsPoint(polygon: TSYS_MathPolygonInput, point: ISYS_MathPoint): boolean;
+public containsPoint(polygon: TSYS_MathPolygonInput, point: ISYS_MathPoint): boolean;
 ```
 
 ## Parameters
@@ -609,7 +609,7 @@ boolean
 ## Signature
 
 ```typescript
-distanceToPoint(polygon: TSYS_MathPolygonInput, point: ISYS_MathPoint): number;
+public distanceToPoint(polygon: TSYS_MathPolygonInput, point: ISYS_MathPoint): number;
 ```
 
 ## Parameters
@@ -681,7 +681,7 @@ number
 ## Signature
 
 ```typescript
-getBBox(polygon: TSYS_MathPolygonInput): ISYS_MathBBox;
+public getBBox(polygon: TSYS_MathPolygonInput): ISYS_MathBBox;
 ```
 
 ## Parameters
@@ -737,7 +737,7 @@ BBox
 ## Signature
 
 ```typescript
-getCentroid(polygon: TSYS_MathPolygonInput): ISYS_MathPoint;
+public getCentroid(polygon: TSYS_MathPolygonInput): ISYS_MathPoint;
 ```
 
 ## Parameters
@@ -793,7 +793,7 @@ polygon
 ## Signature
 
 ```typescript
-intersection(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): TSYS_MathPolygonGroup;
+public intersection(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): TSYS_MathPolygonGroup;
 ```
 
 ## Parameters
@@ -852,7 +852,7 @@ polygon2
 
 ## Returns
 
-TSYS\_MathPolygonGroup
+[TSYS\_MathPolygonGroup](../types/TSYS_MathPolygonGroup.md)
 
 交集结果的多边形组，空数组表示无交集
 
@@ -865,7 +865,7 @@ TSYS\_MathPolygonGroup
 ## Signature
 
 ```typescript
-intersects(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): boolean;
+public intersects(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): boolean;
 ```
 
 ## Parameters
@@ -941,7 +941,7 @@ boolean
 ## Signature
 
 ```typescript
-rotate(polygon: TSYS_MathPolygonInput, angle: number, centerX?: number, centerY?: number): Array<ISYS_MathPoint>;
+public rotate(polygon: TSYS_MathPolygonInput, angle: number, centerX?: number, centerY?: number): Array<ISYS_MathPoint>;
 ```
 
 ## Parameters
@@ -1045,7 +1045,7 @@ Array&lt;[ISYS\_MathPoint](../interfaces/ISYS_MathPoint.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-scale(polygon: TSYS_MathPolygonInput, scaleX: number, scaleY?: number, centerX?: number, centerY?: number): Array<ISYS_MathPoint>;
+public scale(polygon: TSYS_MathPolygonInput, scaleX: number, scaleY?: number, centerX?: number, centerY?: number): Array<ISYS_MathPoint>;
 ```
 
 ## Parameters
@@ -1165,7 +1165,7 @@ Array&lt;[ISYS\_MathPoint](../interfaces/ISYS_MathPoint.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-subtract(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): TSYS_MathPolygonGroup;
+public subtract(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): TSYS_MathPolygonGroup;
 ```
 
 ## Parameters
@@ -1224,7 +1224,7 @@ polygon2
 
 ## Returns
 
-TSYS\_MathPolygonGroup
+[TSYS\_MathPolygonGroup](../types/TSYS_MathPolygonGroup.md)
 
 差集结果的多边形组，保留外环与孔洞的归属关系
 
@@ -1237,7 +1237,7 @@ TSYS\_MathPolygonGroup
 ## Signature
 
 ```typescript
-translate(polygon: TSYS_MathPolygonInput, dx: number, dy: number): Array<ISYS_MathPoint>;
+public translate(polygon: TSYS_MathPolygonInput, dx: number, dy: number): Array<ISYS_MathPoint>;
 ```
 
 ## Parameters
@@ -1325,7 +1325,7 @@ Array&lt;[ISYS\_MathPoint](../interfaces/ISYS_MathPoint.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-union(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): TSYS_MathPolygonGroup;
+public union(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): TSYS_MathPolygonGroup;
 ```
 
 ## Parameters
@@ -1384,7 +1384,7 @@ polygon2
 
 ## Returns
 
-TSYS\_MathPolygonGroup
+[TSYS\_MathPolygonGroup](../types/TSYS_MathPolygonGroup.md)
 
 并集结果的多边形组，保留外环与孔洞的归属关系
 
@@ -1397,7 +1397,7 @@ TSYS\_MathPolygonGroup
 ## Signature
 
 ```typescript
-xor(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): TSYS_MathPolygonGroup;
+public xor(polygon1: TSYS_MathPolygonInput, polygon2: TSYS_MathPolygonInput): TSYS_MathPolygonGroup;
 ```
 
 ## Parameters
@@ -1456,6 +1456,6 @@ polygon2
 
 ## Returns
 
-TSYS\_MathPolygonGroup
+[TSYS\_MathPolygonGroup](../types/TSYS_MathPolygonGroup.md)
 
 对称差集结果的多边形组，保留外环与孔洞的归属关系

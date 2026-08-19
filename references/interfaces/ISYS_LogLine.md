@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ISYS_LogLine 
+export interface ISYS_LogLine 
 ```
 
 ## Properties

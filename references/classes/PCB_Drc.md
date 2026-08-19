@@ -5,7 +5,7 @@ PCB &amp; 封装 / 设计规则检查（DRC）类
 ## Signature
 
 ```typescript
-declare class PCB_Drc 
+export class PCB_Drc 
 ```
 
 ## Remarks
@@ -382,6 +382,20 @@ Description
 </td></tr>
 <tr><td>
 
+[getRealTimeDrcStatus()](./PCB_Drc.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 获取实时 DRC 检查状态
+
+
+</td></tr>
+<tr><td>
+
 [getRegionRules()](./PCB_Drc.md)
 
 
@@ -632,6 +646,34 @@ Description
 
 
 </td></tr>
+<tr><td>
+
+[startRealTimeDrc()](./PCB_Drc.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 开始实时 DRC 检查
+
+
+</td></tr>
+<tr><td>
+
+[stopRealTimeDrc()](./PCB_Drc.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 停止实时 DRC 检查
+
+
+</td></tr>
 </tbody></table>
 
 ---
@@ -649,7 +691,7 @@ Description
 ## Signature
 
 ```typescript
-addNetToEqualLengthNetGroup(equalLengthNetGroupName: string, net: string | Array<string>): Promise<boolean>;
+public addNetToEqualLengthNetGroup(equalLengthNetGroupName: string, net: string | Array<string>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -723,7 +765,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-addNetToNetClass(netClassName: string, net: string | Array<string>): Promise<boolean>;
+public addNetToNetClass(netClassName: string, net: string | Array<string>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -797,7 +839,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-addPadPairToPadPairGroup(padPairGroupName: string, padPair: [string, string] | Array<[string, string]>): Promise<boolean>;
+public addPadPairToPadPairGroup(padPairGroupName: string, padPair: [string, string] | Array<[string, string]>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -862,7 +904,7 @@ Promise&lt;boolean&gt;
 
 ## Example
 
-有三种不同的用法，确保画布上已有对应的焊盘。 分别是 一，游离焊盘-游离焊盘；二，器件焊盘 - 器件焊盘；三，器件焊盘 - 游离焊盘 await eda.pcb\_Drc.addPadPairToPadPairGroup('test',\['e0','e1'\]) // 游离焊盘-游离焊盘 await eda.pcb\_Drc.addPadPairToPadPairGroup('test',\['R1:1','R1:2'\]) // 器件焊盘 - 器件焊盘 await eda.pcb\_Drc.addPadPairToPadPairGroup('test',\['R1:1','e1'\]) // 器件焊盘 - 游离焊盘
+有三种不同的用法，确保画布上已有对应的焊盘。 分别是 一，游离焊盘-游离焊盘；二，器件焊盘 - 器件焊盘；三，器件焊盘 - 游离焊盘 await eda.pcb\_Drc.addPadPairToPadPairGroup('test',\['e0','e1'\]) 游离焊盘-游离焊盘 await eda.pcb\_Drc.addPadPairToPadPairGroup('test',\['R1:1','R1:2'\]) 器件焊盘 - 器件焊盘 await eda.pcb\_Drc.addPadPairToPadPairGroup('test',\['R1:1','e1'\]) 器件焊盘 - 游离焊盘
 
 ### check
 
@@ -875,7 +917,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-check(strict: boolean, userInterface: boolean, includeVerboseError: false): Promise<boolean>;
+public check(strict: boolean, userInterface: boolean, includeVerboseError: false): Promise<boolean>;
 ```
 
 ## Parameters
@@ -965,7 +1007,7 @@ DRC 检查是否通过
 ## Signature
 
 ```typescript
-check(strict: boolean, userInterface: boolean, includeVerboseError: true): Promise<Array<any>>;
+public check(strict: boolean, userInterface: boolean, includeVerboseError: true): Promise<Array<any>>;
 ```
 
 ## Parameters
@@ -1055,7 +1097,7 @@ DRC 检查的详细结果
 ## Signature
 
 ```typescript
-createDifferentialPair(differentialPairName: string, positiveNet: string, negativeNet: string): Promise<boolean>;
+public createDifferentialPair(differentialPairName: string, positiveNet: string, negativeNet: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1145,7 +1187,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-createEqualLengthNetGroup(equalLengthNetGroupName: string, nets: Array<string>, color: IPCB_EqualLengthNetGroupItem['color']): Promise<boolean>;
+public createEqualLengthNetGroup(equalLengthNetGroupName: string, nets: Array<string>, color: IPCB_EqualLengthNetGroupItem['color']): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1235,7 +1277,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-createNetClass(netClassName: string, nets: Array<string>, color: IPCB_EqualLengthNetGroupItem['color']): Promise<boolean>;
+public createNetClass(netClassName: string, nets: Array<string>, color: IPCB_EqualLengthNetGroupItem['color']): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1325,7 +1367,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-createPadPairGroup(padPairGroupName: string, padPairs: Array<[string, string]>): Promise<boolean>;
+public createPadPairGroup(padPairGroupName: string, padPairs: Array<[string, string]>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1390,7 +1432,7 @@ Promise&lt;boolean&gt;
 
 ## Example
 
-有三种不同的用法，确保画布上已有对应的焊盘。 分别是 一，游离焊盘-游离焊盘；二，器件焊盘 - 器件焊盘；三，器件焊盘 - 游离焊盘 await eda.pcb\_Drc.createPadPairGroup('test',\[\['e0','e1'\]\]) // 游离焊盘-游离焊盘 await eda.pcb\_Drc.createPadPairGroup('test',\[\['R1:1','R1:2'\],\['R2:1','R2:2'\]\]) // 器件焊盘 - 器件焊盘 await eda.pcb\_Drc.createPadPairGroup('test',\[\['R1:1','e0'\],\['R1:2','e1'\]\]) // 器件焊盘 - 游离焊盘
+有三种不同的用法，确保画布上已有对应的焊盘。 分别是 一，游离焊盘-游离焊盘；二，器件焊盘 - 器件焊盘；三，器件焊盘 - 游离焊盘 await eda.pcb\_Drc.createPadPairGroup('test',\[\['e0','e1'\]\]) 游离焊盘-游离焊盘 await eda.pcb\_Drc.createPadPairGroup('test',\[\['R1:1','R1:2'\],\['R2:1','R2:2'\]\]) 器件焊盘 - 器件焊盘 await eda.pcb\_Drc.createPadPairGroup('test',\[\['R1:1','e0'\],\['R1:2','e1'\]\]) 器件焊盘 - 游离焊盘
 
 ### deletedifferentialpair
 
@@ -1403,7 +1445,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-deleteDifferentialPair(differentialPairName: string): Promise<boolean>;
+public deleteDifferentialPair(differentialPairName: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1461,7 +1503,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-deleteEqualLengthNetGroup(equalLengthNetGroupName: string): Promise<boolean>;
+public deleteEqualLengthNetGroup(equalLengthNetGroupName: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1519,7 +1561,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-deleteNetClass(netClassName: string): Promise<boolean>;
+public deleteNetClass(netClassName: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1577,7 +1619,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-deletePadPairGroup(padPairGroupName: string): Promise<boolean>;
+public deletePadPairGroup(padPairGroupName: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1635,7 +1677,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-deleteRuleConfiguration(configurationName: string): Promise<boolean>;
+public deleteRuleConfiguration(configurationName: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1697,23 +1739,19 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-getAllDifferentialPairs(): Promise<Array<IPCB_DifferentialPairItem> | {
-        [key: string]: any;
-    }>;
+public getAllDifferentialPairs(): Promise<Array<IPCB_DifferentialPairItem> | Record<string, any>>;
 ```
 
 
 ## Returns
 
-Promise&lt;Array&lt;[IPCB\_DifferentialPairItem](../interfaces/IPCB_DifferentialPairItem.md)<!-- -->&gt; \| { \[key: string\]: any; }&gt;
+Promise&lt;Array&lt;[IPCB\_DifferentialPairItem](../interfaces/IPCB_DifferentialPairItem.md)<!-- -->&gt; \| Record&lt;string, any&gt;&gt;
 
 所有差分对的详细属性
 
 ## Remarks
 
-BREAKING CHANGE since EDA v3.4
-
-- 返回值类型更改为对象
+- 返回值类型更改为对象 BREAKING CHANGE since EDA v3.4
 
 ### getallequallengthnetgroups
 
@@ -1726,7 +1764,7 @@ BREAKING CHANGE since EDA v3.4
 ## Signature
 
 ```typescript
-getAllEqualLengthNetGroups(): Promise<Array<IPCB_EqualLengthNetGroupItem>>;
+public getAllEqualLengthNetGroups(): Promise<Array<IPCB_EqualLengthNetGroupItem>>;
 ```
 
 
@@ -1747,7 +1785,7 @@ Promise&lt;Array&lt;[IPCB\_EqualLengthNetGroupItem](../interfaces/IPCB_EqualLeng
 ## Signature
 
 ```typescript
-getAllNetClasses(): Promise<Array<IPCB_NetClassItem>>;
+public getAllNetClasses(): Promise<Array<IPCB_NetClassItem>>;
 ```
 
 
@@ -1768,7 +1806,7 @@ Promise&lt;Array&lt;[IPCB\_NetClassItem](../interfaces/IPCB_NetClassItem.md)<!--
 ## Signature
 
 ```typescript
-getAllPadPairGroups(): Promise<Array<IPCB_PadPairGroupItem>>;
+public getAllPadPairGroups(): Promise<Array<IPCB_PadPairGroupItem>>;
 ```
 
 
@@ -1789,9 +1827,7 @@ Promise&lt;Array&lt;[IPCB\_PadPairGroupItem](../interfaces/IPCB_PadPairGroupItem
 ## Signature
 
 ```typescript
-getAllRuleConfigurations(includeSystem?: boolean): Promise<Array<{
-        [key: string]: any;
-    }>>;
+public getAllRuleConfigurations(includeSystem?: boolean): Promise<Array<Record<string, any>>>;
 ```
 
 ## Parameters
@@ -1834,7 +1870,7 @@ _(Optional)_ 是否获取系统设计规则配置
 
 ## Returns
 
-Promise&lt;Array&lt;{ \[key: string\]: any; }&gt;&gt;
+Promise&lt;Array&lt;Record&lt;string, any&gt;&gt;&gt;
 
 所有设计规则配置
 
@@ -1849,15 +1885,13 @@ Promise&lt;Array&lt;{ \[key: string\]: any; }&gt;&gt;
 ## Signature
 
 ```typescript
-getCurrentRuleConfiguration(): Promise<{
-        [key: string]: any;
-    } | undefined>;
+public getCurrentRuleConfiguration(): Promise<Record<string, any> | undefined>;
 ```
 
 
 ## Returns
 
-Promise&lt;{ \[key: string\]: any; } \| undefined&gt;
+Promise&lt;Record&lt;string, any&gt; \| undefined&gt;
 
 当前设计规则配置，`undefined` 为获取失败
 
@@ -1870,7 +1904,7 @@ Promise&lt;{ \[key: string\]: any; } \| undefined&gt;
 ## Signature
 
 ```typescript
-getCurrentRuleConfigurationName(): Promise<string | undefined>;
+public getCurrentRuleConfigurationName(): Promise<string | undefined>;
 ```
 
 
@@ -1891,7 +1925,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-getDefaultRuleConfigurationName(): Promise<string | undefined>;
+public getDefaultRuleConfigurationName(): Promise<string | undefined>;
 ```
 
 
@@ -1912,15 +1946,13 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-getNetByNetRules(): Promise<{
-        [key: string]: any;
-    }>;
+public getNetByNetRules(): Promise<Record<string, any>>;
 ```
 
 
 ## Returns
 
-Promise&lt;{ \[key: string\]: any; }&gt;
+Promise&lt;Record&lt;string, any&gt;&gt;
 
 当前 PCB 的所有网络-网络规则
 
@@ -1935,15 +1967,13 @@ Promise&lt;{ \[key: string\]: any; }&gt;
 ## Signature
 
 ```typescript
-getNetRules(): Promise<Array<{
-        [key: string]: any;
-    }>>;
+public getNetRules(): Promise<Array<Record<string, any>>>;
 ```
 
 
 ## Returns
 
-Promise&lt;Array&lt;{ \[key: string\]: any; }&gt;&gt;
+Promise&lt;Array&lt;Record&lt;string, any&gt;&gt;&gt;
 
 当前 PCB 的所有网络规则
 
@@ -1958,7 +1988,7 @@ Promise&lt;Array&lt;{ \[key: string\]: any; }&gt;&gt;
 ## Signature
 
 ```typescript
-getPadPairGroupMinWireLength(padPairGroupName: string): Promise<Array<IPCB_PadPairMinWireLengthItem>>;
+public getPadPairGroupMinWireLength(padPairGroupName: string): Promise<Array<IPCB_PadPairMinWireLengthItem>>;
 ```
 
 ## Parameters
@@ -2005,6 +2035,31 @@ Promise&lt;Array&lt;[IPCB\_PadPairMinWireLengthItem](../interfaces/IPCB_PadPairM
 
 所有焊盘对的最短导线长度
 
+### getrealtimedrcstatus
+
+# PCB\_Drc.getRealTimeDrcStatus() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+获取实时 DRC 检查状态
+
+## Signature
+
+```typescript
+public getRealTimeDrcStatus(): Promise<boolean>;
+```
+
+
+## Returns
+
+Promise&lt;boolean&gt;
+
+实时 DRC 检查状态，实时 DRC 已停止、不处于 PCB 或获取失败均返回 `false`
+
+## Remarks
+
+ADD since EDA v4.2
+
 ### getregionrules
 
 # PCB\_Drc.getRegionRules() method
@@ -2016,15 +2071,13 @@ Promise&lt;Array&lt;[IPCB\_PadPairMinWireLengthItem](../interfaces/IPCB_PadPairM
 ## Signature
 
 ```typescript
-getRegionRules(): Promise<Array<{
-        [key: string]: any;
-    }>>;
+public getRegionRules(): Promise<Array<Record<string, any>>>;
 ```
 
 
 ## Returns
 
-Promise&lt;Array&lt;{ \[key: string\]: any; }&gt;&gt;
+Promise&lt;Array&lt;Record&lt;string, any&gt;&gt;&gt;
 
 - 当前 PCB 的所有区域规则
 
@@ -2037,9 +2090,7 @@ Promise&lt;Array&lt;{ \[key: string\]: any; }&gt;&gt;
 ## Signature
 
 ```typescript
-getRuleConfiguration(configurationName: string): Promise<{
-        [key: string]: any;
-    } | undefined>;
+public getRuleConfiguration(configurationName: string): Promise<Record<string, any> | undefined>;
 ```
 
 ## Parameters
@@ -2082,7 +2133,7 @@ string
 
 ## Returns
 
-Promise&lt;{ \[key: string\]: any; } \| undefined&gt;
+Promise&lt;Record&lt;string, any&gt; \| undefined&gt;
 
 设计规则配置，`undefined` 为不存在该设计规则
 
@@ -2097,7 +2148,7 @@ Promise&lt;{ \[key: string\]: any; } \| undefined&gt;
 ## Signature
 
 ```typescript
-modifyDifferentialPairName(originalDifferentialPairName: string, differentialPairName: string): Promise<boolean>;
+public modifyDifferentialPairName(originalDifferentialPairName: string, differentialPairName: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -2171,7 +2222,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-modifyDifferentialPairNegativeNet(differentialPairName: string, negativeNet: string): Promise<boolean>;
+public modifyDifferentialPairNegativeNet(differentialPairName: string, negativeNet: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -2245,7 +2296,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-modifyDifferentialPairPositiveNet(differentialPairName: string, positiveNet: string): Promise<boolean>;
+public modifyDifferentialPairPositiveNet(differentialPairName: string, positiveNet: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -2319,7 +2370,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-modifyEqualLengthNetGroupName(originalEqualLengthNetGroupName: string, equalLengthNetGroupName: string): Promise<boolean>;
+public modifyEqualLengthNetGroupName(originalEqualLengthNetGroupName: string, equalLengthNetGroupName: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -2393,7 +2444,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-modifyNetClassName(originalNetClassName: string, netClassName: string): Promise<boolean>;
+public modifyNetClassName(originalNetClassName: string, netClassName: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -2467,7 +2518,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-modifyPadPairGroupName(originalPadPairGroupName: string, padPairGroupName: string): Promise<boolean>;
+public modifyPadPairGroupName(originalPadPairGroupName: string, padPairGroupName: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -2541,9 +2592,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-overwriteCurrentRuleConfiguration(ruleConfiguration: {
-        [key: string]: any;
-    }): Promise<boolean>;
+public overwriteCurrentRuleConfiguration(ruleConfiguration: Record<string, any>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -2571,7 +2620,7 @@ ruleConfiguration
 
 </td><td>
 
-\{ \[key: string\]: any; \}
+Record&lt;string, any&gt;
 
 
 </td><td>
@@ -2605,9 +2654,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-overwriteNetByNetRules(netByNetRules: {
-        [key: string]: any;
-    }): Promise<boolean>;
+public overwriteNetByNetRules(netByNetRules: Record<string, any>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -2635,7 +2682,7 @@ netByNetRules
 
 </td><td>
 
-\{ \[key: string\]: any; \}
+Record&lt;string, any&gt;
 
 
 </td><td>
@@ -2669,9 +2716,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-overwriteNetRules(netRules: Array<{
-        [key: string]: any;
-    }>): Promise<boolean>;
+public overwriteNetRules(netRules: Array<Record<string, any>>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -2699,7 +2744,7 @@ netRules
 
 </td><td>
 
-Array&lt;{ \[key: string\]: any; }&gt;
+Array&lt;Record&lt;string, any&gt;&gt;
 
 
 </td><td>
@@ -2733,9 +2778,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-overwriteRegionRules(regionRules: Array<{
-        [key: string]: any;
-    }>): Promise<boolean>;
+public overwriteRegionRules(regionRules: Array<Record<string, any>>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -2763,7 +2806,7 @@ regionRules
 
 </td><td>
 
-Array&lt;{ \[key: string\]: any; }&gt;
+Array&lt;Record&lt;string, any&gt;&gt;
 
 
 </td><td>
@@ -2797,7 +2840,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-removeNetFromEqualLengthNetGroup(equalLengthNetGroupName: string, net: string | Array<string>): Promise<boolean>;
+public removeNetFromEqualLengthNetGroup(equalLengthNetGroupName: string, net: string | Array<string>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -2871,7 +2914,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-removeNetFromNetClass(netClassName: string, net: string | Array<string>): Promise<boolean>;
+public removeNetFromNetClass(netClassName: string, net: string | Array<string>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -2945,7 +2988,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-removePadPairFromPadPairGroup(padPairGroupName: string, padPair: [string, string] | Array<[string, string]>): Promise<boolean>;
+public removePadPairFromPadPairGroup(padPairGroupName: string, padPair: [string, string] | Array<[string, string]>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -3010,7 +3053,7 @@ Promise&lt;boolean&gt;
 
 ## Example
 
-有三种不同的用法，确保画布上已有对应的焊盘。 分别是 一，游离焊盘-游离焊盘；二，器件焊盘 - 器件焊盘；三，器件焊盘 - 游离焊盘 await eda.pcb\_Drc.removePadPairFromPadPairGroup('test',\['e0','e1'\]) // 游离焊盘-游离焊盘 await eda.pcb\_Drc.removePadPairFromPadPairGroup('test',\['R1:1','R1:2'\]) // 器件焊盘 - 器件焊盘 await eda.pcb\_Drc.removePadPairFromPadPairGroup('test',\['R1:2','e1'\]) // 器件焊盘 - 游离焊盘
+有三种不同的用法，确保画布上已有对应的焊盘。 分别是 一，游离焊盘-游离焊盘；二，器件焊盘 - 器件焊盘；三，器件焊盘 - 游离焊盘 await eda.pcb\_Drc.removePadPairFromPadPairGroup('test',\['e0','e1'\]) 游离焊盘-游离焊盘 await eda.pcb\_Drc.removePadPairFromPadPairGroup('test',\['R1:1','R1:2'\]) 器件焊盘 - 器件焊盘 await eda.pcb\_Drc.removePadPairFromPadPairGroup('test',\['R1:2','e1'\]) 器件焊盘 - 游离焊盘
 
 ### renameruleconfiguration
 
@@ -3023,7 +3066,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-renameRuleConfiguration(originalConfigurationName: string, configurationName: string): Promise<boolean>;
+public renameRuleConfiguration(originalConfigurationName: string, configurationName: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -3101,9 +3144,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-saveRuleConfiguration(ruleConfiguration: {
-        [key: string]: any;
-    }, configurationName: string, allowOverwrite?: boolean): Promise<boolean>;
+public saveRuleConfiguration(ruleConfiguration: Record<string, any>, configurationName: string, allowOverwrite?: boolean): Promise<boolean>;
 ```
 
 ## Parameters
@@ -3131,7 +3172,7 @@ ruleConfiguration
 
 </td><td>
 
-\{ \[key: string\]: any; \}
+Record&lt;string, any&gt;
 
 
 </td><td>
@@ -3197,7 +3238,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-setAsDefaultRuleConfiguration(configurationName: string): Promise<boolean>;
+public setAsDefaultRuleConfiguration(configurationName: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -3247,3 +3288,53 @@ Promise&lt;boolean&gt;
 ## Remarks
 
 返回值为结果导向，重复设置相同的设计规则为默认设计规则也将返回 `true`
+
+### startrealtimedrc
+
+# PCB\_Drc.startRealTimeDrc() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+开始实时 DRC 检查
+
+## Signature
+
+```typescript
+public startRealTimeDrc(): Promise<boolean>;
+```
+
+
+## Returns
+
+Promise&lt;boolean&gt;
+
+是否成功启用实时 DRC 检查
+
+## Remarks
+
+本接口返回值为结果导向，调用本接口前已启用实时 DRC 检查也将返回 `true` ADD since EDA v4.2
+
+### stoprealtimedrc
+
+# PCB\_Drc.stopRealTimeDrc() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+停止实时 DRC 检查
+
+## Signature
+
+```typescript
+public stopRealTimeDrc(): Promise<boolean>;
+```
+
+
+## Returns
+
+Promise&lt;boolean&gt;
+
+是否成功停用实时 DRC 检查
+
+## Remarks
+
+本接口返回值为结果导向，调用本接口前已停用实时 DRC 检查也将返回 `true` ADD since EDA v4.2

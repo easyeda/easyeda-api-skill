@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum EPCB_LayerColorConfiguration 
+export enum EPCB_LayerColorConfiguration 
 ```
 
 ## Enumeration Members
@@ -38,8 +38,6 @@ ALTIUM\_DESIGNER
 
 </td><td>
 
-Altium Designer
-
 
 </td></tr>
 <tr><td>
@@ -53,8 +51,6 @@ EASYEDA
 
 
 </td><td>
-
-EasyEDA
 
 
 </td></tr>
@@ -70,8 +66,6 @@ JLCEDA
 
 </td><td>
 
-嘉立创 EDA
-
 
 </td></tr>
 <tr><td>
@@ -86,8 +80,6 @@ KICAD
 
 </td><td>
 
-KiCAD
-
 
 </td></tr>
 <tr><td>
@@ -101,8 +93,6 @@ PADS
 
 
 </td><td>
-
-PADS
 
 
 </td></tr>

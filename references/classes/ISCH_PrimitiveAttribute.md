@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class ISCH_PrimitiveAttribute implements ISCH_Primitive 
+export class ISCH_PrimitiveAttribute implements ISCH_Primitive 
 ```
 **Implements:** [ISCH\_Primitive](../interfaces/ISCH_Primitive.md)
 
@@ -579,7 +579,7 @@ Description
 ## Signature
 
 ```typescript
-done(): Promise<ISCH_PrimitiveAttribute>;
+public done(): Promise<ISCH_PrimitiveAttribute>;
 ```
 
 
@@ -598,7 +598,7 @@ Promise&lt;[ISCH\_PrimitiveAttribute](./ISCH_PrimitiveAttribute.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getState_AlignMode(): ESCH_PrimitiveTextAlignMode | null;
+public getState_AlignMode(): ESCH_PrimitiveTextAlignMode | null;
 ```
 
 
@@ -617,7 +617,7 @@ getState_AlignMode(): ESCH_PrimitiveTextAlignMode | null;
 ## Signature
 
 ```typescript
-getState_Bold(): boolean | null;
+public getState_Bold(): boolean | null;
 ```
 
 
@@ -636,7 +636,7 @@ boolean \| null
 ## Signature
 
 ```typescript
-getState_Color(): string | null;
+public getState_Color(): string | null;
 ```
 
 
@@ -655,7 +655,7 @@ string \| null
 ## Signature
 
 ```typescript
-getState_FillColor(): string | null;
+public getState_FillColor(): string | null;
 ```
 
 
@@ -674,7 +674,7 @@ string \| null
 ## Signature
 
 ```typescript
-getState_FontName(): string | null;
+public getState_FontName(): string | null;
 ```
 
 
@@ -693,7 +693,7 @@ string \| null
 ## Signature
 
 ```typescript
-getState_FontSize(): number | null;
+public getState_FontSize(): number | null;
 ```
 
 
@@ -712,7 +712,7 @@ number \| null
 ## Signature
 
 ```typescript
-getState_Italic(): boolean | null;
+public getState_Italic(): boolean | null;
 ```
 
 
@@ -731,7 +731,7 @@ boolean \| null
 ## Signature
 
 ```typescript
-getState_Key(): string;
+public getState_Key(): string;
 ```
 
 
@@ -750,7 +750,7 @@ string
 ## Signature
 
 ```typescript
-getState_KeyVisible(): boolean | null;
+public getState_KeyVisible(): boolean | null;
 ```
 
 
@@ -769,7 +769,7 @@ boolean \| null
 ## Signature
 
 ```typescript
-getState_ParentPrimitiveId(): string;
+public getState_ParentPrimitiveId(): string;
 ```
 
 
@@ -788,7 +788,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -807,7 +807,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): ESCH_PrimitiveType;
+public getState_PrimitiveType(): ESCH_PrimitiveType;
 ```
 
 
@@ -826,7 +826,7 @@ getState_PrimitiveType(): ESCH_PrimitiveType;
 ## Signature
 
 ```typescript
-getState_Rotation(): number | null;
+public getState_Rotation(): number | null;
 ```
 
 
@@ -845,7 +845,7 @@ number \| null
 ## Signature
 
 ```typescript
-getState_UnderLine(): boolean | null;
+public getState_UnderLine(): boolean | null;
 ```
 
 
@@ -864,7 +864,7 @@ boolean \| null
 ## Signature
 
 ```typescript
-getState_Value(): string;
+public getState_Value(): string;
 ```
 
 
@@ -883,7 +883,7 @@ string
 ## Signature
 
 ```typescript
-getState_ValueVisible(): boolean | null;
+public getState_ValueVisible(): boolean | null;
 ```
 
 
@@ -902,7 +902,7 @@ boolean \| null
 ## Signature
 
 ```typescript
-getState_X(): number | null;
+public getState_X(): number | null;
 ```
 
 
@@ -921,7 +921,7 @@ number \| null
 ## Signature
 
 ```typescript
-getState_Y(): number | null;
+public getState_Y(): number | null;
 ```
 
 
@@ -940,7 +940,7 @@ number \| null
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -961,7 +961,7 @@ boolean
 ## Signature
 
 ```typescript
-reset(): Promise<ISCH_PrimitiveAttribute>;
+public reset(): Promise<ISCH_PrimitiveAttribute>;
 ```
 
 
@@ -982,7 +982,7 @@ Promise&lt;[ISCH\_PrimitiveAttribute](./ISCH_PrimitiveAttribute.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_AlignMode(alignMode: ESCH_PrimitiveTextAlignMode | null): ISCH_PrimitiveAttribute;
+public setState_AlignMode(alignMode: ESCH_PrimitiveTextAlignMode | null): ISCH_PrimitiveAttribute;
 ```
 
 ## Parameters
@@ -1040,7 +1040,7 @@ alignMode
 ## Signature
 
 ```typescript
-setState_Bold(bold: boolean | null): ISCH_PrimitiveAttribute;
+public setState_Bold(bold: boolean | null): ISCH_PrimitiveAttribute;
 ```
 
 ## Parameters
@@ -1098,7 +1098,7 @@ boolean \| null
 ## Signature
 
 ```typescript
-setState_Color(color: string | null): ISCH_PrimitiveAttribute;
+public setState_Color(color: string | null): ISCH_PrimitiveAttribute;
 ```
 
 ## Parameters
@@ -1154,7 +1154,7 @@ string \| null
 ## Signature
 
 ```typescript
-setState_FillColor(fillColor: string | null): ISCH_PrimitiveAttribute;
+public setState_FillColor(fillColor: string | null): ISCH_PrimitiveAttribute;
 ```
 
 ## Parameters
@@ -1212,7 +1212,7 @@ string \| null
 ## Signature
 
 ```typescript
-setState_FontName(fontName: string | null): ISCH_PrimitiveAttribute;
+public setState_FontName(fontName: string | null): ISCH_PrimitiveAttribute;
 ```
 
 ## Parameters
@@ -1270,7 +1270,7 @@ string \| null
 ## Signature
 
 ```typescript
-setState_FontSize(fontSize: number | null): ISCH_PrimitiveAttribute;
+public setState_FontSize(fontSize: number | null): ISCH_PrimitiveAttribute;
 ```
 
 ## Parameters
@@ -1328,7 +1328,7 @@ number \| null
 ## Signature
 
 ```typescript
-setState_Italic(italic: boolean | null): ISCH_PrimitiveAttribute;
+public setState_Italic(italic: boolean | null): ISCH_PrimitiveAttribute;
 ```
 
 ## Parameters
@@ -1386,7 +1386,7 @@ boolean \| null
 ## Signature
 
 ```typescript
-setState_Key(key: string): ISCH_PrimitiveAttribute;
+public setState_Key(key: string): ISCH_PrimitiveAttribute;
 ```
 
 ## Parameters
@@ -1444,7 +1444,7 @@ string
 ## Signature
 
 ```typescript
-setState_KeyVisible(keyVisible: boolean | null): ISCH_PrimitiveAttribute;
+public setState_KeyVisible(keyVisible: boolean | null): ISCH_PrimitiveAttribute;
 ```
 
 ## Parameters
@@ -1502,7 +1502,7 @@ boolean \| null
 ## Signature
 
 ```typescript
-setState_Rotation(rotation: number | null): ISCH_PrimitiveAttribute;
+public setState_Rotation(rotation: number | null): ISCH_PrimitiveAttribute;
 ```
 
 ## Parameters
@@ -1560,7 +1560,7 @@ number \| null
 ## Signature
 
 ```typescript
-setState_UnderLine(underLine: boolean | null): ISCH_PrimitiveAttribute;
+public setState_UnderLine(underLine: boolean | null): ISCH_PrimitiveAttribute;
 ```
 
 ## Parameters
@@ -1618,7 +1618,7 @@ boolean \| null
 ## Signature
 
 ```typescript
-setState_Value(value: string): ISCH_PrimitiveAttribute;
+public setState_Value(value: string): ISCH_PrimitiveAttribute;
 ```
 
 ## Parameters
@@ -1676,7 +1676,7 @@ string
 ## Signature
 
 ```typescript
-setState_ValueVisible(valueVisible: boolean | null): ISCH_PrimitiveAttribute;
+public setState_ValueVisible(valueVisible: boolean | null): ISCH_PrimitiveAttribute;
 ```
 
 ## Parameters
@@ -1734,7 +1734,7 @@ boolean \| null
 ## Signature
 
 ```typescript
-setState_X(x: number | null): ISCH_PrimitiveAttribute;
+public setState_X(x: number | null): ISCH_PrimitiveAttribute;
 ```
 
 ## Parameters
@@ -1792,7 +1792,7 @@ number \| null
 ## Signature
 
 ```typescript
-setState_Y(y: number | null): ISCH_PrimitiveAttribute;
+public setState_Y(y: number | null): ISCH_PrimitiveAttribute;
 ```
 
 ## Parameters
@@ -1848,7 +1848,7 @@ number \| null
 ## Signature
 
 ```typescript
-toAsync(): ISCH_PrimitiveAttribute;
+public toAsync(): ISCH_PrimitiveAttribute;
 ```
 
 
@@ -1867,7 +1867,7 @@ toAsync(): ISCH_PrimitiveAttribute;
 ## Signature
 
 ```typescript
-toSync(): ISCH_PrimitiveAttribute;
+public toSync(): ISCH_PrimitiveAttribute;
 ```
 
 

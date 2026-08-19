@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ELIB_LibraryType 
+export enum ELIB_LibraryType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ CBB
 
 </td><td>
 
-`"1"`
+`'1'`
 
 
 </td><td>
-
-复用模块
 
 
 </td></tr>
@@ -49,12 +47,10 @@ DEVICE
 
 </td><td>
 
-`"3"`
+`'3'`
 
 
 </td><td>
-
-器件
 
 
 </td></tr>
@@ -65,12 +61,10 @@ FOOTPRINT
 
 </td><td>
 
-`"4"`
+`'4'`
 
 
 </td><td>
-
-封装
 
 
 </td></tr>
@@ -81,12 +75,10 @@ MODEL
 
 </td><td>
 
-`"5"`
+`'5'`
 
 
 </td><td>
-
-3D 模型
 
 
 </td></tr>
@@ -97,12 +89,10 @@ PANEL\_LIBRARY
 
 </td><td>
 
-`"29"`
+`'29'`
 
 
 </td><td>
-
-面板库
 
 
 </td></tr>
@@ -113,12 +103,10 @@ SIMULATION\_MODEL\_NGSPICE
 
 </td><td>
 
-`"32"`
+`'32'`
 
 
 </td><td>
-
-仿真模型：Ngspice
 
 
 </td></tr>
@@ -129,12 +117,10 @@ SIMULATION\_MODEL\_SIMULIDE
 
 </td><td>
 
-`"33"`
+`'33'`
 
 
 </td><td>
-
-仿真模型：SimulIDE
 
 
 </td></tr>
@@ -145,12 +131,10 @@ SYMBOL
 
 </td><td>
 
-`"2"`
+`'2'`
 
 
 </td><td>
-
-符号
 
 
 </td></tr>

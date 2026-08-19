@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum EPCB_PrimitivePadHoleType 
+export enum EPCB_PrimitivePadHoleType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ RECTANGLE
 
 </td><td>
 
-`"RECT"`
+`'RECT'`
 
 
 </td><td>
-
-矩形（暂未开发）
 
 
 </td></tr>
@@ -49,12 +47,10 @@ ROUND
 
 </td><td>
 
-`"ROUND"`
+`'ROUND'`
 
 
 </td><td>
-
-圆形
 
 
 </td></tr>
@@ -65,12 +61,10 @@ SLOT
 
 </td><td>
 
-`"SLOT"`
+`'SLOT'`
 
 
 </td><td>
-
-插槽
 
 
 </td></tr>

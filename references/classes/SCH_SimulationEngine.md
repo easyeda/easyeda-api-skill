@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SCH_SimulationEngine 
+export class SCH_SimulationEngine 
 ```
 
 ## Remarks
@@ -59,9 +59,7 @@ Description
 ## Signature
 
 ```typescript
-pushData(eventType: ESCH_DynamicSimulationEnginePushEventType | ESCH_SpiceSimulationEnginePushEventType, props: {
-        [key: string]: any;
-    }): void;
+public pushData(eventType: ESCH_DynamicSimulationEnginePushEventType | ESCH_SpiceSimulationEnginePushEventType, props: Record<string, any>): void;
 ```
 
 ## Parameters
@@ -105,7 +103,7 @@ props
 
 </td><td>
 
-\{ \[key: string\]: any; \}
+Record&lt;string, any&gt;
 
 
 </td><td>

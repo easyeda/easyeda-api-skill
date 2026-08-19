@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum EPCB_AutoRoutingCornerStyle 
+export enum EPCB_AutoRoutingCornerStyle 
 ```
 
 ## Enumeration Members
@@ -38,8 +38,6 @@ DEGREE\_45
 
 </td><td>
 
-45 度
-
 
 </td></tr>
 <tr><td>
@@ -53,8 +51,6 @@ DEGREE\_90
 
 
 </td><td>
-
-90 度
 
 
 </td></tr>

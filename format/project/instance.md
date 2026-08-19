@@ -1,28 +1,28 @@
-# 实例值属性覆盖
+# Instance Attribute Override
 
-## 文档头
+## Document Header
 
 ```json
 { "type": "DOCHEAD" }||{ "docType": "INSTANCE", "uuid": "SCH-UNIQUE-ID_$5|e100_$1|e55_$6|e15_$8", "client": "clientID" }|
 ```
 
-1. type：`DOCHEAD`，文档头标识
-2. docType：`INSTANCE` 实例值属性覆盖
-3. uuid：层次编号，工程内唯一，已`_`分割 id
-    1. 第一个是顶层原理图编号
-    2. 最后一个只到 Sheet 编号
-    3. 中间所有的都是使用编号组合语法定位的 `Block Symbol`，如 `$1|e2`，其中 `$1` 为 Sheet 编号，`e2` 为 `Block Symbol` 编号
-4. client：最终一致性的一个终端标识
+1. type: `DOCHEAD`, document header identifier.
+2. docType: `INSTANCE` instance attribute override.
+3. uuid: hierarchical ID, unique within the project, IDs separated by `_`.
+    1. The first is the top-level schematic ID.
+    2. The last goes only to the sheet ID.
+    3. All in between use the numbering combination syntax to locate `Block Symbol`, e.g. `$1|e2`, where `$1` is the sheet ID and `e2` is the `Block Symbol` ID.
+4. client: terminal identifier for eventual consistency.
 
-## 属性覆盖
+## Attribute Override
 
 ```json
 { "type": "INSTANCE_ATTR", "id": "e176",  "ticket": 1 }||data
 ```
 
-1. type `INSTANCE_ATTR` 实例属性覆盖
-2. id 图元编号
-3. data 属性覆盖，数据签名为 `{ [parentId: string]: { [key: string]: string }| }|`
+1. type `INSTANCE_ATTR` instance attribute override.
+2. id primitive ID.
+3. data attribute override, data signature is `{ [parentId: string]: { [key: string]: string }| }|`
 
 ```json
 { "type": "DOCHEAD" }||{ "docType": "INSTANCE", "uuid": "SCH-UNIQUE-ID_$5|e100_$1|e55_$6|e15_$8", "client": "clientID" }|

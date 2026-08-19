@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class IPCB_PrimitivePoured implements IPCB_Primitive 
+export class IPCB_PrimitivePoured implements IPCB_Primitive 
 ```
 **Implements:** [IPCB\_Primitive](../interfaces/IPCB_Primitive.md)
 
@@ -159,7 +159,7 @@ Description
 ## Signature
 
 ```typescript
-addSolderMaskFill(pourFillId: IPCB_PrimitivePouredPourFill['id']): Promise<IPCB_PrimitiveFill | undefined>;
+public addSolderMaskFill(pourFillId: IPCB_PrimitivePouredPourFill['id']): Promise<IPCB_PrimitiveFill | undefined>;
 ```
 
 ## Parameters
@@ -215,7 +215,7 @@ Promise&lt;[IPCB\_PrimitiveFill](./IPCB_PrimitiveFill.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-convertToFill(pourFillId: IPCB_PrimitivePouredPourFill['id']): Promise<IPCB_PrimitiveFill | undefined>;
+public convertToFill(pourFillId: IPCB_PrimitivePouredPourFill['id']): Promise<IPCB_PrimitiveFill | undefined>;
 ```
 
 ## Parameters
@@ -271,7 +271,7 @@ Promise&lt;[IPCB\_PrimitiveFill](./IPCB_PrimitiveFill.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-deletePourFills(pourFillIds: IPCB_PrimitivePouredPourFill['id'] | Array<IPCB_PrimitivePouredPourFill['id']>): Promise<boolean>;
+public deletePourFills(pourFillIds: IPCB_PrimitivePouredPourFill['id'] | Array<IPCB_PrimitivePouredPourFill['id']>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -327,7 +327,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-getState_PourFills(): Array<IPCB_PrimitivePouredPourFill>;
+public getState_PourFills(): Array<IPCB_PrimitivePouredPourFill>;
 ```
 
 
@@ -346,7 +346,7 @@ Array&lt;[IPCB\_PrimitivePouredPourFill](../interfaces/IPCB_PrimitivePouredPourF
 ## Signature
 
 ```typescript
-getState_PourPrimitiveId(): string;
+public getState_PourPrimitiveId(): string;
 ```
 
 
@@ -365,7 +365,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -384,7 +384,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): EPCB_PrimitiveType;
+public getState_PrimitiveType(): EPCB_PrimitiveType;
 ```
 
 
@@ -405,7 +405,7 @@ getState_PrimitiveType(): EPCB_PrimitiveType;
 ## Signature
 
 ```typescript
-reset(): Promise<IPCB_PrimitivePoured>;
+public reset(): Promise<IPCB_PrimitivePoured>;
 ```
 
 

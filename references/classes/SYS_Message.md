@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_Message 
+export class SYS_Message 
 ```
 
 ## Remarks
@@ -89,7 +89,7 @@ Description
 ## Signature
 
 ```typescript
-removeFollowMouseTip(tip?: string): Promise<void>;
+public removeFollowMouseTip(tip?: string): Promise<void>;
 ```
 
 ## Parameters
@@ -149,7 +149,7 @@ Promise&lt;void&gt;
 ## Signature
 
 ```typescript
-showFollowMouseTip(tip: string, msTimeout?: number): Promise<void>;
+public showFollowMouseTip(tip: string, msTimeout?: number): Promise<void>;
 ```
 
 ## Parameters
@@ -223,7 +223,7 @@ Promise&lt;void&gt;
 ## Signature
 
 ```typescript
-showToastMessage(message: string, messageType?: ESYS_ToastMessageType, timer?: number, bottomPanel?: ESYS_BottomPanelTab, buttonTitle?: string, buttonCallbackFn?: string): void;
+public showToastMessage(message: string, messageType?: ESYS_ToastMessageType, timer?: number, bottomPanel?: ESYS_BottomPanelTab, buttonTitle?: string, buttonCallbackFn?: string): void;
 ```
 
 ## Parameters

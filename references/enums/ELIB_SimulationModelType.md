@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ELIB_SimulationModelType 
+export enum ELIB_SimulationModelType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ NGSPICE
 
 </td><td>
 
-`"Ngspice"`
+`'Ngspice'`
 
 
 </td><td>
-
-Ngspice
 
 
 </td></tr>
@@ -49,12 +47,10 @@ SIMULIDE
 
 </td><td>
 
-`"SimulIDE"`
+`'SimulIDE'`
 
 
 </td><td>
-
-SimulIDE
 
 
 </td></tr>

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ISCH_NetInfo 
+export interface ISCH_NetInfo 
 ```
 
 ## Properties

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ILIB_DeviceExtendPropertyItem 
+export interface ILIB_DeviceExtendPropertyItem 
 ```
 
 ## Properties
@@ -174,7 +174,7 @@ _(Optional)_ 网络
 
 </td><td>
 
-\{ \[key: string\]: boolean \| number \| string \| undefined; \}
+Record&lt;string, boolean \| number \| string \| undefined&gt;
 
 
 </td><td>
@@ -320,9 +320,7 @@ net?: string;
 ## Signature
 
 ```typescript
-otherProperty?: {
-        [key: string]: boolean | number | string | undefined;
-    };
+otherProperty?: Record<string, boolean | number | string | undefined>;
 ```
 
 ### supplier

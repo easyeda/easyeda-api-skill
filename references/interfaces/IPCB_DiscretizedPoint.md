@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IPCB_DiscretizedPoint 
+export interface IPCB_DiscretizedPoint 
 ```
 
 ## Properties

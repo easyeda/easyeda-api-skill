@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class ISCH_PrimitiveCbbSymbolComponent extends ISCH_PrimitiveComponent 
+export class ISCH_PrimitiveCbbSymbolComponent extends ISCH_PrimitiveComponent 
 ```
 **Extends:** [ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)
 
@@ -103,7 +103,7 @@ Description
 ## Signature
 
 ```typescript
-done(): Promise<ISCH_PrimitiveCbbSymbolComponent>;
+public done(): Promise<ISCH_PrimitiveCbbSymbolComponent>;
 ```
 
 
@@ -122,16 +122,13 @@ Promise&lt;[ISCH\_PrimitiveCbbSymbolComponent](./ISCH_PrimitiveCbbSymbolComponen
 ## Signature
 
 ```typescript
-getState_Cbb(): {
-        libraryUuid: string;
-        uuid: string;
-    };
+public getState_Cbb(): { libraryUuid: string; uuid: string };
 ```
 
 
 ## Returns
 
-\{ libraryUuid: string; uuid: string; \}
+\{ libraryUuid: string; uuid: string \}
 
 关联复用模块
 
@@ -144,18 +141,13 @@ getState_Cbb(): {
 ## Signature
 
 ```typescript
-getState_CbbSymbol(): {
-        libraryUuid: string;
-        cbbUuid: string;
-        uuid?: string;
-        name?: string;
-    };
+public getState_CbbSymbol(): { libraryUuid: string; cbbUuid: string; uuid?: undefined | string; name?: undefined | string };
 ```
 
 
 ## Returns
 
-\{ libraryUuid: string; cbbUuid: string; uuid?: string; name?: string; \}
+\{ libraryUuid: string; cbbUuid: string; uuid?: undefined \| string; name?: undefined \| string \}
 
 关联复用模块符号
 
@@ -170,7 +162,7 @@ getState_CbbSymbol(): {
 ## Signature
 
 ```typescript
-reset(): Promise<ISCH_PrimitiveCbbSymbolComponent>;
+public reset(): Promise<ISCH_PrimitiveCbbSymbolComponent>;
 ```
 
 

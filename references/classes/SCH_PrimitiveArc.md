@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SCH_PrimitiveArc implements ISCH_PrimitiveAPI 
+export class SCH_PrimitiveArc implements ISCH_PrimitiveAPI 
 ```
 **Implements:** [ISCH\_PrimitiveAPI](../interfaces/ISCH_PrimitiveAPI.md)
 
@@ -142,7 +142,7 @@ Description
 ## Signature
 
 ```typescript
-create(startX: number, startY: number, referenceX: number, referenceY: number, endX: number, endY: number, color?: string | null, fillColor?: string | null, lineWidth?: number | null, lineType?: ESCH_PrimitiveLineType | null): Promise<ISCH_PrimitiveArc | undefined>;
+public create(startX: number, startY: number, referenceX: number, referenceY: number, endX: number, endY: number, color?: string | null, fillColor?: string | null, lineWidth?: number | null, lineType?: ESCH_PrimitiveLineType | null): Promise<ISCH_PrimitiveArc | undefined>;
 ```
 
 ## Parameters
@@ -344,7 +344,7 @@ Promise&lt;[ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-delete(primitiveIds: string | ISCH_PrimitiveArc | Array<string> | Array<ISCH_PrimitiveArc>): Promise<boolean>;
+public delete(primitiveIds: string | ISCH_PrimitiveArc | Array<string> | Array<ISCH_PrimitiveArc>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -402,7 +402,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-get(primitiveIds: string): Promise<ISCH_PrimitiveArc | undefined>;
+public get(primitiveIds: string): Promise<ISCH_PrimitiveArc | undefined>;
 ```
 
 ## Parameters
@@ -460,7 +460,7 @@ Promise&lt;[ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitiveArc>>;
+public get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitiveArc>>;
 ```
 
 ## Parameters
@@ -522,7 +522,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md)<!-- -->&gt;&gt;
 ## Signature
 
 ```typescript
-getAll(): Promise<Array<ISCH_PrimitiveArc>>;
+public getAll(): Promise<Array<ISCH_PrimitiveArc>>;
 ```
 
 
@@ -543,7 +543,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md)<!-- -->&gt;&gt;
 ## Signature
 
 ```typescript
-getAllPrimitiveId(): Promise<Array<string>>;
+public getAllPrimitiveId(): Promise<Array<string>>;
 ```
 
 
@@ -564,18 +564,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 ## Signature
 
 ```typescript
-modify(primitiveId: string | ISCH_PrimitiveArc, property: {
-        startX?: number;
-        startY?: number;
-        referenceX?: number;
-        referenceY?: number;
-        endX?: number;
-        endY?: number;
-        color?: string | null;
-        fillColor?: string | null;
-        lineWidth?: number | null;
-        lineType?: ESCH_PrimitiveLineType | null;
-    }): Promise<ISCH_PrimitiveArc | undefined>;
+public modify(primitiveId: string | ISCH_PrimitiveArc, property: { startX?: undefined | number; startY?: undefined | number; referenceX?: undefined | number; referenceY?: undefined | number; endX?: undefined | number; endY?: undefined | number; color?: undefined | null | string; fillColor?: undefined | null | string; lineWidth?: undefined | null | number; lineType?: undefined | null | ESCH_PrimitiveLineType.SOLID | ESCH_PrimitiveLineType.DASHED | ESCH_PrimitiveLineType.DOTTED | ESCH_PrimitiveLineType.DOT_DASHED }): Promise<ISCH_PrimitiveArc | undefined>;
 ```
 
 ## Parameters
@@ -619,7 +608,7 @@ property
 
 </td><td>
 
-{ startX?: number; startY?: number; referenceX?: number; referenceY?: number; endX?: number; endY?: number; color?: string \| null; fillColor?: string \| null; lineWidth?: number \| null; lineType?: [ESCH\_PrimitiveLineType](../enums/ESCH_PrimitiveLineType.md) \| null; }
+{ startX?: undefined \| number; startY?: undefined \| number; referenceX?: undefined \| number; referenceY?: undefined \| number; endX?: undefined \| number; endY?: undefined \| number; color?: undefined \| null \| string; fillColor?: undefined \| null \| string; lineWidth?: undefined \| null \| number; lineType?: undefined \| null \| [ESCH\_PrimitiveLineType.SOLID](../enums/ESCH_PrimitiveLineType.md) \| [ESCH\_PrimitiveLineType.DASHED](../enums/ESCH_PrimitiveLineType.md) \| [ESCH\_PrimitiveLineType.DOTTED](../enums/ESCH_PrimitiveLineType.md) \| [ESCH\_PrimitiveLineType.DOT\_DASHED](../enums/ESCH_PrimitiveLineType.md) }
 
 
 </td><td>

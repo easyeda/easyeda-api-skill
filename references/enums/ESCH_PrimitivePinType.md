@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESCH_PrimitivePinType 
+export enum ESCH_PrimitivePinType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ BI
 
 </td><td>
 
-`"BI"`
+`'BI'`
 
 
 </td><td>
-
-双向
 
 
 </td></tr>
@@ -49,12 +47,10 @@ GROUND
 
 </td><td>
 
-`"Ground"`
+`'Ground'`
 
 
 </td><td>
-
-地
 
 
 </td></tr>
@@ -65,12 +61,10 @@ HIZ
 
 </td><td>
 
-`"HIZ"`
+`'HIZ'`
 
 
 </td><td>
-
-高阻
 
 
 </td></tr>
@@ -81,12 +75,10 @@ IN
 
 </td><td>
 
-`"IN"`
+`'IN'`
 
 
 </td><td>
-
-输入
 
 
 </td></tr>
@@ -97,12 +89,10 @@ OPEN\_COLLECTOR
 
 </td><td>
 
-`"Open Collector"`
+`'Open Collector'`
 
 
 </td><td>
-
-开集电极
 
 
 </td></tr>
@@ -113,12 +103,10 @@ OPEN\_EMITTER
 
 </td><td>
 
-`"Open Emitter"`
+`'Open Emitter'`
 
 
 </td><td>
-
-开发射极
 
 
 </td></tr>
@@ -129,12 +117,10 @@ OUT
 
 </td><td>
 
-`"OUT"`
+`'OUT'`
 
 
 </td><td>
-
-输出
 
 
 </td></tr>
@@ -145,12 +131,10 @@ PASSIVE
 
 </td><td>
 
-`"Passive"`
+`'Passive'`
 
 
 </td><td>
-
-无源
 
 
 </td></tr>
@@ -161,12 +145,10 @@ POWER
 
 </td><td>
 
-`"Power"`
+`'Power'`
 
 
 </td><td>
-
-电源
 
 
 </td></tr>
@@ -177,12 +159,10 @@ TERMINATOR
 
 </td><td>
 
-`"Terminator"`
+`'Terminator'`
 
 
 </td><td>
-
-信号终端
 
 
 </td></tr>
@@ -193,12 +173,10 @@ UNDEFINED
 
 </td><td>
 
-`"Undefined"`
+`'Undefined'`
 
 
 </td><td>
-
-未定义
 
 
 </td></tr>

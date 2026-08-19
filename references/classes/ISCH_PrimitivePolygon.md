@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class ISCH_PrimitivePolygon implements ISCH_Primitive 
+export class ISCH_PrimitivePolygon implements ISCH_Primitive 
 ```
 **Implements:** [ISCH\_Primitive](../interfaces/ISCH_Primitive.md)
 
@@ -285,7 +285,7 @@ Description
 ## Signature
 
 ```typescript
-done(): Promise<ISCH_PrimitivePolygon>;
+public done(): Promise<ISCH_PrimitivePolygon>;
 ```
 
 
@@ -304,7 +304,7 @@ Promise&lt;[ISCH\_PrimitivePolygon](./ISCH_PrimitivePolygon.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getState_Color(): string | null;
+public getState_Color(): string | null;
 ```
 
 
@@ -323,7 +323,7 @@ string \| null
 ## Signature
 
 ```typescript
-getState_FillColor(): string | null;
+public getState_FillColor(): string | null;
 ```
 
 
@@ -342,7 +342,7 @@ string \| null
 ## Signature
 
 ```typescript
-getState_Line(): Array<number>;
+public getState_Line(): Array<number>;
 ```
 
 
@@ -361,7 +361,7 @@ Array&lt;number&gt;
 ## Signature
 
 ```typescript
-getState_LineType(): ESCH_PrimitiveLineType | null;
+public getState_LineType(): ESCH_PrimitiveLineType | null;
 ```
 
 
@@ -380,7 +380,7 @@ getState_LineType(): ESCH_PrimitiveLineType | null;
 ## Signature
 
 ```typescript
-getState_LineWidth(): number | null;
+public getState_LineWidth(): number | null;
 ```
 
 
@@ -399,7 +399,7 @@ number \| null
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -418,7 +418,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): ESCH_PrimitiveType;
+public getState_PrimitiveType(): ESCH_PrimitiveType;
 ```
 
 
@@ -437,7 +437,7 @@ getState_PrimitiveType(): ESCH_PrimitiveType;
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -458,7 +458,7 @@ boolean
 ## Signature
 
 ```typescript
-reset(): Promise<ISCH_PrimitivePolygon>;
+public reset(): Promise<ISCH_PrimitivePolygon>;
 ```
 
 
@@ -479,7 +479,7 @@ Promise&lt;[ISCH\_PrimitivePolygon](./ISCH_PrimitivePolygon.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_Color(color: string | null): ISCH_PrimitivePolygon;
+public setState_Color(color: string | null): ISCH_PrimitivePolygon;
 ```
 
 ## Parameters
@@ -537,7 +537,7 @@ string \| null
 ## Signature
 
 ```typescript
-setState_FillColor(fillColor: string | null): ISCH_PrimitivePolygon;
+public setState_FillColor(fillColor: string | null): ISCH_PrimitivePolygon;
 ```
 
 ## Parameters
@@ -595,7 +595,7 @@ string \| null
 ## Signature
 
 ```typescript
-setState_Line(line: Array<number>): ISCH_PrimitivePolygon;
+public setState_Line(line: Array<number>): ISCH_PrimitivePolygon;
 ```
 
 ## Parameters
@@ -653,7 +653,7 @@ Array&lt;number&gt;
 ## Signature
 
 ```typescript
-setState_LineType(lineType: ESCH_PrimitiveLineType | null): ISCH_PrimitivePolygon;
+public setState_LineType(lineType: ESCH_PrimitiveLineType | null): ISCH_PrimitivePolygon;
 ```
 
 ## Parameters
@@ -711,7 +711,7 @@ lineType
 ## Signature
 
 ```typescript
-setState_LineWidth(lineWidth: number | null): ISCH_PrimitivePolygon;
+public setState_LineWidth(lineWidth: number | null): ISCH_PrimitivePolygon;
 ```
 
 ## Parameters
@@ -767,7 +767,7 @@ number \| null
 ## Signature
 
 ```typescript
-toAsync(): ISCH_PrimitivePolygon;
+public toAsync(): ISCH_PrimitivePolygon;
 ```
 
 
@@ -786,7 +786,7 @@ toAsync(): ISCH_PrimitivePolygon;
 ## Signature
 
 ```typescript
-toSync(): ISCH_PrimitivePolygon;
+public toSync(): ISCH_PrimitivePolygon;
 ```
 
 

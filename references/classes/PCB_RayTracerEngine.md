@@ -5,7 +5,7 @@ PCB &amp; 封装 / 光线追踪引擎类
 ## Signature
 
 ```typescript
-declare class PCB_RayTracerEngine 
+export class PCB_RayTracerEngine 
 ```
 
 ## Remarks
@@ -118,7 +118,7 @@ Description
 ## Signature
 
 ```typescript
-dispose(): Promise<void>;
+public dispose(): Promise<void>;
 ```
 
 
@@ -141,7 +141,7 @@ ADD since EDA v4
 ## Signature
 
 ```typescript
-getLightConfigurations(lightName: string): Promise<any>;
+public getLightConfigurations(lightName: string): Promise<any>;
 ```
 
 ## Parameters
@@ -190,9 +190,7 @@ Promise&lt;any&gt;
 
 [获取光线追踪渲染配置](./PCB_RayTracerEngine.md) 接口中包含一种光源配置，本接口用于获取不同光源配置
 
-本接口配置定义还在进行中
-
-ADD since EDA v4
+本接口配置定义还在进行中 ADD since EDA v4
 
 ### getrenderconfigurations
 
@@ -205,7 +203,7 @@ ADD since EDA v4
 ## Signature
 
 ```typescript
-getRenderConfigurations(): Promise<any>;
+public getRenderConfigurations(): Promise<any>;
 ```
 
 
@@ -217,9 +215,7 @@ Promise&lt;any&gt;
 
 ## Remarks
 
-本接口配置定义还在进行中
-
-ADD since EDA v4
+本接口配置定义还在进行中 ADD since EDA v4
 
 ### init
 
@@ -232,7 +228,7 @@ ADD since EDA v4
 ## Signature
 
 ```typescript
-init(): Promise<void>;
+public init(): Promise<void>;
 ```
 
 
@@ -255,7 +251,7 @@ ADD since EDA v4
 ## Signature
 
 ```typescript
-setRenderConfigurations(configurations: any): Promise<void>;
+public setRenderConfigurations(configurations: any): Promise<void>;
 ```
 
 ## Parameters
@@ -302,6 +298,4 @@ Promise&lt;void&gt;
 
 ## Remarks
 
-本接口配置定义还在进行中
-
-ADD since EDA v4
+本接口配置定义还在进行中 ADD since EDA v4

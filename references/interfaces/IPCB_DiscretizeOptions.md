@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IPCB_DiscretizeOptions 
+export interface IPCB_DiscretizeOptions 
 ```
 
 ## Properties
@@ -33,7 +33,7 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-[step?](./IPCB_DiscretizeOptions.md)
+[tolerance?](./IPCB_DiscretizeOptions.md)
 
 
 </td><td>
@@ -46,7 +46,7 @@ number
 
 </td><td>
 
-_(Optional)_ 离散步长，即相邻离散点之间的最大距离
+_(Optional)_ 弦高容差，即弧/曲线被弦（相邻离散点连线）近似时允许的最大偏差
 
 
 </td></tr>
@@ -56,18 +56,18 @@ _(Optional)_ 离散步长，即相邻离散点之间的最大距离
 
 ## 属性详情
 
-### step
+### tolerance
 
-# IPCB\_DiscretizeOptions.step property
+# IPCB\_DiscretizeOptions.tolerance property
 
-离散步长，即相邻离散点之间的最大距离
+弦高容差，即弧/曲线被弦（相邻离散点连线）近似时允许的最大偏差
 
 ## Signature
 
 ```typescript
-step?: number;
+tolerance?: number;
 ```
 
 ## Remarks
 
-步长越小，离散点越密集，精度越高；步长单位与多边形坐标单位一致
+容差越小，离散点越密集，对曲线近似越精确；单位与多边形坐标一致

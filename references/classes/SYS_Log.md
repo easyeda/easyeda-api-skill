@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_Log 
+export class SYS_Log 
 ```
 
 ## Methods
@@ -111,7 +111,7 @@ Description
 ## Signature
 
 ```typescript
-add(message: string, type?: ESYS_LogType): void;
+public add(message: string, type?: ESYS_LogType): void;
 ```
 
 ## Parameters
@@ -181,7 +181,7 @@ void
 ## Signature
 
 ```typescript
-clear(): void;
+public clear(): void;
 ```
 
 
@@ -198,7 +198,7 @@ void
 ## Signature
 
 ```typescript
-export(types?: ESYS_LogType | Array<ESYS_LogType>): void;
+public export(types?: ESYS_LogType | Array<ESYS_LogType>): void;
 ```
 
 ## Parameters
@@ -252,16 +252,7 @@ void
 ## Signature
 
 ```typescript
-find(message: string | Array<string | {
-        text: string;
-        attr?: {
-            id?: string;
-            path?: string;
-            sheet?: string;
-            pcbid?: string;
-            type?: string;
-        };
-    }>, types?: ESYS_LogType | Array<ESYS_LogType>): Promise<Array<ISYS_LogLine>>;
+public find(message: string | Array<string | { text: string; attr?: undefined | { id?: undefined | string; path?: undefined | string; sheet?: undefined | string; pcbid?: undefined | string; type?: undefined | string } }>, types?: ESYS_LogType | Array<ESYS_LogType>): Promise<Array<ISYS_LogLine>>;
 ```
 
 ## Parameters
@@ -289,7 +280,7 @@ message
 
 </td><td>
 
-string \| Array&lt;string \| { text: string; attr?: { id?: string; path?: string; sheet?: string; pcbid?: string; type?: string; }; }&gt;
+string \| Array&lt;string \| { text: string; attr?: undefined \| { id?: undefined \| string; path?: undefined \| string; sheet?: undefined \| string; pcbid?: undefined \| string; type?: undefined \| string } }&gt;
 
 
 </td><td>
@@ -337,7 +328,7 @@ Promise&lt;Array&lt;[ISYS\_LogLine](../interfaces/ISYS_LogLine.md)<!-- -->&gt;&g
 ## Signature
 
 ```typescript
-sort(types?: ESYS_LogType | Array<ESYS_LogType>): Promise<Array<ISYS_LogLine>>;
+public sort(types?: ESYS_LogType | Array<ESYS_LogType>): Promise<Array<ISYS_LogLine>>;
 ```
 
 ## Parameters

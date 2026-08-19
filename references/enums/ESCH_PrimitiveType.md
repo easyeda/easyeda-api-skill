@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESCH_PrimitiveType 
+export enum ESCH_PrimitiveType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ ARC
 
 </td><td>
 
-`"Arc"`
+`'Arc'`
 
 
 </td><td>
-
-圆弧
 
 
 </td></tr>
@@ -49,12 +47,10 @@ ATTRIBUTE
 
 </td><td>
 
-`"Attribute"`
+`'Attribute'`
 
 
 </td><td>
-
-属性
 
 
 </td></tr>
@@ -65,12 +61,10 @@ BEZIER
 
 </td><td>
 
-`"Bezier"`
+`'Bezier'`
 
 
 </td><td>
-
-三阶贝塞尔线条
 
 
 </td></tr>
@@ -81,12 +75,10 @@ BUS
 
 </td><td>
 
-`"Bus"`
+`'Bus'`
 
 
 </td><td>
-
-总线
 
 
 </td></tr>
@@ -97,12 +89,10 @@ CIRCLE
 
 </td><td>
 
-`"Circle"`
+`'Circle'`
 
 
 </td><td>
-
-圆
 
 
 </td></tr>
@@ -113,12 +103,10 @@ COMPONENT
 
 </td><td>
 
-`"Component"`
+`'Component'`
 
 
 </td><td>
-
-器件
 
 
 </td></tr>
@@ -129,12 +117,10 @@ COMPONENT\_PIN
 
 </td><td>
 
-`"ComponentPin"`
+`'ComponentPin'`
 
 
 </td><td>
-
-器件引脚
 
 
 </td></tr>
@@ -145,12 +131,10 @@ ELLIPSE
 
 </td><td>
 
-`"Ellipse"`
+`'Ellipse'`
 
 
 </td><td>
-
-椭圆
 
 
 </td></tr>
@@ -161,12 +145,10 @@ OBJECT
 
 </td><td>
 
-`"Object"`
+`'Object'`
 
 
 </td><td>
-
-二进制内嵌对象
 
 
 </td></tr>
@@ -177,12 +159,10 @@ PIN
 
 </td><td>
 
-`"Pin"`
+`'Pin'`
 
 
 </td><td>
-
-引脚
 
 
 </td></tr>
@@ -193,12 +173,10 @@ POLYGON
 
 </td><td>
 
-`"Polygon"`
+`'Polygon'`
 
 
 </td><td>
-
-多边形
 
 
 </td></tr>
@@ -209,12 +187,10 @@ RECTANGLE
 
 </td><td>
 
-`"Rectangle"`
+`'Rectangle'`
 
 
 </td><td>
-
-矩形
 
 
 </td></tr>
@@ -225,12 +201,10 @@ TEXT
 
 </td><td>
 
-`"Text"`
+`'Text'`
 
 
 </td><td>
-
-文本
 
 
 </td></tr>
@@ -241,12 +215,10 @@ WIRE
 
 </td><td>
 
-`"Wire"`
+`'Wire'`
 
 
 </td><td>
-
-导线
 
 
 </td></tr>

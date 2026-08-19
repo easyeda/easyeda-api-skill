@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESYS_LogType 
+export enum ESYS_LogType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ ERROR
 
 </td><td>
 
-`"error"`
+`'error'`
 
 
 </td><td>
-
-错误
 
 
 </td></tr>
@@ -49,12 +47,24 @@ FATAL\_ERROR
 
 </td><td>
 
-`"fatalError"`
+`'fatalError'`
 
 
 </td><td>
 
-致命错误
+
+</td></tr>
+<tr><td>
+
+FIND
+
+
+</td><td>
+
+`'find'`
+
+
+</td><td>
 
 
 </td></tr>
@@ -65,12 +75,38 @@ INFO
 
 </td><td>
 
-`"info"`
+`'info'`
 
 
 </td><td>
 
-信息
+
+</td></tr>
+<tr><td>
+
+OPEN\_PROJECT
+
+
+</td><td>
+
+`'openProject'`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+REPLACE
+
+
+</td><td>
+
+`'replace'`
+
+
+</td><td>
 
 
 </td></tr>
@@ -81,12 +117,10 @@ WARNING
 
 </td><td>
 
-`"warn"`
+`'warn'`
 
 
 </td><td>
-
-警告
 
 
 </td></tr>

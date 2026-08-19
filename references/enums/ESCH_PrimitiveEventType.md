@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESCH_PrimitiveEventType 
+export enum ESCH_PrimitiveEventType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ CHANGE
 
 </td><td>
 
-`"change"`
+`'change'`
 
 
 </td><td>
-
-属性变更（除位置外的属性变更）
 
 
 </td></tr>
@@ -49,12 +47,10 @@ CREATE
 
 </td><td>
 
-`"create"`
+`'create'`
 
 
 </td><td>
-
-创建
 
 
 </td></tr>
@@ -65,12 +61,10 @@ DELETE
 
 </td><td>
 
-`"delete"`
+`'delete'`
 
 
 </td><td>
-
-删除
 
 
 </td></tr>
@@ -81,12 +75,10 @@ MOVE
 
 </td><td>
 
-`"move"`
+`'move'`
 
 
 </td><td>
-
-移动
 
 
 </td></tr>

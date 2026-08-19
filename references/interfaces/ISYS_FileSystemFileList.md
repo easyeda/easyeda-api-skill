@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ISYS_FileSystemFileList 
+export interface ISYS_FileSystemFileList 
 ```
 
 ## Properties

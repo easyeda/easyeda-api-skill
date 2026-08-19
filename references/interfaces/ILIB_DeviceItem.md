@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ILIB_DeviceItem 
+export interface ILIB_DeviceItem 
 ```
 
 ## Properties

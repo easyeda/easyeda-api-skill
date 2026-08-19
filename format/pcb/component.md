@@ -1,10 +1,10 @@
-# 封装体系
+# Footprint System
 
-PCB 的封装采用 Master/Instance 模式，通过覆盖规则去描述封装，以最低冗余的方式去描述
+PCB footprints use a Master/Instance model, describing footprints through override rules with minimal redundancy.
 
-## COMPONENT 器件实例
+## COMPONENT Component Instance
 
-实例里只存在属性，同 `Key` 属性将以实例的代替 `FOOTPRINT` 的
+Instances only contain attributes. Attributes with the same `Key` in the instance will override those in the `FOOTPRINT`.
 
 ```json
 { "type": "COMPONENT", "id":"UUID", "ticket": 1 }||
@@ -21,34 +21,34 @@ PCB 的封装采用 Master/Instance 模式，通过覆盖规则去描述封装�
 }|
 ```
 
-1. type 实例 `COMPONENT`
-2. id 图元编号, 文档内唯一
-3. ticket 逻辑时钟
-4. partitionId 所属分区编号，为 null 表示无分区，封装忽略该字段
-5. groupId 分组编号：0 不分组，非 0 为组标志，相同组标志的为一组
-6. locked 是否锁定
-7. zIndex Z 轴高度
-8. layerId 层（只有顶层底层）
-9. positionX 位置 X
-10. positionY 位置 Y
-11. angle 旋转角度
-12. attrs 自定义属性
-    - 固定 `3D Model` 为 3D 模型的 uuid，此 uuid 代表 components 表中 doctype = 16 的一条记录
-    - 固定 `3D Model Transform` 为 3D 模型变换参数
+1. type instance `COMPONENT`.
+2. id primitive ID, unique within the document.
+3. ticket logical clock.
+4. partitionId partition ID it belongs to, null means no partition. Ignored for footprints.
+5. groupId group ID: 0 no group, non-zero is the group flag, same flag means same group.
+6. locked whether locked.
+7. zIndex Z-axis height.
+8. layerId layer (only top and bottom).
+9. positionX position X.
+10. positionY position Y.
+11. angle rotation angle.
+12. attrs custom attributes.
+    - Fixed `3D Model` is the uuid of the 3D model. This uuid represents a record with doctype = 16 in the components table.
+    - Fixed `3D Model Transform` is the 3D model transformation parameters.
 
 ```json
-["ATTR", "e102", 0, "e8", 1, "Designator", "U1", 0, 1, "宋体", 50, 10, 0, 0, 0, 1, 2, 15, 1, 1]
+["ATTR", "e102", 0, "e8", 1, "Designator", "U1", 0, 1, "SimSun", 50, 10, 0, 0, 0, 1, 2, 15, 1, 1]
 ```
 
 ```json
-["ATTR", "e103", 0, "e8", 1, "Footprint", "footprint-uuid", 0, 1, "宋体", 50, 10, 0, 0, 0, 1, 2, 15, 1, 1]
+["ATTR", "e103", 0, "e8", 1, "Footprint", "footprint-uuid", 0, 1, "SimSun", 50, 10, 0, 0, 0, 1, 2, 15, 1, 1]
 ```
 
 ```json
-["ATTR", "e104", 0, "e8", 1, "Device", "device-uuid", 0, 1, "宋体", 50, 10, 0, 0, 0, 1, 2, 15, 1, 1]
+["ATTR", "e104", 0, "e8", 1, "Device", "device-uuid", 0, 1, "SimSun", 50, 10, 0, 0, 0, 1, 2, 15, 1, 1]
 ```
 
-#### 焊盘实例网络映射 `PAD_NET`
+### Pad-Net Mapping `PAD_NET`
 
 ```json
 { "type": "PAD_NET", "id":"COMPONENT_UUID", "ticket": 1 }||
@@ -59,14 +59,14 @@ PCB 的封装采用 Master/Instance 模式，通过覆盖规则去描述封装�
 }|
 ```
 
-1. type 焊盘实例网络映射 `PAD_NET`
-2. id 所属器件实例编号
-3. ticket 逻辑时钟
-4. padNum 焊盘编号
-5. padNet 网络名
-6. padId 封装内焊盘 ID（可选）
+1. type pad-net mapping `PAD_NET`.
+2. id parent component instance ID.
+3. ticket logical clock.
+4. padNum pad number.
+5. padNet net name.
+6. padId pad ID inside the footprint (optional).
 
-#### 复用图块信息 `REUSE_BLOCK`
+### Reuse Block Information `REUSE_BLOCK`
 
 ```json
 { "type": "REUSE_BLOCK", "id":"COMPONENT_UUID", "ticket": 1 }||
@@ -76,12 +76,12 @@ PCB 的封装采用 Master/Instance 模式，通过覆盖规则去描述封装�
 }|
 ```
 
-1. type 复用图块信息 `REUSE_BLOCK`
-2. id 所属器件实例编号
-3. groupId 分组 ID
-4. channelId 通道 ID
+1. type reuse block information `REUSE_BLOCK`.
+2. id parent component instance ID.
+3. groupId group ID.
+4. channelId channel ID.
 
-#### 3D Model Transform 的特殊说明
+### 3D Model Transform Special Notes
 
 ```json
 { "type": "COMPONENT", "id":"UUID", "ticket": 1 }||
@@ -98,30 +98,30 @@ PCB 的封装采用 Master/Instance 模式，通过覆盖规则去描述封装�
 }|
 ```
 
-在器件中，固定 `3D Model Transform` 为 3D 模型为匹配此器件【在顶层】【坐标 0,0】【旋转角度 0】时所需要的变换参数
+In the device, `3D Model Transform` is fixed as the transformation parameters required for the 3D model to match the device when it is [on the top layer], at [coordinates 0,0], and [rotation angle 0].
 
-其参数为
+The parameters are:
 
-1. sizeX：X 轴尺寸
-2. sizeY：Y 轴尺寸
-3. sizeZ：Z 轴尺寸，这里有个兼容性处理，如果为 0，则自动适应高度
-4. rotZ：绕 Z 轴旋转角度
-5. rotX：绕 X 轴旋转角度
-6. rotY：绕 Y 轴旋转角度
-7. offX：X 轴偏移量
-8. offY：Y 轴偏移量
-9. offZ：Z 轴偏移量
+1. sizeX: X-axis size.
+2. sizeY: Y-axis size.
+3. sizeZ: Z-axis size. There is a compatibility handling here: if 0, height is automatically adapted.
+4. rotZ: rotation angle around Z axis.
+5. rotX: rotation angle around X axis.
+6. rotY: rotation angle around Y axis.
+7. offX: X-axis offset.
+8. offY: Y-axis offset.
+9. offZ: Z-axis offset.
 
-通过 3D 模型变换参数，生成 3D 模型变换矩阵的算法如下
+The algorithm for generating the 3D model transformation matrix from the 3D model transform parameters is as follows:
 
 ```python
-cx = 3D 模型 X 轴中点
-cy = 3D 模型 Y 轴中点
-bz = 3D 模型 最低 Z 值
+cx = X-axis midpoint of the 3D model
+cy = Y-axis midpoint of the 3D model
+bz = minimum Z value of the 3D model
 
-wx = 3D 模型 X 轴宽度
-wy = 3D 模型 Y 轴宽度
-wz = 3D 模型 Z 轴宽度
+wx = X-axis width of the 3D model
+wy = Y-axis width of the 3D model
+wz = Z-axis width of the 3D model
 
 ORIGIN = translate(-cx, -cy, -bz)
 SCALE = scale(sizeX / wx, sizeY / wy, sizeZ / wz)

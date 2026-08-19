@@ -5,7 +5,7 @@ BOM 列的属性及排序规则
 ## Signature
 
 ```typescript
-interface IPCB_BomPropertiesTableColumns 
+export interface IPCB_BomPropertiesTableColumns 
 ```
 
 ## Properties

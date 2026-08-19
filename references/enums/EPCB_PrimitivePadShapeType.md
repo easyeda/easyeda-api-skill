@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum EPCB_PrimitivePadShapeType 
+export enum EPCB_PrimitivePadShapeType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ ELLIPSE
 
 </td><td>
 
-`"ELLIPSE"`
+`'ELLIPSE'`
 
 
 </td><td>
-
-圆形
 
 
 </td></tr>
@@ -49,12 +47,10 @@ OBLONG
 
 </td><td>
 
-`"OVAL"`
+`'OVAL'`
 
 
 </td><td>
-
-长圆形
 
 
 </td></tr>
@@ -65,12 +61,10 @@ POLYLINE\_COMPLEX\_POLYGON
 
 </td><td>
 
-`"POLYGON"`
+`'POLYGON'`
 
 
 </td><td>
-
-折线复杂多边形
 
 
 </td></tr>
@@ -81,12 +75,10 @@ RECTANGLE
 
 </td><td>
 
-`"RECT"`
+`'RECT'`
 
 
 </td><td>
-
-矩形
 
 
 </td></tr>
@@ -97,12 +89,10 @@ REGULAR\_POLYGON
 
 </td><td>
 
-`"NGON"`
+`'NGON'`
 
 
 </td><td>
-
-正多边形
 
 
 </td></tr>

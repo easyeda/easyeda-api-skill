@@ -1,21 +1,21 @@
 # COMPONENT
 
--   `COMPONENT` 引用了 Symbol，Symbol 支持多 PART，所以带了 `子库编号` 属性指示具体哪一个，如果是单 PART 则使用默认值 `""`
--   `COMPONENT` 下可绑定许多 `ATTR`，具体的属性行为将由工具定义
+-   `COMPONENT` references a Symbol. Since a Symbol supports multiple Parts, it carries a `sub-library ID` to indicate which one; for a single-Part device, the default value `""` is used.
+-   A `COMPONENT` can bind many `ATTR`s; specific attribute behavior is defined by the tool.
 
-### Symbol 类型
+### Symbol Types
 
-| Symbol 类型编号 | Symbol 类型     | 说明                                                                                                                                                                                                                   |
+| Symbol Type ID | Symbol Type     | Description                                                                                                                                                                                                                   |
 | :-------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2               | Part Symbol     | 普通器件                                                                                                                                                                                                               |
-| 17              | Block Symbol    | 层次图符号                                                                                                                                                                                                             |
-| 18              | NetFlag Symbol  | 全局网络符号                                                                                                                                                                                                           |
-| 19              | NetPort Symbol  | 层次图网络导出符号                                                                                                                                                                                                     |
-| 20              | Sheet Symbol    | 专用于提供原理图图纸的重用机制                                                                                                                                                                                         |
-| 21              | NoneElec Symbol | 无电气特性符号 NoneElec 是一类不具有 `PIN` 的无电气特性图元<br>也可以用作特殊的图标，版权声明文字等的重用机制<br>NoneElec 全称 None Electrical，不具有电气特性的意思                                                   |
-| 22              | Short Symbol    | 短接符 Short Symbol 是一个特殊 Symbol，必须具有两个 `PIN`<br>所有与同一个 `Short Symbol` 的 `PIN` 相连的网络，将在电气特性上对其进行短接<br>比如网络 A 连接到了 PIN1，网络 B 连接到了 PIN2，则表示 A 和 B 是同一个网络 |
+| 2               | Part Symbol     | Common device.                                                                                                                                                                                                               |
+| 17              | Block Symbol    | Hierarchical symbol.                                                                                                                                                                                                         |
+| 18              | NetFlag Symbol  | Global net symbol.                                                                                                                                                                                                         |
+| 19              | NetPort Symbol  | Hierarchical net export symbol.                                                                                                                                                                                              |
+| 20              | Sheet Symbol    | Provides a reuse mechanism for schematic sheets.                                                                                                                                                                             |
+| 21              | NoneElec Symbol | Non-electrical symbol. NoneElec is a class of non-electrical primitives without `PIN`.<br>Can also be used as a reuse mechanism for special icons, copyright statements, etc.<br>NoneElec stands for None Electrical. |
+| 22              | Short Symbol    | Short Symbol is a special Symbol that must have two `PIN`s.<br>All nets connected to the `PIN`s of the same `Short Symbol` are electrically shorted.<br>For example, if net A is connected to PIN1 and net B to PIN2, A and B are the same net. |
 
-### Component 图元
+### Component Primitive
 
 ```json
 { "type": "COMPONENT", "id": "UUID", "ticket": 1 }||
@@ -30,62 +30,62 @@
 }|
 ```
 
-1. type COMPONENT 标识：COMPONENT
-2. id 编号：文件内唯一
-3. ticket 逻辑时钟
-4. partId 子库编号
-5. groupId 分组编号，不能为 0，没有默认为空
-6. zIndex Z 轴高度：所有非属性子元素高度分布在 Z0 ~ Z9 范围内，比如 Z 为 23.554，子元素自动分布在 23.5540 ~ 23.5549 范围内
-7. positionX 位置 X
-8. positionY 位置 Y
-9. rotation 旋转角度：绕 `位置` 旋转
-10. isMirror 是否镜像
-11. data 纯数据属性：附加信息，用于编辑器内部的一些逻辑
+1. type COMPONENT identifier: COMPONENT.
+2. id ID, unique within the file.
+3. ticket logical clock.
+4. partId sub-library ID.
+5. groupId group ID, cannot be 0, empty by default when none.
+6. zIndex Z-axis height: all non-attribute child elements are distributed within Z0 ~ Z9, e.g. Z of 23.554 means child elements are auto-distributed within 23.5540 ~ 23.5549.
+7. positionX position X.
+8. positionY position Y.
+9. rotation rotation angle, around `position`.
+10. isMirror whether mirrored.
+11. data pure data attributes: additional information for internal editor logic.
 
-Component 所引用的 Symbol 图元一定是按照如下顺序执行的变换
+The Symbol referenced by a Component is transformed in the following order:
 
-1. 按照 `旋转角度` 绕原点（0,0）逆时针旋转
-2. 如果 `是否镜像` 为 `1`，则绕原点（0,0）所在的 Y 轴进行水平镜像
-3. 根据 `位置` 进行平移
+1. Rotate counter-clockwise around the origin (0,0) by the `rotation angle`.
+2. If `isMirror` is `1`, mirror horizontally around the Y-axis at the origin (0,0).
+3. Translate by `position`.
 
-或者可以理解成如下等价的变换（但是实现更繁琐一些）
+Or equivalently (but more cumbersome to implement):
 
-1. 根据 `位置` 进行平移
-2. 按照 `旋转角度` 绕 `位置` 逆时针旋转
-3. 如果 `是否镜像` 为 `1`，则绕 `位置` 所在的 Y 轴进行水平镜像
+1. Translate by `position`.
+2. Rotate counter-clockwise around `position` by the `rotation angle`.
+3. If `isMirror` is `1`, mirror horizontally around the Y-axis at `position`.
 
 ```json
 { "type": "ATTR", "id": "e187", "ticket": 1 }||
 { "partId": "", "groupId": 0, "locked": true, "zIndex": 0.1, "parentId": "e176", "key":"Device", "value":"device-uuid-1", "keyVisible":true, "valueVisible":true, "positionX":300, "positionY":200, "rotation":0, "color":null, "fillColor":null, "fontFamily":null, "fontSize":null, "strikeout":null, "underline":null, "italic":null, "fontWeight":null, "vAlign":0, "hAlign":2,}|
 ```
 
-Device uuid，与 project.json 里 devices 对应的文件名称一致
+Device uuid, consistent with the file name corresponding to the device in project.json.
 
 ```json
 { "type": "ATTR", "id": "e188", "ticket": 1 }||
 { "partId": "", "groupId": 0, "locked": true, "zIndex": 0.1, "parentId": "e176", "key":"Symbol", "value":"symbol-uuid-1", "keyVisible":true, "valueVisible":true, "positionX":300, "positionY":200, "rotation":0, "color":null, "fillColor":null, "fontFamily":null, "fontSize":null, "strikeout":null, "underline":null, "italic":null, "fontWeight":null, "vAlign":0, "hAlign":2,}|
 ```
 
-`COMPONENT` 内的 `ATTR` 会对模板内同名属性覆盖，覆盖 Symbol 后会影响此器件对符号的绑定
+An `ATTR` inside `COMPONENT` with the same name as one in the template will override it. Overriding Symbol affects the binding between the device and the symbol.
 
 ```json
 { "type": "ATTR", "id": "e188", "ticket": 1 }||
 { "partId": "", "groupId": 0, "locked": true, "zIndex": 0.1, "parentId": "e176", "key":"Footprint", "value":"footprint-uuid-1", "keyVisible":true, "valueVisible":true, "positionX":300, "positionY":200, "rotation":0, "color":null, "fillColor":null, "fontFamily":null, "fontSize":null, "strikeout":null, "underline":null, "italic":null, "fontWeight":null, "vAlign":0, "hAlign":2,}|
 ```
 
-`COMPONENT` 内的 `ATTR` 会对模板内同名属性覆盖，覆盖 Footprint 后会影响此器件对封装的绑定
+An `ATTR` inside `COMPONENT` with the same name as one in the template will override it. Overriding Footprint affects the binding between the device and the footprint.
 
 ```json
 { "type": "ATTR", "id": "e188", "ticket": 1 }||
 { "partId": "", "groupId": 0, "locked": true, "zIndex": 0.1, "parentId": "e176", "key":"Designator", "value":"U1", "keyVisible":true, "valueVisible":true, "positionX":300, "positionY":200, "rotation":0, "color":null, "fillColor":null, "fontFamily":null, "fontSize":null, "strikeout":null, "underline":null, "italic":null, "fontWeight":null, "vAlign":0, "hAlign":2,}|
 ```
 
-`COMPONENT` 内的 `ATTR` 会对模板内同名属性覆盖
+An `ATTR` inside `COMPONENT` with the same name as one in the template will override it.
 
 ```json
 { "type": "ATTR", "id": "e180", "ticket": 1 }||
 { "partId": "", "groupId": 0, "locked": true, "zIndex": 0.1, "parentId": "e176e5", "key":"NUMBER", "value":"1", "keyVisible":true, "valueVisible":true, "positionX":108, "positionY":804.5, "rotation":0, "color":null, "fillColor":null, "fontFamily":null, "fontSize":null, "strikeout":null, "underline":null, "italic":null, "fontWeight":null, "vAlign":0, "hAlign":2,}|
 ```
 
-`PIN` 属性覆盖的方式关键在 `ATTR` 的 `隶属编号` 上
-编号分两部分，例如 `e176e5`，其中 `e176` 为 `COMPONENT` 的编号，`e5` 为在模板内的 `PIN` 编号
+The key to `PIN` attribute override lies in the `parentId` of `ATTR`.
+The ID has two parts, e.g. `e176e5`, where `e176` is the `COMPONENT` ID and `e5` is the `PIN` ID in the template.

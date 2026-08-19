@@ -9,7 +9,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_ToastMessage 
+export class SYS_ToastMessage 
 ```
 
 ## Remarks
@@ -67,7 +67,7 @@ Description
 ## Signature
 
 ```typescript
-showMessage(message: string, messageType?: ESYS_ToastMessageType, timer?: number, bottomPanel?: ESYS_BottomPanelTab, buttonTitle?: string, buttonCallbackFn?: string): void;
+public showMessage(message: string, messageType?: ESYS_ToastMessageType, timer?: number, bottomPanel?: ESYS_BottomPanelTab, buttonTitle?: string, buttonCallbackFn?: string): void;
 ```
 
 ## Parameters

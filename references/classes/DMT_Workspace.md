@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class DMT_Workspace 
+export class DMT_Workspace 
 ```
 
 ## Methods
@@ -83,7 +83,7 @@ Description
 ## Signature
 
 ```typescript
-getAllWorkspacesInfo(): Promise<Array<IDMT_WorkspaceItem>>;
+public getAllWorkspacesInfo(): Promise<Array<IDMT_WorkspaceItem>>;
 ```
 
 
@@ -102,7 +102,7 @@ Promise&lt;Array&lt;[IDMT\_WorkspaceItem](../interfaces/IDMT_WorkspaceItem.md)<!
 ## Signature
 
 ```typescript
-getCurrentWorkspaceInfo(): Promise<IDMT_WorkspaceItem | undefined>;
+public getCurrentWorkspaceInfo(): Promise<IDMT_WorkspaceItem | undefined>;
 ```
 
 
@@ -125,7 +125,7 @@ Promise&lt;[IDMT\_WorkspaceItem](../interfaces/IDMT_WorkspaceItem.md) \| undefin
 ## Signature
 
 ```typescript
-toggleToWorkspace(workspaceUuid?: string): Promise<boolean>;
+public toggleToWorkspace(workspaceUuid?: string): Promise<boolean>;
 ```
 
 ## Parameters

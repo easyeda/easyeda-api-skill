@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IDMT_PanelItem 
+export interface IDMT_PanelItem 
 ```
 
 ## Properties

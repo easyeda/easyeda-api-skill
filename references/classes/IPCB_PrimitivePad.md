@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class IPCB_PrimitivePad implements IPCB_Primitive 
+export class IPCB_PrimitivePad implements IPCB_Primitive 
 ```
 **Implements:** [IPCB\_Primitive](../interfaces/IPCB_Primitive.md)
 
@@ -68,7 +68,7 @@ boolean
 
 </td><td>
 
-IPCB\_PrimitivePadHeatWelding \| null
+[IPCB\_PrimitivePadHeatWelding](../interfaces/IPCB_PrimitivePadHeatWelding.md) \| null
 
 
 </td><td>
@@ -1313,7 +1313,7 @@ protected y: number;
 ## Signature
 
 ```typescript
-create(): Promise<IPCB_PrimitivePad>;
+public create(): Promise<IPCB_PrimitivePad>;
 ```
 
 
@@ -1334,7 +1334,7 @@ Promise&lt;[IPCB\_PrimitivePad](./IPCB_PrimitivePad.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-done(): Promise<IPCB_PrimitivePad>;
+public done(): Promise<IPCB_PrimitivePad>;
 ```
 
 
@@ -1353,13 +1353,13 @@ Promise&lt;[IPCB\_PrimitivePad](./IPCB_PrimitivePad.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getState_HeatWelding(): IPCB_PrimitivePadHeatWelding | null;
+public getState_HeatWelding(): IPCB_PrimitivePadHeatWelding | null;
 ```
 
 
 ## Returns
 
-IPCB\_PrimitivePadHeatWelding \| null
+[IPCB\_PrimitivePadHeatWelding](../interfaces/IPCB_PrimitivePadHeatWelding.md) \| null
 
 热焊优化参数
 
@@ -1372,7 +1372,7 @@ IPCB\_PrimitivePadHeatWelding \| null
 ## Signature
 
 ```typescript
-getState_Hole(): TPCB_PrimitivePadHole | null;
+public getState_Hole(): TPCB_PrimitivePadHole | null;
 ```
 
 
@@ -1391,7 +1391,7 @@ getState_Hole(): TPCB_PrimitivePadHole | null;
 ## Signature
 
 ```typescript
-getState_HoleOffsetX(): number;
+public getState_HoleOffsetX(): number;
 ```
 
 
@@ -1410,7 +1410,7 @@ number
 ## Signature
 
 ```typescript
-getState_HoleOffsetY(): number;
+public getState_HoleOffsetY(): number;
 ```
 
 
@@ -1429,7 +1429,7 @@ number
 ## Signature
 
 ```typescript
-getState_HoleRotation(): number;
+public getState_HoleRotation(): number;
 ```
 
 
@@ -1448,7 +1448,7 @@ number
 ## Signature
 
 ```typescript
-getState_Layer(): TPCB_LayersOfPad;
+public getState_Layer(): TPCB_LayersOfPad;
 ```
 
 
@@ -1467,7 +1467,7 @@ getState_Layer(): TPCB_LayersOfPad;
 ## Signature
 
 ```typescript
-getState_Metallization(): boolean;
+public getState_Metallization(): boolean;
 ```
 
 
@@ -1486,7 +1486,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_Net(): string | undefined;
+public getState_Net(): string | undefined;
 ```
 
 
@@ -1505,7 +1505,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-getState_Pad(): TPCB_PrimitivePadShape | undefined;
+public getState_Pad(): TPCB_PrimitivePadShape | undefined;
 ```
 
 
@@ -1524,7 +1524,7 @@ getState_Pad(): TPCB_PrimitivePadShape | undefined;
 ## Signature
 
 ```typescript
-getState_PadNumber(): string;
+public getState_PadNumber(): string;
 ```
 
 
@@ -1543,7 +1543,7 @@ string
 ## Signature
 
 ```typescript
-getState_PadType(): EPCB_PrimitivePadType;
+public getState_PadType(): EPCB_PrimitivePadType;
 ```
 
 
@@ -1562,7 +1562,7 @@ getState_PadType(): EPCB_PrimitivePadType;
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -1581,7 +1581,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveLock(): boolean;
+public getState_PrimitiveLock(): boolean;
 ```
 
 
@@ -1600,7 +1600,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): EPCB_PrimitiveType;
+public getState_PrimitiveType(): EPCB_PrimitiveType;
 ```
 
 
@@ -1619,7 +1619,7 @@ getState_PrimitiveType(): EPCB_PrimitiveType;
 ## Signature
 
 ```typescript
-getState_Rotation(): number;
+public getState_Rotation(): number;
 ```
 
 
@@ -1638,7 +1638,7 @@ number
 ## Signature
 
 ```typescript
-getState_SolderMaskAndPasteMaskExpansion(): IPCB_PrimitiveSolderMaskAndPasteMaskExpansion | null;
+public getState_SolderMaskAndPasteMaskExpansion(): IPCB_PrimitiveSolderMaskAndPasteMaskExpansion | null;
 ```
 
 
@@ -1657,7 +1657,7 @@ getState_SolderMaskAndPasteMaskExpansion(): IPCB_PrimitiveSolderMaskAndPasteMask
 ## Signature
 
 ```typescript
-getState_SpecialPad(): TPCB_PrimitiveSpecialPadShape | undefined;
+public getState_SpecialPad(): TPCB_PrimitiveSpecialPadShape | undefined;
 ```
 
 
@@ -1676,7 +1676,7 @@ getState_SpecialPad(): TPCB_PrimitiveSpecialPadShape | undefined;
 ## Signature
 
 ```typescript
-getState_X(): number;
+public getState_X(): number;
 ```
 
 
@@ -1695,7 +1695,7 @@ number
 ## Signature
 
 ```typescript
-getState_Y(): number;
+public getState_Y(): number;
 ```
 
 
@@ -1714,7 +1714,7 @@ number
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -1735,7 +1735,7 @@ boolean
 ## Signature
 
 ```typescript
-reset(): Promise<IPCB_PrimitivePad>;
+public reset(): Promise<IPCB_PrimitivePad>;
 ```
 
 
@@ -1756,7 +1756,7 @@ Promise&lt;[IPCB\_PrimitivePad](./IPCB_PrimitivePad.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_HeatWelding(heatWelding: IPCB_PrimitivePadHeatWelding | null): IPCB_PrimitivePad;
+public setState_HeatWelding(heatWelding: IPCB_PrimitivePadHeatWelding | null): IPCB_PrimitivePad;
 ```
 
 ## Parameters
@@ -1784,7 +1784,7 @@ heatWelding
 
 </td><td>
 
-IPCB\_PrimitivePadHeatWelding \| null
+[IPCB\_PrimitivePadHeatWelding](../interfaces/IPCB_PrimitivePadHeatWelding.md) \| null
 
 
 </td><td>
@@ -1814,7 +1814,7 @@ IPCB\_PrimitivePadHeatWelding \| null
 ## Signature
 
 ```typescript
-setState_Hole(hole: TPCB_PrimitivePadHole): IPCB_PrimitivePad;
+public setState_Hole(hole: TPCB_PrimitivePadHole): IPCB_PrimitivePad;
 ```
 
 ## Parameters
@@ -1880,7 +1880,7 @@ hole
 ## Signature
 
 ```typescript
-setState_HoleOffsetX(holeOffsetX: number): IPCB_PrimitivePad;
+public setState_HoleOffsetX(holeOffsetX: number): IPCB_PrimitivePad;
 ```
 
 ## Parameters
@@ -1942,7 +1942,7 @@ number
 ## Signature
 
 ```typescript
-setState_HoleOffsetY(holeOffsetY: number): IPCB_PrimitivePad;
+public setState_HoleOffsetY(holeOffsetY: number): IPCB_PrimitivePad;
 ```
 
 ## Parameters
@@ -2004,7 +2004,7 @@ number
 ## Signature
 
 ```typescript
-setState_HoleRotation(holeRotation: number): IPCB_PrimitivePad;
+public setState_HoleRotation(holeRotation: number): IPCB_PrimitivePad;
 ```
 
 ## Parameters
@@ -2066,7 +2066,7 @@ number
 ## Signature
 
 ```typescript
-setState_Layer(layer: TPCB_LayersOfPad): IPCB_PrimitivePad;
+public setState_Layer(layer: TPCB_LayersOfPad): IPCB_PrimitivePad;
 ```
 
 ## Parameters
@@ -2134,7 +2134,7 @@ layer
 ## Signature
 
 ```typescript
-setState_Metallization(metallization: boolean): IPCB_PrimitivePad;
+public setState_Metallization(metallization: boolean): IPCB_PrimitivePad;
 ```
 
 ## Parameters
@@ -2196,7 +2196,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_Net(net?: string): IPCB_PrimitivePad;
+public setState_Net(net?: string): IPCB_PrimitivePad;
 ```
 
 ## Parameters
@@ -2258,7 +2258,7 @@ _(Optional)_ 网络名称
 ## Signature
 
 ```typescript
-setState_Pad(pad: TPCB_PrimitivePadShape): IPCB_PrimitivePad;
+public setState_Pad(pad: TPCB_PrimitivePadShape): IPCB_PrimitivePad;
 ```
 
 ## Parameters
@@ -2322,7 +2322,7 @@ pad
 ## Signature
 
 ```typescript
-setState_PadNumber(padNumber: string): IPCB_PrimitivePad;
+public setState_PadNumber(padNumber: string): IPCB_PrimitivePad;
 ```
 
 ## Parameters
@@ -2380,7 +2380,7 @@ string
 ## Signature
 
 ```typescript
-setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitivePad;
+public setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitivePad;
 ```
 
 ## Parameters
@@ -2438,7 +2438,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_Rotation(rotation: number): IPCB_PrimitivePad;
+public setState_Rotation(rotation: number): IPCB_PrimitivePad;
 ```
 
 ## Parameters
@@ -2496,7 +2496,7 @@ number
 ## Signature
 
 ```typescript
-setState_SolderMaskAndPasteMaskExpansion(solderMaskAndPasteMaskExpansion: IPCB_PrimitiveSolderMaskAndPasteMaskExpansion | null): IPCB_PrimitivePad;
+public setState_SolderMaskAndPasteMaskExpansion(solderMaskAndPasteMaskExpansion: IPCB_PrimitiveSolderMaskAndPasteMaskExpansion | null): IPCB_PrimitivePad;
 ```
 
 ## Parameters
@@ -2554,7 +2554,7 @@ solderMaskAndPasteMaskExpansion
 ## Signature
 
 ```typescript
-setState_SpecialPad(specialPad: TPCB_PrimitiveSpecialPadShape): IPCB_PrimitivePad;
+public setState_SpecialPad(specialPad: TPCB_PrimitiveSpecialPadShape): IPCB_PrimitivePad;
 ```
 
 ## Parameters
@@ -2616,7 +2616,7 @@ specialPad
 ## Signature
 
 ```typescript
-setState_X(x: number): IPCB_PrimitivePad;
+public setState_X(x: number): IPCB_PrimitivePad;
 ```
 
 ## Parameters
@@ -2674,7 +2674,7 @@ number
 ## Signature
 
 ```typescript
-setState_Y(y: number): IPCB_PrimitivePad;
+public setState_Y(y: number): IPCB_PrimitivePad;
 ```
 
 ## Parameters
@@ -2730,7 +2730,7 @@ number
 ## Signature
 
 ```typescript
-toAsync(): IPCB_PrimitivePad;
+public toAsync(): IPCB_PrimitivePad;
 ```
 
 
@@ -2749,7 +2749,7 @@ toAsync(): IPCB_PrimitivePad;
 ## Signature
 
 ```typescript
-toSync(): IPCB_PrimitivePad;
+public toSync(): IPCB_PrimitivePad;
 ```
 
 

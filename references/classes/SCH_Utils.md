@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SCH_Utils 
+export class SCH_Utils 
 ```
 
 ## Methods
@@ -57,7 +57,7 @@ Description
 ## Signature
 
 ```typescript
-splitLines(lines: Array<number | Array<number>>): Array<Array<number | Array<number>>> | undefined;
+public splitLines(lines: Array<number | Array<number>>): Array<Array<number | Array<number>>> | undefined;
 ```
 
 ## Parameters

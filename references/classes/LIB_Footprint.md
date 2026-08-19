@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class LIB_Footprint 
+export class LIB_Footprint 
 ```
 
 ## Methods
@@ -183,7 +183,7 @@ Description
 ## Signature
 
 ```typescript
-copy(footprintUuid: string, libraryUuid: string, targetLibraryUuid: string, targetClassification?: ILIB_ClassificationIndex | Array<string>, newFootprintName?: string): Promise<string | undefined>;
+public copy(footprintUuid: string, libraryUuid: string, targetLibraryUuid: string, targetClassification?: ILIB_ClassificationIndex | Array<string>, newFootprintName?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -305,7 +305,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-create(libraryUuid: string, footprintName: string, classification?: ILIB_ClassificationIndex | Array<string>, description?: string): Promise<string | undefined>;
+public create(libraryUuid: string, footprintName: string, classification?: ILIB_ClassificationIndex | Array<string>, description?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -411,7 +411,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-delete(footprintUuid: string, libraryUuid: string): Promise<boolean>;
+public delete(footprintUuid: string, libraryUuid: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -485,7 +485,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-get(footprintUuid: string, libraryUuid?: string): Promise<ILIB_FootprintItem | undefined>;
+public get(footprintUuid: string, libraryUuid?: string): Promise<ILIB_FootprintItem | undefined>;
 ```
 
 ## Parameters
@@ -559,10 +559,7 @@ Promise&lt;[ILIB\_FootprintItem](../interfaces/ILIB_FootprintItem.md) \| undefin
 ## Signature
 
 ```typescript
-getRenderImage(source: {
-        footprintUuid: string;
-        libraryUuid: string;
-    }): Promise<Blob | undefined>;
+public getRenderImage(source: { footprintUuid: string; libraryUuid: string }): Promise<Blob | undefined>;
 ```
 
 ## Parameters
@@ -590,7 +587,7 @@ source
 
 </td><td>
 
-\{ footprintUuid: string; libraryUuid: string; \}
+\{ footprintUuid: string; libraryUuid: string \}
 
 
 </td><td>
@@ -618,7 +615,7 @@ Promise&lt;Blob \| undefined&gt;
 ## Signature
 
 ```typescript
-modify(footprintUuid: string, libraryUuid: string, footprintName?: string, classification?: ILIB_ClassificationIndex | Array<string> | null, description?: string | null): Promise<boolean>;
+public modify(footprintUuid: string, libraryUuid: string, footprintName?: string, classification?: ILIB_ClassificationIndex | Array<string> | null, description?: string | null): Promise<boolean>;
 ```
 
 ## Parameters
@@ -744,7 +741,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-openInEditor(footprintUuid: string, libraryUuid: string, splitScreenId?: string): Promise<string | undefined>;
+public openInEditor(footprintUuid: string, libraryUuid: string, splitScreenId?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -834,7 +831,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-search(key: string, libraryUuid?: string, classification?: ILIB_ClassificationIndex | Array<string>, itemsOfPage?: number, page?: number): Promise<Array<ILIB_FootprintSearchItem>>;
+public search(key: string, libraryUuid?: string, classification?: ILIB_ClassificationIndex | Array<string>, itemsOfPage?: number, page?: number): Promise<Array<ILIB_FootprintSearchItem>>;
 ```
 
 ## Parameters
@@ -956,7 +953,7 @@ Promise&lt;Array&lt;[ILIB\_FootprintSearchItem](../interfaces/ILIB_FootprintSear
 ## Signature
 
 ```typescript
-searchByProperties(properties: ILIB_FootprintPropertiesForSearch, libraryUuid?: string): Promise<Array<ILIB_FootprintSearchItem>>;
+public searchByProperties(properties: ILIB_FootprintPropertiesForSearch, libraryUuid?: string): Promise<Array<ILIB_FootprintSearchItem>>;
 ```
 
 ## Parameters
@@ -984,7 +981,7 @@ properties
 
 </td><td>
 
-ILIB\_FootprintPropertiesForSearch
+[ILIB\_FootprintPropertiesForSearch](../interfaces/ILIB_FootprintPropertiesForSearch.md)
 
 
 </td><td>
@@ -1030,7 +1027,7 @@ Promise&lt;Array&lt;[ILIB\_FootprintSearchItem](../interfaces/ILIB_FootprintSear
 ## Signature
 
 ```typescript
-updateDocumentSource(footprintUuid: string, libraryUuid: string, documentSource: string): Promise<boolean | undefined>;
+public updateDocumentSource(footprintUuid: string, libraryUuid: string, documentSource: string): Promise<boolean | undefined>;
 ```
 
 ## Parameters

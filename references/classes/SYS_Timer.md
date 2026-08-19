@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_Timer 
+export class SYS_Timer 
 ```
 
 ## Remarks
@@ -102,7 +102,7 @@ Description
 ## Signature
 
 ```typescript
-clearIntervalTimer(id: string): boolean;
+public clearIntervalTimer(id: string): boolean;
 ```
 
 ## Parameters
@@ -158,7 +158,7 @@ boolean
 ## Signature
 
 ```typescript
-clearTimeoutTimer(id: string): boolean;
+public clearTimeoutTimer(id: string): boolean;
 ```
 
 ## Parameters
@@ -214,7 +214,7 @@ boolean
 ## Signature
 
 ```typescript
-setIntervalTimer(id: string, timeout: number, callFn: (...args: any) => void, ...args: any): boolean;
+public setIntervalTimer(id: string, timeout: number, callFn: (...args: any) => void, ...args: any): boolean;
 ```
 
 ## Parameters
@@ -322,7 +322,7 @@ boolean
 ## Signature
 
 ```typescript
-setTimeoutTimer(id: string, timeout: number, callFn: (...args: any) => void, ...args: any): boolean;
+public setTimeoutTimer(id: string, timeout: number, callFn: (...args: any) => void, ...args: any): boolean;
 ```
 
 ## Parameters

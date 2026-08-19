@@ -1,31 +1,31 @@
-# 分区格式
+# Partition Format
 
-PCB 引入了分区设计，分区设计需要标记大量元素的分区信息，所以采用了如下格式设计
+PCB introduces partition design. Partition design needs to mark partition information for many elements, so the following format is used.
 
-## PARTITION 分区图元
+## PARTITION Partition Primitive
 
 ```json
 { "type": "LAYER_PHYS","id": "UUID", "ticket": 1 }||
 {
-  "name":"分区1",
+  "name":"Partition 1",
   "fileUuid":"SUB-PCB-UUID",
-  "path":"复杂多边形",
+  "path":"complex polygon",
 }|
 ```
 
-1. type 分区：`PARTITION`
-2. id 图元编号
-3. ticket 逻辑时钟
-4. name 分区名称
-5. fileUuid 子图 UUID
-6. path 分区形状
+1. type partition: `PARTITION`.
+2. id primitive ID.
+3. ticket logical clock.
+4. name partition name.
+5. fileUuid child drawing UUID.
+6. path partition shape.
 
-所有归属于分区的图元都得带上对应的分区图元编号
+All primitives belonging to a partition must carry the corresponding partition primitive ID.
 
 ```json
 { "type": "VIA", "id":"viaUuid", "ticket": 1 }||
 {
-  "partitionId":"partitionId",// 带上该id,表示归属对应分区
+  "partitionId":"partitionId",// carries this id to indicate belonging to the corresponding partition
   "groupId":0,
   "locked":1,
   "zIndex":3.223,

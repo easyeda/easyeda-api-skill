@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum EPCB_InactiveLayerDisplayMode 
+export enum EPCB_InactiveLayerDisplayMode 
 ```
 
 ## Enumeration Members
@@ -38,8 +38,6 @@ HIDE
 
 </td><td>
 
-隐藏
-
 
 </td></tr>
 <tr><td>
@@ -54,8 +52,6 @@ NORMAL\_BRIGHTNESS
 
 </td><td>
 
-正常亮度
-
 
 </td></tr>
 <tr><td>
@@ -69,8 +65,6 @@ TURN\_GRAY
 
 
 </td><td>
-
-置灰
 
 
 </td></tr>

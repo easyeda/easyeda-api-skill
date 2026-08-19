@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ILIB_ExtendLibraryFunctions 
+export interface ILIB_ExtendLibraryFunctions 
 ```
 
 ## Properties
@@ -41,7 +41,7 @@ Description
 
 </td><td>
 
-() =&gt; Promise&lt;Array&lt;{ name: string; uuid?: string; children?: Array&lt;{ name: string; uuid?: string; }&gt; \| undefined; }&gt;&gt;
+() =&gt; Promise&lt;Array&lt;{ name: string; uuid?: undefined \| string; children?: undefined \| ({ name: string; uuid?: undefined \| string })\[\] }&gt;&gt;
 
 
 </td><td>
@@ -103,14 +103,7 @@ Description
 ## Signature
 
 ```typescript
-getClassificationTree: () => Promise<Array<{
-        name: string;
-        uuid?: string;
-        children?: Array<{
-            name: string;
-            uuid?: string;
-        }> | undefined;
-    }>>;
+getClassificationTree: () => Promise<Array<{ name: string; uuid?: undefined | string; children?: undefined | ({ name: string; uuid?: undefined | string })[] }>>;
 ```
 
 ### getdetail

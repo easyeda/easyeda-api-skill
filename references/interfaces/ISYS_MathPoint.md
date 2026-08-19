@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ISYS_MathPoint 
+export interface ISYS_MathPoint 
 ```
 
 ## Properties

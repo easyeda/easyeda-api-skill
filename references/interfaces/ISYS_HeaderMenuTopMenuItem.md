@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ISYS_HeaderMenuTopMenuItem 
+export interface ISYS_HeaderMenuTopMenuItem 
 ```
 
 ## Properties

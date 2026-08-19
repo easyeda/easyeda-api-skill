@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IPCB_PrimitiveSolderMaskAndPasteMaskExpansion 
+export interface IPCB_PrimitiveSolderMaskAndPasteMaskExpansion 
 ```
 
 ## Remarks

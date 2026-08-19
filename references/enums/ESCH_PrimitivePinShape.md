@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESCH_PrimitivePinShape 
+export enum ESCH_PrimitivePinShape 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ CLOCK
 
 </td><td>
 
-`"Clock"`
+`'Clock'`
 
 
 </td><td>
-
-时钟
 
 
 </td></tr>
@@ -49,12 +47,10 @@ INVERTED
 
 </td><td>
 
-`"Inverted"`
+`'Inverted'`
 
 
 </td><td>
-
-反向
 
 
 </td></tr>
@@ -65,12 +61,10 @@ INVERTED\_CLOCK
 
 </td><td>
 
-`"Inverted Clock"`
+`'Inverted Clock'`
 
 
 </td><td>
-
-反向时钟
 
 
 </td></tr>
@@ -81,12 +75,10 @@ NONE
 
 </td><td>
 
-`"None"`
+`'None'`
 
 
 </td><td>
-
-无
 
 
 </td></tr>

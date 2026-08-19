@@ -1,12 +1,12 @@
-# 焊盘与过孔
+# Pads and Vias
 
-## VIA 过孔
+## VIA Via
 
-过孔一般用于打通不同层之间的电路
-对于多层板一般有如下几种模式
-通孔：`开始层` 到 `结束层` 贯穿顶层底层
-盲孔：`开始层` 或 `结束层` 只有一个属于顶层或底层
-埋孔：`开始层` 和 `结束层` 都不属于顶层或底层
+Vias are generally used to connect circuits between different layers.
+For multi-layer boards, there are generally the following modes:
+Through-hole: from `start layer` to `end layer`, through top and bottom.
+Blind via: only one of `start layer` or `end layer` is top or bottom.
+Buried via: neither `start layer` nor `end layer` is top or bottom.
 
 ```json
 { "type": "VIA", "id":"UUID", "ticket": 1 }||
@@ -28,28 +28,28 @@
 }|
 ```
 
-1. type 过孔 `VIA`
-2. id 图元编号, 文档内唯一
-3. ticket 逻辑时钟
-4. partitionId 所属分区编号，为 null 表示无分区，封装忽略该字段
-5. groupId 分组编号：0 不分组，非 0 为组标志，相同组标志的为一组
-6. locked 是否锁定
-7. zIndex Z 轴高度
-8. netName NET
-9. ruleName 过孔层类型：设计规则名称，定义过孔的开始层结束层
-10. centerX 坐标 X
-11. centerY 坐标 Y
-12. holeDiameter 孔直径
-13. viaDiameter 焊盘直径
-14. viaType 过孔类型：0 普通过孔 1 缝合孔
-15. topSolderExpansion 顶层阻焊扩展：`null` 为遵循规则
-16. bottomSolderExpansion 底层阻焊扩展：`null` 为遵循规则
-17. unusedInnerLayers 隐藏焊盘层（可选）：被隐藏焊盘的层数组
+1. type via `VIA`.
+2. id primitive ID, unique within the document.
+3. ticket logical clock.
+4. partitionId partition ID it belongs to, null means no partition. Ignored for footprints.
+5. groupId group ID: 0 no group, non-zero is the group flag, same flag means same group.
+6. locked whether locked.
+7. zIndex Z-axis height.
+8. netName NET.
+9. ruleName via layer type: design rule name, defines start and end layers of the via.
+10. centerX coordinate X.
+11. centerY coordinate Y.
+12. holeDiameter hole diameter.
+13. viaDiameter pad diameter.
+14. viaType via type: 0 normal via, 1 stitching via.
+15. topSolderExpansion top solder mask expansion: `null` means follow rule.
+16. bottomSolderExpansion bottom solder mask expansion: `null` means follow rule.
+17. unusedInnerLayers hidden pad layers (optional): array of layers where pads are hidden.
 
-## PAD 焊盘
+## PAD Pad
 
-焊盘一般用于元器件与电路板焊接
-焊盘要么贯穿整个电路板，要么只在顶层或者底层，所以只有顶层、底层、多层三种层
+Pads are generally used for soldering components to the circuit board.
+Pads either run through the entire board or only on the top or bottom layer, so there are only top, bottom, and multi-layer options.
 
 ```json
 { "type": "PAD", "id":"UUID", "ticket": 1 }||
@@ -64,9 +64,9 @@
   "centerX":100,
   "centerY":200,
   "padAngle":15,
-  "hole":["参考孔"],
-  "defaultPad":["参考焊盘"],
-  "specialPad":[[0, 1, ["参考焊盘"]]],
+  "hole":["reference hole"],
+  "defaultPad":["reference pad"],
+  "specialPad":[[0, 1, ["reference pad"]]],
   "padOffsetX":10,
   "padOffsetY":-5,
   "relativeAngle":30,
@@ -84,68 +84,68 @@
 }|
 ```
 
-1. type 焊盘 `PAD`
-2. id 图元编号, 文档内唯一
-3. ticket 逻辑时钟
-4. partitionId 所属分区编号，为 null 表示无分区，封装忽略该字段
-5. groupId 分组编号：0 不分组，非 0 为组标志，相同组标志的为一组
-6. locked 是否锁定
-7. zIndex Z 轴高度
-8. netName 网络
-9. layerId 层（只有顶层、底层、多层）
-10. num 焊盘编号
-11. centerX 焊盘原点 X
-12. centerY 焊盘原点 Y
-13. padAngle 焊盘旋转角度
-14. hole 孔：参考孔，`null` 表示无孔
-15. defaultPad 默认焊盘：参考焊盘
-16. specialPad 特殊焊盘（多组，每组定义如下）
-    1. 开始层
-    2. 结束层
-    3. 参考焊盘
-17. padOffsetX 孔偏移 X
-18. padOffsetY 孔偏移 Y
-19. relativeAngle 孔相对焊盘旋转角度
-20. plated 是否金属化孔壁
-21. padType 焊盘功能：0 普通焊盘 1 测试点 2 标识点
-22. topSolderExpansion 顶层阻焊扩展：`null` 为遵循规则
-23. bottomSolderExpansion 底层阻焊扩展：`null` 为遵循规则
-24. topPasteExpansion 顶层助焊扩展：`null` 为遵循规则
-25. bottomPasteExpansion 底层助焊扩展：`null` 为遵循规则
-26. connectMode 热焊-连接方式：`null` 为遵循规则，其他数据定义同设计规则
-27. spokeSpace 热焊-发散间距：`null` 为遵循规则，其他数据定义同设计规则
-28. spokeWidth 热焊-发散线宽：`null` 为遵循规则，其他数据定义同设计规则
-29. spokeAngle 热焊-发散角度：`null` 为遵循规则，其他数据定义同设计规则
-30. unusedInnerLayers 隐藏焊盘层（可选）：被隐藏焊盘的层数组
+1. type pad `PAD`.
+2. id primitive ID, unique within the document.
+3. ticket logical clock.
+4. partitionId partition ID it belongs to, null means no partition. Ignored for footprints.
+5. groupId group ID: 0 no group, non-zero is the group flag, same flag means same group.
+6. locked whether locked.
+7. zIndex Z-axis height.
+8. netName net.
+9. layerId layer (only top, bottom, multi-layer).
+10. num pad number.
+11. centerX pad origin X.
+12. centerY pad origin Y.
+13. padAngle pad rotation angle.
+14. hole hole: reference hole, `null` means no hole.
+15. defaultPad default pad: reference pad.
+16. specialPad special pads (multiple groups, each group defined as follows).
+    1. start layer.
+    2. end layer.
+    3. reference pad.
+17. padOffsetX hole offset X.
+18. padOffsetY hole offset Y.
+19. relativeAngle hole rotation relative to pad.
+20. plated whether plated hole wall.
+21. padType pad function: 0 normal pad, 1 test point, 2 fiducial.
+22. topSolderExpansion top solder mask expansion: `null` means follow rule.
+23. bottomSolderExpansion bottom solder mask expansion: `null` means follow rule.
+24. topPasteExpansion top paste mask expansion: `null` means follow rule.
+25. bottomPasteExpansion bottom paste mask expansion: `null` means follow rule.
+26. connectMode thermal relief - connection mode: `null` means follow rule, other data same as design rules.
+27. spokeSpace thermal relief - spoke spacing: `null` means follow rule, other data same as design rules.
+28. spokeWidth thermal relief - spoke width: `null` means follow rule, other data same as design rules.
+29. spokeAngle thermal relief - spoke angle: `null` means follow rule, other data same as design rules.
+30. unusedInnerLayers hidden pad layers (optional): array of layers where pads are hidden.
 
-### 孔
+### Hole
 
-1. 长圆孔
-    1. 长圆孔 `ROUND`
-    1. 宽
-    1. 高
-1. 方孔
-    1. 方孔 `RECT`
-    1. 宽
-    1. 高
+1. Slot hole
+    1. Slot hole `ROUND`
+    2. width
+    3. height
+2. Square hole
+    1. Square hole `RECT`
+    2. width
+    3. height
 
-### 焊盘
+### Pad
 
-孔的旋转与盘的互相独立
+Hole rotation and pad rotation are independent.
 
-1. 长圆焊盘
-    1. 长圆焊盘 `ROUND`
-    1. 宽
-    1. 高
-1. 方焊盘
-    1. 方焊盘 `RECT`
-    1. 宽
-    1. 高
-    1. 圆角半径
-1. 正多边形焊盘
-    1. 正多边形焊盘 `NGON` （名称来自 3DSMAX）
-    1. 直径
-    1. 边数（> 2）
-1. 多边形焊盘
-    1. 多边形焊盘 `POLY`
-    1. 参考复杂多边形，以孔为原点的相对位置
+1. Oblong pad
+    1. Oblong pad `ROUND`
+    2. width
+    3. height
+2. Square pad
+    1. Square pad `RECT`
+    2. width
+    3. height
+    4. corner radius
+3. Regular polygon pad
+    1. Regular polygon pad `NGON` (name from 3DSMAX)
+    2. diameter
+    3. number of sides (> 2)
+4. Polygon pad
+    1. Polygon pad `POLY`
+    2. reference complex polygon, relative position to hole as origin

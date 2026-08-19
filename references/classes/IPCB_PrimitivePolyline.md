@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class IPCB_PrimitivePolyline implements IPCB_Primitive 
+export class IPCB_PrimitivePolyline implements IPCB_Primitive 
 ```
 **Implements:** [IPCB\_Primitive](../interfaces/IPCB_Primitive.md)
 
@@ -327,7 +327,7 @@ Description
 ## Signature
 
 ```typescript
-convertToFill(): Promise<IPCB_PrimitiveFill>;
+public convertToFill(): Promise<IPCB_PrimitiveFill>;
 ```
 
 
@@ -348,7 +348,7 @@ Promise&lt;[IPCB\_PrimitiveFill](./IPCB_PrimitiveFill.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-convertToPour(): Promise<IPCB_PrimitivePour>;
+public convertToPour(): Promise<IPCB_PrimitivePour>;
 ```
 
 
@@ -369,7 +369,7 @@ Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-convertToRegion(): Promise<IPCB_PrimitiveRegion>;
+public convertToRegion(): Promise<IPCB_PrimitiveRegion>;
 ```
 
 
@@ -390,7 +390,7 @@ Promise&lt;[IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-done(): Promise<IPCB_PrimitivePolyline>;
+public done(): Promise<IPCB_PrimitivePolyline>;
 ```
 
 
@@ -409,7 +409,7 @@ Promise&lt;[IPCB\_PrimitivePolyline](./IPCB_PrimitivePolyline.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getState_Layer(): TPCB_LayersOfLine;
+public getState_Layer(): TPCB_LayersOfLine;
 ```
 
 
@@ -428,7 +428,7 @@ getState_Layer(): TPCB_LayersOfLine;
 ## Signature
 
 ```typescript
-getState_LineWidth(): number;
+public getState_LineWidth(): number;
 ```
 
 
@@ -447,7 +447,7 @@ number
 ## Signature
 
 ```typescript
-getState_Net(): string;
+public getState_Net(): string;
 ```
 
 
@@ -466,7 +466,7 @@ string
 ## Signature
 
 ```typescript
-getState_Polygon(): IPCB_Polygon;
+public getState_Polygon(): IPCB_Polygon;
 ```
 
 
@@ -485,7 +485,7 @@ getState_Polygon(): IPCB_Polygon;
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -504,7 +504,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveLock(): boolean;
+public getState_PrimitiveLock(): boolean;
 ```
 
 
@@ -523,7 +523,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): EPCB_PrimitiveType;
+public getState_PrimitiveType(): EPCB_PrimitiveType;
 ```
 
 
@@ -542,7 +542,7 @@ getState_PrimitiveType(): EPCB_PrimitiveType;
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -563,7 +563,7 @@ boolean
 ## Signature
 
 ```typescript
-reset(): Promise<IPCB_PrimitivePolyline>;
+public reset(): Promise<IPCB_PrimitivePolyline>;
 ```
 
 
@@ -584,7 +584,7 @@ Promise&lt;[IPCB\_PrimitivePolyline](./IPCB_PrimitivePolyline.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_Layer(layer: TPCB_LayersOfLine): IPCB_PrimitivePolyline;
+public setState_Layer(layer: TPCB_LayersOfLine): IPCB_PrimitivePolyline;
 ```
 
 ## Parameters
@@ -642,7 +642,7 @@ layer
 ## Signature
 
 ```typescript
-setState_LineWidth(lineWidth: number): IPCB_PrimitivePolyline;
+public setState_LineWidth(lineWidth: number): IPCB_PrimitivePolyline;
 ```
 
 ## Parameters
@@ -700,7 +700,7 @@ number
 ## Signature
 
 ```typescript
-setState_Net(net: string): IPCB_PrimitivePolyline;
+public setState_Net(net: string): IPCB_PrimitivePolyline;
 ```
 
 ## Parameters
@@ -758,7 +758,7 @@ string
 ## Signature
 
 ```typescript
-setState_Polygon(polygon: IPCB_Polygon): IPCB_PrimitivePolyline;
+public setState_Polygon(polygon: IPCB_Polygon): IPCB_PrimitivePolyline;
 ```
 
 ## Parameters
@@ -816,7 +816,7 @@ polygon
 ## Signature
 
 ```typescript
-setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitivePolyline;
+public setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitivePolyline;
 ```
 
 ## Parameters
@@ -872,7 +872,7 @@ boolean
 ## Signature
 
 ```typescript
-toAsync(): IPCB_PrimitivePolyline;
+public toAsync(): IPCB_PrimitivePolyline;
 ```
 
 
@@ -891,7 +891,7 @@ toAsync(): IPCB_PrimitivePolyline;
 ## Signature
 
 ```typescript
-toSync(): IPCB_PrimitivePolyline;
+public toSync(): IPCB_PrimitivePolyline;
 ```
 
 

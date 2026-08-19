@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SCH_PrimitivePolygon implements ISCH_PrimitiveAPI 
+export class SCH_PrimitivePolygon implements ISCH_PrimitiveAPI 
 ```
 **Implements:** [ISCH\_PrimitiveAPI](../interfaces/ISCH_PrimitiveAPI.md)
 
@@ -142,7 +142,7 @@ Description
 ## Signature
 
 ```typescript
-create(line: Array<number>, color?: string | null, fillColor?: string | null, lineWidth?: number | null, lineType?: ESCH_PrimitiveLineType | null): Promise<ISCH_PrimitivePolygon | undefined>;
+public create(line: Array<number>, color?: string | null, fillColor?: string | null, lineWidth?: number | null, lineType?: ESCH_PrimitiveLineType | null): Promise<ISCH_PrimitivePolygon | undefined>;
 ```
 
 ## Parameters
@@ -264,7 +264,7 @@ Promise&lt;[ISCH\_PrimitivePolygon](./ISCH_PrimitivePolygon.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-delete(primitiveIds: string | ISCH_PrimitivePolygon | Array<string> | Array<ISCH_PrimitivePolygon>): Promise<boolean>;
+public delete(primitiveIds: string | ISCH_PrimitivePolygon | Array<string> | Array<ISCH_PrimitivePolygon>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -322,7 +322,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-get(primitiveIds: string): Promise<ISCH_PrimitivePolygon | undefined>;
+public get(primitiveIds: string): Promise<ISCH_PrimitivePolygon | undefined>;
 ```
 
 ## Parameters
@@ -380,7 +380,7 @@ Promise&lt;[ISCH\_PrimitivePolygon](./ISCH_PrimitivePolygon.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitivePolygon>>;
+public get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitivePolygon>>;
 ```
 
 ## Parameters
@@ -442,7 +442,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitivePolygon](./ISCH_PrimitivePolygon.md)<!-- -->
 ## Signature
 
 ```typescript
-getAll(): Promise<Array<ISCH_PrimitivePolygon>>;
+public getAll(): Promise<Array<ISCH_PrimitivePolygon>>;
 ```
 
 
@@ -463,7 +463,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitivePolygon](./ISCH_PrimitivePolygon.md)<!-- -->
 ## Signature
 
 ```typescript
-getAllPrimitiveId(): Promise<Array<string>>;
+public getAllPrimitiveId(): Promise<Array<string>>;
 ```
 
 
@@ -484,13 +484,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 ## Signature
 
 ```typescript
-modify(primitiveId: string | ISCH_PrimitivePolygon, property: {
-        line?: Array<number>;
-        color?: string | null;
-        fillColor?: string | null;
-        lineWidth?: number | null;
-        lineType?: ESCH_PrimitiveLineType | null;
-    }): Promise<ISCH_PrimitivePolygon | undefined>;
+public modify(primitiveId: string | ISCH_PrimitivePolygon, property: { line?: undefined | number[]; color?: undefined | null | string; fillColor?: undefined | null | string; lineWidth?: undefined | null | number; lineType?: undefined | null | ESCH_PrimitiveLineType.SOLID | ESCH_PrimitiveLineType.DASHED | ESCH_PrimitiveLineType.DOTTED | ESCH_PrimitiveLineType.DOT_DASHED }): Promise<ISCH_PrimitivePolygon | undefined>;
 ```
 
 ## Parameters
@@ -534,7 +528,7 @@ property
 
 </td><td>
 
-{ line?: Array&lt;number&gt;; color?: string \| null; fillColor?: string \| null; lineWidth?: number \| null; lineType?: [ESCH\_PrimitiveLineType](../enums/ESCH_PrimitiveLineType.md) \| null; }
+{ line?: undefined \| number\[\]; color?: undefined \| null \| string; fillColor?: undefined \| null \| string; lineWidth?: undefined \| null \| number; lineType?: undefined \| null \| [ESCH\_PrimitiveLineType.SOLID](../enums/ESCH_PrimitiveLineType.md) \| [ESCH\_PrimitiveLineType.DASHED](../enums/ESCH_PrimitiveLineType.md) \| [ESCH\_PrimitiveLineType.DOTTED](../enums/ESCH_PrimitiveLineType.md) \| [ESCH\_PrimitiveLineType.DOT\_DASHED](../enums/ESCH_PrimitiveLineType.md) }
 
 
 </td><td>

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_Unit 
+export class SYS_Unit 
 ```
 
 ## Remarks
@@ -145,7 +145,7 @@ Description
 ## Signature
 
 ```typescript
-getFrontendDataUnit(): Promise<ESYS_Unit | undefined>;
+public getFrontendDataUnit(): Promise<ESYS_Unit | undefined>;
 ```
 
 
@@ -168,7 +168,7 @@ Promise&lt;[ESYS\_Unit](../enums/ESYS_Unit.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-inchToMil(inch: number, numberOfDecimals?: number): number;
+public inchToMil(inch: number, numberOfDecimals?: number): number;
 ```
 
 ## Parameters
@@ -240,7 +240,7 @@ number
 ## Signature
 
 ```typescript
-inchToMm(inch: number, numberOfDecimals?: number): number;
+public inchToMm(inch: number, numberOfDecimals?: number): number;
 ```
 
 ## Parameters
@@ -312,7 +312,7 @@ number
 ## Signature
 
 ```typescript
-milToInch(mil: number, numberOfDecimals?: number): number;
+public milToInch(mil: number, numberOfDecimals?: number): number;
 ```
 
 ## Parameters
@@ -384,7 +384,7 @@ number
 ## Signature
 
 ```typescript
-milToMm(mil: number, numberOfDecimals?: number): number;
+public milToMm(mil: number, numberOfDecimals?: number): number;
 ```
 
 ## Parameters
@@ -456,7 +456,7 @@ number
 ## Signature
 
 ```typescript
-mmToInch(mm: number, numberOfDecimals?: number): number;
+public mmToInch(mm: number, numberOfDecimals?: number): number;
 ```
 
 ## Parameters
@@ -528,7 +528,7 @@ number
 ## Signature
 
 ```typescript
-mmToMil(mm: number, numberOfDecimals?: number): number;
+public mmToMil(mm: number, numberOfDecimals?: number): number;
 ```
 
 ## Parameters

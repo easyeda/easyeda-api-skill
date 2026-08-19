@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESCH_PrimitiveComponentType 
+export enum ESCH_PrimitiveComponentType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ CBB\_SYMBOL
 
 </td><td>
 
-`"block_symbol"`
+`'block_symbol'`
 
 
 </td><td>
-
-复用模块符号
 
 
 </td></tr>
@@ -49,12 +47,10 @@ COMPONENT
 
 </td><td>
 
-`"part"`
+`'part'`
 
 
 </td><td>
-
-元件符号
 
 
 </td></tr>
@@ -65,12 +61,10 @@ DIFFERENTIAL\_PAIRS\_FLAG
 
 </td><td>
 
-`"diffPairsFlag"`
+`'diffPairsFlag'`
 
 
 </td><td>
-
-差分对标识
 
 
 </td></tr>
@@ -81,12 +75,10 @@ DRAWING
 
 </td><td>
 
-`"sheet"`
+`'sheet'`
 
 
 </td><td>
-
-图纸
 
 
 </td></tr>
@@ -97,12 +89,10 @@ NET\_FLAG
 
 </td><td>
 
-`"netflag"`
+`'netflag'`
 
 
 </td><td>
-
-网络标识
 
 
 </td></tr>
@@ -113,12 +103,10 @@ NET\_PORT
 
 </td><td>
 
-`"netport"`
+`'netport'`
 
 
 </td><td>
-
-网络端口
 
 
 </td></tr>
@@ -129,12 +117,10 @@ NON\_ELECTRICAL\_FLAG
 
 </td><td>
 
-`"nonElectrical_symbol"`
+`'nonElectrical_symbol'`
 
 
 </td><td>
-
-无电气标识
 
 
 </td></tr>
@@ -145,12 +131,10 @@ OFF\_PAGE\_CONNECTOR
 
 </td><td>
 
-`"offPageConnector"`
+`'offPageConnector'`
 
 
 </td><td>
-
-跨页连接标识
 
 
 </td></tr>
@@ -161,12 +145,10 @@ SHORT\_CIRCUIT\_FLAG
 
 </td><td>
 
-`"short_symbol"`
+`'short_symbol'`
 
 
 </td><td>
-
-短接标识
 
 
 </td></tr>

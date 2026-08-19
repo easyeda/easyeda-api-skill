@@ -5,7 +5,7 @@ PCB &amp; 封装 / 过孔图元类
 ## Signature
 
 ```typescript
-declare class PCB_PrimitiveVia implements IPCB_PrimitiveAPI 
+export class PCB_PrimitiveVia implements IPCB_PrimitiveAPI 
 ```
 **Implements:** [IPCB\_PrimitiveAPI](../interfaces/IPCB_PrimitiveAPI.md)
 
@@ -140,7 +140,7 @@ Description
 ## Signature
 
 ```typescript
-create(net: string, x: number, y: number, holeDiameter: number, diameter: number, viaType?: EPCB_PrimitiveViaType, designRuleBlindViaName?: string | null, solderMaskExpansion?: IPCB_PrimitiveSolderMaskAndPasteMaskExpansion | null, primitiveLock?: boolean): Promise<IPCB_PrimitiveVia | undefined>;
+public create(net: string, x: number, y: number, holeDiameter: number, diameter: number, viaType?: EPCB_PrimitiveViaType, designRuleBlindViaName?: string | null, solderMaskExpansion?: IPCB_PrimitiveSolderMaskAndPasteMaskExpansion | null, primitiveLock?: boolean): Promise<IPCB_PrimitiveVia | undefined>;
 ```
 
 ## Parameters
@@ -326,7 +326,7 @@ Promise&lt;[IPCB\_PrimitiveVia](./IPCB_PrimitiveVia.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-delete(primitiveIds: string | IPCB_PrimitiveVia | Array<string> | Array<IPCB_PrimitiveVia>): Promise<boolean>;
+public delete(primitiveIds: string | IPCB_PrimitiveVia | Array<string> | Array<IPCB_PrimitiveVia>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -384,7 +384,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-get(primitiveIds: string): Promise<IPCB_PrimitiveVia | undefined>;
+public get(primitiveIds: string): Promise<IPCB_PrimitiveVia | undefined>;
 ```
 
 ## Parameters
@@ -442,7 +442,7 @@ Promise&lt;[IPCB\_PrimitiveVia](./IPCB_PrimitiveVia.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-get(primitiveIds: Array<string>): Promise<Array<IPCB_PrimitiveVia>>;
+public get(primitiveIds: Array<string>): Promise<Array<IPCB_PrimitiveVia>>;
 ```
 
 ## Parameters
@@ -504,7 +504,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveVia](./IPCB_PrimitiveVia.md)<!-- -->&gt;&gt;
 ## Signature
 
 ```typescript
-getAll(net?: string, primitiveLock?: boolean): Promise<Array<IPCB_PrimitiveVia>>;
+public getAll(net?: string, primitiveLock?: boolean): Promise<Array<IPCB_PrimitiveVia>>;
 ```
 
 ## Parameters
@@ -578,7 +578,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveVia](./IPCB_PrimitiveVia.md)<!-- -->&gt;&gt;
 ## Signature
 
 ```typescript
-getAllPrimitiveId(net?: string, primitiveLock?: boolean): Promise<Array<string>>;
+public getAllPrimitiveId(net?: string, primitiveLock?: boolean): Promise<Array<string>>;
 ```
 
 ## Parameters
@@ -652,17 +652,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 ## Signature
 
 ```typescript
-modify(primitiveId: string | IPCB_PrimitiveVia, property: {
-        net?: string;
-        x?: number;
-        y?: number;
-        holeDiameter?: number;
-        diameter?: number;
-        viaType?: EPCB_PrimitiveViaType;
-        designRuleBlindViaName?: string | null;
-        solderMaskExpansion?: IPCB_PrimitiveSolderMaskAndPasteMaskExpansion | null;
-        primitiveLock?: boolean;
-    }): Promise<IPCB_PrimitiveVia | undefined>;
+public modify(primitiveId: string | IPCB_PrimitiveVia, property: { net?: undefined | string; x?: undefined | number; y?: undefined | number; holeDiameter?: undefined | number; diameter?: undefined | number; viaType?: undefined | EPCB_PrimitiveViaType.VIA | EPCB_PrimitiveViaType.BLIND | EPCB_PrimitiveViaType.SUTURE; designRuleBlindViaName?: undefined | null | string; solderMaskExpansion?: undefined | null | IPCB_PrimitiveSolderMaskAndPasteMaskExpansion; primitiveLock?: undefined | false | true }): Promise<IPCB_PrimitiveVia | undefined>;
 ```
 
 ## Parameters
@@ -706,7 +696,7 @@ property
 
 </td><td>
 
-{ net?: string; x?: number; y?: number; holeDiameter?: number; diameter?: number; viaType?: [EPCB\_PrimitiveViaType](../enums/EPCB_PrimitiveViaType.md)<!-- -->; designRuleBlindViaName?: string \| null; solderMaskExpansion?: [IPCB\_PrimitiveSolderMaskAndPasteMaskExpansion](../interfaces/IPCB_PrimitiveSolderMaskAndPasteMaskExpansion.md) \| null; primitiveLock?: boolean; }
+{ net?: undefined \| string; x?: undefined \| number; y?: undefined \| number; holeDiameter?: undefined \| number; diameter?: undefined \| number; viaType?: undefined \| [EPCB\_PrimitiveViaType.VIA](../enums/EPCB_PrimitiveViaType.md) \| [EPCB\_PrimitiveViaType.BLIND](../enums/EPCB_PrimitiveViaType.md) \| [EPCB\_PrimitiveViaType.SUTURE](../enums/EPCB_PrimitiveViaType.md)<!-- -->; designRuleBlindViaName?: undefined \| null \| string; solderMaskExpansion?: undefined \| null \| [IPCB\_PrimitiveSolderMaskAndPasteMaskExpansion](../interfaces/IPCB_PrimitiveSolderMaskAndPasteMaskExpansion.md)<!-- -->; primitiveLock?: undefined \| false \| true }
 
 
 </td><td>

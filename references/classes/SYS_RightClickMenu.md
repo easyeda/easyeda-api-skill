@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_RightClickMenu 
+export class SYS_RightClickMenu 
 ```
 
 ## Remarks
@@ -60,7 +60,7 @@ Description
 ## Signature
 
 ```typescript
-changeMenu(menuId: string, menuItems: Array<ISYS_RightClickMenuItem | null>): Promise<void>;
+public changeMenu(menuId: string, menuItems: Array<ISYS_RightClickMenuItem | null>): Promise<void>;
 ```
 
 ## Parameters

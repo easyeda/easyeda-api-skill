@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IPCB_NetClassItem 
+export interface IPCB_NetClassItem 
 ```
 
 ## Properties
@@ -41,7 +41,7 @@ Description
 
 </td><td>
 
-{ r: number; g: number; b: number; alpha: number; } \| null
+{ r: number; g: number; b: number; alpha: number } \| null
 
 
 </td><td>
@@ -103,12 +103,7 @@ Array&lt;string&gt;
 ## Signature
 
 ```typescript
-color: {
-        r: number;
-        g: number;
-        b: number;
-        alpha: number;
-    } | null;
+color: { r: number; g: number; b: number; alpha: number } | null;
 ```
 
 ### name

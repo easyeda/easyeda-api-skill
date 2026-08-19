@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum EPCB_PrimitiveArcInteractiveMode 
+export enum EPCB_PrimitiveArcInteractiveMode 
 ```
 
 ## Enumeration Members
@@ -38,8 +38,6 @@ CENTER\_ARC
 
 </td><td>
 
-中心圆弧交互
-
 
 </td></tr>
 <tr><td>
@@ -53,8 +51,6 @@ TWO\_POINT\_ARC
 
 
 </td><td>
-
-两点圆弧交互
 
 
 </td></tr>

@@ -5,7 +5,7 @@ Spice 仿真引擎拉取事件类型
 ## Signature
 
 ```typescript
-declare enum ESCH_SpiceSimulationEnginePullEventType 
+export enum ESCH_SpiceSimulationEnginePullEventType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ SIMULATE\_NETLIST
 
 </td><td>
 
-`"SIMULATE_NETLIST"`
+`'SIMULATE_NETLIST'`
 
 
 </td><td>
-
-仿真网表
 
 
 </td></tr>
@@ -49,12 +47,10 @@ VALIDATE\_NETLIST
 
 </td><td>
 
-`"VALIDATE_NETLIST"`
+`'VALIDATE_NETLIST'`
 
 
 </td><td>
-
-验证网表
 
 
 </td></tr>

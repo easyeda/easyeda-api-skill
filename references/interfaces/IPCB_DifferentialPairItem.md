@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IPCB_DifferentialPairItem 
+export interface IPCB_DifferentialPairItem 
 ```
 
 ## Properties

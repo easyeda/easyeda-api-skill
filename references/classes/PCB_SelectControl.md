@@ -5,7 +5,7 @@ PCB &amp; 封装 / 选择控制类
 ## Signature
 
 ```typescript
-declare class PCB_SelectControl 
+export class PCB_SelectControl 
 ```
 
 ## Remarks
@@ -145,7 +145,7 @@ Description
 ## Signature
 
 ```typescript
-clearSelected(): Promise<boolean>;
+public clearSelected(): Promise<boolean>;
 ```
 
 
@@ -166,7 +166,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-doCrossProbeSelect(components?: Array<string>, pins?: Array<string>, nets?: Array<string>, highlight?: boolean, select?: boolean): Promise<boolean>;
+public doCrossProbeSelect(components?: Array<string>, pins?: Array<string>, nets?: Array<string>, highlight?: boolean, select?: boolean): Promise<boolean>;
 ```
 
 ## Parameters
@@ -286,7 +286,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-doSelectPrimitives(primitiveIds: string | Array<string>): Promise<boolean>;
+public doSelectPrimitives(primitiveIds: string | Array<string>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -344,7 +344,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-getAllSelectedPrimitives(): Promise<Array<IPCB_Primitive>>;
+public getAllSelectedPrimitives(): Promise<Array<IPCB_Primitive>>;
 ```
 
 
@@ -365,7 +365,7 @@ Promise&lt;Array&lt;[IPCB\_Primitive](../interfaces/IPCB_Primitive.md)<!-- -->&g
 ## Signature
 
 ```typescript
-getAllSelectedPrimitives_PrimitiveId(): Promise<Array<string>>;
+public getAllSelectedPrimitives_PrimitiveId(): Promise<Array<string>>;
 ```
 
 
@@ -386,16 +386,13 @@ Promise&lt;Array&lt;string&gt;&gt;
 ## Signature
 
 ```typescript
-getCurrentMousePosition(): Promise<{
-        x: number;
-        y: number;
-    } | undefined>;
+public getCurrentMousePosition(): Promise<{ x: number; y: number } | undefined>;
 ```
 
 
 ## Returns
 
-Promise&lt;{ x: number; y: number; } \| undefined&gt;
+Promise&lt;{ x: number; y: number } \| undefined&gt;
 
 鼠标在画布上的位置，`undefined` 代表当前鼠标不在画布上
 
@@ -414,12 +411,12 @@ Promise&lt;{ x: number; y: number; } \| undefined&gt;
 ## Signature
 
 ```typescript
-getSelectedPrimitives(): Promise<Array<Object>>;
+public getSelectedPrimitives(): Promise<Array<object>>;
 ```
 
 
 ## Returns
 
-Promise&lt;Array&lt;Object&gt;&gt;
+Promise&lt;Array&lt;object&gt;&gt;
 
 选中图元的所有参数

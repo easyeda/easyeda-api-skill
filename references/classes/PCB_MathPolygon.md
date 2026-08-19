@@ -5,7 +5,7 @@ PCB &amp; 封装 / 多边形数学类
 ## Signature
 
 ```typescript
-declare class PCB_MathPolygon 
+export class PCB_MathPolygon 
 ```
 
 ## Methods
@@ -149,7 +149,7 @@ Description
 ## Signature
 
 ```typescript
-calculateBBoxHeight(complexPolygon: TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray>): number;
+public calculateBBoxHeight(complexPolygon: TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray>): number;
 ```
 
 ## Parameters
@@ -203,7 +203,7 @@ number
 ## Signature
 
 ```typescript
-calculateHeight(complexPolygon: TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray> | IPCB_Polygon | IPCB_ComplexPolygon): number;
+public calculateHeight(complexPolygon: TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray> | IPCB_Polygon | IPCB_ComplexPolygon): number;
 ```
 
 ## Parameters
@@ -261,7 +261,7 @@ BBox 高度
 ## Signature
 
 ```typescript
-calculateWidth(complexPolygon: TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray> | IPCB_Polygon | IPCB_ComplexPolygon): number;
+public calculateWidth(complexPolygon: TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray> | IPCB_Polygon | IPCB_ComplexPolygon): number;
 ```
 
 ## Parameters
@@ -319,7 +319,7 @@ BBox 宽度
 ## Signature
 
 ```typescript
-convertImageToComplexPolygon(imageBlob: Blob, imageWidth: number, imageHeight: number, tolerance?: number, simplification?: number, smoothing?: number, despeckling?: number, whiteAsBackgroundColor?: boolean, inversion?: boolean): Promise<IPCB_ComplexPolygon | undefined>;
+public convertImageToComplexPolygon(imageBlob: Blob, imageWidth: number, imageHeight: number, tolerance?: number, simplification?: number, smoothing?: number, despeckling?: number, whiteAsBackgroundColor?: boolean, inversion?: boolean): Promise<IPCB_ComplexPolygon | undefined>;
 ```
 
 ## Parameters
@@ -503,7 +503,7 @@ Promise&lt;[IPCB\_ComplexPolygon](./IPCB_ComplexPolygon.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-createComplexPolygon(complexPolygon: TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray> | IPCB_Polygon | Array<IPCB_Polygon>): IPCB_ComplexPolygon | undefined;
+public createComplexPolygon(complexPolygon: TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray> | IPCB_Polygon | Array<IPCB_Polygon>): IPCB_ComplexPolygon | undefined;
 ```
 
 ## Parameters
@@ -559,7 +559,7 @@ complexPolygon
 ## Signature
 
 ```typescript
-createPolygon(polygon: TPCB_PolygonSourceArray): IPCB_Polygon | undefined;
+public createPolygon(polygon: TPCB_PolygonSourceArray): IPCB_Polygon | undefined;
 ```
 
 ## Parameters
@@ -617,7 +617,7 @@ polygon
 ## Signature
 
 ```typescript
-discretize(polygon: IPCB_Polygon | TPCB_PolygonSourceArray, options?: IPCB_DiscretizeOptions): Array<IPCB_DiscretizedPoint>;
+public discretize(polygon: IPCB_Polygon | TPCB_PolygonSourceArray, options?: IPCB_DiscretizeOptions): Promise<Array<IPCB_DiscretizedPoint>>;
 ```
 
 ## Parameters
@@ -676,7 +676,7 @@ _(Optional)_ 离散化选项
 
 ## Returns
 
-Array&lt;[IPCB\_DiscretizedPoint](../interfaces/IPCB_DiscretizedPoint.md)<!-- -->&gt;
+Promise&lt;Array&lt;[IPCB\_DiscretizedPoint](../interfaces/IPCB_DiscretizedPoint.md)<!-- -->&gt;&gt;
 
 离散化点数据
 
@@ -693,7 +693,7 @@ Array&lt;[IPCB\_DiscretizedPoint](../interfaces/IPCB_DiscretizedPoint.md)<!-- --
 ## Signature
 
 ```typescript
-splitPolygon(...complexPolygons: Array<IPCB_ComplexPolygon>): Array<IPCB_Polygon>;
+public splitPolygon(...complexPolygons: Array<IPCB_ComplexPolygon>): Array<IPCB_Polygon>;
 ```
 
 ## Parameters

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class ISCH_PrimitiveArc implements ISCH_Primitive 
+export class ISCH_PrimitiveArc implements ISCH_Primitive 
 ```
 **Implements:** [ISCH\_Primitive](../interfaces/ISCH_Primitive.md)
 
@@ -425,7 +425,7 @@ Description
 ## Signature
 
 ```typescript
-done(): Promise<ISCH_PrimitiveArc>;
+public done(): Promise<ISCH_PrimitiveArc>;
 ```
 
 
@@ -444,7 +444,7 @@ Promise&lt;[ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getState_Color(): string | null;
+public getState_Color(): string | null;
 ```
 
 
@@ -463,7 +463,7 @@ string \| null
 ## Signature
 
 ```typescript
-getState_EndX(): number;
+public getState_EndX(): number;
 ```
 
 
@@ -482,7 +482,7 @@ number
 ## Signature
 
 ```typescript
-getState_EndY(): number;
+public getState_EndY(): number;
 ```
 
 
@@ -501,7 +501,7 @@ number
 ## Signature
 
 ```typescript
-getState_FillColor(): string | null;
+public getState_FillColor(): string | null;
 ```
 
 
@@ -520,7 +520,7 @@ string \| null
 ## Signature
 
 ```typescript
-getState_LineType(): ESCH_PrimitiveLineType | null;
+public getState_LineType(): ESCH_PrimitiveLineType | null;
 ```
 
 
@@ -539,7 +539,7 @@ getState_LineType(): ESCH_PrimitiveLineType | null;
 ## Signature
 
 ```typescript
-getState_LineWidth(): number | null;
+public getState_LineWidth(): number | null;
 ```
 
 
@@ -558,7 +558,7 @@ number \| null
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -577,7 +577,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): ESCH_PrimitiveType;
+public getState_PrimitiveType(): ESCH_PrimitiveType;
 ```
 
 
@@ -596,7 +596,7 @@ getState_PrimitiveType(): ESCH_PrimitiveType;
 ## Signature
 
 ```typescript
-getState_ReferenceX(): number;
+public getState_ReferenceX(): number;
 ```
 
 
@@ -615,7 +615,7 @@ number
 ## Signature
 
 ```typescript
-getState_ReferenceY(): number;
+public getState_ReferenceY(): number;
 ```
 
 
@@ -634,7 +634,7 @@ number
 ## Signature
 
 ```typescript
-getState_StartX(): number;
+public getState_StartX(): number;
 ```
 
 
@@ -653,7 +653,7 @@ number
 ## Signature
 
 ```typescript
-getState_StartY(): number;
+public getState_StartY(): number;
 ```
 
 
@@ -672,7 +672,7 @@ number
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -693,7 +693,7 @@ boolean
 ## Signature
 
 ```typescript
-reset(): Promise<ISCH_PrimitiveArc>;
+public reset(): Promise<ISCH_PrimitiveArc>;
 ```
 
 
@@ -714,7 +714,7 @@ Promise&lt;[ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_Color(color: string | null): ISCH_PrimitiveArc;
+public setState_Color(color: string | null): ISCH_PrimitiveArc;
 ```
 
 ## Parameters
@@ -772,7 +772,7 @@ string \| null
 ## Signature
 
 ```typescript
-setState_EndX(endX: number): ISCH_PrimitiveArc;
+public setState_EndX(endX: number): ISCH_PrimitiveArc;
 ```
 
 ## Parameters
@@ -830,7 +830,7 @@ number
 ## Signature
 
 ```typescript
-setState_EndY(endY: number): ISCH_PrimitiveArc;
+public setState_EndY(endY: number): ISCH_PrimitiveArc;
 ```
 
 ## Parameters
@@ -888,7 +888,7 @@ number
 ## Signature
 
 ```typescript
-setState_FillColor(fillColor: string | null): ISCH_PrimitiveArc;
+public setState_FillColor(fillColor: string | null): ISCH_PrimitiveArc;
 ```
 
 ## Parameters
@@ -946,7 +946,7 @@ string \| null
 ## Signature
 
 ```typescript
-setState_LineType(lineType: ESCH_PrimitiveLineType | null): ISCH_PrimitiveArc;
+public setState_LineType(lineType: ESCH_PrimitiveLineType | null): ISCH_PrimitiveArc;
 ```
 
 ## Parameters
@@ -1004,7 +1004,7 @@ lineType
 ## Signature
 
 ```typescript
-setState_LineWidth(lineWidth: number | null): ISCH_PrimitiveArc;
+public setState_LineWidth(lineWidth: number | null): ISCH_PrimitiveArc;
 ```
 
 ## Parameters
@@ -1062,7 +1062,7 @@ number \| null
 ## Signature
 
 ```typescript
-setState_ReferenceX(referenceX: number): ISCH_PrimitiveArc;
+public setState_ReferenceX(referenceX: number): ISCH_PrimitiveArc;
 ```
 
 ## Parameters
@@ -1120,7 +1120,7 @@ number
 ## Signature
 
 ```typescript
-setState_ReferenceY(referenceY: number): ISCH_PrimitiveArc;
+public setState_ReferenceY(referenceY: number): ISCH_PrimitiveArc;
 ```
 
 ## Parameters
@@ -1178,7 +1178,7 @@ number
 ## Signature
 
 ```typescript
-setState_StartX(startX: number): ISCH_PrimitiveArc;
+public setState_StartX(startX: number): ISCH_PrimitiveArc;
 ```
 
 ## Parameters
@@ -1236,7 +1236,7 @@ number
 ## Signature
 
 ```typescript
-setState_StartY(startY: number): ISCH_PrimitiveArc;
+public setState_StartY(startY: number): ISCH_PrimitiveArc;
 ```
 
 ## Parameters
@@ -1292,7 +1292,7 @@ number
 ## Signature
 
 ```typescript
-toAsync(): ISCH_PrimitiveArc;
+public toAsync(): ISCH_PrimitiveArc;
 ```
 
 
@@ -1311,7 +1311,7 @@ toAsync(): ISCH_PrimitiveArc;
 ## Signature
 
 ```typescript
-toSync(): ISCH_PrimitiveArc;
+public toSync(): ISCH_PrimitiveArc;
 ```
 
 

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESYS_WindowOpenTarget 
+export enum ESYS_WindowOpenTarget 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ BLANK
 
 </td><td>
 
-`"_blank"`
+`'_blank'`
 
 
 </td><td>
-
-新标签页
 
 
 </td></tr>
@@ -49,12 +47,10 @@ SELF
 
 </td><td>
 
-`"_self"`
+`'_self'`
 
 
 </td><td>
-
-当前页
 
 
 </td></tr>

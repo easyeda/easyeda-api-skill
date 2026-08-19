@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class DMT_Folder 
+export class DMT_Folder 
 ```
 
 ## Methods
@@ -141,7 +141,7 @@ Description
 ## Signature
 
 ```typescript
-createFolder(folderName: string, teamUuid: string, parentFolderUuid?: string, description?: string): Promise<string | undefined>;
+public createFolder(folderName: string, teamUuid: string, parentFolderUuid?: string, description?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -245,7 +245,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-deleteFolder(teamUuid: string, folderUuid: string): Promise<boolean>;
+public deleteFolder(teamUuid: string, folderUuid: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -317,7 +317,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-getAllFoldersUuid(teamUuid: string): Promise<Array<string>>;
+public getAllFoldersUuid(teamUuid: string): Promise<Array<string>>;
 ```
 
 ## Parameters
@@ -377,7 +377,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 ## Signature
 
 ```typescript
-getFolderInfo(teamUuid: string, folderUuid: string): Promise<IDMT_FolderItem | undefined>;
+public getFolderInfo(teamUuid: string, folderUuid: string): Promise<IDMT_FolderItem | undefined>;
 ```
 
 ## Parameters
@@ -455,7 +455,7 @@ Promise&lt;[IDMT\_FolderItem](../interfaces/IDMT_FolderItem.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-modifyFolderDescription(teamUuid: string, folderUuid: string, description?: string): Promise<boolean>;
+public modifyFolderDescription(teamUuid: string, folderUuid: string, description?: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -547,7 +547,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-modifyFolderName(teamUuid: string, folderUuid: string, folderName: string): Promise<boolean>;
+public modifyFolderName(teamUuid: string, folderUuid: string, folderName: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -635,7 +635,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-moveFolderToFolder(teamUuid: string, folderUuid: string, parentFolderUuid?: string): Promise<boolean>;
+public moveFolderToFolder(teamUuid: string, folderUuid: string, parentFolderUuid?: string): Promise<boolean>;
 ```
 
 ## Parameters

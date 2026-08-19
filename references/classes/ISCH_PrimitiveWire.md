@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class ISCH_PrimitiveWire implements ISCH_Primitive 
+export class ISCH_PrimitiveWire implements ISCH_Primitive 
 ```
 **Implements:** [ISCH\_Primitive](../interfaces/ISCH_Primitive.md)
 
@@ -275,7 +275,7 @@ Description
 ## Signature
 
 ```typescript
-done(): Promise<ISCH_PrimitiveWire>;
+public done(): Promise<ISCH_PrimitiveWire>;
 ```
 
 
@@ -294,7 +294,7 @@ Promise&lt;[ISCH\_PrimitiveWire](./ISCH_PrimitiveWire.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getState_Color(): string | null;
+public getState_Color(): string | null;
 ```
 
 
@@ -313,7 +313,7 @@ string \| null
 ## Signature
 
 ```typescript
-getState_Line(): Array<number> | Array<Array<number>>;
+public getState_Line(): Array<number> | Array<Array<number>>;
 ```
 
 
@@ -332,7 +332,7 @@ Array&lt;number&gt; \| Array&lt;Array&lt;number&gt;&gt;
 ## Signature
 
 ```typescript
-getState_LineType(): ESCH_PrimitiveLineType | null;
+public getState_LineType(): ESCH_PrimitiveLineType | null;
 ```
 
 
@@ -351,7 +351,7 @@ getState_LineType(): ESCH_PrimitiveLineType | null;
 ## Signature
 
 ```typescript
-getState_LineWidth(): number | null;
+public getState_LineWidth(): number | null;
 ```
 
 
@@ -370,7 +370,7 @@ number \| null
 ## Signature
 
 ```typescript
-getState_Net(): string;
+public getState_Net(): string;
 ```
 
 
@@ -389,7 +389,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -408,7 +408,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): ESCH_PrimitiveType;
+public getState_PrimitiveType(): ESCH_PrimitiveType;
 ```
 
 
@@ -427,7 +427,7 @@ getState_PrimitiveType(): ESCH_PrimitiveType;
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -448,7 +448,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_Color(color: string | null): ISCH_PrimitiveWire;
+public setState_Color(color: string | null): ISCH_PrimitiveWire;
 ```
 
 ## Parameters
@@ -506,7 +506,7 @@ string \| null
 ## Signature
 
 ```typescript
-setState_Line(line: Array<number> | Array<Array<number>>): ISCH_PrimitiveWire;
+public setState_Line(line: Array<number> | Array<Array<number>>): ISCH_PrimitiveWire;
 ```
 
 ## Parameters
@@ -564,7 +564,7 @@ Array&lt;number&gt; \| Array&lt;Array&lt;number&gt;&gt;
 ## Signature
 
 ```typescript
-setState_LineType(lineType: ESCH_PrimitiveLineType | null): ISCH_PrimitiveWire;
+public setState_LineType(lineType: ESCH_PrimitiveLineType | null): ISCH_PrimitiveWire;
 ```
 
 ## Parameters
@@ -622,7 +622,7 @@ lineType
 ## Signature
 
 ```typescript
-setState_LineWidth(lineWidth: number | null): ISCH_PrimitiveWire;
+public setState_LineWidth(lineWidth: number | null): ISCH_PrimitiveWire;
 ```
 
 ## Parameters
@@ -680,7 +680,7 @@ number \| null
 ## Signature
 
 ```typescript
-setState_Net(net: string): ISCH_PrimitiveWire;
+public setState_Net(net: string): ISCH_PrimitiveWire;
 ```
 
 ## Parameters
@@ -736,7 +736,7 @@ string
 ## Signature
 
 ```typescript
-toAsync(): ISCH_PrimitiveWire;
+public toAsync(): ISCH_PrimitiveWire;
 ```
 
 
@@ -755,7 +755,7 @@ toAsync(): ISCH_PrimitiveWire;
 ## Signature
 
 ```typescript
-toSync(): ISCH_PrimitiveWire;
+public toSync(): ISCH_PrimitiveWire;
 ```
 
 

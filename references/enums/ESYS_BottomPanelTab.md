@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESYS_BottomPanelTab 
+export enum ESYS_BottomPanelTab 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ FIND
 
 </td><td>
 
-`"findResult"`
+`'findResult'`
 
 
 </td><td>
-
-查找结果
 
 
 </td></tr>
@@ -49,12 +47,10 @@ LIBRARY
 
 </td><td>
 
-`"library"`
+`'library'`
 
 
 </td><td>
-
-库
 
 
 </td></tr>
@@ -65,12 +61,10 @@ LOG
 
 </td><td>
 
-`"log"`
+`'log'`
 
 
 </td><td>
-
-日志
 
 
 </td></tr>
@@ -81,12 +75,10 @@ PCB\_DRC
 
 </td><td>
 
-`"drcResult"`
+`'drcResult'`
 
 
 </td><td>
-
-PCB：DRC
 
 
 </td></tr>
@@ -97,12 +89,10 @@ SCHEMATIC\_DRC
 
 </td><td>
 
-`"schDrcResult"`
+`'schDrcResult'`
 
 
 </td><td>
-
-原理图：DRC
 
 
 </td></tr>

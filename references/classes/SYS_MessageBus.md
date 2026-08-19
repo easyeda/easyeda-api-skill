@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_MessageBus 
+export class SYS_MessageBus 
 ```
 
 ## Remarks
@@ -296,7 +296,7 @@ Description
 ## Signature
 
 ```typescript
-createPrivateMessageBus(): void;
+public createPrivateMessageBus(): void;
 ```
 
 
@@ -317,7 +317,7 @@ void
 ## Signature
 
 ```typescript
-publish(topic: string, message: any): void;
+public publish(topic: string, message: any): void;
 ```
 
 ## Parameters
@@ -391,7 +391,7 @@ void
 ## Signature
 
 ```typescript
-publishPublic(topic: string, message: any): void;
+public publishPublic(topic: string, message: any): void;
 ```
 
 ## Parameters
@@ -465,7 +465,7 @@ void
 ## Signature
 
 ```typescript
-pull(topic: string, callbackFn: (message: any) => void): ISYS_MessageBusTask;
+public pull(topic: string, callbackFn: (message: any) => void): ISYS_MessageBusTask;
 ```
 
 ## Parameters
@@ -541,7 +541,7 @@ callbackFn
 ## Signature
 
 ```typescript
-pullAsync(topic: string): Promise<any>;
+public pullAsync(topic: string): Promise<any>;
 ```
 
 ## Parameters
@@ -601,7 +601,7 @@ Promise&lt;any&gt;
 ## Signature
 
 ```typescript
-pullAsyncPublic(topic: string): Promise<any>;
+public pullAsyncPublic(topic: string): Promise<any>;
 ```
 
 ## Parameters
@@ -661,7 +661,7 @@ Promise&lt;any&gt;
 ## Signature
 
 ```typescript
-pullPublic(topic: string, callbackFn: (message: any) => void): ISYS_MessageBusTask;
+public pullPublic(topic: string, callbackFn: (message: any) => void): ISYS_MessageBusTask;
 ```
 
 ## Parameters
@@ -737,7 +737,7 @@ callbackFn
 ## Signature
 
 ```typescript
-push(topic: string, message: any): void;
+public push(topic: string, message: any): void;
 ```
 
 ## Parameters
@@ -811,7 +811,7 @@ void
 ## Signature
 
 ```typescript
-pushPublic(topic: string, message: any): void;
+public pushPublic(topic: string, message: any): void;
 ```
 
 ## Parameters
@@ -885,7 +885,7 @@ void
 ## Signature
 
 ```typescript
-removePrivateMessageBus(): void;
+public removePrivateMessageBus(): void;
 ```
 
 
@@ -906,7 +906,7 @@ void
 ## Signature
 
 ```typescript
-rpcCall(topic: string, message?: any, timeout?: number): Promise<any>;
+public rpcCall(topic: string, message?: any, timeout?: number): Promise<any>;
 ```
 
 ## Parameters
@@ -994,7 +994,7 @@ RPC 服务返回
 ## Signature
 
 ```typescript
-rpcCallPublic(topic: string, message?: any, timeout?: number): Promise<any>;
+public rpcCallPublic(topic: string, message?: any, timeout?: number): Promise<any>;
 ```
 
 ## Parameters
@@ -1082,7 +1082,7 @@ RPC 服务返回
 ## Signature
 
 ```typescript
-rpcService(topic: string, callbackFn: (...args: Array<any>) => any | Promise<any>): void;
+public rpcService(topic: string, callbackFn: (...args: Array<any>) => any | Promise<any>): void;
 ```
 
 ## Parameters
@@ -1152,7 +1152,7 @@ void
 ## Signature
 
 ```typescript
-rpcServicePublic(topic: string, callbackFn: (...args: Array<any>) => any | Promise<any>): void;
+public rpcServicePublic(topic: string, callbackFn: (...args: Array<any>) => any | Promise<any>): void;
 ```
 
 ## Parameters
@@ -1222,7 +1222,7 @@ void
 ## Signature
 
 ```typescript
-subscribe(topic: string, callbackFn: (message: any) => void): ISYS_MessageBusTask;
+public subscribe(topic: string, callbackFn: (message: any) => void): ISYS_MessageBusTask;
 ```
 
 ## Parameters
@@ -1298,7 +1298,7 @@ callbackFn
 ## Signature
 
 ```typescript
-subscribeOnce(topic: string, callbackFn: (message: any) => void): ISYS_MessageBusTask;
+public subscribeOnce(topic: string, callbackFn: (message: any) => void): ISYS_MessageBusTask;
 ```
 
 ## Parameters
@@ -1370,7 +1370,7 @@ callbackFn
 ## Signature
 
 ```typescript
-subscribeOncePublic(topic: string, callbackFn: (message: any) => void): ISYS_MessageBusTask;
+public subscribeOncePublic(topic: string, callbackFn: (message: any) => void): ISYS_MessageBusTask;
 ```
 
 ## Parameters
@@ -1442,7 +1442,7 @@ callbackFn
 ## Signature
 
 ```typescript
-subscribePublic(topic: string, callbackFn: (message: any) => void): ISYS_MessageBusTask;
+public subscribePublic(topic: string, callbackFn: (message: any) => void): ISYS_MessageBusTask;
 ```
 
 ## Parameters

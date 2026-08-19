@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_IFrame 
+export class SYS_IFrame 
 ```
 
 ## Remarks
@@ -59,6 +59,20 @@ Description
 </td></tr>
 <tr><td>
 
+[isIFrameAlreadyExist(id)](./SYS_IFrame.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 内联框架是否已存在
+
+
+</td></tr>
+<tr><td>
+
 [openIFrame(htmlFileName, width, height, id, props)](./SYS_IFrame.md)
 
 
@@ -102,7 +116,7 @@ Description
 ## Signature
 
 ```typescript
-closeIFrame(id?: string): Promise<boolean>;
+public closeIFrame(id?: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -135,7 +149,7 @@ string
 
 </td><td>
 
-_(Optional)_ 内联框架窗口 ID，如若传入 `undefined`<!-- -->，将关闭由本扩展打开的所有内联框架窗口
+_(Optional)_ 内联框架窗口 ID，未传入时将关闭由本扩展打开的所有内联框架窗口
 
 
 </td></tr>
@@ -166,7 +180,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-hideIFrame(id?: string): Promise<boolean>;
+public hideIFrame(id?: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -199,7 +213,7 @@ string
 
 </td><td>
 
-_(Optional)_ 内联框架窗口 ID
+_(Optional)_ 内联框架窗口 ID，未传入时将隐藏扩展关联的所有内联框架窗口
 
 
 </td></tr>
@@ -219,6 +233,68 @@ Promise&lt;boolean&gt;
 
 注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error`
 
+### isiframealreadyexist
+
+# SYS\_IFrame.isIFrameAlreadyExist() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+内联框架是否已存在
+
+## Signature
+
+```typescript
+public isIFrameAlreadyExist(id: string): Promise<boolean>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+id
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+内联框架 ID
+
+
+</td></tr>
+</tbody></table>
+
+
+
+## Returns
+
+Promise&lt;boolean&gt;
+
+是否存在
+
+## Remarks
+
+注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error` ADD since EDA v4.2
+
 ### openiframe
 
 # SYS\_IFrame.openIFrame() method
@@ -230,17 +306,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-openIFrame(htmlFileName: string, width?: number, height?: number, id?: string, props?: {
-        maximizeButton?: boolean;
-        minimizeButton?: boolean;
-        minimizeStyle?: 'collapsed' | 'constricted';
-        buttonCallbackFn?: (button: 'close' | 'minimize' | 'maximize') => void | Promise<void>;
-        onBeforeCloseCallFn?: () => boolean | undefined | Promise<boolean | undefined>;
-        grayscaleMask?: boolean;
-        title?: string;
-        x?: number;
-        y?: number;
-    }): Promise<boolean>;
+public openIFrame(htmlFileName: string, width?: number, height?: number, id?: string, props?: { maximizeButton?: undefined | false | true; minimizeButton?: undefined | false | true; minimizeStyle?: undefined | 'collapsed' | 'constricted'; buttonCallbackFn?: undefined | ((button: 'close' | 'minimize' | 'maximize') => void | Promise<void>); onBeforeCloseCallFn?: undefined | (() => boolean | undefined | Promise<boolean | undefined>); grayscaleMask?: undefined | false | true; title?: undefined | string; x?: undefined | number; y?: undefined | number }): Promise<boolean>;
 ```
 
 ## Parameters
@@ -332,7 +398,7 @@ props
 
 </td><td>
 
-{ maximizeButton?: boolean; minimizeButton?: boolean; minimizeStyle?: 'collapsed' \| 'constricted'; buttonCallbackFn?: (button: 'close' \| 'minimize' \| 'maximize') =&gt; void \| Promise&lt;void&gt;; onBeforeCloseCallFn?: () =&gt; boolean \| undefined \| Promise&lt;boolean \| undefined&gt;; grayscaleMask?: boolean; title?: string; x?: number; y?: number; }
+{ maximizeButton?: undefined \| false \| true; minimizeButton?: undefined \| false \| true; minimizeStyle?: undefined \| 'collapsed' \| 'constricted'; buttonCallbackFn?: undefined \| ((button: 'close' \| 'minimize' \| 'maximize') =&gt; void \| Promise&lt;void&gt;); onBeforeCloseCallFn?: undefined \| (() =&gt; boolean \| undefined \| Promise&lt;boolean \| undefined&gt;); grayscaleMask?: undefined \| false \| true; title?: undefined \| string; x?: undefined \| number; y?: undefined \| number }
 
 
 </td><td>
@@ -374,7 +440,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-showIFrame(id?: string): Promise<boolean>;
+public showIFrame(id?: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -407,7 +473,7 @@ string
 
 </td><td>
 
-_(Optional)_ 内联框架窗口 ID
+_(Optional)_ 内联框架窗口 ID，未传入时将显示扩展关联的所有内联框架窗口
 
 
 </td></tr>

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class ISCH_PrimitiveComponent implements ISCH_Primitive 
+export class ISCH_PrimitiveComponent implements ISCH_Primitive 
 ```
 **Implements:** [ISCH\_Primitive](../interfaces/ISCH_Primitive.md)
 
@@ -976,7 +976,7 @@ protected y: number;
 ## Signature
 
 ```typescript
-done(): Promise<ISCH_PrimitiveComponent>;
+public done(): Promise<ISCH_PrimitiveComponent>;
 ```
 
 
@@ -997,7 +997,7 @@ Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getAllPins(): Promise<Array<ISCH_PrimitiveComponentPin> | undefined>;
+public getAllPins(): Promise<Array<ISCH_PrimitiveComponentPin> | undefined>;
 ```
 
 
@@ -1016,7 +1016,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveComponentPin](./ISCH_PrimitiveComponentPin.m
 ## Signature
 
 ```typescript
-getState_AddIntoBom(): boolean | undefined;
+public getState_AddIntoBom(): boolean | undefined;
 ```
 
 
@@ -1035,7 +1035,7 @@ boolean \| undefined
 ## Signature
 
 ```typescript
-getState_AddIntoPcb(): boolean | undefined;
+public getState_AddIntoPcb(): boolean | undefined;
 ```
 
 
@@ -1054,17 +1054,13 @@ boolean \| undefined
 ## Signature
 
 ```typescript
-getState_Component(): {
-        libraryUuid: string;
-        uuid: string;
-        name?: string;
-    } | undefined;
+public getState_Component(): { libraryUuid: string; uuid: string; name?: undefined | string } | undefined;
 ```
 
 
 ## Returns
 
-{ libraryUuid: string; uuid: string; name?: string; } \| undefined
+{ libraryUuid: string; uuid: string; name?: undefined \| string } \| undefined
 
 关联库器件
 
@@ -1077,7 +1073,7 @@ getState_Component(): {
 ## Signature
 
 ```typescript
-getState_ComponentType(): ESCH_PrimitiveComponentType;
+public getState_ComponentType(): ESCH_PrimitiveComponentType;
 ```
 
 
@@ -1096,7 +1092,7 @@ getState_ComponentType(): ESCH_PrimitiveComponentType;
 ## Signature
 
 ```typescript
-getState_Designator(): string | undefined;
+public getState_Designator(): string | undefined;
 ```
 
 
@@ -1115,17 +1111,13 @@ string \| undefined
 ## Signature
 
 ```typescript
-getState_Footprint(): {
-        libraryUuid: string;
-        uuid: string;
-        name?: string;
-    } | undefined;
+public getState_Footprint(): { libraryUuid: string; uuid: string; name?: undefined | string } | undefined;
 ```
 
 
 ## Returns
 
-{ libraryUuid: string; uuid: string; name?: string; } \| undefined
+{ libraryUuid: string; uuid: string; name?: undefined \| string } \| undefined
 
 关联库封装
 
@@ -1138,7 +1130,7 @@ getState_Footprint(): {
 ## Signature
 
 ```typescript
-getState_Manufacturer(): string | undefined;
+public getState_Manufacturer(): string | undefined;
 ```
 
 
@@ -1157,7 +1149,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-getState_ManufacturerId(): string | undefined;
+public getState_ManufacturerId(): string | undefined;
 ```
 
 
@@ -1176,7 +1168,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-getState_Mirror(): boolean;
+public getState_Mirror(): boolean;
 ```
 
 
@@ -1195,7 +1187,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_Name(): string | undefined;
+public getState_Name(): string | undefined;
 ```
 
 
@@ -1214,7 +1206,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-getState_Net(): string | undefined;
+public getState_Net(): string | undefined;
 ```
 
 
@@ -1233,7 +1225,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-getState_OtherProperty(): Record<string, string | number | boolean> | undefined;
+public getState_OtherProperty(): Record<string, string | number | boolean> | undefined;
 ```
 
 
@@ -1252,7 +1244,7 @@ Record&lt;string, string \| number \| boolean&gt; \| undefined
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -1271,7 +1263,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): ESCH_PrimitiveType;
+public getState_PrimitiveType(): ESCH_PrimitiveType;
 ```
 
 
@@ -1290,7 +1282,7 @@ getState_PrimitiveType(): ESCH_PrimitiveType;
 ## Signature
 
 ```typescript
-getState_Rotation(): number;
+public getState_Rotation(): number;
 ```
 
 
@@ -1309,7 +1301,7 @@ number
 ## Signature
 
 ```typescript
-getState_SubPartName(): string | undefined;
+public getState_SubPartName(): string | undefined;
 ```
 
 
@@ -1328,7 +1320,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-getState_Supplier(): string | undefined;
+public getState_Supplier(): string | undefined;
 ```
 
 
@@ -1347,7 +1339,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-getState_SupplierId(): string | undefined;
+public getState_SupplierId(): string | undefined;
 ```
 
 
@@ -1366,17 +1358,13 @@ string \| undefined
 ## Signature
 
 ```typescript
-getState_Symbol(): {
-        libraryUuid: string;
-        uuid: string;
-        name?: string;
-    } | undefined;
+public getState_Symbol(): { libraryUuid: string; uuid: string; name?: undefined | string } | undefined;
 ```
 
 
 ## Returns
 
-{ libraryUuid: string; uuid: string; name?: string; } \| undefined
+{ libraryUuid: string; uuid: string; name?: undefined \| string } \| undefined
 
 关联库符号
 
@@ -1389,7 +1377,7 @@ getState_Symbol(): {
 ## Signature
 
 ```typescript
-getState_UniqueId(): string | undefined;
+public getState_UniqueId(): string | undefined;
 ```
 
 
@@ -1408,7 +1396,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-getState_X(): number;
+public getState_X(): number;
 ```
 
 
@@ -1427,7 +1415,7 @@ number
 ## Signature
 
 ```typescript
-getState_Y(): number;
+public getState_Y(): number;
 ```
 
 
@@ -1446,7 +1434,7 @@ number
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -1467,7 +1455,7 @@ boolean
 ## Signature
 
 ```typescript
-reset(): Promise<ISCH_PrimitiveComponent>;
+public reset(): Promise<ISCH_PrimitiveComponent>;
 ```
 
 
@@ -1488,7 +1476,7 @@ Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_AddIntoBom(addIntoBom: boolean | undefined): ISCH_PrimitiveComponent;
+public setState_AddIntoBom(addIntoBom: boolean | undefined): ISCH_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1546,7 +1534,7 @@ boolean \| undefined
 ## Signature
 
 ```typescript
-setState_AddIntoPcb(addIntoPcb: boolean | undefined): ISCH_PrimitiveComponent;
+public setState_AddIntoPcb(addIntoPcb: boolean | undefined): ISCH_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1604,7 +1592,7 @@ boolean \| undefined
 ## Signature
 
 ```typescript
-setState_Designator(designator: string | undefined): ISCH_PrimitiveComponent;
+public setState_Designator(designator: string | undefined): ISCH_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1662,7 +1650,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-setState_Manufacturer(manufacturer: string | undefined): ISCH_PrimitiveComponent;
+public setState_Manufacturer(manufacturer: string | undefined): ISCH_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1720,7 +1708,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-setState_ManufacturerId(manufacturerId: string | undefined): ISCH_PrimitiveComponent;
+public setState_ManufacturerId(manufacturerId: string | undefined): ISCH_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1778,7 +1766,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-setState_Mirror(mirror: boolean): ISCH_PrimitiveComponent;
+public setState_Mirror(mirror: boolean): ISCH_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1836,7 +1824,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_Name(name: string | undefined): ISCH_PrimitiveComponent;
+public setState_Name(name: string | undefined): ISCH_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1894,7 +1882,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-setState_Net(net: string | undefined): ISCH_PrimitiveComponent;
+public setState_Net(net: string | undefined): ISCH_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1952,7 +1940,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-setState_OtherProperty(otherProperty: Record<string, string | number | boolean>): ISCH_PrimitiveComponent;
+public setState_OtherProperty(otherProperty: Record<string, string | number | boolean>): ISCH_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -2010,7 +1998,7 @@ Record&lt;string, string \| number \| boolean&gt;
 ## Signature
 
 ```typescript
-setState_Rotation(rotation: number): ISCH_PrimitiveComponent;
+public setState_Rotation(rotation: number): ISCH_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -2068,7 +2056,7 @@ number
 ## Signature
 
 ```typescript
-setState_Supplier(supplier: string | undefined): ISCH_PrimitiveComponent;
+public setState_Supplier(supplier: string | undefined): ISCH_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -2126,7 +2114,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-setState_SupplierId(supplierId: string | undefined): ISCH_PrimitiveComponent;
+public setState_SupplierId(supplierId: string | undefined): ISCH_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -2184,7 +2172,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-setState_UniqueId(uniqueId: string | undefined): ISCH_PrimitiveComponent;
+public setState_UniqueId(uniqueId: string | undefined): ISCH_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -2242,7 +2230,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-setState_X(x: number): ISCH_PrimitiveComponent;
+public setState_X(x: number): ISCH_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -2300,7 +2288,7 @@ number
 ## Signature
 
 ```typescript
-setState_Y(y: number): ISCH_PrimitiveComponent;
+public setState_Y(y: number): ISCH_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -2356,7 +2344,7 @@ number
 ## Signature
 
 ```typescript
-toAsync(): ISCH_PrimitiveComponent;
+public toAsync(): ISCH_PrimitiveComponent;
 ```
 
 
@@ -2375,7 +2363,7 @@ toAsync(): ISCH_PrimitiveComponent;
 ## Signature
 
 ```typescript
-toSync(): ISCH_PrimitiveComponent;
+public toSync(): ISCH_PrimitiveComponent;
 ```
 
 

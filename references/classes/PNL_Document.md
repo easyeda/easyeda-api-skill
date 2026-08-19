@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class PNL_Document 
+export class PNL_Document 
 ```
 
 ## Remarks
@@ -61,7 +61,7 @@ Description
 ## Signature
 
 ```typescript
-save(): Promise<boolean>;
+public save(): Promise<boolean>;
 ```
 
 

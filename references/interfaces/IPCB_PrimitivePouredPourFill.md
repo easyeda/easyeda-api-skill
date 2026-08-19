@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IPCB_PrimitivePouredPourFill 
+export interface IPCB_PrimitivePouredPourFill 
 ```
 
 ## Properties

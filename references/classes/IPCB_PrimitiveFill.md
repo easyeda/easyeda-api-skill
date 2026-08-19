@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class IPCB_PrimitiveFill implements IPCB_Primitive 
+export class IPCB_PrimitiveFill implements IPCB_Primitive 
 ```
 **Implements:** [IPCB\_Primitive](../interfaces/IPCB_Primitive.md)
 
@@ -355,7 +355,7 @@ Description
 ## Signature
 
 ```typescript
-convertToPolyline(): Promise<IPCB_PrimitivePolyline>;
+public convertToPolyline(): Promise<IPCB_PrimitivePolyline>;
 ```
 
 
@@ -376,7 +376,7 @@ Promise&lt;[IPCB\_PrimitivePolyline](./IPCB_PrimitivePolyline.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-convertToPour(): Promise<IPCB_PrimitivePour>;
+public convertToPour(): Promise<IPCB_PrimitivePour>;
 ```
 
 
@@ -397,7 +397,7 @@ Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-convertToRegion(): Promise<IPCB_PrimitiveRegion>;
+public convertToRegion(): Promise<IPCB_PrimitiveRegion>;
 ```
 
 
@@ -418,7 +418,7 @@ Promise&lt;[IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-done(): Promise<IPCB_PrimitiveFill>;
+public done(): Promise<IPCB_PrimitiveFill>;
 ```
 
 
@@ -437,7 +437,7 @@ Promise&lt;[IPCB\_PrimitiveFill](./IPCB_PrimitiveFill.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getState_ComplexPolygon(): IPCB_Polygon;
+public getState_ComplexPolygon(): IPCB_Polygon;
 ```
 
 
@@ -456,7 +456,7 @@ getState_ComplexPolygon(): IPCB_Polygon;
 ## Signature
 
 ```typescript
-getState_FillMode(): EPCB_PrimitiveFillMode | undefined;
+public getState_FillMode(): EPCB_PrimitiveFillMode | undefined;
 ```
 
 
@@ -475,7 +475,7 @@ getState_FillMode(): EPCB_PrimitiveFillMode | undefined;
 ## Signature
 
 ```typescript
-getState_Layer(): TPCB_LayersOfFill;
+public getState_Layer(): TPCB_LayersOfFill;
 ```
 
 
@@ -494,7 +494,7 @@ getState_Layer(): TPCB_LayersOfFill;
 ## Signature
 
 ```typescript
-getState_LineWidth(): number;
+public getState_LineWidth(): number;
 ```
 
 
@@ -513,7 +513,7 @@ number
 ## Signature
 
 ```typescript
-getState_Net(): string | undefined;
+public getState_Net(): string | undefined;
 ```
 
 
@@ -532,7 +532,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -551,7 +551,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveLock(): boolean;
+public getState_PrimitiveLock(): boolean;
 ```
 
 
@@ -570,7 +570,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): EPCB_PrimitiveType;
+public getState_PrimitiveType(): EPCB_PrimitiveType;
 ```
 
 
@@ -589,7 +589,7 @@ getState_PrimitiveType(): EPCB_PrimitiveType;
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -610,7 +610,7 @@ boolean
 ## Signature
 
 ```typescript
-reset(): Promise<IPCB_PrimitiveFill>;
+public reset(): Promise<IPCB_PrimitiveFill>;
 ```
 
 
@@ -631,7 +631,7 @@ Promise&lt;[IPCB\_PrimitiveFill](./IPCB_PrimitiveFill.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_ComplexPolygon(complexPolygon: IPCB_Polygon): IPCB_PrimitiveFill;
+public setState_ComplexPolygon(complexPolygon: IPCB_Polygon): IPCB_PrimitiveFill;
 ```
 
 ## Parameters
@@ -689,7 +689,7 @@ complexPolygon
 ## Signature
 
 ```typescript
-setState_FillMode(fillMode: EPCB_PrimitiveFillMode): IPCB_PrimitiveFill;
+public setState_FillMode(fillMode: EPCB_PrimitiveFillMode): IPCB_PrimitiveFill;
 ```
 
 ## Parameters
@@ -747,7 +747,7 @@ fillMode
 ## Signature
 
 ```typescript
-setState_Layer(layer: TPCB_LayersOfFill): IPCB_PrimitiveFill;
+public setState_Layer(layer: TPCB_LayersOfFill): IPCB_PrimitiveFill;
 ```
 
 ## Parameters
@@ -805,7 +805,7 @@ layer
 ## Signature
 
 ```typescript
-setState_LineWidth(lineWidth: number): IPCB_PrimitiveFill;
+public setState_LineWidth(lineWidth: number): IPCB_PrimitiveFill;
 ```
 
 ## Parameters
@@ -863,7 +863,7 @@ number
 ## Signature
 
 ```typescript
-setState_Net(net: string): IPCB_PrimitiveFill;
+public setState_Net(net: string): IPCB_PrimitiveFill;
 ```
 
 ## Parameters
@@ -921,7 +921,7 @@ string
 ## Signature
 
 ```typescript
-setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitiveFill;
+public setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitiveFill;
 ```
 
 ## Parameters
@@ -977,7 +977,7 @@ boolean
 ## Signature
 
 ```typescript
-toAsync(): IPCB_PrimitiveFill;
+public toAsync(): IPCB_PrimitiveFill;
 ```
 
 
@@ -996,7 +996,7 @@ toAsync(): IPCB_PrimitiveFill;
 ## Signature
 
 ```typescript
-toSync(): IPCB_PrimitiveFill;
+public toSync(): IPCB_PrimitiveFill;
 ```
 
 

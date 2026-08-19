@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESCH_DynamicSimulationEnginePushEventType 
+export enum ESCH_DynamicSimulationEnginePushEventType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ ENGINE\_ERROR
 
 </td><td>
 
-`"ENGINE_ERROR"`
+`'ENGINE_ERROR'`
 
 
 </td><td>
-
-错误
 
 
 </td></tr>
@@ -49,12 +47,10 @@ ENGINE\_LOG
 
 </td><td>
 
-`"ENGINE_LOG"`
+`'ENGINE_LOG'`
 
 
 </td><td>
-
-实时日志
 
 
 </td></tr>
@@ -65,12 +61,10 @@ SESSION\_STATE
 
 </td><td>
 
-`"SESSION_STATE"`
+`'SESSION_STATE'`
 
 
 </td><td>
-
-状态变化（RUNNING/PAUSED/STOPPED...）
 
 
 </td></tr>
@@ -81,12 +75,10 @@ STREAM\_DATA
 
 </td><td>
 
-`"STREAM_DATA"`
+`'STREAM_DATA'`
 
 
 </td><td>
-
-实时数据帧（波形点/节点电压/内部量）
 
 
 </td></tr>
@@ -97,12 +89,10 @@ STREAM\_SNAPSHOT
 
 </td><td>
 
-`"STREAM_SNAPSHOT"`
+`'STREAM_SNAPSHOT'`
 
 
 </td><td>
-
-一次快照（可选，用于 UI 刷新）
 
 
 </td></tr>

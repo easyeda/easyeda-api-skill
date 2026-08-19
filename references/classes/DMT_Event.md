@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class DMT_Event 
+export class DMT_Event 
 ```
 
 ## Remarks
@@ -90,11 +90,7 @@ Description
 ## Signature
 
 ```typescript
-addEditorTabEventListener(id: string, eventType: 'all' | EDMT_EditorTabEventType, callFn: (eventType: EDMT_EditorTabEventType, props: {
-        documentType: EDMT_EditorDocumentType;
-        title: string;
-        tabId: string;
-    }) => void | Promise<void>, onlyOnce?: boolean): void;
+public addEditorTabEventListener(id: string, eventType: 'all' | EDMT_EditorTabEventType, callFn: (eventType: EDMT_EditorTabEventType, props: { documentType: EDMT_EditorDocumentType; title: string; tabId: string }) => void | Promise<void>, onlyOnce?: boolean): void;
 ```
 
 ## Parameters
@@ -154,7 +150,7 @@ callFn
 
 </td><td>
 
-(eventType: [EDMT\_EditorTabEventType](../enums/EDMT_EditorTabEventType.md)<!-- -->, props: { documentType: [EDMT\_EditorDocumentType](../enums/EDMT_EditorDocumentType.md)<!-- -->; title: string; tabId: string; }) =&gt; void \| Promise&lt;void&gt;
+(eventType: [EDMT\_EditorTabEventType](../enums/EDMT_EditorTabEventType.md)<!-- -->, props: { documentType: [EDMT\_EditorDocumentType](../enums/EDMT_EditorDocumentType.md)<!-- -->; title: string; tabId: string }) =&gt; void \| Promise&lt;void&gt;
 
 
 </td><td>
@@ -202,7 +198,7 @@ void
 ## Signature
 
 ```typescript
-isEventListenerAlreadyExist(id: string): boolean;
+public isEventListenerAlreadyExist(id: string): boolean;
 ```
 
 ## Parameters
@@ -258,7 +254,7 @@ boolean
 ## Signature
 
 ```typescript
-removeEventListener(id: string): boolean;
+public removeEventListener(id: string): boolean;
 ```
 
 ## Parameters

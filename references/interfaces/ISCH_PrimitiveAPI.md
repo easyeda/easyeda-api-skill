@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ISCH_PrimitiveAPI 
+export interface ISCH_PrimitiveAPI 
 ```
 
 ## Properties
@@ -75,7 +75,7 @@ Description
 
 </td><td>
 
-{ (primitiveIds: string): [ISCH\_Primitive](./ISCH_Primitive.md) \| undefined \| Promise&lt;[ISCH\_Primitive](./ISCH_Primitive.md) \| undefined&gt;; (primitiveIds: Array&lt;string&gt;): Array&lt;[ISCH\_Primitive](./ISCH_Primitive.md)<!-- -->&gt; \| Promise&lt;Array&lt;[ISCH\_Primitive](./ISCH_Primitive.md)<!-- -->&gt;&gt;; }
+((primitiveIds: string) =&gt; [ISCH\_Primitive](./ISCH_Primitive.md) \| undefined \| Promise&lt;[ISCH\_Primitive](./ISCH_Primitive.md) \| undefined&gt;) &amp; ((primitiveIds: string\[\]) =&gt; Array&lt;[ISCH\_Primitive](./ISCH_Primitive.md)<!-- -->&gt; \| Promise&lt;Array&lt;[ISCH\_Primitive](./ISCH_Primitive.md)<!-- -->&gt;&gt;)
 
 
 </td><td>
@@ -166,10 +166,7 @@ delete: (primitiveIds: string | any | Array<string> | Array<any>) => boolean | P
 ## Signature
 
 ```typescript
-get: {
-        (primitiveIds: string): ISCH_Primitive | undefined | Promise<ISCH_Primitive | undefined>;
-        (primitiveIds: Array<string>): Array<ISCH_Primitive> | Promise<Array<ISCH_Primitive>>;
-    };
+get: ((primitiveIds: string) => ISCH_Primitive | undefined | Promise<ISCH_Primitive | undefined>) & ((primitiveIds: string[]) => Array<ISCH_Primitive> | Promise<Array<ISCH_Primitive>>);
 ```
 
 ### getall

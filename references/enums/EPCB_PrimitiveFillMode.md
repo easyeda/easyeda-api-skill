@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum EPCB_PrimitiveFillMode 
+export enum EPCB_PrimitiveFillMode 
 ```
 
 ## Enumeration Members
@@ -38,8 +38,6 @@ INNER\_ELECTRICAL\_LAYER
 
 </td><td>
 
-内电层填充
-
 
 </td></tr>
 <tr><td>
@@ -54,8 +52,6 @@ MESH
 
 </td><td>
 
-网格填充
-
 
 </td></tr>
 <tr><td>
@@ -69,8 +65,6 @@ SOLID
 
 
 </td><td>
-
-实心填充
 
 
 </td></tr>

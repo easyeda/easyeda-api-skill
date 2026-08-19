@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-type TPCB_PrimitiveSpecialPadShape = Array<[number, number, TPCB_PrimitivePadShape]>;
+export type TPCB_PrimitiveSpecialPadShape = Array<[number, number, TPCB_PrimitivePadShape]>;
 ```
 ## References
 

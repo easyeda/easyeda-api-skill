@@ -1,6 +1,6 @@
-# 形状图元
+# Shape Primitives
 
-## LINE 直线
+## LINE Line
 
 ```json
 { "type": "LINE", "id":"UUID", "ticket": 1 }||
@@ -19,24 +19,24 @@
 }|
 ```
 
-1. type 直线 `LINE`
-2. id 图元编号, 文档内唯一
-3. ticket 逻辑时钟
-4. partitionId 所属分区编号，为 null 表示无分区，封装忽略该字段
-5. groupId 分组编号：0 不分组，非 0 为组标志，相同组标志的为一组
-6. locked 是否锁定
-7. zIndex Z 轴高度
-8. netName 网络
-9. layerId 层
-10. startX 开始 X
-11. startY 开始 Y
-12. endX 结束 X
-13. endY 结束 Y
-14. width 线宽
+1. type line `LINE`.
+2. id primitive ID, unique within the document.
+3. ticket logical clock.
+4. partitionId partition ID it belongs to, null means no partition. Ignored for footprints.
+5. groupId group ID: 0 no group, non-zero is the group flag, same flag means same group.
+6. locked whether locked.
+7. zIndex Z-axis height.
+8. netName net.
+9. layerId layer.
+10. startX start X.
+11. startY start Y.
+12. endX end X.
+13. endY end Y.
+14. width line width.
 
-## ARC/CARC 圆弧线
+## ARC/CARC Arc Line
 
-圆弧借鉴 Eagle 的数学模型，以 `起始` `结束` 为基准去描述
+The arc borrows Eagle's mathematical model, described based on `start` and `end`.
 
 ```json
 { "type": "ARC", "id":"UUID", "ticket": 1 }||
@@ -56,34 +56,33 @@
 }|
 ```
 
-1. type 圆弧线
-    - `ARC` 两点交互模式
-    - `CARC` 中心圆弧交互模式
-2. id 图元编号, 文档内唯一
-3. ticket 逻辑时钟
-4. partitionId 所属分区编号，为 null 表示无分区，封装忽略该字段
-5. groupId 分组编号：0 不分组，非 0 为组标志，相同组标志的为一组
-6. locked 是否锁定
-7. zIndex Z 轴高度
-8. netName 网络
-9. layerId 层
-10. startX 起始 X
-11. startY 起始 Y
-12. endX 结束 X
-13. endY 结束 Y
-14. angle 圆弧角，逆时针正，顺时针负
-15. width 线宽
+1. type arc line.
+    - `ARC` two-point interaction mode.
+    - `CARC` center-arc interaction mode.
+2. id primitive ID, unique within the document.
+3. ticket logical clock.
+4. partitionId partition ID it belongs to, null means no partition. Ignored for footprints.
+5. groupId group ID: 0 no group, non-zero is the group flag, same flag means same group.
+6. locked whether locked.
+7. zIndex Z-axis height.
+8. netName net.
+9. layerId layer.
+10. startX start X.
+11. startY start Y.
+12. endX end X.
+13. endY end Y.
+14. angle arc angle, positive counter-clockwise, negative clockwise.
+15. width line width.
 
-## 多边形体系
+## Polygon System
 
-SVG 中 path 是一个对多边形优秀的抽象。
-但由于 PCB 内用不到其中相对位置等功能，并且有条件设计更方便解析的方式。
-所以仿造 SVG 的 path 创造了一种类似的表达多边形的方式。
-多边形体系内 `POLY` `REGION` `POUR` 支持互相转换
+SVG's path is an excellent abstraction for polygons.
+However, because relative position and other features are not needed in PCB, and a more convenient parsing method can be designed conditionally, a polygon expression similar to SVG path was created.
+Within the polygon system, `POLY`, `REGION`, and `POUR` support mutual conversion.
 
-### 单多边形的定义
+### Single Polygon Definition
 
-单多边形为首尾重合的一条不间断的线所描述的区域。如果首尾不重合需要将其自动重合。
+A single polygon is a region described by an uninterrupted line whose start and end coincide. If start and end do not coincide, they are automatically closed.
 
 ```json
 [300, 200, "L", 400, 200, "ARC", 400, 220, 15, "C", 200, 500, 400, 300, 100, 100]
@@ -97,54 +96,54 @@ SVG 中 path 是一个对多边形优秀的抽象。
 ["CIRCLE", 100, 200, 5, 1]
 ```
 
-#### L 直线模式
+#### L Line Mode
 
-`X Y L X Y X Y ...` 模式为直线模式，所有坐标将用直线将其连一一连起来
+`X Y L X Y X Y ...` mode is line mode. All coordinates are connected by straight lines.
 
-#### ARC/CARC 圆弧模式
+#### ARC/CARC Arc Mode
 
-`startX startY ARC angle endX endY` 模式为圆弧模式
+`startX startY ARC angle endX endY` mode is arc mode.
 
--   startX/startY 开始坐标
--   angle：圆弧角，逆时针正，顺时针负
--   endX/endY 结束坐标
+-   startX/startY start coordinates.
+-   angle: arc angle, positive counter-clockwise, negative clockwise.
+-   endX/endY end coordinates.
 
-`startX startY CARC angle endX endY` 中心圆弧交互模式
+`startX startY CARC angle endX endY` center-arc interaction mode.
 
-#### C 三阶贝塞尔模式
+#### C Cubic Bezier Mode
 
-`X1 Y1 C X2 Y2 X3 Y3 X4 Y4 ...` 模式为三阶贝塞尔模式，所有坐标为其控制点
+`X1 Y1 C X2 Y2 X3 Y3 X4 Y4 ...` mode is cubic Bezier mode. All coordinates are control points.
 
-#### R 矩形模式
+#### R Rectangle Mode
 
-`R X Y width height rot isCCW round` 矩形模式与其它都不兼容，是一个独立的模式
+`R X Y width height rot isCCW round` rectangle mode is independent from other modes.
 
--   X/Y：左上坐标
--   width：宽
--   height：高
--   rot：旋转角度
--   isCCW：是否逆时针
--   round：圆角半径
+-   X/Y: top-left coordinate.
+-   width: width.
+-   height: height.
+-   rot: rotation angle.
+-   isCCW: whether counter-clockwise.
+-   round: corner radius.
 
-#### CIRCLE 圆形模式
+#### CIRCLE Circle Mode
 
-`CIRCLE cx cy r isCCW` 圆形模式与其它都不兼容，是一个独立的模式
+`CIRCLE cx cy r isCCW` circle mode is independent from other modes.
 
--   cx/cy：中心点坐标
--   r：半径
--   isCCW：是否逆时针
+-   cx/cy: center point coordinates.
+-   r: radius.
+-   isCCW: whether counter-clockwise.
 
-### 复杂多边形的定义
+### Complex Polygon Definition
 
 ```json
-[[单多边形1：外框], [单多边形2：内洞]]
+[[single polygon 1: outer frame], [single polygon 2: inner hole]]
 ```
 
-复杂多边形可以包含多个单多边形，固定第一个多边形顺时针，表示外框，后续所有多边形逆时针，表示内洞
+A complex polygon can contain multiple single polygons. The first polygon is clockwise and represents the outer frame; all subsequent polygons are counter-clockwise and represent inner holes.
 
-## POLY 折线
+## POLY Polyline
 
-折线和 `LINE` `ARC` 区别较小，但是其具有保持绘制时【连续的一条线】的概念，以和 `REGION` `FILL` `POUR` 互转
+The polyline is similar to `LINE` and `ARC`, but it preserves the concept of a continuous single line drawn at one time, and can be converted with `REGION`, `FILL`, and `POUR`.
 
 ```json
 { "type": "POLY", "id":"UUID", "ticket": 1 }||
@@ -156,23 +155,23 @@ SVG 中 path 是一个对多边形优秀的抽象。
   "netName":"GND",
   "layerId":1,
   "width":0.5,
-  "path":["单多边形"],
+  "path":["single polygon"],
 }|
 ```
 
-1. type 折线 `POLY`
-2. id 图元编号, 文档内唯一
-3. ticket 逻辑时钟
-4. partitionId 所属分区编号，为 null 表示无分区，封装忽略该字段
-5. groupId 分组编号：0 不分组，非 0 为组标志，相同组标志的为一组
-6. locked 是否锁定
-7. zIndex Z 轴高度
-8. netName 网络
-9. layerId 层
-10. width 线宽
-11. path 请参考单多边形
+1. type polyline `POLY`.
+2. id primitive ID, unique within the document.
+3. ticket logical clock.
+4. partitionId partition ID it belongs to, null means no partition. Ignored for footprints.
+5. groupId group ID: 0 no group, non-zero is the group flag, same flag means same group.
+6. locked whether locked.
+7. zIndex Z-axis height.
+8. netName net.
+9. layerId layer.
+10. width line width.
+11. path see single polygon.
 
-## FILL 填充
+## FILL Fill
 
 ```json
 { "type": "FILL", "id":"UUID", "ticket": 1 }||
@@ -185,28 +184,28 @@ SVG 中 path 是一个对多边形优秀的抽象。
   "layerId":3,
   "width":10,
   "fillStyle":0,
-  "path":["复杂多边形"],
+  "path":["complex polygon"],
 }|
 ```
 
-1. type 填充 `FILL`
-2. id 图元编号, 文档内唯一
-3. ticket 逻辑时钟
-4. partitionId 所属分区编号，为 null 表示无分区，封装忽略该字段
-5. groupId 分组编号：0 不分组，非 0 为组标志，相同组标志的为一组
-6. locked 是否锁定
-7. zIndex Z 轴高度
-8. netName 网络
-9. layerId 层
-10. width 线宽
-11. fillStyle 填充模式：0 实心填充 1 网格填充 2 内电层填充
-12. path 请参考复杂多边形章节
-    1. 对于单次画的多边形，这里只有一个单多边形
-    1. 对于组合模式画的多边形，这里才有多个单多边形
+1. type fill `FILL`.
+2. id primitive ID, unique within the document.
+3. ticket logical clock.
+4. partitionId partition ID it belongs to, null means no partition. Ignored for footprints.
+5. groupId group ID: 0 no group, non-zero is the group flag, same flag means same group.
+6. locked whether locked.
+7. zIndex Z-axis height.
+8. netName net.
+9. layerId layer.
+10. width line width.
+11. fillStyle fill style: 0 solid fill, 1 grid fill, 2 internal plane fill.
+12. path see complex polygon chapter.
+    1. For a polygon drawn in one go, there is only one single polygon here.
+    2. For polygons drawn in combination mode, there are multiple single polygons here.
 
-## REGION 区域
+## REGION Region
 
-禁止区域为未来一个很重要的功能，除了辅助手工设计以外，还可以辅助自动布局布线，提供自动化工具除设计规则外，区域范围的约束信息
+Keepout regions are an important future feature. In addition to assisting manual design, they can also assist automatic placement and routing by providing automation tools with constraint information on area ranges in addition to design rules.
 
 ```json
 { "type": "REGION", "id":"UUID", "ticket": 1 }||
@@ -218,40 +217,39 @@ SVG 中 path 是一个对多边形优秀的抽象。
   "layerId":3,
   "width":1,
   "prohibitType":[1, 2, 5],
-  "path":["复杂多边形"],
+  "path":["complex polygon"],
   "name":"aa constraint",
 
 }|
 ```
 
-1. type 区域 `REGION`
-2. id 图元编号, 文档内唯一
-3. ticket 逻辑时钟
-4. partitionId 所属分区编号，为 null 表示无分区，封装忽略该字段
-5. groupId 分组编号：0 不分组，非 0 为组标志，相同组标志的为一组
-6. locked 是否锁定
-7. zIndex Z 轴高度
-8. layerId 层
-9. width 线宽
-10. prohibitType 禁止类型，可同时存在多个
-    1. \*禁止布线与放置填充区域（弃用，但解析要做兼容）
-    2. 禁止元件
-    3. 禁止过孔
-    4. \*禁止覆铜与内电层（弃用，但解析要做兼容）
-    5. 禁止布线
-    6. 禁止放置填充区域
-    7. 禁止覆铜
-    8. 禁止内电层
-11. path 请参考复杂多边形章节
-    1. 对于单次画的多边形，这里只有一个单多边形
-    2. 对于组合模式画的多边形，这里才有多个单多边形
-12. name 名称（可选）
+1. type region `REGION`.
+2. id primitive ID, unique within the document.
+3. ticket logical clock.
+4. partitionId partition ID it belongs to, null means no partition. Ignored for footprints.
+5. groupId group ID: 0 no group, non-zero is the group flag, same flag means same group.
+6. locked whether locked.
+7. zIndex Z-axis height.
+8. layerId layer.
+9. width line width.
+10. prohibitType prohibit types, multiple can exist simultaneously.
+    1. \*prohibit routing and placing fill regions (deprecated, but keep compatible when parsing)
+    2. prohibit components
+    3. prohibit vias
+    4. \*prohibit copper pours and internal planes (deprecated, but keep compatible when parsing)
+    5. prohibit routing
+    6. prohibit placing fill regions
+    7. prohibit copper pours
+    8. prohibit internal planes
+11. path see complex polygon chapter.
+    1. For a polygon drawn in one go, there is only one single polygon here.
+    2. For polygons drawn in combination mode, there are multiple single polygons here.
+12. name name (optional).
 
-## POUR 覆铜边框
+## POUR Copper Pour Border
 
-和之前的覆铜有一个实质性的差别在于，支持复杂多边形
-也就是说覆铜区域可以含洞，理论上可以实现文字路径转出来的多边形作为覆铜区域
-覆铜按照其在格式内出现的顺序覆铜
+A substantial difference from previous copper pours is that complex polygons are supported, meaning copper pour regions can contain holes. In theory, polygons converted from text paths can be used as copper pour regions.
+Copper pours are filled in the order they appear in the format.
 
 ```json
 { "type": "POUR", "id":"UUID", "ticket": 1 }||
@@ -265,65 +263,65 @@ SVG 中 path 是一个对多边形优秀的抽象。
   "width":1,
   "name":"TOPGND",
   "order":4,
-  "path":["复杂多边形"],
-  "pourType":["覆铜类型"],
+  "path":["complex polygon"],
+  "pourType":["pour type"],
   "keepIsland":1,
 }|
-["POUR", "e100", 5, 1, 0.779, "GND", 1, 1, "TOPGND", 4, 复杂多边形, [覆铜类型], 1]
+["POUR", "e100", 5, 1, 0.779, "GND", 1, 1, "TOPGND", 4, complex polygon, [pour type], 1]
 ```
 
-1. type 覆铜 `POUR`
-2. id 图元编号, 文档内唯一
-3. ticket 逻辑时钟
-4. partitionId 所属分区编号，为 null 表示无分区，封装忽略该字段
-5. groupId 分组编号：0 不分组，非 0 为组标志，相同组标志的为一组
-6. locked 是否锁定
-7. zIndex Z 轴高度
-8. netName 网络
-9. layerId 层
-10. width 线宽
-11. name 覆铜名称
-12. order 覆铜优先级
-13. path 请参考复杂多边形章节
-14. pourType 请参考覆铜类型
-15. keepIsland 是否保留孤岛
+1. type copper pour `POUR`.
+2. id primitive ID, unique within the document.
+3. ticket logical clock.
+4. partitionId partition ID it belongs to, null means no partition. Ignored for footprints.
+5. groupId group ID: 0 no group, non-zero is the group flag, same flag means same group.
+6. locked whether locked.
+7. zIndex Z-axis height.
+8. netName net.
+9. layerId layer.
+10. width line width.
+11. name copper pour name.
+12. order copper pour priority.
+13. path see complex polygon chapter.
+14. pourType see pour types.
+15. keepIsland whether to keep islands.
 
-#### 覆铜类型
+#### Pour Types
 
-##### SOLID 实心填充
+##### SOLID Solid Fill
 
 ```json
 ["SOLID", 2]
 ```
 
-1. 实心填充 `SOLID`
-1. 最小覆铜细度（生产优化用，AD 里的 Neck），0 为不开启生产优化
+1. solid fill `SOLID`.
+2. minimum copper pour neck width (production optimization; 0 means no production optimization).
 
 ```json
-["POUR", "e100", "GND", 1, "BOTGND", 2, 复杂多边形, ["SOLID", 2], 1, 0]
+["POUR", "e100", "GND", 1, "BOTGND", 2, complex polygon, ["SOLID", 2], 1, 0]
 ```
 
 ```json
-["POUR", "e100", "GND", 1, "BOTGND", 2, 复杂多边形, ["SOLID", 0], 1, 0]
+["POUR", "e100", "GND", 1, "BOTGND", 2, complex polygon, ["SOLID", 0], 1, 0]
 ```
 
-##### LINE 线填充
+##### LINE Line Fill
 
 ```json
 ["LINE", 0, 0, 10, 20]
 ```
 
-1. 线填充 `LINE`
-1. 填充模式：`0` 网格填充 `1` 水平线填充 `2` 垂直线填充
-1. 旋转角度
-1. 线宽
-1. 线距
+1. line fill `LINE`.
+2. fill mode: `0` grid, `1` horizontal, `2` vertical.
+3. rotation angle.
+4. line width.
+5. line spacing.
 
 ```json
-["POUR", "e100", "GND", 1, "", 9, 复杂多边形, ["LINE", 0, 0, 10, 20], 0.6, 1, 0, 0]
+["POUR", "e100", "GND", 1, "", 9, complex polygon, ["LINE", 0, 0, 10, 20], 0.6, 1, 0, 0]
 ```
 
-## POURED 覆铜结果
+## POURED Copper Pour Result
 
 ```json
 { "type": "POURED", "id":"UUID", "ticket": 1 }||
@@ -332,23 +330,23 @@ SVG 中 path 是一个对多边形优秀的抽象。
   "targetId":"e100",
   "strokeWidth":0,
   "fill":1,
-  "path":["复杂多边形"],
+  "path":["complex polygon"],
 }|
 ```
 
-1. type 覆铜结果 `POURED`
-2. id 图元编号
-3. ticket 逻辑时钟
-4. partitionId 所属分区编号，为 null 表示无分区，封装忽略该字段
-5. targetId 所属覆铜边框 `POUR` 编号
-6. strokeWidth 描边线宽：0 为不描边
-7. fill 是否填充
-8. path 路径, 复杂多边形
+1. type copper pour result `POURED`.
+2. id primitive ID.
+3. ticket logical clock.
+4. partitionId partition ID it belongs to, null means no partition. Ignored for footprints.
+5. targetId ID of the parent copper pour border `POUR`.
+6. strokeWidth stroke width: 0 means no stroke.
+7. fill whether filled.
+8. path path, complex polygon.
 
-## IMAGE 图片
+## IMAGE Image
 
-`IMAGE` 和 `REGION` 极为类似，但是在操作上，`IMAGE` 不存在控制点，不能自由改变其形态，只能进行整体性的放大、缩小、旋转、翻转、平移等操作
-当 `IMAGE` 在信号层时，在 DRC 视角下，为一个无网络的，由 `起始` `结束` `旋转角度` `是否镜像` 定义的矩形区域
+`IMAGE` is very similar to `REGION`, but in operation, `IMAGE` has no control points and cannot freely change its shape, only overall scaling, rotation, flipping, and translation.
+When `IMAGE` is on a signal layer, from the DRC perspective it is a net-less rectangular area defined by `start`, `end`, `rotation angle`, and `whether mirrored`.
 
 ```json
 { "type": "IMAGE", "id":"UUID", "ticket": 1 }||
@@ -364,29 +362,29 @@ SVG 中 path 是一个对多边形优秀的抽象。
   "height":400,
   "angle":45,
   "mirror":1,
-  "path":["复杂多边形"],
+  "path":["complex polygon"],
 }|
 ```
 
-1. type 图片 `IMAGE`
-2. id 图元编号, 文档内唯一
-3. ticket 逻辑时钟
-4. partitionId 所属分区编号，为 null 表示无分区，封装忽略该字段
-5. groupId 分组编号：0 不分组，非 0 为组标志，相同组标志的为一组
-6. locked 是否锁定
-7. zIndex Z 轴高度
-8. layerId 层
-9. startX 左上 X
-10. startY 左上 Y
-11. width 宽
-12. height 高
-13. angle 旋转角度，绕 `起始` 点
-14. mirror 原始图片是否水平镜像，镜像以原始图片 BBox 中点进行水平镜像
-15. path 多个复杂多边形，请参考复杂多边形章节，这里存储的是原始数据，整个生命周期不需要调整
+1. type image `IMAGE`.
+2. id primitive ID, unique within the document.
+3. ticket logical clock.
+4. partitionId partition ID it belongs to, null means no partition. Ignored for footprints.
+5. groupId group ID: 0 no group, non-zero is the group flag, same flag means same group.
+6. locked whether locked.
+7. zIndex Z-axis height.
+8. layerId layer.
+9. startX top-left X.
+10. startY top-left Y.
+11. width width.
+12. height height.
+13. angle rotation angle, around `start` point.
+14. mirror whether the original image is horizontally mirrored. Mirroring is performed around the center of the original image's BBox.
+15. path multiple complex polygons, see complex polygon chapter. Raw data is stored here; no adjustment is needed throughout the lifecycle.
 
-## TEARDROP 泪滴
+## TEARDROP Teardrop
 
-泪滴不可选中，不可直接操作，当关联的任意图元发生变化时，EDA 应让其自动消失
+Teardrops cannot be selected or directly operated. When any associated primitive changes, EDA should automatically make them disappear.
 
 ```json
 { "type": "TEARDROP", "id":"UUID", "ticket": 1 }||
@@ -394,21 +392,21 @@ SVG 中 path 是一个对多边形优秀的抽象。
   "partitionId":null,
   "netName":"GND",
   "layerId":3,
-  "path":"简单多边形",
+  "path":"simple polygon",
   "groupId":0,
 }|
 ```
 
-1. type 泪滴 `TEARDROP`
-2. id 编号
-3. ticket 逻辑时钟
-4. partitionId 所属分区编号，为 null 表示无分区，封装忽略该字段
-5. netName 网络
-6. layerId 层
-7. path 简单多边形
-8. groupId 分组编号：0 不分组，非 0 为组标志，相同组标志的为一组
+1. type teardrop `TEARDROP`.
+2. id ID.
+3. ticket logical clock.
+4. partitionId partition ID it belongs to, null means no partition. Ignored for footprints.
+5. netName net.
+6. layerId layer.
+7. path simple polygon.
+8. groupId group ID: 0 no group, non-zero is the group flag, same flag means same group.
 
-## FPC_FILL 柔性工艺补强板
+## FPC_FILL FPC Reinforcement Fill
 
 ```json
 { "type": "FPC_FILL", "id":"UUID", "ticket": 1 }||
@@ -420,24 +418,24 @@ SVG 中 path 是一个对多边形优秀的抽象。
   "layerId":3,
   "material":"3M468",
   "thickness":7.874,
-  "path":"复杂多边形",
+  "path":"complex polygon",
 }|
 ```
 
-1. type 填充 `FPC_FILL`
-2. id 图元编号, 文档内唯一
-3. ticket 逻辑时钟
-4. partitionId 所属分区编号，为 null 表示无分区，封装忽略该字段
-5. groupId 分组编号：0 不分组，非 0 为组标志，相同组标志的为一组
-6. locked 是否锁定
-7. zIndex Z 轴高度
-8. layerId 层
-9. material 材质
+1. type fill `FPC_FILL`.
+2. id primitive ID, unique within the document.
+3. ticket logical clock.
+4. partitionId partition ID it belongs to, null means no partition. Ignored for footprints.
+5. groupId group ID: 0 no group, non-zero is the group flag, same flag means same group.
+6. locked whether locked.
+7. zIndex Z-axis height.
+8. layerId layer.
+9. material material.
     - PI
     - STEEL
     - FR4
     - 3M468
     - 3M9077
     - EMI_Shielding_Film
-10. thickness 厚度（注意单位和其它图元一致）
-11. path 请参考复杂多边形章节
+10. thickness thickness (note the unit is the same as other primitives).
+11. path see complex polygon chapter.

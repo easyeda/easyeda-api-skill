@@ -1,6 +1,6 @@
-# OBJ 二进制内嵌对象
+# OBJ Binary Embedded Object
 
-将文件等数据编码到如下图元，以内嵌于图页上的图片和文件，可作为附件下载，以及直接显示
+Files and other data are encoded into the following primitive to be embedded in the page as images and files, which can be downloaded as attachments or displayed directly.
 
 ```json
 { "type": "OBJ", "id":"UUID", "ticket": 1 }||
@@ -22,22 +22,22 @@
 ["OBJ", "e662", 0, 1, 5.286, 15, "a.png", 200, 300, 10, 20, 0, 1, "blob:1234ade2f"]
 ```
 
-1. type 二进制内嵌对象标识：OBJ
-2. id 图元编号, 文档内唯一
-3. ticket 逻辑时钟
-4. partitionId 所属分区编号，为 null 表示无分区，封装忽略该字段
-5. groupId 分组编号：0 不分组，非 0 为组标志，相同组标志的为一组
-6. locked 是否锁定
-7. zIndex Z 轴高度
-8. layerId 层
-9. fileName 文件名
-10. startX 左上 X
-11. startY 左上 Y
-12. width 宽
-13. height 高
-14. angle 旋转角度，绕 `左上` 点
-15. mirror 原始图片是否水平镜像，镜像以原始图片 BBox 中点进行水平镜像
-16. path 二进制数据
-    1. 一般格式，与 `Data Urls` 完全兼容 `data:[<mediatype>][;base64],<data>`
-        - 如 `data:image/png;base64,asdfasdfwer`
-    1. BLOB 引用格式 `blob:hashid`
+1. type binary embedded object identifier: OBJ.
+2. id primitive ID, unique within the document.
+3. ticket logical clock.
+4. partitionId partition ID it belongs to, null means no partition. Ignored for footprints.
+5. groupId group ID: 0 no group, non-zero is the group flag, same flag means same group.
+6. locked whether locked.
+7. zIndex Z-axis height.
+8. layerId layer.
+9. fileName file name.
+10. startX top-left X.
+11. startY top-left Y.
+12. width width.
+13. height height.
+14. angle rotation angle, around `top-left`.
+15. mirror whether the original image is horizontally mirrored. Mirroring is performed around the center of the original image's BBox.
+16. path binary data.
+    1. General format, compatible with `Data URLs`: `data:[<mediatype>][;base64],<data>`
+        - e.g. `data:image/png;base64,asdfasdfwer`
+    2. BLOB reference format, `blob:hashid`.

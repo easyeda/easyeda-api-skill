@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESYS_ToastMessageType 
+export enum ESYS_ToastMessageType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ ASK
 
 </td><td>
 
-`"question"`
+`'question'`
 
 
 </td><td>
-
-问询
 
 
 </td></tr>
@@ -49,12 +47,10 @@ ERROR
 
 </td><td>
 
-`"error"`
+`'error'`
 
 
 </td><td>
-
-错误
 
 
 </td></tr>
@@ -65,12 +61,10 @@ INFO
 
 </td><td>
 
-`"info"`
+`'info'`
 
 
 </td><td>
-
-信息
 
 
 </td></tr>
@@ -81,12 +75,10 @@ SUCCESS
 
 </td><td>
 
-`"success"`
+`'success'`
 
 
 </td><td>
-
-成功
 
 
 </td></tr>
@@ -97,12 +89,10 @@ WARNING
 
 </td><td>
 
-`"warn"`
+`'warn'`
 
 
 </td><td>
-
-警告
 
 
 </td></tr>

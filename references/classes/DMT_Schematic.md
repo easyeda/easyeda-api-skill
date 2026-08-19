@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class DMT_Schematic 
+export class DMT_Schematic 
 ```
 
 ## Remarks
@@ -285,7 +285,7 @@ Description
 ## Signature
 
 ```typescript
-copySchematic(schematicUuid: string, boardName?: string): Promise<string | undefined>;
+public copySchematic(schematicUuid: string, boardName?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -363,7 +363,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-copySchematicPage(schematicPageUuid: string, schematicUuid?: string): Promise<string | undefined>;
+public copySchematicPage(schematicPageUuid: string, schematicUuid?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -437,7 +437,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-createSchematic(boardName?: string): Promise<string | undefined>;
+public createSchematic(boardName?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -495,7 +495,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-createSchematicPage(schematicUuid: string): Promise<string | undefined>;
+public createSchematicPage(schematicUuid: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -553,7 +553,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-deleteSchematic(schematicUuid: string): Promise<boolean>;
+public deleteSchematic(schematicUuid: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -615,7 +615,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-deleteSchematicPage(schematicPageUuid: string): Promise<boolean>;
+public deleteSchematicPage(schematicPageUuid: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -673,7 +673,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-getAllSchematicPagesInfo(): Promise<Array<IDMT_SchematicPageItem>>;
+public getAllSchematicPagesInfo(): Promise<Array<IDMT_SchematicPageItem>>;
 ```
 
 
@@ -694,7 +694,7 @@ Promise&lt;Array&lt;[IDMT\_SchematicPageItem](../interfaces/IDMT_SchematicPageIt
 ## Signature
 
 ```typescript
-getAllSchematicsInfo(): Promise<Array<IDMT_SchematicItem>>;
+public getAllSchematicsInfo(): Promise<Array<IDMT_SchematicItem>>;
 ```
 
 
@@ -715,7 +715,7 @@ Promise&lt;Array&lt;[IDMT\_SchematicItem](../interfaces/IDMT_SchematicItem.md)<!
 ## Signature
 
 ```typescript
-getCurrentSchematicAllSchematicPagesInfo(): Promise<Array<IDMT_SchematicPageItem>>;
+public getCurrentSchematicAllSchematicPagesInfo(): Promise<Array<IDMT_SchematicPageItem>>;
 ```
 
 
@@ -736,7 +736,7 @@ Promise&lt;Array&lt;[IDMT\_SchematicPageItem](../interfaces/IDMT_SchematicPageIt
 ## Signature
 
 ```typescript
-getCurrentSchematicInfo(): Promise<IDMT_SchematicItem | undefined>;
+public getCurrentSchematicInfo(): Promise<IDMT_SchematicItem | undefined>;
 ```
 
 
@@ -761,7 +761,7 @@ Promise&lt;[IDMT\_SchematicItem](../interfaces/IDMT_SchematicItem.md) \| undefin
 ## Signature
 
 ```typescript
-getCurrentSchematicPageInfo(): Promise<IDMT_SchematicPageItem | undefined>;
+public getCurrentSchematicPageInfo(): Promise<IDMT_SchematicPageItem | undefined>;
 ```
 
 
@@ -786,7 +786,7 @@ Promise&lt;[IDMT\_SchematicPageItem](../interfaces/IDMT_SchematicPageItem.md) \|
 ## Signature
 
 ```typescript
-getSchematicInfo(schematicUuid: string): Promise<IDMT_SchematicItem | undefined>;
+public getSchematicInfo(schematicUuid: string): Promise<IDMT_SchematicItem | undefined>;
 ```
 
 ## Parameters
@@ -844,7 +844,7 @@ Promise&lt;[IDMT\_SchematicItem](../interfaces/IDMT_SchematicItem.md) \| undefin
 ## Signature
 
 ```typescript
-getSchematicPageInfo(schematicPageUuid: string): Promise<IDMT_SchematicPageItem | undefined>;
+public getSchematicPageInfo(schematicPageUuid: string): Promise<IDMT_SchematicPageItem | undefined>;
 ```
 
 ## Parameters
@@ -902,7 +902,7 @@ Promise&lt;[IDMT\_SchematicPageItem](../interfaces/IDMT_SchematicPageItem.md) \|
 ## Signature
 
 ```typescript
-modifySchematicName(schematicUuid: string, schematicName: string): Promise<boolean>;
+public modifySchematicName(schematicUuid: string, schematicName: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -980,7 +980,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-modifySchematicPageName(schematicPageUuid: string, schematicPageName: string): Promise<boolean>;
+public modifySchematicPageName(schematicPageUuid: string, schematicPageName: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1054,13 +1054,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-modifySchematicPageTitleBlock(showTitleBlock?: boolean, titleBlockData?: {
-        [key: string]: {
-            showTitle?: boolean;
-            showValue?: boolean;
-            value?: any;
-        };
-    }): Promise<boolean>;
+public modifySchematicPageTitleBlock(showTitleBlock?: boolean, titleBlockData?: Record<string, { showTitle?: undefined | false | true; showValue?: undefined | false | true; value?: any }>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1104,7 +1098,7 @@ titleBlockData
 
 </td><td>
 
-\{ \[key: string\]: \{ showTitle?: boolean; showValue?: boolean; value?: any; \}; \}
+Record&lt;string, { showTitle?: undefined \| false \| true; showValue?: undefined \| false \| true; value?: any }&gt;
 
 
 </td><td>
@@ -1138,7 +1132,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-reorderSchematicPages(schematicUuid: string, schematicPageItemsArray: Array<IDMT_SchematicPageItem>): Promise<boolean>;
+public reorderSchematicPages(schematicUuid: string, schematicPageItemsArray: Array<IDMT_SchematicPageItem>): Promise<boolean>;
 ```
 
 ## Parameters

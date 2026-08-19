@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class LIB_PanelLibrary 
+export class LIB_PanelLibrary 
 ```
 
 ## Methods
@@ -141,7 +141,7 @@ Description
 ## Signature
 
 ```typescript
-copy(panelLibraryUuid: string, libraryUuid: string, targetLibraryUuid: string, targetClassification?: ILIB_ClassificationIndex | Array<string>, newPanelLibraryName?: string): Promise<string | undefined>;
+public copy(panelLibraryUuid: string, libraryUuid: string, targetLibraryUuid: string, targetClassification?: ILIB_ClassificationIndex | Array<string>, newPanelLibraryName?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -263,7 +263,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-create(libraryUuid: string, panelLibraryName: string, classification?: ILIB_ClassificationIndex | Array<string>, description?: string): Promise<string | undefined>;
+public create(libraryUuid: string, panelLibraryName: string, classification?: ILIB_ClassificationIndex | Array<string>, description?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -369,7 +369,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-delete(panelLibraryUuid: string, libraryUuid: string): Promise<boolean>;
+public delete(panelLibraryUuid: string, libraryUuid: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -443,7 +443,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-get(panelLibraryUuid: string, libraryUuid?: string): Promise<ILIB_PanelLibraryItem | undefined>;
+public get(panelLibraryUuid: string, libraryUuid?: string): Promise<ILIB_PanelLibraryItem | undefined>;
 ```
 
 ## Parameters
@@ -517,7 +517,7 @@ Promise&lt;[ILIB\_PanelLibraryItem](../interfaces/ILIB_PanelLibraryItem.md) \| u
 ## Signature
 
 ```typescript
-modify(panelLibraryUuid: string, libraryUuid: string, panelLibraryName?: string, classification?: ILIB_ClassificationIndex | Array<string> | null, description?: string | null): Promise<boolean>;
+public modify(panelLibraryUuid: string, libraryUuid: string, panelLibraryName?: string, classification?: ILIB_ClassificationIndex | Array<string> | null, description?: string | null): Promise<boolean>;
 ```
 
 ## Parameters
@@ -643,7 +643,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-openInEditor(panelLibraryUuid: string, libraryUuid: string, splitScreenId?: string): Promise<string | undefined>;
+public openInEditor(panelLibraryUuid: string, libraryUuid: string, splitScreenId?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -733,7 +733,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-search(key: string, libraryUuid?: string, classification?: ILIB_ClassificationIndex | Array<string>, itemsOfPage?: number, page?: number): Promise<Array<ILIB_PanelLibrarySearchItem>>;
+public search(key: string, libraryUuid?: string, classification?: ILIB_ClassificationIndex | Array<string>, itemsOfPage?: number, page?: number): Promise<Array<ILIB_PanelLibrarySearchItem>>;
 ```
 
 ## Parameters

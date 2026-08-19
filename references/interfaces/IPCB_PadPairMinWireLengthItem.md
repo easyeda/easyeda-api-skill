@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IPCB_PadPairMinWireLengthItem 
+export interface IPCB_PadPairMinWireLengthItem 
 ```
 
 ## Properties

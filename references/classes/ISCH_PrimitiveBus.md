@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class ISCH_PrimitiveBus implements ISCH_Primitive 
+export class ISCH_PrimitiveBus implements ISCH_Primitive 
 ```
 **Implements:** [ISCH\_Primitive](../interfaces/ISCH_Primitive.md)
 
@@ -275,7 +275,7 @@ Description
 ## Signature
 
 ```typescript
-done(): Promise<ISCH_PrimitiveBus>;
+public done(): Promise<ISCH_PrimitiveBus>;
 ```
 
 
@@ -294,7 +294,7 @@ Promise&lt;[ISCH\_PrimitiveBus](./ISCH_PrimitiveBus.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getState_BusName(): string;
+public getState_BusName(): string;
 ```
 
 
@@ -313,7 +313,7 @@ string
 ## Signature
 
 ```typescript
-getState_Color(): string | null;
+public getState_Color(): string | null;
 ```
 
 
@@ -332,7 +332,7 @@ string \| null
 ## Signature
 
 ```typescript
-getState_Line(): Array<number> | Array<Array<number>>;
+public getState_Line(): Array<number> | Array<Array<number>>;
 ```
 
 
@@ -351,7 +351,7 @@ Array&lt;number&gt; \| Array&lt;Array&lt;number&gt;&gt;
 ## Signature
 
 ```typescript
-getState_LineType(): ESCH_PrimitiveLineType | null;
+public getState_LineType(): ESCH_PrimitiveLineType | null;
 ```
 
 
@@ -370,7 +370,7 @@ getState_LineType(): ESCH_PrimitiveLineType | null;
 ## Signature
 
 ```typescript
-getState_LineWidth(): number | null;
+public getState_LineWidth(): number | null;
 ```
 
 
@@ -389,7 +389,7 @@ number \| null
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -408,7 +408,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): ESCH_PrimitiveType;
+public getState_PrimitiveType(): ESCH_PrimitiveType;
 ```
 
 
@@ -427,7 +427,7 @@ getState_PrimitiveType(): ESCH_PrimitiveType;
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -448,7 +448,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_BusName(busName: string): ISCH_PrimitiveBus;
+public setState_BusName(busName: string): ISCH_PrimitiveBus;
 ```
 
 ## Parameters
@@ -506,7 +506,7 @@ string
 ## Signature
 
 ```typescript
-setState_Color(color: string | null): ISCH_PrimitiveBus;
+public setState_Color(color: string | null): ISCH_PrimitiveBus;
 ```
 
 ## Parameters
@@ -564,7 +564,7 @@ string \| null
 ## Signature
 
 ```typescript
-setState_Line(line: Array<number> | Array<Array<number>>): ISCH_PrimitiveBus;
+public setState_Line(line: Array<number> | Array<Array<number>>): ISCH_PrimitiveBus;
 ```
 
 ## Parameters
@@ -622,7 +622,7 @@ Array&lt;number&gt; \| Array&lt;Array&lt;number&gt;&gt;
 ## Signature
 
 ```typescript
-setState_LineType(lineType: ESCH_PrimitiveLineType | null): ISCH_PrimitiveBus;
+public setState_LineType(lineType: ESCH_PrimitiveLineType | null): ISCH_PrimitiveBus;
 ```
 
 ## Parameters
@@ -680,7 +680,7 @@ lineType
 ## Signature
 
 ```typescript
-setState_LineWidth(lineWidth: number | null): ISCH_PrimitiveBus;
+public setState_LineWidth(lineWidth: number | null): ISCH_PrimitiveBus;
 ```
 
 ## Parameters
@@ -736,7 +736,7 @@ number \| null
 ## Signature
 
 ```typescript
-toAsync(): ISCH_PrimitiveBus;
+public toAsync(): ISCH_PrimitiveBus;
 ```
 
 
@@ -755,7 +755,7 @@ toAsync(): ISCH_PrimitiveBus;
 ## Signature
 
 ```typescript
-toSync(): ISCH_PrimitiveBus;
+public toSync(): ISCH_PrimitiveBus;
 ```
 
 

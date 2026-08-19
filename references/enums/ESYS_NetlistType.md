@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESYS_NetlistType 
+export enum ESYS_NetlistType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ ALLEGRO
 
 </td><td>
 
-`"Allegro"`
+`'Allegro'`
 
 
 </td><td>
-
-Allegro
 
 
 </td></tr>
@@ -49,12 +47,10 @@ ALTIUM\_DESIGNER
 
 </td><td>
 
-`"Protel2"`
+`'Protel2'`
 
 
 </td><td>
-
-Altium Designer
 
 
 </td></tr>
@@ -65,12 +61,10 @@ DISA
 
 </td><td>
 
-`"DISA"`
+`'DISA'`
 
 
 </td><td>
-
-数字化工业软件联盟
 
 
 </td></tr>
@@ -81,12 +75,10 @@ DISA\_SIMULATION
 
 </td><td>
 
-`"DSNET"`
+`'DSNET'`
 
 
 </td><td>
-
-数字化工业软件联盟仿真
 
 
 </td></tr>
@@ -97,12 +89,10 @@ EASYEDA\_PRO
 
 </td><td>
 
-`"EasyEDA"`
+`'EasyEDA'`
 
 
 </td><td>
-
-EasyEDA Pro Edition
 
 
 </td></tr>
@@ -113,12 +103,10 @@ JLCEDA\_PRO
 
 </td><td>
 
-`"JLCEDA"`
+`'JLCEDA'`
 
 
 </td><td>
-
-嘉立创 EDA 专业版
 
 
 </td></tr>
@@ -129,12 +117,10 @@ PADS
 
 </td><td>
 
-`"PADS"`
+`'PADS'`
 
 
 </td><td>
-
-PADS
 
 
 </td></tr>
@@ -145,12 +131,10 @@ PROTEL2
 
 </td><td>
 
-`"Protel2"`
+`'Protel2'`
 
 
 </td><td>
-
-Protel 2
 
 
 </td></tr>

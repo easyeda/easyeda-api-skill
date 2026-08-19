@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class LIB_SelectControl 
+export class LIB_SelectControl 
 ```
 
 ## Methods
@@ -57,7 +57,7 @@ Description
 ## Signature
 
 ```typescript
-getSelectedLibraryRowInfo(): Promise<ILIB_LibraryItem | undefined>;
+public getSelectedLibraryRowInfo(): Promise<ILIB_LibraryItem | undefined>;
 ```
 
 

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum EDMT_IndicatorMarkerType 
+export enum EDMT_IndicatorMarkerType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ ARC
 
 </td><td>
 
-`"arc"`
+`'arc'`
 
 
 </td><td>
-
-圆弧
 
 
 </td></tr>
@@ -49,12 +47,10 @@ CIRCLE
 
 </td><td>
 
-`"circle"`
+`'circle'`
 
 
 </td><td>
-
-圆形
 
 
 </td></tr>
@@ -65,12 +61,10 @@ LINE
 
 </td><td>
 
-`"line"`
+`'line'`
 
 
 </td><td>
-
-线段
 
 
 </td></tr>
@@ -81,12 +75,10 @@ POINT
 
 </td><td>
 
-`"point"`
+`'point'`
 
 
 </td><td>
-
-点
 
 
 </td></tr>
@@ -97,12 +89,10 @@ RECTANGLE
 
 </td><td>
 
-`"rectangle"`
+`'rectangle'`
 
 
 </td><td>
-
-矩形
 
 
 </td></tr>

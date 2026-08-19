@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_FileSystem 
+export class SYS_FileSystem 
 ```
 
 ## Remarks
@@ -199,6 +199,20 @@ Description
 </td></tr>
 <tr><td>
 
+[openReadFolderDialog()](./SYS_FileSystem.md)
+
+
+</td><td>
+
+
+</td><td>
+
+**_(BETA)_** 打开读入文件夹窗口
+
+
+</td></tr>
+<tr><td>
+
 [readFileFromFileSystem(uri)](./SYS_FileSystem.md)
 
 
@@ -270,7 +284,7 @@ Description
 ## Signature
 
 ```typescript
-createDirectoryInFileSystem(folderPath: string): Promise<boolean>;
+public createDirectoryInFileSystem(folderPath: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -323,9 +337,7 @@ Promise&lt;boolean&gt;
 
 注意 1：本接口仅客户端有效，在浏览器环境内调用将始终 `throw Error`
 
-注意 2：本接口需要使用者启用扩展的外部交互权限，如若未启用将始终 `throw Error`
-
-ADD since EDA v3.2.166
+注意 2：本接口需要使用者启用扩展的外部交互权限，如若未启用将始终 `throw Error` ADD since EDA v3.2.166
 
 ### createobjecturl
 
@@ -336,7 +348,7 @@ ADD since EDA v3.2.166
 ## Signature
 
 ```typescript
-createObjectURL(blob: Blob | File): string;
+public createObjectURL(blob: Blob | File): string;
 ```
 
 ## Parameters
@@ -385,9 +397,7 @@ ObjectURL 字符串
 
 ## Remarks
 
-创建一个指向传入 Blob / File 对象的 ObjectURL
-
-ADD since EDA v3.2.162
+创建一个指向传入 Blob / File 对象的 ObjectURL ADD since EDA v3.2.162
 
 ### deletefileinfilesystem
 
@@ -400,7 +410,7 @@ ADD since EDA v3.2.162
 ## Signature
 
 ```typescript
-deleteFileInFileSystem(uri: string, force?: boolean): Promise<boolean>;
+public deleteFileInFileSystem(uri: string, force?: boolean): Promise<boolean>;
 ```
 
 ## Parameters
@@ -433,11 +443,7 @@ string
 
 </td><td>
 
-文件资源定位符
-
-如若结尾为斜杠 `/`<!-- -->（Windows 为反斜杠 `\`<!-- -->），则识别为文件夹；
-
-如若结尾非斜杠，则识别为完整文件名，此时 `fileName` 参数将被忽略
+文件资源定位符 如若结尾为斜杠 `/`<!-- -->（Windows 为反斜杠 `\`<!-- -->），则识别为文件夹； 如若结尾非斜杠，则识别为完整文件名，此时 `fileName` 参数将被忽略
 
 
 </td></tr>
@@ -484,7 +490,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-existsPathInFileSystem(uri: string): Promise<boolean>;
+public existsPathInFileSystem(uri: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -535,9 +541,7 @@ Promise&lt;boolean&gt;
 
 注意 1：本接口仅客户端有效，在浏览器环境内调用将始终 `throw Error`
 
-注意 2：本接口需要使用者启用扩展的外部交互权限，如若未启用将始终 `throw Error`
-
-ADD since EDA v3.2.167
+注意 2：本接口需要使用者启用扩展的外部交互权限，如若未启用将始终 `throw Error` ADD since EDA v3.2.167
 
 ### getdocumentspath
 
@@ -550,7 +554,7 @@ ADD since EDA v3.2.167
 ## Signature
 
 ```typescript
-getDocumentsPath(): Promise<string>;
+public getDocumentsPath(): Promise<string>;
 ```
 
 
@@ -579,7 +583,7 @@ Promise&lt;string&gt;
 ## Signature
 
 ```typescript
-getEdaPath(): Promise<string>;
+public getEdaPath(): Promise<string>;
 ```
 
 
@@ -606,7 +610,7 @@ EDA 文档目录路径
 ## Signature
 
 ```typescript
-getExtensionFile(uri: string): Promise<File | undefined>;
+public getExtensionFile(uri: string): Promise<File | undefined>;
 ```
 
 ## Parameters
@@ -664,7 +668,7 @@ File 格式文件
 ## Signature
 
 ```typescript
-getLibrariesPaths(): Promise<Array<string>>;
+public getLibrariesPaths(): Promise<Array<string>>;
 ```
 
 
@@ -691,7 +695,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 ## Signature
 
 ```typescript
-getProjectsPaths(): Promise<Array<string>>;
+public getProjectsPaths(): Promise<Array<string>>;
 ```
 
 
@@ -718,7 +722,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 ## Signature
 
 ```typescript
-listFilesOfFileSystem(folderPath: string, recursive?: boolean): Promise<Array<ISYS_FileSystemFileList>>;
+public listFilesOfFileSystem(folderPath: string, recursive?: boolean): Promise<Array<ISYS_FileSystemFileList>>;
 ```
 
 ## Parameters
@@ -798,7 +802,7 @@ Promise&lt;Array&lt;[ISYS\_FileSystemFileList](../interfaces/ISYS_FileSystemFile
 ## Signature
 
 ```typescript
-openReadFileDialog(filenameExtensions?: string | Array<string>, multiFiles?: true): Promise<Array<File> | undefined>;
+public openReadFileDialog(filenameExtensions?: string | Array<string>, multiFiles?: true): Promise<Array<File> | undefined>;
 ```
 
 ## Parameters
@@ -872,7 +876,7 @@ File 格式文件数组
 ## Signature
 
 ```typescript
-openReadFileDialog(filenameExtensions?: string | Array<string>, multiFiles?: false): Promise<File | undefined>;
+public openReadFileDialog(filenameExtensions?: string | Array<string>, multiFiles?: false): Promise<File | undefined>;
 ```
 
 ## Parameters
@@ -935,6 +939,31 @@ Promise&lt;File \| undefined&gt;
 
 File 格式文件
 
+### openreadfolderdialog
+
+# SYS\_FileSystem.openReadFolderDialog() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+打开读入文件夹窗口
+
+## Signature
+
+```typescript
+public openReadFolderDialog(): Promise<Array<{ relativePath: string; file: File }>>;
+```
+
+
+## Returns
+
+Promise&lt;Array&lt;{ relativePath: string; file: File }&gt;&gt;
+
+读取到的所有文件及其路径信息
+
+## Remarks
+
+本接口的浏览器支持有限，具体请参考 [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory) ADD since EDA v4.2
+
 ### readfilefromfilesystem
 
 # SYS\_FileSystem.readFileFromFileSystem() method
@@ -946,7 +975,7 @@ File 格式文件
 ## Signature
 
 ```typescript
-readFileFromFileSystem(uri: string): Promise<File | undefined>;
+public readFileFromFileSystem(uri: string): Promise<File | undefined>;
 ```
 
 ## Parameters
@@ -1008,7 +1037,7 @@ File 格式文件
 ## Signature
 
 ```typescript
-revokeObjectURL(url: string): void;
+public revokeObjectURL(url: string): void;
 ```
 
 ## Parameters
@@ -1055,9 +1084,7 @@ void
 
 ## Remarks
 
-吊销指定的 ObjectURL
-
-ADD since EDA v3.2.162
+吊销指定的 ObjectURL ADD since EDA v3.2.162
 
 ### savefile
 
@@ -1068,7 +1095,7 @@ ADD since EDA v3.2.162
 ## Signature
 
 ```typescript
-saveFile(fileData: File | Blob, fileName?: string): Promise<void>;
+public saveFile(fileData: File | Blob, fileName?: string): Promise<void>;
 ```
 
 ## Parameters
@@ -1144,7 +1171,7 @@ Promise&lt;void&gt;
 ## Signature
 
 ```typescript
-saveFileToFileSystem(uri: string, fileData: File | Blob, fileName?: string, force?: boolean): Promise<boolean>;
+public saveFileToFileSystem(uri: string, fileData: File | Blob, fileName?: string, force?: boolean): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1177,11 +1204,7 @@ string
 
 </td><td>
 
-文件资源定位符
-
-如若结尾为斜杠 `/`<!-- -->（Windows 为反斜杠 `\`<!-- -->），则识别为文件夹；
-
-如若结尾非斜杠，则识别为完整文件名，此时 `fileName` 参数将被忽略
+文件资源定位符 如若结尾为斜杠 `/`<!-- -->（Windows 为反斜杠 `\`<!-- -->），则识别为文件夹； 如若结尾非斜杠，则识别为完整文件名，此时 `fileName` 参数将被忽略
 
 
 </td></tr>

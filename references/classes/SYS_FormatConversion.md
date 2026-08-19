@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_FormatConversion 
+export class SYS_FormatConversion 
 ```
 
 ## Remarks
@@ -103,7 +103,7 @@ Description
 ## Signature
 
 ```typescript
-convertAltiumDesignerLibrariesToEasyEDAMultiFiles(file: File | Array<File>): Promise<Array<File>>;
+public convertAltiumDesignerLibrariesToEasyEDAMultiFiles(file: File | Array<File>): Promise<Array<File>>;
 ```
 
 ## Parameters
@@ -161,7 +161,7 @@ Promise&lt;Array&lt;File&gt;&gt;
 ## Signature
 
 ```typescript
-convertAltiumDesignerLibrariesToEasyEDASingleFile(file: File | Array<File>): Promise<File | undefined>;
+public convertAltiumDesignerLibrariesToEasyEDASingleFile(file: File | Array<File>): Promise<File | undefined>;
 ```
 
 ## Parameters
@@ -219,7 +219,7 @@ Promise&lt;File \| undefined&gt;
 ## Signature
 
 ```typescript
-convertDisaLibrariesToEasyEDAMultiFiles(file: File | Array<File>): Promise<Array<File>>;
+public convertDisaLibrariesToEasyEDAMultiFiles(file: File | Array<File>): Promise<Array<File>>;
 ```
 
 ## Parameters
@@ -277,7 +277,7 @@ Promise&lt;Array&lt;File&gt;&gt;
 ## Signature
 
 ```typescript
-convertDisaLibrariesToEasyEDASingleFile(file: File | Array<File>): Promise<File | undefined>;
+public convertDisaLibrariesToEasyEDASingleFile(file: File | Array<File>): Promise<File | undefined>;
 ```
 
 ## Parameters

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IPCB_AutoLayoutResult 
+export interface IPCB_AutoLayoutResult 
 ```
 
 ## Properties

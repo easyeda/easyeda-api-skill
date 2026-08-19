@@ -1,6 +1,6 @@
-# OBJ 二进制内嵌对象
+# OBJ Binary Embedded Object
 
-内嵌于图页上的图片和文件等数据，可作为附件下载，以及直接显示（EDA 自行决定，不在格式内要求）
+Embedded images and files on the page, which can be downloaded as attachments or displayed directly (decided by EDA, not required by the format).
 
 ```json
 { "type": "OBJ", "id": "UUID", "ticket": 1 }||
@@ -20,22 +20,22 @@
 }|
 ```
 
-1. type 二进制内嵌对象标识：OBJ
-2. id 编号：文件内唯一
-3. ticket 逻辑时钟
-4. partId 子库编号，符号页专属，原理图忽略该字段
-5. groupId 分组编号，不能为 0，没有默认为空
-6. locked 是否锁定
-7. zIndex Z 轴高度
-8. fileName 文件名
-9. startX 左上角 X
-10. startY 左上角 Y
-11. width 宽
-12. height 高
-13. rotation 旋转角度：绕`左上角`旋转
-14. isMirror 是否镜像
-15. content 二进制数据，有两种模式
-    1. 一般格式，遵循 `Data Urls` 规范 `data:[<mediatype>][;base64],<data>`
-        - 如 `data:image/png;base64,asdfasdfwer`
-        - 如 `data:text/html,<html></html>`
-    2. BLOB 引用模式，`blob:hashid`
+1. type binary embedded object identifier: OBJ.
+2. id ID, unique within the file.
+3. ticket logical clock.
+4. partId sub-library ID, exclusive to symbol pages; ignored on schematics.
+5. groupId group ID, cannot be 0, empty by default when none.
+6. locked whether locked.
+7. zIndex Z-axis height.
+8. fileName file name.
+9. startX top-left X.
+10. startY top-left Y.
+11. width width.
+12. height height.
+13. rotation rotation angle, around `top-left`.
+14. isMirror whether mirrored.
+15. content binary data, two modes.
+    1. General format, compatible with `Data URLs`: `data:[<mediatype>][;base64],<data>`
+        - e.g. `data:image/png;base64,asdfasdfwer`
+        - e.g. `data:text/html,<html></html>`
+    2. BLOB reference mode, `blob:hashid`.

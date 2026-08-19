@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ELIB_PreviewType 
+export enum ELIB_PreviewType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ FOOTPRINT
 
 </td><td>
 
-`"F"`
+`'F'`
 
 
 </td><td>
-
-封装预览
 
 
 </td></tr>
@@ -49,12 +47,10 @@ MODEL\_3D
 
 </td><td>
 
-`"3D"`
+`'3D'`
 
 
 </td><td>
-
-3D 预览
 
 
 </td></tr>
@@ -65,12 +61,10 @@ PRODUCT
 
 </td><td>
 
-`"P"`
+`'P'`
 
 
 </td><td>
-
-产品实物预览
 
 
 </td></tr>
@@ -81,12 +75,10 @@ SYMBOL
 
 </td><td>
 
-`"S"`
+`'S'`
 
 
 </td><td>
-
-符号预览
 
 
 </td></tr>

@@ -61,6 +61,7 @@
 | [ISCH_PrimitiveCircle](classes/ISCH_PrimitiveCircle.md) | 圆图元 |  |
 | [ISCH_PrimitiveComponent](classes/ISCH_PrimitiveComponent.md) | 器件图元 |  |
 | [ISCH_PrimitiveComponentPin](classes/ISCH_PrimitiveComponentPin.md) | 器件引脚图元 |  |
+| [ISCH_PrimitiveObject](classes/ISCH_PrimitiveObject.md) | 二进制内嵌对象图元 |  |
 | [ISCH_PrimitivePin](classes/ISCH_PrimitivePin.md) | 引脚图元 |  |
 | [ISCH_PrimitivePolygon](classes/ISCH_PrimitivePolygon.md) | 多边形（折线）图元 |  |
 | [ISCH_PrimitiveRectangle](classes/ISCH_PrimitiveRectangle.md) | 矩形图元 |  |
@@ -172,16 +173,20 @@
 | [EPCB_AutoRoutingCornerStyle](enums/EPCB_AutoRoutingCornerStyle.md) | 自动布线拐角风格 |  |
 | [EPCB_AutoRoutingExistingPrimitiveMode](enums/EPCB_AutoRoutingExistingPrimitiveMode.md) | 自动布线对已有导线/过孔的处理方式 |  |
 | [EPCB_AutoRoutingOptimization](enums/EPCB_AutoRoutingOptimization.md) | 自动布线效果优先级 |  |
+| [EPCB_DocumentCanvasUpdateCalculationActiveStatus](enums/EPCB_DocumentCanvasUpdateCalculationActiveStatus.md) | 画布更新计算功能状态 |  |
 | [EPCB_DocumentRatlineCalculatingActiveStatus](enums/EPCB_DocumentRatlineCalculatingActiveStatus.md) | 文档飞线计算功能状态 |  |
 | [EPCB_InactiveLayerDisplayMode](enums/EPCB_InactiveLayerDisplayMode.md) | 非激活层展示模式 |  |
 | [EPCB_LayerColorConfiguration](enums/EPCB_LayerColorConfiguration.md) | 图层颜色配置 |  |
 | [EPCB_LayerId](enums/EPCB_LayerId.md) | 图层 ID |  |
 | [EPCB_LayerStatus](enums/EPCB_LayerStatus.md) | 层状态 |  |
 | [EPCB_LayerType](enums/EPCB_LayerType.md) | 图层类型 |  |
+| [EPCB_MouseEventType](enums/EPCB_MouseEventType.md) | 鼠标事件类型 |  |
+| [EPCB_NetEventType](enums/EPCB_NetEventType.md) | 网络事件类型 |  |
 | [EPCB_PcbPlateType](enums/EPCB_PcbPlateType.md) | PCB 板材类型 |  |
 | [EPCB_PdfOutputMethod](enums/EPCB_PdfOutputMethod.md) | PDF 输出方式 |  |
 | [EPCB_PrimitiveArcInteractiveMode](enums/EPCB_PrimitiveArcInteractiveMode.md) | 圆弧交互模式 |  |
 | [EPCB_PrimitiveDimensionType](enums/EPCB_PrimitiveDimensionType.md) | 尺寸标注类型 |  |
+| [EPCB_PrimitiveEventType](enums/EPCB_PrimitiveEventType.md) | 图元事件类型 |  |
 | [EPCB_PrimitiveFillMode](enums/EPCB_PrimitiveFillMode.md) | 填充图元填充模式 |  |
 | [EPCB_PrimitivePadHeatWeldingConnectionMethod](enums/EPCB_PrimitivePadHeatWeldingConnectionMethod.md) | 焊盘热焊连接方式 |  |
 | [EPCB_PrimitivePadHoleType](enums/EPCB_PrimitivePadHoleType.md) | 焊盘钻孔类型 |  |
@@ -217,7 +222,7 @@
 | [ESYS_LogType](enums/ESYS_LogType.md) | 日志类型 |  |
 | [ESYS_NetlistType](enums/ESYS_NetlistType.md) | 网表类型 |  |
 | [ESYS_RightPanelTab](enums/ESYS_RightPanelTab.md) | 右侧面板标签页 |  |
-| [ESYS_ShortcutKeyEffectiveEditorDocumentType](enums/ESYS_ShortcutKeyEffectiveEditorDocumentType.md) | 快捷键生效页面范围 |  |
+| [ESYS_ShortcutKeyEffectiveEditorRange](enums/ESYS_ShortcutKeyEffectiveEditorRange.md) | 快捷键生效页面范围 |  |
 | [ESYS_ShortcutKeyEffectiveEditorScene](enums/ESYS_ShortcutKeyEffectiveEditorScene.md) | 快捷键生效场景范围 |  |
 | [ESYS_StartPageQuickStartItem](enums/ESYS_StartPageQuickStartItem.md) | 开始页快速启动项 |  |
 | [ESYS_Theme](enums/ESYS_Theme.md) | 主题 |  |
@@ -225,6 +230,10 @@
 | [ESYS_Unit](enums/ESYS_Unit.md) | 单位 |  |
 | [ESYS_WindowEventType](enums/ESYS_WindowEventType.md) | 窗口事件类型 |  |
 | [ESYS_WindowOpenTarget](enums/ESYS_WindowOpenTarget.md) | 打开窗口上下文目标 |  |
+| [NetportDeviceName](enums/NetportDeviceName.md) | 网络端口符号对应的器件名称 |  |
+| [SchToolBarDeviceName](enums/SchToolBarDeviceName.md) | 悬浮框特殊符号对应的器件名称 |  |
+| [createDesignPortal()](enums/createDesignPortal().md) | 创建一个组件化弹出窗口的通信入口（客户端 API）。  扩展可在任意环境（iframe / worker / Main）调用，返回一个 IDesignPortal 对象， 所有通信（发消息 + 收事件）均封装在对象内部，扩展无需感知 bus。  扩展结合 lc-editor-design-react 的 VirtualRender / 虚拟机组件使用：  ```tsx const portal = eda.sys_Dialog.createDesignPortal(); const root = new VirtualRender(); root.render(   <PortalContext.Provider value={portal}>     <MyDialog />   </PortalContext.Provider> ); ``` |  |
+| [registerDesignPortalHost()](enums/registerDesignPortalHost().md) | 注册组件化弹出窗口服务端（仅在 Main 环境调用一次）。  监听客户端（iframe / worker / Main）经 bus 发来的 create/update/detach 消息， 驱动 Main 端的 EditorDesignPortal 实际渲染组件，并将组件事件回传给客户端。 |  |
 
 
 ---
@@ -233,6 +242,17 @@
 
 | 接口名 | 描述 | 备注 |
 |--------|------|------|
+| [BoardProps](interfaces/BoardProps.md) | 分组面板：带标题的可折叠/分组容器 |  |
+| [ButtonProps](interfaces/ButtonProps.md) | 按钮组件：可点击触发的操作按钮 |  |
+| [CheckBoxProps](interfaces/CheckBoxProps.md) | 复选框组件：可勾选的状态控件 |  |
+| [ComponentPropsMap](interfaces/ComponentPropsMap.md) | 组件名 → Props 类型映射 作为 createComponent 泛型约束的唯一来源 |  |
+| [DialogProps](interfaces/DialogProps.md) | 对话框组件：带标题栏、可拖拽缩放的组合弹窗 |  |
+| [FlexItemProps](interfaces/FlexItemProps.md) | Flex 子项：Flex 布局中的单个子元素 |  |
+| [FlexProps](interfaces/FlexProps.md) | 布局容器：灵活的 Flex 布局容器 |  |
+| [GridItemProps](interfaces/GridItemProps.md) | Grid 子项：网格中的单个子元素 |  |
+| [GridProps](interfaces/GridProps.md) | 布局容器：固定列数的网格布局容器 |  |
+| [IconProps](interfaces/IconProps.md) | 图标配置：通过 URL 或 CSS class 指定图标 |  |
+| [IDesignPortal](interfaces/IDesignPortal.md) | 组件树操作契约。 |  |
 | [IDMT_BoardItem](interfaces/IDMT_BoardItem.md) | 板子属性 |  |
 | [IDMT_BriefProjectItem](interfaces/IDMT_BriefProjectItem.md) | 简略工程属性 |  |
 | [IDMT_EditorDocumentItem](interfaces/IDMT_EditorDocumentItem.md) | 编辑器文档对象 |  |
@@ -255,6 +275,7 @@
 | [ILIB_DeviceAssociationItem](interfaces/ILIB_DeviceAssociationItem.md) | 器件关联符号、封装属性 |  |
 | [ILIB_DeviceExtendPropertyItem](interfaces/ILIB_DeviceExtendPropertyItem.md) | 器件扩展属性 |  |
 | [ILIB_DeviceItem](interfaces/ILIB_DeviceItem.md) | 器件属性 |  |
+| [ILIB_DevicePropertiesForSearch](interfaces/ILIB_DevicePropertiesForSearch.md) | 可用于精确搜索的器件参数 |  |
 | [ILIB_DeviceSearchItem](interfaces/ILIB_DeviceSearchItem.md) | 搜索到的器件属性 |  |
 | [ILIB_ExtendLibrary3DModelFunctions](interfaces/ILIB_ExtendLibrary3DModelFunctions.md) | 外部库 3D 模型方法 |  |
 | [ILIB_ExtendLibraryCbbFunctions](interfaces/ILIB_ExtendLibraryCbbFunctions.md) | 外部库复用模块方法 |  |
@@ -270,6 +291,7 @@
 | [ILIB_ExtendLibrarySymbolFunctions](interfaces/ILIB_ExtendLibrarySymbolFunctions.md) | 外部库符号方法 |  |
 | [ILIB_ExtendLibraryUserIndex](interfaces/ILIB_ExtendLibraryUserIndex.md) | 外部库用户索引 |  |
 | [ILIB_FootprintItem](interfaces/ILIB_FootprintItem.md) | 封装属性 |  |
+| [ILIB_FootprintPropertiesForSearch](interfaces/ILIB_FootprintPropertiesForSearch.md) | 可用于精确搜索的封装参数 |  |
 | [ILIB_FootprintSearchItem](interfaces/ILIB_FootprintSearchItem.md) | 搜索到的封装属性 |  |
 | [ILIB_LibraryInfo](interfaces/ILIB_LibraryInfo.md) | 库信息 |  |
 | [ILIB_LibraryItem](interfaces/ILIB_LibraryItem.md) | 库属性 |  |
@@ -278,7 +300,10 @@
 | [ILIB_SimulationModelItem](interfaces/ILIB_SimulationModelItem.md) | 仿真模型属性 |  |
 | [ILIB_SimulationModelSearchItem](interfaces/ILIB_SimulationModelSearchItem.md) | 搜索到的仿真模型属性 |  |
 | [ILIB_SymbolItem](interfaces/ILIB_SymbolItem.md) | 符号属性 |  |
+| [ILIB_SymbolPropertiesForSearch](interfaces/ILIB_SymbolPropertiesForSearch.md) | 可用于精确搜索的符号参数 |  |
 | [ILIB_SymbolSearchItem](interfaces/ILIB_SymbolSearchItem.md) | 搜索到的符号属性 |  |
+| [ImageProps](interfaces/ImageProps.md) | 图片组件：展示单张图片 |  |
+| [InputProps](interfaces/InputProps.md) | 输入框组件：支持下拉、搜索、清除、前后缀等多种形态 |  |
 | [IPCB_AutoLayoutResult](interfaces/IPCB_AutoLayoutResult.md) | 自动布局结果 |  |
 | [IPCB_AutoRoutingProps](interfaces/IPCB_AutoRoutingProps.md) | 自动布线入参 |  |
 | [IPCB_AutoRoutingResult](interfaces/IPCB_AutoRoutingResult.md) | 自动布线结果 |  |
@@ -292,10 +317,19 @@
 | [IPCB_NetInfo](interfaces/IPCB_NetInfo.md) | 网络属性 |  |
 | [IPCB_PadPairGroupItem](interfaces/IPCB_PadPairGroupItem.md) | 焊盘对组属性 |  |
 | [IPCB_PadPairMinWireLengthItem](interfaces/IPCB_PadPairMinWireLengthItem.md) | 焊盘对最短导线长度属性 |  |
+| [IPCB_PhysicalStackingConfiguration](interfaces/IPCB_PhysicalStackingConfiguration.md) | 物理叠层配置 |  |
 | [IPCB_Primitive](interfaces/IPCB_Primitive.md) | PCB 图元 |  |
 | [IPCB_PrimitiveAPI](interfaces/IPCB_PrimitiveAPI.md) | PCB 图元接口 |  |
+| [IPCB_PrimitivePadHeatWelding](interfaces/IPCB_PrimitivePadHeatWelding.md) | 焊盘热焊优化参数 |  |
 | [IPCB_PrimitivePouredPourFill](interfaces/IPCB_PrimitivePouredPourFill.md) | 覆铜填充区域 |  |
 | [IPCB_PrimitiveSolderMaskAndPasteMaskExpansion](interfaces/IPCB_PrimitiveSolderMaskAndPasteMaskExpansion.md) | 阻焊/助焊扩展 |  |
+| [IPCB_SubstratePhysicalProperties](interfaces/IPCB_SubstratePhysicalProperties.md) | 基板物理属性 |  |
+| [IRawNet](interfaces/IRawNet.md) | 原始数据 - net |  |
+| [IRawPureSchematic](interfaces/IRawPureSchematic.md) | 原始数据 - pureSchematic |  |
+| [IRawSchematic](interfaces/IRawSchematic.md) | 原始数据 - schematic |  |
+| [IRawWire](interfaces/IRawWire.md) | 原始数据 - wire |  |
+| [ISCH_DrcError](interfaces/ISCH_DrcError.md) | DRC 错误条目 |  |
+| [ISCH_DrcErrorPrimitive](interfaces/ISCH_DrcErrorPrimitive.md) | DRC 错误涉及的图元 |  |
 | [ISCH_NetInfo](interfaces/ISCH_NetInfo.md) | 网络属性 |  |
 | [ISCH_Primitive](interfaces/ISCH_Primitive.md) | 原理图图元 |  |
 | [ISCH_PrimitiveAPI](interfaces/ISCH_PrimitiveAPI.md) | 原理图图元接口 |  |
@@ -306,19 +340,30 @@
 | [ISYS_HeaderMenuSub1MenuItem](interfaces/ISYS_HeaderMenuSub1MenuItem.md) | 顶部二级菜单项 |  |
 | [ISYS_HeaderMenuSub2MenuItem](interfaces/ISYS_HeaderMenuSub2MenuItem.md) | 顶部三级菜单项 |  |
 | [ISYS_HeaderMenuTopMenuItem](interfaces/ISYS_HeaderMenuTopMenuItem.md) | 顶部一级菜单项 |  |
-| [ISYS_LanguageKeyValuePairs](interfaces/ISYS_LanguageKeyValuePairs.md) | 语言数据键值对 |  |
 | [ISYS_LogLine](interfaces/ISYS_LogLine.md) | 日志行 |  |
 | [ISYS_MathBBox](interfaces/ISYS_MathBBox.md) | BBox（最小外接矩形） |  |
 | [ISYS_MathPoint](interfaces/ISYS_MathPoint.md) | 离散点 |  |
+| [ISYS_MathPolygonWithHoles](interfaces/ISYS_MathPolygonWithHoles.md) | 带孔洞的多边形 |  |
 | [ISYS_MessageBusTask](interfaces/ISYS_MessageBusTask.md) | 消息总线任务 |  |
 | [ISYS_MultilingualLanguagesData](interfaces/ISYS_MultilingualLanguagesData.md) | 多语言数据 |  |
-| [ISYS_ReactComponentizationDialogInterface](interfaces/ISYS_ReactComponentizationDialogInterface.md) | **_(ALPHA)_** React 组件化弹出窗口接口 |  |
-| [ISYS_ReactComponentizationDialogReactInstance](interfaces/ISYS_ReactComponentizationDialogReactInstance.md) | **_(ALPHA)_** React 实例接口 用于接收扩展的 React 实例 |  |
-| [ISYS_ReactComponentizationDialogReconcilerInstance](interfaces/ISYS_ReactComponentizationDialogReconcilerInstance.md) | **_(ALPHA)_** React Reconciler 实例接口 用于接收扩展的 react-reconciler 实例 |  |
-| [ISYS_ReactComponentizationDialogVirtualRender](interfaces/ISYS_ReactComponentizationDialogVirtualRender.md) | **_(ALPHA)_** VirtualRender 类接口 用于在虚拟环境中渲染 React 组件 |  |
-| [ISYS_ReactComponentizationDialogWorkerPortal](interfaces/ISYS_ReactComponentizationDialogWorkerPortal.md) | **_(ALPHA)_** WorkerPortal 类接口 用于管理组件的生命周期和事件处理 |  |
+| [ISYS_PcbComparisonResponse](interfaces/ISYS_PcbComparisonResponse.md) | PCB 对比响应 |  |
 | [ISYS_RightClickMenuItem](interfaces/ISYS_RightClickMenuItem.md) | 右键菜单项 |  |
+| [ISYS_ShortcutKeyData](interfaces/ISYS_ShortcutKeyData.md) | 快捷键数据 |  |
+| [ISYS_ShortcutKeyDataWithCallFn](interfaces/ISYS_ShortcutKeyDataWithCallFn.md) | 包含 CallFn 的快捷键数据 |  |
+| [ISYS_ShortcutKeyDataWithUserDefinedShortcutKey](interfaces/ISYS_ShortcutKeyDataWithUserDefinedShortcutKey.md) | 包含 userDefinedShortcutKey 的快捷键数据 |  |
 | [ISYS_WindowEventListenerRemovableObject](interfaces/ISYS_WindowEventListenerRemovableObject.md) | 窗口事件监听可移除对象 |  |
+| [ListChildren](interfaces/ListChildren.md) | 列表项：支持多级嵌套分组 |  |
+| [ListProps](interfaces/ListProps.md) | 列表组件：支持多级嵌套、图标、展开的列表 |  |
+| [ModalProps](interfaces/ModalProps.md) | 模态弹窗：可拖拽、可调整大小的顶层弹窗 |  |
+| [RadioGroupProps](interfaces/RadioGroupProps.md) | 单选组组件：一组互斥的单选选项 |  |
+| [RadioItem](interfaces/RadioItem.md) | 单选组中的单个选项 |  |
+| [ScrollerProps](interfaces/ScrollerProps.md) | 滚动组件：虚拟滚动列表，仅渲染可见行 |  |
+| [SelectListItem](interfaces/SelectListItem.md) | 下拉选项：支持多级嵌套分组 |  |
+| [SelectProps](interfaces/SelectProps.md) | 下拉选择器：基于输入框的下拉选择控件 |  |
+| [SlotProps](interfaces/SlotProps.md) | 插槽组件：为父组件提供具名内容占位 |  |
+| [StyleProps](interfaces/StyleProps.md) | 通用样式属性：可被布局容器等组件继承的样式集合 |  |
+| [TextAreaProps](interfaces/TextAreaProps.md) | 多行文本输入组件 |  |
+| [TextProps](interfaces/TextProps.md) | 文本组件：静态文本展示 |  |
 
 
 ---
@@ -327,7 +372,7 @@
 
 | 类型名 | 描述 | 备注 |
 |--------|------|------|
-| [LC_DESIGN_COMPONENTS](types/LC_DESIGN_COMPONENTS.md) |  |  |
+| [ISYS_LanguageKeyValuePairs](types/ISYS_LanguageKeyValuePairs.md) | 语言数据键值对 |  |
 | [TPCB_LayersInTheSelectable](types/TPCB_LayersInTheSelectable.md) | 可选中图层 |  |
 | [TPCB_LayersOfComponent](types/TPCB_LayersOfComponent.md) | 器件所属层 |  |
 | [TPCB_LayersOfCopper](types/TPCB_LayersOfCopper.md) | 铜箔所属层 |  |
@@ -341,11 +386,14 @@
 | [TPCB_LayersOfPad](types/TPCB_LayersOfPad.md) | 焊盘所属层 |  |
 | [TPCB_LayersOfRegion](types/TPCB_LayersOfRegion.md) | 区域所属层 |  |
 | [TPCB_LayerTypesOfInnerLayer](types/TPCB_LayerTypesOfInnerLayer.md) | 内层允许设置的图层类型 |  |
+| [TPCB_NumberOfCopperLayers](types/TPCB_NumberOfCopperLayers.md) | 铜箔层数 |  |
 | [TPCB_PolygonSourceArray](types/TPCB_PolygonSourceArray.md) | 单多边形源数组 |  |
 | [TPCB_PrimitiveDimensionCoordinateSet](types/TPCB_PrimitiveDimensionCoordinateSet.md) | 尺寸标注坐标集 |  |
 | [TPCB_PrimitivePadHole](types/TPCB_PrimitivePadHole.md) | 焊盘钻孔 |  |
 | [TPCB_PrimitivePadShape](types/TPCB_PrimitivePadShape.md) | 焊盘外形 |  |
 | [TPCB_PrimitiveSpecialPadShape](types/TPCB_PrimitiveSpecialPadShape.md) | 特殊焊盘外形 |  |
+| [TSYS_MathPolygonGroup](types/TSYS_MathPolygonGroup.md) | 多边形组 |  |
 | [TSYS_MathPolygonInput](types/TSYS_MathPolygonInput.md) | 多边形输入类型 |  |
+| [TSYS_PcbComparisonErrorCode](types/TSYS_PcbComparisonErrorCode.md) | PCB 对比失败错误码 |  |
 | [TSYS_ShortcutKeys](types/TSYS_ShortcutKeys.md) | 快捷键按键 |  |
 

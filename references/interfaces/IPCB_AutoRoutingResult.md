@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IPCB_AutoRoutingResult 
+export interface IPCB_AutoRoutingResult 
 ```
 
 ## Properties

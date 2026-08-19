@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_ClientUrl 
+export class SYS_ClientUrl 
 ```
 
 ## Remarks
@@ -60,12 +60,7 @@ Description
 ## Signature
 
 ```typescript
-request(url: string, method?: 'GET' | 'POST' | 'HEAD' | 'PUT' | 'DELETE' | 'PATCH', data?: string | Blob | FormData | URLSearchParams, options?: {
-        headers?: {
-            [header: string]: any;
-        };
-        integrity?: string;
-    }, succeedCallFn?: (data: Response) => void | Promise<void>): Promise<Response>;
+public request(url: string, method?: 'GET' | 'POST' | 'HEAD' | 'PUT' | 'DELETE' | 'PATCH', data?: string | Blob | FormData | URLSearchParams, options?: { headers?: undefined | { [key: string]: any }; integrity?: undefined | string }, succeedCallFn?: (data: Response) => void | Promise<void>): Promise<Response>;
 ```
 
 ## Parameters
@@ -141,7 +136,7 @@ options
 
 </td><td>
 
-\{ headers?: \{ \[header: string\]: any; \}; integrity?: string; \}
+\{ headers?: undefined \| \{ \[key: string\]: any \}; integrity?: undefined \| string \}
 
 
 </td><td>

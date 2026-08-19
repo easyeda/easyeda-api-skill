@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SCH_PrimitiveWire implements ISCH_PrimitiveAPI 
+export class SCH_PrimitiveWire implements ISCH_PrimitiveAPI 
 ```
 **Implements:** [ISCH\_PrimitiveAPI](../interfaces/ISCH_PrimitiveAPI.md)
 
@@ -142,7 +142,7 @@ Description
 ## Signature
 
 ```typescript
-create(line: Array<number> | Array<Array<number>>, net?: string, color?: string | null, lineWidth?: number | null, lineType?: ESCH_PrimitiveLineType | null): Promise<ISCH_PrimitiveWire | undefined>;
+public create(line: Array<number> | Array<Array<number>>, net?: string, color?: string | null, lineWidth?: number | null, lineType?: ESCH_PrimitiveLineType | null): Promise<ISCH_PrimitiveWire | undefined>;
 ```
 
 ## Parameters
@@ -175,7 +175,7 @@ Array&lt;number&gt; \| Array&lt;Array&lt;number&gt;&gt;
 
 </td><td>
 
-多段线坐标组，每段都是连续的一组 `[x1, y1, x2, y2, x3, y3]` 所描述的线，如若多段线彼此无任何连接则创建将会失败 1.类型为number\[\]\[\]的案例说明： 1.1 设置\[\[\],\[0,0,0,1\]\]，段1没有路径，非法 1.2 设置\[\[1\], \[0,0,0,1\]\]，段1只有x，缺少y，非法 1.3 设置\[\[0,0,-1,0\],\[0,0,1,1\]\]，段1为水平线，但段2为斜线，非法 1.4 设置\[\[0,0,-1,0,-1,1\], \[0,1,1,1\]\]，两段彼此无连接，非法 1.5 设置\[\[1,1\],\[1,2,2,2\]\]，段1只有一个点，忽略此段，段2为水平段，最终路径仅保留段2，合法 1.6 设置\[\[1,1\], \[1,2\]\]，段1只有一个点，忽略此段，段2亦忽略，最终路径为空，非法
+多段线坐标组，每段都是连续的一组 `[x1, y1, x2, y2, x3, y3]` 所描述的线，如若多段线彼此无任何连接则创建将会失败 类型 `Array<Array<number>>` 的案例说明： 1. `[[], [0, 0, 0, 1]]`<!-- -->，段 1 没有路径，非法 2. `[[1], [0, 0, 0, 1]]`<!-- -->，段 1 只有 x、缺少 y，非法 3. `[[0, 0, -1, 0], [0, 0, 1, 1]]`<!-- -->，段 1 为水平线，但段 2 为斜线，非法 4. `[[0, 0, -1, 0, -1, 1], [0, 1, 1, 1]]`<!-- -->，两段彼此无连接，非法 5. `[[1, 1], [1, 2, 2, 2]]`<!-- -->，段 1 只有一个点，忽略此段，段 2 为水平段，最终路径仅保留段 2，合法 6. `[[1, 1], [1, 2]]`<!-- -->，段 1 只有一个点，忽略此段，段 2 亦忽略，最终路径为空，非法
 
 
 </td></tr>
@@ -191,9 +191,7 @@ string
 
 </td><td>
 
-_(Optional)_ 网络名称，如若未指定，则遵循： 1. 没有坐标落在任何图元上，则默认为空网络； 2. 有一个坐标点在某个网络的图元上，则跟随该图元的网络； 3. 有多个坐标点在多个不同网络的图元上，则创建失败
-
-如若已指定，则遵循： 1. 有一个或多个坐标点在其他网络的图元上，且其他图元并未显式（通常指的是包含网络标签或网络端口）指定网络，则其他图元跟随指定的网络； 2. 如若其他图元指定了网络，则创建失败
+_(Optional)_ 网络名称，如若未指定，则遵循： 1. 没有坐标落在任何图元上，则默认为空网络； 2. 有一个坐标点在某个网络的图元上，则跟随该图元的网络； 3. 有多个坐标点在多个不同网络的图元上，则创建失败 如若已指定，则遵循： 1. 有一个或多个坐标点在其他网络的图元上，且其他图元并未显式（通常指的是包含网络标签或网络端口）指定网络，则其他图元跟随指定的网络； 2. 如若其他图元指定了网络，则创建失败
 
 
 </td></tr>
@@ -266,7 +264,7 @@ Promise&lt;[ISCH\_PrimitiveWire](./ISCH_PrimitiveWire.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-delete(primitiveIds: string | ISCH_PrimitiveWire | Array<string> | Array<ISCH_PrimitiveWire>): Promise<boolean>;
+public delete(primitiveIds: string | ISCH_PrimitiveWire | Array<string> | Array<ISCH_PrimitiveWire>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -324,7 +322,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-get(primitiveIds: string): Promise<ISCH_PrimitiveWire | undefined>;
+public get(primitiveIds: string): Promise<ISCH_PrimitiveWire | undefined>;
 ```
 
 ## Parameters
@@ -382,7 +380,7 @@ Promise&lt;[ISCH\_PrimitiveWire](./ISCH_PrimitiveWire.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitiveWire>>;
+public get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitiveWire>>;
 ```
 
 ## Parameters
@@ -444,7 +442,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveWire](./ISCH_PrimitiveWire.md)<!-- -->&gt;&g
 ## Signature
 
 ```typescript
-getAll(net?: string | Array<string>): Promise<Array<ISCH_PrimitiveWire>>;
+public getAll(net?: string | Array<string>): Promise<Array<ISCH_PrimitiveWire>>;
 ```
 
 ## Parameters
@@ -502,7 +500,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveWire](./ISCH_PrimitiveWire.md)<!-- -->&gt;&g
 ## Signature
 
 ```typescript
-getAllPrimitiveId(net?: string | Array<string>): Promise<Array<string>>;
+public getAllPrimitiveId(net?: string | Array<string>): Promise<Array<string>>;
 ```
 
 ## Parameters
@@ -560,13 +558,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 ## Signature
 
 ```typescript
-modify(primitiveId: string | ISCH_PrimitiveWire, property: {
-        line?: Array<number> | Array<Array<number>>;
-        net?: string;
-        color?: string | null;
-        lineWidth?: number | null;
-        lineType?: ESCH_PrimitiveLineType | null;
-    }): Promise<ISCH_PrimitiveWire | undefined>;
+public modify(primitiveId: string | ISCH_PrimitiveWire, property: { line?: undefined | number[] | number[][]; net?: undefined | string; color?: undefined | null | string; lineWidth?: undefined | null | number; lineType?: undefined | null | ESCH_PrimitiveLineType.SOLID | ESCH_PrimitiveLineType.DASHED | ESCH_PrimitiveLineType.DOTTED | ESCH_PrimitiveLineType.DOT_DASHED }): Promise<ISCH_PrimitiveWire | undefined>;
 ```
 
 ## Parameters
@@ -610,7 +602,7 @@ property
 
 </td><td>
 
-{ line?: Array&lt;number&gt; \| Array&lt;Array&lt;number&gt;&gt;; net?: string; color?: string \| null; lineWidth?: number \| null; lineType?: [ESCH\_PrimitiveLineType](../enums/ESCH_PrimitiveLineType.md) \| null; }
+{ line?: undefined \| number\[\] \| number\[\]\[\]; net?: undefined \| string; color?: undefined \| null \| string; lineWidth?: undefined \| null \| number; lineType?: undefined \| null \| [ESCH\_PrimitiveLineType.SOLID](../enums/ESCH_PrimitiveLineType.md) \| [ESCH\_PrimitiveLineType.DASHED](../enums/ESCH_PrimitiveLineType.md) \| [ESCH\_PrimitiveLineType.DOTTED](../enums/ESCH_PrimitiveLineType.md) \| [ESCH\_PrimitiveLineType.DOT\_DASHED](../enums/ESCH_PrimitiveLineType.md) }
 
 
 </td><td>

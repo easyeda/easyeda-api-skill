@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class LIB_Symbol 
+export class LIB_Symbol 
 ```
 
 ## Methods
@@ -183,7 +183,7 @@ Description
 ## Signature
 
 ```typescript
-copy(symbolUuid: string, libraryUuid: string, targetLibraryUuid: string, targetClassification?: ILIB_ClassificationIndex | Array<string>, newSymbolName?: string): Promise<string | undefined>;
+public copy(symbolUuid: string, libraryUuid: string, targetLibraryUuid: string, targetClassification?: ILIB_ClassificationIndex | Array<string>, newSymbolName?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -305,7 +305,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-create(libraryUuid: string, symbolName: string, classification?: ILIB_ClassificationIndex | Array<string>, symbolType?: ELIB_SymbolType, description?: string): Promise<string | undefined>;
+public create(libraryUuid: string, symbolName: string, classification?: ILIB_ClassificationIndex | Array<string>, symbolType?: ELIB_SymbolType, description?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -427,7 +427,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-delete(symbolUuid: string, libraryUuid: string): Promise<boolean>;
+public delete(symbolUuid: string, libraryUuid: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -501,7 +501,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-get(symbolUuid: string, libraryUuid?: string): Promise<ILIB_SymbolItem | undefined>;
+public get(symbolUuid: string, libraryUuid?: string): Promise<ILIB_SymbolItem | undefined>;
 ```
 
 ## Parameters
@@ -575,11 +575,7 @@ Promise&lt;[ILIB\_SymbolItem](../interfaces/ILIB_SymbolItem.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-getRenderImage(source: {
-        symbolUuid: string;
-        libraryUuid: string;
-        subPartName?: string;
-    }): Promise<Blob | undefined>;
+public getRenderImage(source: { symbolUuid: string; libraryUuid: string; subPartName?: undefined | string }): Promise<Blob | undefined>;
 ```
 
 ## Parameters
@@ -607,7 +603,7 @@ source
 
 </td><td>
 
-\{ symbolUuid: string; libraryUuid: string; subPartName?: string; \}
+\{ symbolUuid: string; libraryUuid: string; subPartName?: undefined \| string \}
 
 
 </td><td>
@@ -635,7 +631,7 @@ Promise&lt;Blob \| undefined&gt;
 ## Signature
 
 ```typescript
-modify(symbolUuid: string, libraryUuid: string, symbolName?: string, classification?: ILIB_ClassificationIndex | Array<string> | null, description?: string | null): Promise<boolean>;
+public modify(symbolUuid: string, libraryUuid: string, symbolName?: string, classification?: ILIB_ClassificationIndex | Array<string> | null, description?: string | null): Promise<boolean>;
 ```
 
 ## Parameters
@@ -761,7 +757,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-openInEditor(symbolUuid: string, libraryUuid: string, splitScreenId?: string): Promise<string | undefined>;
+public openInEditor(symbolUuid: string, libraryUuid: string, splitScreenId?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -851,7 +847,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-search(key: string, libraryUuid?: string, classification?: ILIB_ClassificationIndex | Array<string>, symbolType?: ELIB_SymbolType, itemsOfPage?: number, page?: number): Promise<Array<ILIB_SymbolSearchItem>>;
+public search(key: string, libraryUuid?: string, classification?: ILIB_ClassificationIndex | Array<string>, symbolType?: ELIB_SymbolType, itemsOfPage?: number, page?: number): Promise<Array<ILIB_SymbolSearchItem>>;
 ```
 
 ## Parameters
@@ -989,7 +985,7 @@ Promise&lt;Array&lt;[ILIB\_SymbolSearchItem](../interfaces/ILIB_SymbolSearchItem
 ## Signature
 
 ```typescript
-searchByProperties(properties: ILIB_SymbolPropertiesForSearch, libraryUuid?: string): Promise<Array<ILIB_SymbolSearchItem>>;
+public searchByProperties(properties: ILIB_SymbolPropertiesForSearch, libraryUuid?: string): Promise<Array<ILIB_SymbolSearchItem>>;
 ```
 
 ## Parameters
@@ -1017,7 +1013,7 @@ properties
 
 </td><td>
 
-ILIB\_SymbolPropertiesForSearch
+[ILIB\_SymbolPropertiesForSearch](../interfaces/ILIB_SymbolPropertiesForSearch.md)
 
 
 </td><td>
@@ -1063,7 +1059,7 @@ Promise&lt;Array&lt;[ILIB\_SymbolSearchItem](../interfaces/ILIB_SymbolSearchItem
 ## Signature
 
 ```typescript
-updateDocumentSource(symbolUuid: string, libraryUuid: string, documentSource: string): Promise<boolean | undefined>;
+public updateDocumentSource(symbolUuid: string, libraryUuid: string, documentSource: string): Promise<boolean | undefined>;
 ```
 
 ## Parameters

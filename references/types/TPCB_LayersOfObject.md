@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-type TPCB_LayersOfObject = EPCB_LayerId.TOP_SILKSCREEN | EPCB_LayerId.BOTTOM_SILKSCREEN | EPCB_LayerId.DOCUMENT;
+export type TPCB_LayersOfObject = EPCB_LayerId.TOP_SILKSCREEN | EPCB_LayerId.BOTTOM_SILKSCREEN | EPCB_LayerId.DOCUMENT;
 ```
 ## References
 

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ILIB_FootprintSearchItem 
+export interface ILIB_FootprintSearchItem 
 ```
 
 ## Properties

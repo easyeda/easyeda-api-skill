@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SCH_PrimitiveComponent implements ISCH_PrimitiveAPI 
+export class SCH_PrimitiveComponent implements ISCH_PrimitiveAPI 
 ```
 **Implements:** [ISCH\_PrimitiveAPI](../interfaces/ISCH_PrimitiveAPI.md)
 
@@ -214,7 +214,7 @@ Description
 </td></tr>
 <tr><td>
 
-[placeCbbSchematicPage(cbbSchematicPage, x, y)](./SCH_PrimitiveComponent.md)
+[placeCbbSchematicPage(cbbSchematicPage, x, y, props)](./SCH_PrimitiveComponent.md)
 
 
 </td><td>
@@ -369,15 +369,7 @@ Description
 ## Signature
 
 ```typescript
-create(component: {
-        libraryType?: ELIB_LibraryType.DEVICE;
-        libraryUuid: string;
-        uuid: string;
-    } | ILIB_DeviceItem | ILIB_DeviceSearchItem | {
-        libraryType: ELIB_LibraryType.SYMBOL;
-        libraryUuid: string;
-        uuid: string;
-    } | ILIB_SymbolItem | ILIB_SymbolSearchItem, x: number, y: number, subPartName?: string, rotation?: number, mirror?: boolean, addIntoBom?: boolean, addIntoPcb?: boolean): Promise<ISCH_PrimitiveComponent | undefined>;
+public create(component: { libraryType?: undefined | ELIB_LibraryType.DEVICE; libraryUuid: string; uuid: string } | ILIB_DeviceItem | ILIB_DeviceSearchItem | { libraryType: ELIB_LibraryType.SYMBOL; libraryUuid: string; uuid: string } | ILIB_SymbolItem | ILIB_SymbolSearchItem, x: number, y: number, subPartName?: string, rotation?: number, mirror?: boolean, addIntoBom?: boolean, addIntoPcb?: boolean): Promise<ISCH_PrimitiveComponent | undefined>;
 ```
 
 ## Parameters
@@ -405,7 +397,7 @@ component
 
 </td><td>
 
-{ libraryType?: [ELIB\_LibraryType.DEVICE](../enums/ELIB_LibraryType.md)<!-- -->; libraryUuid: string; uuid: string; } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md) \| { libraryType: [ELIB\_LibraryType.SYMBOL](../enums/ELIB_LibraryType.md)<!-- -->; libraryUuid: string; uuid: string; } \| [ILIB\_SymbolItem](../interfaces/ILIB_SymbolItem.md) \| [ILIB\_SymbolSearchItem](../interfaces/ILIB_SymbolSearchItem.md)
+{ libraryType?: undefined \| [ELIB\_LibraryType.DEVICE](../enums/ELIB_LibraryType.md)<!-- -->; libraryUuid: string; uuid: string } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md) \| { libraryType: [ELIB\_LibraryType.SYMBOL](../enums/ELIB_LibraryType.md)<!-- -->; libraryUuid: string; uuid: string } \| [ILIB\_SymbolItem](../interfaces/ILIB_SymbolItem.md) \| [ILIB\_SymbolSearchItem](../interfaces/ILIB_SymbolSearchItem.md)
 
 
 </td><td>
@@ -547,11 +539,7 @@ Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined
 ## Signature
 
 ```typescript
-createCbbSymbol(cbbSymbol: {
-        libraryUuid: string;
-        cbbUuid: string;
-        uuid?: string;
-    }, x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveCbbSymbolComponent | undefined>;
+public createCbbSymbol(cbbSymbol: { libraryUuid: string; cbbUuid: string; uuid?: undefined | string }, x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveCbbSymbolComponent | undefined>;
 ```
 
 ## Parameters
@@ -579,12 +567,12 @@ cbbSymbol
 
 </td><td>
 
-\{ libraryUuid: string; cbbUuid: string; uuid?: string; \}
+\{ libraryUuid: string; cbbUuid: string; uuid?: undefined \| string \}
 
 
 </td><td>
 
-关联库复用模块符号，libraryUuid 是 CBB 工程所在库的 UUID，cbbUuid 是 CBB 工程的 UUID，uuid 是 CBB 工程内符号的 UUID，name 是符号的显示名称
+关联库复用模块符号，`libraryUuid` 是 CBB 工程所在库的 UUID，`cbbUuid` 是 CBB 工程的 UUID，`uuid` 是 CBB 工程内符号的 UUID
 
 
 </td></tr>
@@ -673,7 +661,7 @@ Promise&lt;[ISCH\_PrimitiveCbbSymbolComponent](./ISCH_PrimitiveCbbSymbolComponen
 ## Signature
 
 ```typescript
-createNetFlag(identification: 'Power' | 'Ground' | 'AnalogGround' | 'ProtectGround', net: string, x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveComponent | undefined>;
+public createNetFlag(identification: 'Power' | 'Ground' | 'AnalogGround' | 'ProtectGround', net: string, x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveComponent | undefined>;
 ```
 
 ## Parameters
@@ -811,7 +799,7 @@ Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined
 ## Signature
 
 ```typescript
-createNetPort(direction: 'IN' | 'OUT' | 'BI', net: string, x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveComponent | undefined>;
+public createNetPort(direction: 'IN' | 'OUT' | 'BI', net: string, x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveComponent | undefined>;
 ```
 
 ## Parameters
@@ -949,7 +937,7 @@ Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined
 ## Signature
 
 ```typescript
-createShortCircuitFlag(x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveComponent | undefined>;
+public createShortCircuitFlag(x: number, y: number, rotation?: number, mirror?: boolean): Promise<ISCH_PrimitiveComponent | undefined>;
 ```
 
 ## Parameters
@@ -1055,7 +1043,7 @@ Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined
 ## Signature
 
 ```typescript
-delete(primitiveIds: string | ISCH_PrimitiveComponent | Array<string> | Array<ISCH_PrimitiveComponent>): Promise<boolean>;
+public delete(primitiveIds: string | ISCH_PrimitiveComponent | Array<string> | Array<ISCH_PrimitiveComponent>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1113,7 +1101,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-get(primitiveIds: string): Promise<ISCH_PrimitiveComponent | undefined>;
+public get(primitiveIds: string): Promise<ISCH_PrimitiveComponent | undefined>;
 ```
 
 ## Parameters
@@ -1171,7 +1159,7 @@ Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined
 ## Signature
 
 ```typescript
-get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitiveComponent>>;
+public get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitiveComponent>>;
 ```
 
 ## Parameters
@@ -1233,7 +1221,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)<!--
 ## Signature
 
 ```typescript
-getAll(componentType?: ESCH_PrimitiveComponentType, allSchematicPages?: boolean): Promise<Array<ISCH_PrimitiveComponent>>;
+public getAll(componentType?: ESCH_PrimitiveComponentType, allSchematicPages?: boolean): Promise<Array<ISCH_PrimitiveComponent>>;
 ```
 
 ## Parameters
@@ -1307,7 +1295,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)<!--
 ## Signature
 
 ```typescript
-getAllPinsByPrimitiveId(primitiveId: string): Promise<Array<ISCH_PrimitiveComponentPin> | undefined>;
+public getAllPinsByPrimitiveId(primitiveId: string): Promise<Array<ISCH_PrimitiveComponentPin> | undefined>;
 ```
 
 ## Parameters
@@ -1365,7 +1353,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveComponentPin](./ISCH_PrimitiveComponentPin.m
 ## Signature
 
 ```typescript
-getAllPrimitiveId(componentType?: ESCH_PrimitiveComponentType, allSchematicPages?: boolean): Promise<Array<string>>;
+public getAllPrimitiveId(componentType?: ESCH_PrimitiveComponentType, allSchematicPages?: boolean): Promise<Array<string>>;
 ```
 
 ## Parameters
@@ -1439,7 +1427,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 ## Signature
 
 ```typescript
-getAllPropertyNames(): Promise<Array<string>>;
+public getAllPropertyNames(): Promise<Array<string>>;
 ```
 
 
@@ -1460,22 +1448,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 ## Signature
 
 ```typescript
-modify(primitiveId: string | ISCH_PrimitiveComponent, property: {
-        x?: number;
-        y?: number;
-        rotation?: number;
-        mirror?: boolean;
-        addIntoBom?: boolean;
-        addIntoPcb?: boolean;
-        designator?: string | null;
-        name?: string | null;
-        uniqueId?: string | null;
-        manufacturer?: string | null;
-        manufacturerId?: string | null;
-        supplier?: string | null;
-        supplierId?: string | null;
-        otherProperty?: Record<string, string | number | boolean>;
-    }): Promise<ISCH_PrimitiveComponent | undefined>;
+public modify(primitiveId: string | ISCH_PrimitiveComponent, property: { x?: undefined | number; y?: undefined | number; rotation?: undefined | number; mirror?: undefined | false | true; addIntoBom?: undefined | false | true; addIntoPcb?: undefined | false | true; designator?: undefined | null | string; name?: undefined | null | string; uniqueId?: undefined | null | string; manufacturer?: undefined | null | string; manufacturerId?: undefined | null | string; supplier?: undefined | null | string; supplierId?: undefined | null | string; otherProperty?: undefined | Record<string, string | number | false | true> }): Promise<ISCH_PrimitiveComponent | undefined>;
 ```
 
 ## Parameters
@@ -1519,7 +1492,7 @@ property
 
 </td><td>
 
-{ x?: number; y?: number; rotation?: number; mirror?: boolean; addIntoBom?: boolean; addIntoPcb?: boolean; designator?: string \| null; name?: string \| null; uniqueId?: string \| null; manufacturer?: string \| null; manufacturerId?: string \| null; supplier?: string \| null; supplierId?: string \| null; otherProperty?: Record&lt;string, string \| number \| boolean&gt;; }
+{ x?: undefined \| number; y?: undefined \| number; rotation?: undefined \| number; mirror?: undefined \| false \| true; addIntoBom?: undefined \| false \| true; addIntoPcb?: undefined \| false \| true; designator?: undefined \| null \| string; name?: undefined \| null \| string; uniqueId?: undefined \| null \| string; manufacturer?: undefined \| null \| string; manufacturerId?: undefined \| null \| string; supplier?: undefined \| null \| string; supplierId?: undefined \| null \| string; otherProperty?: undefined \| Record&lt;string, string \| number \| false \| true&gt; }
 
 
 </td><td>
@@ -1551,11 +1524,7 @@ Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined
 ## Signature
 
 ```typescript
-placeCbbSchematicPage(cbbSchematicPage: {
-        libraryUuid: string;
-        cbbUuid: string;
-        uuid: string;
-    }, x: number, y: number): Promise<boolean>;
+public placeCbbSchematicPage(cbbSchematicPage: { libraryUuid: string; cbbUuid: string; uuid: string }, x: number, y: number, props?: { reimportWhenNameRepeated?: undefined | false | true }): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1583,12 +1552,12 @@ cbbSchematicPage
 
 </td><td>
 
-\{ libraryUuid: string; cbbUuid: string; uuid: string; \}
+\{ libraryUuid: string; cbbUuid: string; uuid: string \}
 
 
 </td><td>
 
-复用模块原理图图页
+复用模块原理图图页，`libraryUuid` 是 CBB 工程所在库的 UUID，`cbbUuid` 是 CBB 工程的 UUID，`uuid` 是 CBB 工程内原理图图页的 UUID
 
 
 </td></tr>
@@ -1624,6 +1593,22 @@ number
 
 
 </td></tr>
+<tr><td>
+
+props
+
+
+</td><td>
+
+\{ reimportWhenNameRepeated?: undefined \| false \| true \}
+
+
+</td><td>
+
+_(Optional)_ 放置参数：`reimportWhenNameRepeated` 当存在重名模块时是否重新引入，默认 `true` ADD since EDA v4.2
+
+
+</td></tr>
 </tbody></table>
 
 
@@ -1645,10 +1630,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-placeComponentWithMouse(component: {
-        libraryUuid: string;
-        uuid: string;
-    } | ILIB_DeviceItem | ILIB_DeviceSearchItem, subPartName?: string): Promise<boolean>;
+public placeComponentWithMouse(component: { libraryUuid: string; uuid: string } | ILIB_DeviceItem | ILIB_DeviceSearchItem, subPartName?: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1676,7 +1658,7 @@ component
 
 </td><td>
 
-{ libraryUuid: string; uuid: string; } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)
+{ libraryUuid: string; uuid: string } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)
 
 
 </td><td>
@@ -1728,12 +1710,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-placeSymbolWithMouse(symbol: {
-        libraryUuid: string;
-        uuid: string;
-    } | ILIB_SymbolItem | ILIB_SymbolSearchItem, subPartName?: string, properties?: {
-        [key: string]: boolean | number | string | undefined;
-    }): Promise<boolean>;
+public placeSymbolWithMouse(symbol: { libraryUuid: string; uuid: string } | ILIB_SymbolItem | ILIB_SymbolSearchItem, subPartName?: string, properties?: Record<string, boolean | number | string | undefined>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1761,7 +1738,7 @@ symbol
 
 </td><td>
 
-{ libraryUuid: string; uuid: string; } \| [ILIB\_SymbolItem](../interfaces/ILIB_SymbolItem.md) \| [ILIB\_SymbolSearchItem](../interfaces/ILIB_SymbolSearchItem.md)
+{ libraryUuid: string; uuid: string } \| [ILIB\_SymbolItem](../interfaces/ILIB_SymbolItem.md) \| [ILIB\_SymbolSearchItem](../interfaces/ILIB_SymbolSearchItem.md)
 
 
 </td><td>
@@ -1793,7 +1770,7 @@ properties
 
 </td><td>
 
-\{ \[key: string\]: boolean \| number \| string \| undefined; \}
+Record&lt;string, boolean \| number \| string \| undefined&gt;
 
 
 </td><td>
@@ -1814,11 +1791,9 @@ Promise&lt;boolean&gt;
 
 ## Remarks
 
-ADD since API v0.2.26
-
 本接口模拟前端点击放置按钮，指定的符号将绑定到当前鼠标，并在用户后续点击时放置于画布
 
-本接口的返回时机并不会等待用户的放置操作，一旦符号被绑定到鼠标，本接口将立即返回 `true` 的结果
+本接口的返回时机并不会等待用户的放置操作，一旦符号被绑定到鼠标，本接口将立即返回 `true` 的结果 ADD since API v0.2.26
 
 ### setnetflagcomponentuuid_analogground
 
@@ -1831,10 +1806,7 @@ ADD since API v0.2.26
 ## Signature
 
 ```typescript
-setNetFlagComponentUuid_AnalogGround(component: {
-        libraryUuid: string;
-        uuid: string;
-    } | ILIB_DeviceItem | ILIB_DeviceSearchItem): Promise<boolean>;
+public setNetFlagComponentUuid_AnalogGround(component: { libraryUuid: string; uuid: string } | ILIB_DeviceItem | ILIB_DeviceSearchItem): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1862,7 +1834,7 @@ component
 
 </td><td>
 
-{ libraryUuid: string; uuid: string; } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)
+{ libraryUuid: string; uuid: string } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)
 
 
 </td><td>
@@ -1892,10 +1864,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-setNetFlagComponentUuid_Ground(component: {
-        libraryUuid: string;
-        uuid: string;
-    } | ILIB_DeviceItem | ILIB_DeviceSearchItem): Promise<boolean>;
+public setNetFlagComponentUuid_Ground(component: { libraryUuid: string; uuid: string } | ILIB_DeviceItem | ILIB_DeviceSearchItem): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1923,7 +1892,7 @@ component
 
 </td><td>
 
-{ libraryUuid: string; uuid: string; } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)
+{ libraryUuid: string; uuid: string } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)
 
 
 </td><td>
@@ -1953,10 +1922,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-setNetFlagComponentUuid_Power(component: {
-        libraryUuid: string;
-        uuid: string;
-    } | ILIB_DeviceItem | ILIB_DeviceSearchItem): Promise<boolean>;
+public setNetFlagComponentUuid_Power(component: { libraryUuid: string; uuid: string } | ILIB_DeviceItem | ILIB_DeviceSearchItem): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1984,7 +1950,7 @@ component
 
 </td><td>
 
-{ libraryUuid: string; uuid: string; } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)
+{ libraryUuid: string; uuid: string } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)
 
 
 </td><td>
@@ -2014,10 +1980,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-setNetFlagComponentUuid_ProtectGround(component: {
-        libraryUuid: string;
-        uuid: string;
-    } | ILIB_DeviceItem | ILIB_DeviceSearchItem): Promise<boolean>;
+public setNetFlagComponentUuid_ProtectGround(component: { libraryUuid: string; uuid: string } | ILIB_DeviceItem | ILIB_DeviceSearchItem): Promise<boolean>;
 ```
 
 ## Parameters
@@ -2045,7 +2008,7 @@ component
 
 </td><td>
 
-{ libraryUuid: string; uuid: string; } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)
+{ libraryUuid: string; uuid: string } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)
 
 
 </td><td>
@@ -2075,10 +2038,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-setNetPortComponentUuid_BI(component: {
-        libraryUuid: string;
-        uuid: string;
-    } | ILIB_DeviceItem | ILIB_DeviceSearchItem): Promise<boolean>;
+public setNetPortComponentUuid_BI(component: { libraryUuid: string; uuid: string } | ILIB_DeviceItem | ILIB_DeviceSearchItem): Promise<boolean>;
 ```
 
 ## Parameters
@@ -2106,7 +2066,7 @@ component
 
 </td><td>
 
-{ libraryUuid: string; uuid: string; } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)
+{ libraryUuid: string; uuid: string } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)
 
 
 </td><td>
@@ -2136,10 +2096,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-setNetPortComponentUuid_IN(component: {
-        libraryUuid: string;
-        uuid: string;
-    } | ILIB_DeviceItem | ILIB_DeviceSearchItem): Promise<boolean>;
+public setNetPortComponentUuid_IN(component: { libraryUuid: string; uuid: string } | ILIB_DeviceItem | ILIB_DeviceSearchItem): Promise<boolean>;
 ```
 
 ## Parameters
@@ -2167,7 +2124,7 @@ component
 
 </td><td>
 
-{ libraryUuid: string; uuid: string; } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)
+{ libraryUuid: string; uuid: string } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)
 
 
 </td><td>
@@ -2197,10 +2154,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-setNetPortComponentUuid_OUT(component: {
-        libraryUuid: string;
-        uuid: string;
-    } | ILIB_DeviceItem | ILIB_DeviceSearchItem): Promise<boolean>;
+public setNetPortComponentUuid_OUT(component: { libraryUuid: string; uuid: string } | ILIB_DeviceItem | ILIB_DeviceSearchItem): Promise<boolean>;
 ```
 
 ## Parameters
@@ -2228,7 +2182,7 @@ component
 
 </td><td>
 
-{ libraryUuid: string; uuid: string; } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)
+{ libraryUuid: string; uuid: string } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)
 
 
 </td><td>

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class IPCB_PrimitiveComponentPad extends IPCB_PrimitivePad 
+export class IPCB_PrimitiveComponentPad extends IPCB_PrimitivePad 
 ```
 **Extends:** [IPCB\_PrimitivePad](./IPCB_PrimitivePad.md)
 
@@ -184,7 +184,7 @@ protected readonly primitiveType: EPCB_PrimitiveType.COMPONENT_PAD;
 ## Signature
 
 ```typescript
-done(): Promise<IPCB_PrimitiveComponentPad>;
+public done(): Promise<IPCB_PrimitiveComponentPad>;
 ```
 
 
@@ -205,7 +205,7 @@ Promise&lt;[IPCB\_PrimitiveComponentPad](./IPCB_PrimitiveComponentPad.md)<!-- --
 ## Signature
 
 ```typescript
-getConnectedPrimitives(onlyCentreConnection: true): Promise<Array<IPCB_PrimitiveLine | IPCB_PrimitiveArc | IPCB_PrimitiveVia>>;
+public getConnectedPrimitives(onlyCentreConnection: true): Promise<Array<IPCB_PrimitiveLine | IPCB_PrimitiveArc | IPCB_PrimitiveVia>>;
 ```
 
 ## Parameters
@@ -261,7 +261,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md) \| [IPCB\_Pri
 ## Signature
 
 ```typescript
-getConnectedPrimitives(onlyCentreConnection: false): Promise<Array<IPCB_PrimitiveLine | IPCB_PrimitiveArc | IPCB_PrimitiveVia | IPCB_PrimitivePolyline | IPCB_PrimitiveFill>>;
+public getConnectedPrimitives(onlyCentreConnection: false): Promise<Array<IPCB_PrimitiveLine | IPCB_PrimitiveArc | IPCB_PrimitiveVia | IPCB_PrimitivePolyline | IPCB_PrimitiveFill>>;
 ```
 
 ## Parameters
@@ -313,7 +313,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md) \| [IPCB\_Pri
 ## Signature
 
 ```typescript
-getState_ParentComponentPrimitiveId(): string;
+public getState_ParentComponentPrimitiveId(): string;
 ```
 
 
@@ -332,7 +332,7 @@ string
 ## Signature
 
 ```typescript
-setState_ParentComponentPrimitiveId(): IPCB_PrimitiveComponentPad;
+public setState_ParentComponentPrimitiveId(): IPCB_PrimitiveComponentPad;
 ```
 
 

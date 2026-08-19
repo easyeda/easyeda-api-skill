@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class IPCB_PrimitiveRegion implements IPCB_Primitive 
+export class IPCB_PrimitiveRegion implements IPCB_Primitive 
 ```
 **Implements:** [IPCB\_Primitive](../interfaces/IPCB_Primitive.md)
 
@@ -355,7 +355,7 @@ Description
 ## Signature
 
 ```typescript
-convertToFill(): Promise<IPCB_PrimitiveFill>;
+public convertToFill(): Promise<IPCB_PrimitiveFill>;
 ```
 
 
@@ -376,7 +376,7 @@ Promise&lt;[IPCB\_PrimitiveFill](./IPCB_PrimitiveFill.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-convertToPolyline(): Promise<IPCB_PrimitivePolyline>;
+public convertToPolyline(): Promise<IPCB_PrimitivePolyline>;
 ```
 
 
@@ -397,7 +397,7 @@ Promise&lt;[IPCB\_PrimitivePolyline](./IPCB_PrimitivePolyline.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-convertToPour(): Promise<IPCB_PrimitivePour>;
+public convertToPour(): Promise<IPCB_PrimitivePour>;
 ```
 
 
@@ -418,7 +418,7 @@ Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-done(): Promise<IPCB_PrimitiveRegion>;
+public done(): Promise<IPCB_PrimitiveRegion>;
 ```
 
 
@@ -437,7 +437,7 @@ Promise&lt;[IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getState_ComplexPolygon(): IPCB_Polygon;
+public getState_ComplexPolygon(): IPCB_Polygon;
 ```
 
 
@@ -456,7 +456,7 @@ getState_ComplexPolygon(): IPCB_Polygon;
 ## Signature
 
 ```typescript
-getState_Layer(): TPCB_LayersOfRegion;
+public getState_Layer(): TPCB_LayersOfRegion;
 ```
 
 
@@ -475,7 +475,7 @@ getState_Layer(): TPCB_LayersOfRegion;
 ## Signature
 
 ```typescript
-getState_LineWidth(): number;
+public getState_LineWidth(): number;
 ```
 
 
@@ -494,7 +494,7 @@ number
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -513,7 +513,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveLock(): boolean;
+public getState_PrimitiveLock(): boolean;
 ```
 
 
@@ -532,7 +532,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): EPCB_PrimitiveType;
+public getState_PrimitiveType(): EPCB_PrimitiveType;
 ```
 
 
@@ -551,7 +551,7 @@ getState_PrimitiveType(): EPCB_PrimitiveType;
 ## Signature
 
 ```typescript
-getState_RegionName(): string | undefined;
+public getState_RegionName(): string | undefined;
 ```
 
 
@@ -570,7 +570,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-getState_RuleType(): Array<EPCB_PrimitiveRegionRuleType>;
+public getState_RuleType(): Array<EPCB_PrimitiveRegionRuleType>;
 ```
 
 
@@ -589,7 +589,7 @@ Array&lt;[EPCB\_PrimitiveRegionRuleType](../enums/EPCB_PrimitiveRegionRuleType.m
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -610,7 +610,7 @@ boolean
 ## Signature
 
 ```typescript
-reset(): Promise<IPCB_PrimitiveRegion>;
+public reset(): Promise<IPCB_PrimitiveRegion>;
 ```
 
 
@@ -631,7 +631,7 @@ Promise&lt;[IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_ComplexPolygon(complexPolygon: IPCB_Polygon): IPCB_PrimitiveRegion;
+public setState_ComplexPolygon(complexPolygon: IPCB_Polygon): IPCB_PrimitiveRegion;
 ```
 
 ## Parameters
@@ -689,7 +689,7 @@ complexPolygon
 ## Signature
 
 ```typescript
-setState_Layer(layer: TPCB_LayersOfRegion): IPCB_PrimitiveRegion;
+public setState_Layer(layer: TPCB_LayersOfRegion): IPCB_PrimitiveRegion;
 ```
 
 ## Parameters
@@ -747,7 +747,7 @@ layer
 ## Signature
 
 ```typescript
-setState_LineWidth(lineWidth: number): IPCB_PrimitiveRegion;
+public setState_LineWidth(lineWidth: number): IPCB_PrimitiveRegion;
 ```
 
 ## Parameters
@@ -805,7 +805,7 @@ number
 ## Signature
 
 ```typescript
-setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitiveRegion;
+public setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitiveRegion;
 ```
 
 ## Parameters
@@ -863,7 +863,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_RegionName(regionName?: string): IPCB_PrimitiveRegion;
+public setState_RegionName(regionName?: string): IPCB_PrimitiveRegion;
 ```
 
 ## Parameters
@@ -927,7 +927,7 @@ _(Optional)_ 区域名称
 ## Signature
 
 ```typescript
-setState_RuleType(ruleType: Array<EPCB_PrimitiveRegionRuleType>): IPCB_PrimitiveRegion;
+public setState_RuleType(ruleType: Array<EPCB_PrimitiveRegionRuleType>): IPCB_PrimitiveRegion;
 ```
 
 ## Parameters
@@ -983,7 +983,7 @@ Array&lt;[EPCB\_PrimitiveRegionRuleType](../enums/EPCB_PrimitiveRegionRuleType.m
 ## Signature
 
 ```typescript
-toAsync(): IPCB_PrimitiveRegion;
+public toAsync(): IPCB_PrimitiveRegion;
 ```
 
 
@@ -1002,7 +1002,7 @@ toAsync(): IPCB_PrimitiveRegion;
 ## Signature
 
 ```typescript
-toSync(): IPCB_PrimitiveRegion;
+public toSync(): IPCB_PrimitiveRegion;
 ```
 
 

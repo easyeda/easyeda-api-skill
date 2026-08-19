@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ILIB_3DModelItem 
+export interface ILIB_3DModelItem 
 ```
 
 ## Properties

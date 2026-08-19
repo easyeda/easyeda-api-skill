@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_Setting 
+export class SYS_Setting 
 ```
 
 ## Methods
@@ -57,7 +57,7 @@ Description
 ## Signature
 
 ```typescript
-restoreDefault(): Promise<boolean>;
+public restoreDefault(): Promise<boolean>;
 ```
 
 

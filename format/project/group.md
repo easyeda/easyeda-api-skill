@@ -1,35 +1,35 @@
-# 元件分组
+# Component Grouping
 
-## 文档头
+## Document Header
 
 ```json
 { "type": "DOCHEAD" }||{ "docType": "COMPONENT_GROUP", "uuid": "UUID", "client": "clientID" }|
 ```
 
-1. type：`DOCHEAD`，文档头标识
-2. docType：`COMPONENT_GROUP` 元件分组
-3. uuid: 唯一标识，随机 id
-4. client：最终一致性的一个终端标识
+1. type: `DOCHEAD`, document header identifier.
+2. docType: `COMPONENT_GROUP` component grouping.
+3. uuid: unique identifier, random id.
+4. client: terminal identifier for eventual consistency.
 
-### META 基本信息
+### META Basic Information
 
 ```json
 { "type": "META", "ticket": 1 }||
 {
-	/** 名称 */
+	/** Name */
 	"title": string,
-	/** 子 元件分组的 父 元件分组 uuid */
+	/** Parent component group uuid of the child component group */
 	"parent": string,
-	/** 属于直接变体的元件分组 不参与 元件分组树构建 */
+	/** Component groups belonging directly to a variant do not participate in the component group tree */
 	"belong": string,
-	/** 元件分组树中排序 */
+	/** Sort order in the component group tree */
 	"zIndex": number,
-	/** 原理图 */
+	/** Schematic */
 	"schematicId": string,
 }|
 ```
 
-### GROUP_INDEX 元件分组在变体的排序
+### GROUP_INDEX Sorting of Component Groups in Variants
 
 ```json
 { "type": "GROUP_INDEX", "ticket": 1, "id": "variantId" }||
@@ -38,22 +38,22 @@
 }|
 ```
 
-1. type：`GROUP_INDEX`
-2. ticket: 逻辑时钟
-3. id：变体 uuid
-4. zIndex：在变体中的排序
+1. type: `GROUP_INDEX`
+2. ticket: logical clock.
+3. id: variant uuid.
+4. zIndex: sort order within the variant.
 
-### GROUP_DATA 属性数据
+### GROUP_DATA Attribute Data
 
 ```json
 { "type": "GROUP_DATA", "id": "e176@uuid",  "ticket": 1 }||data
 ```
 
-1. type `GROUP_DATA` 属性数据
-2. id 组合 id,以`@`分割：
-    1. 第一个是图元 id
-    2. 第二个是实例页 id
-3. data 属性覆盖，数据签名为 `{ [key: string]: string }| `
+1. type `GROUP_DATA` attribute data.
+2. id combined id, separated by `@`:
+    1. The first is the primitive ID.
+    2. The second is the instance page ID.
+3. data attribute override, data signature is `{ [key: string]: string }| `
 
 ```json
 { "type": "GROUP_DATA", "id": "e176@uuid1",  "ticket": 1 }||{ "Designator": "U15", "ASDF": "1234" }|

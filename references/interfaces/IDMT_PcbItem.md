@@ -5,7 +5,7 @@ PCB 属性
 ## Signature
 
 ```typescript
-interface IDMT_PcbItem 
+export interface IDMT_PcbItem 
 ```
 
 ## Properties

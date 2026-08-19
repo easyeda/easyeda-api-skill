@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ELIB_DeviceJlcLibraryCategory 
+export enum ELIB_DeviceJlcLibraryCategory 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ EXTEND
 
 </td><td>
 
-`"extend"`
+`'extend'`
 
 
 </td><td>
-
-扩展库
 
 
 </td></tr>
@@ -49,12 +47,10 @@ STANDARD
 
 </td><td>
 
-`"standard"`
+`'standard'`
 
 
 </td><td>
-
-基础库
 
 
 </td></tr>

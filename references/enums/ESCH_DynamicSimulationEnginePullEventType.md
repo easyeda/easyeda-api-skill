@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESCH_DynamicSimulationEnginePullEventType 
+export enum ESCH_DynamicSimulationEnginePullEventType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ COMPONENT\_UPDATE
 
 </td><td>
 
-`"COMPONENT_UPDATE"`
+`'COMPONENT_UPDATE'`
 
 
 </td><td>
-
-更新元件属性
 
 
 </td></tr>
@@ -49,12 +47,10 @@ SESSION\_PAUSE
 
 </td><td>
 
-`"SESSION_PAUSE"`
+`'SESSION_PAUSE'`
 
 
 </td><td>
-
-暂停
 
 
 </td></tr>
@@ -65,12 +61,10 @@ SESSION\_RESUME
 
 </td><td>
 
-`"SESSION_RESUME"`
+`'SESSION_RESUME'`
 
 
 </td><td>
-
-恢复
 
 
 </td></tr>
@@ -81,12 +75,10 @@ SESSION\_START
 
 </td><td>
 
-`"SESSION_START"`
+`'SESSION_START'`
 
 
 </td><td>
-
-开始动态仿真会话
 
 
 </td></tr>
@@ -97,12 +89,10 @@ SESSION\_STATE\_QUERY
 
 </td><td>
 
-`"SESSION_STATE_QUERY"`
+`'SESSION_STATE_QUERY'`
 
 
 </td><td>
-
-查询动态仿真状态
 
 
 </td></tr>
@@ -113,12 +103,10 @@ SESSION\_STOP
 
 </td><td>
 
-`"SESSION_STOP"`
+`'SESSION_STOP'`
 
 
 </td><td>
-
-停止并释放资源
 
 
 </td></tr>
@@ -129,12 +117,10 @@ SPEED\_SET
 
 </td><td>
 
-`"SPEED_SET"`
+`'SPEED_SET'`
 
 
 </td><td>
-
-设置速度
 
 
 </td></tr>

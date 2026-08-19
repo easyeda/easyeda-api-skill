@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class ISCH_PrimitivePin implements ISCH_Primitive 
+export class ISCH_PrimitivePin implements ISCH_Primitive 
 ```
 **Implements:** [ISCH\_Primitive](../interfaces/ISCH_Primitive.md)
 
@@ -949,7 +949,7 @@ protected y: number;
 ## Signature
 
 ```typescript
-done(): Promise<ISCH_PrimitivePin>;
+public done(): Promise<ISCH_PrimitivePin>;
 ```
 
 
@@ -968,7 +968,7 @@ Promise&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getState_NoConnected(): boolean | undefined;
+public getState_NoConnected(): boolean | undefined;
 ```
 
 
@@ -987,7 +987,7 @@ boolean \| undefined
 ## Signature
 
 ```typescript
-getState_OtherProperty(): Record<string, string | number | boolean> | undefined;
+public getState_OtherProperty(): Record<string, string | number | boolean> | undefined;
 ```
 
 
@@ -1006,7 +1006,7 @@ Record&lt;string, string \| number \| boolean&gt; \| undefined
 ## Signature
 
 ```typescript
-getState_PinColor(): string | null;
+public getState_PinColor(): string | null;
 ```
 
 
@@ -1025,7 +1025,7 @@ string \| null
 ## Signature
 
 ```typescript
-getState_PinLength(): number;
+public getState_PinLength(): number;
 ```
 
 
@@ -1044,7 +1044,7 @@ number
 ## Signature
 
 ```typescript
-getState_PinName(): string;
+public getState_PinName(): string;
 ```
 
 
@@ -1063,7 +1063,7 @@ string
 ## Signature
 
 ```typescript
-getState_PinNumber(): string;
+public getState_PinNumber(): string;
 ```
 
 
@@ -1082,7 +1082,7 @@ string
 ## Signature
 
 ```typescript
-getState_PinShape(): ESCH_PrimitivePinShape;
+public getState_PinShape(): ESCH_PrimitivePinShape;
 ```
 
 
@@ -1101,7 +1101,7 @@ getState_PinShape(): ESCH_PrimitivePinShape;
 ## Signature
 
 ```typescript
-getState_pinType(): ESCH_PrimitivePinType;
+public getState_pinType(): ESCH_PrimitivePinType;
 ```
 
 
@@ -1120,7 +1120,7 @@ getState_pinType(): ESCH_PrimitivePinType;
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -1139,7 +1139,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): ESCH_PrimitiveType;
+public getState_PrimitiveType(): ESCH_PrimitiveType;
 ```
 
 
@@ -1158,7 +1158,7 @@ getState_PrimitiveType(): ESCH_PrimitiveType;
 ## Signature
 
 ```typescript
-getState_Rotation(): number;
+public getState_Rotation(): number;
 ```
 
 
@@ -1177,7 +1177,7 @@ number
 ## Signature
 
 ```typescript
-getState_X(): number;
+public getState_X(): number;
 ```
 
 
@@ -1196,7 +1196,7 @@ number
 ## Signature
 
 ```typescript
-getState_Y(): number;
+public getState_Y(): number;
 ```
 
 
@@ -1215,7 +1215,7 @@ number
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -1236,7 +1236,7 @@ boolean
 ## Signature
 
 ```typescript
-reset(): Promise<ISCH_PrimitivePin>;
+public reset(): Promise<ISCH_PrimitivePin>;
 ```
 
 
@@ -1257,7 +1257,7 @@ Promise&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_NoConnected(noConnected: boolean): ISCH_PrimitivePin;
+public setState_NoConnected(noConnected: boolean): ISCH_PrimitivePin;
 ```
 
 ## Parameters
@@ -1315,7 +1315,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_OtherProperty(otherProperty: Record<string, string | number | boolean>): ISCH_PrimitivePin;
+public setState_OtherProperty(otherProperty: Record<string, string | number | boolean>): ISCH_PrimitivePin;
 ```
 
 ## Parameters
@@ -1373,7 +1373,7 @@ Record&lt;string, string \| number \| boolean&gt;
 ## Signature
 
 ```typescript
-setState_PinColor(pinColor: string | null): ISCH_PrimitivePin;
+public setState_PinColor(pinColor: string | null): ISCH_PrimitivePin;
 ```
 
 ## Parameters
@@ -1431,7 +1431,7 @@ string \| null
 ## Signature
 
 ```typescript
-setState_PinLength(pinLength: number): ISCH_PrimitivePin;
+public setState_PinLength(pinLength: number): ISCH_PrimitivePin;
 ```
 
 ## Parameters
@@ -1489,7 +1489,7 @@ number
 ## Signature
 
 ```typescript
-setState_PinName(pinName: string): ISCH_PrimitivePin;
+public setState_PinName(pinName: string): ISCH_PrimitivePin;
 ```
 
 ## Parameters
@@ -1547,7 +1547,7 @@ string
 ## Signature
 
 ```typescript
-setState_PinNumber(pinNumber: string): ISCH_PrimitivePin;
+public setState_PinNumber(pinNumber: string): ISCH_PrimitivePin;
 ```
 
 ## Parameters
@@ -1605,7 +1605,7 @@ string
 ## Signature
 
 ```typescript
-setState_PinShape(pinShape: ESCH_PrimitivePinShape): ISCH_PrimitivePin;
+public setState_PinShape(pinShape: ESCH_PrimitivePinShape): ISCH_PrimitivePin;
 ```
 
 ## Parameters
@@ -1663,7 +1663,7 @@ pinShape
 ## Signature
 
 ```typescript
-setState_PinType(pinType: ESCH_PrimitivePinType): ISCH_PrimitivePin;
+public setState_PinType(pinType: ESCH_PrimitivePinType): ISCH_PrimitivePin;
 ```
 
 ## Parameters
@@ -1721,7 +1721,7 @@ pinType
 ## Signature
 
 ```typescript
-setState_Rotation(rotation: number): ISCH_PrimitivePin;
+public setState_Rotation(rotation: number): ISCH_PrimitivePin;
 ```
 
 ## Parameters
@@ -1779,7 +1779,7 @@ number
 ## Signature
 
 ```typescript
-setState_X(x: number): ISCH_PrimitivePin;
+public setState_X(x: number): ISCH_PrimitivePin;
 ```
 
 ## Parameters
@@ -1837,7 +1837,7 @@ number
 ## Signature
 
 ```typescript
-setState_Y(y: number): ISCH_PrimitivePin;
+public setState_Y(y: number): ISCH_PrimitivePin;
 ```
 
 ## Parameters
@@ -1893,7 +1893,7 @@ number
 ## Signature
 
 ```typescript
-toAsync(): ISCH_PrimitivePin;
+public toAsync(): ISCH_PrimitivePin;
 ```
 
 
@@ -1912,7 +1912,7 @@ toAsync(): ISCH_PrimitivePin;
 ## Signature
 
 ```typescript
-toSync(): ISCH_PrimitivePin;
+public toSync(): ISCH_PrimitivePin;
 ```
 
 

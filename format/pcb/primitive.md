@@ -1,12 +1,12 @@
-# 基础图元格式
+# Basic Primitive Format
 
-## NET 配置网络信息
+## NET Net Information Configuration
 
-网络信息和 AD 的设计有区别
+Net information is different from AD's design.
 
--   AD 这里是必选的
--   本格式只是需要有特殊 `网络类型` 和 `网络颜色` 才填写上去
-    设计差异的原因在于是否有一个专门的网络设置界面，会列出所有网络去设置
+-   AD requires it here.
+-   This format only fills it in when there are special `net types` and `net colors`.
+    The design difference stems from whether there is a dedicated net settings interface listing all nets for configuration.
 
 ```json
 { "type": "NET","id": "A", "ticket": 1 }||
@@ -20,15 +20,15 @@
 }|
 ```
 
-1. type 网络配置 `NET`
-2. id 唯一标识，网络名称
-3. ticket 逻辑时钟
-4. netType 网络类型：`null` 为无类型
-5. specialColor 特殊颜色：`null` 为无特殊颜色
-6. hideRetLine 是否隐藏飞线
-7. differentialName 差分对名称：`null` 为非差分对
-8. isPositiveNet 是否差分对正极
-9. equalLengthGroupName 等长组名称：`null` 为非等长组
+1. type net configuration `NET`.
+2. id unique identifier, net name.
+3. ticket logical clock.
+4. netType net type: `null` means no type.
+5. specialColor special color: `null` means no special color.
+6. hideRetLine whether to hide airwires.
+7. differentialName differential pair name: `null` means not a differential pair.
+8. isPositiveNet whether positive net of differential pair.
+9. equalLengthGroupName equal-length group name: `null` means not in an length-matching group.
 
 ```json
 { "type": "NET","id": "B", "ticket": 1 }||
@@ -54,7 +54,7 @@
 }|
 ```
 
-## PRIMITIVE 图元配置
+## PRIMITIVE Primitive Configuration
 
 ```json
 { "type": "PRIMITIVE","id": "VIA", "ticket": 1 }||
@@ -64,11 +64,11 @@
 }|
 ```
 
-1. type 图元配置 `PRIMITIVE`
-2. id 唯一标识，图元名称
-3. ticket 逻辑时钟
-4. display 是否显示
-5. pick 是否可拾取
+1. type primitive configuration `PRIMITIVE`.
+2. id unique identifier, primitive name.
+3. ticket logical clock.
+4. display whether displayed.
+5. pick whether pickable.
 
 ```json
 { "type": "PRIMITIVE","id": "PAD", "ticket": 1 }||
@@ -78,9 +78,9 @@
 }|
 ```
 
-## GROUP 分组配置
+## GROUP Group Configuration
 
-通过分组配置，给每个组一个名称，如果无名称，由 EDA 决定如何显示默认组名
+Through group configuration, each group is given a name. If there is no name, EDA decides how to display the default group name.
 
 ```json
 { "type": "GROUP","id": "2", "ticket": 1 }||
@@ -89,39 +89,39 @@
 }|
 ```
 
-1. type 分组配置 `GROUP`
-2. id 分组编号
-3. ticket 逻辑时钟
-4. groupName 名称
+1. type group configuration `GROUP`.
+2. id group number.
+3. ticket logical clock.
+4. groupName name.
 
 ```json
 { "type": "GROUP","id": "5", "ticket": 1 }||
 {
-  "groupName":"中文名称",
+  "groupName":"Chinese Name",
 }|
 ```
 
-## CONNECT 图元关联
+## CONNECT Primitive Association
 
-图元关联用于表达一些图元的内部组合逻辑，例如
+Primitive association is used to express the internal combination logic of primitives, such as:
 
--   泪滴与 `LINE` `ARC` `PAD` `VIA` 的联系
--   焊盘与其相关的引脚 3D 外形 `FILL` 的联系
--   3D 外壳中 `CREASE` 与 `BOSS` `SHELL_ENTITY` 的联系
--   PCB 针对封装内图元的覆盖
+-   Teardrops and their connections to `LINE`, `ARC`, `PAD`, `VIA`.
+-   Pads and their related pin 3D outline `FILL`.
+-   `CREASE` and `BOSS` / `SHELL_ENTITY` connections in 3D shells.
+-   PCB overrides for primitives inside footprints.
 
-只支持表达一对多的关系
+Only one-to-many relationships are supported.
 
 ```json
 { "type": "CONNECT","id": "e3", "ticket": 1 }||{ "relatedIds":["e15", "e18", "e100"] }|
 ```
 
-1. type 图元关联 `CONNECT`
-2. id 主图元编号
-3. ticket 逻辑时钟
-4. relatedIds 关联的图元编号
+1. type primitive association `CONNECT`.
+2. id main primitive ID.
+3. ticket logical clock.
+4. relatedIds associated primitive IDs.
 
-多对多的关系可以用多个表达，暂时没有对应场景
+Many-to-many relationships can be expressed with multiple records; there is no corresponding scenario at present.
 
 ```json
 { "type": "CONNECT","id": "e4", "ticket": 1 }||{ "relatedIds":["e5", "e6"] }|
@@ -135,7 +135,7 @@
 { "type": "CONNECT","id": "e6", "ticket": 1 }||{ "relatedIds":["e4", "e5"] }|
 ```
 
-PCB 中针对封装内图元的覆盖，使用形如 `/^[a-z]+\d+[a-z]+\d+$/i` 的形式将封装和里面图元 ID 拼一起来引用，表达如下
+For PCB overrides of primitives inside footprints, use the form `/^[a-z]+\d+[a-z]+\d+$/i` to combine footprint and inner primitive IDs to reference, as follows:
 
 ```json
 ["DOCTYPE", "PCB", "1.0"]
@@ -145,7 +145,7 @@ PCB 中针对封装内图元的覆盖，使用形如 `/^[a-z]+\d+[a-z]+\d+$/i` �
 ["CONNECT", "e13", ["e13e20", "e13e25"]]
 ```
 
-封装内容如下
+Footprint content is as follows:
 
 ```json
 ["DOCTYPE", "FOOTPRINT", "1.0"]
@@ -153,25 +153,25 @@ PCB 中针对封装内图元的覆盖，使用形如 `/^[a-z]+\d+[a-z]+\d+$/i` �
 ["PAD", "e25", 1, "GND", 0, "3", ....]
 ```
 
-## PROP 附加图元属性
+## PROP Additional Primitive Properties
 
-有一些图元属性非必须表达，且相对通用，则用 `PROP` 辅助描述
+Some primitive properties are not required and are relatively generic, so `PROP` is used to assist in describing them.
 
 ```json
 { "type": "PROP", "id":"UUID", "ticket": 1 }||{ "color":"#22ee44" }|
 ```
 
-1. type 附加图元属性：PROP
-1. id 被附加的图元编号：有两种编码形式
-    1. 普通编号：形式为 `/^[a-z]+\d+$/i`，如 `e1` `e123` 等
-    1. 封装实例编号：形式为 `/^[a-z]+\d+[a-z]+\d+$/i`，用于如封装中的丝印等，如 `e1e5` `e12e22` 等
-1. color 特殊颜色
+1. type additional primitive properties: PROP.
+2. id ID of the primitive being attached, two encoding forms:
+    1. Normal ID: form `/^[a-z]+\d+$/i`, e.g. `e1`, `e123`.
+    2. Footprint instance ID: form `/^[a-z]+\d+[a-z]+\d+$/i`, used for silkscreen in footprints, e.g. `e1e5`, `e12e22`.
+3. color special color.
 
 ```json
 { "type": "PROP", "id":"e7e25", "ticket": 1 }||{ "color":"#22ee44" }|
 ```
 
-如果要覆盖封装内的图元，则采用此复合编号的形式去描述
+To override primitives inside a footprint, use this composite ID form.
 
 ## EQLEN_GRP
 
@@ -188,9 +188,9 @@ PCB 中针对封装内图元的覆盖，使用形如 `/^[a-z]+\d+[a-z]+\d+$/i` �
 }|
 ```
 
-1. type 等长组：`EQLEN_GRP`
-2. id 唯一编号
-3. ticket 逻辑时钟
-4. name 等长组名称：全工程唯一
-5. sort 排序
-6. pads 用 `位号:焊盘编号` 标识焊盘的数组
+1. type equal-length group: `EQLEN_GRP`.
+2. id unique ID.
+3. ticket logical clock.
+4. name equal-length group name, unique within the project.
+5. sort sort order.
+6. pads array identifying pads by `designator:pad number`.

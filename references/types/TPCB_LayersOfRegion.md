@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-type TPCB_LayersOfRegion = TPCB_LayersOfCopper | EPCB_LayerId.MULTI;
+export type TPCB_LayersOfRegion = TPCB_LayersOfCopper | EPCB_LayerId.MULTI;
 ```
 ## References
 

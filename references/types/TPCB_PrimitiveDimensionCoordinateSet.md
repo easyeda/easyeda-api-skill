@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-type TPCB_PrimitiveDimensionCoordinateSet = [number, number, number, number, number, number] | [number, number, number, number, number, number, number, number];
+export type TPCB_PrimitiveDimensionCoordinateSet = [number, number, number, number, number, number] | [number, number, number, number, number, number, number, number];
 ```
 
 ## Remarks

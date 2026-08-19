@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class ISCH_PrimitiveRectangle implements ISCH_Primitive 
+export class ISCH_PrimitiveRectangle implements ISCH_Primitive 
 ```
 **Implements:** [ISCH\_Primitive](../interfaces/ISCH_Primitive.md)
 
@@ -453,7 +453,7 @@ Description
 ## Signature
 
 ```typescript
-done(): Promise<ISCH_PrimitiveRectangle>;
+public done(): Promise<ISCH_PrimitiveRectangle>;
 ```
 
 
@@ -472,7 +472,7 @@ Promise&lt;[ISCH\_PrimitiveRectangle](./ISCH_PrimitiveRectangle.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getState_Color(): string | null;
+public getState_Color(): string | null;
 ```
 
 
@@ -491,7 +491,7 @@ string \| null
 ## Signature
 
 ```typescript
-getState_CornerRadius(): number;
+public getState_CornerRadius(): number;
 ```
 
 
@@ -510,7 +510,7 @@ number
 ## Signature
 
 ```typescript
-getState_FillColor(): string | null;
+public getState_FillColor(): string | null;
 ```
 
 
@@ -529,7 +529,7 @@ string \| null
 ## Signature
 
 ```typescript
-getState_FillStyle(): ESCH_PrimitiveFillStyle | null;
+public getState_FillStyle(): ESCH_PrimitiveFillStyle | null;
 ```
 
 
@@ -548,7 +548,7 @@ getState_FillStyle(): ESCH_PrimitiveFillStyle | null;
 ## Signature
 
 ```typescript
-getState_Height(): number;
+public getState_Height(): number;
 ```
 
 
@@ -567,7 +567,7 @@ number
 ## Signature
 
 ```typescript
-getState_LineType(): ESCH_PrimitiveLineType | null;
+public getState_LineType(): ESCH_PrimitiveLineType | null;
 ```
 
 
@@ -586,7 +586,7 @@ getState_LineType(): ESCH_PrimitiveLineType | null;
 ## Signature
 
 ```typescript
-getState_LineWidth(): number | null;
+public getState_LineWidth(): number | null;
 ```
 
 
@@ -605,7 +605,7 @@ number \| null
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -624,7 +624,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): ESCH_PrimitiveType;
+public getState_PrimitiveType(): ESCH_PrimitiveType;
 ```
 
 
@@ -643,7 +643,7 @@ getState_PrimitiveType(): ESCH_PrimitiveType;
 ## Signature
 
 ```typescript
-getState_Rotation(): number;
+public getState_Rotation(): number;
 ```
 
 
@@ -662,7 +662,7 @@ number
 ## Signature
 
 ```typescript
-getState_TopLeftX(): number;
+public getState_TopLeftX(): number;
 ```
 
 
@@ -681,7 +681,7 @@ number
 ## Signature
 
 ```typescript
-getState_TopLeftY(): number;
+public getState_TopLeftY(): number;
 ```
 
 
@@ -700,7 +700,7 @@ number
 ## Signature
 
 ```typescript
-getState_Width(): number;
+public getState_Width(): number;
 ```
 
 
@@ -719,7 +719,7 @@ number
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -740,7 +740,7 @@ boolean
 ## Signature
 
 ```typescript
-reset(): Promise<ISCH_PrimitiveRectangle>;
+public reset(): Promise<ISCH_PrimitiveRectangle>;
 ```
 
 
@@ -761,7 +761,7 @@ Promise&lt;[ISCH\_PrimitiveRectangle](./ISCH_PrimitiveRectangle.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_Color(color: string | null): ISCH_PrimitiveRectangle;
+public setState_Color(color: string | null): ISCH_PrimitiveRectangle;
 ```
 
 ## Parameters
@@ -819,7 +819,7 @@ string \| null
 ## Signature
 
 ```typescript
-setState_CornerRadius(cornerRadius: number): ISCH_PrimitiveRectangle;
+public setState_CornerRadius(cornerRadius: number): ISCH_PrimitiveRectangle;
 ```
 
 ## Parameters
@@ -877,7 +877,7 @@ number
 ## Signature
 
 ```typescript
-setState_FillColor(fillColor: string | null): ISCH_PrimitiveRectangle;
+public setState_FillColor(fillColor: string | null): ISCH_PrimitiveRectangle;
 ```
 
 ## Parameters
@@ -935,7 +935,7 @@ string \| null
 ## Signature
 
 ```typescript
-setState_FillStyle(fillStyle: ESCH_PrimitiveFillStyle | null): ISCH_PrimitiveRectangle;
+public setState_FillStyle(fillStyle: ESCH_PrimitiveFillStyle | null): ISCH_PrimitiveRectangle;
 ```
 
 ## Parameters
@@ -993,7 +993,7 @@ fillStyle
 ## Signature
 
 ```typescript
-setState_Height(height: number): ISCH_PrimitiveRectangle;
+public setState_Height(height: number): ISCH_PrimitiveRectangle;
 ```
 
 ## Parameters
@@ -1051,7 +1051,7 @@ number
 ## Signature
 
 ```typescript
-setState_LineType(lineType: ESCH_PrimitiveLineType | null): ISCH_PrimitiveRectangle;
+public setState_LineType(lineType: ESCH_PrimitiveLineType | null): ISCH_PrimitiveRectangle;
 ```
 
 ## Parameters
@@ -1109,7 +1109,7 @@ lineType
 ## Signature
 
 ```typescript
-setState_LineWidth(lineWidth: number | null): ISCH_PrimitiveRectangle;
+public setState_LineWidth(lineWidth: number | null): ISCH_PrimitiveRectangle;
 ```
 
 ## Parameters
@@ -1167,7 +1167,7 @@ number \| null
 ## Signature
 
 ```typescript
-setState_Rotation(rotation: number): ISCH_PrimitiveRectangle;
+public setState_Rotation(rotation: number): ISCH_PrimitiveRectangle;
 ```
 
 ## Parameters
@@ -1225,7 +1225,7 @@ number
 ## Signature
 
 ```typescript
-setState_TopLeftX(topLeftX: number): ISCH_PrimitiveRectangle;
+public setState_TopLeftX(topLeftX: number): ISCH_PrimitiveRectangle;
 ```
 
 ## Parameters
@@ -1283,7 +1283,7 @@ number
 ## Signature
 
 ```typescript
-setState_TopLeftY(topLeftY: number): ISCH_PrimitiveRectangle;
+public setState_TopLeftY(topLeftY: number): ISCH_PrimitiveRectangle;
 ```
 
 ## Parameters
@@ -1341,7 +1341,7 @@ number
 ## Signature
 
 ```typescript
-setState_Width(width: number): ISCH_PrimitiveRectangle;
+public setState_Width(width: number): ISCH_PrimitiveRectangle;
 ```
 
 ## Parameters
@@ -1397,7 +1397,7 @@ number
 ## Signature
 
 ```typescript
-toAsync(): ISCH_PrimitiveRectangle;
+public toAsync(): ISCH_PrimitiveRectangle;
 ```
 
 
@@ -1416,7 +1416,7 @@ toAsync(): ISCH_PrimitiveRectangle;
 ## Signature
 
 ```typescript
-toSync(): ISCH_PrimitiveRectangle;
+public toSync(): ISCH_PrimitiveRectangle;
 ```
 
 

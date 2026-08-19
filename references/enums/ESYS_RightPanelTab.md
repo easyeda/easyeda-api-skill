@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESYS_RightPanelTab 
+export enum ESYS_RightPanelTab 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ ANNOTATION
 
 </td><td>
 
-`"annotation"`
+`'annotation'`
 
 
 </td><td>
-
-批注
 
 
 </td></tr>
@@ -49,12 +47,10 @@ PANEL\_3D\_PREVIEW\_ATTR
 
 </td><td>
 
-`"panel3d-attr"`
+`'panel3d-attr'`
 
 
 </td><td>
-
-面板 3D 预览：属性
 
 
 </td></tr>
@@ -65,12 +61,10 @@ PANEL\_3D\_PREVIEW\_LAYER
 
 </td><td>
 
-`"panel3d-layer"`
+`'panel3d-layer'`
 
 
 </td><td>
-
-面板 3D 预览：图层
 
 
 </td></tr>
@@ -81,12 +75,10 @@ PANEL\_ATTR
 
 </td><td>
 
-`"panel-attr"`
+`'panel-attr'`
 
 
 </td><td>
-
-面板：属性
 
 
 </td></tr>
@@ -97,12 +89,10 @@ PANEL\_FILTER
 
 </td><td>
 
-`"panel-filter"`
+`'panel-filter'`
 
 
 </td><td>
-
-面板：过滤
 
 
 </td></tr>
@@ -113,12 +103,10 @@ PANEL\_LAYER
 
 </td><td>
 
-`"panel-layer"`
+`'panel-layer'`
 
 
 </td><td>
-
-面板：图层
 
 
 </td></tr>
@@ -129,12 +117,10 @@ PCB\_2D\_PREVIEW\_ATTR
 
 </td><td>
 
-`"pcb2d-attr"`
+`'pcb2d-attr'`
 
 
 </td><td>
-
-PCB 2D 预览：属性
 
 
 </td></tr>
@@ -145,12 +131,10 @@ PCB\_3D\_PREVIEW\_ATTR
 
 </td><td>
 
-`"pcb3d-attr"`
+`'pcb3d-attr'`
 
 
 </td><td>
-
-PCB 3D 预览：属性
 
 
 </td></tr>
@@ -161,12 +145,10 @@ PCB\_3D\_PREVIEW\_LAYER
 
 </td><td>
 
-`"pcb3d-layer"`
+`'pcb3d-layer'`
 
 
 </td><td>
-
-PCB 3D 预览：图层
 
 
 </td></tr>
@@ -177,12 +159,10 @@ PCB\_ATTR
 
 </td><td>
 
-`"pcb-attr"`
+`'pcb-attr'`
 
 
 </td><td>
-
-PCB：属性
 
 
 </td></tr>
@@ -193,12 +173,10 @@ PCB\_FILTER
 
 </td><td>
 
-`"pcb-filter"`
+`'pcb-filter'`
 
 
 </td><td>
-
-PCB：过滤
 
 
 </td></tr>
@@ -209,12 +187,10 @@ PCB\_LAYER
 
 </td><td>
 
-`"pcb-layer"`
+`'pcb-layer'`
 
 
 </td><td>
-
-PCB：图层
 
 
 </td></tr>
@@ -225,12 +201,10 @@ PCB\_SKETCHER\_ATTR
 
 </td><td>
 
-`"pcb-sketcher-attr"`
+`'pcb-sketcher-attr'`
 
 
 </td><td>
-
-PCB：测量对象属性
 
 
 </td></tr>
@@ -241,12 +215,10 @@ PROJECT\_ATTR
 
 </td><td>
 
-`"project-attr"`
+`'project-attr'`
 
 
 </td><td>
-
-工程：属性
 
 
 </td></tr>
@@ -257,12 +229,10 @@ SCH\_ATTR
 
 </td><td>
 
-`"sch-attr"`
+`'sch-attr'`
 
 
 </td><td>
-
-原理图：属性
 
 
 </td></tr>
@@ -273,12 +243,10 @@ SCH\_FILTER
 
 </td><td>
 
-`"sch-filter"`
+`'sch-filter'`
 
 
 </td><td>
-
-原理图：过滤
 
 
 </td></tr>

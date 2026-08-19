@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESYS_Unit 
+export enum ESYS_Unit 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ CENTIMETER
 
 </td><td>
 
-`"cm"`
+`'cm'`
 
 
 </td><td>
-
-厘米
 
 
 </td></tr>
@@ -49,12 +47,10 @@ DECIMETER
 
 </td><td>
 
-`"dm"`
+`'dm'`
 
 
 </td><td>
-
-分米
 
 
 </td></tr>
@@ -65,12 +61,10 @@ IN
 
 </td><td>
 
-`"in"`
+`'in'`
 
 
 </td><td>
-
-英尺
 
 
 </td></tr>
@@ -81,12 +75,10 @@ INCH
 
 </td><td>
 
-`"inch"`
+`'inch'`
 
 
 </td><td>
-
-英寸
 
 
 </td></tr>
@@ -97,12 +89,10 @@ METER
 
 </td><td>
 
-`"m"`
+`'m'`
 
 
 </td><td>
-
-米
 
 
 </td></tr>
@@ -113,12 +103,10 @@ MIL
 
 </td><td>
 
-`"mil"`
+`'mil'`
 
 
 </td><td>
-
-密尔
 
 
 </td></tr>
@@ -129,12 +117,10 @@ MILLIMETER
 
 </td><td>
 
-`"mm"`
+`'mm'`
 
 
 </td><td>
-
-毫米
 
 
 </td></tr>

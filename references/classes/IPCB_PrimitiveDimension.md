@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class IPCB_PrimitiveDimension implements IPCB_Primitive 
+export class IPCB_PrimitiveDimension implements IPCB_Primitive 
 ```
 **Implements:** [IPCB\_Primitive](../interfaces/IPCB_Primitive.md)
 
@@ -355,7 +355,7 @@ Description
 ## Signature
 
 ```typescript
-done(): Promise<IPCB_PrimitiveDimension>;
+public done(): Promise<IPCB_PrimitiveDimension>;
 ```
 
 
@@ -374,7 +374,7 @@ Promise&lt;[IPCB\_PrimitiveDimension](./IPCB_PrimitiveDimension.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getState_CoordinateSet(): TPCB_PrimitiveDimensionCoordinateSet;
+public getState_CoordinateSet(): TPCB_PrimitiveDimensionCoordinateSet;
 ```
 
 
@@ -393,7 +393,7 @@ getState_CoordinateSet(): TPCB_PrimitiveDimensionCoordinateSet;
 ## Signature
 
 ```typescript
-getState_DimensionType(): EPCB_PrimitiveDimensionType;
+public getState_DimensionType(): EPCB_PrimitiveDimensionType;
 ```
 
 
@@ -412,7 +412,7 @@ getState_DimensionType(): EPCB_PrimitiveDimensionType;
 ## Signature
 
 ```typescript
-getState_Layer(): TPCB_LayersOfDimension;
+public getState_Layer(): TPCB_LayersOfDimension;
 ```
 
 
@@ -431,7 +431,7 @@ getState_Layer(): TPCB_LayersOfDimension;
 ## Signature
 
 ```typescript
-getState_LineWidth(): number;
+public getState_LineWidth(): number;
 ```
 
 
@@ -450,7 +450,7 @@ number
 ## Signature
 
 ```typescript
-getState_Precision(): number;
+public getState_Precision(): number;
 ```
 
 
@@ -469,7 +469,7 @@ number
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -488,7 +488,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveLock(): boolean;
+public getState_PrimitiveLock(): boolean;
 ```
 
 
@@ -507,7 +507,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): EPCB_PrimitiveType;
+public getState_PrimitiveType(): EPCB_PrimitiveType;
 ```
 
 
@@ -526,7 +526,7 @@ getState_PrimitiveType(): EPCB_PrimitiveType;
 ## Signature
 
 ```typescript
-getState_TextFollow(): 0 | 1;
+public getState_TextFollow(): 0 | 1;
 ```
 
 
@@ -545,7 +545,7 @@ getState_TextFollow(): 0 | 1;
 ## Signature
 
 ```typescript
-getState_Unit(): ESYS_Unit.MILLIMETER | ESYS_Unit.CENTIMETER | ESYS_Unit.INCH | ESYS_Unit.MIL;
+public getState_Unit(): ESYS_Unit.MILLIMETER | ESYS_Unit.CENTIMETER | ESYS_Unit.INCH | ESYS_Unit.MIL;
 ```
 
 
@@ -564,7 +564,7 @@ getState_Unit(): ESYS_Unit.MILLIMETER | ESYS_Unit.CENTIMETER | ESYS_Unit.INCH | 
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -585,7 +585,7 @@ boolean
 ## Signature
 
 ```typescript
-reset(): Promise<IPCB_PrimitiveDimension>;
+public reset(): Promise<IPCB_PrimitiveDimension>;
 ```
 
 
@@ -606,7 +606,7 @@ Promise&lt;[IPCB\_PrimitiveDimension](./IPCB_PrimitiveDimension.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_CoordinateSet(coordinateSet: TPCB_PrimitiveDimensionCoordinateSet): IPCB_PrimitiveDimension;
+public setState_CoordinateSet(coordinateSet: TPCB_PrimitiveDimensionCoordinateSet): IPCB_PrimitiveDimension;
 ```
 
 ## Parameters
@@ -664,7 +664,7 @@ coordinateSet
 ## Signature
 
 ```typescript
-setState_DimensionType(dimensionType: EPCB_PrimitiveDimensionType): IPCB_PrimitiveDimension;
+public setState_DimensionType(dimensionType: EPCB_PrimitiveDimensionType): IPCB_PrimitiveDimension;
 ```
 
 ## Parameters
@@ -722,7 +722,7 @@ dimensionType
 ## Signature
 
 ```typescript
-setState_Layer(layer: TPCB_LayersOfDimension): IPCB_PrimitiveDimension;
+public setState_Layer(layer: TPCB_LayersOfDimension): IPCB_PrimitiveDimension;
 ```
 
 ## Parameters
@@ -780,7 +780,7 @@ layer
 ## Signature
 
 ```typescript
-setState_LineWidth(lineWidth: number): IPCB_PrimitiveDimension;
+public setState_LineWidth(lineWidth: number): IPCB_PrimitiveDimension;
 ```
 
 ## Parameters
@@ -838,7 +838,7 @@ number
 ## Signature
 
 ```typescript
-setState_Precision(precision: number): IPCB_PrimitiveDimension;
+public setState_Precision(precision: number): IPCB_PrimitiveDimension;
 ```
 
 ## Parameters
@@ -896,7 +896,7 @@ number
 ## Signature
 
 ```typescript
-setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitiveDimension;
+public setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitiveDimension;
 ```
 
 ## Parameters
@@ -954,7 +954,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_Unit(unit: ESYS_Unit.MILLIMETER | ESYS_Unit.CENTIMETER | ESYS_Unit.INCH | ESYS_Unit.MIL): IPCB_PrimitiveDimension;
+public setState_Unit(unit: ESYS_Unit.MILLIMETER | ESYS_Unit.CENTIMETER | ESYS_Unit.INCH | ESYS_Unit.MIL): IPCB_PrimitiveDimension;
 ```
 
 ## Parameters
@@ -1010,7 +1010,7 @@ unit
 ## Signature
 
 ```typescript
-toAsync(): IPCB_PrimitiveDimension;
+public toAsync(): IPCB_PrimitiveDimension;
 ```
 
 
@@ -1029,7 +1029,7 @@ toAsync(): IPCB_PrimitiveDimension;
 ## Signature
 
 ```typescript
-toSync(): IPCB_PrimitiveDimension;
+public toSync(): IPCB_PrimitiveDimension;
 ```
 
 

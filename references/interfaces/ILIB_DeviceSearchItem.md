@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ILIB_DeviceSearchItem 
+export interface ILIB_DeviceSearchItem 
 ```
 
 ## Properties
@@ -79,7 +79,7 @@ _(Optional)_ 描述
 
 </td><td>
 
-\{ name: string; uuid: string; libraryUuid: string; \}
+\{ name: string; uuid: string; libraryUuid: string \}
 
 
 </td><td>
@@ -174,7 +174,7 @@ string
 
 </td><td>
 
-\{ name: string; uuid: string; libraryUuid: string; \}
+\{ name: string; uuid: string; libraryUuid: string \}
 
 
 </td><td>
@@ -269,7 +269,7 @@ number
 
 </td><td>
 
-\{ \[key: string\]: boolean \| number \| string \| undefined; \}
+Record&lt;string, boolean \| number \| string \| undefined&gt;
 
 
 </td><td>
@@ -288,7 +288,7 @@ _(Optional)_ 其它属性
 
 </td><td>
 
-\{ name: string; uuid: string; libraryUuid: string; \}
+\{ name: string; uuid: string; libraryUuid: string \}
 
 
 </td><td>
@@ -393,11 +393,7 @@ description?: string;
 ## Signature
 
 ```typescript
-footprint?: {
-        name: string;
-        uuid: string;
-        libraryUuid: string;
-    };
+footprint?: { name: string; uuid: string; libraryUuid: string };
 ```
 
 ### footprintname
@@ -465,11 +461,7 @@ libraryUuid: string;
 ## Signature
 
 ```typescript
-model3D?: {
-        name: string;
-        uuid: string;
-        libraryUuid: string;
-    };
+model3D?: { name: string; uuid: string; libraryUuid: string };
 ```
 
 ### model3dname
@@ -537,9 +529,7 @@ ordinal: number;
 ## Signature
 
 ```typescript
-otherProperty?: {
-        [key: string]: boolean | number | string | undefined;
-    };
+otherProperty?: Record<string, boolean | number | string | undefined>;
 ```
 
 ### symbol
@@ -551,11 +541,7 @@ otherProperty?: {
 ## Signature
 
 ```typescript
-symbol: {
-        name: string;
-        uuid: string;
-        libraryUuid: string;
-    };
+symbol: { name: string; uuid: string; libraryUuid: string };
 ```
 
 ### symbolname

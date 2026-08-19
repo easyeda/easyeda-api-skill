@@ -5,7 +5,7 @@ PCB &amp; 封装 / 二进制内嵌对象图元类
 ## Signature
 
 ```typescript
-declare class PCB_PrimitiveObject implements IPCB_PrimitiveAPI 
+export class PCB_PrimitiveObject implements IPCB_PrimitiveAPI 
 ```
 **Implements:** [IPCB\_PrimitiveAPI](../interfaces/IPCB_PrimitiveAPI.md)
 
@@ -146,7 +146,7 @@ Description
 ## Signature
 
 ```typescript
-create(layer: TPCB_LayersOfObject, topLeftX: number, topLeftY: number, binaryData: string, width: number, height: number, rotation?: number, mirror?: boolean, fileName?: string, primitiveLock?: boolean): Promise<IPCB_PrimitiveObject | undefined>;
+public create(layer: TPCB_LayersOfObject, topLeftX: number, topLeftY: number, binaryData: string, width: number, height: number, rotation?: number, mirror?: boolean, fileName?: string, primitiveLock?: boolean): Promise<IPCB_PrimitiveObject | undefined>;
 ```
 
 ## Parameters
@@ -348,7 +348,7 @@ Promise&lt;[IPCB\_PrimitiveObject](./IPCB_PrimitiveObject.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-delete(primitiveIds: string | IPCB_PrimitiveObject | Array<string> | Array<IPCB_PrimitiveObject>): Promise<boolean>;
+public delete(primitiveIds: string | IPCB_PrimitiveObject | Array<string> | Array<IPCB_PrimitiveObject>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -406,7 +406,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-get(primitiveIds: string): Promise<IPCB_PrimitiveObject | undefined>;
+public get(primitiveIds: string): Promise<IPCB_PrimitiveObject | undefined>;
 ```
 
 ## Parameters
@@ -464,7 +464,7 @@ Promise&lt;[IPCB\_PrimitiveObject](./IPCB_PrimitiveObject.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-get(primitiveIds: Array<string>): Promise<Array<IPCB_PrimitiveObject>>;
+public get(primitiveIds: Array<string>): Promise<Array<IPCB_PrimitiveObject>>;
 ```
 
 ## Parameters
@@ -526,7 +526,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveObject](./IPCB_PrimitiveObject.md)<!-- -->&g
 ## Signature
 
 ```typescript
-getAll(layer?: TPCB_LayersOfObject, primitiveLock?: boolean): Promise<Array<IPCB_PrimitiveObject>>;
+public getAll(layer?: TPCB_LayersOfObject, primitiveLock?: boolean): Promise<Array<IPCB_PrimitiveObject>>;
 ```
 
 ## Parameters
@@ -600,7 +600,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveObject](./IPCB_PrimitiveObject.md)<!-- -->&g
 ## Signature
 
 ```typescript
-getAllPrimitiveId(layer?: TPCB_LayersOfObject, primitiveLock?: boolean): Promise<Array<string>>;
+public getAllPrimitiveId(layer?: TPCB_LayersOfObject, primitiveLock?: boolean): Promise<Array<string>>;
 ```
 
 ## Parameters
@@ -674,18 +674,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 ## Signature
 
 ```typescript
-modify(primitiveId: string | IPCB_PrimitiveObject, property: {
-        layer?: TPCB_LayersOfObject;
-        topLeftX?: number;
-        topLeftY?: number;
-        binaryData?: string;
-        width?: number;
-        height?: number;
-        rotation?: number;
-        mirror?: boolean;
-        fileName?: string;
-        primitiveLock?: boolean;
-    }): Promise<IPCB_PrimitiveObject | undefined>;
+public modify(primitiveId: string | IPCB_PrimitiveObject, property: { layer?: undefined | EPCB_LayerId.TOP_SILKSCREEN | EPCB_LayerId.BOTTOM_SILKSCREEN | EPCB_LayerId.DOCUMENT; topLeftX?: undefined | number; topLeftY?: undefined | number; binaryData?: undefined | string; width?: undefined | number; height?: undefined | number; rotation?: undefined | number; mirror?: undefined | false | true; fileName?: undefined | string; primitiveLock?: undefined | false | true }): Promise<IPCB_PrimitiveObject | undefined>;
 ```
 
 ## Parameters
@@ -729,7 +718,7 @@ property
 
 </td><td>
 
-{ layer?: [TPCB\_LayersOfObject](../types/TPCB_LayersOfObject.md)<!-- -->; topLeftX?: number; topLeftY?: number; binaryData?: string; width?: number; height?: number; rotation?: number; mirror?: boolean; fileName?: string; primitiveLock?: boolean; }
+{ layer?: undefined \| [EPCB\_LayerId.TOP\_SILKSCREEN](../enums/EPCB_LayerId.md) \| [EPCB\_LayerId.BOTTOM\_SILKSCREEN](../enums/EPCB_LayerId.md) \| [EPCB\_LayerId.DOCUMENT](../enums/EPCB_LayerId.md)<!-- -->; topLeftX?: undefined \| number; topLeftY?: undefined \| number; binaryData?: undefined \| string; width?: undefined \| number; height?: undefined \| number; rotation?: undefined \| number; mirror?: undefined \| false \| true; fileName?: undefined \| string; primitiveLock?: undefined \| false \| true }
 
 
 </td><td>

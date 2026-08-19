@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_PanelControl 
+export class SYS_PanelControl 
 ```
 
 ## Methods
@@ -209,7 +209,7 @@ Description
 ## Signature
 
 ```typescript
-closeBottomPanel(): void;
+public closeBottomPanel(): void;
 ```
 
 
@@ -226,7 +226,7 @@ void
 ## Signature
 
 ```typescript
-closeLeftPanel(): void;
+public closeLeftPanel(): void;
 ```
 
 
@@ -243,7 +243,7 @@ void
 ## Signature
 
 ```typescript
-closeRightPanel(): void;
+public closeRightPanel(): void;
 ```
 
 
@@ -260,7 +260,7 @@ void
 ## Signature
 
 ```typescript
-isBottomPanelLocked(): Promise<boolean>;
+public isBottomPanelLocked(): Promise<boolean>;
 ```
 
 
@@ -279,7 +279,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-isLeftPanelLocked(): Promise<boolean>;
+public isLeftPanelLocked(): Promise<boolean>;
 ```
 
 
@@ -298,7 +298,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-isRightPanelLocked(): Promise<boolean>;
+public isRightPanelLocked(): Promise<boolean>;
 ```
 
 
@@ -317,7 +317,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-openBottomPanel(tab?: ESYS_BottomPanelTab): void;
+public openBottomPanel(tab?: ESYS_BottomPanelTab): void;
 ```
 
 ## Parameters
@@ -371,7 +371,7 @@ void
 ## Signature
 
 ```typescript
-openLeftPanel(tab?: ESYS_LeftPanelTab): void;
+public openLeftPanel(tab?: ESYS_LeftPanelTab): void;
 ```
 
 ## Parameters
@@ -425,7 +425,7 @@ void
 ## Signature
 
 ```typescript
-openRightPanel(tab?: ESYS_RightPanelTab): void;
+public openRightPanel(tab?: ESYS_RightPanelTab): void;
 ```
 
 ## Parameters
@@ -479,7 +479,7 @@ void
 ## Signature
 
 ```typescript
-toggleBottomPanelLockState(state?: boolean): void;
+public toggleBottomPanelLockState(state?: boolean): void;
 ```
 
 ## Parameters
@@ -533,7 +533,7 @@ void
 ## Signature
 
 ```typescript
-toggleLeftPanelLockState(state?: boolean): void;
+public toggleLeftPanelLockState(state?: boolean): void;
 ```
 
 ## Parameters
@@ -587,7 +587,7 @@ void
 ## Signature
 
 ```typescript
-toggleRightPanelLockState(state?: boolean): void;
+public toggleRightPanelLockState(state?: boolean): void;
 ```
 
 ## Parameters

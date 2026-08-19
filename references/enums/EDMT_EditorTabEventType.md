@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum EDMT_EditorTabEventType 
+export enum EDMT_EditorTabEventType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ CLOSE
 
 </td><td>
 
-`"close"`
+`'close'`
 
 
 </td><td>
-
-关闭
 
 
 </td></tr>
@@ -49,12 +47,10 @@ OPEN
 
 </td><td>
 
-`"open"`
+`'open'`
 
 
 </td><td>
-
-打开
 
 
 </td></tr>
@@ -65,12 +61,10 @@ TOGGLE
 
 </td><td>
 
-`"toggle"`
+`'toggle'`
 
 
 </td><td>
-
-切换
 
 
 </td></tr>

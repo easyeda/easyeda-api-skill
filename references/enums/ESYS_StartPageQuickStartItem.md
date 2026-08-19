@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESYS_StartPageQuickStartItem 
+export enum ESYS_StartPageQuickStartItem 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ ABOUT
 
 </td><td>
 
-`"About"`
+`'About'`
 
 
 </td><td>
-
-关于
 
 
 </td></tr>
@@ -49,12 +47,10 @@ IMPORT\_ALTIUM
 
 </td><td>
 
-`"Import Altium"`
+`'Import Altium'`
 
 
 </td><td>
-
-导入 Altium 工程
 
 
 </td></tr>
@@ -65,12 +61,10 @@ IMPORT\_KICAD
 
 </td><td>
 
-`"Import KiCad"`
+`'Import KiCad'`
 
 
 </td><td>
-
-导入 KiCad 工程
 
 
 </td></tr>
@@ -81,12 +75,10 @@ IMPORT\_OTHER
 
 </td><td>
 
-`"Import Other"`
+`'Import Other'`
 
 
 </td><td>
-
-导入其他格式工程
 
 
 </td></tr>
@@ -97,12 +89,10 @@ IMPORT\_PROFESSIONAL
 
 </td><td>
 
-`"Import Professional"`
+`'Import Professional'`
 
 
 </td><td>
-
-导入专业版工程
 
 
 </td></tr>
@@ -113,12 +103,10 @@ IMPORT\_STANDARD
 
 </td><td>
 
-`"Import Standard"`
+`'Import Standard'`
 
 
 </td><td>
-
-导入标准版工程
 
 
 </td></tr>
@@ -129,12 +117,10 @@ MIGRATE\_STANDARD
 
 </td><td>
 
-`"Migrate Standard"`
+`'Migrate Standard'`
 
 
 </td><td>
-
-迁移标准版工程
 
 
 </td></tr>
@@ -145,12 +131,10 @@ NEW\_3D\_MODEL
 
 </td><td>
 
-`"New 3D Model"`
+`'New 3D Model'`
 
 
 </td><td>
-
-新建 3D 模型
 
 
 </td></tr>
@@ -161,12 +145,10 @@ NEW\_COMPONENT
 
 </td><td>
 
-`"New Component"`
+`'New Component'`
 
 
 </td><td>
-
-新建元件
 
 
 </td></tr>
@@ -177,12 +159,10 @@ NEW\_FOOTPRINT
 
 </td><td>
 
-`"New Footprint"`
+`'New Footprint'`
 
 
 </td><td>
-
-新建封装
 
 
 </td></tr>
@@ -193,12 +173,10 @@ NEW\_LIBRARY
 
 </td><td>
 
-`"New Library"`
+`'New Library'`
 
 
 </td><td>
-
-新建库
 
 
 </td></tr>
@@ -209,12 +187,10 @@ NEW\_PROJECT
 
 </td><td>
 
-`"New Project"`
+`'New Project'`
 
 
 </td><td>
-
-新建工程
 
 
 </td></tr>
@@ -225,12 +201,10 @@ NEW\_REUSE\_BLOCK
 
 </td><td>
 
-`"New Reuse Block"`
+`'New Reuse Block'`
 
 
 </td><td>
-
-新建复用块
 
 
 </td></tr>
@@ -241,12 +215,10 @@ NEW\_SYMBOL
 
 </td><td>
 
-`"New Symbol"`
+`'New Symbol'`
 
 
 </td><td>
-
-新建符号
 
 
 </td></tr>
@@ -257,12 +229,10 @@ OPEN\_PROJECT
 
 </td><td>
 
-`"Open Project"`
+`'Open Project'`
 
 
 </td><td>
-
-打开工程
 
 
 </td></tr>
@@ -273,12 +243,10 @@ SETTING
 
 </td><td>
 
-`"Setting"`
+`'Setting'`
 
 
 </td><td>
-
-设置
 
 
 </td></tr>

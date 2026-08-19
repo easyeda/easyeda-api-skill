@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class DMT_Pcb 
+export class DMT_Pcb 
 ```
 
 ## Remarks
@@ -143,7 +143,7 @@ Description
 ## Signature
 
 ```typescript
-copyPcb(pcbUuid: string, boardName?: string): Promise<string | undefined>;
+public copyPcb(pcbUuid: string, boardName?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -219,7 +219,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-createPcb(boardName?: string): Promise<string | undefined>;
+public createPcb(boardName?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -275,7 +275,7 @@ PCB UUID，如若为 `undefined` 则创建失败
 ## Signature
 
 ```typescript
-deletePcb(pcbUuid: string): Promise<boolean>;
+public deletePcb(pcbUuid: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -335,7 +335,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-getAllPcbsInfo(): Promise<Array<IDMT_PcbItem>>;
+public getAllPcbsInfo(): Promise<Array<IDMT_PcbItem>>;
 ```
 
 
@@ -354,7 +354,7 @@ Promise&lt;Array&lt;[IDMT\_PcbItem](../interfaces/IDMT_PcbItem.md)<!-- -->&gt;&g
 ## Signature
 
 ```typescript
-getCurrentPcbInfo(): Promise<IDMT_PcbItem | undefined>;
+public getCurrentPcbInfo(): Promise<IDMT_PcbItem | undefined>;
 ```
 
 
@@ -377,7 +377,7 @@ PCB 的详细属性，如若为 `undefined` 则获取失败
 ## Signature
 
 ```typescript
-getPcbInfo(pcbUuid: string): Promise<IDMT_PcbItem | undefined>;
+public getPcbInfo(pcbUuid: string): Promise<IDMT_PcbItem | undefined>;
 ```
 
 ## Parameters
@@ -433,7 +433,7 @@ PCB 的详细属性，如若为 `undefined` 则获取失败
 ## Signature
 
 ```typescript
-modifyPcbName(pcbUuid: string, pcbName: string): Promise<boolean>;
+public modifyPcbName(pcbUuid: string, pcbName: string): Promise<boolean>;
 ```
 
 ## Parameters

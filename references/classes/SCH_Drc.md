@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SCH_Drc 
+export class SCH_Drc 
 ```
 
 ## Remarks
@@ -75,7 +75,7 @@ Description
 ## Signature
 
 ```typescript
-check(strict: boolean, userInterface: boolean, includeVerboseError: false): Promise<boolean>;
+public check(strict: boolean, userInterface: boolean, includeVerboseError: false): Promise<boolean>;
 ```
 
 ## Parameters
@@ -165,7 +165,7 @@ DRC 检查是否通过
 ## Signature
 
 ```typescript
-check(strict: boolean, userInterface: boolean, includeVerboseError: true): Promise<Array<any>>;
+public check(strict: boolean, userInterface: boolean, includeVerboseError: true): Promise<Array<ISCH_DrcError>>;
 ```
 
 ## Parameters
@@ -230,7 +230,7 @@ true
 
 </td><td>
 
-是否在返回值中包含详细错误信息，如若为 `true`<!-- -->，则返回值将始终为数组
+是否在返回值中包含详细错误信息，如若为 `true`<!-- -->，则返回值将始终为数组 ADD since EDA v4.2
 
 
 </td></tr>
@@ -240,6 +240,6 @@ true
 
 ## Returns
 
-Promise&lt;Array&lt;any&gt;&gt;
+Promise&lt;Array&lt;[ISCH\_DrcError](../interfaces/ISCH_DrcError.md)<!-- -->&gt;&gt;
 
 DRC 检查的详细结果

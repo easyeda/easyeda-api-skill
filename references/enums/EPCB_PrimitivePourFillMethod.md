@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum EPCB_PrimitivePourFillMethod 
+export enum EPCB_PrimitivePourFillMethod 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ GRID
 
 </td><td>
 
-`"90grid"`
+`'90grid'`
 
 
 </td><td>
-
-90 度网格
 
 
 </td></tr>
@@ -49,12 +47,10 @@ GRID45
 
 </td><td>
 
-`"45grid"`
+`'45grid'`
 
 
 </td><td>
-
-45 度网格
 
 
 </td></tr>
@@ -65,12 +61,10 @@ SOLID
 
 </td><td>
 
-`"solid"`
+`'solid'`
 
 
 </td><td>
-
-实心填充
 
 
 </td></tr>

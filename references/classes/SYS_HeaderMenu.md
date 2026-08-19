@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_HeaderMenu 
+export class SYS_HeaderMenu 
 ```
 
 ## Remarks
@@ -114,7 +114,7 @@ Description
 ## Signature
 
 ```typescript
-insertHeaderMenus(headerMenus: ISYS_HeaderMenus): Promise<void>;
+public insertHeaderMenus(headerMenus: ISYS_HeaderMenus): Promise<void>;
 ```
 
 ## Parameters
@@ -170,15 +170,7 @@ Promise&lt;void&gt;
 ## Signature
 
 ```typescript
-insertSystemHeaderMenuItem(env: ESYS_HeaderMenuEnvironment, id: Array<string>, props: {
-        title: string;
-        registerFn?: string;
-        menuItems?: Array<ISYS_HeaderMenuSub1MenuItem | ISYS_HeaderMenuSub2MenuItem | null>;
-        insertDividerBefore?: boolean;
-        insertDividerAfter?: boolean;
-        insertBefore?: string;
-        crossDividerWhenInsert?: boolean;
-    }): Promise<string | undefined>;
+public insertSystemHeaderMenuItem(env: ESYS_HeaderMenuEnvironment, id: Array<string>, props: { title: string; registerFn?: undefined | string; menuItems?: undefined | (null | ISYS_HeaderMenuSub2MenuItem | ISYS_HeaderMenuSub1MenuItem)[]; insertDividerBefore?: undefined | false | true; insertDividerAfter?: undefined | false | true; insertBefore?: undefined | string; crossDividerWhenInsert?: undefined | false | true }): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -238,7 +230,7 @@ props
 
 </td><td>
 
-{ title: string; registerFn?: string; menuItems?: Array&lt;[ISYS\_HeaderMenuSub1MenuItem](../interfaces/ISYS_HeaderMenuSub1MenuItem.md) \| [ISYS\_HeaderMenuSub2MenuItem](../interfaces/ISYS_HeaderMenuSub2MenuItem.md) \| null&gt;; insertDividerBefore?: boolean; insertDividerAfter?: boolean; insertBefore?: string; crossDividerWhenInsert?: boolean; }
+{ title: string; registerFn?: undefined \| string; menuItems?: undefined \| (null \| [ISYS\_HeaderMenuSub2MenuItem](../interfaces/ISYS_HeaderMenuSub2MenuItem.md) \| [ISYS\_HeaderMenuSub1MenuItem](../interfaces/ISYS_HeaderMenuSub1MenuItem.md)<!-- -->)\[\]; insertDividerBefore?: undefined \| false \| true; insertDividerAfter?: undefined \| false \| true; insertBefore?: undefined \| string; crossDividerWhenInsert?: undefined \| false \| true }
 
 
 </td><td>
@@ -280,7 +272,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-removeHeaderMenus(): void;
+public removeHeaderMenus(): void;
 ```
 
 
@@ -299,10 +291,7 @@ void
 ## Signature
 
 ```typescript
-removeSystemHeaderMenuItem(id: Array<string>, props?: {
-        removeTheBeforeDivider?: boolean;
-        removeTheAfterDivider?: boolean;
-    }): Promise<boolean>;
+public removeSystemHeaderMenuItem(id: Array<string>, props?: { removeTheBeforeDivider?: undefined | false | true; removeTheAfterDivider?: undefined | false | true }): Promise<boolean>;
 ```
 
 ## Parameters
@@ -346,7 +335,7 @@ props
 
 </td><td>
 
-\{ removeTheBeforeDivider?: boolean; removeTheAfterDivider?: boolean; \}
+\{ removeTheBeforeDivider?: undefined \| false \| true; removeTheAfterDivider?: undefined \| false \| true \}
 
 
 </td><td>
@@ -390,7 +379,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-replaceHeaderMenus(headerMenus: ISYS_HeaderMenus): Promise<void>;
+public replaceHeaderMenus(headerMenus: ISYS_HeaderMenus): Promise<void>;
 ```
 
 ## Parameters

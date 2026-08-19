@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IPCB_PadPairGroupItem 
+export interface IPCB_PadPairGroupItem 
 ```
 
 ## Properties

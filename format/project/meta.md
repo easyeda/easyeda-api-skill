@@ -1,56 +1,56 @@
-# 基本信息
+# Basic Information
 
-### 工程配置
+### Project Config
 
-存放工程的配置数据，之前是存在后端的工程详情里的
+Stores project configuration data, previously kept in the backend project details.
 
 ```json
 { "type": "META", "ticket": 1 }||{ "name": "name", "default_sheet": "default_sheet_uuid"}|
 ```
 
-1. name 工程名称
-2. default_sheet 工程的默认图纸
+1. name project name.
+2. default_sheet default sheet of the project.
 
-### 板子
+### Board
 
 ```json
 { "type": "META", "ticket": 1 }||{ "title": "title", "sort": 1}|
 ```
 
-1. title 板子名称
-2. sort 排序权重
+1. title board name.
+2. sort sort weight.
 
-### 原理图
+### Schematic
 
 ```json
 { "type": "META", "ticket": 1 }||{ "name": "name", "board":"", "source": "", "version": ""}|
 ```
 
-1. name 名称
-2. board 所属的板子 uuid, 没有则为空
-3. source 源文档 uuid
-4. version 版本，源文档的更新时间
+1. name name.
+2. board uuid of the board it belongs to, empty if none.
+3. source source document uuid.
+4. version version, update time of the source document.
 
-### 原理图页
+### Schematic Page
 
 ```json
 { "type": "META", "ticket": 1 }||
 {
     "name": "Page Name",
     "schematic": "SID",
-    "description": "描述",
+    "description": "description",
     "sort": 0.5,
     "source": "",
     "version": "",
 }|
 ```
 
-1. name 名称
-2. schematic 所属的原理图 uuid
-3. description 描述
-4. sort 排序权重
-5. source 源文档 uuid
-6. version 版本，源文档的更新时间
+1. name name.
+2. schematic uuid of the schematic it belongs to.
+3. description description.
+4. sort sort weight.
+5. source source document uuid.
+6. version version, update time of the source document.
 
 ### PCB
 
@@ -59,7 +59,7 @@
 {
     "name": "PCB Name",
     "board": "boardId",
-    "description": "描述",
+    "description": "description",
     "parentId":"",
     "sort": 0.5,
     "source": "",
@@ -67,22 +67,22 @@
 }|
 ```
 
-1. name 名称
-2. board 所属的板子 uuid, 没有则为空
-3. description 描述
-4. parentId 父 PCB UUID, 没有则为空
-5. sort 排序权重
-6. source 源文档 uuid
-7. version 版本，源文档的更新时间
+1. name name.
+2. board uuid of the board it belongs to, empty if none.
+3. description description.
+4. parentId parent PCB UUID, empty if none.
+5. sort sort weight.
+6. source source document uuid.
+7. version version, update time of the source document.
 
-子 PCB
+Child PCB
 
 ```json
 { "type": "META", "ticket": 1 }||
 {
-    "name": "子PCB Name",
+    "name": "Child PCB Name",
     "board": "",
-    "description": "描述",
+    "description": "description",
     "parentId":"UUID",
     "sort": 0.2,
     "source": "",
@@ -90,28 +90,28 @@
 }|
 ```
 
-### 面板
+### Panel
 
 ```json
 { "type": "META", "ticket": 1 }||
 {
     "name": "Panel Name",
-    "description": "描述",
+    "description": "description",
     "sort": 0.5,
 }|
 ```
 
-1. name 名称
-2. description 描述
-3. sort 排序权重
+1. name name.
+2. description description.
+3. sort sort weight.
 
-### 符号
+### Symbol
 
 ```json
 { "type": "META", "ticket": 1 }||
 {
     "name": "Name",
-    "description": "描述",
+    "description": "description",
     "type": 2,
     "tags": "tag1",
     "source": "",
@@ -119,20 +119,20 @@
 }|
 ```
 
-1. name 名称
-2. description 描述
-3. type 符号类型
-4. tags 分类标签
-5. source 源文档 uuid
-6. version 版本，源文档的更新时间
+1. name name.
+2. description description.
+3. type symbol type.
+4. tags classification tags.
+5. source source document uuid.
+6. version version, update time of the source document.
 
-### 封装
+### Footprint
 
 ```json
 { "type": "META", "ticket": 1 }||
 {
     "name": "Name",
-    "description": "描述",
+    "description": "description",
     "type": 4,
     "tags": "tag1",
     "source": "",
@@ -141,21 +141,21 @@
 }|
 ```
 
-1. name 名称
-2. description 描述
-3. type 封装类型
-4. tags 分类标签
-5. source 源文档 uuid
-6. version 版本，源文档的更新时间
-7. pcb 所属的 pcb uuid, 默认为空，仅特殊封装有该字段
+1. name name.
+2. description description.
+3. type footprint type.
+4. tags classification tags.
+5. source source document uuid.
+6. version version, update time of the source document.
+7. pcb uuid of the pcb it belongs to, empty by default. Only special footprints have this field.
 
-特殊封装
+Special Footprint
 
 ```json
 { "type": "META", "ticket": 1 }||
 {
     "name": "Name",
-    "description": "描述",
+    "description": "description",
     "type": 4,
     "tags": "tag1",
     "source": "",
@@ -164,13 +164,13 @@
 }|
 ```
 
-### 器件
+### Device
 
 ```json
 { "type": "META", "ticket": 1 }||
 {
     "name": "Name",
-    "description": "描述",
+    "description": "description",
     "type": 4,
     "tags": "tag1",
     "source": "",
@@ -180,10 +180,10 @@
 }|
 ```
 
-1. name 名称
-2. description 描述
-3. tags 分类标签
-4. source 源文档 uuid
-5. version 版本，源文档的更新时间
-6. attributes 器件属性 Key-Value
-7. images 图片链接
+1. name name.
+2. description description.
+3. tags classification tags.
+4. source source document uuid.
+5. version version, update time of the source document.
+6. attributes device attributes Key-Value.
+7. images image links.

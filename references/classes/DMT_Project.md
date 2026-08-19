@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class DMT_Project 
+export class DMT_Project 
 ```
 
 ## Methods
@@ -127,7 +127,7 @@ Description
 ## Signature
 
 ```typescript
-createProject(projectFriendlyName: string, projectName?: string, teamUuid?: string, folderUuid?: string, description?: string, collaborationMode?: EDMT_ProjectCollaborationMode): Promise<string | undefined>;
+public createProject(projectFriendlyName: string, projectName?: string, teamUuid?: string, folderUuid?: string, description?: string, collaborationMode?: EDMT_ProjectCollaborationMode): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -263,7 +263,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-getAllProjectsUuid(teamUuid?: string, folderUuid?: string, workspaceUuid?: string): Promise<Array<string>>;
+public getAllProjectsUuid(teamUuid?: string, folderUuid?: string, workspaceUuid?: string): Promise<Array<string>>;
 ```
 
 ## Parameters
@@ -361,7 +361,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 ## Signature
 
 ```typescript
-getCurrentProjectInfo(): Promise<IDMT_ProjectItem | undefined>;
+public getCurrentProjectInfo(): Promise<IDMT_ProjectItem | undefined>;
 ```
 
 
@@ -384,7 +384,7 @@ Promise&lt;[IDMT\_ProjectItem](../interfaces/IDMT_ProjectItem.md) \| undefined&g
 ## Signature
 
 ```typescript
-getProjectInfo(projectUuid: string): Promise<IDMT_BriefProjectItem | undefined>;
+public getProjectInfo(projectUuid: string): Promise<IDMT_BriefProjectItem | undefined>;
 ```
 
 ## Parameters
@@ -444,7 +444,7 @@ Promise&lt;[IDMT\_BriefProjectItem](../interfaces/IDMT_BriefProjectItem.md) \| u
 ## Signature
 
 ```typescript
-moveProjectToFolder(projectUuid: string, folderUuid?: string): Promise<boolean>;
+public moveProjectToFolder(projectUuid: string, folderUuid?: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -516,7 +516,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-openProject(projectUuid: string): Promise<boolean>;
+public openProject(projectUuid: string): Promise<boolean>;
 ```
 
 ## Parameters

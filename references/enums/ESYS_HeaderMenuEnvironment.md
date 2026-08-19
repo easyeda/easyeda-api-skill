@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESYS_HeaderMenuEnvironment 
+export enum ESYS_HeaderMenuEnvironment 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ BLANK
 
 </td><td>
 
-`"blank"`
+`'blank'`
 
 
 </td><td>
-
-空白页
 
 
 </td></tr>
@@ -49,12 +47,10 @@ FOOTPRINT
 
 </td><td>
 
-`"footprint"`
+`'footprint'`
 
 
 </td><td>
-
-封装
 
 
 </td></tr>
@@ -65,12 +61,10 @@ HOME
 
 </td><td>
 
-`"home"`
+`'home'`
 
 
 </td><td>
-
-主页
 
 
 </td></tr>
@@ -81,12 +75,10 @@ PANEL
 
 </td><td>
 
-`"panel"`
+`'panel'`
 
 
 </td><td>
-
-面板
 
 
 </td></tr>
@@ -97,12 +89,10 @@ PANEL\_LIBRARY
 
 </td><td>
 
-`"panelLibrary"`
+`'panelLibrary'`
 
 
 </td><td>
-
-面板库
 
 
 </td></tr>
@@ -113,12 +103,10 @@ PANEL\_VIEW
 
 </td><td>
 
-`"panelView"`
+`'panelView'`
 
 
 </td><td>
-
-面板预览
 
 
 </td></tr>
@@ -129,12 +117,10 @@ PCB
 
 </td><td>
 
-`"pcb"`
+`'pcb'`
 
 
 </td><td>
-
-PCB
 
 
 </td></tr>
@@ -145,12 +131,10 @@ PCB\_VIEW
 
 </td><td>
 
-`"pcbView"`
+`'pcbView'`
 
 
 </td><td>
-
-PCB 预览（包括 2D、3D 预览）
 
 
 </td></tr>
@@ -161,12 +145,10 @@ SCHEMATIC
 
 </td><td>
 
-`"sch"`
+`'sch'`
 
 
 </td><td>
-
-原理图
 
 
 </td></tr>
@@ -177,12 +159,10 @@ SIMULATION\_SCHEMATIC\_NGSPICE
 
 </td><td>
 
-`"simulationSchematicNgspice"`
+`'simulationSchematicNgspice'`
 
 
 </td><td>
-
-仿真原理图：Ngspice
 
 
 </td></tr>
@@ -193,12 +173,10 @@ SIMULATION\_SCHEMATIC\_SIMULIDE
 
 </td><td>
 
-`"simulationSchematicSimulIDE"`
+`'simulationSchematicSimulIDE'`
 
 
 </td><td>
-
-仿真原理图：SimulIDE
 
 
 </td></tr>
@@ -209,12 +187,10 @@ SYMBOL
 
 </td><td>
 
-`"symbol"`
+`'symbol'`
 
 
 </td><td>
-
-符号（包括 CBB 符号）
 
 
 </td></tr>

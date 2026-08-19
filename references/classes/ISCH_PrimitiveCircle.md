@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class ISCH_PrimitiveCircle implements ISCH_Primitive 
+export class ISCH_PrimitiveCircle implements ISCH_Primitive 
 ```
 **Implements:** [ISCH\_Primitive](../interfaces/ISCH_Primitive.md)
 
@@ -369,7 +369,7 @@ Description
 ## Signature
 
 ```typescript
-done(): Promise<ISCH_PrimitiveCircle>;
+public done(): Promise<ISCH_PrimitiveCircle>;
 ```
 
 
@@ -388,7 +388,7 @@ Promise&lt;[ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getState_CenterX(): number;
+public getState_CenterX(): number;
 ```
 
 
@@ -407,7 +407,7 @@ number
 ## Signature
 
 ```typescript
-getState_CenterY(): number;
+public getState_CenterY(): number;
 ```
 
 
@@ -426,7 +426,7 @@ number
 ## Signature
 
 ```typescript
-getState_Color(): string | null;
+public getState_Color(): string | null;
 ```
 
 
@@ -445,7 +445,7 @@ string \| null
 ## Signature
 
 ```typescript
-getState_FillColor(): string | null;
+public getState_FillColor(): string | null;
 ```
 
 
@@ -464,7 +464,7 @@ string \| null
 ## Signature
 
 ```typescript
-getState_FillStyle(): ESCH_PrimitiveFillStyle | null;
+public getState_FillStyle(): ESCH_PrimitiveFillStyle | null;
 ```
 
 
@@ -483,7 +483,7 @@ getState_FillStyle(): ESCH_PrimitiveFillStyle | null;
 ## Signature
 
 ```typescript
-getState_LineType(): ESCH_PrimitiveLineType | null;
+public getState_LineType(): ESCH_PrimitiveLineType | null;
 ```
 
 
@@ -502,7 +502,7 @@ getState_LineType(): ESCH_PrimitiveLineType | null;
 ## Signature
 
 ```typescript
-getState_LineWidth(): number | null;
+public getState_LineWidth(): number | null;
 ```
 
 
@@ -521,7 +521,7 @@ number \| null
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -540,7 +540,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): ESCH_PrimitiveType;
+public getState_PrimitiveType(): ESCH_PrimitiveType;
 ```
 
 
@@ -559,7 +559,7 @@ getState_PrimitiveType(): ESCH_PrimitiveType;
 ## Signature
 
 ```typescript
-getState_Radius(): number;
+public getState_Radius(): number;
 ```
 
 
@@ -578,7 +578,7 @@ number
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -599,7 +599,7 @@ boolean
 ## Signature
 
 ```typescript
-reset(): Promise<ISCH_PrimitiveCircle>;
+public reset(): Promise<ISCH_PrimitiveCircle>;
 ```
 
 
@@ -620,7 +620,7 @@ Promise&lt;[ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_CenterX(centerX: number): ISCH_PrimitiveCircle;
+public setState_CenterX(centerX: number): ISCH_PrimitiveCircle;
 ```
 
 ## Parameters
@@ -678,7 +678,7 @@ number
 ## Signature
 
 ```typescript
-setState_CenterY(centerY: number): ISCH_PrimitiveCircle;
+public setState_CenterY(centerY: number): ISCH_PrimitiveCircle;
 ```
 
 ## Parameters
@@ -736,7 +736,7 @@ number
 ## Signature
 
 ```typescript
-setState_Color(color: string | null): ISCH_PrimitiveCircle;
+public setState_Color(color: string | null): ISCH_PrimitiveCircle;
 ```
 
 ## Parameters
@@ -794,7 +794,7 @@ string \| null
 ## Signature
 
 ```typescript
-setState_FillColor(fillColor: string | null): ISCH_PrimitiveCircle;
+public setState_FillColor(fillColor: string | null): ISCH_PrimitiveCircle;
 ```
 
 ## Parameters
@@ -852,7 +852,7 @@ string \| null
 ## Signature
 
 ```typescript
-setState_FillStyle(fillStyle: ESCH_PrimitiveFillStyle | null): ISCH_PrimitiveCircle;
+public setState_FillStyle(fillStyle: ESCH_PrimitiveFillStyle | null): ISCH_PrimitiveCircle;
 ```
 
 ## Parameters
@@ -910,7 +910,7 @@ fillStyle
 ## Signature
 
 ```typescript
-setState_LineType(lineType: ESCH_PrimitiveLineType | null): ISCH_PrimitiveCircle;
+public setState_LineType(lineType: ESCH_PrimitiveLineType | null): ISCH_PrimitiveCircle;
 ```
 
 ## Parameters
@@ -968,7 +968,7 @@ lineType
 ## Signature
 
 ```typescript
-setState_LineWidth(lineWidth: number | null): ISCH_PrimitiveCircle;
+public setState_LineWidth(lineWidth: number | null): ISCH_PrimitiveCircle;
 ```
 
 ## Parameters
@@ -1026,7 +1026,7 @@ number \| null
 ## Signature
 
 ```typescript
-setState_Radius(radius: number): ISCH_PrimitiveCircle;
+public setState_Radius(radius: number): ISCH_PrimitiveCircle;
 ```
 
 ## Parameters
@@ -1082,7 +1082,7 @@ number
 ## Signature
 
 ```typescript
-toAsync(): ISCH_PrimitiveCircle;
+public toAsync(): ISCH_PrimitiveCircle;
 ```
 
 
@@ -1101,7 +1101,7 @@ toAsync(): ISCH_PrimitiveCircle;
 ## Signature
 
 ```typescript
-toSync(): ISCH_PrimitiveCircle;
+public toSync(): ISCH_PrimitiveCircle;
 ```
 
 

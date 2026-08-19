@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class IPCB_ComplexPolygon 
+export class IPCB_ComplexPolygon 
 ```
 
 ## Remarks
@@ -116,7 +116,7 @@ Description
 ## Signature
 
 ```typescript
-addSource(complexPolygon: TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray> | IPCB_Polygon | Array<IPCB_Polygon>): IPCB_ComplexPolygon;
+public addSource(complexPolygon: TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray> | IPCB_Polygon | Array<IPCB_Polygon>): IPCB_ComplexPolygon;
 ```
 
 ## Parameters
@@ -174,16 +174,13 @@ complexPolygon
 ## Signature
 
 ```typescript
-getCenter(): {
-        x: number;
-        y: number;
-    };
+public getCenter(): Promise<{ x: number; y: number }>;
 ```
 
 
 ## Returns
 
-\{ x: number; y: number; \}
+Promise&lt;{ x: number; y: number }&gt;
 
 复杂多边形中心点
 
@@ -196,7 +193,7 @@ getCenter(): {
 ## Signature
 
 ```typescript
-getSource(): TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray>;
+public getSource(): TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray>;
 ```
 
 
@@ -219,7 +216,7 @@ getSource(): TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray>;
 ## Signature
 
 ```typescript
-getSourceStrictComplex(): Array<TPCB_PolygonSourceArray>;
+public getSourceStrictComplex(): Array<TPCB_PolygonSourceArray>;
 ```
 
 
@@ -242,7 +239,7 @@ Array&lt;[TPCB\_PolygonSourceArray](../types/TPCB_PolygonSourceArray.md)<!-- -->
 ## Signature
 
 ```typescript
-toPolygon(): Array<IPCB_Polygon>;
+public toPolygon(): Array<IPCB_Polygon>;
 ```
 
 

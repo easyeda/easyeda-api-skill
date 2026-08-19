@@ -1,41 +1,41 @@
-# ATTR 属性
+# ATTR Attribute
 
-ATTR 是一个较为通用的图元，其含义为
+ATTR is a relatively generic primitive that means:
 
-1. 表达一个由 键(KEY)——值(VALUE) 组成的的多个属性中的一个
-1. 可以在画布上显示，并控制显示哪些内容，以及样式位置等
+1. It expresses one of multiple attributes composed of a KEY-VALUE pair.
+2. It can be displayed on the canvas and controls what content is displayed, as well as style and position.
 
-当隶属编号没有指定时，则默认隶属于当前块级图元上
+When the affiliation ID is not specified, it defaults to the current block-level primitive.
 
 ```json
 { "type": "ATTR", "id": "UUID", "ticket": 1 }||
 { "partId": "", "groupId": 0, "locked": false, "zIndex": 0.1, "parentId": "UUID", "key":"string", "value":"string", "keyVisible":false, "valueVisible":false, "positionX":200, "positionY":200, "rotation":0, "color":null, "fillColor":null, "fontFamily":null, "fontSize":null, "strikeout":null, "underline":null, "italic":null, "fontWeight":null, "vAlign":0, "hAlign":2,}|
 ```
 
-1. type 属性名称：ATTR
-2. id 唯一编号
-3. ticket 逻辑时钟
-4. partId 子库编号，符号页专属，原理图忽略该字段
-5. groupId 分组编号，不能为 0，没有默认为空
-6. locked 是否锁定
-7. zIndex Z 轴高度
-8. parentId 隶属编号：隶属于哪个图元，`""` 表示属于当前块 _默认块是文件_
-9. key 属性 Key
-10. value 属性 Value
-11. keyVisible 是否显示 Key
-12. valueVisible 是否显示 Value
-13. positionX 位置 X：未显示过的属性位置固定为 `null`
-14. positionY 位置 Y：未显示过的属性位置固定为 `null`
-15. rotation 旋转角度，绕 `位置` 旋转
-16. color 颜色
-17. fillColor 背景色
-18. fontFamily 字体名称
-19. fontSize 字体大小，与坐标等单位相同
-20. strikeout 是否加删除线
-21. underline 是否加下划线
-22. italic 是否斜体
-23. fontWeight 是否加粗
-24. vAlign 垂直对齐模式：0 顶部对齐 1 中间对齐 2 底部对齐
-25. hAlign 水平对齐模式：0 左对齐 1 居中 2 右对齐
+1. type attribute name: ATTR.
+2. id unique ID.
+3. ticket logical clock.
+4. partId sub-library ID, exclusive to symbol pages; ignored on schematics.
+5. groupId group ID, cannot be 0, empty by default when none.
+6. locked whether locked.
+7. zIndex Z-axis height.
+8. parentId affiliation ID: the primitive it belongs to, `""` means it belongs to the current block. _Default block is the file._
+9. key attribute Key.
+10. value attribute Value.
+11. keyVisible whether to display Key.
+12. valueVisible whether to display Value.
+13. positionX position X: fixed to `null` for attributes that have never been displayed.
+14. positionY position Y: fixed to `null` for attributes that have never been displayed.
+15. rotation rotation angle, rotated around `position`.
+16. color color.
+17. fillColor background color.
+18. fontFamily font name.
+19. fontSize font size, same unit as coordinates.
+20. strikeout whether to strike out.
+21. underline whether to underline.
+22. italic whether italic.
+23. fontWeight whether bold.
+24. vAlign vertical alignment: 0 top, 1 middle, 2 bottom.
+25. hAlign horizontal alignment: 0 left, 1 center, 2 right.
 
-当属性 Value 中含有 `~` 字符时，XTools 需要实现从开始到结束，遇到第奇数个 `~` 开始文字带上划线，遇到第偶数个 `~` 结束文字带上划线
+When the attribute Value contains the `~` character, XTools needs to implement overline text from the start to the end: text is overlined starting at odd-numbered `~` and ending at even-numbered `~`.

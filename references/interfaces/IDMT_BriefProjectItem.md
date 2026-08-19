@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IDMT_BriefProjectItem 
+export interface IDMT_BriefProjectItem 
 ```
 
 ## Properties

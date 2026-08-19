@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SCH_Event 
+export class SCH_Event 
 ```
 
 ## Remarks
@@ -116,7 +116,7 @@ Description
 ## Signature
 
 ```typescript
-addMouseEventListener(id: string, eventType: 'all' | ESCH_MouseEventType, callFn: (eventType: ESCH_MouseEventType) => void | Promise<void>, onlyOnce?: boolean): void;
+public addMouseEventListener(id: string, eventType: 'all' | ESCH_MouseEventType, callFn: (eventType: ESCH_MouseEventType) => void | Promise<void>, onlyOnce?: boolean): void;
 ```
 
 ## Parameters
@@ -224,9 +224,7 @@ void
 ## Signature
 
 ```typescript
-addPrimitiveEventListener(id: string, eventType: 'all' | ESCH_PrimitiveEventType, callFn: (eventType: ESCH_PrimitiveEventType, props: {
-        primitiveIds: Array<string>;
-    }) => void | Promise<void>, onlyOnce?: boolean): void;
+public addPrimitiveEventListener(id: string, eventType: 'all' | ESCH_PrimitiveEventType, callFn: (eventType: ESCH_PrimitiveEventType, props: { primitiveIds: string[] }) => void | Promise<void>, onlyOnce?: boolean): void;
 ```
 
 ## Parameters
@@ -286,7 +284,7 @@ callFn
 
 </td><td>
 
-(eventType: [ESCH\_PrimitiveEventType](../enums/ESCH_PrimitiveEventType.md)<!-- -->, props: { primitiveIds: Array&lt;string&gt;; }) =&gt; void \| Promise&lt;void&gt;
+(eventType: [ESCH\_PrimitiveEventType](../enums/ESCH_PrimitiveEventType.md)<!-- -->, props: { primitiveIds: string\[\] }) =&gt; void \| Promise&lt;void&gt;
 
 
 </td><td>
@@ -334,9 +332,7 @@ void
 ## Signature
 
 ```typescript
-addSimulationEnginePullEventListener(id: string, eventType: 'all', callFn: (eventType: ESCH_DynamicSimulationEnginePullEventType | ESCH_SpiceSimulationEnginePullEventType, props: {
-        [key: string]: any;
-    }) => void | Promise<void>): void;
+public addSimulationEnginePullEventListener(id: string, eventType: 'all', callFn: (eventType: ESCH_DynamicSimulationEnginePullEventType | ESCH_SpiceSimulationEnginePullEventType, props: Record<string, any>) => void | Promise<void>): void;
 ```
 
 ## Parameters
@@ -396,7 +392,7 @@ callFn
 
 </td><td>
 
-(eventType: [ESCH\_DynamicSimulationEnginePullEventType](../enums/ESCH_DynamicSimulationEnginePullEventType.md) \| [ESCH\_SpiceSimulationEnginePullEventType](../enums/ESCH_SpiceSimulationEnginePullEventType.md)<!-- -->, props: { \[key: string\]: any; }) =&gt; void \| Promise&lt;void&gt;
+(eventType: [ESCH\_DynamicSimulationEnginePullEventType](../enums/ESCH_DynamicSimulationEnginePullEventType.md) \| [ESCH\_SpiceSimulationEnginePullEventType](../enums/ESCH_SpiceSimulationEnginePullEventType.md)<!-- -->, props: Record&lt;string, any&gt;) =&gt; void \| Promise&lt;void&gt;
 
 
 </td><td>
@@ -426,7 +422,7 @@ void
 ## Signature
 
 ```typescript
-isEventListenerAlreadyExist(id: string): boolean;
+public isEventListenerAlreadyExist(id: string): boolean;
 ```
 
 ## Parameters
@@ -482,7 +478,7 @@ boolean
 ## Signature
 
 ```typescript
-removeEventListener(id: string): boolean;
+public removeEventListener(id: string): boolean;
 ```
 
 ## Parameters

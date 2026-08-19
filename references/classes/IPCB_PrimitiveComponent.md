@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class IPCB_PrimitiveComponent implements IPCB_Primitive 
+export class IPCB_PrimitiveComponent implements IPCB_Primitive 
 ```
 **Implements:** [IPCB\_Primitive](../interfaces/IPCB_Primitive.md)
 
@@ -621,7 +621,7 @@ Description
 ## Signature
 
 ```typescript
-done(): Promise<IPCB_PrimitiveComponent>;
+public done(): Promise<IPCB_PrimitiveComponent>;
 ```
 
 
@@ -642,7 +642,7 @@ Promise&lt;[IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getAllPins(): Promise<Array<IPCB_PrimitiveComponentPad>>;
+public getAllPins(): Promise<Array<IPCB_PrimitiveComponentPad>>;
 ```
 
 
@@ -661,7 +661,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveComponentPad](./IPCB_PrimitiveComponentPad.m
 ## Signature
 
 ```typescript
-getState_AddIntoBom(): boolean;
+public getState_AddIntoBom(): boolean;
 ```
 
 
@@ -680,17 +680,13 @@ boolean
 ## Signature
 
 ```typescript
-getState_Component(): {
-        libraryUuid: string;
-        uuid: string;
-        name?: string;
-    } | undefined;
+public getState_Component(): { libraryUuid: string; uuid: string; name?: undefined | string } | undefined;
 ```
 
 
 ## Returns
 
-{ libraryUuid: string; uuid: string; name?: string; } \| undefined
+{ libraryUuid: string; uuid: string; name?: undefined \| string } \| undefined
 
 关联库器件
 
@@ -703,7 +699,7 @@ getState_Component(): {
 ## Signature
 
 ```typescript
-getState_Designator(): string | undefined;
+public getState_Designator(): string | undefined;
 ```
 
 
@@ -722,17 +718,13 @@ string \| undefined
 ## Signature
 
 ```typescript
-getState_Footprint(): {
-        libraryUuid: string;
-        uuid: string;
-        name?: string;
-    } | undefined;
+public getState_Footprint(): { libraryUuid: string; uuid: string; name?: undefined | string } | undefined;
 ```
 
 
 ## Returns
 
-{ libraryUuid: string; uuid: string; name?: string; } \| undefined
+{ libraryUuid: string; uuid: string; name?: undefined \| string } \| undefined
 
 关联库封装
 
@@ -745,7 +737,7 @@ getState_Footprint(): {
 ## Signature
 
 ```typescript
-getState_Layer(): TPCB_LayersOfComponent;
+public getState_Layer(): TPCB_LayersOfComponent;
 ```
 
 
@@ -764,7 +756,7 @@ getState_Layer(): TPCB_LayersOfComponent;
 ## Signature
 
 ```typescript
-getState_Manufacturer(): string | undefined;
+public getState_Manufacturer(): string | undefined;
 ```
 
 
@@ -783,7 +775,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-getState_ManufacturerId(): string | undefined;
+public getState_ManufacturerId(): string | undefined;
 ```
 
 
@@ -802,17 +794,13 @@ string \| undefined
 ## Signature
 
 ```typescript
-getState_Model3D(): {
-        libraryUuid: string;
-        uuid: string;
-        name?: string;
-    } | undefined;
+public getState_Model3D(): { libraryUuid: string; uuid: string; name?: undefined | string } | undefined;
 ```
 
 
 ## Returns
 
-{ libraryUuid: string; uuid: string; name?: string; } \| undefined
+{ libraryUuid: string; uuid: string; name?: undefined \| string } \| undefined
 
 关联库 3D 模型
 
@@ -825,7 +813,7 @@ getState_Model3D(): {
 ## Signature
 
 ```typescript
-getState_Name(): string | undefined;
+public getState_Name(): string | undefined;
 ```
 
 
@@ -844,15 +832,13 @@ string \| undefined
 ## Signature
 
 ```typescript
-getState_OtherProperty(): {
-        [key: string]: string | number | boolean;
-    } | undefined;
+public getState_OtherProperty(): Record<string, string | number | boolean> | undefined;
 ```
 
 
 ## Returns
 
-{ \[key: string\]: string \| number \| boolean; } \| undefined
+Record&lt;string, string \| number \| boolean&gt; \| undefined
 
 其它参数
 
@@ -865,17 +851,13 @@ getState_OtherProperty(): {
 ## Signature
 
 ```typescript
-getState_Pads(): Array<{
-        primitiveId: string;
-        net: string;
-        padNumber: string;
-    }> | undefined;
+public getState_Pads(): Array<{ primitiveId: string; net: string; padNumber: string }> | undefined;
 ```
 
 
 ## Returns
 
-Array&lt;{ primitiveId: string; net: string; padNumber: string; }&gt; \| undefined
+Array&lt;{ primitiveId: string; net: string; padNumber: string }&gt; \| undefined
 
 焊盘
 
@@ -888,7 +870,7 @@ Array&lt;{ primitiveId: string; net: string; padNumber: string; }&gt; \| undefin
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -907,7 +889,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveLock(): boolean;
+public getState_PrimitiveLock(): boolean;
 ```
 
 
@@ -926,7 +908,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): EPCB_PrimitiveType;
+public getState_PrimitiveType(): EPCB_PrimitiveType;
 ```
 
 
@@ -945,7 +927,7 @@ getState_PrimitiveType(): EPCB_PrimitiveType;
 ## Signature
 
 ```typescript
-getState_Rotation(): number;
+public getState_Rotation(): number;
 ```
 
 
@@ -964,7 +946,7 @@ number
 ## Signature
 
 ```typescript
-getState_Supplier(): string | undefined;
+public getState_Supplier(): string | undefined;
 ```
 
 
@@ -983,7 +965,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-getState_SupplierId(): string | undefined;
+public getState_SupplierId(): string | undefined;
 ```
 
 
@@ -1002,7 +984,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-getState_UniqueId(): string | undefined;
+public getState_UniqueId(): string | undefined;
 ```
 
 
@@ -1021,7 +1003,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-getState_X(): number;
+public getState_X(): number;
 ```
 
 
@@ -1040,7 +1022,7 @@ number
 ## Signature
 
 ```typescript
-getState_Y(): number;
+public getState_Y(): number;
 ```
 
 
@@ -1059,7 +1041,7 @@ number
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -1080,7 +1062,7 @@ boolean
 ## Signature
 
 ```typescript
-reset(): Promise<IPCB_PrimitiveComponent>;
+public reset(): Promise<IPCB_PrimitiveComponent>;
 ```
 
 
@@ -1101,7 +1083,7 @@ Promise&lt;[IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setAttribute(key: string, value?: string | number | boolean, keyVisible?: boolean, valueVisible?: boolean): Promise<IPCB_PrimitiveAttribute>;
+public setAttribute(key: string, value?: string | number | boolean, keyVisible?: boolean, valueVisible?: boolean): Promise<IPCB_PrimitiveAttribute>;
 ```
 
 ## Parameters
@@ -1207,7 +1189,7 @@ Promise&lt;[IPCB\_PrimitiveAttribute](./IPCB_PrimitiveAttribute.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_AddIntoBom(addIntoBom: boolean): IPCB_PrimitiveComponent;
+public setState_AddIntoBom(addIntoBom: boolean): IPCB_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1265,7 +1247,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_Designator(designator: string | undefined): IPCB_PrimitiveComponent;
+public setState_Designator(designator: string | undefined): IPCB_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1323,7 +1305,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-setState_Layer(layer: TPCB_LayersOfComponent): IPCB_PrimitiveComponent;
+public setState_Layer(layer: TPCB_LayersOfComponent): IPCB_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1381,7 +1363,7 @@ layer
 ## Signature
 
 ```typescript
-setState_Manufacturer(manufacturer: string | undefined): IPCB_PrimitiveComponent;
+public setState_Manufacturer(manufacturer: string | undefined): IPCB_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1439,7 +1421,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-setState_ManufacturerId(manufacturerId: string | undefined): IPCB_PrimitiveComponent;
+public setState_ManufacturerId(manufacturerId: string | undefined): IPCB_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1497,7 +1479,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-setState_Name(name: string | undefined): IPCB_PrimitiveComponent;
+public setState_Name(name: string | undefined): IPCB_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1555,9 +1537,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-setState_OtherProperty(otherProperty: {
-        [key: string]: string | number | boolean;
-    }): IPCB_PrimitiveComponent;
+public setState_OtherProperty(otherProperty: Record<string, string | number | boolean>): IPCB_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1585,7 +1565,7 @@ otherProperty
 
 </td><td>
 
-\{ \[key: string\]: string \| number \| boolean; \}
+Record&lt;string, string \| number \| boolean&gt;
 
 
 </td><td>
@@ -1615,7 +1595,7 @@ otherProperty
 ## Signature
 
 ```typescript
-setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitiveComponent;
+public setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1673,7 +1653,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_Rotation(rotation: number): IPCB_PrimitiveComponent;
+public setState_Rotation(rotation: number): IPCB_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1731,7 +1711,7 @@ number
 ## Signature
 
 ```typescript
-setState_Supplier(supplier: string | undefined): IPCB_PrimitiveComponent;
+public setState_Supplier(supplier: string | undefined): IPCB_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1789,7 +1769,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-setState_SupplierId(supplierId: string | undefined): IPCB_PrimitiveComponent;
+public setState_SupplierId(supplierId: string | undefined): IPCB_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1847,7 +1827,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-setState_UniqueId(uniqueId: string | undefined): IPCB_PrimitiveComponent;
+public setState_UniqueId(uniqueId: string | undefined): IPCB_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1905,7 +1885,7 @@ string \| undefined
 ## Signature
 
 ```typescript
-setState_X(x: number): IPCB_PrimitiveComponent;
+public setState_X(x: number): IPCB_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1963,7 +1943,7 @@ number
 ## Signature
 
 ```typescript
-setState_Y(y: number): IPCB_PrimitiveComponent;
+public setState_Y(y: number): IPCB_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -2019,7 +1999,7 @@ number
 ## Signature
 
 ```typescript
-toAsync(): IPCB_PrimitiveComponent;
+public toAsync(): IPCB_PrimitiveComponent;
 ```
 
 
@@ -2038,7 +2018,7 @@ toAsync(): IPCB_PrimitiveComponent;
 ## Signature
 
 ```typescript
-toSync(): IPCB_PrimitiveComponent;
+public toSync(): IPCB_PrimitiveComponent;
 ```
 
 

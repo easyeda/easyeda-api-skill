@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum EPCB_PrimitiveType 
+export enum EPCB_PrimitiveType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ ARC
 
 </td><td>
 
-`"Arc"`
+`'Arc'`
 
 
 </td><td>
-
-圆弧线
 
 
 </td></tr>
@@ -49,12 +47,10 @@ ATTRIBUTE
 
 </td><td>
 
-`"Attribute"`
+`'Attribute'`
 
 
 </td><td>
-
-属性
 
 
 </td></tr>
@@ -65,12 +61,10 @@ COMPONENT
 
 </td><td>
 
-`"Component"`
+`'Component'`
 
 
 </td><td>
-
-器件
 
 
 </td></tr>
@@ -81,12 +75,10 @@ COMPONENT\_PAD
 
 </td><td>
 
-`"ComponentPad"`
+`'ComponentPad'`
 
 
 </td><td>
-
-器件焊盘
 
 
 </td></tr>
@@ -97,12 +89,10 @@ DIMENSION
 
 </td><td>
 
-`"Dimension"`
+`'Dimension'`
 
 
 </td><td>
-
-尺寸标注
 
 
 </td></tr>
@@ -113,12 +103,10 @@ FILL
 
 </td><td>
 
-`"Fill"`
+`'Fill'`
 
 
 </td><td>
-
-填充
 
 
 </td></tr>
@@ -129,12 +117,10 @@ IMAGE
 
 </td><td>
 
-`"Image"`
+`'Image'`
 
 
 </td><td>
-
-图像
 
 
 </td></tr>
@@ -145,12 +131,10 @@ LINE
 
 </td><td>
 
-`"Line"`
+`'Line'`
 
 
 </td><td>
-
-直线
 
 
 </td></tr>
@@ -161,12 +145,10 @@ OBJECT
 
 </td><td>
 
-`"Object"`
+`'Object'`
 
 
 </td><td>
-
-二进制内嵌对象
 
 
 </td></tr>
@@ -177,12 +159,10 @@ PAD
 
 </td><td>
 
-`"Pad"`
+`'Pad'`
 
 
 </td><td>
-
-焊盘
 
 
 </td></tr>
@@ -193,12 +173,10 @@ POLYLINE
 
 </td><td>
 
-`"Polyline"`
+`'Polyline'`
 
 
 </td><td>
-
-折线
 
 
 </td></tr>
@@ -209,12 +187,10 @@ POUR
 
 </td><td>
 
-`"Pour"`
+`'Pour'`
 
 
 </td><td>
-
-覆铜边框
 
 
 </td></tr>
@@ -225,12 +201,10 @@ POURED
 
 </td><td>
 
-`"Poured"`
+`'Poured'`
 
 
 </td><td>
-
-覆铜填充
 
 
 </td></tr>
@@ -241,12 +215,10 @@ REGION
 
 </td><td>
 
-`"Region"`
+`'Region'`
 
 
 </td><td>
-
-区域
 
 
 </td></tr>
@@ -257,12 +229,10 @@ STRING
 
 </td><td>
 
-`"String"`
+`'String'`
 
 
 </td><td>
-
-文本
 
 
 </td></tr>
@@ -273,12 +243,10 @@ VIA
 
 </td><td>
 
-`"Via"`
+`'Via'`
 
 
 </td><td>
-
-过孔
 
 
 </td></tr>

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ISYS_RightClickMenuItem 
+export interface ISYS_RightClickMenuItem 
 ```
 
 ## Properties

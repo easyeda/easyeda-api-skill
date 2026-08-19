@@ -1,11 +1,15 @@
 # EPCB\_DocumentRatlineCalculatingActiveStatus enum
 
+> Warning: This API is now obsolete.
+>
+> since EDA v4.2
+
 文档飞线计算功能状态
 
 ## Signature
 
 ```typescript
-declare enum EPCB_DocumentRatlineCalculatingActiveStatus 
+export enum EPCB_DocumentRatlineCalculatingActiveStatus 
 ```
 
 ## Enumeration Members
@@ -33,12 +37,10 @@ ACTIVE
 
 </td><td>
 
-`"active"`
+`'active'`
 
 
 </td><td>
-
-启用
 
 
 </td></tr>
@@ -49,12 +51,10 @@ INACTIVE
 
 </td><td>
 
-`"inactive"`
+`'inactive'`
 
 
 </td><td>
-
-停用
 
 
 </td></tr>

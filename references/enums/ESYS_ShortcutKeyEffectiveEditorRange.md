@@ -1,11 +1,11 @@
-# ESYS\_ShortcutKeyEffectiveEditorDocumentType enum
+# ESYS\_ShortcutKeyEffectiveEditorRange enum
 
 快捷键生效页面范围
 
 ## Signature
 
 ```typescript
-declare enum ESYS_ShortcutKeyEffectiveEditorDocumentType 
+export enum ESYS_ShortcutKeyEffectiveEditorRange 
 ```
 
 ## Enumeration Members
@@ -28,6 +28,20 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+ASSEMBLY\_VARIANT
+
+
+</td><td>
+
+`11`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
 BLANK
 
 
@@ -37,8 +51,6 @@ BLANK
 
 
 </td><td>
-
-空白页
 
 
 </td></tr>
@@ -54,8 +66,6 @@ FOOTPRINT
 
 </td><td>
 
-封装
-
 
 </td></tr>
 <tr><td>
@@ -69,8 +79,6 @@ HOME
 
 
 </td><td>
-
-开始页
 
 
 </td></tr>
@@ -86,8 +94,6 @@ PANEL
 
 </td><td>
 
-面板
-
 
 </td></tr>
 <tr><td>
@@ -101,8 +107,6 @@ PANEL\_3D\_PREVIEW
 
 
 </td><td>
-
-面板 3D 预览
 
 
 </td></tr>
@@ -118,8 +122,6 @@ PANEL\_LIBRARY
 
 </td><td>
 
-面板库
-
 
 </td></tr>
 <tr><td>
@@ -133,8 +135,6 @@ PCB
 
 
 </td><td>
-
-PCB
 
 
 </td></tr>
@@ -150,8 +150,6 @@ PCB\_2D\_PREVIEW
 
 </td><td>
 
-PCB 2D 预览
-
 
 </td></tr>
 <tr><td>
@@ -165,8 +163,6 @@ PCB\_3D\_PREVIEW
 
 
 </td><td>
-
-PCB 3D 预览
 
 
 </td></tr>
@@ -182,7 +178,47 @@ SCHEMATIC\_PAGE
 
 </td><td>
 
-原理图图页
+
+</td></tr>
+<tr><td>
+
+SIMULATION\_SCHEMATIC\_PAGE\_NGSPICE
+
+
+</td><td>
+
+`12`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+SIMULATION\_SCHEMATIC\_PAGE\_SIMULIDE
+
+
+</td><td>
+
+`13`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+SIMULATION\_WAVEFORM
+
+
+</td><td>
+
+`14`
+
+
+</td><td>
 
 
 </td></tr>
@@ -197,8 +233,6 @@ SYMBOL
 
 
 </td><td>
-
-符号
 
 
 </td></tr>

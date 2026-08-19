@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SCH_PrimitiveObject implements ISCH_PrimitiveAPI 
+export class SCH_PrimitiveObject implements ISCH_PrimitiveAPI 
 ```
 **Implements:** [ISCH\_PrimitiveAPI](../interfaces/ISCH_PrimitiveAPI.md)
 
@@ -142,7 +142,7 @@ Description
 ## Signature
 
 ```typescript
-create(content: File | string, startX: number, startY: number, width?: number, height?: number, rotation?: number, mirror?: boolean, fileName?: string): Promise<ISCH_PrimitiveObject | undefined>;
+public create(content: File | string, startX: number, startY: number, width?: number, height?: number, rotation?: number, mirror?: boolean, fileName?: string): Promise<ISCH_PrimitiveObject | undefined>;
 ```
 
 ## Parameters
@@ -297,7 +297,7 @@ _(Optional)_ 文件名称
 
 ## Returns
 
-Promise&lt;ISCH\_PrimitiveObject \| undefined&gt;
+Promise&lt;[ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md) \| undefined&gt;
 
 二进制内嵌对象图元对象
 
@@ -312,7 +312,7 @@ Promise&lt;ISCH\_PrimitiveObject \| undefined&gt;
 ## Signature
 
 ```typescript
-delete(primitiveIds: string | ISCH_PrimitiveObject | Array<string> | Array<ISCH_PrimitiveObject>): Promise<boolean>;
+public delete(primitiveIds: string | ISCH_PrimitiveObject | Array<string> | Array<ISCH_PrimitiveObject>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -340,7 +340,7 @@ primitiveIds
 
 </td><td>
 
-string \| ISCH\_PrimitiveObject \| Array&lt;string&gt; \| Array&lt;ISCH\_PrimitiveObject&gt;
+string \| [ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md) \| Array&lt;string&gt; \| Array&lt;[ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md)<!-- -->&gt;
 
 
 </td><td>
@@ -370,7 +370,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-get(primitiveIds: string): Promise<ISCH_PrimitiveObject | undefined>;
+public get(primitiveIds: string): Promise<ISCH_PrimitiveObject | undefined>;
 ```
 
 ## Parameters
@@ -413,7 +413,7 @@ string
 
 ## Returns
 
-Promise&lt;ISCH\_PrimitiveObject \| undefined&gt;
+Promise&lt;[ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md) \| undefined&gt;
 
 二进制内嵌对象图元对象，`undefined` 表示获取失败
 
@@ -428,7 +428,7 @@ Promise&lt;ISCH\_PrimitiveObject \| undefined&gt;
 ## Signature
 
 ```typescript
-get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitiveObject>>;
+public get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitiveObject>>;
 ```
 
 ## Parameters
@@ -471,7 +471,7 @@ Array&lt;string&gt;
 
 ## Returns
 
-Promise&lt;Array&lt;ISCH\_PrimitiveObject&gt;&gt;
+Promise&lt;Array&lt;[ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md)<!-- -->&gt;&gt;
 
 二进制内嵌对象图元对象，空数组表示获取失败
 
@@ -490,13 +490,13 @@ Promise&lt;Array&lt;ISCH\_PrimitiveObject&gt;&gt;
 ## Signature
 
 ```typescript
-getAll(): Promise<Array<ISCH_PrimitiveObject>>;
+public getAll(): Promise<Array<ISCH_PrimitiveObject>>;
 ```
 
 
 ## Returns
 
-Promise&lt;Array&lt;ISCH\_PrimitiveObject&gt;&gt;
+Promise&lt;Array&lt;[ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md)<!-- -->&gt;&gt;
 
 二进制内嵌对象图元对象数组
 
@@ -511,7 +511,7 @@ Promise&lt;Array&lt;ISCH\_PrimitiveObject&gt;&gt;
 ## Signature
 
 ```typescript
-getAllPrimitiveId(): Promise<Array<string>>;
+public getAllPrimitiveId(): Promise<Array<string>>;
 ```
 
 
@@ -532,16 +532,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 ## Signature
 
 ```typescript
-modify(primitiveId: string | ISCH_PrimitiveObject, property: {
-        content?: File | string;
-        startX?: number;
-        startY?: number;
-        width?: number;
-        height?: number;
-        rotation?: number;
-        mirror?: boolean;
-        fileName?: string;
-    }): Promise<ISCH_PrimitiveObject | undefined>;
+public modify(primitiveId: string | ISCH_PrimitiveObject, property: { content?: undefined | string | File; startX?: undefined | number; startY?: undefined | number; width?: undefined | number; height?: undefined | number; rotation?: undefined | number; mirror?: undefined | false | true; fileName?: undefined | string }): Promise<ISCH_PrimitiveObject | undefined>;
 ```
 
 ## Parameters
@@ -569,7 +560,7 @@ primitiveId
 
 </td><td>
 
-string \| ISCH\_PrimitiveObject
+string \| [ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md)
 
 
 </td><td>
@@ -585,7 +576,7 @@ property
 
 </td><td>
 
-\{ content?: File \| string; startX?: number; startY?: number; width?: number; height?: number; rotation?: number; mirror?: boolean; fileName?: string; \}
+\{ content?: undefined \| string \| File; startX?: undefined \| number; startY?: undefined \| number; width?: undefined \| number; height?: undefined \| number; rotation?: undefined \| number; mirror?: undefined \| false \| true; fileName?: undefined \| string \}
 
 
 </td><td>
@@ -600,6 +591,6 @@ property
 
 ## Returns
 
-Promise&lt;ISCH\_PrimitiveObject \| undefined&gt;
+Promise&lt;[ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md) \| undefined&gt;
 
 二进制内嵌对象图元对象，`undefined` 表示修改失败

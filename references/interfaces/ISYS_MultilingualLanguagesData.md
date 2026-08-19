@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ISYS_MultilingualLanguagesData 
+export interface ISYS_MultilingualLanguagesData 
 ```
 
 ## Remarks

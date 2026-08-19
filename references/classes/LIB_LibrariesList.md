@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class LIB_LibrariesList 
+export class LIB_LibrariesList 
 ```
 
 ## Remarks
@@ -130,7 +130,7 @@ Description
 ## Signature
 
 ```typescript
-getAllLibrariesList(): Promise<Array<ILIB_LibraryInfo>>;
+public getAllLibrariesList(): Promise<Array<ILIB_LibraryInfo>>;
 ```
 
 
@@ -153,7 +153,7 @@ Promise&lt;Array&lt;[ILIB\_LibraryInfo](../interfaces/ILIB_LibraryInfo.md)<!-- -
 ## Signature
 
 ```typescript
-getFavoriteLibraryUuid(): Promise<string | undefined>;
+public getFavoriteLibraryUuid(): Promise<string | undefined>;
 ```
 
 
@@ -176,7 +176,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-getPersonalLibraryUuid(): Promise<string | undefined>;
+public getPersonalLibraryUuid(): Promise<string | undefined>;
 ```
 
 
@@ -199,7 +199,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-getProjectLibraryUuid(): Promise<string | undefined>;
+public getProjectLibraryUuid(): Promise<string | undefined>;
 ```
 
 
@@ -222,7 +222,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-getSystemLibraryUuid(): Promise<string | undefined>;
+public getSystemLibraryUuid(): Promise<string | undefined>;
 ```
 
 
@@ -243,13 +243,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-registerExtendLibrary(title: string, libraryFunctions: {
-        device?: ILIB_ExtendLibraryDeviceFunctions;
-        symbol?: ILIB_ExtendLibrarySymbolFunctions;
-        footprint?: ILIB_ExtendLibraryFootprintFunctions;
-        cbb?: ILIB_ExtendLibraryCbbFunctions;
-        model3d?: ILIB_ExtendLibrary3DModelFunctions;
-    }): Promise<string | undefined>;
+public registerExtendLibrary(title: string, libraryFunctions: { device?: undefined | ILIB_ExtendLibraryDeviceFunctions; symbol?: undefined | ILIB_ExtendLibrarySymbolFunctions; footprint?: undefined | ILIB_ExtendLibraryFootprintFunctions; cbb?: undefined | ILIB_ExtendLibraryCbbFunctions; model3d?: undefined | ILIB_ExtendLibrary3DModelFunctions }): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -293,7 +287,7 @@ libraryFunctions
 
 </td><td>
 
-{ device?: [ILIB\_ExtendLibraryDeviceFunctions](../interfaces/ILIB_ExtendLibraryDeviceFunctions.md)<!-- -->; symbol?: [ILIB\_ExtendLibrarySymbolFunctions](../interfaces/ILIB_ExtendLibrarySymbolFunctions.md)<!-- -->; footprint?: [ILIB\_ExtendLibraryFootprintFunctions](../interfaces/ILIB_ExtendLibraryFootprintFunctions.md)<!-- -->; cbb?: [ILIB\_ExtendLibraryCbbFunctions](../interfaces/ILIB_ExtendLibraryCbbFunctions.md)<!-- -->; model3d?: [ILIB\_ExtendLibrary3DModelFunctions](../interfaces/ILIB_ExtendLibrary3DModelFunctions.md)<!-- -->; }
+{ device?: undefined \| [ILIB\_ExtendLibraryDeviceFunctions](../interfaces/ILIB_ExtendLibraryDeviceFunctions.md)<!-- -->; symbol?: undefined \| [ILIB\_ExtendLibrarySymbolFunctions](../interfaces/ILIB_ExtendLibrarySymbolFunctions.md)<!-- -->; footprint?: undefined \| [ILIB\_ExtendLibraryFootprintFunctions](../interfaces/ILIB_ExtendLibraryFootprintFunctions.md)<!-- -->; cbb?: undefined \| [ILIB\_ExtendLibraryCbbFunctions](../interfaces/ILIB_ExtendLibraryCbbFunctions.md)<!-- -->; model3d?: undefined \| [ILIB\_ExtendLibrary3DModelFunctions](../interfaces/ILIB_ExtendLibrary3DModelFunctions.md) }
 
 
 </td><td>

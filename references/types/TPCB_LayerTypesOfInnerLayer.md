@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-type TPCB_LayerTypesOfInnerLayer = EPCB_LayerType.SIGNAL | EPCB_LayerType.INTERNAL_ELECTRICAL;
+export type TPCB_LayerTypesOfInnerLayer = EPCB_LayerType.SIGNAL | EPCB_LayerType.INTERNAL_ELECTRICAL;
 ```
 ## References
 

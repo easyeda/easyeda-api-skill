@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ILIB_SymbolSearchItem 
+export interface ILIB_SymbolSearchItem 
 ```
 
 ## Properties

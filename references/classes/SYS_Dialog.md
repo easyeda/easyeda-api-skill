@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_Dialog 
+export class SYS_Dialog 
 ```
 
 ## Remarks
@@ -32,7 +32,7 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-[createReactComponentizationDialogInterface(React, Reconciler)](./SYS_Dialog.md)
+[createDesignPortal()](./SYS_Dialog.md)
 
 
 </td><td>
@@ -40,7 +40,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建 React 组件化弹出窗口接口
+创建组件化弹出窗口的通信入口
 
 
 </td></tr>
@@ -120,79 +120,28 @@ Description
 
 ## 方法详情
 
-### createreactcomponentizationdialoginterface
+### createdesignportal
 
-# SYS\_Dialog.createReactComponentizationDialogInterface() method
+# SYS\_Dialog.createDesignPortal() method
 
-> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
-
-创建 React 组件化弹出窗口接口
+创建组件化弹出窗口的通信入口
 
 ## Signature
 
 ```typescript
-createReactComponentizationDialogInterface(React: ISYS_ReactComponentizationDialogReactInstance, Reconciler: ISYS_ReactComponentizationDialogReconcilerInstance): Promise<ISYS_ReactComponentizationDialogInterface>;
+public createDesignPortal(): IDesignPortal;
 ```
-
-## Parameters
-
-<table><thead><tr><th>
-
-Parameter
-
-
-</th><th>
-
-Type
-
-
-</th><th>
-
-Description
-
-
-</th></tr></thead>
-<tbody><tr><td>
-
-React
-
-
-</td><td>
-
-[ISYS\_ReactComponentizationDialogReactInstance](../interfaces/ISYS_ReactComponentizationDialogReactInstance.md)
-
-
-</td><td>
-
-扩展的 React 实例
-
-
-</td></tr>
-<tr><td>
-
-Reconciler
-
-
-</td><td>
-
-[ISYS\_ReactComponentizationDialogReconcilerInstance](../interfaces/ISYS_ReactComponentizationDialogReconcilerInstance.md)
-
-
-</td><td>
-
-扩展的 react-reconciler 实例
-
-
-</td></tr>
-</tbody></table>
-
 
 
 ## Returns
 
-Promise&lt;[ISYS\_ReactComponentizationDialogInterface](../interfaces/ISYS_ReactComponentizationDialogInterface.md)<!-- -->&gt;
+[IDesignPortal](../interfaces/IDesignPortal.md)
 
-包含 Components、LC\_DESIGN\_COMPONENTS\_NAMES、WorkerPortal 类和 VirtualRender 类的对象
+实现 IDesignPortal 的通信对象
+
+## Remarks
+
+返回一个 IDesignPortal 对象，扩展结合 lc-editor-design-react 的 VirtualRender / 虚拟机组件使用。 所有通信（发消息 + 收事件）均封装在对象内部。
 
 ### showconfirmationmessage
 
@@ -203,7 +152,7 @@ Promise&lt;[ISYS\_ReactComponentizationDialogInterface](../interfaces/ISYS_React
 ## Signature
 
 ```typescript
-showConfirmationMessage(content: string, title?: string, mainButtonTitle?: string, buttonTitle?: string, callbackFn?: (mainButtonClicked: boolean) => void): void;
+public showConfirmationMessage(content: string, title?: string, mainButtonTitle?: string, buttonTitle?: string, callbackFn?: (mainButtonClicked: boolean) => void): void;
 ```
 
 ## Parameters
@@ -325,7 +274,7 @@ void
 ## Signature
 
 ```typescript
-showInformationMessage(content: string, title?: string, buttonTitle?: string): void;
+public showInformationMessage(content: string, title?: string, buttonTitle?: string): void;
 ```
 
 ## Parameters
@@ -417,17 +366,7 @@ void
 ## Signature
 
 ```typescript
-showInputDialog(beforeContent?: string, afterContent?: string, title?: string, type?: 'color' | 'date' | 'datetime-local' | 'email' | 'mouth' | 'number' | 'password' | 'tel' | 'text' | 'time' | 'url' | 'week', value?: string | number, otherProperty?: {
-        max?: number;
-        maxlength?: number;
-        min?: number;
-        minlength?: number;
-        multiple?: boolean;
-        pattern?: RegExp;
-        placeholder?: string;
-        readonly?: boolean;
-        step?: number;
-    }, callbackFn?: (value: any) => void): void;
+public showInputDialog(beforeContent?: string, afterContent?: string, title?: string, type?: 'color' | 'date' | 'datetime-local' | 'email' | 'mouth' | 'number' | 'password' | 'tel' | 'text' | 'time' | 'url' | 'week', value?: string | number, otherProperty?: { max?: undefined | number; maxlength?: undefined | number; min?: undefined | number; minlength?: undefined | number; multiple?: undefined | false | true; pattern?: undefined | RegExp; placeholder?: undefined | string; readonly?: undefined | false | true; step?: undefined | number }, callbackFn?: (value: any) => void): void;
 ```
 
 ## Parameters
@@ -535,7 +474,7 @@ otherProperty
 
 </td><td>
 
-\{ max?: number; maxlength?: number; min?: number; minlength?: number; multiple?: boolean; pattern?: RegExp; placeholder?: string; readonly?: boolean; step?: number; \}
+\{ max?: undefined \| number; maxlength?: undefined \| number; min?: undefined \| number; minlength?: undefined \| number; multiple?: undefined \| false \| true; pattern?: undefined \| RegExp; placeholder?: undefined \| string; readonly?: undefined \| false \| true; step?: undefined \| number \}
 
 
 </td><td>
@@ -581,10 +520,7 @@ void
 ## Signature
 
 ```typescript
-showSelectDialog(options: Array<string> | Array<{
-        value: string;
-        displayContent: string;
-    }>, beforeContent?: string, afterContent?: string, title?: string, defaultOption?: string, multiple?: false, callbackFn?: (value: string) => void | Promise<void>): void;
+public showSelectDialog(options: Array<string> | Array<{ value: string; displayContent: string }>, beforeContent?: string, afterContent?: string, title?: string, defaultOption?: string, multiple?: false, callbackFn?: (value: string) => void | Promise<void>): void;
 ```
 
 ## Parameters
@@ -612,16 +548,12 @@ options
 
 </td><td>
 
-Array&lt;string&gt; \| Array&lt;{ value: string; displayContent: string; }&gt;
+Array&lt;string&gt; \| Array&lt;{ value: string; displayContent: string }&gt;
 
 
 </td><td>
 
-选项列表，可以为字符串数组或对象数组，在未指定 `defaultOption` 时，默认值为列表的第一项；
-
-如若为字符串数组，则选项的值和选项的展示内容将保持一致；
-
-如若为对象数组，则 `value` 表示选项的值，`displayContent` 表示选项的展示内容
+选项列表，可以为字符串数组或对象数组，在未指定 `defaultOption` 时，默认值为列表的第一项； 如若为字符串数组，则选项的值和选项的展示内容将保持一致； 如若为对象数组，则 `value` 表示选项的值，`displayContent` 表示选项的展示内容
 
 
 </td></tr>
@@ -742,10 +674,7 @@ void
 ## Signature
 
 ```typescript
-showSelectDialog(options: Array<string> | Array<{
-        value: string;
-        displayContent: string;
-    }>, beforeContent?: string, afterContent?: string, title?: string, defaultOption?: Array<string>, multiple?: true, callbackFn?: (value: Array<string>) => void | Promise<void>): void;
+public showSelectDialog(options: Array<string> | Array<{ value: string; displayContent: string }>, beforeContent?: string, afterContent?: string, title?: string, defaultOption?: Array<string>, multiple?: true, callbackFn?: (value: Array<string>) => void | Promise<void>): void;
 ```
 
 ## Parameters
@@ -773,16 +702,12 @@ options
 
 </td><td>
 
-Array&lt;string&gt; \| Array&lt;{ value: string; displayContent: string; }&gt;
+Array&lt;string&gt; \| Array&lt;{ value: string; displayContent: string }&gt;
 
 
 </td><td>
 
-选项列表，可以为字符串数组或对象数组，在未指定 `defaultOption` 时，默认值为列表的第一项；
-
-如若为字符串数组，则选项的值和选项的展示内容将保持一致；
-
-如若为对象数组，则 `value` 表示选项的值，`displayContent` 表示选项的展示内容
+选项列表，可以为字符串数组或对象数组，在未指定 `defaultOption` 时，默认值为列表的第一项； 如若为字符串数组，则选项的值和选项的展示内容将保持一致； 如若为对象数组，则 `value` 表示选项的值，`displayContent` 表示选项的展示内容
 
 
 </td></tr>

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class LIB_3DModel 
+export class LIB_3DModel 
 ```
 
 ## Methods
@@ -127,7 +127,7 @@ Description
 ## Signature
 
 ```typescript
-copy(modelUuid: string, libraryUuid: string, targetLibraryUuid: string, targetClassification?: ILIB_ClassificationIndex | Array<string>, newModelName?: string): Promise<string | undefined>;
+public copy(modelUuid: string, libraryUuid: string, targetLibraryUuid: string, targetClassification?: ILIB_ClassificationIndex | Array<string>, newModelName?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -249,7 +249,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-create(libraryUuid: string, modelFile: Blob, classification?: ILIB_ClassificationIndex | Array<string>, unit?: ESYS_Unit.MILLIMETER | ESYS_Unit.CENTIMETER | ESYS_Unit.METER | ESYS_Unit.MIL | ESYS_Unit.INCH): Promise<Array<string> | undefined>;
+public create(libraryUuid: string, modelFile: Blob, classification?: ILIB_ClassificationIndex | Array<string>, unit?: ESYS_Unit.MILLIMETER | ESYS_Unit.CENTIMETER | ESYS_Unit.METER | ESYS_Unit.MIL | ESYS_Unit.INCH): Promise<Array<string> | undefined>;
 ```
 
 ## Parameters
@@ -359,7 +359,7 @@ Promise&lt;Array&lt;string&gt; \| undefined&gt;
 ## Signature
 
 ```typescript
-delete(modelUuid: string, libraryUuid: string): Promise<boolean>;
+public delete(modelUuid: string, libraryUuid: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -433,7 +433,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-get(modelUuid: string, libraryUuid?: string): Promise<ILIB_3DModelItem | undefined>;
+public get(modelUuid: string, libraryUuid?: string): Promise<ILIB_3DModelItem | undefined>;
 ```
 
 ## Parameters
@@ -507,7 +507,7 @@ Promise&lt;[ILIB\_3DModelItem](../interfaces/ILIB_3DModelItem.md) \| undefined&g
 ## Signature
 
 ```typescript
-modify(modelUuid: string, libraryUuid: string, modelName?: string, classification?: ILIB_ClassificationIndex | Array<string> | null, description?: string | null): Promise<boolean>;
+public modify(modelUuid: string, libraryUuid: string, modelName?: string, classification?: ILIB_ClassificationIndex | Array<string> | null, description?: string | null): Promise<boolean>;
 ```
 
 ## Parameters
@@ -633,7 +633,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-search(key: string, libraryUuid?: string, classification?: ILIB_ClassificationIndex | Array<string>, itemsOfPage?: number, page?: number): Promise<Array<ILIB_3DModelSearchItem>>;
+public search(key: string, libraryUuid?: string, classification?: ILIB_ClassificationIndex | Array<string>, itemsOfPage?: number, page?: number): Promise<Array<ILIB_3DModelSearchItem>>;
 ```
 
 ## Parameters

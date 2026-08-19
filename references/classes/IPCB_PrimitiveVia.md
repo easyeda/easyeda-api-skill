@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class IPCB_PrimitiveVia implements IPCB_Primitive 
+export class IPCB_PrimitiveVia implements IPCB_Primitive 
 ```
 **Implements:** [IPCB\_Primitive](../interfaces/IPCB_Primitive.md)
 
@@ -411,7 +411,7 @@ Description
 ## Signature
 
 ```typescript
-done(): Promise<IPCB_PrimitiveVia>;
+public done(): Promise<IPCB_PrimitiveVia>;
 ```
 
 
@@ -432,7 +432,7 @@ Promise&lt;[IPCB\_PrimitiveVia](./IPCB_PrimitiveVia.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getAdjacentPrimitives(): Promise<Array<IPCB_PrimitiveLine | IPCB_PrimitiveArc>>;
+public getAdjacentPrimitives(): Promise<Array<IPCB_PrimitiveLine | IPCB_PrimitiveArc>>;
 ```
 
 
@@ -455,7 +455,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md) \| [IPCB\_Pri
 ## Signature
 
 ```typescript
-getState_DesignRuleBlindViaName(): string | null;
+public getState_DesignRuleBlindViaName(): string | null;
 ```
 
 
@@ -474,7 +474,7 @@ string \| null
 ## Signature
 
 ```typescript
-getState_Diameter(): number;
+public getState_Diameter(): number;
 ```
 
 
@@ -493,7 +493,7 @@ number
 ## Signature
 
 ```typescript
-getState_HoleDiameter(): number;
+public getState_HoleDiameter(): number;
 ```
 
 
@@ -512,7 +512,7 @@ number
 ## Signature
 
 ```typescript
-getState_Net(): string;
+public getState_Net(): string;
 ```
 
 
@@ -531,7 +531,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -550,7 +550,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveLock(): boolean;
+public getState_PrimitiveLock(): boolean;
 ```
 
 
@@ -569,7 +569,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): EPCB_PrimitiveType;
+public getState_PrimitiveType(): EPCB_PrimitiveType;
 ```
 
 
@@ -588,7 +588,7 @@ getState_PrimitiveType(): EPCB_PrimitiveType;
 ## Signature
 
 ```typescript
-getState_SolderMaskExpansion(): IPCB_PrimitiveSolderMaskAndPasteMaskExpansion | null;
+public getState_SolderMaskExpansion(): IPCB_PrimitiveSolderMaskAndPasteMaskExpansion | null;
 ```
 
 
@@ -607,7 +607,7 @@ getState_SolderMaskExpansion(): IPCB_PrimitiveSolderMaskAndPasteMaskExpansion | 
 ## Signature
 
 ```typescript
-getState_ViaType(): EPCB_PrimitiveViaType;
+public getState_ViaType(): EPCB_PrimitiveViaType;
 ```
 
 
@@ -626,7 +626,7 @@ getState_ViaType(): EPCB_PrimitiveViaType;
 ## Signature
 
 ```typescript
-getState_X(): number;
+public getState_X(): number;
 ```
 
 
@@ -645,7 +645,7 @@ number
 ## Signature
 
 ```typescript
-getState_Y(): number;
+public getState_Y(): number;
 ```
 
 
@@ -664,7 +664,7 @@ number
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -685,7 +685,7 @@ boolean
 ## Signature
 
 ```typescript
-reset(): Promise<IPCB_PrimitiveVia>;
+public reset(): Promise<IPCB_PrimitiveVia>;
 ```
 
 
@@ -706,7 +706,7 @@ Promise&lt;[IPCB\_PrimitiveVia](./IPCB_PrimitiveVia.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_DesignRuleBlindViaName(designRuleBlindViaName: string | null): IPCB_PrimitiveVia;
+public setState_DesignRuleBlindViaName(designRuleBlindViaName: string | null): IPCB_PrimitiveVia;
 ```
 
 ## Parameters
@@ -764,7 +764,7 @@ string \| null
 ## Signature
 
 ```typescript
-setState_Diameter(diameter: number): IPCB_PrimitiveVia;
+public setState_Diameter(diameter: number): IPCB_PrimitiveVia;
 ```
 
 ## Parameters
@@ -822,7 +822,7 @@ number
 ## Signature
 
 ```typescript
-setState_HoleDiameter(holeDiameter: number): IPCB_PrimitiveVia;
+public setState_HoleDiameter(holeDiameter: number): IPCB_PrimitiveVia;
 ```
 
 ## Parameters
@@ -880,7 +880,7 @@ number
 ## Signature
 
 ```typescript
-setState_Net(net: string): IPCB_PrimitiveVia;
+public setState_Net(net: string): IPCB_PrimitiveVia;
 ```
 
 ## Parameters
@@ -938,7 +938,7 @@ string
 ## Signature
 
 ```typescript
-setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitiveVia;
+public setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitiveVia;
 ```
 
 ## Parameters
@@ -996,7 +996,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_SolderMaskExpansion(solderMaskExpansion: IPCB_PrimitiveSolderMaskAndPasteMaskExpansion | null): IPCB_PrimitiveVia;
+public setState_SolderMaskExpansion(solderMaskExpansion: IPCB_PrimitiveSolderMaskAndPasteMaskExpansion | null): IPCB_PrimitiveVia;
 ```
 
 ## Parameters
@@ -1054,7 +1054,7 @@ solderMaskExpansion
 ## Signature
 
 ```typescript
-setState_ViaType(viaType: EPCB_PrimitiveViaType): IPCB_PrimitiveVia;
+public setState_ViaType(viaType: EPCB_PrimitiveViaType): IPCB_PrimitiveVia;
 ```
 
 ## Parameters
@@ -1112,7 +1112,7 @@ viaType
 ## Signature
 
 ```typescript
-setState_X(x: number): IPCB_PrimitiveVia;
+public setState_X(x: number): IPCB_PrimitiveVia;
 ```
 
 ## Parameters
@@ -1170,7 +1170,7 @@ number
 ## Signature
 
 ```typescript
-setState_Y(y: number): IPCB_PrimitiveVia;
+public setState_Y(y: number): IPCB_PrimitiveVia;
 ```
 
 ## Parameters
@@ -1226,7 +1226,7 @@ number
 ## Signature
 
 ```typescript
-toAsync(): IPCB_PrimitiveVia;
+public toAsync(): IPCB_PrimitiveVia;
 ```
 
 
@@ -1245,7 +1245,7 @@ toAsync(): IPCB_PrimitiveVia;
 ## Signature
 
 ```typescript
-toSync(): IPCB_PrimitiveVia;
+public toSync(): IPCB_PrimitiveVia;
 ```
 
 

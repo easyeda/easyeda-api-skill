@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_LoadingAndProgressBar 
+export class SYS_LoadingAndProgressBar 
 ```
 
 ## Methods
@@ -97,7 +97,7 @@ Description
 ## Signature
 
 ```typescript
-destroyLoading(): void;
+public destroyLoading(): void;
 ```
 
 
@@ -114,7 +114,7 @@ void
 ## Signature
 
 ```typescript
-destroyProgressBar(): void;
+public destroyProgressBar(): void;
 ```
 
 
@@ -131,7 +131,7 @@ void
 ## Signature
 
 ```typescript
-showLoading(): void;
+public showLoading(): void;
 ```
 
 
@@ -152,7 +152,7 @@ void
 ## Signature
 
 ```typescript
-showProgressBar(progress?: number, title?: string): void;
+public showProgressBar(progress?: number, title?: string): void;
 ```
 
 ## Parameters

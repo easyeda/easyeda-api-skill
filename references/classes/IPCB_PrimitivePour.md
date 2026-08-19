@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class IPCB_PrimitivePour implements IPCB_Primitive 
+export class IPCB_PrimitivePour implements IPCB_Primitive 
 ```
 **Implements:** [IPCB\_Primitive](../interfaces/IPCB_Primitive.md)
 
@@ -467,7 +467,7 @@ Description
 ## Signature
 
 ```typescript
-convertToFill(): Promise<IPCB_PrimitiveFill>;
+public convertToFill(): Promise<IPCB_PrimitiveFill>;
 ```
 
 
@@ -488,7 +488,7 @@ Promise&lt;[IPCB\_PrimitiveFill](./IPCB_PrimitiveFill.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-convertToPolyline(): Promise<IPCB_PrimitivePolyline>;
+public convertToPolyline(): Promise<IPCB_PrimitivePolyline>;
 ```
 
 
@@ -509,7 +509,7 @@ Promise&lt;[IPCB\_PrimitivePolyline](./IPCB_PrimitivePolyline.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-convertToRegion(): Promise<IPCB_PrimitiveRegion>;
+public convertToRegion(): Promise<IPCB_PrimitiveRegion>;
 ```
 
 
@@ -530,7 +530,7 @@ Promise&lt;[IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-done(): Promise<IPCB_PrimitivePour>;
+public done(): Promise<IPCB_PrimitivePour>;
 ```
 
 
@@ -551,7 +551,7 @@ Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getCopperRegion(): Promise<IPCB_PrimitivePoured | undefined>;
+public getCopperRegion(): Promise<IPCB_PrimitivePoured | undefined>;
 ```
 
 
@@ -570,7 +570,7 @@ Promise&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-getState_ComplexPolygon(): IPCB_Polygon;
+public getState_ComplexPolygon(): IPCB_Polygon;
 ```
 
 
@@ -589,7 +589,7 @@ getState_ComplexPolygon(): IPCB_Polygon;
 ## Signature
 
 ```typescript
-getState_Layer(): TPCB_LayersOfCopper;
+public getState_Layer(): TPCB_LayersOfCopper;
 ```
 
 
@@ -608,7 +608,7 @@ getState_Layer(): TPCB_LayersOfCopper;
 ## Signature
 
 ```typescript
-getState_LineWidth(): number;
+public getState_LineWidth(): number;
 ```
 
 
@@ -627,7 +627,7 @@ number
 ## Signature
 
 ```typescript
-getState_Net(): string;
+public getState_Net(): string;
 ```
 
 
@@ -646,7 +646,7 @@ string
 ## Signature
 
 ```typescript
-getState_PourFillMethod(): any;
+public getState_PourFillMethod(): any;
 ```
 
 
@@ -665,7 +665,7 @@ any
 ## Signature
 
 ```typescript
-getState_PourName(): string;
+public getState_PourName(): string;
 ```
 
 
@@ -684,7 +684,7 @@ string
 ## Signature
 
 ```typescript
-getState_PourPriority(): number;
+public getState_PourPriority(): number;
 ```
 
 
@@ -703,7 +703,7 @@ number
 ## Signature
 
 ```typescript
-getState_PreserveSilos(): boolean;
+public getState_PreserveSilos(): boolean;
 ```
 
 
@@ -722,7 +722,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -741,7 +741,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveLock(): boolean;
+public getState_PrimitiveLock(): boolean;
 ```
 
 
@@ -760,7 +760,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): EPCB_PrimitiveType;
+public getState_PrimitiveType(): EPCB_PrimitiveType;
 ```
 
 
@@ -779,7 +779,7 @@ getState_PrimitiveType(): EPCB_PrimitiveType;
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -800,7 +800,7 @@ boolean
 ## Signature
 
 ```typescript
-rebuildCopperRegion(): Promise<IPCB_PrimitivePoured | undefined>;
+public rebuildCopperRegion(): Promise<IPCB_PrimitivePoured | undefined>;
 ```
 
 
@@ -821,7 +821,7 @@ Promise&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-reset(): Promise<IPCB_PrimitivePour>;
+public reset(): Promise<IPCB_PrimitivePour>;
 ```
 
 
@@ -842,7 +842,7 @@ Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_ComplexPolygon(complexPolygon: IPCB_Polygon): IPCB_PrimitivePour;
+public setState_ComplexPolygon(complexPolygon: IPCB_Polygon): IPCB_PrimitivePour;
 ```
 
 ## Parameters
@@ -900,7 +900,7 @@ complexPolygon
 ## Signature
 
 ```typescript
-setState_Layer(layer: TPCB_LayersOfCopper): IPCB_PrimitivePour;
+public setState_Layer(layer: TPCB_LayersOfCopper): IPCB_PrimitivePour;
 ```
 
 ## Parameters
@@ -958,7 +958,7 @@ layer
 ## Signature
 
 ```typescript
-setState_LineWidth(lineWidth: number): IPCB_PrimitivePour;
+public setState_LineWidth(lineWidth: number): IPCB_PrimitivePour;
 ```
 
 ## Parameters
@@ -1016,7 +1016,7 @@ number
 ## Signature
 
 ```typescript
-setState_Net(net: string): IPCB_PrimitivePour;
+public setState_Net(net: string): IPCB_PrimitivePour;
 ```
 
 ## Parameters
@@ -1074,7 +1074,7 @@ string
 ## Signature
 
 ```typescript
-setState_PourFillMethod(pourFillMethod: EPCB_PrimitivePourFillMethod): IPCB_PrimitivePour;
+public setState_PourFillMethod(pourFillMethod: EPCB_PrimitivePourFillMethod): IPCB_PrimitivePour;
 ```
 
 ## Parameters
@@ -1132,7 +1132,7 @@ pourFillMethod
 ## Signature
 
 ```typescript
-setState_PourName(pourName: string): IPCB_PrimitivePour;
+public setState_PourName(pourName: string): IPCB_PrimitivePour;
 ```
 
 ## Parameters
@@ -1190,7 +1190,7 @@ string
 ## Signature
 
 ```typescript
-setState_PourPriority(pourPriority: number): IPCB_PrimitivePour;
+public setState_PourPriority(pourPriority: number): IPCB_PrimitivePour;
 ```
 
 ## Parameters
@@ -1248,7 +1248,7 @@ number
 ## Signature
 
 ```typescript
-setState_PreserveSilos(preserveSilos: boolean): IPCB_PrimitivePour;
+public setState_PreserveSilos(preserveSilos: boolean): IPCB_PrimitivePour;
 ```
 
 ## Parameters
@@ -1306,7 +1306,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitivePour;
+public setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitivePour;
 ```
 
 ## Parameters
@@ -1362,7 +1362,7 @@ boolean
 ## Signature
 
 ```typescript
-toAsync(): IPCB_PrimitivePour;
+public toAsync(): IPCB_PrimitivePour;
 ```
 
 
@@ -1381,7 +1381,7 @@ toAsync(): IPCB_PrimitivePour;
 ## Signature
 
 ```typescript
-toSync(): IPCB_PrimitivePour;
+public toSync(): IPCB_PrimitivePour;
 ```
 
 

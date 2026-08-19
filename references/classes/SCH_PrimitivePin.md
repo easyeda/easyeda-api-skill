@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SCH_PrimitivePin implements ISCH_PrimitiveAPI 
+export class SCH_PrimitivePin implements ISCH_PrimitiveAPI 
 ```
 **Implements:** [ISCH\_PrimitiveAPI](../interfaces/ISCH_PrimitiveAPI.md)
 
@@ -146,7 +146,7 @@ Description
 ## Signature
 
 ```typescript
-create(x: number, y: number, pinNumber: string, pinName?: string, rotation?: number, pinLength?: number, pinColor?: string | null, pinShape?: ESCH_PrimitivePinShape, pinType?: ESCH_PrimitivePinType): Promise<ISCH_PrimitivePin | undefined>;
+public create(x: number, y: number, pinNumber: string, pinName?: string, rotation?: number, pinLength?: number, pinColor?: string | null, pinShape?: ESCH_PrimitivePinShape, pinType?: ESCH_PrimitivePinType): Promise<ISCH_PrimitivePin | undefined>;
 ```
 
 ## Parameters
@@ -332,7 +332,7 @@ Promise&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-delete(primitiveIds: string | ISCH_PrimitivePin | Array<string> | Array<ISCH_PrimitivePin>): Promise<boolean>;
+public delete(primitiveIds: string | ISCH_PrimitivePin | Array<string> | Array<ISCH_PrimitivePin>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -390,7 +390,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-get(primitiveIds: string): Promise<ISCH_PrimitivePin | ISCH_PrimitiveComponentPin | undefined>;
+public get(primitiveIds: string): Promise<ISCH_PrimitivePin | ISCH_PrimitiveComponentPin | undefined>;
 ```
 
 ## Parameters
@@ -448,7 +448,7 @@ Promise&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md) \| [ISCH\_PrimitiveCompo
 ## Signature
 
 ```typescript
-get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitivePin | ISCH_PrimitiveComponentPin>>;
+public get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitivePin | ISCH_PrimitiveComponentPin>>;
 ```
 
 ## Parameters
@@ -510,7 +510,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md) \| [ISCH\_Primi
 ## Signature
 
 ```typescript
-getAll(): Promise<Array<ISCH_PrimitivePin>>;
+public getAll(): Promise<Array<ISCH_PrimitivePin>>;
 ```
 
 
@@ -531,7 +531,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)<!-- -->&gt;&gt;
 ## Signature
 
 ```typescript
-getAllPrimitiveId(): Promise<Array<string>>;
+public getAllPrimitiveId(): Promise<Array<string>>;
 ```
 
 
@@ -552,19 +552,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 ## Signature
 
 ```typescript
-modify(primitiveId: string | ISCH_PrimitivePin | ISCH_PrimitiveComponentPin, property: {
-        x?: number;
-        y?: number;
-        pinNumber?: string;
-        pinName?: string;
-        rotation?: number;
-        pinLength?: number;
-        pinColor?: string | null;
-        pinShape?: ESCH_PrimitivePinShape;
-        pinType?: ESCH_PrimitivePinType;
-        noConnected?: boolean;
-        otherProperty?: Record<string, string | number | boolean>;
-    }): Promise<ISCH_PrimitivePin | ISCH_PrimitiveComponentPin | undefined>;
+public modify(primitiveId: string | ISCH_PrimitivePin | ISCH_PrimitiveComponentPin, property: { x?: undefined | number; y?: undefined | number; pinNumber?: undefined | string; pinName?: undefined | string; rotation?: undefined | number; pinLength?: undefined | number; pinColor?: undefined | null | string; pinShape?: undefined | ESCH_PrimitivePinShape.NONE | ESCH_PrimitivePinShape.INVERTED | ESCH_PrimitivePinShape.CLOCK | ESCH_PrimitivePinShape.INVERTED_CLOCK; pinType?: undefined | ESCH_PrimitivePinType.IN | ESCH_PrimitivePinType.OUT | ESCH_PrimitivePinType.BI | ESCH_PrimitivePinType.PASSIVE | ESCH_PrimitivePinType.OPEN_COLLECTOR | ESCH_PrimitivePinType.OPEN_EMITTER | ESCH_PrimitivePinType.POWER | ESCH_PrimitivePinType.GROUND | ESCH_PrimitivePinType.HIZ | ESCH_PrimitivePinType.TERMINATOR | ESCH_PrimitivePinType.UNDEFINED; noConnected?: undefined | false | true; otherProperty?: undefined | Record<string, string | number | false | true> }): Promise<ISCH_PrimitivePin | ISCH_PrimitiveComponentPin | undefined>;
 ```
 
 ## Parameters
@@ -608,7 +596,7 @@ property
 
 </td><td>
 
-{ x?: number; y?: number; pinNumber?: string; pinName?: string; rotation?: number; pinLength?: number; pinColor?: string \| null; pinShape?: [ESCH\_PrimitivePinShape](../enums/ESCH_PrimitivePinShape.md)<!-- -->; pinType?: [ESCH\_PrimitivePinType](../enums/ESCH_PrimitivePinType.md)<!-- -->; noConnected?: boolean; otherProperty?: Record&lt;string, string \| number \| boolean&gt;; }
+{ x?: undefined \| number; y?: undefined \| number; pinNumber?: undefined \| string; pinName?: undefined \| string; rotation?: undefined \| number; pinLength?: undefined \| number; pinColor?: undefined \| null \| string; pinShape?: undefined \| [ESCH\_PrimitivePinShape.NONE](../enums/ESCH_PrimitivePinShape.md) \| [ESCH\_PrimitivePinShape.INVERTED](../enums/ESCH_PrimitivePinShape.md) \| [ESCH\_PrimitivePinShape.CLOCK](../enums/ESCH_PrimitivePinShape.md) \| [ESCH\_PrimitivePinShape.INVERTED\_CLOCK](../enums/ESCH_PrimitivePinShape.md)<!-- -->; pinType?: undefined \| [ESCH\_PrimitivePinType.IN](../enums/ESCH_PrimitivePinType.md) \| [ESCH\_PrimitivePinType.OUT](../enums/ESCH_PrimitivePinType.md) \| [ESCH\_PrimitivePinType.BI](../enums/ESCH_PrimitivePinType.md) \| [ESCH\_PrimitivePinType.PASSIVE](../enums/ESCH_PrimitivePinType.md) \| [ESCH\_PrimitivePinType.OPEN\_COLLECTOR](../enums/ESCH_PrimitivePinType.md) \| [ESCH\_PrimitivePinType.OPEN\_EMITTER](../enums/ESCH_PrimitivePinType.md) \| [ESCH\_PrimitivePinType.POWER](../enums/ESCH_PrimitivePinType.md) \| [ESCH\_PrimitivePinType.GROUND](../enums/ESCH_PrimitivePinType.md) \| [ESCH\_PrimitivePinType.HIZ](../enums/ESCH_PrimitivePinType.md) \| [ESCH\_PrimitivePinType.TERMINATOR](../enums/ESCH_PrimitivePinType.md) \| [ESCH\_PrimitivePinType.UNDEFINED](../enums/ESCH_PrimitivePinType.md)<!-- -->; noConnected?: undefined \| false \| true; otherProperty?: undefined \| Record&lt;string, string \| number \| false \| true&gt; }
 
 
 </td><td>

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESYS_ImportProjectBoardOutlineSource 
+export enum ESYS_ImportProjectBoardOutlineSource 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ FROM\_KEEPOUT\_LAYER
 
 </td><td>
 
-`"keepout"`
+`'keepout'`
 
 
 </td><td>
-
-从 Keepout 层
 
 
 </td></tr>
@@ -49,12 +47,10 @@ FROM\_MECHANICAL\_LAYER\_1
 
 </td><td>
 
-`"mechanical"`
+`'mechanical'`
 
 
 </td><td>
-
-从机械层 1
 
 
 </td></tr>

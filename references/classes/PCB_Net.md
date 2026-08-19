@@ -5,7 +5,7 @@ PCB &amp; 封装 / 网络类
 ## Signature
 
 ```typescript
-declare class PCB_Net 
+export class PCB_Net 
 ```
 
 ## Methods
@@ -269,7 +269,7 @@ Description
 ## Signature
 
 ```typescript
-getAllNetName(): Promise<Array<string>>;
+public getAllNetName(): Promise<Array<string>>;
 ```
 
 
@@ -290,7 +290,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 ## Signature
 
 ```typescript
-getAllNets(): Promise<Array<IPCB_NetInfo>>;
+public getAllNets(): Promise<Array<IPCB_NetInfo>>;
 ```
 
 
@@ -309,7 +309,7 @@ Promise&lt;Array&lt;[IPCB\_NetInfo](../interfaces/IPCB_NetInfo.md)<!-- -->&gt;&g
 ## Signature
 
 ```typescript
-getAllNetsName(): Promise<Array<string>>;
+public getAllNetsName(): Promise<Array<string>>;
 ```
 
 
@@ -330,7 +330,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 ## Signature
 
 ```typescript
-getAllPrimitivesByNet(net: string, primitiveTypes?: Array<EPCB_PrimitiveType>): Promise<Array<IPCB_Primitive>>;
+public getAllPrimitivesByNet(net: string, primitiveTypes?: Array<EPCB_PrimitiveType>): Promise<Array<IPCB_Primitive>>;
 ```
 
 ## Parameters
@@ -404,7 +404,7 @@ Promise&lt;Array&lt;[IPCB\_Primitive](../interfaces/IPCB_Primitive.md)<!-- -->&g
 ## Signature
 
 ```typescript
-getNet(net: string): Promise<IPCB_NetInfo | undefined>;
+public getNet(net: string): Promise<IPCB_NetInfo | undefined>;
 ```
 
 ## Parameters
@@ -462,7 +462,7 @@ Promise&lt;[IPCB\_NetInfo](../interfaces/IPCB_NetInfo.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-getNetColor(net: string): Promise<IPCB_NetInfo['color'] | undefined>;
+public getNetColor(net: string): Promise<IPCB_NetInfo['color'] | undefined>;
 ```
 
 ## Parameters
@@ -518,7 +518,7 @@ Promise&lt;[IPCB\_NetInfo](../interfaces/IPCB_NetInfo.md)<!-- -->\['color'\] \| 
 ## Signature
 
 ```typescript
-getNetLength(net: string): Promise<number | undefined>;
+public getNetLength(net: string): Promise<number | undefined>;
 ```
 
 ## Parameters
@@ -574,7 +574,7 @@ Promise&lt;number \| undefined&gt;
 ## Signature
 
 ```typescript
-getNetlist(type?: ESYS_NetlistType): Promise<string>;
+public getNetlist(type?: ESYS_NetlistType): Promise<string>;
 ```
 
 ## Parameters
@@ -632,7 +632,7 @@ Promise&lt;string&gt;
 ## Signature
 
 ```typescript
-highlightNet(net: string): Promise<boolean>;
+public highlightNet(net: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -694,7 +694,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-selectNet(net: string): Promise<boolean>;
+public selectNet(net: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -752,7 +752,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-setNetColor(net: string, color: IPCB_NetInfo['color']): Promise<boolean>;
+public setNetColor(net: string, color: IPCB_NetInfo['color']): Promise<boolean>;
 ```
 
 ## Parameters
@@ -824,7 +824,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-setNetlist(type: ESYS_NetlistType | undefined, netlist: string): Promise<boolean>;
+public setNetlist(type: ESYS_NetlistType | undefined, netlist: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -896,7 +896,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-unhighlightAllNets(): Promise<boolean>;
+public unhighlightAllNets(): Promise<boolean>;
 ```
 
 
@@ -917,7 +917,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-unhighlightNet(net: string): Promise<boolean>;
+public unhighlightNet(net: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -979,7 +979,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-unselectAllNets(): Promise<boolean>;
+public unselectAllNets(): Promise<boolean>;
 ```
 
 
@@ -1004,7 +1004,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-unselectNet(net: string): Promise<boolean>;
+public unselectNet(net: string): Promise<boolean>;
 ```
 
 ## Parameters

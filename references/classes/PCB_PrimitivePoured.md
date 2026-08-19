@@ -5,7 +5,7 @@ PCB &amp; 封装 / 覆铜填充图元类
 ## Signature
 
 ```typescript
-declare class PCB_PrimitivePoured implements IPCB_PrimitiveAPI 
+export class PCB_PrimitivePoured implements IPCB_PrimitiveAPI 
 ```
 **Implements:** [IPCB\_PrimitiveAPI](../interfaces/IPCB_PrimitiveAPI.md)
 
@@ -114,7 +114,7 @@ Description
 ## Signature
 
 ```typescript
-delete(primitiveIds: string | IPCB_PrimitivePoured | Array<string> | Array<IPCB_PrimitivePoured>): Promise<boolean>;
+public delete(primitiveIds: string | IPCB_PrimitivePoured | Array<string> | Array<IPCB_PrimitivePoured>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -172,7 +172,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-get(primitiveIds: string): Promise<IPCB_PrimitivePoured | undefined>;
+public get(primitiveIds: string): Promise<IPCB_PrimitivePoured | undefined>;
 ```
 
 ## Parameters
@@ -230,7 +230,7 @@ Promise&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-get(primitiveIds: Array<string>): Promise<Array<IPCB_PrimitivePoured>>;
+public get(primitiveIds: Array<string>): Promise<Array<IPCB_PrimitivePoured>>;
 ```
 
 ## Parameters
@@ -292,7 +292,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md)<!-- -->&g
 ## Signature
 
 ```typescript
-getAll(): Promise<Array<IPCB_PrimitivePoured>>;
+public getAll(): Promise<Array<IPCB_PrimitivePoured>>;
 ```
 
 
@@ -313,7 +313,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md)<!-- -->&g
 ## Signature
 
 ```typescript
-getAllPrimitiveId(): Promise<Array<string>>;
+public getAllPrimitiveId(): Promise<Array<string>>;
 ```
 
 

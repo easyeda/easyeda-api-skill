@@ -1,6 +1,20 @@
-# 通用格式
+# Common Format
 
-## 文档头
+This chapter details the format specification of the EasyEDA schematic file. Schematic files mainly consist of the following parts:
+
+- **Common Configuration**: Document header and canvas configuration.
+- **Structural Elements**: PART sub-libraries and GROUP combinations.
+- **Attributes**: Primitive attribute definitions.
+- **Wires**: Wires, buses, and bus entries.
+- **Text**: Text elements.
+- **Shapes**: Rectangles, polygons, circles, arcs, Bezier curves, ellipses.
+- **Pins**: Pin definitions.
+- **Components**: Schematic component instances.
+- **Objects**: Binary objects (images, etc.).
+- **Tables**: Tables and cells.
+
+
+## Document Header
 
 ```json
 { "type": "DOCHEAD" }||{ "docType": "SCH_PAGE", "uuid": "UUID", "client": "clientID" }|
@@ -10,14 +24,14 @@
 { "type": "DOCHEAD" }||{ "docType": "SYMBOL", "uuid": "UUID", "client": "clientID" }|
 ```
 
--   type："DOCHEAD"，文档头标识
--   docType：文档类型，"SCH_PAGE"：原理图、 "SYMBOL"：符号
--   uuid：文档唯一编号，工程内唯一
--   client：最终一致性的一个终端标识
+-   type: "DOCHEAD", document header identifier.
+-   docType: document type, "SCH_PAGE": schematic, "SYMBOL": symbol.
+-   uuid: document unique ID, unique within the project.
+-   client: terminal identifier for eventual consistency.
 
-## 画布配置
+## Canvas Configuration
 
-编辑器附加信息，用于数据分析等功能，目前已占用的一些字段
+Editor additional information, used for data analysis and other functions. Currently occupied fields:
 
 ```json
 { "type": "CANVAS", "ticket": 1 }||
@@ -27,7 +41,7 @@
 }|
 ```
 
-1. type："CANVAS"，画布配置信息标识
-2. ticket 逻辑时钟
-3. originX 画布原点 X
-4. originY 画布原点 Y
+1. type: "CANVAS", canvas configuration identifier.
+2. ticket logical clock.
+3. originX canvas origin X.
+4. originY canvas origin Y.

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class DMT_EditorControl 
+export class DMT_EditorControl 
 ```
 
 ## Remarks
@@ -311,7 +311,7 @@ Description
 ## Signature
 
 ```typescript
-activateDocument(tabId: string): Promise<boolean>;
+public activateDocument(tabId: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -371,7 +371,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-activateSplitScreen(splitScreenId: string): Promise<boolean>;
+public activateSplitScreen(splitScreenId: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -431,7 +431,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-closeDocument(tabId: string): Promise<boolean>;
+public closeDocument(tabId: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -491,10 +491,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-createSplitScreen(splitScreenType: EDMT_EditorSplitScreenDirection, tabId: string): Promise<{
-        sourceSplitScreenId: string;
-        newSplitScreenId: string;
-    } | undefined>;
+public createSplitScreen(splitScreenType: EDMT_EditorSplitScreenDirection, tabId: string): Promise<{ sourceSplitScreenId: string; newSplitScreenId: string } | undefined>;
 ```
 
 ## Parameters
@@ -553,7 +550,7 @@ string
 
 ## Returns
 
-Promise&lt;{ sourceSplitScreenId: string; newSplitScreenId: string; } \| undefined&gt;
+Promise&lt;{ sourceSplitScreenId: string; newSplitScreenId: string } \| undefined&gt;
 
 分屏 ID，`sourceSplitScreenId` 代表源分屏，`newSplitScreenId` 代表新分屏
 
@@ -572,12 +569,7 @@ Promise&lt;{ sourceSplitScreenId: string; newSplitScreenId: string; } \| undefin
 ## Signature
 
 ```typescript
-generateIndicatorMarkers(markers: Array<IDMT_IndicatorMarkerShape>, color?: {
-        r: number;
-        g: number;
-        b: number;
-        alpha: number;
-    }, lineWidth?: number, zoom?: boolean, tabId?: string): Promise<boolean>;
+public generateIndicatorMarkers(markers: Array<IDMT_IndicatorMarkerShape>, color?: { r: number; g: number; b: number; alpha: number }, lineWidth?: number, zoom?: boolean, tabId?: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -621,7 +613,7 @@ color
 
 </td><td>
 
-\{ r: number; g: number; b: number; alpha: number; \}
+\{ r: number; g: number; b: number; alpha: number \}
 
 
 </td><td>
@@ -703,7 +695,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-getCurrentRenderedAreaImage(tabId?: string): Promise<Blob | undefined>;
+public getCurrentRenderedAreaImage(tabId?: string): Promise<Blob | undefined>;
 ```
 
 ## Parameters
@@ -759,7 +751,7 @@ Promise&lt;Blob \| undefined&gt;
 ## Signature
 
 ```typescript
-getSplitScreenIdByTabId(tabId: string): Promise<string | undefined>;
+public getSplitScreenIdByTabId(tabId: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -815,7 +807,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-getSplitScreenTree(): Promise<IDMT_EditorSplitScreenItem | undefined>;
+public getSplitScreenTree(): Promise<IDMT_EditorSplitScreenItem | undefined>;
 ```
 
 
@@ -834,7 +826,7 @@ Promise&lt;[IDMT\_EditorSplitScreenItem](../interfaces/IDMT_EditorSplitScreenIte
 ## Signature
 
 ```typescript
-getTabsBySplitScreenId(splitScreenId: string): Promise<Array<IDMT_EditorTabItem>>;
+public getTabsBySplitScreenId(splitScreenId: string): Promise<Array<IDMT_EditorTabItem>>;
 ```
 
 ## Parameters
@@ -894,7 +886,7 @@ Promise&lt;Array&lt;[IDMT\_EditorTabItem](../interfaces/IDMT_EditorTabItem.md)<!
 ## Signature
 
 ```typescript
-mergeAllDocumentFromSplitScreen(): Promise<boolean>;
+public mergeAllDocumentFromSplitScreen(): Promise<boolean>;
 ```
 
 
@@ -917,7 +909,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-moveDocumentToSplitScreen(tabId: string, splitScreenId: string): Promise<boolean>;
+public moveDocumentToSplitScreen(tabId: string, splitScreenId: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -993,7 +985,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-openDocument(documentUuid: string, splitScreenId?: string): Promise<string | undefined>;
+public openDocument(documentUuid: string, splitScreenId?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -1067,7 +1059,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-openLibraryDocument(libraryUuid: string, libraryType: ELIB_LibraryType.SYMBOL | ELIB_LibraryType.FOOTPRINT, uuid: string, splitScreenId?: string): Promise<string | undefined>;
+public openLibraryDocument(libraryUuid: string, libraryType: ELIB_LibraryType.SYMBOL | ELIB_LibraryType.FOOTPRINT, uuid: string, splitScreenId?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -1173,7 +1165,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-removeIndicatorMarkers(tabId?: string): Promise<boolean>;
+public removeIndicatorMarkers(tabId?: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1233,7 +1225,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-tileAllDocumentToSplitScreen(): Promise<boolean>;
+public tileAllDocumentToSplitScreen(): Promise<boolean>;
 ```
 
 
@@ -1258,12 +1250,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-zoomTo(x?: number, y?: number, scaleRatio?: number, tabId?: string): Promise<{
-        left: number;
-        right: number;
-        top: number;
-        bottom: number;
-    } | false>;
+public zoomTo(x?: number, y?: number, scaleRatio?: number, tabId?: string): Promise<{ left: number; right: number; top: number; bottom: number } | false>;
 ```
 
 ## Parameters
@@ -1354,7 +1341,7 @@ _(Optional)_ 标签页 ID，如若未传入，则为最后输入焦点的画布
 
 ## Returns
 
-Promise&lt;{ left: number; right: number; top: number; bottom: number; } \| false&gt;
+Promise&lt;{ left: number; right: number; top: number; bottom: number } \| false&gt;
 
 缩放到的区域数据，`false` 表示画布不支持该缩放操作或 `tabId` 不存在
 
@@ -1373,12 +1360,7 @@ Promise&lt;{ left: number; right: number; top: number; bottom: number; } \| fals
 ## Signature
 
 ```typescript
-zoomToAllPrimitives(tabId?: string): Promise<{
-        left: number;
-        right: number;
-        top: number;
-        bottom: number;
-    } | false>;
+public zoomToAllPrimitives(tabId?: string): Promise<{ left: number; right: number; top: number; bottom: number } | false>;
 ```
 
 ## Parameters
@@ -1421,7 +1403,7 @@ _(Optional)_ 标签页 ID，如若未传入，则为最后输入焦点的画布
 
 ## Returns
 
-Promise&lt;{ left: number; right: number; top: number; bottom: number; } \| false&gt;
+Promise&lt;{ left: number; right: number; top: number; bottom: number } \| false&gt;
 
 缩放到的区域数据，`false` 表示画布不支持该缩放操作或 `tabId` 不存在
 
@@ -1440,7 +1422,7 @@ Promise&lt;{ left: number; right: number; top: number; bottom: number; } \| fals
 ## Signature
 
 ```typescript
-zoomToRegion(left: number, right: number, top: number, bottom: number, tabId?: string): Promise<boolean>;
+public zoomToRegion(left: number, right: number, top: number, bottom: number, tabId?: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -1566,12 +1548,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-zoomToSelectedPrimitives(tabId?: string): Promise<{
-        left: number;
-        right: number;
-        top: number;
-        bottom: number;
-    } | false>;
+public zoomToSelectedPrimitives(tabId?: string): Promise<{ left: number; right: number; top: number; bottom: number } | false>;
 ```
 
 ## Parameters
@@ -1614,7 +1591,7 @@ _(Optional)_ 标签页 ID，如若未传入，则为最后输入焦点的画布
 
 ## Returns
 
-Promise&lt;{ left: number; right: number; top: number; bottom: number; } \| false&gt;
+Promise&lt;{ left: number; right: number; top: number; bottom: number } \| false&gt;
 
 缩放到的区域数据，`false` 表示画布不支持该缩放操作或 `tabId` 不存在
 

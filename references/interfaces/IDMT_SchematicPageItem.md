@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IDMT_SchematicPageItem 
+export interface IDMT_SchematicPageItem 
 ```
 
 ## Properties
@@ -119,7 +119,7 @@ boolean
 
 </td><td>
 
-\{ \[key: string\]: \{ showTitle: boolean; showValue: boolean; value: any; \}; \}
+Record&lt;string, { showTitle: boolean; showValue: boolean; value: any }&gt;
 
 
 </td><td>
@@ -210,13 +210,7 @@ showTitleBlock: boolean;
 ## Signature
 
 ```typescript
-titleBlockData: {
-        [key: string]: {
-            showTitle: boolean;
-            showValue: boolean;
-            value: any;
-        };
-    };
+titleBlockData: Record<string, { showTitle: boolean; showValue: boolean; value: any }>;
 ```
 
 ### uuid

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IDMT_EditorSplitScreenItem 
+export interface IDMT_EditorSplitScreenItem 
 ```
 
 ## Remarks

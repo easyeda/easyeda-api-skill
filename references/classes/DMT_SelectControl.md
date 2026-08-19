@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class DMT_SelectControl 
+export class DMT_SelectControl 
 ```
 
 ## Remarks
@@ -61,7 +61,7 @@ Description
 ## Signature
 
 ```typescript
-getCurrentDocumentInfo(): Promise<IDMT_EditorDocumentItem | undefined>;
+public getCurrentDocumentInfo(): Promise<IDMT_EditorDocumentItem | undefined>;
 ```
 
 

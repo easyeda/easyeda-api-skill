@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class ISCH_PrimitiveText implements ISCH_Primitive 
+export class ISCH_PrimitiveText implements ISCH_Primitive 
 ```
 **Implements:** [ISCH\_Primitive](../interfaces/ISCH_Primitive.md)
 
@@ -453,7 +453,7 @@ Description
 ## Signature
 
 ```typescript
-done(): Promise<ISCH_PrimitiveText>;
+public done(): Promise<ISCH_PrimitiveText>;
 ```
 
 
@@ -472,7 +472,7 @@ Promise&lt;[ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getState_AlignMode(): ESCH_PrimitiveTextAlignMode;
+public getState_AlignMode(): ESCH_PrimitiveTextAlignMode;
 ```
 
 
@@ -491,7 +491,7 @@ getState_AlignMode(): ESCH_PrimitiveTextAlignMode;
 ## Signature
 
 ```typescript
-getState_Bold(): boolean;
+public getState_Bold(): boolean;
 ```
 
 
@@ -510,7 +510,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_Content(): string;
+public getState_Content(): string;
 ```
 
 
@@ -529,7 +529,7 @@ string
 ## Signature
 
 ```typescript
-getState_FontName(): string | null;
+public getState_FontName(): string | null;
 ```
 
 
@@ -548,7 +548,7 @@ string \| null
 ## Signature
 
 ```typescript
-getState_FontSize(): number | null;
+public getState_FontSize(): number | null;
 ```
 
 
@@ -567,7 +567,7 @@ number \| null
 ## Signature
 
 ```typescript
-getState_Italic(): boolean;
+public getState_Italic(): boolean;
 ```
 
 
@@ -586,7 +586,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -605,7 +605,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): ESCH_PrimitiveType;
+public getState_PrimitiveType(): ESCH_PrimitiveType;
 ```
 
 
@@ -624,7 +624,7 @@ getState_PrimitiveType(): ESCH_PrimitiveType;
 ## Signature
 
 ```typescript
-getState_Rotation(): number;
+public getState_Rotation(): number;
 ```
 
 
@@ -643,7 +643,7 @@ number
 ## Signature
 
 ```typescript
-getState_TextColor(): string | null;
+public getState_TextColor(): string | null;
 ```
 
 
@@ -662,7 +662,7 @@ string \| null
 ## Signature
 
 ```typescript
-getState_UnderLine(): boolean;
+public getState_UnderLine(): boolean;
 ```
 
 
@@ -681,7 +681,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_X(): number;
+public getState_X(): number;
 ```
 
 
@@ -700,7 +700,7 @@ number
 ## Signature
 
 ```typescript
-getState_Y(): number;
+public getState_Y(): number;
 ```
 
 
@@ -719,7 +719,7 @@ number
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -740,7 +740,7 @@ boolean
 ## Signature
 
 ```typescript
-reset(): Promise<ISCH_PrimitiveText>;
+public reset(): Promise<ISCH_PrimitiveText>;
 ```
 
 
@@ -761,7 +761,7 @@ Promise&lt;[ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_AlignMode(alignMode: ESCH_PrimitiveTextAlignMode): ISCH_PrimitiveText;
+public setState_AlignMode(alignMode: ESCH_PrimitiveTextAlignMode): ISCH_PrimitiveText;
 ```
 
 ## Parameters
@@ -819,7 +819,7 @@ alignMode
 ## Signature
 
 ```typescript
-setState_Bold(bold: boolean): ISCH_PrimitiveText;
+public setState_Bold(bold: boolean): ISCH_PrimitiveText;
 ```
 
 ## Parameters
@@ -877,7 +877,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_Content(content: string): ISCH_PrimitiveText;
+public setState_Content(content: string): ISCH_PrimitiveText;
 ```
 
 ## Parameters
@@ -935,7 +935,7 @@ string
 ## Signature
 
 ```typescript
-setState_FontName(fontName: string | null): ISCH_PrimitiveText;
+public setState_FontName(fontName: string | null): ISCH_PrimitiveText;
 ```
 
 ## Parameters
@@ -993,7 +993,7 @@ string \| null
 ## Signature
 
 ```typescript
-setState_FontSize(fontSize: number | null): ISCH_PrimitiveText;
+public setState_FontSize(fontSize: number | null): ISCH_PrimitiveText;
 ```
 
 ## Parameters
@@ -1051,7 +1051,7 @@ number \| null
 ## Signature
 
 ```typescript
-setState_Italic(italic: boolean): ISCH_PrimitiveText;
+public setState_Italic(italic: boolean): ISCH_PrimitiveText;
 ```
 
 ## Parameters
@@ -1109,7 +1109,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_Rotation(rotation: number): ISCH_PrimitiveText;
+public setState_Rotation(rotation: number): ISCH_PrimitiveText;
 ```
 
 ## Parameters
@@ -1167,7 +1167,7 @@ number
 ## Signature
 
 ```typescript
-setState_TextColor(textColor: string | null): ISCH_PrimitiveText;
+public setState_TextColor(textColor: string | null): ISCH_PrimitiveText;
 ```
 
 ## Parameters
@@ -1225,7 +1225,7 @@ string \| null
 ## Signature
 
 ```typescript
-setState_UnderLine(underLine: boolean): ISCH_PrimitiveText;
+public setState_UnderLine(underLine: boolean): ISCH_PrimitiveText;
 ```
 
 ## Parameters
@@ -1283,7 +1283,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_X(x: number): ISCH_PrimitiveText;
+public setState_X(x: number): ISCH_PrimitiveText;
 ```
 
 ## Parameters
@@ -1341,7 +1341,7 @@ number
 ## Signature
 
 ```typescript
-setState_Y(y: number): ISCH_PrimitiveText;
+public setState_Y(y: number): ISCH_PrimitiveText;
 ```
 
 ## Parameters
@@ -1397,7 +1397,7 @@ number
 ## Signature
 
 ```typescript
-toAsync(): ISCH_PrimitiveText;
+public toAsync(): ISCH_PrimitiveText;
 ```
 
 
@@ -1416,7 +1416,7 @@ toAsync(): ISCH_PrimitiveText;
 ## Signature
 
 ```typescript
-toSync(): ISCH_PrimitiveText;
+public toSync(): ISCH_PrimitiveText;
 ```
 
 

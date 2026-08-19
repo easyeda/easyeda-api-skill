@@ -9,7 +9,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_MessageBox 
+export class SYS_MessageBox 
 ```
 
 ## Remarks
@@ -81,7 +81,7 @@ Description
 ## Signature
 
 ```typescript
-showConfirmationMessage(content: string, title?: string, mainButtonTitle?: string, buttonTitle?: string, callbackFn?: (mainButtonClicked: boolean) => void): void;
+public showConfirmationMessage(content: string, title?: string, mainButtonTitle?: string, buttonTitle?: string, callbackFn?: (mainButtonClicked: boolean) => void): void;
 ```
 
 ## Parameters
@@ -207,7 +207,7 @@ void
 ## Signature
 
 ```typescript
-showInformationMessage(content: string, title?: string, buttonTitle?: string): void;
+public showInformationMessage(content: string, title?: string, buttonTitle?: string): void;
 ```
 
 ## Parameters

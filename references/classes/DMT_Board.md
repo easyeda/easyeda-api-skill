@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class DMT_Board 
+export class DMT_Board 
 ```
 
 ## Remarks
@@ -143,7 +143,7 @@ Description
 ## Signature
 
 ```typescript
-copyBoard(sourceBoardName: string): Promise<string | undefined>;
+public copyBoard(sourceBoardName: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -201,7 +201,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-createBoard(schematicUuid?: string, pcbUuid?: string): Promise<string | undefined>;
+public createBoard(schematicUuid?: string, pcbUuid?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -273,7 +273,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-deleteBoard(boardName: string): Promise<boolean>;
+public deleteBoard(boardName: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -333,7 +333,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-getAllBoardsInfo(): Promise<Array<IDMT_BoardItem>>;
+public getAllBoardsInfo(): Promise<Array<IDMT_BoardItem>>;
 ```
 
 
@@ -352,7 +352,7 @@ Promise&lt;Array&lt;[IDMT\_BoardItem](../interfaces/IDMT_BoardItem.md)<!-- -->&g
 ## Signature
 
 ```typescript
-getBoardInfo(boardName: string): Promise<IDMT_BoardItem | undefined>;
+public getBoardInfo(boardName: string): Promise<IDMT_BoardItem | undefined>;
 ```
 
 ## Parameters
@@ -408,7 +408,7 @@ Promise&lt;[IDMT\_BoardItem](../interfaces/IDMT_BoardItem.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-getCurrentBoardInfo(): Promise<IDMT_BoardItem | undefined>;
+public getCurrentBoardInfo(): Promise<IDMT_BoardItem | undefined>;
 ```
 
 
@@ -431,7 +431,7 @@ Promise&lt;[IDMT\_BoardItem](../interfaces/IDMT_BoardItem.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-modifyBoardName(originalBoardName: string, boardName: string): Promise<boolean>;
+public modifyBoardName(originalBoardName: string, boardName: string): Promise<boolean>;
 ```
 
 ## Parameters

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class IPCB_Polygon 
+export class IPCB_Polygon 
 ```
 
 ## Remarks
@@ -88,7 +88,7 @@ Description
 ## Signature
 
 ```typescript
-discretize(options?: IPCB_DiscretizeOptions): Array<IPCB_DiscretizedPoint>;
+public discretize(options?: IPCB_DiscretizeOptions): Promise<Array<IPCB_DiscretizedPoint>>;
 ```
 
 ## Parameters
@@ -131,7 +131,7 @@ _(Optional)_ 离散化选项
 
 ## Returns
 
-Array&lt;[IPCB\_DiscretizedPoint](../interfaces/IPCB_DiscretizedPoint.md)<!-- -->&gt;
+Promise&lt;Array&lt;[IPCB\_DiscretizedPoint](../interfaces/IPCB_DiscretizedPoint.md)<!-- -->&gt;&gt;
 
 离散化点数据
 
@@ -150,16 +150,13 @@ Array&lt;[IPCB\_DiscretizedPoint](../interfaces/IPCB_DiscretizedPoint.md)<!-- --
 ## Signature
 
 ```typescript
-getCenter(): Promise<{
-        x: number;
-        y: number;
-    }>;
+public getCenter(): Promise<{ x: number; y: number }>;
 ```
 
 
 ## Returns
 
-Promise&lt;{ x: number; y: number; }&gt;
+Promise&lt;{ x: number; y: number }&gt;
 
 单多边形中心点
 
@@ -172,7 +169,7 @@ Promise&lt;{ x: number; y: number; }&gt;
 ## Signature
 
 ```typescript
-getSource(): TPCB_PolygonSourceArray;
+public getSource(): TPCB_PolygonSourceArray;
 ```
 
 

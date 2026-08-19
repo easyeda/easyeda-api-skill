@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class IPCB_PrimitiveImage implements IPCB_Primitive 
+export class IPCB_PrimitiveImage implements IPCB_Primitive 
 ```
 **Implements:** [IPCB\_Primitive](../interfaces/IPCB_Primitive.md)
 
@@ -383,7 +383,7 @@ Description
 ## Signature
 
 ```typescript
-done(): Promise<IPCB_PrimitiveImage>;
+public done(): Promise<IPCB_PrimitiveImage>;
 ```
 
 
@@ -402,7 +402,7 @@ Promise&lt;[IPCB\_PrimitiveImage](./IPCB_PrimitiveImage.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getState_ComplexPolygon(): TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray>;
+public getState_ComplexPolygon(): TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray>;
 ```
 
 
@@ -421,7 +421,7 @@ getState_ComplexPolygon(): TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArr
 ## Signature
 
 ```typescript
-getState_Height(): number;
+public getState_Height(): number;
 ```
 
 
@@ -440,7 +440,7 @@ number
 ## Signature
 
 ```typescript
-getState_HorizonMirror(): boolean;
+public getState_HorizonMirror(): boolean;
 ```
 
 
@@ -459,7 +459,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_Layer(): TPCB_LayersOfImage;
+public getState_Layer(): TPCB_LayersOfImage;
 ```
 
 
@@ -478,7 +478,7 @@ getState_Layer(): TPCB_LayersOfImage;
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -497,7 +497,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveLock(): boolean;
+public getState_PrimitiveLock(): boolean;
 ```
 
 
@@ -516,7 +516,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): EPCB_PrimitiveType;
+public getState_PrimitiveType(): EPCB_PrimitiveType;
 ```
 
 
@@ -535,7 +535,7 @@ getState_PrimitiveType(): EPCB_PrimitiveType;
 ## Signature
 
 ```typescript
-getState_Rotation(): number;
+public getState_Rotation(): number;
 ```
 
 
@@ -554,7 +554,7 @@ number
 ## Signature
 
 ```typescript
-getState_Width(): number;
+public getState_Width(): number;
 ```
 
 
@@ -573,7 +573,7 @@ number
 ## Signature
 
 ```typescript
-getState_X(): number;
+public getState_X(): number;
 ```
 
 
@@ -592,7 +592,7 @@ BBox 左上点坐标 X
 ## Signature
 
 ```typescript
-getState_Y(): number;
+public getState_Y(): number;
 ```
 
 
@@ -611,7 +611,7 @@ BBox 左上点坐标 Y
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -632,7 +632,7 @@ boolean
 ## Signature
 
 ```typescript
-reset(): Promise<IPCB_PrimitiveImage>;
+public reset(): Promise<IPCB_PrimitiveImage>;
 ```
 
 
@@ -653,7 +653,7 @@ Promise&lt;[IPCB\_PrimitiveImage](./IPCB_PrimitiveImage.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_Height(height: number): IPCB_PrimitiveImage;
+public setState_Height(height: number): IPCB_PrimitiveImage;
 ```
 
 ## Parameters
@@ -711,7 +711,7 @@ number
 ## Signature
 
 ```typescript
-setState_HorizonMirror(horizonMirror: boolean): IPCB_PrimitiveImage;
+public setState_HorizonMirror(horizonMirror: boolean): IPCB_PrimitiveImage;
 ```
 
 ## Parameters
@@ -769,7 +769,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_Layer(layer: TPCB_LayersOfImage): IPCB_PrimitiveImage;
+public setState_Layer(layer: TPCB_LayersOfImage): IPCB_PrimitiveImage;
 ```
 
 ## Parameters
@@ -827,7 +827,7 @@ layer
 ## Signature
 
 ```typescript
-setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitiveImage;
+public setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitiveImage;
 ```
 
 ## Parameters
@@ -885,7 +885,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_Rotation(rotation: number): IPCB_PrimitiveImage;
+public setState_Rotation(rotation: number): IPCB_PrimitiveImage;
 ```
 
 ## Parameters
@@ -943,7 +943,7 @@ number
 ## Signature
 
 ```typescript
-setState_Width(width: number): IPCB_PrimitiveImage;
+public setState_Width(width: number): IPCB_PrimitiveImage;
 ```
 
 ## Parameters
@@ -1001,7 +1001,7 @@ number
 ## Signature
 
 ```typescript
-setState_X(x: number): IPCB_PrimitiveImage;
+public setState_X(x: number): IPCB_PrimitiveImage;
 ```
 
 ## Parameters
@@ -1059,7 +1059,7 @@ BBox 左上点坐标 X
 ## Signature
 
 ```typescript
-setState_Y(y: number): IPCB_PrimitiveImage;
+public setState_Y(y: number): IPCB_PrimitiveImage;
 ```
 
 ## Parameters
@@ -1115,7 +1115,7 @@ BBox 左上点坐标 Y
 ## Signature
 
 ```typescript
-toAsync(): IPCB_PrimitiveImage;
+public toAsync(): IPCB_PrimitiveImage;
 ```
 
 
@@ -1134,7 +1134,7 @@ toAsync(): IPCB_PrimitiveImage;
 ## Signature
 
 ```typescript
-toSync(): IPCB_PrimitiveImage;
+public toSync(): IPCB_PrimitiveImage;
 ```
 
 

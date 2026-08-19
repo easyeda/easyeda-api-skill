@@ -1,6 +1,6 @@
-# 表格图元
+# Table Primitive
 
-## TABLE 表格
+## TABLE Table
 
 ```json
 { "type": "TABLE", "id": "UUID", "ticket": 1 }||
@@ -17,20 +17,20 @@
 }|
 ```
 
-1. type 表格：`TABLE`
-2. id 编号：文件内唯一
-3. ticket 逻辑时钟
-4. partId 子库编号，符号页专属，原理图忽略该字段
-5. groupId 分组编号，不能为 0，没有默认为空
-6. startX 左上角 X
-7. startY 左上角 Y
-8. rowSizes 行高
-9. colSizes 列宽
-10. rowLocked 行锁定
-11. colLocked 列锁定
-12. rotation 旋转角度
+1. type table: `TABLE`.
+2. id ID, unique within the file.
+3. ticket logical clock.
+4. partId sub-library ID, exclusive to symbol pages; ignored on schematics.
+5. groupId group ID, cannot be 0, empty by default when none.
+6. startX top-left X.
+7. startY top-left Y.
+8. rowSizes row heights.
+9. colSizes column widths.
+10. rowLocked row lock.
+11. colLocked column lock.
+12. rotation rotation angle.
 
-## TABEL_CELL 表格单元格
+## TABLE_CELL Table Cell
 
 ```json
 { "type": "TABLE", "id": "UUID", "ticket": 1 }||
@@ -79,7 +79,7 @@
     "fontStyle": {
         "color": "#fff",
 	    "fillColor": "#fff",
-	    "fontFamily": "宋体",
+	    "fontFamily": "SimSun",
 	    "fontSize": 12,
 	    "strikeout": false,
 	    "underline": false,
@@ -92,18 +92,18 @@
 }|
 ```
 
-1. type 表格单元格：`TABLE_CELL`
-2. id 编号：文件内唯一
-3. ticket 逻辑时钟
-4. tableId 表格编号
-5. value 内容
-6. rowIndex 行
-7. columnIndex 列
-8. rowSpan 宽度（占多少列）
-9. colSpan 高度（占多少行）
-10. topStyle 边框线形样式（上）
-11. rightStyle 边框线形样式（右）
-12. bottomStyle 边框线形样式（下）
-13. leftStyle 边框线形样式（左）
-14. fontStyle 字体样式
-15. lineHeight 行间距
+1. type table cell: `TABLE_CELL`.
+2. id ID, unique within the file.
+3. ticket logical clock.
+4. tableId table ID.
+5. value content.
+6. rowIndex row.
+7. columnIndex column.
+8. rowSpan width (how many columns occupied).
+9. colSpan height (how many rows occupied).
+10. topStyle top border line style.
+11. rightStyle right border line style.
+12. bottomStyle bottom border line style.
+13. leftStyle left border line style.
+14. fontStyle font style.
+15. lineHeight line spacing.

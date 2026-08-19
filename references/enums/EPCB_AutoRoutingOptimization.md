@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum EPCB_AutoRoutingOptimization 
+export enum EPCB_AutoRoutingOptimization 
 ```
 
 ## Enumeration Members
@@ -38,8 +38,6 @@ COMPLETION
 
 </td><td>
 
-优先布通率（尽可能完成所有网络）
-
 
 </td></tr>
 <tr><td>
@@ -53,8 +51,6 @@ FASTER
 
 
 </td><td>
-
-优先布线速度
 
 
 </td></tr>

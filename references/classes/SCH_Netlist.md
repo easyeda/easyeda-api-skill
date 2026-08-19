@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SCH_Netlist 
+export class SCH_Netlist 
 ```
 
 ## Remarks
@@ -77,7 +77,7 @@ Description
 ## Signature
 
 ```typescript
-getNetlist(type?: ESYS_NetlistType): Promise<string>;
+public getNetlist(type?: ESYS_NetlistType): Promise<string>;
 ```
 
 ## Parameters
@@ -135,7 +135,7 @@ Promise&lt;string&gt;
 ## Signature
 
 ```typescript
-setNetlist(type: ESYS_NetlistType | undefined, netlist: string): Promise<void>;
+public setNetlist(type: ESYS_NetlistType | undefined, netlist: string): Promise<void>;
 ```
 
 ## Parameters

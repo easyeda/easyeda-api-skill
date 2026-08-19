@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class IPCB_PrimitiveString implements IPCB_Primitive 
+export class IPCB_PrimitiveString implements IPCB_Primitive 
 ```
 **Implements:** [IPCB\_Primitive](../interfaces/IPCB_Primitive.md)
 
@@ -538,7 +538,7 @@ Constructs a new instance of the `IPCB_PrimitiveString` class
 ## Signature
 
 ```typescript
-constructor(layer: TPCB_LayersOfImage, x: number, y: number, text: string, fontFamily?: string, fontSize?: number, lineWidth?: number, alignMode?: EPCB_PrimitiveStringAlignMode, rotation?: number, reverse?: boolean, expansion?: number, mirror?: boolean, primitiveLock?: boolean, primitiveId?: string);
+public constructor(layer: TPCB_LayersOfImage, x: number, y: number, text: string, fontFamily?: string, fontSize?: number, lineWidth?: number, alignMode?: EPCB_PrimitiveStringAlignMode, rotation?: number, reverse?: boolean, expansion?: number, mirror?: boolean, primitiveLock?: boolean, primitiveId?: string);
 ```
 
 ## Parameters
@@ -793,7 +793,7 @@ _(Optional)_
 ## Signature
 
 ```typescript
-done(): Promise<IPCB_PrimitiveString>;
+public done(): Promise<IPCB_PrimitiveString>;
 ```
 
 
@@ -812,7 +812,7 @@ Promise&lt;[IPCB\_PrimitiveString](./IPCB_PrimitiveString.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getState_AlignMode(): EPCB_PrimitiveStringAlignMode;
+public getState_AlignMode(): EPCB_PrimitiveStringAlignMode;
 ```
 
 
@@ -831,7 +831,7 @@ getState_AlignMode(): EPCB_PrimitiveStringAlignMode;
 ## Signature
 
 ```typescript
-getState_Expansion(): number;
+public getState_Expansion(): number;
 ```
 
 
@@ -850,7 +850,7 @@ number
 ## Signature
 
 ```typescript
-getState_FontFamily(): string;
+public getState_FontFamily(): string;
 ```
 
 
@@ -869,7 +869,7 @@ string
 ## Signature
 
 ```typescript
-getState_FontSize(): number;
+public getState_FontSize(): number;
 ```
 
 
@@ -888,7 +888,7 @@ number
 ## Signature
 
 ```typescript
-getState_Layer(): TPCB_LayersOfImage;
+public getState_Layer(): TPCB_LayersOfImage;
 ```
 
 
@@ -907,7 +907,7 @@ getState_Layer(): TPCB_LayersOfImage;
 ## Signature
 
 ```typescript
-getState_LineWidth(): number;
+public getState_LineWidth(): number;
 ```
 
 
@@ -926,7 +926,7 @@ number
 ## Signature
 
 ```typescript
-getState_Mirror(): boolean;
+public getState_Mirror(): boolean;
 ```
 
 
@@ -945,7 +945,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -964,7 +964,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveLock(): boolean;
+public getState_PrimitiveLock(): boolean;
 ```
 
 
@@ -983,7 +983,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): EPCB_PrimitiveType;
+public getState_PrimitiveType(): EPCB_PrimitiveType;
 ```
 
 
@@ -1002,7 +1002,7 @@ getState_PrimitiveType(): EPCB_PrimitiveType;
 ## Signature
 
 ```typescript
-getState_Reverse(): boolean;
+public getState_Reverse(): boolean;
 ```
 
 
@@ -1021,7 +1021,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_Rotation(): number;
+public getState_Rotation(): number;
 ```
 
 
@@ -1040,7 +1040,7 @@ number
 ## Signature
 
 ```typescript
-getState_Text(): string;
+public getState_Text(): string;
 ```
 
 
@@ -1059,7 +1059,7 @@ string
 ## Signature
 
 ```typescript
-getState_X(): number;
+public getState_X(): number;
 ```
 
 
@@ -1078,7 +1078,7 @@ number
 ## Signature
 
 ```typescript
-getState_Y(): number;
+public getState_Y(): number;
 ```
 
 
@@ -1097,7 +1097,7 @@ number
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -1118,7 +1118,7 @@ boolean
 ## Signature
 
 ```typescript
-reset(): Promise<IPCB_PrimitiveString>;
+public reset(): Promise<IPCB_PrimitiveString>;
 ```
 
 
@@ -1139,7 +1139,7 @@ Promise&lt;[IPCB\_PrimitiveString](./IPCB_PrimitiveString.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_AlignMode(alignMode: EPCB_PrimitiveStringAlignMode): IPCB_PrimitiveString;
+public setState_AlignMode(alignMode: EPCB_PrimitiveStringAlignMode): IPCB_PrimitiveString;
 ```
 
 ## Parameters
@@ -1197,7 +1197,7 @@ alignMode
 ## Signature
 
 ```typescript
-setState_Expansion(expansion: number): IPCB_PrimitiveString;
+public setState_Expansion(expansion: number): IPCB_PrimitiveString;
 ```
 
 ## Parameters
@@ -1255,7 +1255,7 @@ number
 ## Signature
 
 ```typescript
-setState_FontFamily(fontFamily: string): IPCB_PrimitiveString;
+public setState_FontFamily(fontFamily: string): IPCB_PrimitiveString;
 ```
 
 ## Parameters
@@ -1313,7 +1313,7 @@ string
 ## Signature
 
 ```typescript
-setState_FontSize(fontSize: number): IPCB_PrimitiveString;
+public setState_FontSize(fontSize: number): IPCB_PrimitiveString;
 ```
 
 ## Parameters
@@ -1371,7 +1371,7 @@ number
 ## Signature
 
 ```typescript
-setState_Layer(layer: TPCB_LayersOfImage): IPCB_PrimitiveString;
+public setState_Layer(layer: TPCB_LayersOfImage): IPCB_PrimitiveString;
 ```
 
 ## Parameters
@@ -1429,7 +1429,7 @@ layer
 ## Signature
 
 ```typescript
-setState_LineWidth(lineWidth: number): IPCB_PrimitiveString;
+public setState_LineWidth(lineWidth: number): IPCB_PrimitiveString;
 ```
 
 ## Parameters
@@ -1487,7 +1487,7 @@ number
 ## Signature
 
 ```typescript
-setState_Mirror(mirror: boolean): IPCB_PrimitiveString;
+public setState_Mirror(mirror: boolean): IPCB_PrimitiveString;
 ```
 
 ## Parameters
@@ -1545,7 +1545,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitiveString;
+public setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitiveString;
 ```
 
 ## Parameters
@@ -1603,7 +1603,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_Reverse(reverse: boolean): IPCB_PrimitiveString;
+public setState_Reverse(reverse: boolean): IPCB_PrimitiveString;
 ```
 
 ## Parameters
@@ -1665,7 +1665,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_Rotation(rotation: number): IPCB_PrimitiveString;
+public setState_Rotation(rotation: number): IPCB_PrimitiveString;
 ```
 
 ## Parameters
@@ -1723,7 +1723,7 @@ number
 ## Signature
 
 ```typescript
-setState_Text(text: string): IPCB_PrimitiveString;
+public setState_Text(text: string): IPCB_PrimitiveString;
 ```
 
 ## Parameters
@@ -1781,7 +1781,7 @@ string
 ## Signature
 
 ```typescript
-setState_X(x: number): IPCB_PrimitiveString;
+public setState_X(x: number): IPCB_PrimitiveString;
 ```
 
 ## Parameters
@@ -1839,7 +1839,7 @@ number
 ## Signature
 
 ```typescript
-setState_Y(y: number): IPCB_PrimitiveString;
+public setState_Y(y: number): IPCB_PrimitiveString;
 ```
 
 ## Parameters
@@ -1895,7 +1895,7 @@ number
 ## Signature
 
 ```typescript
-toAsync(): IPCB_PrimitiveString;
+public toAsync(): IPCB_PrimitiveString;
 ```
 
 
@@ -1914,7 +1914,7 @@ toAsync(): IPCB_PrimitiveString;
 ## Signature
 
 ```typescript
-toSync(): IPCB_PrimitiveString;
+public toSync(): IPCB_PrimitiveString;
 ```
 
 

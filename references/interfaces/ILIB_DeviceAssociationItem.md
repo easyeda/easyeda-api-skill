@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ILIB_DeviceAssociationItem 
+export interface ILIB_DeviceAssociationItem 
 ```
 
 ## Properties
@@ -41,7 +41,7 @@ Description
 
 </td><td>
 
-\{ uuid: string; libraryUuid: string; \}
+\{ uuid: string; libraryUuid: string \}
 
 
 </td><td>
@@ -98,7 +98,7 @@ _(Optional)_
 
 </td><td>
 
-{ type: [ELIB\_SymbolType](../enums/ELIB_SymbolType.md)<!-- -->; uuid: string; libraryUuid: string; }
+{ type: [ELIB\_SymbolType](../enums/ELIB_SymbolType.md)<!-- -->; uuid: string; libraryUuid: string }
 
 
 </td><td>
@@ -160,10 +160,7 @@ string
 ## Signature
 
 ```typescript
-footprint?: {
-        uuid: string;
-        libraryUuid: string;
-    };
+footprint?: { uuid: string; libraryUuid: string };
 ```
 
 ### footprintuuid
@@ -201,11 +198,7 @@ images?: Array<string>;
 ## Signature
 
 ```typescript
-symbol: {
-        type: ELIB_SymbolType;
-        uuid: string;
-        libraryUuid: string;
-    };
+symbol: { type: ELIB_SymbolType; uuid: string; libraryUuid: string };
 ```
 
 ### symboltype

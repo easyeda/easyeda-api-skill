@@ -1,4 +1,4 @@
-# 拼版
+# Panelization
 
 ```json
 { "type": "PANELIZE", "ticket": 1 }||
@@ -12,14 +12,14 @@
 }|
 ```
 
-1. type 拼版 `PANELIZE`
-2. ticket 逻辑时钟
-3. on 是否启用
-4. row 行数
-5. column 列数
-6. rowSpacing 行距
-7. columnSpacing 列距
-8. onlyOutline 是否只拼边框
+1. type panelization `PANELIZE`.
+2. ticket logical clock.
+3. on whether enabled.
+4. row number of rows.
+5. column number of columns.
+6. rowSpacing row spacing.
+7. columnSpacing column spacing.
+8. onlyOutline whether to panelize outline only.
 
 ```json
 { "type": "PANELIZE_STAMP", "ticket": 1 }||
@@ -33,14 +33,14 @@
 }|
 ```
 
-1. type 邮票孔参数：`PANELIZE_STAMP`
-2. ticket 逻辑时钟
-3. direction 方向：`0` 水平 `1` 垂直
-4. on 是否启用（不启用则使用 V-CUT）
-5. stampHoleGroupQuantity 邮票孔组数
-6. stampHoleDiameter 邮票孔直径
-7. stampHoleQuantityPerGroup 邮票孔每组数量
-8. stampHoleSpacing 邮票孔间距
+1. type stamp hole parameters: `PANELIZE_STAMP`.
+2. ticket logical clock.
+3. direction direction: `0` horizontal, `1` vertical.
+4. on whether enabled (if not enabled, V-CUT is used).
+5. stampHoleGroupQuantity number of stamp hole groups.
+6. stampHoleDiameter stamp hole diameter.
+7. stampHoleQuantityPerGroup number of stamp holes per group.
+8. stampHoleSpacing stamp hole spacing.
 
 ```json
 { "type": "PANELIZE_SIDE", "ticket": 1 }||
@@ -54,11 +54,11 @@
 }|
 ```
 
-1. type 工艺边参数：`PANELIZE_SIDE`
-2. ticket 逻辑时钟
-3. direction 方向：`0` 水平 `1` 垂直
-4. on 是否启用（不启用则不使用工艺边）
-5. sideHeight 工艺边高度
-6. positionHoleDiameter 定位孔直径（`0` 表示无定位孔）
-7. markDiameter Mark 点直径（`0` 表示不启用 Mark 点）
-8. markExpansion Mark 点阻焊扩展
+1. type process edge parameters: `PANELIZE_SIDE`.
+2. ticket logical clock.
+3. direction direction: `0` horizontal, `1` vertical.
+4. on whether enabled (if not enabled, process edge is not used).
+5. sideHeight process edge height.
+6. positionHoleDiameter positioning hole diameter (`0` means no positioning hole).
+7. markDiameter Mark dot diameter (`0` means Mark dot disabled).
+8. markExpansion Mark dot solder mask expansion.

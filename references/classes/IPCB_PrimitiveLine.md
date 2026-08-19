@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class IPCB_PrimitiveLine implements IPCB_Primitive 
+export class IPCB_PrimitiveLine implements IPCB_Primitive 
 ```
 **Implements:** [IPCB\_Primitive](../interfaces/IPCB_Primitive.md)
 
@@ -413,7 +413,7 @@ Description
 ## Signature
 
 ```typescript
-done(): Promise<IPCB_PrimitiveLine>;
+public done(): Promise<IPCB_PrimitiveLine>;
 ```
 
 
@@ -434,7 +434,7 @@ Promise&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getAdjacentPrimitives(): Promise<Array<IPCB_PrimitiveLine | IPCB_PrimitiveVia | IPCB_PrimitiveArc>>;
+public getAdjacentPrimitives(): Promise<Array<IPCB_PrimitiveLine | IPCB_PrimitiveVia | IPCB_PrimitiveArc>>;
 ```
 
 
@@ -459,7 +459,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md) \| [IPCB\_Pri
 ## Signature
 
 ```typescript
-getEntireTrack(includeVias: false): Promise<Array<IPCB_PrimitiveLine | IPCB_PrimitiveArc>>;
+public getEntireTrack(includeVias: false): Promise<Array<IPCB_PrimitiveLine | IPCB_PrimitiveArc>>;
 ```
 
 ## Parameters
@@ -517,7 +517,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md) \| [IPCB\_Pri
 ## Signature
 
 ```typescript
-getEntireTrack(includeVias: true): Promise<Array<IPCB_PrimitiveLine | IPCB_PrimitiveArc | IPCB_PrimitiveVia>>;
+public getEntireTrack(includeVias: true): Promise<Array<IPCB_PrimitiveLine | IPCB_PrimitiveArc | IPCB_PrimitiveVia>>;
 ```
 
 ## Parameters
@@ -573,7 +573,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md) \| [IPCB\_Pri
 ## Signature
 
 ```typescript
-getState_EndX(): number;
+public getState_EndX(): number;
 ```
 
 
@@ -592,7 +592,7 @@ number
 ## Signature
 
 ```typescript
-getState_EndY(): number;
+public getState_EndY(): number;
 ```
 
 
@@ -611,7 +611,7 @@ number
 ## Signature
 
 ```typescript
-getState_Layer(): TPCB_LayersOfLine;
+public getState_Layer(): TPCB_LayersOfLine;
 ```
 
 
@@ -630,7 +630,7 @@ getState_Layer(): TPCB_LayersOfLine;
 ## Signature
 
 ```typescript
-getState_LineWidth(): number;
+public getState_LineWidth(): number;
 ```
 
 
@@ -649,7 +649,7 @@ number
 ## Signature
 
 ```typescript
-getState_Net(): string;
+public getState_Net(): string;
 ```
 
 
@@ -668,7 +668,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -687,7 +687,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveLock(): boolean;
+public getState_PrimitiveLock(): boolean;
 ```
 
 
@@ -706,7 +706,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): EPCB_PrimitiveType;
+public getState_PrimitiveType(): EPCB_PrimitiveType;
 ```
 
 
@@ -725,7 +725,7 @@ getState_PrimitiveType(): EPCB_PrimitiveType;
 ## Signature
 
 ```typescript
-getState_StartX(): number;
+public getState_StartX(): number;
 ```
 
 
@@ -744,7 +744,7 @@ number
 ## Signature
 
 ```typescript
-getState_StartY(): number;
+public getState_StartY(): number;
 ```
 
 
@@ -763,7 +763,7 @@ number
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -784,7 +784,7 @@ boolean
 ## Signature
 
 ```typescript
-reset(): Promise<IPCB_PrimitiveLine>;
+public reset(): Promise<IPCB_PrimitiveLine>;
 ```
 
 
@@ -805,7 +805,7 @@ Promise&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_EndX(endX: number): IPCB_PrimitiveLine;
+public setState_EndX(endX: number): IPCB_PrimitiveLine;
 ```
 
 ## Parameters
@@ -863,7 +863,7 @@ number
 ## Signature
 
 ```typescript
-setState_EndY(endY: number): IPCB_PrimitiveLine;
+public setState_EndY(endY: number): IPCB_PrimitiveLine;
 ```
 
 ## Parameters
@@ -921,7 +921,7 @@ number
 ## Signature
 
 ```typescript
-setState_Layer(layer: TPCB_LayersOfLine): IPCB_PrimitiveLine;
+public setState_Layer(layer: TPCB_LayersOfLine): IPCB_PrimitiveLine;
 ```
 
 ## Parameters
@@ -979,7 +979,7 @@ layer
 ## Signature
 
 ```typescript
-setState_LineWidth(lineWidth: number): IPCB_PrimitiveLine;
+public setState_LineWidth(lineWidth: number): IPCB_PrimitiveLine;
 ```
 
 ## Parameters
@@ -1037,7 +1037,7 @@ number
 ## Signature
 
 ```typescript
-setState_Net(net: string): IPCB_PrimitiveLine;
+public setState_Net(net: string): IPCB_PrimitiveLine;
 ```
 
 ## Parameters
@@ -1095,7 +1095,7 @@ string
 ## Signature
 
 ```typescript
-setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitiveLine;
+public setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitiveLine;
 ```
 
 ## Parameters
@@ -1153,7 +1153,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_StartX(startX: number): IPCB_PrimitiveLine;
+public setState_StartX(startX: number): IPCB_PrimitiveLine;
 ```
 
 ## Parameters
@@ -1211,7 +1211,7 @@ number
 ## Signature
 
 ```typescript
-setState_StartY(startY: number): IPCB_PrimitiveLine;
+public setState_StartY(startY: number): IPCB_PrimitiveLine;
 ```
 
 ## Parameters
@@ -1267,7 +1267,7 @@ number
 ## Signature
 
 ```typescript
-toAsync(): IPCB_PrimitiveLine;
+public toAsync(): IPCB_PrimitiveLine;
 ```
 
 
@@ -1286,7 +1286,7 @@ toAsync(): IPCB_PrimitiveLine;
 ## Signature
 
 ```typescript
-toSync(): IPCB_PrimitiveLine;
+public toSync(): IPCB_PrimitiveLine;
 ```
 
 

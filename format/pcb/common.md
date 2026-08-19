@@ -1,6 +1,24 @@
-# 通用格式
+# Common Format
 
-## 文档头
+This chapter details the format specification of the EasyEDA PCB file. PCB files mainly consist of the following parts:
+
+- **Common Format**: Document header, canvas, layer, physical layer, preferences, etc.
+- **Partition Format**: Partition definitions.
+- **Basic Primitives**: Nets, primitive configurations, groups, silkscreen configurations, associations, attributes, etc.
+- **Pads and Vias**: Pads and vias.
+- **Shape Primitives**: Lines, arcs, polygon systems, polylines, fills, regions, copper pours, images, teardrops, etc.
+- **Binary Objects**: Embedded objects.
+- **3D Shell**: Shells, creases, entities, bosses.
+- **Text System**: Text.
+- **Attributes**: Attributes.
+- **Dimension Tools**: Dimension annotations.
+- **Footprint System**: Component instances.
+- **Panelization**: Panelization parameters.
+- **Design Rules**: Rule templates, rules.
+
+
+
+## Document Header
 
 ```json
 { "type": "DOCHEAD" }||{ "docType": "PCB", "uuid": "UUID", "client": "clientID" }|
@@ -10,12 +28,12 @@
 { "type": "DOCHEAD" }||{ "docType": "FOOTPRINT", "uuid": "UUID", "client": "clientID" }|
 ```
 
--   type："DOCHEAD"，文档头标识
--   docType：文档类型，"PCB" PCB, "FOOTPRINT" 封装
--   uuid：文档唯一编号，工程内唯一
--   client：最终一致性的一个终端标识
+-   type: "DOCHEAD", document header identifier.
+-   docType: document type, "PCB" PCB, "FOOTPRINT" footprint.
+-   uuid: document unique ID, unique within the project.
+-   client: terminal identifier for eventual consistency.
 
-## CANVAS 画布配置
+## CANVAS Canvas Configuration
 
 ```json
 { "type": "CANVAS", "ticket": 1 }||
@@ -35,26 +53,26 @@
 }|
 ```
 
-1. type 画布配置 `CANVAS`
-2. ticket 逻辑时钟
-3. originX 画布原点 X
-4. originY 画布原点 Y
-5. unit **显示**单位（不会影响格式里数据的单位）
-6. gridXSize 网格尺寸 X
-7. gridYSize 网格尺寸 Y
-8. snapXSize 栅格尺寸 X
-9. snapYSize 栅格尺寸 Y
-10. altSnapXSize Alt 栅格尺寸 X
-11. altSnapYSize Alt 栅格尺寸 Y
-12. gridType 网格类型：`0` 无 `1` 网格 `2` 网点
-13. multiGridType 加粗网格类型：`0` 无 `1` 网格 `2` 网点
-14. multiGridRatio 加粗网格倍数：number
+1. type canvas configuration `CANVAS`.
+2. ticket logical clock.
+3. originX canvas origin X.
+4. originY canvas origin Y.
+5. unit **display** unit (does not affect the unit of data in the format).
+6. gridXSize grid size X.
+7. gridYSize grid size Y.
+8. snapXSize snap size X.
+9. snapYSize snap size Y.
+10. altSnapXSize Alt snap size X.
+11. altSnapYSize Alt snap size Y.
+12. gridType grid type: `0` none, `1` grid, `2` dot.
+13. multiGridType bold grid type: `0` none, `1` grid, `2` dot.
+14. multiGridRatio bold grid ratio: number.
 
-## LAYER 层配置
+## LAYER Layer Configuration
 
--   所有 `SIGNAL` `PLANE` `SUBSTRATE` 出现的顺序隐含了它的物理堆叠顺序
--   所有 `SIGNAL` `PLANE` `SUBSTRATE` 数量不受限制
--   格式不假设层编号与层维持稳定的关系，具体实现由工具决定
+-   The order in which `SIGNAL`, `PLANE`, and `SUBSTRATE` appear implies their physical stacking order.
+-   The number of `SIGNAL`, `PLANE`, and `SUBSTRATE` layers is unlimited.
+-   The format does not assume a stable relationship between layer number and layer; specific implementation is decided by the tool.
 
 ```json
 { "type": "LAYER","id": 0, "ticket": 1 }||
@@ -69,19 +87,19 @@
 }|
 ```
 
-1. type 层 `LAYER`
-2. id 层编号：唯一
-3. ticket 逻辑时钟
-4. layerType 层类型
-5. layerName 层别名，需要唯一
-6. status 状态：`1` 使用 `2` 显示 `4` 锁定，可通过相加叠加状态，例如
-    - 使用并显示 3 = 1 + 2
-    - 使用并锁定但不显示 5 = 1 + 4
-    - 使用并显示并锁定 7 = 1 + 2 + 4
-7. activeColor 激活颜色
-8. activateTransparency 激活透明度
-9. inactiveColor 非激活颜色
-10. inactiveTransparency 非激活透明度
+1. type layer `LAYER`.
+2. id layer number, unique.
+3. ticket logical clock.
+4. layerType layer type.
+5. layerName layer alias, must be unique.
+6. status status: `1` used, `2` displayed, `4` locked. Can be combined by addition, e.g.
+    - used and displayed: 3 = 1 + 2
+    - used and locked but not displayed: 5 = 1 + 4
+    - used, displayed, and locked: 7 = 1 + 2 + 4
+7. activeColor active color.
+8. activateTransparency active transparency.
+9. inactiveColor inactive color.
+10. inactiveTransparency inactive transparency.
 
 ```json
 ["LAYER",2,"BOTTOM","Bottom Layer",1,"#0000ff",1,"#00007f",1]
@@ -103,7 +121,7 @@
 ["LAYER",51,"SUBSTRATE","Dialectric2",3,"#999966",1,"#4c4c33",1]
 ["LAYER",17,"SIGNAL","Inner2",3,"#008000",1,"#004000",1]
 ["LAYER",58,"SUBSTRATE","Dialectric9",3,"#999966",1,"#4c4c33",1]
-["LAYER",16,"SIGNAL","Inner3",3,"#00ff00",1,"#007f00",1]
+["LAYER",16,"SIGNAL","Inner3",3,"#999966",1,"#4c4c33",1]
 ["LAYER",53,"SUBSTRATE","Dialectric4",3,"#999966",1,"#4c4c33",1]
 ["LAYER",47,"HOLE","Hole Layer",1,"#222222",1,"#111111",1]
 ["LAYER",48,"SHELL","3D Shell Layer",1,"#222222",1,"#111111",1]
@@ -111,7 +129,7 @@
 ["LAYER",50,"BOT_SHELL","Bottom 3D Shell Layer",1,"#222222",1,"#111111",1]
 ```
 
-## LAYER_PHYS 层物理特性配置
+## LAYER_PHYS Layer Physical Properties Configuration
 
 ```json
 { "type": "LAYER_PHYS","id": 0, "ticket": 1 }||
@@ -124,14 +142,14 @@
 }|
 ```
 
-1. type 层物理特性 `LAYER_PHYS`
-2. id 层编号
-3. ticket 逻辑时钟
-4. material 层材质
-5. thickness 厚度
-6. permittivity 介电常数
-7. lossTangent 损耗切线
-8. isKeepIsland 内电层是否保留孤岛
+1. type layer physical properties `LAYER_PHYS`.
+2. id layer number.
+3. ticket logical clock.
+4. material layer material.
+5. thickness thickness.
+6. permittivity permittivity.
+7. lossTangent loss tangent.
+8. isKeepIsland whether to keep islands on internal plane layers.
 
 ```json
 { "type": "LAYER_PHYS","id": 2, "ticket": 1 }||
@@ -166,7 +184,7 @@
 }|
 ```
 
-## ACTIVE_LAYER 配置当前激活层
+## ACTIVE_LAYER Active Layer Configuration
 
 ```json
 { "type": "ACTIVE_LAYER", "ticket": 1 }||
@@ -175,13 +193,13 @@
 }|
 ```
 
-1. type 当前激活层 `ACTIVE_LAYER`
-2. ticket 逻辑时钟
-3. layerId 层序号
+1. type current active layer `ACTIVE_LAYER`.
+2. ticket logical clock.
+3. layerId layer index.
 
-## SILK_OPTS 丝印配置
+## SILK_OPTS Silkscreen Configuration
 
-丝印配置目前主要用于彩色丝印工艺
+Silkscreen configuration is currently mainly used for colored silkscreen processes.
 
 ```json
 { "type": "SILK_OPTS","id": 3, "ticket": 1 }||
@@ -191,11 +209,11 @@
 }|
 ```
 
-1. type 丝印配置：SILK_OPTS
-2. id 层编号，层：只有 顶层丝印 与 底层丝印
-3. ticket 逻辑时钟
-4. defaultColor 默认颜色
-5. baseColor 底色
+1. type silkscreen configuration: SILK_OPTS.
+2. id layer number: only top silkscreen and bottom silkscreen.
+3. ticket logical clock.
+4. defaultColor default color.
+5. baseColor base color.
 
 ```json
 { "type": "SILK_OPTS","id": 4, "ticket": 1 }||
@@ -205,7 +223,7 @@
 }|
 ```
 
-## PREFERENCE 偏好
+## PREFERENCE Preferences
 
 ```json
 { "type": "PREFERENCE", "ticket": 1 }||
@@ -233,56 +251,56 @@
 }|
 ```
 
-1. type 偏好 `PREFERENCE`
-2. ticket 逻辑时钟
-3. startTrackWidthFollowLast 起始布线是否跟随上次设置
-4. lastTrackWidth 上次布线宽度
-5. startViaSizeFollowLast 起始打孔尺寸是否跟随上次设置
-6. lastViaInnerDiameter 上次打孔内径
-7. lastViaDiameter 上次打孔外径
-8. snap 是否自动吸附
-9. routingMode 布线模式：`0` 无 `1` 推挤 `2` 环绕 `3` 阻挡
-10. routingCorner 布线拐角模式
-    - `"L45"` 线条 45 度
-    - `"L90"` 线条 90 度
-    - `"R45"` 圆弧 45 度
-    - `"R90"` 圆弧 90 度
-    - `"L"` 线条自由角度
-    - `"R"` 圆弧自由角度
-11. removeLoop 布线是否自动移除回路
-12. rotatingObject 是否单对象旋转
-13. trackFollow 导线是否跟随封装移动
-14. stretchTrackMinCorner 拉伸导线最小拐角比率（比线宽）
-15. preferenceConfig 层堆叠偏好来源
-16. realTimeUpdateUnusedLayers 是否自动移除未使用焊盘
-17. unusedPadRange 移除未使用焊盘的范围
-    1. 全部
-    2. 仅焊盘
-    3. 仅过孔
-18. pushVia 推挤过孔
-19. pathOptimization4BePushed 路径优化（单段/整段）
-20. currentPathOptimization4BePushed 当前导线路径优化
-21. removeCircuitsContainingVias 是否移除有过孔的回路
-22. removeAntenna 是否移除天线
+1. type preferences `PREFERENCE`.
+2. ticket logical clock.
+3. startTrackWidthFollowLast whether starting track width follows last setting.
+4. lastTrackWidth last track width.
+5. startViaSizeFollowLast whether starting via size follows last setting.
+6. lastViaInnerDiameter last via inner diameter.
+7. lastViaDiameter last via outer diameter.
+8. snap whether auto-snap.
+9. routingMode routing mode: `0` none, `1` push, `2` hug, `3` block.
+10. routingCorner routing corner mode.
+    - `"L45"` line 45 degrees.
+    - `"L90"` line 90 degrees.
+    - `"R45"` arc 45 degrees.
+    - `"R90"` arc 90 degrees.
+    - `"L"` free-angle line.
+    - `"R"` free-angle arc.
+11. removeLoop whether routing automatically removes loops.
+12. rotatingObject whether single-object rotation.
+13. trackFollow whether tracks follow footprint movement.
+14. stretchTrackMinCorner stretch track minimum corner ratio (to track width).
+15. preferenceConfig layer stack preference source.
+16. realTimeUpdateUnusedLayers whether to automatically remove unused pads.
+17. unusedPadRange range for removing unused pads.
+    1. all.
+    2. pads only.
+    3. vias only.
+18. pushVia push via.
+19. pathOptimization4BePushed path optimization (single segment / whole segment).
+20. currentPathOptimization4BePushed current track path optimization.
+21. removeCircuitsContainingVias whether to remove loops containing vias.
+22. removeAntenna whether to remove antennas.
 
-## ITEM_ORDER 图元顺序建议
+## ITEM_ORDER Primitive Order Suggestion
 
-提供给 PCB 图元顺序建议，PCB 可以依照这个信息安排图元顺序，这个信息只能出现一次
-
-```json
-{ "type": "ITEM_ORDER",  "ticket": 1 }||{ "ids":["e2", "e1"] }|
-```
-
-1. type 图元顺序建议：ITEM_ORDER
-2. ticket 逻辑时钟
-3. ids 图元编号：有两种编码形式
-    1. 普通编号：形式为 `/^[a-z]+\d+$/i`，如 `e1` `e123` 等
-    2. 封装实例编号：形式为 `/^[a-z]+\d+[a-z]+\d+$/i`，用于如封装中的丝印等，如 `e1e5` `e12e22` 等
-
-这里说明下为什么叫做 “建议”，因为比如 `e1` 是顶层图元，`e2` 是底层图元，那么
+Provides a primitive order suggestion for the PCB. The PCB can arrange primitive order according to this information. This information can only appear once.
 
 ```json
 { "type": "ITEM_ORDER",  "ticket": 1 }||{ "ids":["e2", "e1"] }|
 ```
 
-默认依然是 `e1` 在上面，除非有什么特殊操作导致底层置顶了
+1. type primitive order suggestion: ITEM_ORDER.
+2. ticket logical clock.
+3. ids primitive IDs, two encoding forms:
+    1. Normal ID: form `/^[a-z]+\d+$/i`, e.g. `e1`, `e123`.
+    2. Footprint instance ID: form `/^[a-z]+\d+[a-z]+\d+$/i`, used for silkscreen in footprints, e.g. `e1e5`, `e12e22`.
+
+To explain why it is called a "suggestion": if `e1` is a top-layer primitive and `e2` is a bottom-layer primitive, then
+
+```json
+{ "type": "ITEM_ORDER",  "ticket": 1 }||{ "ids":["e2", "e1"] }|
+```
+
+the default is still `e1` on top, unless some special operation causes the bottom layer to be brought to the front.

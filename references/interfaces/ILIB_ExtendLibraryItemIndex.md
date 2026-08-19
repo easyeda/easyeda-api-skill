@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ILIB_ExtendLibraryItemIndex 
+export interface ILIB_ExtendLibraryItemIndex 
 ```
 
 ## Remarks

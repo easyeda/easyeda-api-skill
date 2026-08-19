@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IPCB_LayerItem 
+export interface IPCB_LayerItem 
 ```
 
 ## Properties

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESYS_ImportProjectViaSolderMaskExpansion 
+export enum ESYS_ImportProjectViaSolderMaskExpansion 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ ALL\_COVER\_OIL
 
 </td><td>
 
-`"cover"`
+`'cover'`
 
 
 </td><td>
-
-全部盖油
 
 
 </td></tr>
@@ -49,12 +47,10 @@ FOLLOW\_ORIGINAL\_SETTING
 
 </td><td>
 
-`"custom"`
+`'custom'`
 
 
 </td><td>
-
-跟随源设置
 
 
 </td></tr>

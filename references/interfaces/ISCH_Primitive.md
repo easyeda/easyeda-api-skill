@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ISCH_Primitive 
+export interface ISCH_Primitive 
 ```
 
 ## Properties

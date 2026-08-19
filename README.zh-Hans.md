@@ -87,10 +87,10 @@ npx clawhub@latest publish dist/easyeda-api/
 ## 架构
 
 ```
-┌──────────────┐   HTTP/WS     ┌────────────────┐   WebSocket    ┌──────────┐
-│   AI Agent    │ ◄───────────► │  Bridge Server  │ ◄───────────► │  EasyEDA  │
-│  (Skill Tool) │  Port Range   │  (Node.js)      │  Port Range   │  (Client) │
-└──────────────┘  49620-49629   └────────────────┘  49620-49629   └──────────┘
+┌──────────────┐   HTTP/WS     ┌────────────────┐   WebSocket   ┌──────────┐
+│   AI Agent   │ ◄───────────► │ Bridge Server  │ ◄───────────► │  EasyEDA │
+│ (Skill Tool) │  Port Range   │   (Node.js)    │  Port Range   │ (Client) │
+└──────────────┘  49620-49629  └────────────────┘  49620-49629  └──────────┘
 ```
 
 ## 通信协议

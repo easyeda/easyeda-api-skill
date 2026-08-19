@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESYS_ImportProjectImportOption 
+export enum ESYS_ImportProjectImportOption 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ EXTRACT\_LIBRARIES
 
 </td><td>
 
-`"ExtractLibraries"`
+`'ExtractLibraries'`
 
 
 </td><td>
-
-提取库文件
 
 
 </td></tr>
@@ -49,12 +47,10 @@ IMPORT\_DOCUMENT
 
 </td><td>
 
-`"ImportDocument"`
+`'ImportDocument'`
 
 
 </td><td>
-
-导入文档
 
 
 </td></tr>
@@ -65,12 +61,10 @@ IMPORT\_DOCUMENT\_EXTRACT\_LIBRARIES
 
 </td><td>
 
-`"ImportDocumentExtractLibraries"`
+`'ImportDocumentExtractLibraries'`
 
 
 </td><td>
-
-导入文档并提取库
 
 
 </td></tr>

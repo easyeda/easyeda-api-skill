@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ILIB_PanelLibraryItem 
+export interface ILIB_PanelLibraryItem 
 ```
 
 ## Properties

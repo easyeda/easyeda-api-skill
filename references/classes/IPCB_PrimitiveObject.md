@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class IPCB_PrimitiveObject implements IPCB_Primitive 
+export class IPCB_PrimitiveObject implements IPCB_Primitive 
 ```
 **Implements:** [IPCB\_Primitive](../interfaces/IPCB_Primitive.md)
 
@@ -425,7 +425,7 @@ Description
 ## Signature
 
 ```typescript
-done(): Promise<IPCB_PrimitiveObject>;
+public done(): Promise<IPCB_PrimitiveObject>;
 ```
 
 
@@ -444,7 +444,7 @@ Promise&lt;[IPCB\_PrimitiveObject](./IPCB_PrimitiveObject.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getState_BinaryData(): string;
+public getState_BinaryData(): string;
 ```
 
 
@@ -469,7 +469,7 @@ string
 ## Signature
 
 ```typescript
-getState_FileName(): string;
+public getState_FileName(): string;
 ```
 
 
@@ -488,7 +488,7 @@ string
 ## Signature
 
 ```typescript
-getState_Height(): number;
+public getState_Height(): number;
 ```
 
 
@@ -507,7 +507,7 @@ number
 ## Signature
 
 ```typescript
-getState_Layer(): TPCB_LayersOfObject | undefined;
+public getState_Layer(): TPCB_LayersOfObject | undefined;
 ```
 
 
@@ -526,7 +526,7 @@ getState_Layer(): TPCB_LayersOfObject | undefined;
 ## Signature
 
 ```typescript
-getState_Mirror(): boolean;
+public getState_Mirror(): boolean;
 ```
 
 
@@ -545,7 +545,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_PrimitiveId(): string;
+public getState_PrimitiveId(): string;
 ```
 
 
@@ -564,7 +564,7 @@ string
 ## Signature
 
 ```typescript
-getState_PrimitiveLock(): boolean;
+public getState_PrimitiveLock(): boolean;
 ```
 
 
@@ -583,7 +583,7 @@ boolean
 ## Signature
 
 ```typescript
-getState_PrimitiveType(): EPCB_PrimitiveType;
+public getState_PrimitiveType(): EPCB_PrimitiveType;
 ```
 
 
@@ -602,7 +602,7 @@ getState_PrimitiveType(): EPCB_PrimitiveType;
 ## Signature
 
 ```typescript
-getState_Rotation(): number;
+public getState_Rotation(): number;
 ```
 
 
@@ -621,7 +621,7 @@ number
 ## Signature
 
 ```typescript
-getState_TopLeftX(): number | undefined;
+public getState_TopLeftX(): number | undefined;
 ```
 
 
@@ -640,7 +640,7 @@ number \| undefined
 ## Signature
 
 ```typescript
-getState_TopLeftY(): number | undefined;
+public getState_TopLeftY(): number | undefined;
 ```
 
 
@@ -659,7 +659,7 @@ number \| undefined
 ## Signature
 
 ```typescript
-getState_Width(): number;
+public getState_Width(): number;
 ```
 
 
@@ -678,7 +678,7 @@ number
 ## Signature
 
 ```typescript
-isAsync(): boolean;
+public isAsync(): boolean;
 ```
 
 
@@ -699,7 +699,7 @@ boolean
 ## Signature
 
 ```typescript
-reset(): Promise<IPCB_PrimitiveObject>;
+public reset(): Promise<IPCB_PrimitiveObject>;
 ```
 
 
@@ -718,7 +718,7 @@ Promise&lt;[IPCB\_PrimitiveObject](./IPCB_PrimitiveObject.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-setState_BinaryData(binaryData: string): IPCB_PrimitiveObject;
+public setState_BinaryData(binaryData: string): IPCB_PrimitiveObject;
 ```
 
 ## Parameters
@@ -780,7 +780,7 @@ string
 ## Signature
 
 ```typescript
-setState_FileName(fileName: string): IPCB_PrimitiveObject;
+public setState_FileName(fileName: string): IPCB_PrimitiveObject;
 ```
 
 ## Parameters
@@ -836,7 +836,7 @@ string
 ## Signature
 
 ```typescript
-setState_Height(height: number): IPCB_PrimitiveObject;
+public setState_Height(height: number): IPCB_PrimitiveObject;
 ```
 
 ## Parameters
@@ -894,7 +894,7 @@ number
 ## Signature
 
 ```typescript
-setState_Layer(layer: TPCB_LayersOfObject): IPCB_PrimitiveObject;
+public setState_Layer(layer: TPCB_LayersOfObject): IPCB_PrimitiveObject;
 ```
 
 ## Parameters
@@ -950,7 +950,7 @@ layer
 ## Signature
 
 ```typescript
-setState_Mirror(mirror: boolean): IPCB_PrimitiveObject;
+public setState_Mirror(mirror: boolean): IPCB_PrimitiveObject;
 ```
 
 ## Parameters
@@ -1008,7 +1008,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitiveObject;
+public setState_PrimitiveLock(primitiveLock: boolean): IPCB_PrimitiveObject;
 ```
 
 ## Parameters
@@ -1064,7 +1064,7 @@ boolean
 ## Signature
 
 ```typescript
-setState_Rotation(rotation: number): IPCB_PrimitiveObject;
+public setState_Rotation(rotation: number): IPCB_PrimitiveObject;
 ```
 
 ## Parameters
@@ -1120,7 +1120,7 @@ number
 ## Signature
 
 ```typescript
-setState_TopLeftX(topLeftX: number): IPCB_PrimitiveObject;
+public setState_TopLeftX(topLeftX: number): IPCB_PrimitiveObject;
 ```
 
 ## Parameters
@@ -1176,7 +1176,7 @@ number
 ## Signature
 
 ```typescript
-setState_TopLeftY(topLeftY: number): IPCB_PrimitiveObject;
+public setState_TopLeftY(topLeftY: number): IPCB_PrimitiveObject;
 ```
 
 ## Parameters
@@ -1232,7 +1232,7 @@ number
 ## Signature
 
 ```typescript
-setState_Width(width: number): IPCB_PrimitiveObject;
+public setState_Width(width: number): IPCB_PrimitiveObject;
 ```
 
 ## Parameters
@@ -1288,7 +1288,7 @@ number
 ## Signature
 
 ```typescript
-toAsync(): IPCB_PrimitiveObject;
+public toAsync(): IPCB_PrimitiveObject;
 ```
 
 
@@ -1307,7 +1307,7 @@ toAsync(): IPCB_PrimitiveObject;
 ## Signature
 
 ```typescript
-toSync(): IPCB_PrimitiveObject;
+public toSync(): IPCB_PrimitiveObject;
 ```
 
 

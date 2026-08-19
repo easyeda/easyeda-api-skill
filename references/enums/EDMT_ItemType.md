@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum EDMT_ItemType 
+export enum EDMT_ItemType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ BOARD
 
 </td><td>
 
-`"Board"`
+`'Board'`
 
 
 </td><td>
-
-板子
 
 
 </td></tr>
@@ -49,12 +47,10 @@ CBB\_PCB
 
 </td><td>
 
-`"CBB PCB"`
+`'CBB PCB'`
 
 
 </td><td>
-
-复用模块 PCB
 
 
 </td></tr>
@@ -65,12 +61,10 @@ CBB\_PROJECT
 
 </td><td>
 
-`"CBB Project"`
+`'CBB Project'`
 
 
 </td><td>
-
-复用模块工程
 
 
 </td></tr>
@@ -81,12 +75,10 @@ CBB\_SCHEMATIC
 
 </td><td>
 
-`"CBB Schematic"`
+`'CBB Schematic'`
 
 
 </td><td>
-
-复用模块原理图
 
 
 </td></tr>
@@ -97,12 +89,10 @@ FOLDER
 
 </td><td>
 
-`"Folder"`
+`'Folder'`
 
 
 </td><td>
-
-文件夹
 
 
 </td></tr>
@@ -113,12 +103,10 @@ PANEL
 
 </td><td>
 
-`"Panel"`
+`'Panel'`
 
 
 </td><td>
-
-面板
 
 
 </td></tr>
@@ -129,12 +117,10 @@ PCB
 
 </td><td>
 
-`"PCB"`
+`'PCB'`
 
 
 </td><td>
-
-PCB
 
 
 </td></tr>
@@ -145,12 +131,10 @@ PROJECT
 
 </td><td>
 
-`"Project"`
+`'Project'`
 
 
 </td><td>
-
-工程
 
 
 </td></tr>
@@ -161,12 +145,10 @@ SCHEMATIC
 
 </td><td>
 
-`"Schematic"`
+`'Schematic'`
 
 
 </td><td>
-
-原理图
 
 
 </td></tr>
@@ -177,12 +159,10 @@ SCHEMATIC\_PAGE
 
 </td><td>
 
-`"Schematic Page"`
+`'Schematic Page'`
 
 
 </td><td>
-
-原理图图页
 
 
 </td></tr>
@@ -193,12 +173,10 @@ TEAM
 
 </td><td>
 
-`"Team"`
+`'Team'`
 
 
 </td><td>
-
-团队
 
 
 </td></tr>
@@ -209,12 +187,10 @@ WORKSPACE
 
 </td><td>
 
-`"Workspace"`
+`'Workspace'`
 
 
 </td><td>
-
-工作区
 
 
 </td></tr>

@@ -86,11 +86,11 @@ Or upload the zip file at https://clawhub.ai/upload
 
 ## Architecture
 
-```text
-┌──────────────┐   HTTP/WS     ┌────────────────┐   WebSocket    ┌──────────┐
+```
+┌──────────────┐   HTTP/WS     ┌────────────────┐   WebSocket   ┌──────────┐
 │   AI Agent   │ ◄───────────► │ Bridge Server  │ ◄───────────► │  EasyEDA │
 │ (Skill Tool) │  Port Range   │   (Node.js)    │  Port Range   │ (Client) │
-└──────────────┘  49620-49629   └────────────────┘  49620-49629   └──────────┘
+└──────────────┘  49620-49629  └────────────────┘  49620-49629  └──────────┘
 ```
 
 ## Communication Protocol

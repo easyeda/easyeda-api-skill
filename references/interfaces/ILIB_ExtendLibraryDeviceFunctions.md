@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ILIB_ExtendLibraryDeviceFunctions extends ILIB_ExtendLibraryFunctions 
+export interface ILIB_ExtendLibraryDeviceFunctions extends ILIB_ExtendLibraryFunctions 
 ```
 **Extends:** [ILIB\_ExtendLibraryFunctions](./ILIB_ExtendLibraryFunctions.md)
 
@@ -42,7 +42,7 @@ Description
 
 </td><td>
 
-(props: [ILIB\_ExtendLibrarySearchProperty](./ILIB_ExtendLibrarySearchProperty.md)<!-- -->&lt;{ attributes?: { \[key: string\]: string; }; symbolType?: [ELIB\_SymbolType](../enums/ELIB_SymbolType.md)<!-- -->; }&gt;) =&gt; Promise&lt;[ILIB\_ExtendLibrarySearchResult](./ILIB_ExtendLibrarySearchResult.md)<!-- -->&lt;[ILIB\_ExtendLibraryItemIndex](./ILIB_ExtendLibraryItemIndex.md) &amp; { classification?: [ILIB\_ExtendLibraryClassificationIndex](./ILIB_ExtendLibraryClassificationIndex.md) \| Array&lt;string&gt;; symbol?: [ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md) &amp; { symbolType: [ELIB\_SymbolType](../enums/ELIB_SymbolType.md)<!-- -->; }; footprint?: [ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md)<!-- -->; model3d?: [ILIB\_ExtendLibraryItemIndex](./ILIB_ExtendLibraryItemIndex.md) &amp; { adjustment?: { size?: { x: number; y: number; z: number; }; rotation?: { x: number; y: number; z: number; }; offset?: { x: number; y: number; z: number; }; }; }; images?: Array&lt;[ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md)<!-- -->&gt;; value?: string; supplierPart?: string; manufacturer?: string; description?: string; updateTime?: number; createTime?: number; attributes?: { \[key: string\]: string; }; }&gt;&gt;
+(props: [ILIB\_ExtendLibrarySearchProperty](./ILIB_ExtendLibrarySearchProperty.md)<!-- -->&lt;{ attributes?: undefined \| Record&lt;string, string&gt;; symbolType?: undefined \| [ELIB\_SymbolType.COMPONENT](../enums/ELIB_SymbolType.md) \| [ELIB\_SymbolType.NET\_FLAG](../enums/ELIB_SymbolType.md) \| [ELIB\_SymbolType.NET\_PORT](../enums/ELIB_SymbolType.md) \| [ELIB\_SymbolType.DRAWING](../enums/ELIB_SymbolType.md) \| [ELIB\_SymbolType.NON\_ELECTRICAL](../enums/ELIB_SymbolType.md) \| [ELIB\_SymbolType.SHORT\_CIRCUIT\_FLAG](../enums/ELIB_SymbolType.md) \| [ELIB\_SymbolType.OFF\_PAGE\_CONNECTOR](../enums/ELIB_SymbolType.md) \| [ELIB\_SymbolType.DIFFERENTIAL\_PAIRS\_FLAG](../enums/ELIB_SymbolType.md) \| [ELIB\_SymbolType.CBB\_SYMBOL](../enums/ELIB_SymbolType.md) }&gt;) =&gt; Promise&lt;[ILIB\_ExtendLibrarySearchResult](./ILIB_ExtendLibrarySearchResult.md)<!-- -->&lt;[ILIB\_ExtendLibraryItemIndex](./ILIB_ExtendLibraryItemIndex.md) &amp; { classification?: undefined \| string\[\] \| [ILIB\_ExtendLibraryClassificationIndex](./ILIB_ExtendLibraryClassificationIndex.md)<!-- -->; symbol?: undefined \| [ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md) &amp; { symbolType: [ELIB\_SymbolType](../enums/ELIB_SymbolType.md) }; footprint?: undefined \| [ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md)<!-- -->; symbols?: undefined \| ([ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md) &amp; { symbolType: [ELIB\_SymbolType](../enums/ELIB_SymbolType.md) })\[\]; footprints?: undefined \| [ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md)<!-- -->\[\]; model3d?: undefined \| [ILIB\_ExtendLibraryItemIndex](./ILIB_ExtendLibraryItemIndex.md) &amp; { adjustment?: undefined \| { size?: undefined \| { x: number; y: number; z: number }; rotation?: undefined \| { x: number; y: number; z: number }; offset?: undefined \| { x: number; y: number; z: number } } }; images?: undefined \| [ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md)<!-- -->\[\]; value?: undefined \| string; supplierPart?: undefined \| string; manufacturer?: undefined \| string; description?: undefined \| string; updateTime?: undefined \| number; createTime?: undefined \| number; attributes?: undefined \| Record&lt;string, string&gt; }&gt;&gt;
 
 
 </td><td>
@@ -100,47 +100,7 @@ Description
 ## Signature
 
 ```typescript
-getList: (props: ILIB_ExtendLibrarySearchProperty<{
-        attributes?: {
-            [key: string]: string;
-        };
-        symbolType?: ELIB_SymbolType;
-    }>) => Promise<ILIB_ExtendLibrarySearchResult<ILIB_ExtendLibraryItemIndex & {
-        classification?: ILIB_ExtendLibraryClassificationIndex | Array<string>;
-        symbol?: ILIB_ExtendLibraryItem & {
-            symbolType: ELIB_SymbolType;
-        };
-        footprint?: ILIB_ExtendLibraryItem;
-        model3d?: ILIB_ExtendLibraryItemIndex & {
-            adjustment?: {
-                size?: {
-                    x: number;
-                    y: number;
-                    z: number;
-                };
-                rotation?: {
-                    x: number;
-                    y: number;
-                    z: number;
-                };
-                offset?: {
-                    x: number;
-                    y: number;
-                    z: number;
-                };
-            };
-        };
-        images?: Array<ILIB_ExtendLibraryItem>;
-        value?: string;
-        supplierPart?: string;
-        manufacturer?: string;
-        description?: string;
-        updateTime?: number;
-        createTime?: number;
-        attributes?: {
-            [key: string]: string;
-        };
-    }>>;
+getList: (props: ILIB_ExtendLibrarySearchProperty<{ attributes?: undefined | Record<string, string>; symbolType?: undefined | ELIB_SymbolType.COMPONENT | ELIB_SymbolType.NET_FLAG | ELIB_SymbolType.NET_PORT | ELIB_SymbolType.DRAWING | ELIB_SymbolType.NON_ELECTRICAL | ELIB_SymbolType.SHORT_CIRCUIT_FLAG | ELIB_SymbolType.OFF_PAGE_CONNECTOR | ELIB_SymbolType.DIFFERENTIAL_PAIRS_FLAG | ELIB_SymbolType.CBB_SYMBOL }>) => Promise<ILIB_ExtendLibrarySearchResult<ILIB_ExtendLibraryItemIndex & { classification?: undefined | string[] | ILIB_ExtendLibraryClassificationIndex; symbol?: undefined | ILIB_ExtendLibraryItem & { symbolType: ELIB_SymbolType }; footprint?: undefined | ILIB_ExtendLibraryItem; symbols?: undefined | (ILIB_ExtendLibraryItem & { symbolType: ELIB_SymbolType })[]; footprints?: undefined | ILIB_ExtendLibraryItem[]; model3d?: undefined | ILIB_ExtendLibraryItemIndex & { adjustment?: undefined | { size?: undefined | { x: number; y: number; z: number }; rotation?: undefined | { x: number; y: number; z: number }; offset?: undefined | { x: number; y: number; z: number } } }; images?: undefined | ILIB_ExtendLibraryItem[]; value?: undefined | string; supplierPart?: undefined | string; manufacturer?: undefined | string; description?: undefined | string; updateTime?: undefined | number; createTime?: undefined | number; attributes?: undefined | Record<string, string> }>>;
 ```
 
 ### getsupportedpreviewtypes

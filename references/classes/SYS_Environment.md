@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_Environment 
+export class SYS_Environment 
 ```
 
 ## Remarks
@@ -46,7 +46,7 @@ Description
 </td></tr>
 <tr><td>
 
-[getEditorCurrentVersion()](./SYS_Environment.md)
+[getEditorCurrentVersion(onlySemantic)](./SYS_Environment.md)
 
 
 </td><td>
@@ -199,7 +199,7 @@ Description
 ## Signature
 
 ```typescript
-getEditorCompliedDate(): string;
+public getEditorCompliedDate(): string;
 ```
 
 
@@ -218,8 +218,45 @@ string
 ## Signature
 
 ```typescript
-getEditorCurrentVersion(): string;
+public getEditorCurrentVersion(onlySemantic?: boolean): string;
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+onlySemantic
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+_(Optional)_ 是否仅返回语义化版本号 ADD since EDA v3.2.176 ADD since EDA v4.1.13
+
+
+</td></tr>
+</tbody></table>
+
 
 
 ## Returns
@@ -237,19 +274,13 @@ string
 ## Signature
 
 ```typescript
-getUserInfo(): {
-        username?: string;
-        nickname?: string;
-        avatar?: string;
-        uuid?: string;
-        customerCode?: string;
-    };
+public getUserInfo(): { username?: undefined | string; nickname?: undefined | string; avatar?: undefined | string; uuid?: undefined | string; customerCode?: undefined | string };
 ```
 
 
 ## Returns
 
-\{ username?: string; nickname?: string; avatar?: string; uuid?: string; customerCode?: string; \}
+\{ username?: undefined \| string; nickname?: undefined \| string; avatar?: undefined \| string; uuid?: undefined \| string; customerCode?: undefined \| string \}
 
 用户信息
 
@@ -262,7 +293,7 @@ getUserInfo(): {
 ## Signature
 
 ```typescript
-isClient(): boolean;
+public isClient(): boolean;
 ```
 
 
@@ -281,7 +312,7 @@ boolean
 ## Signature
 
 ```typescript
-isEasyEDAProEdition(): boolean;
+public isEasyEDAProEdition(): boolean;
 ```
 
 
@@ -300,7 +331,7 @@ boolean
 ## Signature
 
 ```typescript
-isHalfOfflineMode(): boolean;
+public isHalfOfflineMode(): boolean;
 ```
 
 
@@ -319,7 +350,7 @@ boolean
 ## Signature
 
 ```typescript
-isJLCEDAProEdition(): boolean;
+public isJLCEDAProEdition(): boolean;
 ```
 
 
@@ -338,7 +369,7 @@ boolean
 ## Signature
 
 ```typescript
-isOfflineMode(): boolean;
+public isOfflineMode(): boolean;
 ```
 
 
@@ -357,7 +388,7 @@ boolean
 ## Signature
 
 ```typescript
-isOnlineMode(): boolean;
+public isOnlineMode(): boolean;
 ```
 
 
@@ -376,7 +407,7 @@ boolean
 ## Signature
 
 ```typescript
-isProPrivateEdition(): boolean;
+public isProPrivateEdition(): boolean;
 ```
 
 
@@ -395,7 +426,7 @@ boolean
 ## Signature
 
 ```typescript
-isWeb(): boolean;
+public isWeb(): boolean;
 ```
 
 

@@ -5,7 +5,7 @@ PCB 图元
 ## Signature
 
 ```typescript
-interface IPCB_Primitive 
+export interface IPCB_Primitive 
 ```
 
 ## Properties

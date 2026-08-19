@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class DMT_Team 
+export class DMT_Team 
 ```
 
 ## Methods
@@ -83,7 +83,7 @@ Description
 ## Signature
 
 ```typescript
-getAllInvolvedTeamInfo(): Promise<Array<IDMT_TeamItem>>;
+public getAllInvolvedTeamInfo(): Promise<Array<IDMT_TeamItem>>;
 ```
 
 
@@ -102,7 +102,7 @@ Promise&lt;Array&lt;[IDMT\_TeamItem](../interfaces/IDMT_TeamItem.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getAllTeamsInfo(): Promise<Array<IDMT_TeamItem>>;
+public getAllTeamsInfo(): Promise<Array<IDMT_TeamItem>>;
 ```
 
 
@@ -125,7 +125,7 @@ Promise&lt;Array&lt;[IDMT\_TeamItem](../interfaces/IDMT_TeamItem.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getCurrentTeamInfo(): Promise<IDMT_TeamItem | undefined>;
+public getCurrentTeamInfo(): Promise<IDMT_TeamItem | undefined>;
 ```
 
 

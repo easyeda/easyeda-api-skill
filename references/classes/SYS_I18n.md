@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_I18n 
+export class SYS_I18n 
 ```
 
 ## Remarks
@@ -186,7 +186,7 @@ Description
 ## Signature
 
 ```typescript
-addLanguageChangedEventListener(id: string, callFn: (newLanguage: string, lastLanguage: string) => void | Promise<void>, onlyOnce: boolean): void;
+public addLanguageChangedEventListener(id: string, callFn: (newLanguage: string, lastLanguage: string) => void | Promise<void>, onlyOnce: boolean): void;
 ```
 
 ## Parameters
@@ -270,7 +270,7 @@ void
 ## Signature
 
 ```typescript
-getAllSupportedLanguages(): Array<string>;
+public getAllSupportedLanguages(): Array<string>;
 ```
 
 
@@ -289,7 +289,7 @@ Array&lt;string&gt;
 ## Signature
 
 ```typescript
-getCurrentLanguage(): Promise<string>;
+public getCurrentLanguage(): Promise<string>;
 ```
 
 
@@ -312,7 +312,7 @@ Promise&lt;string&gt;
 ## Signature
 
 ```typescript
-importMultilingual(language: string, source: ISYS_LanguageKeyValuePairs): boolean;
+public importMultilingual(language: string, source: ISYS_LanguageKeyValuePairs): boolean;
 ```
 
 ## Parameters
@@ -356,7 +356,7 @@ source
 
 </td><td>
 
-[ISYS\_LanguageKeyValuePairs](../interfaces/ISYS_LanguageKeyValuePairs.md)
+[ISYS\_LanguageKeyValuePairs](../types/ISYS_LanguageKeyValuePairs.md)
 
 
 </td><td>
@@ -388,7 +388,7 @@ boolean
 ## Signature
 
 ```typescript
-importMultilingualLanguage(namespace: string, language: string, source: ISYS_LanguageKeyValuePairs): boolean;
+public importMultilingualLanguage(namespace: string, language: string, source: ISYS_LanguageKeyValuePairs): boolean;
 ```
 
 ## Parameters
@@ -448,7 +448,7 @@ source
 
 </td><td>
 
-[ISYS\_LanguageKeyValuePairs](../interfaces/ISYS_LanguageKeyValuePairs.md)
+[ISYS\_LanguageKeyValuePairs](../types/ISYS_LanguageKeyValuePairs.md)
 
 
 </td><td>
@@ -476,7 +476,7 @@ boolean
 ## Signature
 
 ```typescript
-importMultilingualNamespace(namespace: string, source: ISYS_MultilingualLanguagesData): boolean;
+public importMultilingualNamespace(namespace: string, source: ISYS_MultilingualLanguagesData): boolean;
 ```
 
 ## Parameters
@@ -548,7 +548,7 @@ boolean
 ## Signature
 
 ```typescript
-isEventListenerAlreadyExist(id: string): boolean;
+public isEventListenerAlreadyExist(id: string): boolean;
 ```
 
 ## Parameters
@@ -604,7 +604,7 @@ boolean
 ## Signature
 
 ```typescript
-isLanguageSupported(language: string): boolean;
+public isLanguageSupported(language: string): boolean;
 ```
 
 ## Parameters
@@ -660,7 +660,7 @@ boolean
 ## Signature
 
 ```typescript
-removeEventListener(id: string): boolean;
+public removeEventListener(id: string): boolean;
 ```
 
 ## Parameters
@@ -716,7 +716,7 @@ boolean
 ## Signature
 
 ```typescript
-text(tag: string, namespace?: string, language?: string, ...args: Array<any>): string;
+public text(tag: string, namespace?: string, language?: string, ...args: Array<any>): string;
 ```
 
 ## Parameters

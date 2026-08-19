@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-type TPCB_LayersOfComponent = EPCB_LayerId.TOP | EPCB_LayerId.BOTTOM;
+export type TPCB_LayersOfComponent = EPCB_LayerId.TOP | EPCB_LayerId.BOTTOM;
 ```
 ## References
 

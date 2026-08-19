@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IDMT_ProjectItem extends IDMT_BriefProjectItem 
+export interface IDMT_ProjectItem extends IDMT_BriefProjectItem 
 ```
 **Extends:** [IDMT\_BriefProjectItem](./IDMT_BriefProjectItem.md)
 

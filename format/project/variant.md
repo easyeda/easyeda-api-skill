@@ -1,30 +1,30 @@
-# 变体
+# Variant
 
-## 文档头
+## Document Header
 
 ```json
 { "type": "DOCHEAD" }||{ "docType": "VARIANT", "uuid": "UUID", "client": "clientID" }|
 ```
 
-1. type：`DOCHEAD`，文档头标识
-2. docType：`VARIANT` 变体数据
-3. uuid: 唯一标识，随机 id
-4. client：最终一致性的一个终端标识
+1. type: `DOCHEAD`, document header identifier.
+2. docType: `VARIANT` variant data.
+3. uuid: unique identifier, random id.
+4. client: terminal identifier for eventual consistency.
 
-## META 基本信息
+## META Basic Information
 
 ```json
 { "type": "META", "ticket": 1 }||
 {
-	/** 名称 */
+	/** Name */
 	"title": string,
-	/** 描述 */
+	/** Description */
 	"description": string,
-	/** 原理图 */
+	/** Schematic */
 	"schematicId": string,
-	/** 排序 */
+	/** Sort order */
 	"zIndex": number,
-	/** 是否有未归组 */
+	/** Whether there are ungrouped items */
 	"notGrouped": boolean,
 }|
 ```

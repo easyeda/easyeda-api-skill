@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum EDMT_EditorDocumentType 
+export enum EDMT_EditorDocumentType 
 ```
 
 ## Enumeration Members
@@ -38,8 +38,6 @@ BLANK
 
 </td><td>
 
-空白页
-
 
 </td></tr>
 <tr><td>
@@ -53,8 +51,6 @@ FOOTPRINT
 
 
 </td><td>
-
-封装
 
 
 </td></tr>
@@ -70,8 +66,6 @@ HOME
 
 </td><td>
 
-开始页
-
 
 </td></tr>
 <tr><td>
@@ -85,8 +79,6 @@ PANEL
 
 
 </td><td>
-
-面板
 
 
 </td></tr>
@@ -102,8 +94,6 @@ PANEL\_3D\_PREVIEW
 
 </td><td>
 
-面板 3D 预览
-
 
 </td></tr>
 <tr><td>
@@ -117,8 +107,6 @@ PANEL\_LIBRARY
 
 
 </td><td>
-
-面板库
 
 
 </td></tr>
@@ -134,8 +122,6 @@ PCB
 
 </td><td>
 
-PCB
-
 
 </td></tr>
 <tr><td>
@@ -149,8 +135,6 @@ PCB\_2D\_PREVIEW
 
 
 </td><td>
-
-PCB 2D 预览
 
 
 </td></tr>
@@ -166,8 +150,6 @@ PCB\_3D\_PREVIEW
 
 </td><td>
 
-PCB 3D 预览
-
 
 </td></tr>
 <tr><td>
@@ -181,8 +163,6 @@ PROJECT
 
 
 </td><td>
-
-工程
 
 
 </td></tr>
@@ -198,8 +178,6 @@ SCHEMATIC\_PAGE
 
 </td><td>
 
-原理图图页
-
 
 </td></tr>
 <tr><td>
@@ -213,8 +191,6 @@ SIMULATION\_SCHEMATIC\_PAGE\_NGSPICE
 
 
 </td><td>
-
-仿真原理图图页：Ngspice
 
 
 </td></tr>
@@ -230,8 +206,6 @@ SIMULATION\_SCHEMATIC\_PAGE\_SIMULIDE
 
 </td><td>
 
-仿真原理图图页：SimulIDE
-
 
 </td></tr>
 <tr><td>
@@ -245,8 +219,6 @@ SIMULATION\_SYMBOL\_COMPONENT\_NGSPICE
 
 
 </td><td>
-
-仿真元件符号：Ngspice
 
 
 </td></tr>
@@ -262,8 +234,6 @@ SIMULATION\_SYMBOL\_COMPONENT\_SIMULIDE
 
 </td><td>
 
-仿真元件符号：SimulIDE
-
 
 </td></tr>
 <tr><td>
@@ -277,8 +247,6 @@ SYMBOL\_CBB
 
 
 </td><td>
-
-复用模块符号
 
 
 </td></tr>
@@ -294,8 +262,6 @@ SYMBOL\_COMPONENT
 
 </td><td>
 
-元件符号
-
 
 </td></tr>
 <tr><td>
@@ -309,8 +275,6 @@ SYMBOL\_DRAWING
 
 
 </td><td>
-
-图纸符号
 
 
 </td></tr>
@@ -326,8 +290,6 @@ SYMBOL\_NET\_FLAG
 
 </td><td>
 
-网络标识符号
-
 
 </td></tr>
 <tr><td>
@@ -341,8 +303,6 @@ SYMBOL\_NET\_PORT
 
 
 </td><td>
-
-网络端口符号
 
 
 </td></tr>
@@ -358,8 +318,6 @@ SYMBOL\_NON\_ELECTRICAL
 
 </td><td>
 
-无电气符号
-
 
 </td></tr>
 <tr><td>
@@ -374,8 +332,6 @@ SYMBOL\_OFF\_PAGE\_CONNECTOR\_FLAG
 
 </td><td>
 
-跨页连接标识符号
-
 
 </td></tr>
 <tr><td>
@@ -389,8 +345,6 @@ SYMBOL\_SHORT\_CIRCUIT\_FLAG
 
 
 </td><td>
-
-短接标识符号
 
 
 </td></tr>

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IDMT_IndicatorMarkerShape 
+export interface IDMT_IndicatorMarkerShape 
 ```
 
 ## Properties

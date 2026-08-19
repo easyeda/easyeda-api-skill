@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SCH_ManufactureData 
+export class SCH_ManufactureData 
 ```
 
 ## Remarks
@@ -201,7 +201,7 @@ Description
 ## Signature
 
 ```typescript
-deleteBomTemplate(template: string): Promise<boolean>;
+public deleteBomTemplate(template: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -259,16 +259,13 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-getAssemblyVariantsConfigs(): Promise<Array<{
-        text: string;
-        value: string;
-    }>>;
+public getAssemblyVariantsConfigs(): Promise<Array<{ text: string; value: string }>>;
 ```
 
 
 ## Returns
 
-Promise&lt;Array&lt;{ text: string; value: string; }&gt;&gt;
+Promise&lt;Array&lt;{ text: string; value: string }&gt;&gt;
 
 装配体变量配置列表
 
@@ -283,13 +280,7 @@ Promise&lt;Array&lt;{ text: string; value: string; }&gt;&gt;
 ## Signature
 
 ```typescript
-getBomFile(fileName?: string, fileType?: 'xlsx' | 'csv', template?: string, filterOptions?: Array<{
-        property: string;
-        includeValue: boolean | string;
-    }>, statistics?: Array<string>, property?: Array<string>, columns?: Array<IPCB_BomPropertiesTableColumns>, assemblyVariantsConfig?: {
-        text: string;
-        value: string;
-    }): Promise<File | undefined>;
+public getBomFile(fileName?: string, fileType?: 'xlsx' | 'csv', template?: string, filterOptions?: Array<{ property: string; includeValue: string | false | true }>, statistics?: Array<string>, property?: Array<string>, columns?: Array<IPCB_BomPropertiesTableColumns>, assemblyVariantsConfig?: { text: string; value: string }): Promise<File | undefined>;
 ```
 
 ## Parameters
@@ -365,7 +356,7 @@ filterOptions
 
 </td><td>
 
-Array&lt;{ property: string; includeValue: boolean \| string; }&gt;
+Array&lt;{ property: string; includeValue: string \| false \| true }&gt;
 
 
 </td><td>
@@ -429,7 +420,7 @@ assemblyVariantsConfig
 
 </td><td>
 
-\{ text: string; value: string; \}
+\{ text: string; value: string \}
 
 
 </td><td>
@@ -463,7 +454,7 @@ BOM 文件数据
 ## Signature
 
 ```typescript
-getBomTemplateFile(template: string): Promise<File | undefined>;
+public getBomTemplateFile(template: string): Promise<File | undefined>;
 ```
 
 ## Parameters
@@ -521,7 +512,7 @@ BOM 模板文件
 ## Signature
 
 ```typescript
-getBomTemplates(): Promise<Array<string>>;
+public getBomTemplates(): Promise<Array<string>>;
 ```
 
 
@@ -542,19 +533,7 @@ BOM 模板列表
 ## Signature
 
 ```typescript
-getExportDocumentFile(fileName?: string, fileType?: ESCH_ExportDocumentFileType, typeSpecificParams?: {
-        theme?: 'Default' | 'White on Black' | 'Black on White';
-        lineWidth?: 'Default' | 'Always 1px' | 'Follow the Zoom Change';
-        displayAttributesAsMenu?: boolean;
-        size?: 'Original Size' | string | {
-            width: number;
-            height: number;
-            unit: ESYS_Unit.INCH | ESYS_Unit.MILLIMETER;
-        };
-    }, object?: 'All Schematic' | 'Current Schematic' | 'Current Schematic Page' | string, objectSpecificParams?: {
-        range?: 'All' | [number, number];
-        outputMethod?: 'Merged sheet' | 'Separated sheet';
-    }): Promise<File | undefined>;
+public getExportDocumentFile(fileName?: string, fileType?: ESCH_ExportDocumentFileType, typeSpecificParams?: { theme?: undefined | 'Default' | 'White on Black' | 'Black on White'; lineWidth?: undefined | 'Default' | 'Always 1px' | 'Follow the Zoom Change'; displayAttributesAsMenu?: undefined | false | true; size?: undefined | string | { width: number; height: number; unit: ESYS_Unit.MILLIMETER | ESYS_Unit.INCH } }, object?: 'All Schematic' | 'Current Schematic' | 'Current Schematic Page' | string, objectSpecificParams?: { range?: undefined | 'All' | any; outputMethod?: undefined | 'Merged sheet' | 'Separated sheet' }): Promise<File | undefined>;
 ```
 
 ## Parameters
@@ -614,7 +593,7 @@ typeSpecificParams
 
 </td><td>
 
-{ theme?: 'Default' \| 'White on Black' \| 'Black on White'; lineWidth?: 'Default' \| 'Always 1px' \| 'Follow the Zoom Change'; displayAttributesAsMenu?: boolean; size?: 'Original Size' \| string \| { width: number; height: number; unit: [ESYS\_Unit.INCH](../enums/ESYS_Unit.md) \| [ESYS\_Unit.MILLIMETER](../enums/ESYS_Unit.md)<!-- -->; }; }
+{ theme?: undefined \| 'Default' \| 'White on Black' \| 'Black on White'; lineWidth?: undefined \| 'Default' \| 'Always 1px' \| 'Follow the Zoom Change'; displayAttributesAsMenu?: undefined \| false \| true; size?: undefined \| string \| { width: number; height: number; unit: [ESYS\_Unit.MILLIMETER](../enums/ESYS_Unit.md) \| [ESYS\_Unit.INCH](../enums/ESYS_Unit.md) } }
 
 
 </td><td>
@@ -646,7 +625,7 @@ objectSpecificParams
 
 </td><td>
 
-{ range?: 'All' \| \[number, number\]; outputMethod?: 'Merged sheet' \| 'Separated sheet'; }
+{ range?: undefined \| 'All' \| any; outputMethod?: undefined \| 'Merged sheet' \| 'Separated sheet' }
 
 
 </td><td>
@@ -680,7 +659,7 @@ Promise&lt;File \| undefined&gt;
 ## Signature
 
 ```typescript
-getNetlistFile(fileName?: string, netlistType?: ESYS_NetlistType): Promise<File | undefined>;
+public getNetlistFile(fileName?: string, netlistType?: ESYS_NetlistType): Promise<File | undefined>;
 ```
 
 ## Parameters
@@ -758,7 +737,7 @@ Promise&lt;File \| undefined&gt;
 ## Signature
 
 ```typescript
-getSimulationNetlistFile(fileName?: string, netlistType?: ESCH_SimulationNetlistType): Promise<File | undefined>;
+public getSimulationNetlistFile(fileName?: string, netlistType?: ESCH_SimulationNetlistType): Promise<File | undefined>;
 ```
 
 ## Parameters
@@ -836,7 +815,7 @@ Promise&lt;File \| undefined&gt;
 ## Signature
 
 ```typescript
-placeComponentsOrder(interactive?: boolean, ignoreWarning?: boolean): Promise<boolean>;
+public placeComponentsOrder(interactive?: boolean, ignoreWarning?: boolean): Promise<boolean>;
 ```
 
 ## Parameters
@@ -869,11 +848,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否启用交互式检查
-
-如若启用，则会存在弹窗等待用户进行交互，且无法使用 `ignoreWarning` 参数忽略警告， 即 `ignoreWarning` 参数将被忽略；
-
-如若禁用，则在调用后不会有任何 EDA 内部弹窗，程序执行静默检查， 如若达成下单条件，将返回 `true` 并在新标签页打开下单页面
+_(Optional)_ 是否启用交互式检查 如若启用，则会存在弹窗等待用户进行交互，且无法使用 `ignoreWarning` 参数忽略警告， 即 `ignoreWarning` 参数将被忽略； 如若禁用，则在调用后不会有任何 EDA 内部弹窗，程序执行静默检查， 如若达成下单条件，将返回 `true` 并在新标签页打开下单页面
 
 
 </td></tr>
@@ -889,11 +864,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 在非交互式检查时忽略警告
-
-如果设置为 `true`<!-- -->，将会忽略所有检查警告项并尽可能生成下单资料；
-
-如果设置为 `false`<!-- -->，存在任意警告将中断执行并返回 `false` 的结果
+_(Optional)_ 在非交互式检查时忽略警告 如果设置为 `true`<!-- -->，将会忽略所有检查警告项并尽可能生成下单资料； 如果设置为 `false`<!-- -->，存在任意警告将中断执行并返回 `false` 的结果
 
 
 </td></tr>
@@ -918,7 +889,7 @@ SMT 元件下单
 ## Signature
 
 ```typescript
-placeSmtComponentsOrder(interactive?: boolean, ignoreWarning?: boolean): Promise<boolean>;
+public placeSmtComponentsOrder(interactive?: boolean, ignoreWarning?: boolean): Promise<boolean>;
 ```
 
 ## Parameters
@@ -951,11 +922,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否启用交互式检查
-
-如若启用，则会存在弹窗等待用户进行交互，且无法使用 `ignoreWarning` 参数忽略警告， 即 `ignoreWarning` 参数将被忽略；
-
-如若禁用，则在调用后不会有任何 EDA 内部弹窗，程序执行静默检查， 如若达成下单条件，将返回 `true` 并在新标签页打开下单页面
+_(Optional)_ 是否启用交互式检查 如若启用，则会存在弹窗等待用户进行交互，且无法使用 `ignoreWarning` 参数忽略警告， 即 `ignoreWarning` 参数将被忽略； 如若禁用，则在调用后不会有任何 EDA 内部弹窗，程序执行静默检查， 如若达成下单条件，将返回 `true` 并在新标签页打开下单页面
 
 
 </td></tr>
@@ -971,11 +938,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 在非交互式检查时忽略警告
-
-如果设置为 `true`<!-- -->，将会忽略所有检查警告项并尽可能生成下单资料；
-
-如果设置为 `false`<!-- -->，存在任意警告将中断执行并返回 `false` 的结果
+_(Optional)_ 在非交互式检查时忽略警告 如果设置为 `true`<!-- -->，将会忽略所有检查警告项并尽可能生成下单资料； 如果设置为 `false`<!-- -->，存在任意警告将中断执行并返回 `false` 的结果
 
 
 </td></tr>
@@ -1000,7 +963,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-uploadBomTemplateFile(templateFile: File, template?: string): Promise<string | undefined>;
+public uploadBomTemplateFile(templateFile: File, template?: string): Promise<string | undefined>;
 ```
 
 ## Parameters

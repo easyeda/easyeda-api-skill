@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESCH_PrimitiveFillStyle 
+export enum ESCH_PrimitiveFillStyle 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ GRID
 
 </td><td>
 
-`"Grid"`
+`'Grid'`
 
 
 </td><td>
-
-网格
 
 
 </td></tr>
@@ -49,12 +47,10 @@ HORIZONTAL\_LINE
 
 </td><td>
 
-`"Horizontal Line"`
+`'Horizontal Line'`
 
 
 </td><td>
-
-横线
 
 
 </td></tr>
@@ -65,12 +61,10 @@ LEFT\_SLASH\_LINE
 
 </td><td>
 
-`"Left Slash Line"`
+`'Left Slash Line'`
 
 
 </td><td>
-
-左斜线
 
 
 </td></tr>
@@ -81,12 +75,10 @@ NONE
 
 </td><td>
 
-`"None"`
+`'None'`
 
 
 </td><td>
-
-无
 
 
 </td></tr>
@@ -97,12 +89,10 @@ RHOMBIC\_GRID
 
 </td><td>
 
-`"Rhombic Grid"`
+`'Rhombic Grid'`
 
 
 </td><td>
-
-菱形网格
 
 
 </td></tr>
@@ -113,12 +103,10 @@ RIGHT\_SLASH\_LINE
 
 </td><td>
 
-`"Right Slash Line"`
+`'Right Slash Line'`
 
 
 </td><td>
-
-右斜线
 
 
 </td></tr>
@@ -129,12 +117,10 @@ SOLID
 
 </td><td>
 
-`"Solid"`
+`'Solid'`
 
 
 </td><td>
-
-实心
 
 
 </td></tr>
@@ -145,12 +131,10 @@ VERTICAL\_LINE
 
 </td><td>
 
-`"Vertical Line"`
+`'Vertical Line'`
 
 
 </td><td>
-
-竖线
 
 
 </td></tr>

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum EPCB_PrimitiveRegionRuleType 
+export enum EPCB_PrimitiveRegionRuleType 
 ```
 
 ## Enumeration Members
@@ -38,8 +38,6 @@ FOLLOW\_REGION\_RULE
 
 </td><td>
 
-约束区域
-
 
 </td></tr>
 <tr><td>
@@ -53,8 +51,6 @@ NO\_COMPONENTS
 
 
 </td><td>
-
-禁止元件
 
 
 </td></tr>
@@ -70,8 +66,6 @@ NO\_FILLS
 
 </td><td>
 
-禁止填充
-
 
 </td></tr>
 <tr><td>
@@ -85,8 +79,6 @@ NO\_INNER\_ELECTRICAL\_LAYERS
 
 
 </td><td>
-
-禁止内电层
 
 
 </td></tr>
@@ -102,8 +94,6 @@ NO\_POURS
 
 </td><td>
 
-禁止覆铜
-
 
 </td></tr>
 <tr><td>
@@ -117,8 +107,6 @@ NO\_WIRES
 
 
 </td><td>
-
-禁止布线
 
 
 </td></tr>

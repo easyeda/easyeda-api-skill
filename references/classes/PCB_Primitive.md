@@ -5,7 +5,7 @@ PCB &amp; 封装 / 图元类
 ## Signature
 
 ```typescript
-declare class PCB_Primitive 
+export class PCB_Primitive 
 ```
 
 ## Remarks
@@ -75,7 +75,7 @@ Description
 ## Signature
 
 ```typescript
-getPrimitiveBoardLine(primitiveId: string, layers?: Array<EPCB_LayerId>): IPCB_ComplexPolygon | undefined;
+public getPrimitiveBoardLine(primitiveId: string, layers?: Array<EPCB_LayerId>): Promise<IPCB_ComplexPolygon | undefined>;
 ```
 
 ## Parameters
@@ -134,7 +134,7 @@ _(Optional)_ 需要计算的层，在计算器件、焊盘、过孔时能够精�
 
 ## Returns
 
-[IPCB\_ComplexPolygon](./IPCB_ComplexPolygon.md) \| undefined
+Promise&lt;[IPCB\_ComplexPolygon](./IPCB_ComplexPolygon.md) \| undefined&gt;
 
 复杂多边形，如果图元 ID 未匹配或图元在指定层上不存在，则返回 `undefined`
 
@@ -149,12 +149,7 @@ _(Optional)_ 需要计算的层，在计算器件、焊盘、过孔时能够精�
 ## Signature
 
 ```typescript
-getPrimitivesBBox(primitiveIds: Array<string | IPCB_Primitive>): Promise<{
-        minX: number;
-        minY: number;
-        maxX: number;
-        maxY: number;
-    } | undefined>;
+public getPrimitivesBBox(primitiveIds: Array<string | IPCB_Primitive>): Promise<{ minX: number; minY: number; maxX: number; maxY: number } | undefined>;
 ```
 
 ## Parameters
@@ -197,6 +192,6 @@ Array&lt;string \| [IPCB\_Primitive](../interfaces/IPCB_Primitive.md)<!-- -->&gt
 
 ## Returns
 
-Promise&lt;{ minX: number; minY: number; maxX: number; maxY: number; } \| undefined&gt;
+Promise&lt;{ minX: number; minY: number; maxX: number; maxY: number } \| undefined&gt;
 
 图元的 BBox，如若图元不存在或没有 BBox，将会返回 `undefined` 的结果

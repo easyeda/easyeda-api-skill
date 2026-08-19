@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum EPCB_PrimitiveViaType 
+export enum EPCB_PrimitiveViaType 
 ```
 
 ## Enumeration Members
@@ -38,8 +38,6 @@ BLIND
 
 </td><td>
 
-盲埋孔
-
 
 </td></tr>
 <tr><td>
@@ -54,8 +52,6 @@ SUTURE
 
 </td><td>
 
-缝合孔
-
 
 </td></tr>
 <tr><td>
@@ -69,8 +65,6 @@ VIA
 
 
 </td><td>
-
-通孔
 
 
 </td></tr>

@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_Window 
+export class SYS_Window 
 ```
 
 ## Remarks
@@ -214,12 +214,7 @@ Description
 ## Signature
 
 ```typescript
-addEventListener(type: ESYS_WindowEventType, listener: (ev: any) => any, options?: {
-        capture?: boolean;
-        once?: boolean;
-        passive?: boolean;
-        signal?: AbortSignal;
-    }): ISYS_WindowEventListenerRemovableObject | undefined;
+public addEventListener(type: ESYS_WindowEventType, listener: (ev: any) => any, options?: { capture?: undefined | false | true; once?: undefined | false | true; passive?: undefined | false | true; signal?: undefined | AbortSignal }): ISYS_WindowEventListenerRemovableObject | undefined;
 ```
 
 ## Parameters
@@ -279,7 +274,7 @@ options
 
 </td><td>
 
-\{ capture?: boolean; once?: boolean; passive?: boolean; signal?: AbortSignal; \}
+\{ capture?: undefined \| false \| true; once?: undefined \| false \| true; passive?: undefined \| false \| true; signal?: undefined \| AbortSignal \}
 
 
 </td><td>
@@ -307,7 +302,7 @@ _(Optional)_ 可选参数
 ## Signature
 
 ```typescript
-getCurrentTheme(): Promise<ESYS_Theme>;
+public getCurrentTheme(): Promise<ESYS_Theme>;
 ```
 
 
@@ -330,7 +325,7 @@ Promise&lt;[ESYS\_Theme](../enums/ESYS_Theme.md)<!-- -->&gt;
 ## Signature
 
 ```typescript
-getUrlAnchor(): string;
+public getUrlAnchor(): string;
 ```
 
 
@@ -349,7 +344,7 @@ URL 锚点值
 ## Signature
 
 ```typescript
-getUrlParam(key: string): string | null;
+public getUrlParam(key: string): string | null;
 ```
 
 ## Parameters
@@ -405,16 +400,13 @@ string \| null
 ## Signature
 
 ```typescript
-getViewportSize(): {
-        width: number;
-        height: number;
-    };
+public getViewportSize(): { width: number; height: number };
 ```
 
 
 ## Returns
 
-\{ width: number; height: number; \}
+\{ width: number; height: number \}
 
 视口宽高（单位：像素）
 
@@ -431,7 +423,7 @@ ADD since EDA v3.2.162
 ## Signature
 
 ```typescript
-hideStartPageQuickStartItems(items: Array<ESYS_StartPageQuickStartItem>): Promise<boolean>;
+public hideStartPageQuickStartItems(items: Array<ESYS_StartPageQuickStartItem>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -484,9 +476,7 @@ Promise&lt;boolean&gt;
 
 注意 1：本接口需要使用者启用扩展的外部交互权限，如若未启用将始终 `throw Error`
 
-注意 2：本接口为私有化部署版本专用接口，如若在其它版本调用将始终 `throw Error`
-
-ADD since EDA v3.2.162
+注意 2：本接口为私有化部署版本专用接口，如若在其它版本调用将始终 `throw Error` ADD since EDA v3.2.162
 
 ### hidestartpagesupportfloatbaritems
 
@@ -497,7 +487,7 @@ ADD since EDA v3.2.162
 ## Signature
 
 ```typescript
-hideStartPageSupportFloatBarItems(): Promise<boolean>;
+public hideStartPageSupportFloatBarItems(): Promise<boolean>;
 ```
 
 
@@ -513,9 +503,7 @@ Promise&lt;boolean&gt;
 
 注意 1：本接口需要使用者启用扩展的外部交互权限，如若未启用将始终 `throw Error`
 
-注意 2：本接口为私有化部署版本专用接口，如若在其它版本调用将始终 `throw Error`
-
-ADD since EDA v3.2.162
+注意 2：本接口为私有化部署版本专用接口，如若在其它版本调用将始终 `throw Error` ADD since EDA v3.2.162
 
 ### open
 
@@ -526,7 +514,7 @@ ADD since EDA v3.2.162
 ## Signature
 
 ```typescript
-open(url: string, target?: ESYS_WindowOpenTarget): void;
+public open(url: string, target?: ESYS_WindowOpenTarget): void;
 ```
 
 ## Parameters
@@ -596,9 +584,7 @@ void
 ## Signature
 
 ```typescript
-openUI(uiName: string, args?: {
-        [key: string]: any;
-    }): Promise<void>;
+public openUI(uiName: string, args?: Record<string, any>): Promise<void>;
 ```
 
 ## Parameters
@@ -642,7 +628,7 @@ args
 
 </td><td>
 
-\{ \[key: string\]: any; \}
+Record&lt;string, any&gt;
 
 
 </td><td>
@@ -672,7 +658,7 @@ Promise&lt;void&gt;
 ## Signature
 
 ```typescript
-removeEventListener(removableObject: ISYS_WindowEventListenerRemovableObject): void;
+public removeEventListener(removableObject: ISYS_WindowEventListenerRemovableObject): void;
 ```
 
 ## Parameters
@@ -726,7 +712,7 @@ void
 ## Signature
 
 ```typescript
-urlPushState(url: string): void;
+public urlPushState(url: string): void;
 ```
 
 ## Parameters
@@ -780,7 +766,7 @@ void
 ## Signature
 
 ```typescript
-urlReplaceState(url: string): void;
+public urlReplaceState(url: string): void;
 ```
 
 ## Parameters

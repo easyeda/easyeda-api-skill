@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESCH_ExportDocumentFileType 
+export enum ESCH_ExportDocumentFileType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ PDF
 
 </td><td>
 
-`"PDF"`
+`'PDF'`
 
 
 </td><td>
-
-PDF 文档
 
 
 </td></tr>
@@ -49,12 +47,10 @@ PNG
 
 </td><td>
 
-`"PNG"`
+`'PNG'`
 
 
 </td><td>
-
-PNG 位图
 
 
 </td></tr>
@@ -65,12 +61,10 @@ SVG
 
 </td><td>
 
-`"SVG"`
+`'SVG'`
 
 
 </td><td>
-
-SVG 矢量图
 
 
 </td></tr>

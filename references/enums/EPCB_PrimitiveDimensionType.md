@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum EPCB_PrimitiveDimensionType 
+export enum EPCB_PrimitiveDimensionType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ ANGLE
 
 </td><td>
 
-`"Protractor Dimension"`
+`'Protractor Dimension'`
 
 
 </td><td>
-
-角度
 
 
 </td></tr>
@@ -49,12 +47,10 @@ LENGTH
 
 </td><td>
 
-`"Length Dimension"`
+`'Length Dimension'`
 
 
 </td><td>
-
-长度
 
 
 </td></tr>
@@ -65,12 +61,10 @@ RADIUS
 
 </td><td>
 
-`"Radius Dimension"`
+`'Radius Dimension'`
 
 
 </td><td>
-
-半径
 
 
 </td></tr>

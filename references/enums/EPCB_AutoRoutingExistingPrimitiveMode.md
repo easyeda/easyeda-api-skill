@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum EPCB_AutoRoutingExistingPrimitiveMode 
+export enum EPCB_AutoRoutingExistingPrimitiveMode 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ KEEP
 
 </td><td>
 
-`"keep"`
+`'keep'`
 
 
 </td><td>
-
-保留已有导线和过孔（在其基础上继续布线）
 
 
 </td></tr>
@@ -49,12 +47,10 @@ REMOVE
 
 </td><td>
 
-`"remove"`
+`'remove'`
 
 
 </td><td>
-
-移除已有导线和过孔（推倒重布）
 
 
 </td></tr>

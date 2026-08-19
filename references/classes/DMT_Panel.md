@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class DMT_Panel 
+export class DMT_Panel 
 ```
 
 ## Remarks
@@ -143,7 +143,7 @@ Description
 ## Signature
 
 ```typescript
-copyPanel(panelUuid: string): Promise<string | undefined>;
+public copyPanel(panelUuid: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -201,7 +201,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-createPanel(): Promise<string | undefined>;
+public createPanel(): Promise<string | undefined>;
 ```
 
 
@@ -220,7 +220,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-deletePanel(panelUuid: string): Promise<boolean>;
+public deletePanel(panelUuid: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -276,7 +276,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-getAllPanelsInfo(): Promise<Array<IDMT_PanelItem>>;
+public getAllPanelsInfo(): Promise<Array<IDMT_PanelItem>>;
 ```
 
 
@@ -295,7 +295,7 @@ Promise&lt;Array&lt;[IDMT\_PanelItem](../interfaces/IDMT_PanelItem.md)<!-- -->&g
 ## Signature
 
 ```typescript
-getCurrentPanelInfo(): Promise<IDMT_PanelItem | undefined>;
+public getCurrentPanelInfo(): Promise<IDMT_PanelItem | undefined>;
 ```
 
 
@@ -318,7 +318,7 @@ Promise&lt;[IDMT\_PanelItem](../interfaces/IDMT_PanelItem.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-getPanelInfo(panelUuid: string): Promise<IDMT_PanelItem | undefined>;
+public getPanelInfo(panelUuid: string): Promise<IDMT_PanelItem | undefined>;
 ```
 
 ## Parameters
@@ -374,7 +374,7 @@ Promise&lt;[IDMT\_PanelItem](../interfaces/IDMT_PanelItem.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-modifyPanelName(panelUuid: string, panelName: string): Promise<boolean>;
+public modifyPanelName(panelUuid: string, panelName: string): Promise<boolean>;
 ```
 
 ## Parameters

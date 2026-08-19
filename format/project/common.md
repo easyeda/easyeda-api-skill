@@ -1,19 +1,19 @@
-# 公共数据
+# Common Data
 
-每个文档都会带上基本信息、创建信息、修改信息，这些信息由工程管理维护
+Each document carries basic information, creation information, and modification information, which are maintained by the project manager.
 
-### 基本信息
+### Basic Information
 
 ```json
 { "type": "META", "ticket": 1 }||data
 ```
 
-1. type "META" 基本信息
-2. data 具体数据，每个文档不一样，后续单独描述
+1. type "META" basic information.
+2. data specific data, different for each document.
 
-### 创建信息
+### Creation Information
 
-每个文档一样
+Same for every document.
 
 ```json
 { "type": "META_CREATE", "ticket": 1 }||
@@ -23,11 +23,11 @@
 }|
 ```
 
-1. type "META_CREATE" 创建信息
-2. creator 创建者
-3. createTime 创建时间
+1. type "META_CREATE" creation information.
+2. creator creator.
+3. createTime creation time.
 
-### 修改信息
+### Modification Information
 
 ```json
 { "type": "META_MODIFY", "ticket": 1 }||
@@ -37,6 +37,6 @@
 }|
 ```
 
-1. type "META_MODIFY" 修改信息
-2. modifier 修改者
-3. updateTime 更新时间
+1. type "META_MODIFY" modification information.
+2. modifier modifier.
+3. updateTime update time.

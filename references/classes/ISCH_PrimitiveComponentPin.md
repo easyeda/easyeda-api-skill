@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class ISCH_PrimitiveComponentPin extends ISCH_PrimitivePin 
+export class ISCH_PrimitiveComponentPin extends ISCH_PrimitivePin 
 ```
 **Extends:** [ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)
 
@@ -130,7 +130,7 @@ protected readonly primitiveType: ESCH_PrimitiveType.COMPONENT_PIN;
 ## Signature
 
 ```typescript
-done(): Promise<ISCH_PrimitiveComponentPin>;
+public done(): Promise<ISCH_PrimitiveComponentPin>;
 ```
 
 

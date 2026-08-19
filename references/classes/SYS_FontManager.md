@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_FontManager 
+export class SYS_FontManager 
 ```
 
 ## Remarks
@@ -87,7 +87,7 @@ Description
 ## Signature
 
 ```typescript
-addFont(fontName: string): Promise<boolean>;
+public addFont(fontName: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -143,7 +143,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-deleteFont(fontName: string): Promise<boolean>;
+public deleteFont(fontName: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -199,7 +199,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-getFontsList(): Promise<Array<string>>;
+public getFontsList(): Promise<Array<string>>;
 ```
 
 

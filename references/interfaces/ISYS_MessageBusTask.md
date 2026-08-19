@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ISYS_MessageBusTask 
+export interface ISYS_MessageBusTask 
 ```
 
 ## Properties

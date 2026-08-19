@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IDMT_FolderItem 
+export interface IDMT_FolderItem 
 ```
 
 ## Properties

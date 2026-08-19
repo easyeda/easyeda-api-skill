@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class SYS_Storage 
+export class SYS_Storage 
 ```
 
 ## Remarks
@@ -130,7 +130,7 @@ Description
 ## Signature
 
 ```typescript
-clearExtensionAllUserConfigs(): Promise<boolean>;
+public clearExtensionAllUserConfigs(): Promise<boolean>;
 ```
 
 
@@ -155,7 +155,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-deleteExtensionUserConfig(key: string): Promise<boolean>;
+public deleteExtensionUserConfig(key: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -215,15 +215,13 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-getExtensionAllUserConfigs(): {
-        [key: string]: any;
-    };
+public getExtensionAllUserConfigs(): Record<string, any>;
 ```
 
 
 ## Returns
 
-\{ \[key: string\]: any; \}
+Record&lt;string, any&gt;
 
 扩展所有用户配置信息
 
@@ -240,7 +238,7 @@ getExtensionAllUserConfigs(): {
 ## Signature
 
 ```typescript
-getExtensionUserConfig(key: string): any | undefined;
+public getExtensionUserConfig(key: string): any | undefined;
 ```
 
 ## Parameters
@@ -300,9 +298,7 @@ any \| undefined
 ## Signature
 
 ```typescript
-setExtensionAllUserConfigs(configs: {
-        [key: string]: any;
-    }): Promise<boolean>;
+public setExtensionAllUserConfigs(configs: Record<string, any>): Promise<boolean>;
 ```
 
 ## Parameters
@@ -330,7 +326,7 @@ configs
 
 </td><td>
 
-\{ \[key: string\]: any; \}
+Record&lt;string, any&gt;
 
 
 </td><td>
@@ -364,7 +360,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-setExtensionUserConfig(key: string, value: any): Promise<boolean>;
+public setExtensionUserConfig(key: string, value: any): Promise<boolean>;
 ```
 
 ## Parameters

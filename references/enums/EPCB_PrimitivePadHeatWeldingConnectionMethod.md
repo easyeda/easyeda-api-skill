@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum EPCB_PrimitivePadHeatWeldingConnectionMethod 
+export enum EPCB_PrimitivePadHeatWeldingConnectionMethod 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ DIRECT\_CONNECTED
 
 </td><td>
 
-`"Direct-connected"`
+`'Direct-connected'`
 
 
 </td><td>
-
-直连
 
 
 </td></tr>
@@ -49,12 +47,10 @@ DIVERGENT
 
 </td><td>
 
-`"Divergent"`
+`'Divergent'`
 
 
 </td><td>
-
-发散
 
 
 </td></tr>
@@ -65,12 +61,10 @@ NON\_CONNECTED
 
 </td><td>
 
-`"Non-connected"`
+`'Non-connected'`
 
 
 </td><td>
-
-无连接
 
 
 </td></tr>

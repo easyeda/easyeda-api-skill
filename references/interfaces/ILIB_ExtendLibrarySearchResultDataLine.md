@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface ILIB_ExtendLibrarySearchResultDataLine 
+export interface ILIB_ExtendLibrarySearchResultDataLine 
 ```
 
 ## Properties

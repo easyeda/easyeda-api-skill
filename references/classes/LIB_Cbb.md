@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare class LIB_Cbb 
+export class LIB_Cbb 
 ```
 
 ## Methods
@@ -155,7 +155,7 @@ Description
 ## Signature
 
 ```typescript
-copy(cbbUuid: string, libraryUuid: string, targetLibraryUuid: string, targetClassification?: ILIB_ClassificationIndex | Array<string>, newCbbName?: string): Promise<string | undefined>;
+public copy(cbbUuid: string, libraryUuid: string, targetLibraryUuid: string, targetClassification?: ILIB_ClassificationIndex | Array<string>, newCbbName?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -277,7 +277,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-create(libraryUuid: string, cbbName: string, classification?: ILIB_ClassificationIndex | Array<string>, description?: string): Promise<string | undefined>;
+public create(libraryUuid: string, cbbName: string, classification?: ILIB_ClassificationIndex | Array<string>, description?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -383,7 +383,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-delete(cbbUuid: string, libraryUuid: string): Promise<boolean>;
+public delete(cbbUuid: string, libraryUuid: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -457,7 +457,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-get(cbbUuid: string, libraryUuid?: string): Promise<ILIB_CbbItem | undefined>;
+public get(cbbUuid: string, libraryUuid?: string): Promise<ILIB_CbbItem | undefined>;
 ```
 
 ## Parameters
@@ -531,7 +531,7 @@ Promise&lt;[ILIB\_CbbItem](../interfaces/ILIB_CbbItem.md) \| undefined&gt;
 ## Signature
 
 ```typescript
-modify(cbbUuid: string, libraryUuid: string, cbbName?: string, classification?: ILIB_ClassificationIndex | Array<string> | null, description?: string | null): Promise<boolean>;
+public modify(cbbUuid: string, libraryUuid: string, cbbName?: string, classification?: ILIB_ClassificationIndex | Array<string> | null, description?: string | null): Promise<boolean>;
 ```
 
 ## Parameters
@@ -657,7 +657,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-openProjectInEditor(cbbUuid: string, libraryUuid: string): Promise<boolean>;
+public openProjectInEditor(cbbUuid: string, libraryUuid: string): Promise<boolean>;
 ```
 
 ## Parameters
@@ -733,7 +733,7 @@ Promise&lt;boolean&gt;
 ## Signature
 
 ```typescript
-openSymbolInEditor(cbbUuid: string, libraryUuid: string, splitScreenId?: string): Promise<string | undefined>;
+public openSymbolInEditor(cbbUuid: string, libraryUuid: string, splitScreenId?: string): Promise<string | undefined>;
 ```
 
 ## Parameters
@@ -823,7 +823,7 @@ Promise&lt;string \| undefined&gt;
 ## Signature
 
 ```typescript
-search(key: string, libraryUuid?: string, classification?: ILIB_ClassificationIndex | Array<string>, itemsOfPage?: number, page?: number): Promise<Array<ILIB_CbbSearchItem>>;
+public search(key: string, libraryUuid?: string, classification?: ILIB_ClassificationIndex | Array<string>, itemsOfPage?: number, page?: number): Promise<Array<ILIB_CbbSearchItem>>;
 ```
 
 ## Parameters

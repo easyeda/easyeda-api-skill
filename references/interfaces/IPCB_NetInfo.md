@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-interface IPCB_NetInfo 
+export interface IPCB_NetInfo 
 ```
 
 ## Properties
@@ -41,7 +41,7 @@ Description
 
 </td><td>
 
-{ r: number; g: number; b: number; alpha: number; } \| null
+{ r: number; g: number; b: number; alpha: number } \| null
 
 
 </td><td>
@@ -103,12 +103,7 @@ string
 ## Signature
 
 ```typescript
-color: {
-        r: number;
-        g: number;
-        b: number;
-        alpha: number;
-    } | null;
+color: { r: number; g: number; b: number; alpha: number } | null;
 ```
 
 ### length

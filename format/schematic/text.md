@@ -1,4 +1,4 @@
-# TEXT 文本
+# TEXT Text
 
 ```json
 { "type": "TEXT", "id": "UUID", "ticket": 1 }||
@@ -10,10 +10,10 @@
     "positionX": 109,
     "positionY": 804.5,
     "rotation": 0,
-    "value": "任意字符doukeyi@!@#$",
+    "value": "any characters doukeyi@!@#$",
     "color": "#fff",
     "fillColor": "#fff",
-    "fontFamily": "宋体",
+    "fontFamily": "SimSun",
     "fontSize": 12,
     "strikeout": false,
     "underline": false,
@@ -24,24 +24,24 @@
 }|
 ```
 
-1. type 图元名称：TEXT
-2. id 编号：文件内唯一
-3. ticket 逻辑时钟
-4. partId 子库编号，符号页专属，原理图忽略该字段
-5. groupId 分组编号，不能为 0，没有默认为空
-6. locked 是否锁定
-7. zIndex Z 轴高度
-8. positionX 文本坐标 X
-9. positionY 文本坐标 Y
-10. rotation 旋转角度，绕 文本坐标 旋转
-11. value 文本内容：任意字符
-12. color 颜色
-13. fillColor 背景色
-14. fontFamily 字体名称
-15. fontSize 字体大小，与坐标等单位相同
-16. strikeout 是否加删除线
-17. underline 是否加下划线
-18. italic 是否斜体
-19. fontWeight 是否加粗
-20. vAlign 垂直对齐模式：0 顶部对齐 1 中间对齐 2 底部对齐
-21. hAlign 水平对齐模式：0 左对齐 1 居中 2 右对齐
+1. type primitive name: TEXT.
+2. id ID, unique within the file.
+3. ticket logical clock.
+4. partId sub-library ID, exclusive to symbol pages; ignored on schematics.
+5. groupId group ID, cannot be 0, empty by default when none.
+6. locked whether locked.
+7. zIndex Z-axis height.
+8. positionX text coordinate X.
+9. positionY text coordinate Y.
+10. rotation rotation angle, around text coordinate.
+11. value text content: any characters.
+12. color color.
+13. fillColor background color.
+14. fontFamily font name.
+15. fontSize font size, same unit as coordinates.
+16. strikeout whether to strike out.
+17. underline whether to underline.
+18. italic whether italic.
+19. fontWeight whether bold.
+20. vAlign vertical alignment: 0 top, 1 middle, 2 bottom.
+21. hAlign horizontal alignment: 0 left, 1 center, 2 right.

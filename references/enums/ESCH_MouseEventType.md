@@ -5,7 +5,7 @@
 ## Signature
 
 ```typescript
-declare enum ESCH_MouseEventType 
+export enum ESCH_MouseEventType 
 ```
 
 ## Enumeration Members
@@ -33,12 +33,10 @@ CLEAR\_SELECTED
 
 </td><td>
 
-`"clearSelected"`
+`'clearSelected'`
 
 
 </td><td>
-
-取消选中
 
 
 </td></tr>
@@ -49,12 +47,10 @@ SELECTED
 
 </td><td>
 
-`"selected"`
+`'selected'`
 
 
 </td><td>
-
-选中
 
 
 </td></tr>

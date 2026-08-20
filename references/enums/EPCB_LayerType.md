@@ -1,6 +1,6 @@
 # EPCB\_LayerType enum
 
-图层类型
+Layer type
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # IRawWire interface
 
-原始数据 - wire
+Raw data - wire
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # ILIB\_ExtendLibrarySearchResultDataLine interface
 
-外部库搜索结果数据行
+External library search result data line
 
 ## Signature
 

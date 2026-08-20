@@ -1,6 +1,6 @@
 # ISYS\_MathPoint interface
 
-离散点
+Discrete points
 
 ## Signature
 
@@ -46,7 +46,7 @@ number
 
 </td><td>
 
-X 坐标
+X coordinate
 
 
 </td></tr>
@@ -65,7 +65,7 @@ number
 
 </td><td>
 
-Y 坐标
+Y coordinate
 
 
 </td></tr>
@@ -79,7 +79,7 @@ Y 坐标
 
 # ISYS\_MathPoint.x property
 
-X 坐标
+X coordinate
 
 ## Signature
 
@@ -91,7 +91,7 @@ x: number;
 
 # ISYS\_MathPoint.y property
 
-Y 坐标
+Y coordinate
 
 ## Signature
 

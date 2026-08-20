@@ -1,6 +1,6 @@
 # ESYS\_NetlistType enum
 
-网表类型
+Netlist type
 
 ## Signature
 

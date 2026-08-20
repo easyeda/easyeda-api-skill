@@ -1,6 +1,6 @@
 # DMT\_Event class
 
-文档树 / 事件类
+Document tree / event class
 
 ## Signature
 
@@ -10,7 +10,7 @@ export class DMT_Event
 
 ## Remarks
 
-注册事件回调
+Register an event callback
 
 
 ## Methods
@@ -41,7 +41,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 新增编辑器标签页事件监听
+**_(BETA)_** Add an editor tab event listener
 
 
 </td></tr>
@@ -55,7 +55,7 @@ Description
 
 </td><td>
 
-查询事件监听是否存在
+Query whether the event listener exists
 
 
 </td></tr>
@@ -69,7 +69,7 @@ Description
 
 </td><td>
 
-移除事件监听
+Remove Event listener
 
 
 </td></tr>
@@ -85,7 +85,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-新增编辑器标签页事件监听
+Add an editor tab event listener
 
 ## Signature
 
@@ -123,7 +123,7 @@ string
 
 </td><td>
 
-事件 ID，用以防止重复注册事件
+Event ID, used to prevent duplicate event registration
 
 
 </td></tr>
@@ -139,7 +139,7 @@ eventType
 
 </td><td>
 
-事件类型
+Event type
 
 
 </td></tr>
@@ -155,7 +155,7 @@ callFn
 
 </td><td>
 
-事件触发时的回调函数
+The callback function triggered when the event fires
 
 
 </td></tr>
@@ -171,7 +171,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否仅监听一次
+_(Optional)_ Whether to listen only once
 
 
 </td></tr>
@@ -185,15 +185,54 @@ void
 
 ## Remarks
 
-注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error`
+Note: This API is only valid for extensions. Calling it in a standalone script environment will always `throw Error`
 
-在 [标签页事件类型](../enums/EDMT_EditorTabEventType.md) 为 [关闭](../enums/EDMT_EditorTabEventType.md) 或 [打开](../enums/EDMT_EditorTabEventType.md) 时，均会同时触发 [切换](../enums/EDMT_EditorTabEventType.md) 事件
+When the [tab event type](../enums/EDMT_EditorTabEventType.md) is [close](../enums/EDMT_EditorTabEventType.md) or [open](../enums/EDMT_EditorTabEventType.md)<!-- -->, the [switch](../enums/EDMT_EditorTabEventType.md) event will also be triggered
+
+## Example
+
+
+```javascript
+const listenerId = '嘉立创示例_tab_add';
+
+// 1. 打开一个原理图页，保证编辑器里存在可切换的标签页
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+
+// 2. 注册 toggle 事件监听（回调里拿到事件类型与标签页属性）
+let fired = null;
+eda.dmt_Event.addEditorTabEventListener(
+  listenerId,
+  'toggle',
+  (eventType, props) => {
+    fired = { eventType, title: props?.title, tabId: props?.tabId };
+  }
+);
+
+// 3. 回读确认注册成功（同 id 再注册也会被防重机制忽略）
+const registered = eda.dmt_Event.isEventListenerAlreadyExist(listenerId);
+console.log('registered:', registered);
+
+// 4. 切换一次标签页触发 toggle 事件，观察回调被调用
+if (pages[1]) {
+  await eda.dmt_EditorControl.openDocument(pages[1].uuid);
+  await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+} else {
+  await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+}
+await new Promise(r => setTimeout(r, 500));
+console.log('fired:', fired ? JSON.stringify(fired) : 'null');
+
+// 5. 清理监听，避免会话内残留
+const removed = eda.dmt_Event.removeEventListener(listenerId);
+console.log('removed:', removed);
+```
 
 ### iseventlisteneralreadyexist
 
 # DMT\_Event.isEventListenerAlreadyExist() method
 
-查询事件监听是否存在
+Query whether the event listener exists
 
 ## Signature
 
@@ -231,7 +270,7 @@ string
 
 </td><td>
 
-事件 ID
+Event ID
 
 
 </td></tr>
@@ -243,13 +282,40 @@ string
 
 boolean
 
-事件监听是否存在
+Whether the event listener exists
+
+## Example
+
+
+```javascript
+const listenerId = '嘉立创示例_tab_exist';
+
+// 1. 注册前查询：应为 false
+const before = eda.dmt_Event.isEventListenerAlreadyExist(listenerId);
+console.log('before:', before);
+
+// 2. 注册一个监听使 id 生效
+eda.dmt_Event.addEditorTabEventListener(
+  listenerId,
+  'toggle',
+  () => {}
+);
+
+// 3. 注册后查询：应为 true
+const after = eda.dmt_Event.isEventListenerAlreadyExist(listenerId);
+console.log('after:', after);
+
+// 4. 移除后查询：应回到 false
+eda.dmt_Event.removeEventListener(listenerId);
+const afterRemove = eda.dmt_Event.isEventListenerAlreadyExist(listenerId);
+console.log('afterRemove:', afterRemove);
+```
 
 ### removeeventlistener
 
 # DMT\_Event.removeEventListener() method
 
-移除事件监听
+Remove Event listener
 
 ## Signature
 
@@ -287,7 +353,7 @@ string
 
 </td><td>
 
-事件 ID
+Event ID
 
 
 </td></tr>
@@ -299,4 +365,32 @@ string
 
 boolean
 
-是否移除指定事件监听
+Whether Remove Specify event listener
+
+## Example
+
+
+```javascript
+const listenerId = '嘉立创示例_tab_remove';
+
+// 1. 先注册一个监听作为移除目标
+eda.dmt_Event.addEditorTabEventListener(
+  listenerId,
+  'toggle',
+  () => {}
+);
+const registered = eda.dmt_Event.isEventListenerAlreadyExist(listenerId);
+console.log('registered:', registered);
+
+// 2. 移除该监听
+const removed = eda.dmt_Event.removeEventListener(listenerId);
+console.log('removed:', removed);
+
+// 3. 回读确认已不存在
+const existAfter = eda.dmt_Event.isEventListenerAlreadyExist(listenerId);
+console.log('existAfter:', existAfter);
+
+// 4. 重复移除同一 id：返回 false（本就未注册）
+const removedAgain = eda.dmt_Event.removeEventListener(listenerId);
+console.log('removedAgain:', removedAgain);
+```

@@ -1,6 +1,6 @@
 # IPCB\_BomPropertiesTableColumns interface
 
-BOM 列的属性及排序规则
+BOM column properties and sorting rules
 
 ## Signature
 
@@ -46,7 +46,7 @@ null \| 'Yes' \| 'No'
 
 </td><td>
 
-_(Optional)_ 是否分组
+_(Optional)_ Whether to group
 
 
 </td></tr>
@@ -65,7 +65,7 @@ number
 
 </td><td>
 
-_(Optional)_ 排列权重（大权重优先在 BOM 的左侧）
+_(Optional)_ Order weight (a larger weight is placed on the left side of the BOM first)
 
 
 </td></tr>
@@ -84,7 +84,7 @@ string
 
 </td><td>
 
-属性
+Property
 
 
 </td></tr>
@@ -103,7 +103,7 @@ null \| 'asc' \| 'desc'
 
 </td><td>
 
-_(Optional)_ 排序规则
+_(Optional)_ Sorting rule
 
 
 </td></tr>
@@ -122,7 +122,7 @@ string
 
 </td><td>
 
-_(Optional)_ 显示名称
+_(Optional)_ Show name
 
 
 </td></tr>
@@ -136,7 +136,7 @@ _(Optional)_ 显示名称
 
 # IPCB\_BomPropertiesTableColumns.group property
 
-是否分组
+Whether to group
 
 ## Signature
 
@@ -148,7 +148,7 @@ group?: null | 'Yes' | 'No';
 
 # IPCB\_BomPropertiesTableColumns.orderWeight property
 
-排列权重（大权重优先在 BOM 的左侧）
+Order weight (a larger weight is placed on the left side of the BOM first)
 
 ## Signature
 
@@ -160,7 +160,7 @@ orderWeight?: number;
 
 # IPCB\_BomPropertiesTableColumns.property property
 
-属性
+Property
 
 ## Signature
 
@@ -172,7 +172,7 @@ property: string;
 
 # IPCB\_BomPropertiesTableColumns.sort property
 
-排序规则
+Sorting rule
 
 ## Signature
 
@@ -184,7 +184,7 @@ sort?: null | 'asc' | 'desc';
 
 # IPCB\_BomPropertiesTableColumns.title property
 
-显示名称
+Show name
 
 ## Signature
 

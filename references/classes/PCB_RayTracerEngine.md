@@ -1,6 +1,6 @@
 # PCB\_RayTracerEngine class
 
-PCB &amp; 封装 / 光线追踪引擎类
+PCB &amp; footprint / ray tracer engine class
 
 ## Signature
 
@@ -10,7 +10,7 @@ export class PCB_RayTracerEngine
 
 ## Remarks
 
-控制光线追踪引擎的对接和交互
+Controls the docking and interaction of the ray tracer engine
 
 
 ## Methods
@@ -41,7 +41,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 停止光线追踪引擎
+**_(BETA)_** Stop the ray tracer engine
 
 
 </td></tr>
@@ -55,7 +55,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取光线追踪光源配置
+**_(BETA)_** Get the ray tracer light configurations
 
 
 </td></tr>
@@ -69,7 +69,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取光线追踪渲染配置
+**_(BETA)_** Get the ray tracer render configurations
 
 
 </td></tr>
@@ -83,7 +83,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 初始化光线追踪引擎
+**_(BETA)_** Initialize the ray tracer engine
 
 
 </td></tr>
@@ -97,7 +97,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置光线追踪渲染配置
+**_(BETA)_** Set the ray tracer render configurations
 
 
 </td></tr>
@@ -113,7 +113,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-停止光线追踪引擎
+Stop the ray tracer engine
 
 ## Signature
 
@@ -136,7 +136,7 @@ ADD since EDA v4
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取光线追踪光源配置
+Get the ray tracer light configurations
 
 ## Signature
 
@@ -184,13 +184,13 @@ string
 
 Promise&lt;any&gt;
 
-光源配置
+Light configuration
 
 ## Remarks
 
-[获取光线追踪渲染配置](./PCB_RayTracerEngine.md) 接口中包含一种光源配置，本接口用于获取不同光源配置
+The [get ray tracer render configurations](./PCB_RayTracerEngine.md) API contains a light configuration. This API is used to get different light configurations
 
-本接口配置定义还在进行中 ADD since EDA v4
+The configuration definition of this API is still in progress ADD since EDA v4
 
 ### getrenderconfigurations
 
@@ -198,7 +198,7 @@ Promise&lt;any&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取光线追踪渲染配置
+Get the ray tracer render configurations
 
 ## Signature
 
@@ -211,11 +211,11 @@ public getRenderConfigurations(): Promise<any>;
 
 Promise&lt;any&gt;
 
-渲染配置
+Render configuration
 
 ## Remarks
 
-本接口配置定义还在进行中 ADD since EDA v4
+The configuration definition of this API is still in progress ADD since EDA v4
 
 ### init
 
@@ -223,7 +223,7 @@ Promise&lt;any&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-初始化光线追踪引擎
+Initialize the ray tracer engine
 
 ## Signature
 
@@ -246,7 +246,7 @@ ADD since EDA v4
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置光线追踪渲染配置
+Set the ray tracer render configurations
 
 ## Signature
 
@@ -284,7 +284,7 @@ any
 
 </td><td>
 
-渲染配置
+Render configuration
 
 
 </td></tr>
@@ -298,4 +298,4 @@ Promise&lt;void&gt;
 
 ## Remarks
 
-本接口配置定义还在进行中 ADD since EDA v4
+The configuration definition of this API is still in progress ADD since EDA v4

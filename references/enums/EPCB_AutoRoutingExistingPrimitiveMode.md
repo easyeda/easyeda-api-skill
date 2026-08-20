@@ -1,6 +1,6 @@
 # EPCB\_AutoRoutingExistingPrimitiveMode enum
 
-自动布线对已有导线/过孔的处理方式
+How auto routing handles existing wires/vias
 
 ## Signature
 

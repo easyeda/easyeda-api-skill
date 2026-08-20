@@ -1,6 +1,6 @@
 # ILIB\_CbbItem interface
 
-复用模块属性
+Reuse block property
 
 ## Signature
 
@@ -46,7 +46,7 @@ Array&lt;[IDMT\_BoardItem](./IDMT_BoardItem.md)<!-- -->&gt;
 
 </td><td>
 
-下属板子
+Subordinate boards
 
 
 </td></tr>
@@ -65,7 +65,7 @@ Array&lt;[IDMT\_BoardItem](./IDMT_BoardItem.md)<!-- -->&gt;
 
 </td><td>
 
-_(Optional)_ 分类
+_(Optional)_ Classification
 
 
 </td></tr>
@@ -84,7 +84,7 @@ string
 
 </td><td>
 
-_(Optional)_ 描述
+_(Optional)_ Description
 
 
 </td></tr>
@@ -105,7 +105,7 @@ _(Optional)_ 描述
 
 </td><td>
 
-库类型
+Library type
 
 
 </td></tr>
@@ -124,7 +124,7 @@ string
 
 </td><td>
 
-所属库 UUID
+UUID of the library it belongs to
 
 
 </td></tr>
@@ -143,7 +143,7 @@ string
 
 </td><td>
 
-复用模块名称
+Reuse block name
 
 
 </td></tr>
@@ -162,7 +162,7 @@ string
 
 </td><td>
 
-复用模块 UUID
+Reuse block UUID
 
 
 </td></tr>
@@ -176,7 +176,7 @@ string
 
 # ILIB\_CbbItem.boards property
 
-下属板子
+Subordinate boards
 
 ## Signature
 
@@ -188,7 +188,7 @@ boards: Array<IDMT_BoardItem>;
 
 # ILIB\_CbbItem.classification property
 
-分类
+Classification
 
 ## Signature
 
@@ -200,7 +200,7 @@ classification?: ILIB_ClassificationIndex | Array<string>;
 
 # ILIB\_CbbItem.description property
 
-描述
+Description
 
 ## Signature
 
@@ -212,7 +212,7 @@ description?: string;
 
 # ILIB\_CbbItem.libraryType property
 
-库类型
+Library type
 
 ## Signature
 
@@ -224,7 +224,7 @@ readonly libraryType: ELIB_LibraryType.CBB;
 
 # ILIB\_CbbItem.libraryUuid property
 
-所属库 UUID
+UUID of the library it belongs to
 
 ## Signature
 
@@ -236,7 +236,7 @@ libraryUuid: string;
 
 # ILIB\_CbbItem.name property
 
-复用模块名称
+Reuse block name
 
 ## Signature
 
@@ -248,7 +248,7 @@ name: string;
 
 # ILIB\_CbbItem.uuid property
 
-复用模块 UUID
+Reuse block UUID
 
 ## Signature
 

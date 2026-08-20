@@ -1,6 +1,6 @@
 # ESYS\_WindowEventType enum
 
-窗口事件类型
+Window event type
 
 ## Signature
 

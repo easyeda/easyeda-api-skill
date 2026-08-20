@@ -1,6 +1,6 @@
 # ISCH\_Primitive interface
 
-原理图图元
+Schematic primitive
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # EPCB\_AutoRoutingOptimization enum
 
-自动布线效果优先级
+Auto routing optimization priority
 
 ## Signature
 

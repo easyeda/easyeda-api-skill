@@ -1,6 +1,6 @@
 # TPCB\_LayersOfImage type
 
-复杂多边形图（SVG 图像、文本）所属层
+Layers of complex polygon figures (SVG images, text)
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # EPCB\_PrimitivePadShapeType enum
 
-焊盘外形种类
+Pad shape type
 
 ## Signature
 

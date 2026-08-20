@@ -1,6 +1,6 @@
 # ESCH\_PrimitivePinType enum
 
-引脚类型
+Pin type
 
 ## Signature
 

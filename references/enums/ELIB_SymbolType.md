@@ -1,6 +1,6 @@
 # ELIB\_SymbolType enum
 
-符号类型
+Symbol type
 
 ## Signature
 

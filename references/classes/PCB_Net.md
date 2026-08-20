@@ -1,6 +1,6 @@
 # PCB\_Net class
 
-PCB &amp; 封装 / 网络类
+PCB &amp; footprint / net class
 
 ## Signature
 
@@ -36,7 +36,7 @@ Description
 
 </td><td>
 
-获取所有网络的网络名称
+Get the net names of all nets
 
 
 </td></tr>
@@ -50,7 +50,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有网络的详细信息
+**_(BETA)_** Get all Detailed information of the net
 
 
 </td></tr>
@@ -64,7 +64,7 @@ Description
 
 </td><td>
 
-获取所有网络的网络名称
+Get the net names of all nets
 
 
 </td></tr>
@@ -78,7 +78,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取关联指定网络的所有图元
+**_(BETA)_** Get all primitives associated with the specified net
 
 
 </td></tr>
@@ -92,7 +92,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取指定网络的详细信息
+**_(BETA)_** Get Specify detailed information of the net
 
 
 </td></tr>
@@ -106,7 +106,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取指定网络的颜色
+**_(BETA)_** Get the color of the specified net
 
 
 </td></tr>
@@ -120,7 +120,7 @@ Description
 
 </td><td>
 
-获取指定网络的长度
+Get the length of the specified net
 
 
 </td></tr>
@@ -134,7 +134,7 @@ Description
 
 </td><td>
 
-获取网表
+Get the netlist
 
 
 </td></tr>
@@ -148,7 +148,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 高亮网络
+**_(BETA)_** Highlight the net
 
 
 </td></tr>
@@ -162,7 +162,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 选中网络
+**_(BETA)_** Select net
 
 
 </td></tr>
@@ -176,7 +176,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置指定网络的颜色
+**_(BETA)_** Set the color of the specified net
 
 
 </td></tr>
@@ -190,7 +190,7 @@ Description
 
 </td><td>
 
-更新网表
+Update the netlist
 
 
 </td></tr>
@@ -204,7 +204,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 取消高亮所有网络
+**_(BETA)_** Unhighlight all nets
 
 
 </td></tr>
@@ -218,7 +218,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 取消高亮网络
+**_(BETA)_** Unhighlight the net
 
 
 </td></tr>
@@ -232,7 +232,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 取消选中所有网络
+**_(BETA)_** Unselect all nets
 
 
 </td></tr>
@@ -246,7 +246,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 取消选中网络
+**_(BETA)_** Unselect the net
 
 
 </td></tr>
@@ -262,9 +262,9 @@ Description
 
 > Warning: This API is now obsolete.
 >
-> 请使用 [getAllNetsName](./PCB_Net.md) 替代
+> Please use [getAllNetsName](./PCB_Net.md) instead
 
-获取所有网络的网络名称
+Get the net names of all nets
 
 ## Signature
 
@@ -277,7 +277,7 @@ public getAllNetName(): Promise<Array<string>>;
 
 Promise&lt;Array&lt;string&gt;&gt;
 
-网络名称数组
+Net name array
 
 ### getallnets
 
@@ -285,7 +285,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有网络的详细信息
+Get all Detailed information of the net
 
 ## Signature
 
@@ -298,13 +298,13 @@ public getAllNets(): Promise<Array<IPCB_NetInfo>>;
 
 Promise&lt;Array&lt;[IPCB\_NetInfo](../interfaces/IPCB_NetInfo.md)<!-- -->&gt;&gt;
 
-所有网络的详细信息
+Detailed information of all nets
 
 ### getallnetsname
 
 # PCB\_Net.getAllNetsName() method
 
-获取所有网络的网络名称
+Get the net names of all nets
 
 ## Signature
 
@@ -317,7 +317,7 @@ public getAllNetsName(): Promise<Array<string>>;
 
 Promise&lt;Array&lt;string&gt;&gt;
 
-网络名称数组
+Net name array
 
 ### getallprimitivesbynet
 
@@ -325,7 +325,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取关联指定网络的所有图元
+Get all primitives associated with the specified net
 
 ## Signature
 
@@ -363,7 +363,7 @@ string
 
 </td><td>
 
-网络名称
+Net name
 
 
 </td></tr>
@@ -379,7 +379,7 @@ Array&lt;[EPCB\_PrimitiveType](../enums/EPCB_PrimitiveType.md)<!-- -->&gt;
 
 </td><td>
 
-_(Optional)_ 图元类型数组，如若指定图元类型不存在网络属性，返回的数据将恒为空
+_(Optional)_ Array of primitive types. If the specified primitive type has no net property, the returned data will always be empty
 
 
 </td></tr>
@@ -391,7 +391,7 @@ _(Optional)_ 图元类型数组，如若指定图元类型不存在网络属性�
 
 Promise&lt;Array&lt;[IPCB\_Primitive](../interfaces/IPCB_Primitive.md)<!-- -->&gt;&gt;
 
-图元对象数组
+Array of primitive objects
 
 ### getnet
 
@@ -399,7 +399,7 @@ Promise&lt;Array&lt;[IPCB\_Primitive](../interfaces/IPCB_Primitive.md)<!-- -->&g
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取指定网络的详细信息
+Get Specify detailed information of the net
 
 ## Signature
 
@@ -437,7 +437,7 @@ string
 
 </td><td>
 
-网络名称
+Net name
 
 
 </td></tr>
@@ -449,7 +449,7 @@ string
 
 Promise&lt;[IPCB\_NetInfo](../interfaces/IPCB_NetInfo.md) \| undefined&gt;
 
-网络的详细信息, `undefined` 为不存在该网络
+Detailed information of the net, `undefined` is does not exist this net
 
 ### getnetcolor
 
@@ -457,7 +457,7 @@ Promise&lt;[IPCB\_NetInfo](../interfaces/IPCB_NetInfo.md) \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取指定网络的颜色
+Get the color of the specified net
 
 ## Signature
 
@@ -495,7 +495,7 @@ string
 
 </td><td>
 
-网络名称
+Net name
 
 
 </td></tr>
@@ -507,13 +507,13 @@ string
 
 Promise&lt;[IPCB\_NetInfo](../interfaces/IPCB_NetInfo.md)<!-- -->\['color'\] \| undefined&gt;
 
-网络颜色，`undefined` 为不存在该网络
+Net color, `undefined` is does not exist this net
 
 ### getnetlength
 
 # PCB\_Net.getNetLength() method
 
-获取指定网络的长度
+Get the length of the specified net
 
 ## Signature
 
@@ -551,7 +551,7 @@ string
 
 </td><td>
 
-网络名称
+Net name
 
 
 </td></tr>
@@ -563,13 +563,13 @@ string
 
 Promise&lt;number \| undefined&gt;
 
-网络长度，`undefined` 为不存在该网络，`0` 为网络无长度
+Net length. `undefined` means the net does not exist; `0` means the net has no length
 
 ### getnetlist
 
 # PCB\_Net.getNetlist() method
 
-获取网表
+Get the netlist
 
 ## Signature
 
@@ -607,7 +607,7 @@ type
 
 </td><td>
 
-_(Optional)_ 网表格式
+_(Optional)_ Netlist format
 
 
 </td></tr>
@@ -619,7 +619,7 @@ _(Optional)_ 网表格式
 
 Promise&lt;string&gt;
 
-网表数据
+Netlist data
 
 ### highlightnet
 
@@ -627,7 +627,7 @@ Promise&lt;string&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-高亮网络
+Highlight the net
 
 ## Signature
 
@@ -665,7 +665,7 @@ string
 
 </td><td>
 
-网络名称
+Net name
 
 
 </td></tr>
@@ -677,11 +677,11 @@ string
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-本接口的返回值为结果导向，如果该网络原先已高亮，也将返回 `true`
+The return value of this API is result-oriented. If the net was already highlighted, `true` will also be returned
 
 ### selectnet
 
@@ -689,7 +689,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-选中网络
+Select net
 
 ## Signature
 
@@ -727,7 +727,7 @@ string
 
 </td><td>
 
-网络名称
+Net name
 
 
 </td></tr>
@@ -739,7 +739,7 @@ string
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ### setnetcolor
 
@@ -747,7 +747,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置指定网络的颜色
+Set the color of the specified net
 
 ## Signature
 
@@ -785,7 +785,7 @@ string
 
 </td><td>
 
-网络名称
+Net name
 
 
 </td></tr>
@@ -801,7 +801,7 @@ color
 
 </td><td>
 
-网络颜色
+Net color
 
 
 </td></tr>
@@ -813,13 +813,13 @@ color
 
 Promise&lt;boolean&gt;
 
-是否设置成功, `false` 为不存在该网络
+Whether Set Successful, `false` is does not exist this net
 
 ### setnetlist
 
 # PCB\_Net.setNetlist() method
 
-更新网表
+Update the netlist
 
 ## Signature
 
@@ -857,7 +857,7 @@ type
 
 </td><td>
 
-网表格式
+Netlist format
 
 
 </td></tr>
@@ -873,7 +873,7 @@ string
 
 </td><td>
 
-网表数据
+Netlist data
 
 
 </td></tr>
@@ -891,7 +891,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-取消高亮所有网络
+Unhighlight all nets
 
 ## Signature
 
@@ -904,7 +904,7 @@ public unhighlightAllNets(): Promise<boolean>;
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ### unhighlightnet
 
@@ -912,7 +912,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-取消高亮网络
+Unhighlight the net
 
 ## Signature
 
@@ -950,7 +950,7 @@ string
 
 </td><td>
 
-网络名称
+Net name
 
 
 </td></tr>
@@ -962,11 +962,11 @@ string
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-本接口的返回值为结果导向，如果该网络原先未高亮，也将返回 `true`
+The return value of this API is result-oriented. If the net was not highlighted before, `true` will also be returned
 
 ### unselectallnets
 
@@ -974,7 +974,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-取消选中所有网络
+Unselect all nets
 
 ## Signature
 
@@ -987,11 +987,11 @@ public unselectAllNets(): Promise<boolean>;
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-如果希望取消选中所有图元，请使用 [PCB\_SelectControl.clearSelected()](./PCB_SelectControl.md) 接口
+If you want to unselect all primitives, use the [PCB\_SelectControl.clearSelected()](./PCB_SelectControl.md) API
 
 ### unselectnet
 
@@ -999,7 +999,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-取消选中网络
+Unselect the net
 
 ## Signature
 
@@ -1037,7 +1037,7 @@ string
 
 </td><td>
 
-网络名称
+Net name
 
 
 </td></tr>
@@ -1049,4 +1049,4 @@ string
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful

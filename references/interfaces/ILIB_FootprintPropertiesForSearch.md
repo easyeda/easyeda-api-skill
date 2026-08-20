@@ -1,6 +1,6 @@
 # ILIB\_FootprintPropertiesForSearch interface
 
-可用于精确搜索的封装参数
+Footprint parameters that can be used for precise search
 
 ## Signature
 
@@ -46,7 +46,7 @@ string
 
 </td><td>
 
-_(Optional)_ 封装名称
+_(Optional)_ Footprint name
 
 
 </td></tr>
@@ -60,7 +60,7 @@ _(Optional)_ 封装名称
 
 # ILIB\_FootprintPropertiesForSearch.name property
 
-封装名称
+Footprint name
 
 ## Signature
 

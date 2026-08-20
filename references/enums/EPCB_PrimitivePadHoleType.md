@@ -1,6 +1,6 @@
 # EPCB\_PrimitivePadHoleType enum
 
-焊盘钻孔类型
+Pad drilling type
 
 ## Signature
 

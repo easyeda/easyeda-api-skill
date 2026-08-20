@@ -1,6 +1,6 @@
 # ISCH\_NetInfo interface
 
-网络属性
+Net property
 
 ## Signature
 
@@ -46,7 +46,7 @@ string
 
 </td><td>
 
-网络名称
+Net name
 
 
 </td></tr>
@@ -65,7 +65,7 @@ Array&lt;[ISCH\_WireInfo](./ISCH_WireInfo.md)<!-- -->&gt;
 
 </td><td>
 
-导线
+Wire
 
 
 </td></tr>
@@ -79,7 +79,7 @@ Array&lt;[ISCH\_WireInfo](./ISCH_WireInfo.md)<!-- -->&gt;
 
 # ISCH\_NetInfo.net property
 
-网络名称
+Net name
 
 ## Signature
 
@@ -91,7 +91,7 @@ net: string;
 
 # ISCH\_NetInfo.wires property
 
-导线
+Wire
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # ISYS\_WindowEventListenerRemovableObject interface
 
-窗口事件监听可移除对象
+Window event listener can remove object
 
 ## Signature
 
@@ -10,7 +10,7 @@ export interface ISYS_WindowEventListenerRemovableObject
 
 ## Remarks
 
-本对象从 [addEventListener](../classes/SYS_Window.md) 获取，并可用于移除创建的事件监听，仅需将其传入 [removeEventListener](../classes/SYS_Window.md)
+This object is obtained from [addEventListener](../classes/SYS_Window.md) and can be used to remove the created event listener by simply passing it to [removeEventListener](../classes/SYS_Window.md)
 
 ## Properties
 

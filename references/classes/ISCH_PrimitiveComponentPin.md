@@ -1,6 +1,6 @@
 # ISCH\_PrimitiveComponentPin class
 
-器件引脚图元
+Device pin primitive
 
 ## Signature
 
@@ -11,9 +11,9 @@ export class ISCH_PrimitiveComponentPin extends ISCH_PrimitivePin
 
 ## Remarks
 
-器件引脚图元是一个特殊的图元，它指的是在原理图画布上关联到符号的引脚
+A device pin primitive is a special primitive. It refers to the pin associated with a symbol on the schematic canvas
 
-器件引脚图元仅可更改 `pinNumber`<!-- -->、`noConnected` 属性，其它所有属性均为只读， 并且你只能通过 [器件类的 getAllPinsByPrimitiveId 方法](./SCH_PrimitiveComponent.md) 或 [器件图元的 getAllPins 方法](./ISCH_PrimitiveComponent.md) 获取到器件引脚图元
+For a device pin primitive, only the `pinNumber` and `noConnected` properties can be changed; all other properties are read-only. And you can only obtain a device pin primitive through [the getAllPinsByPrimitiveId method of the device class](./SCH_PrimitiveComponent.md) or [the getAllPins method of the device primitive](./ISCH_PrimitiveComponent.md)
 
 
 ## Properties
@@ -92,7 +92,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 将对图元的更改应用到画布
+**_(BETA)_** Apply the changes to the primitives to the canvas
 
 
 </td></tr>
@@ -125,7 +125,7 @@ protected readonly primitiveType: ESCH_PrimitiveType.COMPONENT_PIN;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-将对图元的更改应用到画布
+Apply the changes to the primitives to the canvas
 
 ## Signature
 
@@ -138,4 +138,35 @@ public done(): Promise<ISCH_PrimitiveComponentPin>;
 
 Promise&lt;[ISCH\_PrimitiveComponentPin](./ISCH_PrimitiveComponentPin.md)<!-- -->&gt;
 
-器件引脚图元对象
+Device pin primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件并取其引脚
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const pins = await comp.getAllPins();
+const before = pins[0].getState_PinNumber();
+
+// 3. 异步模式改两个引脚的编号（此时画布尚未变化）
+const pin1 = pins[0].toAsync();
+pin1.setState_PinNumber('A1');
+const pin2 = pins[1].toAsync();
+pin2.setState_PinNumber('A2');
+
+// 4. 逐个提交，修改写入画布（保留现场供观察）
+await pin1.done();
+await pin2.done();
+
+// 5. 从画布重新取引脚，确认两脚编号都已更新
+const pinsAfter = await comp.getAllPins();
+
+console.log('pin1:', before, '→', pinsAfter[0].getState_PinNumber());
+console.log('pin2:', pinsAfter[1].getState_PinNumber());
+```

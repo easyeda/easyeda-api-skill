@@ -1,6 +1,6 @@
 # ESYS\_WindowOpenTarget enum
 
-打开窗口上下文目标
+Open window context target
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # PCB\_PrimitivePoured class
 
-PCB &amp; 封装 / 覆铜填充图元类
+PCB &amp; footprint / copper fill primitive class
 
 ## Signature
 
@@ -37,7 +37,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 删除覆铜填充
+**_(BETA)_** Delete Copper fill
 
 
 </td></tr>
@@ -51,7 +51,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取覆铜填充
+**_(BETA)_** Get Copper fill
 
 
 </td></tr>
@@ -65,7 +65,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取覆铜填充
+**_(BETA)_** Get Copper fill
 
 
 </td></tr>
@@ -79,7 +79,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有覆铜填充图元
+**_(BETA)_** Get all Copper fill primitive
 
 
 </td></tr>
@@ -93,7 +93,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有覆铜填充的图元 ID
+**_(BETA)_** Get all Copper fill primitive IDs
 
 
 </td></tr>
@@ -109,7 +109,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-删除覆铜填充
+Delete Copper fill
 
 ## Signature
 
@@ -147,7 +147,7 @@ string \| [IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md) \| Array&lt;string&
 
 </td><td>
 
-覆铜填充的图元 ID 或覆铜填充图元对象
+Copper fill primitive ID or Copper fill primitive object
 
 
 </td></tr>
@@ -159,7 +159,7 @@ string \| [IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md) \| Array&lt;string&
 
 Promise&lt;boolean&gt;
 
-删除操作是否成功
+Delete Whether the operation is successful
 
 ### get
 
@@ -167,7 +167,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取覆铜填充
+Get Copper fill
 
 ## Signature
 
@@ -205,7 +205,7 @@ string
 
 </td><td>
 
-覆铜填充的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Copper fill primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -217,7 +217,7 @@ string
 
 Promise&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md) \| undefined&gt;
 
-覆铜填充图元对象，`undefined` 表示获取失败
+Copper fill primitive object, `undefined` indicates that the retrieval failed
 
 ### get_1
 
@@ -225,7 +225,7 @@ Promise&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md) \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取覆铜填充
+Get Copper fill
 
 ## Signature
 
@@ -263,7 +263,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-覆铜填充的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Copper fill primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -275,11 +275,11 @@ Array&lt;string&gt;
 
 Promise&lt;Array&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md)<!-- -->&gt;&gt;
 
-覆铜填充图元对象，空数组表示获取失败
+Copper fill primitive object; an empty array indicates that the retrieval failed
 
 ## Remarks
 
-如若传入多个图元 ID，任意图元 ID 未匹配到不影响其它图元的返回，即可能返回少于传入的图元 ID 数量的图元对象
+If multiple primitive IDs are passed in, a primitive ID that is not matched will not affect the return of other primitives; that is, fewer primitive objects than the number of primitive IDs passed in may be returned.
 
 ### getall
 
@@ -287,7 +287,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md)<!-- -->&g
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有覆铜填充图元
+Get all Copper fill primitive
 
 ## Signature
 
@@ -300,7 +300,7 @@ public getAll(): Promise<Array<IPCB_PrimitivePoured>>;
 
 Promise&lt;Array&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md)<!-- -->&gt;&gt;
 
-覆铜填充图元对象数组
+Array of Copper fill primitive objects
 
 ### getallprimitiveid
 
@@ -308,7 +308,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md)<!-- -->&g
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有覆铜填充的图元 ID
+Get all Copper fill primitive IDs
 
 ## Signature
 
@@ -321,4 +321,4 @@ public getAllPrimitiveId(): Promise<Array<string>>;
 
 Promise&lt;Array&lt;string&gt;&gt;
 
-覆铜填充的图元 ID 数组
+Array of Copper fill primitive IDs

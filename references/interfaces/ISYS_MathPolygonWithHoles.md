@@ -1,6 +1,6 @@
 # ISYS\_MathPolygonWithHoles interface
 
-带孔洞的多边形
+Polygon with holes
 
 ## Signature
 
@@ -10,7 +10,7 @@ export interface ISYS_MathPolygonWithHoles
 
 ## Remarks
 
-包含一个外环和零到多个孔洞（内环），保留完整的拓扑结构
+Contains one outer ring and zero to multiple holes (inner rings), preserving the complete topology
 
 ## Properties
 
@@ -50,7 +50,7 @@ Array&lt;Array&lt;[ISYS\_MathPoint](./ISYS_MathPoint.md)<!-- -->&gt;&gt;
 
 </td><td>
 
-孔洞（内环）数组
+Array of holes (inner rings)
 
 
 </td></tr>
@@ -69,7 +69,7 @@ Array&lt;[ISYS\_MathPoint](./ISYS_MathPoint.md)<!-- -->&gt;
 
 </td><td>
 
-外环
+Outer ring
 
 
 </td></tr>
@@ -83,7 +83,7 @@ Array&lt;[ISYS\_MathPoint](./ISYS_MathPoint.md)<!-- -->&gt;
 
 # ISYS\_MathPolygonWithHoles.holes property
 
-孔洞（内环）数组
+Array of holes (inner rings)
 
 ## Signature
 
@@ -95,7 +95,7 @@ holes: Array<Array<ISYS_MathPoint>>;
 
 # ISYS\_MathPolygonWithHoles.outer property
 
-外环
+Outer ring
 
 ## Signature
 

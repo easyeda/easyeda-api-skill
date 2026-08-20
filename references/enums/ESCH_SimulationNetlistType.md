@@ -1,6 +1,6 @@
 # ESCH\_SimulationNetlistType enum
 
-仿真网表类型
+Simulation netlist type
 
 ## Signature
 

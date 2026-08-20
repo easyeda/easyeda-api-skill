@@ -1,6 +1,6 @@
 # EPCB\_PrimitiveDimensionType enum
 
-尺寸标注类型
+Dimension type
 
 ## Signature
 

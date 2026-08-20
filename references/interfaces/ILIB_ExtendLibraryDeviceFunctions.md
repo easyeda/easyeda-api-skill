@@ -1,6 +1,6 @@
 # ILIB\_ExtendLibraryDeviceFunctions interface
 
-外部库器件方法
+External library device functions
 
 ## Signature
 

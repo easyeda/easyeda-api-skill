@@ -1,6 +1,6 @@
 # ILIB\_ExtendLibrarySearchProperty interface
 
-外部库搜索参数
+External library search property
 
 ## Signature
 
@@ -46,7 +46,7 @@ number
 
 </td><td>
 
-_(Optional)_ 页数
+_(Optional)_ Page count
 
 
 </td></tr>
@@ -65,7 +65,7 @@ number
 
 </td><td>
 
-_(Optional)_ 单页条目数
+_(Optional)_ Number of entries per page
 
 
 </td></tr>
@@ -84,7 +84,7 @@ T &amp; { wd?: undefined \| string; listByTitles?: undefined \| string\[\]; clas
 
 </td><td>
 
-查询参数
+Query parameter
 
 
 </td></tr>
@@ -98,7 +98,7 @@ T &amp; { wd?: undefined \| string; listByTitles?: undefined \| string\[\]; clas
 
 # ILIB\_ExtendLibrarySearchProperty.page property
 
-页数
+Page count
 
 ## Signature
 
@@ -110,7 +110,7 @@ page?: number;
 
 # ILIB\_ExtendLibrarySearchProperty.pageSize property
 
-单页条目数
+Number of entries per page
 
 ## Signature
 
@@ -122,7 +122,7 @@ pageSize?: number;
 
 # ILIB\_ExtendLibrarySearchProperty.query property
 
-查询参数
+Query parameter
 
 ## Signature
 

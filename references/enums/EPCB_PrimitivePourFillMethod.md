@@ -1,6 +1,6 @@
 # EPCB\_PrimitivePourFillMethod enum
 
-覆铜填充方法
+Copper fill method
 
 ## Signature
 

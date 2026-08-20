@@ -1,6 +1,6 @@
 # TSYS\_PcbComparisonErrorCode type
 
-PCB 对比失败错误码
+PCB comparison failure error code
 
 ## Signature
 

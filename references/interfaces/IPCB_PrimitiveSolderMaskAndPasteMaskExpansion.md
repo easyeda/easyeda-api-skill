@@ -1,6 +1,6 @@
 # IPCB\_PrimitiveSolderMaskAndPasteMaskExpansion interface
 
-阻焊/助焊扩展
+Solder mask / paste mask expansion
 
 ## Signature
 
@@ -10,15 +10,15 @@ export interface IPCB_PrimitiveSolderMaskAndPasteMaskExpansion
 
 ## Remarks
 
-本参数设置包含以下三类情况：
+This parameter setting includes the following three cases:
 
-1. 当图元为顶层/底层贴片焊盘时，允许设置对应层的阻焊/助焊扩展，其余设置不生效
+1. When the primitive is a top/bottom layer SMD pad, the solder mask/paste mask expansion of the corresponding layer can be set; other settings have no effect
 
-2. 当图元为通孔焊盘时，允许设置顶层/底层的阻焊扩展，助焊扩展的设置不生效
+2. When the primitive is a through-hole pad, the solder mask expansion of the top/bottom layer can be set; paste mask expansion settings have no effect
 
-3. 当图元为过孔时，允许设置顶层/底层的阻焊扩展，助焊扩展的设置不生效，如若为盲孔，则视其暴露层生效其阻焊扩展设置
+3. When the primitive is a via, the solder mask expansion of the top/bottom layer can be set; paste mask expansion settings have no effect. If it is a blind via, its solder mask expansion setting takes effect according to its exposed layer
 
-助焊扩展在一般情况下仅用于钢网生产等特定用途，不了解其作用请安心地忽略其参数设置
+The paste mask expansion is generally only used for specific purposes such as stencil production. If you do not understand its function, feel free to ignore its parameter settings
 
 ## Properties
 
@@ -58,7 +58,7 @@ number
 
 </td><td>
 
-_(Optional)_ 底层助焊扩展
+_(Optional)_ Bottom paste mask expansion
 
 
 </td></tr>
@@ -77,7 +77,7 @@ number
 
 </td><td>
 
-_(Optional)_ 底层阻焊扩展
+_(Optional)_ Bottom solder mask expansion
 
 
 </td></tr>
@@ -96,7 +96,7 @@ number
 
 </td><td>
 
-_(Optional)_ 顶层助焊扩展
+_(Optional)_ Top paste mask expansion
 
 
 </td></tr>
@@ -115,7 +115,7 @@ number
 
 </td><td>
 
-_(Optional)_ 顶层阻焊扩展
+_(Optional)_ Top solder mask expansion
 
 
 </td></tr>
@@ -129,7 +129,7 @@ _(Optional)_ 顶层阻焊扩展
 
 # IPCB\_PrimitiveSolderMaskAndPasteMaskExpansion.bottomPasteMask property
 
-底层助焊扩展
+Bottom paste mask expansion
 
 ## Signature
 
@@ -141,7 +141,7 @@ bottomPasteMask?: number;
 
 # IPCB\_PrimitiveSolderMaskAndPasteMaskExpansion.bottomSolderMask property
 
-底层阻焊扩展
+Bottom solder mask expansion
 
 ## Signature
 
@@ -153,7 +153,7 @@ bottomSolderMask?: number;
 
 # IPCB\_PrimitiveSolderMaskAndPasteMaskExpansion.topPasteMask property
 
-顶层助焊扩展
+Top paste mask expansion
 
 ## Signature
 
@@ -165,7 +165,7 @@ topPasteMask?: number;
 
 # IPCB\_PrimitiveSolderMaskAndPasteMaskExpansion.topSolderMask property
 
-顶层阻焊扩展
+Top solder mask expansion
 
 ## Signature
 

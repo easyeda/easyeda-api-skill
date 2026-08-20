@@ -1,6 +1,6 @@
 # TPCB\_LayerTypesOfInnerLayer type
 
-内层允许设置的图层类型
+Layer types allowed to be set for inner layers
 
 ## Signature
 

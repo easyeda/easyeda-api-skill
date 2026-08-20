@@ -1,6 +1,6 @@
 # EDMT\_ProjectCollaborationMode enum
 
-工程协作模式
+Project collaboration mode
 
 ## Signature
 

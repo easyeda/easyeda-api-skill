@@ -1,6 +1,6 @@
 # TPCB\_PrimitivePadHole type
 
-焊盘钻孔
+Pad drilling
 
 ## Signature
 
@@ -14,18 +14,18 @@ export type TPCB_PrimitivePadHole = [EPCB_PrimitivePadHoleType.ROUND, number] | 
 
 ## Remarks
 
-焊盘钻孔当前存在以下两种 [类型](../enums/EPCB_PrimitivePadHoleType.md)<!-- -->：
+Pad drilling currently has the following two [types](../enums/EPCB_PrimitivePadHoleType.md)<!-- -->:
 
-① 圆形
+1. Circle
 
 `[EPCB_PrimitivePadHoleType.ROUND, diameter]`
 
-- `{number}` `diameter` - 直径
+- `{number}` `diameter` - diameter
 
-② 插槽
+2. Slot
 
 `[EPCB_PrimitivePadHoleType.SLOT, diameter, length]`
 
-- `{number}` `length` - 长度，长度不能小于直径,长度小于直径的话长度的值跟随直径
+- `{number}` `length` - Length. The length cannot be smaller than the diameter; if it is, the length value follows the diameter
 
-- `{number}` `diameter` - 直径
+- `{number}` `diameter` - diameter

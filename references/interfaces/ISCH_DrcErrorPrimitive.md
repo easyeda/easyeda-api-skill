@@ -1,6 +1,6 @@
 # ISCH\_DrcErrorPrimitive interface
 
-DRC 错误涉及的图元
+Primitive involved in a DRC error
 
 ## Signature
 
@@ -46,7 +46,7 @@ string
 
 </td><td>
 
-_(Optional)_ 位号，如 `R1`
+_(Optional)_ Designator, e.g. `R1`
 
 
 </td></tr>
@@ -65,7 +65,7 @@ string
 
 </td><td>
 
-_(Optional)_ 图元名字（引脚号 / 网络名 / 器件名，依规则而定）
+_(Optional)_ Primitive name (pin number / net name / device name, depending on the rule)
 
 
 </td></tr>
@@ -84,7 +84,7 @@ string
 
 </td><td>
 
-图元 ID（可用于画布跳转定位）
+Primitive ID (can be used for canvas jump positioning)
 
 
 </td></tr>
@@ -103,7 +103,7 @@ string
 
 </td><td>
 
-_(Optional)_ 所在图页 ID
+_(Optional)_ Sheet ID it is on
 
 
 </td></tr>
@@ -117,7 +117,7 @@ _(Optional)_ 所在图页 ID
 
 # ISCH\_DrcErrorPrimitive.designator property
 
-位号，如 `R1`
+Designator, e.g. `R1`
 
 ## Signature
 
@@ -129,7 +129,7 @@ designator?: string;
 
 # ISCH\_DrcErrorPrimitive.name property
 
-图元名字（引脚号 / 网络名 / 器件名，依规则而定）
+Primitive name (pin number / net name / device name, depending on the rule)
 
 ## Signature
 
@@ -141,7 +141,7 @@ name?: string;
 
 # ISCH\_DrcErrorPrimitive.primitiveId property
 
-图元 ID（可用于画布跳转定位）
+Primitive ID (can be used for canvas jump positioning)
 
 ## Signature
 
@@ -153,7 +153,7 @@ primitiveId: string;
 
 # ISCH\_DrcErrorPrimitive.sheet property
 
-所在图页 ID
+Sheet ID it is on
 
 ## Signature
 

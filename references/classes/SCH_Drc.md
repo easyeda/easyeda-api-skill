@@ -1,6 +1,6 @@
 # SCH\_Drc class
 
-原理图 &amp; 符号 / 设计规则检查（DRC）类
+Schematic &amp; symbol / design rule check (DRC) class
 
 ## Signature
 
@@ -10,7 +10,7 @@ export class SCH_Drc
 
 ## Remarks
 
-检查、设定 DRC 规则
+Check and set DRC rules
 
 ## Methods
 
@@ -40,7 +40,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 检查 DRC
+**_(BETA)_** Check DRC
 
 
 </td></tr>
@@ -54,7 +54,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 检查 DRC
+**_(BETA)_** Check DRC
 
 
 </td></tr>
@@ -70,7 +70,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-检查 DRC
+Check DRC
 
 ## Signature
 
@@ -108,7 +108,7 @@ boolean
 
 </td><td>
 
-是否严格检查，当前原理图统一为严格检查模式
+Whether strict checking is enabled. The current schematic is uniformly in strict checking mode
 
 
 </td></tr>
@@ -124,7 +124,7 @@ boolean
 
 </td><td>
 
-是否显示 UI（呼出底部 DRC 窗口）
+Whether to show the UI (open the bottom DRC window)
 
 
 </td></tr>
@@ -140,7 +140,7 @@ false
 
 </td><td>
 
-是否在返回值中包含详细错误信息，如若为 `true`<!-- -->，则返回值将始终为数组
+Whether to include detailed error information in the return value. If it is `true`<!-- -->, the return value will always be an array
 
 
 </td></tr>
@@ -152,7 +152,7 @@ false
 
 Promise&lt;boolean&gt;
 
-DRC 检查是否通过
+Whether the DRC check passed
 
 ### check_1
 
@@ -160,7 +160,7 @@ DRC 检查是否通过
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-检查 DRC
+Check DRC
 
 ## Signature
 
@@ -198,7 +198,7 @@ boolean
 
 </td><td>
 
-是否严格检查，当前原理图统一为严格检查模式
+Whether strict checking is enabled. The current schematic is uniformly in strict checking mode
 
 
 </td></tr>
@@ -214,7 +214,7 @@ boolean
 
 </td><td>
 
-是否显示 UI（呼出底部 DRC 窗口）
+Whether to show the UI (open the bottom DRC window)
 
 
 </td></tr>
@@ -230,7 +230,7 @@ true
 
 </td><td>
 
-是否在返回值中包含详细错误信息，如若为 `true`<!-- -->，则返回值将始终为数组 ADD since EDA v4.2
+Whether to include detailed error information in the return value. If it is `true`<!-- -->, the return value will always be an array. ADD since EDA v4.2
 
 
 </td></tr>
@@ -242,4 +242,4 @@ true
 
 Promise&lt;Array&lt;[ISCH\_DrcError](../interfaces/ISCH_DrcError.md)<!-- -->&gt;&gt;
 
-DRC 检查的详细结果
+Detailed results of the DRC check

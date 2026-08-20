@@ -1,6 +1,6 @@
 # SYS\_Timer class
 
-系统 / 定时器类
+System / timer class
 
 ## Signature
 
@@ -10,7 +10,7 @@ export class SYS_Timer
 
 ## Remarks
 
-设置定时器
+Set Timer
 
 
 ## Methods
@@ -41,7 +41,7 @@ Description
 
 </td><td>
 
-清除指定循环定时器
+Clear the specified interval timer
 
 
 </td></tr>
@@ -55,7 +55,7 @@ Description
 
 </td><td>
 
-清除指定单次定时器
+Clear the specified timeout timer
 
 
 </td></tr>
@@ -69,7 +69,7 @@ Description
 
 </td><td>
 
-设置循环定时器
+Set an interval timer
 
 
 </td></tr>
@@ -83,7 +83,7 @@ Description
 
 </td><td>
 
-设置单次定时器
+Set a timeout timer
 
 
 </td></tr>
@@ -97,7 +97,7 @@ Description
 
 # SYS\_Timer.clearIntervalTimer() method
 
-清除指定循环定时器
+Clear the specified interval timer
 
 ## Signature
 
@@ -135,7 +135,7 @@ string
 
 </td><td>
 
-定时器 ID
+Timer ID
 
 
 </td></tr>
@@ -147,13 +147,13 @@ string
 
 boolean
 
-定时器是否清除成功
+Whether the timer was cleared successfully
 
 ### cleartimeouttimer
 
 # SYS\_Timer.clearTimeoutTimer() method
 
-清除指定单次定时器
+Clear the specified timeout timer
 
 ## Signature
 
@@ -191,7 +191,7 @@ string
 
 </td><td>
 
-定时器 ID
+Timer ID
 
 
 </td></tr>
@@ -203,13 +203,13 @@ string
 
 boolean
 
-定时器是否清除成功
+Whether the timer was cleared successfully
 
 ### setintervaltimer
 
 # SYS\_Timer.setIntervalTimer() method
 
-设置循环定时器
+Set an interval timer
 
 ## Signature
 
@@ -247,7 +247,7 @@ string
 
 </td><td>
 
-定时器 ID，用于定位&amp;删除定时器
+Timer ID, used to locate and delete the timer
 
 
 </td></tr>
@@ -263,7 +263,7 @@ number
 
 </td><td>
 
-定时时间，单位 ms
+Timer duration, unit ms
 
 
 </td></tr>
@@ -279,7 +279,7 @@ callFn
 
 </td><td>
 
-定时调用函数
+Function called by the timer
 
 
 </td></tr>
@@ -295,7 +295,7 @@ any
 
 </td><td>
 
-传给定时调用函数的参数
+Arguments passed to the timer callback function
 
 
 </td></tr>
@@ -307,17 +307,17 @@ any
 
 boolean
 
-定时器是否设置成功
+Whether the timer was set successfully
 
 ## Remarks
 
-如果遇到 ID 重复的定时器，则之前设置的定时器将被清除
+If a timer with a duplicate ID is encountered, the previously set timer will be cleared
 
 ### settimeouttimer
 
 # SYS\_Timer.setTimeoutTimer() method
 
-设置单次定时器
+Set a timeout timer
 
 ## Signature
 
@@ -355,7 +355,7 @@ string
 
 </td><td>
 
-定时器 ID
+Timer ID
 
 
 </td></tr>
@@ -371,7 +371,7 @@ number
 
 </td><td>
 
-定时时间，单位 ms
+Timer duration, unit ms
 
 
 </td></tr>
@@ -387,7 +387,7 @@ callFn
 
 </td><td>
 
-定时调用函数
+Function called by the timer
 
 
 </td></tr>
@@ -403,7 +403,7 @@ any
 
 </td><td>
 
-传给定时调用函数的参数
+Arguments passed to the timer callback function
 
 
 </td></tr>
@@ -415,8 +415,8 @@ any
 
 boolean
 
-定时器是否设置成功
+Whether the timer was set successfully
 
 ## Remarks
 
-如果遇到 ID 重复的定时器，则之前设置的定时器将被清除
+If a timer with a duplicate ID is encountered, the previously set timer will be cleared

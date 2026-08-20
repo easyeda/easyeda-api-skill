@@ -1,6 +1,6 @@
 # ILIB\_ExtendLibraryFootprintFunctions interface
 
-外部库封装方法
+External library footprint functions
 
 ## Signature
 

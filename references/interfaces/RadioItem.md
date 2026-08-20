@@ -46,7 +46,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否禁用该选项
+_(Optional)_ Whether the option is disabled
 
 
 </td></tr>
@@ -65,7 +65,7 @@ string
 
 </td><td>
 
-选项显示文本（必填）
+Option display text (required)
 
 
 </td></tr>
@@ -84,7 +84,7 @@ string
 
 </td><td>
 
-选项值（必填）
+Option value (required)
 
 
 </td></tr>
@@ -98,7 +98,7 @@ string
 
 # RadioItem.disabled property
 
-是否禁用该选项
+Whether the option is disabled
 
 ## Signature
 
@@ -110,7 +110,7 @@ disabled?: boolean;
 
 # RadioItem.text property
 
-选项显示文本（必填）
+Option display text (required)
 
 ## Signature
 
@@ -122,7 +122,7 @@ text: string;
 
 # RadioItem.value property
 
-选项值（必填）
+Option value (required)
 
 ## Signature
 

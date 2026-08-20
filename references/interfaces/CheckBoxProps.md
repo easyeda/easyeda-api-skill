@@ -46,7 +46,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否选中
+_(Optional)_ Whether Select
 
 
 </td></tr>
@@ -65,7 +65,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否禁用
+_(Optional)_ Whether Disable
 
 
 </td></tr>
@@ -84,7 +84,7 @@ string
 
 </td><td>
 
-_(Optional)_ 复选框名称（表单 name 属性）
+_(Optional)_ Checkbox name (the form `name` attribute)
 
 
 </td></tr>
@@ -122,7 +122,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否仅通过点击勾选框本身来改变状态
+_(Optional)_ Whether the state can only be changed by clicking the checkbox itself
 
 
 </td></tr>
@@ -141,7 +141,7 @@ string
 
 </td><td>
 
-_(Optional)_ 复选框旁显示文本
+_(Optional)_ Text displayed next to the checkbox
 
 
 </td></tr>
@@ -155,7 +155,7 @@ _(Optional)_ 复选框旁显示文本
 
 # CheckBoxProps.checked property
 
-是否选中
+Whether Select
 
 ## Signature
 
@@ -167,7 +167,7 @@ checked?: boolean;
 
 # CheckBoxProps.disabled property
 
-是否禁用
+Whether Disable
 
 ## Signature
 
@@ -179,7 +179,7 @@ disabled?: boolean;
 
 # CheckBoxProps.name property
 
-复选框名称（表单 name 属性）
+Checkbox name (the form `name` attribute)
 
 ## Signature
 
@@ -203,7 +203,7 @@ onChange?: (checked: boolean) => void;
 
 # CheckBoxProps.onlyChangeByBox property
 
-是否仅通过点击勾选框本身来改变状态
+Whether the state can only be changed by clicking the checkbox itself
 
 ## Signature
 
@@ -215,7 +215,7 @@ onlyChangeByBox?: boolean;
 
 # CheckBoxProps.text property
 
-复选框旁显示文本
+Text displayed next to the checkbox
 
 ## Signature
 

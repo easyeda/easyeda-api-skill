@@ -1,6 +1,6 @@
 # LIB\_LibrariesList class
 
-综合库 / 库列表类
+Comprehensive library / library list class
 
 ## Signature
 
@@ -10,7 +10,7 @@ export class LIB_LibrariesList
 
 ## Remarks
 
-此处所有接口都基于编辑器当前工作区环境，如需切换到其他工作区，请使用 [DMT\_Workspace.toggleToWorkspace()](./DMT_Workspace.md) 接口切换工作区
+All APIs here are based on the current workspace environment of the editor. To switch to another workspace, use the [DMT\_Workspace.toggleToWorkspace()](./DMT_Workspace.md) API
 
 
 ## Methods
@@ -41,7 +41,7 @@ Description
 
 </td><td>
 
-获取所有库的列表
+Get the list of all libraries
 
 
 </td></tr>
@@ -55,7 +55,7 @@ Description
 
 </td><td>
 
-获取收藏库的 UUID
+Get the UUID of the favorite library
 
 
 </td></tr>
@@ -69,7 +69,7 @@ Description
 
 </td><td>
 
-获取个人库的 UUID
+Get the UUID of the personal library
 
 
 </td></tr>
@@ -83,7 +83,7 @@ Description
 
 </td><td>
 
-获取工程库的 UUID
+Get the UUID of the project library
 
 
 </td></tr>
@@ -97,7 +97,7 @@ Description
 
 </td><td>
 
-获取系统库的 UUID
+Get the UUID of the system library
 
 
 </td></tr>
@@ -111,7 +111,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 注册外部库
+**_(BETA)_** Register an external library
 
 
 </td></tr>
@@ -125,7 +125,7 @@ Description
 
 # LIB\_LibrariesList.getAllLibrariesList() method
 
-获取所有库的列表
+Get the list of all libraries
 
 ## Signature
 
@@ -138,17 +138,31 @@ public getAllLibrariesList(): Promise<Array<ILIB_LibraryInfo>>;
 
 Promise&lt;Array&lt;[ILIB\_LibraryInfo](../interfaces/ILIB_LibraryInfo.md)<!-- -->&gt;&gt;
 
-库信息列表
+Library information list
 
 ## Remarks
 
-此处不会获取到系统库、个人库、工程库、收藏库的信息，如需获取它们的信息，请使用 [getSystemLibraryUuid](./LIB_LibrariesList.md)<!-- -->、[getPersonalLibraryUuid](./LIB_LibrariesList.md)<!-- -->、[getProjectLibraryUuid](./LIB_LibrariesList.md)<!-- -->、[getFavoriteLibraryUuid](./LIB_LibrariesList.md) 接口
+This does not get the information of the system library, personal library, project library, or favorite library. To get their information, use the [getSystemLibraryUuid](./LIB_LibrariesList.md)<!-- -->, [getPersonalLibraryUuid](./LIB_LibrariesList.md)<!-- -->, [getProjectLibraryUuid](./LIB_LibrariesList.md)<!-- -->, and [getFavoriteLibraryUuid](./LIB_LibrariesList.md) APIs
+
+## Example
+
+
+```javascript
+// 1. 获取所有库的列表
+const libraries = await eda.lib_LibrariesList.getAllLibrariesList();
+
+// 2. 输出库数量及每个库的名称、UUID
+console.log('count:', libraries.length);
+libraries.forEach((lib, i) => {
+  console.log('[' + i + '] name:', lib.name, 'uuid:', lib.uuid);
+});
+```
 
 ### getfavoritelibraryuuid
 
 # LIB\_LibrariesList.getFavoriteLibraryUuid() method
 
-获取收藏库的 UUID
+Get the UUID of the favorite library
 
 ## Signature
 
@@ -161,17 +175,17 @@ public getFavoriteLibraryUuid(): Promise<string | undefined>;
 
 Promise&lt;string \| undefined&gt;
 
-收藏库的 UUID
+UUID of the favorite library
 
 ## Remarks
 
-将会获取当前编辑器工作区下的收藏库的 UUID
+It will get the UUID of the favorite library under the current editor workspace
 
 ### getpersonallibraryuuid
 
 # LIB\_LibrariesList.getPersonalLibraryUuid() method
 
-获取个人库的 UUID
+Get the UUID of the personal library
 
 ## Signature
 
@@ -184,17 +198,17 @@ public getPersonalLibraryUuid(): Promise<string | undefined>;
 
 Promise&lt;string \| undefined&gt;
 
-个人库的 UUID
+UUID of the personal library
 
 ## Remarks
 
-将会获取当前编辑器工作区下的个人库的 UUID，在私有部署环境下不存在个人库，此接口将永远返回 `undefined`
+It will get the UUID of the personal library under the current editor workspace. In the private deployment environment, the personal library does not exist, and this API will always return `undefined`
 
 ### getprojectlibraryuuid
 
 # LIB\_LibrariesList.getProjectLibraryUuid() method
 
-获取工程库的 UUID
+Get the UUID of the project library
 
 ## Signature
 
@@ -207,17 +221,17 @@ public getProjectLibraryUuid(): Promise<string | undefined>;
 
 Promise&lt;string \| undefined&gt;
 
-工程库的 UUID
+UUID of the project library
 
 ## Remarks
 
-在未打开工程的情况下调用将返回 `undefined`
+Calling it without an open project will return `undefined`
 
 ### getsystemlibraryuuid
 
 # LIB\_LibrariesList.getSystemLibraryUuid() method
 
-获取系统库的 UUID
+Get the UUID of the system library
 
 ## Signature
 
@@ -230,7 +244,7 @@ public getSystemLibraryUuid(): Promise<string | undefined>;
 
 Promise&lt;string \| undefined&gt;
 
-系统库的 UUID
+UUID of the system library
 
 ### registerextendlibrary
 
@@ -238,7 +252,7 @@ Promise&lt;string \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-注册外部库
+Register an external library
 
 ## Signature
 
@@ -276,7 +290,7 @@ string
 
 </td><td>
 
-标题
+Title
 
 
 </td></tr>
@@ -302,8 +316,45 @@ libraryFunctions
 
 Promise&lt;string \| undefined&gt;
 
-库 UUID
+Library UUID
 
 ## Remarks
 
-注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error`
+Note: This API is only valid for extensions. Calling it in a standalone script environment will always `throw Error`
+
+## Example
+
+
+```javascript
+// 1. 实现外部库的符号数据回调（真实场景中在此对接自己的数据源）
+const symbolFunctions = {
+  // 分类树：库面板左侧的分类目录
+  getClassificationTree: async () => [
+    { name: '电阻', uuid: 'resistor' },
+    { name: '电容', uuid: 'capacitor' }
+  ],
+  // 列表搜索：响应用户的关键字搜索与分页，返回分页结构
+  getList: async (props) => {
+    const all = [{ uuid: 'demo_0402', title: '示例符号 0402' }];
+    return {
+      count: all.length,
+      lists: all,
+      page: props.page || 1,
+      pageSize: props.pageSize || 10,
+      totalPage: 1
+    };
+  },
+  // 详情：用户选中条目后获取完整信息
+  getDetail: async (uuid) => {
+    return { uuid, title: '示例符号 0402' };
+  }
+};
+
+// 2. 以指定标题注册外部库，挂载符号类型资源
+const libUuid = await eda.lib_LibrariesList.registerExtendLibrary('嘉立创示例_外部库', {
+  symbol: symbolFunctions
+});
+
+// 3. 输出注册结果，库面板中即可看到「嘉立创示例_外部库」
+console.log('libUuid:', libUuid);
+```

@@ -1,6 +1,6 @@
 # ELIB\_DeviceJlcLibraryCategory enum
 
-嘉立创贴片库类别
+EasyEDA SMT library category
 
 ## Signature
 

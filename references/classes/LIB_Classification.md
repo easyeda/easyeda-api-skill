@@ -1,6 +1,6 @@
 # LIB\_Classification class
 
-综合库 / 库分类索引类
+Comprehensive library / library classification index class
 
 ## Signature
 
@@ -36,7 +36,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建一级分类
+**_(BETA)_** Create a primary classification
 
 
 </td></tr>
@@ -50,7 +50,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建二级分类
+**_(BETA)_** Create a secondary classification
 
 
 </td></tr>
@@ -64,7 +64,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 删除指定索引的分类
+**_(BETA)_** Delete the classification at the specified index
 
 
 </td></tr>
@@ -78,7 +78,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 删除指定 UUID 的分类
+**_(BETA)_** Delete the classification with the specified UUID
 
 
 </td></tr>
@@ -92,7 +92,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有分类信息组成的树
+**_(BETA)_** Get the tree composed of all classification information
 
 
 </td></tr>
@@ -106,7 +106,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取指定名称的分类的分类索引
+**_(BETA)_** Get the classification index of the classification with the specified name
 
 
 </td></tr>
@@ -120,7 +120,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取指定索引的分类的名称
+**_(BETA)_** Get the name of the classification at the specified index
 
 
 </td></tr>
@@ -134,7 +134,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取指定 UUID 的分类的名称
+**_(BETA)_** Get the name of the classification with the specified UUID
 
 
 </td></tr>
@@ -154,7 +154,7 @@ Description
 >
 > since EDA v3.2; dropped EDA v3.3
 
-创建一级分类
+Create a primary classification
 
 ## Signature
 
@@ -192,7 +192,7 @@ string
 
 </td><td>
 
-库 UUID
+Library UUID
 
 
 </td></tr>
@@ -208,7 +208,7 @@ libraryType
 
 </td><td>
 
-库类型
+Library type
 
 
 </td></tr>
@@ -224,7 +224,7 @@ string
 
 </td><td>
 
-一级分类名称
+Primary classification name
 
 
 </td></tr>
@@ -236,7 +236,25 @@ string
 
 Promise&lt;[ILIB\_ClassificationIndex](../interfaces/ILIB_ClassificationIndex.md) \| undefined&gt;
 
-分类索引
+Classification index
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+
+// 2. 在个人库的复用模块分类体系中创建一级分类（ELIB_LibraryType.CBB = '1'）
+const name = '嘉立创示例_一级分类_' + Date.now();
+const index = await eda.lib_Classification.createPrimary(libraryUuid, '1', name);
+
+// 创建类保留现场
+
+console.log('libraryUuid:', libraryUuid);
+console.log('name:', name);
+console.log('primaryClassificationUuid:', index.primaryClassificationUuid);
+```
 
 ### createsecondary
 
@@ -248,7 +266,7 @@ Promise&lt;[ILIB\_ClassificationIndex](../interfaces/ILIB_ClassificationIndex.md
 >
 > since EDA v3.2; dropped EDA v3.3
 
-创建二级分类
+Create a secondary classification
 
 ## Signature
 
@@ -286,7 +304,7 @@ string
 
 </td><td>
 
-库 UUID
+Library UUID
 
 
 </td></tr>
@@ -302,7 +320,7 @@ libraryType
 
 </td><td>
 
-库类型
+Library type
 
 
 </td></tr>
@@ -318,7 +336,7 @@ string
 
 </td><td>
 
-一级分类 UUID
+Primary classification UUID
 
 
 </td></tr>
@@ -334,7 +352,7 @@ string
 
 </td><td>
 
-二级分类名称
+Secondary classification name
 
 
 </td></tr>
@@ -346,7 +364,34 @@ string
 
 Promise&lt;[ILIB\_ClassificationIndex](../interfaces/ILIB_ClassificationIndex.md) \| undefined&gt;
 
-分类索引
+Classification index
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+
+// 2. 先创建一级分类作为父目录（复用已有分类时可用 getIndexByName 查 UUID）
+const primaryName = '嘉立创示例_二级演示一级_' + Date.now();
+const primaryIndex = await eda.lib_Classification.createPrimary(libraryUuid, '1', primaryName);
+
+// 3. 在该一级分类下创建二级分类
+const secondaryName = '嘉立创示例_二级分类_' + Date.now();
+const secondaryIndex = await eda.lib_Classification.createSecondary(
+  libraryUuid,
+  '1',
+  primaryIndex.primaryClassificationUuid,
+  secondaryName
+);
+
+// 创建类保留现场
+
+console.log('primaryName:', primaryName);
+console.log('secondaryName:', secondaryName);
+console.log('secondaryClassificationUuid:', secondaryIndex.secondaryClassificationUuid);
+```
 
 ### deletebyindex
 
@@ -358,7 +403,7 @@ Promise&lt;[ILIB\_ClassificationIndex](../interfaces/ILIB_ClassificationIndex.md
 >
 > since EDA v3.2; dropped EDA v3.3
 
-删除指定索引的分类
+Delete the classification at the specified index
 
 ## Signature
 
@@ -396,7 +441,7 @@ classificationIndex
 
 </td><td>
 
-分类索引
+Classification index
 
 
 </td></tr>
@@ -408,7 +453,27 @@ classificationIndex
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+
+// 2. 创建一个测试分类作为删除对象（复用模块库，ELIB_LibraryType.CBB = '1'）
+const name = '嘉立创示例_待删除分类_' + Date.now();
+const index = await eda.lib_Classification.createPrimary(libraryUuid, '1', name);
+
+// 3. 按索引对象删除该分类
+const deleted = await eda.lib_Classification.deleteByIndex(index);
+
+// 删除类保留现场（分类已不存在，库面板中可确认）
+
+console.log('name:', name);
+console.log('deleted:', deleted);
+```
 
 ### deletebyuuid
 
@@ -420,7 +485,7 @@ Promise&lt;boolean&gt;
 >
 > since EDA v3.2; dropped EDA v3.3
 
-删除指定 UUID 的分类
+Delete the classification with the specified UUID
 
 ## Signature
 
@@ -458,7 +523,7 @@ string
 
 </td><td>
 
-库 UUID
+Library UUID
 
 
 </td></tr>
@@ -484,7 +549,30 @@ string
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+
+// 2. 创建一个测试分类作为删除对象（复用模块库，ELIB_LibraryType.CBB = '1'）
+const name = '嘉立创示例_待删除UUID分类_' + Date.now();
+const index = await eda.lib_Classification.createPrimary(libraryUuid, '1', name);
+
+// 3. 按分类 UUID 删除
+const deleted = await eda.lib_Classification.deleteByUuid(
+  libraryUuid,
+  index.primaryClassificationUuid
+);
+
+// 删除类保留现场（分类已不存在，库面板中可确认）
+
+console.log('name:', name);
+console.log('deleted:', deleted);
+```
 
 ### getallclassificationtree
 
@@ -496,7 +584,7 @@ Promise&lt;boolean&gt;
 >
 > since EDA v3.2; dropped EDA v3.3
 
-获取所有分类信息组成的树
+Get the tree composed of all classification information
 
 ## Signature
 
@@ -534,7 +622,7 @@ string
 
 </td><td>
 
-库 UUID
+Library UUID
 
 
 </td></tr>
@@ -550,7 +638,7 @@ libraryType
 
 </td><td>
 
-库类型
+Library type
 
 
 </td></tr>
@@ -562,7 +650,31 @@ libraryType
 
 Promise&lt;Array&lt;{ name: string; uuid: string; children?: undefined \| { name: string; uuid: string }\[\] }&gt;&gt;
 
-分类信息组成的树结构数据
+Tree structure data composed of classification information
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+
+// 2. 创建一个测试分类，让树里有可见数据（复用模块库，ELIB_LibraryType.CBB = '1'）
+const name = '嘉立创示例_树查询_' + Date.now();
+const index = await eda.lib_Classification.createPrimary(libraryUuid, '1', name);
+
+// 3. 读取完整分类树
+const tree = await eda.lib_Classification.getAllClassificationTree(libraryUuid, '1');
+
+// 4. 清理测试分类（查询类需要清理）
+await eda.lib_Classification.deleteByUuid(libraryUuid, index.primaryClassificationUuid);
+
+// 5. 输出树结构
+console.log('total:', tree.length);
+tree.forEach((node, i) => {
+  console.log('[' + i + '] name:', node.name, 'uuid:', node.uuid, 'children:', (node.children || []).length);
+});
+```
 
 ### getindexbyname
 
@@ -574,7 +686,7 @@ Promise&lt;Array&lt;{ name: string; uuid: string; children?: undefined \| { name
 >
 > since EDA v3.2; dropped EDA v3.3
 
-获取指定名称的分类的分类索引
+Get the classification index of the classification with the specified name
 
 ## Signature
 
@@ -612,7 +724,7 @@ string
 
 </td><td>
 
-库 UUID
+Library UUID
 
 
 </td></tr>
@@ -628,7 +740,7 @@ libraryType
 
 </td><td>
 
-库类型
+Library type
 
 
 </td></tr>
@@ -644,7 +756,7 @@ string
 
 </td><td>
 
-一级分类名称
+Primary classification name
 
 
 </td></tr>
@@ -660,7 +772,7 @@ string
 
 </td><td>
 
-_(Optional)_ 二级分类名称
+_(Optional)_ Secondary classification name
 
 
 </td></tr>
@@ -672,11 +784,42 @@ _(Optional)_ 二级分类名称
 
 Promise&lt;[ILIB\_ClassificationIndex](../interfaces/ILIB_ClassificationIndex.md) \| undefined&gt;
 
-分类索引
+Classification index
 
 ## Remarks
 
-分类索引内包含分类的 UUID，具体可查阅 [ILIB\_ClassificationIndex](../interfaces/ILIB_ClassificationIndex.md)
+The classification index contains the UUID of the classification. For details, refer to [ILIB\_ClassificationIndex](../interfaces/ILIB_ClassificationIndex.md)
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+
+// 2. 创建两级测试分类（复用模块库，ELIB_LibraryType.CBB = '1'）
+const tag = Date.now();
+const primaryName = '嘉立创示例_按名索引一级_' + tag;
+const secondaryName = '嘉立创示例_按名索引二级_' + tag;
+const primaryIndex = await eda.lib_Classification.createPrimary(libraryUuid, '1', primaryName);
+await eda.lib_Classification.createSecondary(
+  libraryUuid, '1', primaryIndex.primaryClassificationUuid, secondaryName
+);
+
+// 3. 只按一级名称查索引
+const primaryOnly = await eda.lib_Classification.getIndexByName(libraryUuid, '1', primaryName);
+
+// 4. 按一级 + 二级名称查索引（secondaryClassificationName 可选）
+const withSecondary = await eda.lib_Classification.getIndexByName(
+  libraryUuid, '1', primaryName, secondaryName
+);
+
+// 5. 清理测试分类（查询类需要清理）
+await eda.lib_Classification.deleteByUuid(libraryUuid, primaryIndex.primaryClassificationUuid);
+
+console.log('primaryOnly.primaryClassificationUuid:', primaryOnly.primaryClassificationUuid);
+console.log('withSecondary.secondaryClassificationUuid:', withSecondary.secondaryClassificationUuid);
+```
 
 ### getnamebyindex
 
@@ -688,7 +831,7 @@ Promise&lt;[ILIB\_ClassificationIndex](../interfaces/ILIB_ClassificationIndex.md
 >
 > since EDA v3.2; dropped EDA v3.3
 
-获取指定索引的分类的名称
+Get the name of the classification at the specified index
 
 ## Signature
 
@@ -726,7 +869,7 @@ classificationIndex
 
 </td><td>
 
-分类索引
+Classification index
 
 
 </td></tr>
@@ -738,7 +881,34 @@ classificationIndex
 
 Promise&lt;{ primaryClassificationName: string; secondaryClassificationName?: undefined \| string } \| undefined&gt;
 
-两级分类的名称
+Name of the two-level classification
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+
+// 2. 创建两级测试分类，拿到两个索引对象（复用模块库）
+const tag = Date.now();
+const primaryName = '嘉立创示例_按索引查名一级_' + tag;
+const secondaryName = '嘉立创示例_按索引查名二级_' + tag;
+const primaryIndex = await eda.lib_Classification.createPrimary(libraryUuid, '1', primaryName);
+const secondaryIndex = await eda.lib_Classification.createSecondary(
+  libraryUuid, '1', primaryIndex.primaryClassificationUuid, secondaryName
+);
+
+// 3. 分别解析一级索引、二级索引的名称
+const primaryNames = await eda.lib_Classification.getNameByIndex(primaryIndex);
+const secondaryNames = await eda.lib_Classification.getNameByIndex(secondaryIndex);
+
+// 4. 清理测试分类（查询类需要清理）
+await eda.lib_Classification.deleteByUuid(libraryUuid, primaryIndex.primaryClassificationUuid);
+
+console.log('primaryNames:', primaryNames);
+console.log('secondaryNames:', secondaryNames);
+```
 
 ### getnamebyuuid
 
@@ -750,7 +920,7 @@ Promise&lt;{ primaryClassificationName: string; secondaryClassificationName?: un
 >
 > since EDA v3.2; dropped EDA v3.3
 
-获取指定 UUID 的分类的名称
+Get the name of the classification with the specified UUID
 
 ## Signature
 
@@ -788,7 +958,7 @@ string
 
 </td><td>
 
-库 UUID
+Library UUID
 
 
 </td></tr>
@@ -804,7 +974,7 @@ libraryType
 
 </td><td>
 
-库类型
+Library type
 
 
 </td></tr>
@@ -820,7 +990,7 @@ string
 
 </td><td>
 
-一级分类 UUID
+Primary classification UUID
 
 
 </td></tr>
@@ -836,7 +1006,7 @@ string
 
 </td><td>
 
-_(Optional)_ 二级分类 UUID，如若不指定，则只获取一级分类的信息
+_(Optional)_ Secondary classification UUID. If not specified, only the primary classification information is obtained
 
 
 </td></tr>
@@ -848,4 +1018,39 @@ _(Optional)_ 二级分类 UUID，如若不指定，则只获取一级分类的�
 
 Promise&lt;{ primaryClassificationName: string; secondaryClassificationName?: undefined \| string } \| undefined&gt;
 
-两级分类的名称
+Name of the two-level classification
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+
+// 2. 创建两级测试分类（复用模块库，ELIB_LibraryType.CBB = '1'）
+const tag = Date.now();
+const primaryName = '嘉立创示例_按UUID查名一级_' + tag;
+const secondaryName = '嘉立创示例_按UUID查名二级_' + tag;
+const primaryIndex = await eda.lib_Classification.createPrimary(libraryUuid, '1', primaryName);
+const secondaryIndex = await eda.lib_Classification.createSecondary(
+  libraryUuid, '1', primaryIndex.primaryClassificationUuid, secondaryName
+);
+
+// 3. 只传一级 UUID：返回一级名称
+const primaryNames = await eda.lib_Classification.getNameByUuid(
+  libraryUuid, '1', primaryIndex.primaryClassificationUuid
+);
+
+// 4. 传一级 + 二级 UUID：两级名称都返回
+const bothNames = await eda.lib_Classification.getNameByUuid(
+  libraryUuid, '1',
+  primaryIndex.primaryClassificationUuid,
+  secondaryIndex.secondaryClassificationUuid
+);
+
+// 5. 清理测试分类（查询类需要清理）
+await eda.lib_Classification.deleteByUuid(libraryUuid, primaryIndex.primaryClassificationUuid);
+
+console.log('primaryNames:', primaryNames);
+console.log('bothNames:', bothNames);
+```

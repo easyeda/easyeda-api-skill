@@ -46,7 +46,7 @@ Description
 
 </td><td>
 
-_(Optional)_ 子列表项，用于多级嵌套
+_(Optional)_ Child list items, used for multi-level nesting
 
 
 </td></tr>
@@ -65,7 +65,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否显示清除按钮
+_(Optional)_ Whether Show clear button
 
 
 </td></tr>
@@ -84,7 +84,7 @@ _(Optional)_ 是否显示清除按钮
 
 </td><td>
 
-_(Optional)_ 列表项图标列表
+_(Optional)_ List of list item icons
 
 
 </td></tr>
@@ -103,7 +103,7 @@ string
 
 </td><td>
 
-_(Optional)_ 列表项唯一标识
+_(Optional)_ Unique ID of the list item
 
 
 </td></tr>
@@ -122,7 +122,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否选中
+_(Optional)_ Whether Select
 
 
 </td></tr>
@@ -141,7 +141,7 @@ string
 
 </td><td>
 
-列表项标题（必填）
+List item title (required)
 
 
 </td></tr>
@@ -160,7 +160,7 @@ string
 
 </td><td>
 
-_(Optional)_ 列表项关联值
+_(Optional)_ Associated value of the list item
 
 
 </td></tr>
@@ -174,7 +174,7 @@ _(Optional)_ 列表项关联值
 
 # ListChildren.children property
 
-子列表项，用于多级嵌套
+Child list items, used for multi-level nesting
 
 ## Signature
 
@@ -186,7 +186,7 @@ children?: ListChildren[];
 
 # ListChildren.clearBtn property
 
-是否显示清除按钮
+Whether Show clear button
 
 ## Signature
 
@@ -198,7 +198,7 @@ clearBtn?: boolean;
 
 # ListChildren.icons property
 
-列表项图标列表
+List of list item icons
 
 ## Signature
 
@@ -210,7 +210,7 @@ icons?: IconProps[];
 
 # ListChildren.id property
 
-列表项唯一标识
+Unique ID of the list item
 
 ## Signature
 
@@ -222,7 +222,7 @@ id?: string;
 
 # ListChildren.selected property
 
-是否选中
+Whether Select
 
 ## Signature
 
@@ -234,7 +234,7 @@ selected?: boolean;
 
 # ListChildren.title property
 
-列表项标题（必填）
+List item title (required)
 
 ## Signature
 
@@ -246,7 +246,7 @@ title: string;
 
 # ListChildren.value property
 
-列表项关联值
+Associated value of the list item
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # IPCB\_PrimitiveRegion class
 
-区域图元
+Region primitive
 
 ## Signature
 
@@ -40,7 +40,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 转换到：填充图元
+**_(BETA)_** Convert to: fill primitive
 
 
 </td></tr>
@@ -54,7 +54,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 转换到：折线图元
+**_(BETA)_** Convert to: polyline primitive
 
 
 </td></tr>
@@ -68,7 +68,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 转换到：覆铜边框图元
+**_(BETA)_** Convert to: Copper border primitive
 
 
 </td></tr>
@@ -82,7 +82,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 将对图元的更改应用到画布
+**_(BETA)_** Apply the changes to the primitives to the canvas
 
 
 </td></tr>
@@ -96,7 +96,7 @@ Description
 
 </td><td>
 
-获取属性状态：复杂多边形
+Get the property state: complex polygon
 
 
 </td></tr>
@@ -110,7 +110,7 @@ Description
 
 </td><td>
 
-获取属性状态：层
+Get the property state: Layer
 
 
 </td></tr>
@@ -124,7 +124,7 @@ Description
 
 </td><td>
 
-获取属性状态：线宽
+Get the property state: Line width
 
 
 </td></tr>
@@ -138,7 +138,7 @@ Description
 
 </td><td>
 
-获取属性状态：图元 ID
+Get the property state: primitive ID
 
 
 </td></tr>
@@ -152,7 +152,7 @@ Description
 
 </td><td>
 
-获取属性状态：是否锁定
+Get the property state: whether it is locked
 
 
 </td></tr>
@@ -166,7 +166,7 @@ Description
 
 </td><td>
 
-获取属性状态：图元类型
+Get the property state: primitive type
 
 
 </td></tr>
@@ -180,7 +180,7 @@ Description
 
 </td><td>
 
-获取属性状态：区域名称
+Get the property state: region name
 
 
 </td></tr>
@@ -194,7 +194,7 @@ Description
 
 </td><td>
 
-获取属性状态：区域规则类型
+Get the property state: region rule type
 
 
 </td></tr>
@@ -208,7 +208,7 @@ Description
 
 </td><td>
 
-查询图元是否为异步图元
+Query whether the primitive is an async primitive
 
 
 </td></tr>
@@ -222,7 +222,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 将异步图元重置为当前画布状态
+**_(BETA)_** Reset the async primitive to the current canvas state
 
 
 </td></tr>
@@ -236,7 +236,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：复杂多边形
+**_(BETA)_** Set the property state: complex polygon
 
 
 </td></tr>
@@ -250,7 +250,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：层
+**_(BETA)_** Set the property state: Layer
 
 
 </td></tr>
@@ -264,7 +264,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：线宽
+**_(BETA)_** Set the property state: Line width
 
 
 </td></tr>
@@ -278,7 +278,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：是否锁定
+**_(BETA)_** Set the property state: whether it is locked
 
 
 </td></tr>
@@ -292,7 +292,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：区域名称
+**_(BETA)_** Set the property state: region name
 
 
 </td></tr>
@@ -306,7 +306,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：区域规则类型
+**_(BETA)_** Set the property state: region rule type
 
 
 </td></tr>
@@ -320,7 +320,7 @@ Description
 
 </td><td>
 
-将图元转换为异步图元
+Convert Primitive to Async primitive
 
 
 </td></tr>
@@ -334,7 +334,7 @@ Description
 
 </td><td>
 
-将图元转换为同步图元
+Convert Primitive to Sync primitive
 
 
 </td></tr>
@@ -350,7 +350,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-转换到：填充图元
+Convert to: fill primitive
 
 ## Signature
 
@@ -363,7 +363,26 @@ public convertToFill(): Promise<IPCB_PrimitiveFill>;
 
 Promise&lt;[IPCB\_PrimitiveFill](./IPCB_PrimitiveFill.md)<!-- -->&gt;
 
-填充图元对象
+Fill primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个矩形区域
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon);
+
+// 3. 转换为填充图元（区域本身保留，填充为新图元，保留现场供观察）
+const fill = await region.convertToFill();
+
+console.log('primitiveType:', 'Region → ' + fill.getState_PrimitiveType());
+console.log('primitiveId:', fill.getState_PrimitiveId());
+```
 
 ### converttopolyline
 
@@ -371,7 +390,7 @@ Promise&lt;[IPCB\_PrimitiveFill](./IPCB_PrimitiveFill.md)<!-- -->&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-转换到：折线图元
+Convert to: polyline primitive
 
 ## Signature
 
@@ -384,7 +403,26 @@ public convertToPolyline(): Promise<IPCB_PrimitivePolyline>;
 
 Promise&lt;[IPCB\_PrimitivePolyline](./IPCB_PrimitivePolyline.md)<!-- -->&gt;
 
-折线图元对象
+Polyline primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个矩形区域
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon);
+
+// 3. 转换为折线图元（区域本身保留，折线为新图元，保留现场供观察）
+const polyline = await region.convertToPolyline();
+
+console.log('primitiveType:', 'Region → ' + polyline.getState_PrimitiveType());
+console.log('primitiveId:', polyline.getState_PrimitiveId());
+```
 
 ### converttopour
 
@@ -392,7 +430,7 @@ Promise&lt;[IPCB\_PrimitivePolyline](./IPCB_PrimitivePolyline.md)<!-- -->&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-转换到：覆铜边框图元
+Convert to: Copper border primitive
 
 ## Signature
 
@@ -405,7 +443,26 @@ public convertToPour(): Promise<IPCB_PrimitivePour>;
 
 Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)<!-- -->&gt;
 
-覆铜边框图元对象
+Copper border primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个矩形区域
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon);
+
+// 3. 转换为覆铜边框图元（区域本身保留，覆铜边框为新图元，保留现场供观察）
+const pour = await region.convertToPour();
+
+console.log('primitiveType:', 'Region → ' + pour.getState_PrimitiveType());
+console.log('primitiveId:', pour.getState_PrimitiveId());
+```
 
 ### done
 
@@ -413,7 +470,7 @@ Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)<!-- -->&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-将对图元的更改应用到画布
+Apply the changes to the primitives to the canvas
 
 ## Signature
 
@@ -426,13 +483,37 @@ public done(): Promise<IPCB_PrimitiveRegion>;
 
 Promise&lt;[IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md)<!-- -->&gt;
 
-区域图元对象
+Region primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个顶层铜层（1）的矩形区域
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon);
+const before = region.getState_Layer();
+
+// 3. 异步模式下把区域挪到底层铜层（此时画布还没变）
+const asyncRegion = region.toAsync();
+asyncRegion.setState_Layer(2);
+await asyncRegion.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveRegion.get(region.getState_PrimitiveId());
+
+console.log('layer:', before, '→', refetched.getState_Layer());
+```
 
 ### getstate_complexpolygon
 
 # IPCB\_PrimitiveRegion.getState\_ComplexPolygon() method
 
-获取属性状态：复杂多边形
+Get the property state: complex polygon
 
 ## Signature
 
@@ -445,13 +526,33 @@ public getState_ComplexPolygon(): IPCB_Polygon;
 
 [IPCB\_Polygon](./IPCB_Polygon.md)
 
-复杂多边形
+Complex polygon
+
+## Example
+
+
+```javascript
+// 1. 创建一个已知轮廓的矩形区域（500 x 300 mil）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon);
+
+// 2. 读取复杂多边形对象，再取它的轮廓源数组
+const complexPolygon = region.getState_ComplexPolygon();
+const source = complexPolygon.getSource();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveRegion.delete([region.getState_PrimitiveId()]);
+
+console.log('polygonSource:', JSON.stringify(source));
+```
 
 ### getstate_layer
 
 # IPCB\_PrimitiveRegion.getState\_Layer() method
 
-获取属性状态：层
+Get the property state: Layer
 
 ## Signature
 
@@ -464,13 +565,32 @@ public getState_Layer(): TPCB_LayersOfRegion;
 
 [TPCB\_LayersOfRegion](../types/TPCB_LayersOfRegion.md)
 
-层
+Layer
+
+## Example
+
+
+```javascript
+// 1. 创建一个顶层铜层（1）的矩形区域
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon);
+
+// 2. 读取所在层
+const layer = region.getState_Layer();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveRegion.delete([region.getState_PrimitiveId()]);
+
+console.log('layer:', layer);
+```
 
 ### getstate_linewidth
 
 # IPCB\_PrimitiveRegion.getState\_LineWidth() method
 
-获取属性状态：线宽
+Get the property state: Line width
 
 ## Signature
 
@@ -483,13 +603,32 @@ public getState_LineWidth(): number;
 
 number
 
-线宽
+Line width
+
+## Example
+
+
+```javascript
+// 1. 创建一个 10mil 线宽的矩形区域
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon, undefined, undefined, 10, false);
+
+// 2. 读取线宽
+const lineWidth = region.getState_LineWidth();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveRegion.delete([region.getState_PrimitiveId()]);
+
+console.log('lineWidth:', lineWidth);
+```
 
 ### getstate_primitiveid
 
 # IPCB\_PrimitiveRegion.getState\_PrimitiveId() method
 
-获取属性状态：图元 ID
+Get the property state: primitive ID
 
 ## Signature
 
@@ -502,13 +641,32 @@ public getState_PrimitiveId(): string;
 
 string
 
-图元 ID
+Primitive ID
+
+## Example
+
+
+```javascript
+// 1. 创建一个矩形区域
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon);
+
+// 2. 读取图元 ID
+const primitiveId = region.getState_PrimitiveId();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveRegion.delete([region.getState_PrimitiveId()]);
+
+console.log('primitiveId:', primitiveId);
+```
 
 ### getstate_primitivelock
 
 # IPCB\_PrimitiveRegion.getState\_PrimitiveLock() method
 
-获取属性状态：是否锁定
+Get the property state: whether it is locked
 
 ## Signature
 
@@ -521,13 +679,32 @@ public getState_PrimitiveLock(): boolean;
 
 boolean
 
-是否锁定
+Whether it is locked
+
+## Example
+
+
+```javascript
+// 1. 创建一个未锁定的矩形区域
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon);
+
+// 2. 读取锁定状态
+const primitiveLock = region.getState_PrimitiveLock();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveRegion.delete([region.getState_PrimitiveId()]);
+
+console.log('primitiveLock:', primitiveLock);
+```
 
 ### getstate_primitivetype
 
 # IPCB\_PrimitiveRegion.getState\_PrimitiveType() method
 
-获取属性状态：图元类型
+Get the property state: primitive type
 
 ## Signature
 
@@ -540,13 +717,32 @@ public getState_PrimitiveType(): EPCB_PrimitiveType;
 
 [EPCB\_PrimitiveType](../enums/EPCB_PrimitiveType.md)
 
-图元类型
+Primitive type
+
+## Example
+
+
+```javascript
+// 1. 创建一个矩形区域
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon);
+
+// 2. 读取图元类型
+const primitiveType = region.getState_PrimitiveType();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveRegion.delete([region.getState_PrimitiveId()]);
+
+console.log('primitiveType:', primitiveType);
+```
 
 ### getstate_regionname
 
 # IPCB\_PrimitiveRegion.getState\_RegionName() method
 
-获取属性状态：区域名称
+Get the property state: region name
 
 ## Signature
 
@@ -559,13 +755,32 @@ public getState_RegionName(): string | undefined;
 
 string \| undefined
 
-区域名称
+Region name
+
+## Example
+
+
+```javascript
+// 1. 创建一个带名称的约束区域（ruleType=9 即 FOLLOW_REGION_RULE）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon, [9], '嘉立创示例_电源约束区');
+
+// 2. 读取区域名称
+const regionName = region.getState_RegionName();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveRegion.delete([region.getState_PrimitiveId()]);
+
+console.log('regionName:', regionName);
+```
 
 ### getstate_ruletype
 
 # IPCB\_PrimitiveRegion.getState\_RuleType() method
 
-获取属性状态：区域规则类型
+Get the property state: region rule type
 
 ## Signature
 
@@ -578,13 +793,32 @@ public getState_RuleType(): Array<EPCB_PrimitiveRegionRuleType>;
 
 Array&lt;[EPCB\_PrimitiveRegionRuleType](../enums/EPCB_PrimitiveRegionRuleType.md)<!-- -->&gt;
 
-区域规则类型
+Region rule type
+
+## Example
+
+
+```javascript
+// 1. 创建一个"禁止元件"（NO_COMPONENTS=2）的规则区域
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon, [2]);
+
+// 2. 读取规则类型数组（枚举值：2=禁止元件, 5=禁止导线, 6=禁止填充, 7=禁止覆铜, 8=禁止内电层, 9=约束区域）
+const ruleType = region.getState_RuleType();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveRegion.delete([region.getState_PrimitiveId()]);
+
+console.log('ruleType:', JSON.stringify(ruleType));
+```
 
 ### isasync
 
 # IPCB\_PrimitiveRegion.isAsync() method
 
-查询图元是否为异步图元
+Query whether the primitive is an async primitive
 
 ## Signature
 
@@ -597,7 +831,26 @@ public isAsync(): boolean;
 
 boolean
 
-是否为异步图元
+Whether Is async primitive
+
+## Example
+
+
+```javascript
+// 1. 创建一个矩形区域
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon);
+
+// 2. 查询异步模式
+const isAsync = region.isAsync();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveRegion.delete([region.getState_PrimitiveId()]);
+
+console.log('isAsync:', isAsync);
+```
 
 ### reset
 
@@ -605,7 +858,7 @@ boolean
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-将异步图元重置为当前画布状态
+Reset the async primitive to the current canvas state
 
 ## Signature
 
@@ -618,7 +871,33 @@ public reset(): Promise<IPCB_PrimitiveRegion>;
 
 Promise&lt;[IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md)<!-- -->&gt;
 
-区域图元对象
+Region primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个顶层铜层的矩形区域
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon);
+const before = region.getState_Layer();
+
+// 3. 异步模式下把层改到底层（2），随后反悔
+const asyncRegion = region.toAsync();
+asyncRegion.setState_Layer(2);
+
+// 4. reset 丢弃未提交的修改（保留现场供观察）
+await asyncRegion.reset();
+
+// 5. 从画布重新读取，确认层没有变
+const refetched = await eda.pcb_PrimitiveRegion.get(region.getState_PrimitiveId());
+
+console.log('layer:', before, '→', refetched.getState_Layer());
+```
 
 ### setstate_complexpolygon
 
@@ -626,7 +905,7 @@ Promise&lt;[IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md)<!-- -->&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：复杂多边形
+Set the property state: complex polygon
 
 ## Signature
 
@@ -664,7 +943,7 @@ complexPolygon
 
 </td><td>
 
-复杂多边形
+Complex polygon
 
 
 </td></tr>
@@ -676,7 +955,33 @@ complexPolygon
 
 [IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md)
 
-区域图元对象
+Region primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个 500 x 300 的矩形区域
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon);
+const before = JSON.stringify(region.getState_ComplexPolygon().getSource());
+
+// 3. 构造新轮廓（放大到 800 x 400），异步模式提交
+const newPolygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 800, 400, 0, 0]);
+const asyncRegion = region.toAsync();
+asyncRegion.setState_ComplexPolygon(newPolygon);
+await asyncRegion.done();
+
+// 4. 从画布重新读取，确认轮廓已替换（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveRegion.get(region.getState_PrimitiveId());
+const after = JSON.stringify(refetched.getState_ComplexPolygon().getSource());
+
+console.log('polygonSource:', before, '→', after);
+```
 
 ### setstate_layer
 
@@ -684,7 +989,7 @@ complexPolygon
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：层
+Set the property state: Layer
 
 ## Signature
 
@@ -722,7 +1027,7 @@ layer
 
 </td><td>
 
-层
+Layer
 
 
 </td></tr>
@@ -734,7 +1039,31 @@ layer
 
 [IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md)
 
-区域图元对象
+Region primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个顶层铜层（1）的矩形区域
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon);
+const before = region.getState_Layer();
+
+// 3. 异步模式把区域挪到底层铜层（2）
+const asyncRegion = region.toAsync();
+asyncRegion.setState_Layer(2);
+await asyncRegion.done();
+
+// 4. 从画布重新读取，确认层已切换（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveRegion.get(region.getState_PrimitiveId());
+
+console.log('layer:', before, '→', refetched.getState_Layer());
+```
 
 ### setstate_linewidth
 
@@ -742,7 +1071,7 @@ layer
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：线宽
+Set the property state: Line width
 
 ## Signature
 
@@ -780,7 +1109,7 @@ number
 
 </td><td>
 
-线宽
+Line width
 
 
 </td></tr>
@@ -792,7 +1121,32 @@ number
 
 [IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md)
 
-区域图元对象
+Region primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个 10mil 线宽的矩形区域
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon, undefined, undefined, 10, false);
+const before = region.getState_LineWidth();
+
+// 3. 切换异步模式，线宽加粗到 20mil
+const asyncRegion = region.toAsync();
+asyncRegion.setState_LineWidth(20);
+await asyncRegion.done();
+
+// 4. 从图元对象读回新值（保留现场供观察）
+// 注：同族 Fill/Pour 的线宽修改画布侧不落，此处从图元对象读回确认
+const after = region.getState_LineWidth();
+
+console.log('lineWidth:', before, '→', after);
+```
 
 ### setstate_primitivelock
 
@@ -800,7 +1154,7 @@ number
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：是否锁定
+Set the property state: whether it is locked
 
 ## Signature
 
@@ -838,7 +1192,7 @@ boolean
 
 </td><td>
 
-是否锁定
+Whether it is locked
 
 
 </td></tr>
@@ -850,7 +1204,31 @@ boolean
 
 [IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md)
 
-区域图元对象
+Region primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个未锁定的矩形区域
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon);
+const before = region.getState_PrimitiveLock();
+
+// 3. 切换异步模式并锁定区域
+const asyncRegion = region.toAsync();
+asyncRegion.setState_PrimitiveLock(true);
+await asyncRegion.done();
+
+// 4. 从画布重新读取，确认已锁定（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveRegion.get(region.getState_PrimitiveId());
+
+console.log('primitiveLock:', before, '→', refetched.getState_PrimitiveLock());
+```
 
 ### setstate_regionname
 
@@ -858,7 +1236,7 @@ boolean
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：区域名称
+Set the property state: region name
 
 ## Signature
 
@@ -896,7 +1274,7 @@ string
 
 </td><td>
 
-_(Optional)_ 区域名称
+_(Optional)_ Region name
 
 
 </td></tr>
@@ -908,13 +1286,38 @@ _(Optional)_ 区域名称
 
 [IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md)
 
-区域图元对象
+Region primitive object
 
 ## Remarks
 
-仅当 `ruleType` 为 [EPCB\_PrimitiveRegionRuleType.FOLLOW\_REGION\_RULE](../enums/EPCB_PrimitiveRegionRuleType.md) 时有效，用于匹配区域 DRC 规则
+Only valid when `ruleType` is [EPCB\_PrimitiveRegionRuleType.FOLLOW\_REGION\_RULE](../enums/EPCB_PrimitiveRegionRuleType.md)<!-- -->, used to match region DRC rules
 
-如若 `ruleType` 为 [EPCB\_PrimitiveRegionRuleType.FOLLOW\_REGION\_RULE](../enums/EPCB_PrimitiveRegionRuleType.md) 但 `regionName` 为空，则系统将会自动分配名称
+If `ruleType` is [EPCB\_PrimitiveRegionRuleType.FOLLOW\_REGION\_RULE](../enums/EPCB_PrimitiveRegionRuleType.md) but `regionName` is empty, the system will automatically assign a name
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个带名称的约束区域（ruleType=9 即 FOLLOW_REGION_RULE）
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon, [9], '嘉立创示例_旧区域名');
+const before = region.getState_RegionName();
+
+// 3. 异步模式修改区域名称
+const asyncRegion = region.toAsync();
+asyncRegion.setState_RegionName('嘉立创示例_电源约束区');
+await asyncRegion.done();
+
+// 4. 从图元对象读回新值（保留现场供观察）
+// 注：当前版本名称修改画布侧不落（重新 get() 仍是旧名），修改在图元对象上生效
+const after = region.getState_RegionName();
+
+console.log('regionName:', before, '→', after);
+```
 
 ### setstate_ruletype
 
@@ -922,7 +1325,7 @@ _(Optional)_ 区域名称
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：区域规则类型
+Set the property state: region rule type
 
 ## Signature
 
@@ -960,7 +1363,7 @@ Array&lt;[EPCB\_PrimitiveRegionRuleType](../enums/EPCB_PrimitiveRegionRuleType.m
 
 </td><td>
 
-区域规则类型
+Region rule type
 
 
 </td></tr>
@@ -972,13 +1375,37 @@ Array&lt;[EPCB\_PrimitiveRegionRuleType](../enums/EPCB_PrimitiveRegionRuleType.m
 
 [IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md)
 
-区域图元对象
+Region primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个不带规则的矩形区域
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon);
+const before = JSON.stringify(region.getState_RuleType());
+
+// 3. 异步模式挂上"禁止元件 + 禁止导线"两条规则（2=NO_COMPONENTS, 5=NO_WIRES）
+const asyncRegion = region.toAsync();
+asyncRegion.setState_RuleType([2, 5]);
+await asyncRegion.done();
+
+// 4. 从画布重新读取，确认规则已更新（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveRegion.get(region.getState_PrimitiveId());
+
+console.log('ruleType:', before, '→', JSON.stringify(refetched.getState_RuleType()));
+```
 
 ### toasync
 
 # IPCB\_PrimitiveRegion.toAsync() method
 
-将图元转换为异步图元
+Convert Primitive to Async primitive
 
 ## Signature
 
@@ -991,13 +1418,38 @@ public toAsync(): IPCB_PrimitiveRegion;
 
 [IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md)
 
-区域图元对象
+Region primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个顶层铜层的矩形区域
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon);
+
+// 3. 切换异步模式后批量修改：挪到底层 + 挂"禁止元件"规则
+const asyncRegion = region.toAsync();
+asyncRegion.setState_Layer(2);
+asyncRegion.setState_RuleType([2]);
+await asyncRegion.done();
+
+// 4. 从画布重新读取，确认批量修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveRegion.get(region.getState_PrimitiveId());
+
+console.log('layer:', refetched.getState_Layer());
+console.log('ruleType:', JSON.stringify(refetched.getState_RuleType()));
+```
 
 ### tosync
 
 # IPCB\_PrimitiveRegion.toSync() method
 
-将图元转换为同步图元
+Convert Primitive to Sync primitive
 
 ## Signature
 
@@ -1010,4 +1462,27 @@ public toSync(): IPCB_PrimitiveRegion;
 
 [IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md)
 
-区域图元对象
+Region primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个矩形区域
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon);
+const before = region.isAsync();
+
+// 3. 转换为同步图元（保留现场供观察）
+const syncRegion = region.toSync();
+const after = syncRegion.isAsync();
+
+// 4. 同步图元直接读取属性，无需提交
+console.log('isAsync:', before, '→', after);
+console.log('primitiveType:', syncRegion.getState_PrimitiveType());
+console.log('layer:', syncRegion.getState_Layer());
+```

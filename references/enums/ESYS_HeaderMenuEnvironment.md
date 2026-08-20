@@ -1,6 +1,6 @@
 # ESYS\_HeaderMenuEnvironment enum
 
-顶部菜单环境
+Header menu environment
 
 ## Signature
 

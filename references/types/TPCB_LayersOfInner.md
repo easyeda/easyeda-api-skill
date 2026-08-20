@@ -1,6 +1,6 @@
 # TPCB\_LayersOfInner type
 
-内层
+Inner layers
 
 ## Signature
 

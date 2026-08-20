@@ -1,6 +1,6 @@
 # IDMT\_EditorDocumentItem interface
 
-编辑器文档对象
+Editor document object
 
 ## Signature
 
@@ -46,7 +46,7 @@ Description
 
 </td><td>
 
-文档类型
+Document type
 
 
 </td></tr>
@@ -65,7 +65,7 @@ string
 
 </td><td>
 
-_(Optional)_ 库文档所属库 UUID
+_(Optional)_ Library document UUID of the library it belongs to
 
 
 </td></tr>
@@ -84,7 +84,7 @@ string
 
 </td><td>
 
-_(Optional)_ 文档所属工程 UUID
+_(Optional)_ Document UUID of the project it belongs to
 
 
 </td></tr>
@@ -103,7 +103,7 @@ string
 
 </td><td>
 
-文档的标签页 ID
+Tab ID of the document
 
 
 </td></tr>
@@ -122,7 +122,7 @@ string
 
 </td><td>
 
-文档 UUID
+Document UUID
 
 
 </td></tr>
@@ -136,7 +136,7 @@ string
 
 # IDMT\_EditorDocumentItem.documentType property
 
-文档类型
+Document type
 
 ## Signature
 
@@ -148,7 +148,7 @@ documentType: EDMT_EditorDocumentType;
 
 # IDMT\_EditorDocumentItem.parentLibraryUuid property
 
-库文档所属库 UUID
+Library document UUID of the library it belongs to
 
 ## Signature
 
@@ -160,7 +160,7 @@ parentLibraryUuid?: string;
 
 # IDMT\_EditorDocumentItem.parentProjectUuid property
 
-文档所属工程 UUID
+Document UUID of the project it belongs to
 
 ## Signature
 
@@ -172,7 +172,7 @@ parentProjectUuid?: string;
 
 # IDMT\_EditorDocumentItem.tabId property
 
-文档的标签页 ID
+Tab ID of the document
 
 ## Signature
 
@@ -184,7 +184,7 @@ tabId: string;
 
 # IDMT\_EditorDocumentItem.uuid property
 
-文档 UUID
+Document UUID
 
 ## Signature
 

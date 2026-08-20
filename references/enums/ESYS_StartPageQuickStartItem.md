@@ -1,6 +1,6 @@
 # ESYS\_StartPageQuickStartItem enum
 
-开始页快速启动项
+Start page quick start item
 
 ## Signature
 
@@ -254,4 +254,4 @@ SETTING
 
 ## Remarks
 
-对应开始页快速启动模块中的各个项
+Corresponds to the items in the quick start module of the start page

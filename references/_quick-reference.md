@@ -15,7 +15,7 @@ EDA 类的属性即为各模块的入口，如 `eda.dmt_Board`, `eda.pcb_Primiti
 
 ## DMT_Board
 
-文档树 / 板子管理类
+Document tree / Board management class
 
 ```typescript
 export class DMT_Board
@@ -33,7 +33,7 @@ export class DMT_Board
 
 ## DMT_EditorControl
 
-文档树 / 编辑器控制类
+Document tree / Editor control class
 
 ```typescript
 export class DMT_EditorControl
@@ -63,7 +63,7 @@ export class DMT_EditorControl
 
 ## DMT_Event
 
-文档树 / 事件类
+Document tree / event class
 
 ```typescript
 export class DMT_Event
@@ -77,7 +77,7 @@ export class DMT_Event
 
 ## DMT_Folder
 
-文档树 / 文件夹类
+Document tree / Folder class
 
 ```typescript
 export class DMT_Folder
@@ -95,7 +95,7 @@ export class DMT_Folder
 
 ## DMT_Panel
 
-文档树 / 面板管理类
+Document tree / Panel management class
 
 ```typescript
 export class DMT_Panel
@@ -113,7 +113,7 @@ export class DMT_Panel
 
 ## DMT_Pcb
 
-文档树 / PCB 管理类
+Document tree / PCB management class
 
 ```typescript
 export class DMT_Pcb
@@ -131,7 +131,7 @@ export class DMT_Pcb
 
 ## DMT_Project
 
-文档树 / 工程管理类
+Document tree / Project management class
 
 ```typescript
 export class DMT_Project
@@ -148,7 +148,7 @@ export class DMT_Project
 
 ## DMT_Schematic
 
-文档树 / 原理图管理类
+Document tree / Schematic management class
 
 ```typescript
 export class DMT_Schematic
@@ -176,7 +176,7 @@ export class DMT_Schematic
 
 ## DMT_SelectControl
 
-文档树 / 选择控制类
+Document tree / selection control class
 
 ```typescript
 export class DMT_SelectControl
@@ -188,7 +188,7 @@ export class DMT_SelectControl
 
 ## DMT_Team
 
-文档树 / 团队类
+Document tree / Team class
 
 ```typescript
 export class DMT_Team
@@ -202,7 +202,7 @@ export class DMT_Team
 
 ## DMT_Workspace
 
-文档树 / 工作区类
+Document tree / Workspace class
 
 ```typescript
 export class DMT_Workspace
@@ -216,7 +216,7 @@ export class DMT_Workspace
 
 ## EDA
 
-嘉立创 EDA 专业版用户 API 接口
+EasyEDA Pro user API interface
 
 ```typescript
 eda: EDA
@@ -322,7 +322,7 @@ eda: EDA
 
 ## IPCB_ComplexPolygon
 
-复杂多边形
+Complex polygon
 
 ```typescript
 export class IPCB_ComplexPolygon
@@ -338,7 +338,7 @@ export class IPCB_ComplexPolygon
 
 ## IPCB_Polygon
 
-单多边形
+Single polygon
 
 ```typescript
 export class IPCB_Polygon
@@ -352,7 +352,7 @@ export class IPCB_Polygon
 
 ## IPCB_PrimitiveArc
 
-圆弧线图元
+Arc line primitive
 
 ```typescript
 export class IPCB_PrimitiveArc implements IPCB_Primitive
@@ -393,7 +393,7 @@ export class IPCB_PrimitiveArc implements IPCB_Primitive
 
 ## IPCB_PrimitiveAttribute
 
-属性图元
+Property primitive
 
 ```typescript
 export class IPCB_PrimitiveAttribute implements IPCB_Primitive
@@ -445,7 +445,7 @@ export class IPCB_PrimitiveAttribute implements IPCB_Primitive
 
 ## IPCB_PrimitiveComponent
 
-器件图元
+Device primitive
 
 ```typescript
 export class IPCB_PrimitiveComponent implements IPCB_Primitive
@@ -497,7 +497,7 @@ export class IPCB_PrimitiveComponent implements IPCB_Primitive
 
 ## IPCB_PrimitiveComponentPad
 
-器件焊盘图元
+Device pad primitive
 
 ```typescript
 export class IPCB_PrimitiveComponentPad extends IPCB_PrimitivePad
@@ -514,7 +514,7 @@ export class IPCB_PrimitiveComponentPad extends IPCB_PrimitivePad
 
 ## IPCB_PrimitiveDimension
 
-尺寸标注图元
+Dimension primitive
 
 ```typescript
 export class IPCB_PrimitiveDimension implements IPCB_Primitive
@@ -547,7 +547,7 @@ export class IPCB_PrimitiveDimension implements IPCB_Primitive
 
 ## IPCB_PrimitiveFill
 
-填充图元
+Fill primitive
 
 ```typescript
 export class IPCB_PrimitiveFill implements IPCB_Primitive
@@ -580,7 +580,7 @@ export class IPCB_PrimitiveFill implements IPCB_Primitive
 
 ## IPCB_PrimitiveImage
 
-图像图元
+Image primitive
 
 ```typescript
 export class IPCB_PrimitiveImage implements IPCB_Primitive
@@ -615,7 +615,7 @@ export class IPCB_PrimitiveImage implements IPCB_Primitive
 
 ## IPCB_PrimitiveLine
 
-直线图元
+Line primitive
 
 ```typescript
 export class IPCB_PrimitiveLine implements IPCB_Primitive
@@ -652,7 +652,7 @@ export class IPCB_PrimitiveLine implements IPCB_Primitive
 
 ## IPCB_PrimitiveObject
 
-二进制内嵌对象图元
+Binary embedded object primitive
 
 ```typescript
 export class IPCB_PrimitiveObject implements IPCB_Primitive
@@ -690,7 +690,7 @@ export class IPCB_PrimitiveObject implements IPCB_Primitive
 
 ## IPCB_PrimitivePad
 
-焊盘图元
+Pad primitive
 
 ```typescript
 export class IPCB_PrimitivePad implements IPCB_Primitive
@@ -762,7 +762,7 @@ export class IPCB_PrimitivePad implements IPCB_Primitive
 
 ## IPCB_PrimitivePolyline
 
-折线图元
+Polyline primitive
 
 ```typescript
 export class IPCB_PrimitivePolyline implements IPCB_Primitive
@@ -793,7 +793,7 @@ export class IPCB_PrimitivePolyline implements IPCB_Primitive
 
 ## IPCB_PrimitivePour
 
-覆铜边框图元
+Copper border primitive
 
 ```typescript
 export class IPCB_PrimitivePour implements IPCB_Primitive
@@ -834,7 +834,7 @@ export class IPCB_PrimitivePour implements IPCB_Primitive
 
 ## IPCB_PrimitivePoured
 
-覆铜填充图元
+Copper fill primitive
 
 ```typescript
 export class IPCB_PrimitivePoured implements IPCB_Primitive
@@ -853,7 +853,7 @@ export class IPCB_PrimitivePoured implements IPCB_Primitive
 
 ## IPCB_PrimitiveRegion
 
-区域图元
+Region primitive
 
 ```typescript
 export class IPCB_PrimitiveRegion implements IPCB_Primitive
@@ -886,7 +886,7 @@ export class IPCB_PrimitiveRegion implements IPCB_Primitive
 
 ## IPCB_PrimitiveString
 
-文本图元
+Text primitive
 
 ```typescript
 export class IPCB_PrimitiveString implements IPCB_Primitive
@@ -931,7 +931,7 @@ export class IPCB_PrimitiveString implements IPCB_Primitive
 
 ## IPCB_PrimitiveVia
 
-过孔图元
+Via primitive
 
 ```typescript
 export class IPCB_PrimitiveVia implements IPCB_Primitive
@@ -968,7 +968,7 @@ export class IPCB_PrimitiveVia implements IPCB_Primitive
 
 ## ISCH_PrimitiveArc
 
-圆弧图元
+Arc primitive
 
 ```typescript
 export class ISCH_PrimitiveArc implements ISCH_Primitive
@@ -1006,7 +1006,7 @@ export class ISCH_PrimitiveArc implements ISCH_Primitive
 
 ## ISCH_PrimitiveAttribute
 
-属性图元
+Property primitive
 
 ```typescript
 export class ISCH_PrimitiveAttribute implements ISCH_Primitive
@@ -1055,7 +1055,7 @@ export class ISCH_PrimitiveAttribute implements ISCH_Primitive
 
 ## ISCH_PrimitiveBus
 
-总线图元
+Bus primitive
 
 ```typescript
 export class ISCH_PrimitiveBus implements ISCH_Primitive
@@ -1082,7 +1082,7 @@ export class ISCH_PrimitiveBus implements ISCH_Primitive
 
 ## ISCH_PrimitiveCbbSymbolComponent
 
-复用模块符号图元
+Reuse block symbol primitive
 
 ```typescript
 export class ISCH_PrimitiveCbbSymbolComponent extends ISCH_PrimitiveComponent
@@ -1097,7 +1097,7 @@ export class ISCH_PrimitiveCbbSymbolComponent extends ISCH_PrimitiveComponent
 
 ## ISCH_PrimitiveCircle
 
-圆图元
+Circle primitive
 
 ```typescript
 export class ISCH_PrimitiveCircle implements ISCH_Primitive
@@ -1131,7 +1131,7 @@ export class ISCH_PrimitiveCircle implements ISCH_Primitive
 
 ## ISCH_PrimitiveComponent
 
-器件图元
+Device primitive
 
 ```typescript
 export class ISCH_PrimitiveComponent implements ISCH_Primitive
@@ -1194,7 +1194,7 @@ export class ISCH_PrimitiveComponent implements ISCH_Primitive
 
 ## ISCH_PrimitiveComponentPin
 
-器件引脚图元
+Device pin primitive
 
 ```typescript
 export class ISCH_PrimitiveComponentPin extends ISCH_PrimitivePin
@@ -1207,7 +1207,7 @@ export class ISCH_PrimitiveComponentPin extends ISCH_PrimitivePin
 
 ## ISCH_PrimitiveObject
 
-二进制内嵌对象图元
+Binary embedded object primitive
 
 ```typescript
 export class ISCH_PrimitiveObject implements ISCH_Primitive
@@ -1241,7 +1241,7 @@ export class ISCH_PrimitiveObject implements ISCH_Primitive
 
 ## ISCH_PrimitivePin
 
-引脚图元
+Pin primitive
 
 ```typescript
 export class ISCH_PrimitivePin implements ISCH_Primitive
@@ -1295,7 +1295,7 @@ export class ISCH_PrimitivePin implements ISCH_Primitive
 
 ## ISCH_PrimitivePolygon
 
-多边形（折线）图元
+Polygon (polyline) primitive
 
 ```typescript
 export class ISCH_PrimitivePolygon implements ISCH_Primitive
@@ -1323,7 +1323,7 @@ export class ISCH_PrimitivePolygon implements ISCH_Primitive
 
 ## ISCH_PrimitiveRectangle
 
-矩形图元
+Rectangle primitive
 
 ```typescript
 export class ISCH_PrimitiveRectangle implements ISCH_Primitive
@@ -1363,7 +1363,7 @@ export class ISCH_PrimitiveRectangle implements ISCH_Primitive
 
 ## ISCH_PrimitiveText
 
-文本图元
+Text primitive
 
 ```typescript
 export class ISCH_PrimitiveText implements ISCH_Primitive
@@ -1403,7 +1403,7 @@ export class ISCH_PrimitiveText implements ISCH_Primitive
 
 ## ISCH_PrimitiveWire
 
-导线图元
+Wire primitive
 
 ```typescript
 export class ISCH_PrimitiveWire implements ISCH_Primitive
@@ -1430,7 +1430,7 @@ export class ISCH_PrimitiveWire implements ISCH_Primitive
 
 ## LIB_3DModel
 
-综合库 / 3D 模型类
+Comprehensive library / 3D model class
 
 ```typescript
 export class LIB_3DModel
@@ -1447,7 +1447,7 @@ export class LIB_3DModel
 
 ## LIB_Cbb
 
-综合库 / 复用模块类
+Comprehensive library / reuse block class
 
 ```typescript
 export class LIB_Cbb
@@ -1466,7 +1466,7 @@ export class LIB_Cbb
 
 ## LIB_Classification
 
-综合库 / 库分类索引类
+Comprehensive library / library classification index class
 
 ```typescript
 export class LIB_Classification
@@ -1485,7 +1485,7 @@ export class LIB_Classification
 
 ## LIB_Device
 
-综合库 / 器件类
+Comprehensive library / device class
 
 ```typescript
 export class LIB_Device
@@ -1505,7 +1505,7 @@ export class LIB_Device
 
 ## LIB_Footprint
 
-综合库 / 封装类
+Comprehensive library / footprint class
 
 ```typescript
 export class LIB_Footprint
@@ -1526,7 +1526,7 @@ export class LIB_Footprint
 
 ## LIB_LibrariesList
 
-综合库 / 库列表类
+Comprehensive library / library list class
 
 ```typescript
 export class LIB_LibrariesList
@@ -1543,7 +1543,7 @@ export class LIB_LibrariesList
 
 ## LIB_PanelLibrary
 
-综合库 / 面板库类
+Comprehensive library / panel library class
 
 ```typescript
 export class LIB_PanelLibrary
@@ -1561,7 +1561,7 @@ export class LIB_PanelLibrary
 
 ## LIB_SelectControl
 
-综合库 / 选择控制类
+Comprehensive library / selection control class
 
 ```typescript
 export class LIB_SelectControl
@@ -1573,7 +1573,7 @@ export class LIB_SelectControl
 
 ## LIB_SimulationModel
 
-综合库 / 仿真模型类
+Comprehensive library / simulation model class
 
 ```typescript
 export class LIB_SimulationModel
@@ -1590,7 +1590,7 @@ export class LIB_SimulationModel
 
 ## LIB_Symbol
 
-综合库 / 符号类
+Comprehensive library / symbol class
 
 ```typescript
 export class LIB_Symbol
@@ -1611,7 +1611,7 @@ export class LIB_Symbol
 
 ## PCB_Document
 
-PCB &amp; 封装 / 文档操作类
+PCB &amp; footprint / document operation class
 
 ```typescript
 export class PCB_Document
@@ -1647,7 +1647,7 @@ export class PCB_Document
 
 ## PCB_Drc
 
-PCB &amp; 封装 / 设计规则检查（DRC）类
+PCB &amp; footprint / design rule check (DRC) class
 
 ```typescript
 export class PCB_Drc
@@ -1704,7 +1704,7 @@ export class PCB_Drc
 
 ## PCB_Event
 
-PCB &amp; 封装 / 事件类
+PCB &amp; footprint / event class
 
 ```typescript
 export class PCB_Event
@@ -1724,7 +1724,7 @@ export class PCB_Event
 
 ## PCB_Layer
 
-PCB &amp; 封装 / 图层操作类
+PCB &amp; footprint / layer operation class
 
 ```typescript
 export class PCB_Layer
@@ -1760,7 +1760,7 @@ export class PCB_Layer
 
 ## PCB_ManufactureData
 
-PCB &amp; 封装 / 生产资料类
+PCB &amp; footprint / manufacture data class
 
 ```typescript
 export class PCB_ManufactureData
@@ -1777,7 +1777,7 @@ export class PCB_ManufactureData
 - **getbomtemplatefile**: `public getBomTemplateFile(template: string): Promise<File | undefined>;`
 - **getbomtemplates**: `public getBomTemplates(): Promise<Array<string>>;`
 - **getdsnfile**: `public getDsnFile(fileName?: string): Promise<File | undefined>;`
-- **getdxffile**: `public getDxfFile(fileName?: string, layers?: Array<{ layerId: number; mirror: boolean }>, objects?: Array<string>): Promise<File | undefined>;`
+- **getdxffile**: `public getDxfFile(fileName?: string, layers?: Array<{ layerId: EPCB_LayerId; mirror: boolean }>, objects?: Array<string>): Promise<File | undefined>;`
 - **getflyingprobetestfile**: `public getFlyingProbeTestFile(fileName?: string): Promise<File | undefined>;`
 - **getgerberfile**: *(签名过长，请查看详细文档)*
 - **getidxfile**: `public getIdxFile(fileName?: string): Promise<File | undefined>;`
@@ -1785,7 +1785,7 @@ export class PCB_ManufactureData
 - **getipcd356afile**: `public getIpcD356AFile(fileName?: string): Promise<File | undefined>;`
 - **getmanufacturedata**: `public getManufactureData(): Promise<File | undefined>;`
 - **getnetlistfile**: `public getNetlistFile(fileName?: string, netlistType?: ESYS_NetlistType): Promise<File | undefined>;`
-- **getopendatabasedoubleplusfile**: `public getOpenDatabaseDoublePlusFile(fileName?: string, unit?: ESYS_Unit.INCH | ESYS_Unit.MILLIMETER, otherData?: { metallizedDrilledHoles?: undefined | false | true; nonMetallizedDrilledHoles?: undefined | false | true; drillTable?: undefined | false | true; flyingProbeTestFile?: undefined | false | true }, layers?: Array<{ layerId: number; mirror: boolean }>, objects?: Array<{ objectName: string }>): Promise<File | undefined>;`
+- **getopendatabasedoubleplusfile**: `public getOpenDatabaseDoublePlusFile(fileName?: string, unit?: ESYS_Unit.INCH | ESYS_Unit.MILLIMETER, otherData?: { metallizedDrilledHoles?: undefined | false | true; nonMetallizedDrilledHoles?: undefined | false | true; drillTable?: undefined | false | true; flyingProbeTestFile?: undefined | false | true }, layers?: Array<{ layerId: EPCB_LayerId; mirror: boolean }>, objects?: Array<{ objectName: string }>): Promise<File | undefined>;`
 - **getpadsfile**: `public getPadsFile(fileName?: string): Promise<File | undefined>;`
 - **getpcbinfofile**: `public getPcbInfoFile(fileName?: string): Promise<File | undefined>;`
 - **getpdffile**: *(签名过长，请查看详细文档)*
@@ -1801,7 +1801,7 @@ export class PCB_ManufactureData
 
 ## PCB_MathPolygon
 
-PCB &amp; 封装 / 多边形数学类
+PCB &amp; footprint / polygon math class
 
 ```typescript
 export class PCB_MathPolygon
@@ -1820,7 +1820,7 @@ export class PCB_MathPolygon
 
 ## PCB_Net
 
-PCB &amp; 封装 / 网络类
+PCB &amp; footprint / net class
 
 ```typescript
 export class PCB_Net
@@ -1847,7 +1847,7 @@ export class PCB_Net
 
 ## PCB_Primitive
 
-PCB &amp; 封装 / 图元类
+PCB &amp; footprint / primitive class
 
 ```typescript
 export class PCB_Primitive
@@ -1860,7 +1860,7 @@ export class PCB_Primitive
 
 ## PCB_PrimitiveArc
 
-PCB &amp; 封装 / 圆弧线图元类
+PCB &amp; footprint / arc line primitive class
 
 ```typescript
 export class PCB_PrimitiveArc implements IPCB_PrimitiveAPI
@@ -1878,7 +1878,7 @@ export class PCB_PrimitiveArc implements IPCB_PrimitiveAPI
 
 ## PCB_PrimitiveAttribute
 
-PCB &amp; 封装 / 属性图元类
+PCB &amp; footprint / property primitive class
 
 ```typescript
 export class PCB_PrimitiveAttribute implements IPCB_PrimitiveAPI
@@ -1895,7 +1895,7 @@ export class PCB_PrimitiveAttribute implements IPCB_PrimitiveAPI
 
 ## PCB_PrimitiveComponent
 
-PCB &amp; 封装 / 器件图元类
+PCB &amp; footprint / device primitive class
 
 ```typescript
 export class PCB_PrimitiveComponent implements IPCB_PrimitiveAPI
@@ -1917,7 +1917,7 @@ export class PCB_PrimitiveComponent implements IPCB_PrimitiveAPI
 
 ## PCB_PrimitiveDimension
 
-PCB &amp; 封装 / 尺寸标注图元类
+PCB &amp; footprint / dimension primitive class
 
 ```typescript
 export class PCB_PrimitiveDimension implements IPCB_PrimitiveAPI
@@ -1935,7 +1935,7 @@ export class PCB_PrimitiveDimension implements IPCB_PrimitiveAPI
 
 ## PCB_PrimitiveFill
 
-PCB &amp; 封装 / 填充图元类
+PCB &amp; footprint / fill primitive class
 
 ```typescript
 export class PCB_PrimitiveFill implements IPCB_PrimitiveAPI
@@ -1953,7 +1953,7 @@ export class PCB_PrimitiveFill implements IPCB_PrimitiveAPI
 
 ## PCB_PrimitiveImage
 
-PCB &amp; 封装 / 图像图元类
+PCB &amp; footprint / image primitive class
 
 ```typescript
 export class PCB_PrimitiveImage implements IPCB_PrimitiveAPI
@@ -1971,7 +1971,7 @@ export class PCB_PrimitiveImage implements IPCB_PrimitiveAPI
 
 ## PCB_PrimitiveLine
 
-PCB &amp; 封装 / 直线图元类
+PCB &amp; footprint / line primitive class
 
 ```typescript
 export class PCB_PrimitiveLine implements IPCB_PrimitiveAPI
@@ -1989,7 +1989,7 @@ export class PCB_PrimitiveLine implements IPCB_PrimitiveAPI
 
 ## PCB_PrimitiveObject
 
-PCB &amp; 封装 / 二进制内嵌对象图元类
+PCB &amp; footprint / binary embedded object primitive class
 
 ```typescript
 export class PCB_PrimitiveObject implements IPCB_PrimitiveAPI
@@ -2007,7 +2007,7 @@ export class PCB_PrimitiveObject implements IPCB_PrimitiveAPI
 
 ## PCB_PrimitivePad
 
-PCB &amp; 封装 / 焊盘图元类
+PCB &amp; footprint / pad primitive class
 
 ```typescript
 export class PCB_PrimitivePad implements IPCB_PrimitiveAPI
@@ -2025,7 +2025,7 @@ export class PCB_PrimitivePad implements IPCB_PrimitiveAPI
 
 ## PCB_PrimitivePolyline
 
-PCB &amp; 封装 / 折线图元类
+PCB &amp; footprint / polyline primitive class
 
 ```typescript
 export class PCB_PrimitivePolyline implements IPCB_PrimitiveAPI
@@ -2043,7 +2043,7 @@ export class PCB_PrimitivePolyline implements IPCB_PrimitiveAPI
 
 ## PCB_PrimitivePour
 
-PCB &amp; 封装 / 覆铜边框图元类
+PCB &amp; footprint / copper border primitive class
 
 ```typescript
 export class PCB_PrimitivePour implements IPCB_PrimitiveAPI
@@ -2061,7 +2061,7 @@ export class PCB_PrimitivePour implements IPCB_PrimitiveAPI
 
 ## PCB_PrimitivePoured
 
-PCB &amp; 封装 / 覆铜填充图元类
+PCB &amp; footprint / copper fill primitive class
 
 ```typescript
 export class PCB_PrimitivePoured implements IPCB_PrimitiveAPI
@@ -2077,7 +2077,7 @@ export class PCB_PrimitivePoured implements IPCB_PrimitiveAPI
 
 ## PCB_PrimitiveRegion
 
-PCB &amp; 封装 / 禁止区域和约束区域图元类
+PCB &amp; footprint / forbidden region and constrained region primitive class
 
 ```typescript
 export class PCB_PrimitiveRegion implements IPCB_PrimitiveAPI
@@ -2095,7 +2095,7 @@ export class PCB_PrimitiveRegion implements IPCB_PrimitiveAPI
 
 ## PCB_PrimitiveString
 
-PCB &amp; 封装 / 文本图元类
+PCB &amp; footprint / text primitive class
 
 ```typescript
 export class PCB_PrimitiveString implements IPCB_PrimitiveAPI
@@ -2113,7 +2113,7 @@ export class PCB_PrimitiveString implements IPCB_PrimitiveAPI
 
 ## PCB_PrimitiveVia
 
-PCB &amp; 封装 / 过孔图元类
+PCB &amp; footprint / via primitive class
 
 ```typescript
 export class PCB_PrimitiveVia implements IPCB_PrimitiveAPI
@@ -2131,7 +2131,7 @@ export class PCB_PrimitiveVia implements IPCB_PrimitiveAPI
 
 ## PCB_RayTracerEngine
 
-PCB &amp; 封装 / 光线追踪引擎类
+PCB &amp; footprint / ray tracer engine class
 
 ```typescript
 export class PCB_RayTracerEngine
@@ -2147,7 +2147,7 @@ export class PCB_RayTracerEngine
 
 ## PCB_SelectControl
 
-PCB &amp; 封装 / 选择控制类
+PCB &amp; footprint / selection control class
 
 ```typescript
 export class PCB_SelectControl
@@ -2165,7 +2165,7 @@ export class PCB_SelectControl
 
 ## PNL_Document
 
-面板 / 文档操作类
+Panel / document operation class
 
 ```typescript
 export class PNL_Document
@@ -2177,7 +2177,7 @@ export class PNL_Document
 
 ## SCH_Document
 
-原理图 &amp; 符号 / 文档操作类
+Schematic &amp; symbol / document operation class
 
 ```typescript
 export class SCH_Document
@@ -2197,7 +2197,7 @@ export class SCH_Document
 
 ## SCH_Drc
 
-原理图 &amp; 符号 / 设计规则检查（DRC）类
+Schematic &amp; symbol / design rule check (DRC) class
 
 ```typescript
 export class SCH_Drc
@@ -2210,7 +2210,7 @@ export class SCH_Drc
 
 ## SCH_Event
 
-原理图 &amp; 符号 / 事件类
+Schematic &amp; symbol / event class
 
 ```typescript
 export class SCH_Event
@@ -2226,7 +2226,7 @@ export class SCH_Event
 
 ## SCH_ManufactureData
 
-原理图 &amp; 符号 / 生产资料类
+Schematic &amp; symbol / manufacture data class
 
 ```typescript
 export class SCH_ManufactureData
@@ -2248,7 +2248,7 @@ export class SCH_ManufactureData
 
 ## SCH_Net
 
-原理图 &amp; 符号 / 网络类
+Schematic &amp; symbol / net class
 
 ```typescript
 export class SCH_Net
@@ -2263,7 +2263,7 @@ export class SCH_Net
 
 ## SCH_Netlist
 
-原理图 &amp; 符号 / 网表类
+Schematic &amp; symbol / netlist class
 
 ```typescript
 export class SCH_Netlist
@@ -2276,7 +2276,7 @@ export class SCH_Netlist
 
 ## SCH_Primitive
 
-原理图 &amp; 符号 / 图元类
+Schematic &amp; symbol / primitive class
 
 ```typescript
 export class SCH_Primitive
@@ -2291,7 +2291,7 @@ export class SCH_Primitive
 
 ## SCH_PrimitiveArc
 
-原理图 &amp; 符号 / 圆弧图元类
+Schematic &amp; symbol / arc primitive class
 
 ```typescript
 export class SCH_PrimitiveArc implements ISCH_PrimitiveAPI
@@ -2309,7 +2309,7 @@ export class SCH_PrimitiveArc implements ISCH_PrimitiveAPI
 
 ## SCH_PrimitiveAttribute
 
-原理图 &amp; 符号 / 属性图元类
+Schematic &amp; symbol / property primitive class
 
 ```typescript
 export class SCH_PrimitiveAttribute implements ISCH_PrimitiveAPI
@@ -2326,7 +2326,7 @@ export class SCH_PrimitiveAttribute implements ISCH_PrimitiveAPI
 
 ## SCH_PrimitiveBus
 
-原理图 &amp; 符号 / 总线图元类
+Schematic &amp; symbol / bus primitive class
 
 ```typescript
 export class SCH_PrimitiveBus implements ISCH_PrimitiveAPI
@@ -2344,7 +2344,7 @@ export class SCH_PrimitiveBus implements ISCH_PrimitiveAPI
 
 ## SCH_PrimitiveCircle
 
-原理图 &amp; 符号 / 圆图元类
+Schematic &amp; symbol / circle primitive class
 
 ```typescript
 export class SCH_PrimitiveCircle implements ISCH_PrimitiveAPI
@@ -2362,7 +2362,7 @@ export class SCH_PrimitiveCircle implements ISCH_PrimitiveAPI
 
 ## SCH_PrimitiveComponent
 
-原理图 &amp; 符号 / 器件图元类
+Schematic &amp; symbol / device primitive class
 
 ```typescript
 export class SCH_PrimitiveComponent implements ISCH_PrimitiveAPI
@@ -2396,7 +2396,7 @@ export class SCH_PrimitiveComponent implements ISCH_PrimitiveAPI
 
 ## SCH_PrimitiveObject
 
-原理图 &amp; 符号 / 二进制内嵌对象图元类
+Schematic &amp; symbol / binary embedded object primitive class
 
 ```typescript
 export class SCH_PrimitiveObject implements ISCH_PrimitiveAPI
@@ -2414,7 +2414,7 @@ export class SCH_PrimitiveObject implements ISCH_PrimitiveAPI
 
 ## SCH_PrimitivePin
 
-原理图 &amp; 符号 / 引脚图元类
+Schematic &amp; symbol / pin primitive class
 
 ```typescript
 export class SCH_PrimitivePin implements ISCH_PrimitiveAPI
@@ -2432,7 +2432,7 @@ export class SCH_PrimitivePin implements ISCH_PrimitiveAPI
 
 ## SCH_PrimitivePolygon
 
-原理图 &amp; 符号 / 多边形（折线）图元类
+Schematic &amp; symbol / polygon (polyline) primitive class
 
 ```typescript
 export class SCH_PrimitivePolygon implements ISCH_PrimitiveAPI
@@ -2450,7 +2450,7 @@ export class SCH_PrimitivePolygon implements ISCH_PrimitiveAPI
 
 ## SCH_PrimitiveRectangle
 
-原理图 &amp; 符号 / 矩形图元类
+Schematic &amp; symbol / rectangle primitive class
 
 ```typescript
 export class SCH_PrimitiveRectangle implements ISCH_PrimitiveAPI
@@ -2468,7 +2468,7 @@ export class SCH_PrimitiveRectangle implements ISCH_PrimitiveAPI
 
 ## SCH_PrimitiveText
 
-原理图 &amp; 符号 / 文本图元类
+Schematic &amp; symbol / text primitive class
 
 ```typescript
 export class SCH_PrimitiveText implements ISCH_PrimitiveAPI
@@ -2486,7 +2486,7 @@ export class SCH_PrimitiveText implements ISCH_PrimitiveAPI
 
 ## SCH_PrimitiveWire
 
-原理图 &amp; 符号 / 导线图元类
+Schematic &amp; symbol / wire primitive class
 
 ```typescript
 export class SCH_PrimitiveWire implements ISCH_PrimitiveAPI
@@ -2504,7 +2504,7 @@ export class SCH_PrimitiveWire implements ISCH_PrimitiveAPI
 
 ## SCH_SelectControl
 
-原理图 &amp; 符号 / 选择控制类
+Schematic &amp; symbol / selection control class
 
 ```typescript
 export class SCH_SelectControl
@@ -2523,7 +2523,7 @@ export class SCH_SelectControl
 
 ## SCH_SimulationEngine
 
-原理图 &amp; 符号 / 仿真引擎类
+Schematic &amp; symbol / simulation engine class
 
 ```typescript
 export class SCH_SimulationEngine
@@ -2535,7 +2535,7 @@ export class SCH_SimulationEngine
 
 ## SCH_Utils
 
-原理图 &amp; 符号 / 工具类
+Schematic &amp; symbol / utility class
 
 ```typescript
 export class SCH_Utils
@@ -2547,7 +2547,7 @@ export class SCH_Utils
 
 ## SYS_ClientUrl
 
-系统 / 外部请求类
+System / external request class
 
 ```typescript
 export class SYS_ClientUrl
@@ -2559,7 +2559,7 @@ export class SYS_ClientUrl
 
 ## SYS_Dialog
 
-系统 / 对话框类
+System / dialog class
 
 ```typescript
 export class SYS_Dialog
@@ -2576,7 +2576,7 @@ export class SYS_Dialog
 
 ## SYS_Environment
 
-系统 / 运行环境类
+System / runtime environment class
 
 ```typescript
 export class SYS_Environment
@@ -2598,7 +2598,7 @@ export class SYS_Environment
 
 ## SYS_FileManager
 
-系统 / 文件管理类
+System / file manager class
 
 ```typescript
 export class SYS_FileManager
@@ -2624,7 +2624,7 @@ export class SYS_FileManager
 
 ## SYS_FileSystem
 
-系统 / 文件系统交互类
+System / file system interaction class
 
 ```typescript
 export class SYS_FileSystem
@@ -2652,7 +2652,7 @@ export class SYS_FileSystem
 
 ## SYS_FontManager
 
-系统 / 字体管理类
+System / font manager class
 
 ```typescript
 export class SYS_FontManager
@@ -2666,7 +2666,7 @@ export class SYS_FontManager
 
 ## SYS_FormatConversion
 
-系统 / 格式转换（Chameleon）类
+System / format conversion (Chameleon) class
 
 ```typescript
 export class SYS_FormatConversion
@@ -2681,7 +2681,7 @@ export class SYS_FormatConversion
 
 ## SYS_HeaderMenu
 
-系统 / 顶部菜单类
+System / header menu class
 
 ```typescript
 export class SYS_HeaderMenu
@@ -2697,7 +2697,7 @@ export class SYS_HeaderMenu
 
 ## SYS_I18n
 
-系统 / 多语言类
+System / multilingual class
 
 ```typescript
 export class SYS_I18n
@@ -2718,7 +2718,7 @@ export class SYS_I18n
 
 ## SYS_IFrame
 
-系统 / 内联框架窗口类
+System / iframe window class
 
 ```typescript
 export class SYS_IFrame
@@ -2734,7 +2734,7 @@ export class SYS_IFrame
 
 ## SYS_LoadingAndProgressBar
 
-系统 / 加载与进度条类
+System / loading and progress bar class
 
 ```typescript
 export class SYS_LoadingAndProgressBar
@@ -2749,7 +2749,7 @@ export class SYS_LoadingAndProgressBar
 
 ## SYS_Log
 
-系统 / 日志类
+System / log class
 
 ```typescript
 export class SYS_Log
@@ -2765,7 +2765,7 @@ export class SYS_Log
 
 ## SYS_Math
 
-系统 / 数学计算类
+System / math class
 
 ```typescript
 export class SYS_Math
@@ -2792,7 +2792,7 @@ export class SYS_Math
 
 ## SYS_Message
 
-系统 / 消息通知类
+System / message notification class
 
 ```typescript
 export class SYS_Message
@@ -2806,7 +2806,7 @@ export class SYS_Message
 
 ## SYS_MessageBox
 
-系统 / 消息框类
+System / message box class
 
 ```typescript
 export class SYS_MessageBox
@@ -2819,7 +2819,7 @@ export class SYS_MessageBox
 
 ## SYS_MessageBus
 
-系统 / 消息总线类
+System / message bus class
 
 ```typescript
 export class SYS_MessageBus
@@ -2848,7 +2848,7 @@ export class SYS_MessageBus
 
 ## SYS_PanelControl
 
-系统 / 面板控制类
+System / panel control class
 
 ```typescript
 export class SYS_PanelControl
@@ -2871,7 +2871,7 @@ export class SYS_PanelControl
 
 ## SYS_RightClickMenu
 
-系统 / 右键菜单类
+System / right-click menu class
 
 ```typescript
 export class SYS_RightClickMenu
@@ -2883,7 +2883,7 @@ export class SYS_RightClickMenu
 
 ## SYS_Setting
 
-系统 / 设置类
+System / settings class
 
 ```typescript
 export class SYS_Setting
@@ -2895,7 +2895,7 @@ export class SYS_Setting
 
 ## SYS_ShortcutKey
 
-系统 / 快捷键类
+System / shortcut key class
 
 ```typescript
 export class SYS_ShortcutKey
@@ -2913,7 +2913,7 @@ export class SYS_ShortcutKey
 
 ## SYS_Storage
 
-系统 / 存储类
+System / storage class
 
 ```typescript
 export class SYS_Storage
@@ -2930,7 +2930,7 @@ export class SYS_Storage
 
 ## SYS_Timer
 
-系统 / 定时器类
+System / timer class
 
 ```typescript
 export class SYS_Timer
@@ -2945,7 +2945,7 @@ export class SYS_Timer
 
 ## SYS_ToastMessage
 
-系统 / 吐司消息类
+System / toast message class
 
 ```typescript
 export class SYS_ToastMessage
@@ -2957,7 +2957,7 @@ export class SYS_ToastMessage
 
 ## SYS_Tool
 
-系统 / 工具类
+System / tool class
 
 ```typescript
 export class SYS_Tool
@@ -2970,7 +2970,7 @@ export class SYS_Tool
 
 ## SYS_Unit
 
-系统 / 单位类
+System / unit class
 
 ```typescript
 export class SYS_Unit
@@ -2988,7 +2988,7 @@ export class SYS_Unit
 
 ## SYS_WebSocket
 
-系统 / WebSocket 类
+System / WebSocket class
 
 ```typescript
 export class SYS_WebSocket
@@ -3002,7 +3002,7 @@ export class SYS_WebSocket
 
 ## SYS_Window
 
-系统 / 窗口类
+System / window class
 
 ```typescript
 export class SYS_Window

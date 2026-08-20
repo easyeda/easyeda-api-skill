@@ -1,6 +1,6 @@
 # ESYS\_ImportProjectViaSolderMaskExpansion enum
 
-导入工程过孔阻焊扩展
+Import project via solder mask extension
 
 ## Signature
 
@@ -58,4 +58,4 @@ FOLLOW\_ORIGINAL\_SETTING
 
 ## Remarks
 
-仅 `fileType` 为 `Altium Designer` 或 `Protel` 时才可以指定该属性，否则将被忽略
+This property can only be specified when `fileType` is `Altium Designer` or `Protel`<!-- -->; otherwise it will be ignored

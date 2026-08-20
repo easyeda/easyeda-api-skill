@@ -1,6 +1,6 @@
 # ISCH\_PrimitiveText class
 
-文本图元
+Text primitive
 
 ## Signature
 
@@ -40,7 +40,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 将对图元的更改应用到画布
+**_(BETA)_** Apply the changes to the primitives to the canvas
 
 
 </td></tr>
@@ -54,7 +54,7 @@ Description
 
 </td><td>
 
-获取属性状态：对齐模式
+Get the property state: alignment mode
 
 
 </td></tr>
@@ -68,7 +68,7 @@ Description
 
 </td><td>
 
-获取属性状态：是否加粗
+Get the property state: whether it is bold
 
 
 </td></tr>
@@ -82,7 +82,7 @@ Description
 
 </td><td>
 
-获取属性状态：文本内容
+Get the property state: text content
 
 
 </td></tr>
@@ -96,7 +96,7 @@ Description
 
 </td><td>
 
-获取属性状态：字体名称
+Get the property state: font name
 
 
 </td></tr>
@@ -110,7 +110,7 @@ Description
 
 </td><td>
 
-获取属性状态：字体大小
+Get the property state: font size
 
 
 </td></tr>
@@ -124,7 +124,7 @@ Description
 
 </td><td>
 
-获取属性状态：是否斜体
+Get the property state: whether it is italic
 
 
 </td></tr>
@@ -138,7 +138,7 @@ Description
 
 </td><td>
 
-获取属性状态：图元 ID
+Get the property state: primitive ID
 
 
 </td></tr>
@@ -152,7 +152,7 @@ Description
 
 </td><td>
 
-获取属性状态：图元类型
+Get the property state: primitive type
 
 
 </td></tr>
@@ -166,7 +166,7 @@ Description
 
 </td><td>
 
-获取属性状态：旋转角度
+Get the property state: rotation angle
 
 
 </td></tr>
@@ -180,7 +180,7 @@ Description
 
 </td><td>
 
-获取属性状态：文本颜色
+Get the property state: text color
 
 
 </td></tr>
@@ -194,7 +194,7 @@ Description
 
 </td><td>
 
-获取属性状态：是否加下划线
+Get the property state: whether it is underlined
 
 
 </td></tr>
@@ -208,7 +208,7 @@ Description
 
 </td><td>
 
-获取属性状态：坐标 X
+Get the property state: X coordinate
 
 
 </td></tr>
@@ -222,7 +222,7 @@ Description
 
 </td><td>
 
-获取属性状态：坐标 Y
+Get the property state: Y coordinate
 
 
 </td></tr>
@@ -236,7 +236,7 @@ Description
 
 </td><td>
 
-查询图元是否为异步图元
+Query whether the primitive is an async primitive
 
 
 </td></tr>
@@ -250,7 +250,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 将异步图元重置为当前画布状态
+**_(BETA)_** Reset the async primitive to the current canvas state
 
 
 </td></tr>
@@ -264,7 +264,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：对齐模式
+**_(BETA)_** Set the property state: alignment mode
 
 
 </td></tr>
@@ -278,7 +278,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：是否加粗
+**_(BETA)_** Set the property state: whether it is bold
 
 
 </td></tr>
@@ -292,7 +292,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：文本内容
+**_(BETA)_** Set the property state: text content
 
 
 </td></tr>
@@ -306,7 +306,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：字体名称
+**_(BETA)_** Set the property state: font name
 
 
 </td></tr>
@@ -320,7 +320,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：字体大小
+**_(BETA)_** Set the property state: font size
 
 
 </td></tr>
@@ -334,7 +334,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：是否斜体
+**_(BETA)_** Set the property state: whether it is italic
 
 
 </td></tr>
@@ -348,7 +348,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：旋转角度
+**_(BETA)_** Set the property state: rotation angle
 
 
 </td></tr>
@@ -362,7 +362,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：文本颜色
+**_(BETA)_** Set the property state: text color
 
 
 </td></tr>
@@ -376,7 +376,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：是否加下划线
+**_(BETA)_** Set the property state: whether it is underlined
 
 
 </td></tr>
@@ -390,7 +390,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：坐标 X
+**_(BETA)_** Set the property state: X coordinate
 
 
 </td></tr>
@@ -404,7 +404,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：坐标 Y
+**_(BETA)_** Set the property state: Y coordinate
 
 
 </td></tr>
@@ -418,7 +418,7 @@ Description
 
 </td><td>
 
-将图元转换为异步图元
+Convert Primitive to Async primitive
 
 
 </td></tr>
@@ -432,7 +432,7 @@ Description
 
 </td><td>
 
-将图元转换为同步图元
+Convert Primitive to Sync primitive
 
 
 </td></tr>
@@ -448,7 +448,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-将对图元的更改应用到画布
+Apply the changes to the primitives to the canvas
 
 ## Signature
 
@@ -461,13 +461,39 @@ public done(): Promise<ISCH_PrimitiveText>;
 
 Promise&lt;[ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)<!-- -->&gt;
 
-文本图元对象
+Text primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试文本重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个测试文本（SCH 坐标单位 10mil）
+const text = await eda.sch_PrimitiveText.create(x, y, '嘉立创示例_初版');
+
+// 3. 切换异步模式，累计两处修改（改文字 + 换红色）
+const asyncText = text.toAsync();
+asyncText.setState_Content('嘉立创示例_V2');
+asyncText.setState_TextColor('#FF0000');
+
+// 4. 一次性提交到画布
+await asyncText.done();
+
+// 5. 从画布重新读取，确认两处修改都已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveText.get(text.getState_PrimitiveId());
+
+console.log('content:', '嘉立创示例_初版', '→', refetched.getState_Content());
+console.log('textColor:', '#FF0000', '→', refetched.getState_TextColor());
+```
 
 ### getstate_alignmode
 
 # ISCH\_PrimitiveText.getState\_AlignMode() method
 
-获取属性状态：对齐模式
+Get the property state: alignment mode
 
 ## Signature
 
@@ -480,13 +506,29 @@ public getState_AlignMode(): ESCH_PrimitiveTextAlignMode;
 
 [ESCH\_PrimitiveTextAlignMode](../enums/ESCH_PrimitiveTextAlignMode.md)
 
-对齐模式
+Alignment mode
+
+## Example
+
+
+```javascript
+// 1. 创建一个右下对齐的测试文本（第 11 参是对齐模式，9 = RIGHT_BOTTOM）
+const text = await eda.sch_PrimitiveText.create(400, 300, '嘉立创示例_对齐', 0, null, null, null, false, false, false, 9);
+
+// 2. 读取对齐模式
+const alignMode = text.getState_AlignMode();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveText.delete([text.getState_PrimitiveId()]);
+
+console.log('alignMode:', alignMode);
+```
 
 ### getstate_bold
 
 # ISCH\_PrimitiveText.getState\_Bold() method
 
-获取属性状态：是否加粗
+Get the property state: whether it is bold
 
 ## Signature
 
@@ -499,13 +541,29 @@ public getState_Bold(): boolean;
 
 boolean
 
-是否加粗
+Whether it is bold
+
+## Example
+
+
+```javascript
+// 1. 创建一个加粗的测试文本（第 8 参是是否加粗）
+const text = await eda.sch_PrimitiveText.create(400, 300, '嘉立创示例_重点', 0, null, null, null, true);
+
+// 2. 读取是否加粗
+const bold = text.getState_Bold();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveText.delete([text.getState_PrimitiveId()]);
+
+console.log('bold:', bold);
+```
 
 ### getstate_content
 
 # ISCH\_PrimitiveText.getState\_Content() method
 
-获取属性状态：文本内容
+Get the property state: text content
 
 ## Signature
 
@@ -518,13 +576,29 @@ public getState_Content(): string;
 
 string
 
-文本内容
+Text content
+
+## Example
+
+
+```javascript
+// 1. 创建一个测试文本（SCH 坐标单位 10mil，第 3 参是文字内容）
+const text = await eda.sch_PrimitiveText.create(400, 300, '嘉立创示例_标题');
+
+// 2. 读取文字内容
+const content = text.getState_Content();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveText.delete([text.getState_PrimitiveId()]);
+
+console.log('content:', content);
+```
 
 ### getstate_fontname
 
 # ISCH\_PrimitiveText.getState\_FontName() method
 
-获取属性状态：字体名称
+Get the property state: font name
 
 ## Signature
 
@@ -537,13 +611,29 @@ public getState_FontName(): string | null;
 
 string \| null
 
-字体名称
+Font name
+
+## Example
+
+
+```javascript
+// 1. 创建一个指定 Arial 字体的测试文本（第 6 参是字体名称）
+const text = await eda.sch_PrimitiveText.create(400, 300, '嘉立创示例_字体', 0, null, 'Arial');
+
+// 2. 读取字体名称
+const fontName = text.getState_FontName();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveText.delete([text.getState_PrimitiveId()]);
+
+console.log('fontName:', fontName);
+```
 
 ### getstate_fontsize
 
 # ISCH\_PrimitiveText.getState\_FontSize() method
 
-获取属性状态：字体大小
+Get the property state: font size
 
 ## Signature
 
@@ -556,13 +646,29 @@ public getState_FontSize(): number | null;
 
 number \| null
 
-字体大小
+Font size
+
+## Example
+
+
+```javascript
+// 1. 创建一个字号 20 的测试文本（第 7 参是字体大小）
+const text = await eda.sch_PrimitiveText.create(400, 300, '嘉立创示例_大标题', 0, null, null, 20);
+
+// 2. 读取字体大小
+const fontSize = text.getState_FontSize();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveText.delete([text.getState_PrimitiveId()]);
+
+console.log('fontSize:', fontSize);
+```
 
 ### getstate_italic
 
 # ISCH\_PrimitiveText.getState\_Italic() method
 
-获取属性状态：是否斜体
+Get the property state: whether it is italic
 
 ## Signature
 
@@ -575,13 +681,29 @@ public getState_Italic(): boolean;
 
 boolean
 
-是否斜体
+Whether it is italic
+
+## Example
+
+
+```javascript
+// 1. 创建一个斜体的测试文本（第 9 参是是否斜体）
+const text = await eda.sch_PrimitiveText.create(400, 300, '嘉立创示例_注释', 0, null, null, null, false, true);
+
+// 2. 读取是否斜体
+const italic = text.getState_Italic();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveText.delete([text.getState_PrimitiveId()]);
+
+console.log('italic:', italic);
+```
 
 ### getstate_primitiveid
 
 # ISCH\_PrimitiveText.getState\_PrimitiveId() method
 
-获取属性状态：图元 ID
+Get the property state: primitive ID
 
 ## Signature
 
@@ -594,13 +716,33 @@ public getState_PrimitiveId(): string;
 
 string
 
-图元 ID
+Primitive ID
+
+## Example
+
+
+```javascript
+// 1. 创建一个测试文本
+const text = await eda.sch_PrimitiveText.create(400, 300, '嘉立创示例_文本');
+
+// 2. 读取图元 ID
+const primitiveId = text.getState_PrimitiveId();
+
+// 3. 用 ID 从画布重取实例，验证 ID 有效
+const refetched = await eda.sch_PrimitiveText.get(primitiveId);
+
+// 4. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveText.delete([primitiveId]);
+
+console.log('primitiveId:', primitiveId);
+console.log('refetched content:', refetched.getState_Content());
+```
 
 ### getstate_primitivetype
 
 # ISCH\_PrimitiveText.getState\_PrimitiveType() method
 
-获取属性状态：图元类型
+Get the property state: primitive type
 
 ## Signature
 
@@ -613,13 +755,29 @@ public getState_PrimitiveType(): ESCH_PrimitiveType;
 
 [ESCH\_PrimitiveType](../enums/ESCH_PrimitiveType.md)
 
-图元类型
+Primitive type
+
+## Example
+
+
+```javascript
+// 1. 创建一个测试文本
+const text = await eda.sch_PrimitiveText.create(400, 300, '嘉立创示例_文本');
+
+// 2. 读取图元类型
+const primitiveType = text.getState_PrimitiveType();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveText.delete([text.getState_PrimitiveId()]);
+
+console.log('primitiveType:', primitiveType);
+```
 
 ### getstate_rotation
 
 # ISCH\_PrimitiveText.getState\_Rotation() method
 
-获取属性状态：旋转角度
+Get the property state: rotation angle
 
 ## Signature
 
@@ -632,13 +790,29 @@ public getState_Rotation(): number;
 
 number
 
-旋转角度
+Rotation angle
+
+## Example
+
+
+```javascript
+// 1. 创建一个旋转 90° 的测试文本（第 4 参是旋转角，SCH 坐标单位 10mil）
+const text = await eda.sch_PrimitiveText.create(400, 300, '嘉立创示例_竖排', 90);
+
+// 2. 读取旋转角度
+const rotation = text.getState_Rotation();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveText.delete([text.getState_PrimitiveId()]);
+
+console.log('rotation:', rotation);
+```
 
 ### getstate_textcolor
 
 # ISCH\_PrimitiveText.getState\_TextColor() method
 
-获取属性状态：文本颜色
+Get the property state: text color
 
 ## Signature
 
@@ -651,13 +825,29 @@ public getState_TextColor(): string | null;
 
 string \| null
 
-文本颜色
+Text color
+
+## Example
+
+
+```javascript
+// 1. 创建一个红色文字的测试文本（第 5 参是文字颜色）
+const text = await eda.sch_PrimitiveText.create(400, 300, '嘉立创示例_警示', 0, '#FF0000');
+
+// 2. 读取文字颜色
+const textColor = text.getState_TextColor();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveText.delete([text.getState_PrimitiveId()]);
+
+console.log('textColor:', textColor);
+```
 
 ### getstate_underline
 
 # ISCH\_PrimitiveText.getState\_UnderLine() method
 
-获取属性状态：是否加下划线
+Get the property state: whether it is underlined
 
 ## Signature
 
@@ -670,13 +860,29 @@ public getState_UnderLine(): boolean;
 
 boolean
 
-是否加下划线
+Whether it is underlined
+
+## Example
+
+
+```javascript
+// 1. 创建一个带下划线的测试文本（第 10 参是是否下划线）
+const text = await eda.sch_PrimitiveText.create(400, 300, '嘉立创示例_强调', 0, null, null, null, false, false, true);
+
+// 2. 读取是否加下划线
+const underLine = text.getState_UnderLine();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveText.delete([text.getState_PrimitiveId()]);
+
+console.log('underLine:', underLine);
+```
 
 ### getstate_x
 
 # ISCH\_PrimitiveText.getState\_X() method
 
-获取属性状态：坐标 X
+Get the property state: X coordinate
 
 ## Signature
 
@@ -689,13 +895,29 @@ public getState_X(): number;
 
 number
 
-坐标 X
+X coordinate
+
+## Example
+
+
+```javascript
+// 1. 创建一个测试文本（SCH 坐标单位 10mil，1mm ≈ 3.937 单位）
+const text = await eda.sch_PrimitiveText.create(400, 300, '嘉立创示例_文本');
+
+// 2. 读取定位点 X 坐标
+const x = text.getState_X();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveText.delete([text.getState_PrimitiveId()]);
+
+console.log('x:', x);
+```
 
 ### getstate_y
 
 # ISCH\_PrimitiveText.getState\_Y() method
 
-获取属性状态：坐标 Y
+Get the property state: Y coordinate
 
 ## Signature
 
@@ -708,13 +930,29 @@ public getState_Y(): number;
 
 number
 
-坐标 Y
+Y coordinate
+
+## Example
+
+
+```javascript
+// 1. 创建一个测试文本（SCH 坐标单位 10mil，1mm ≈ 3.937 单位）
+const text = await eda.sch_PrimitiveText.create(400, 300, '嘉立创示例_文本');
+
+// 2. 读取定位点 Y 坐标
+const y = text.getState_Y();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveText.delete([text.getState_PrimitiveId()]);
+
+console.log('y:', y);
+```
 
 ### isasync
 
 # ISCH\_PrimitiveText.isAsync() method
 
-查询图元是否为异步图元
+Query whether the primitive is an async primitive
 
 ## Signature
 
@@ -727,7 +965,26 @@ public isAsync(): boolean;
 
 boolean
 
-是否为异步图元
+Whether Is async primitive
+
+## Example
+
+
+```javascript
+// 1. 创建一个测试文本，创建后默认处于异步模式
+const text = await eda.sch_PrimitiveText.create(400, 300, '嘉立创示例_文本');
+const asyncOnCreate = text.isAsync();
+
+// 2. 切换到同步模式再查询一次，对比两种模式
+text.toSync();
+const asyncAfterToSync = text.isAsync();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveText.delete([text.getState_PrimitiveId()]);
+
+console.log('isAsync on create:', asyncOnCreate);
+console.log('isAsync after toSync:', asyncAfterToSync);
+```
 
 ### reset
 
@@ -735,7 +992,7 @@ boolean
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-将异步图元重置为当前画布状态
+Reset the async primitive to the current canvas state
 
 ## Signature
 
@@ -748,7 +1005,31 @@ public reset(): Promise<ISCH_PrimitiveText>;
 
 Promise&lt;[ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)<!-- -->&gt;
 
-文本图元对象
+Text primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试文本重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个黑色文字的测试文本（SCH 坐标单位 10mil）
+const text = await eda.sch_PrimitiveText.create(x, y, '嘉立创示例_保留', 0, '#000000');
+
+// 3. 切换异步模式，累计一处未提交的修改（文字内容 → 误改值）
+const asyncText = text.toAsync();
+asyncText.setState_Content('嘉立创示例_误改');
+
+// 4. 重置：丢弃未提交的修改，回到画布当前状态
+await asyncText.reset();
+
+// 5. 从画布重新读取，文字内容仍是原值（保留现场供观察）
+const refetched = await eda.sch_PrimitiveText.get(text.getState_PrimitiveId());
+
+console.log('content after reset:', refetched.getState_Content());
+```
 
 ### setstate_alignmode
 
@@ -756,7 +1037,7 @@ Promise&lt;[ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)<!-- -->&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：对齐模式
+Set the property state: alignment mode
 
 ## Signature
 
@@ -794,7 +1075,7 @@ alignMode
 
 </td><td>
 
-对齐模式
+Alignment mode
 
 
 </td></tr>
@@ -806,7 +1087,29 @@ alignMode
 
 [ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)
 
-文本图元对象
+Text primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试文本重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个测试文本（SCH 坐标单位 10mil）
+const text = await eda.sch_PrimitiveText.create(x, y, '嘉立创示例_对齐');
+
+// 3. 切换异步模式，修改对齐模式
+const asyncText = text.toAsync();
+asyncText.setState_AlignMode(1);
+await asyncText.done();
+
+// 4. 从画布重新读取对齐模式（读回 5 = CENTER，按读回值确认效果；保留现场供观察）
+const refetched = await eda.sch_PrimitiveText.get(text.getState_PrimitiveId());
+
+console.log('alignMode:', 1, '→', refetched.getState_AlignMode());
+```
 
 ### setstate_bold
 
@@ -814,7 +1117,7 @@ alignMode
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：是否加粗
+Set the property state: whether it is bold
 
 ## Signature
 
@@ -852,7 +1155,7 @@ boolean
 
 </td><td>
 
-是否加粗
+Whether it is bold
 
 
 </td></tr>
@@ -864,7 +1167,29 @@ boolean
 
 [ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)
 
-文本图元对象
+Text primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试文本重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个常规字重的测试文本（SCH 坐标单位 10mil）
+const text = await eda.sch_PrimitiveText.create(x, y, '嘉立创示例_标题');
+
+// 3. 切换异步模式，加粗
+const asyncText = text.toAsync();
+asyncText.setState_Bold(true);
+await asyncText.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveText.get(text.getState_PrimitiveId());
+
+console.log('bold:', false, '→', refetched.getState_Bold());
+```
 
 ### setstate_content
 
@@ -872,7 +1197,7 @@ boolean
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：文本内容
+Set the property state: text content
 
 ## Signature
 
@@ -910,7 +1235,7 @@ string
 
 </td><td>
 
-文本内容
+Text content
 
 
 </td></tr>
@@ -922,7 +1247,29 @@ string
 
 [ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)
 
-文本图元对象
+Text primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试文本重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个测试文本（SCH 坐标单位 10mil）
+const text = await eda.sch_PrimitiveText.create(x, y, '嘉立创示例_初版');
+
+// 3. 切换异步模式，改写文字内容
+const asyncText = text.toAsync();
+asyncText.setState_Content('嘉立创示例_定稿');
+await asyncText.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveText.get(text.getState_PrimitiveId());
+
+console.log('content:', '嘉立创示例_初版', '→', refetched.getState_Content());
+```
 
 ### setstate_fontname
 
@@ -930,7 +1277,7 @@ string
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：字体名称
+Set the property state: font name
 
 ## Signature
 
@@ -968,7 +1315,7 @@ string \| null
 
 </td><td>
 
-字体名称
+Font name
 
 
 </td></tr>
@@ -980,7 +1327,29 @@ string \| null
 
 [ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)
 
-文本图元对象
+Text primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试文本重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个默认字体的测试文本（SCH 坐标单位 10mil）
+const text = await eda.sch_PrimitiveText.create(x, y, '嘉立创示例_标题');
+
+// 3. 切换异步模式，换成 Arial 字体
+const asyncText = text.toAsync();
+asyncText.setState_FontName('Arial');
+await asyncText.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveText.get(text.getState_PrimitiveId());
+
+console.log('fontName:', text.getState_FontName(), '→', refetched.getState_FontName());
+```
 
 ### setstate_fontsize
 
@@ -988,7 +1357,7 @@ string \| null
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：字体大小
+Set the property state: font size
 
 ## Signature
 
@@ -1026,7 +1395,7 @@ number \| null
 
 </td><td>
 
-字体大小
+Font size
 
 
 </td></tr>
@@ -1038,7 +1407,29 @@ number \| null
 
 [ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)
 
-文本图元对象
+Text primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试文本重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个默认字号的测试文本（SCH 坐标单位 10mil）
+const text = await eda.sch_PrimitiveText.create(x, y, '嘉立创示例_标题');
+
+// 3. 切换异步模式，把字号增大到 20
+const asyncText = text.toAsync();
+asyncText.setState_FontSize(20);
+await asyncText.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveText.get(text.getState_PrimitiveId());
+
+console.log('fontSize:', text.getState_FontSize(), '→', refetched.getState_FontSize());
+```
 
 ### setstate_italic
 
@@ -1046,7 +1437,7 @@ number \| null
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：是否斜体
+Set the property state: whether it is italic
 
 ## Signature
 
@@ -1084,7 +1475,7 @@ boolean
 
 </td><td>
 
-是否斜体
+Whether it is italic
 
 
 </td></tr>
@@ -1096,7 +1487,29 @@ boolean
 
 [ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)
 
-文本图元对象
+Text primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试文本重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个常规字形的测试文本（SCH 坐标单位 10mil）
+const text = await eda.sch_PrimitiveText.create(x, y, '嘉立创示例_注释');
+
+// 3. 切换异步模式，改为斜体
+const asyncText = text.toAsync();
+asyncText.setState_Italic(true);
+await asyncText.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveText.get(text.getState_PrimitiveId());
+
+console.log('italic:', false, '→', refetched.getState_Italic());
+```
 
 ### setstate_rotation
 
@@ -1104,7 +1517,7 @@ boolean
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：旋转角度
+Set the property state: rotation angle
 
 ## Signature
 
@@ -1142,7 +1555,7 @@ number
 
 </td><td>
 
-旋转角度
+Rotation angle
 
 
 </td></tr>
@@ -1154,7 +1567,29 @@ number
 
 [ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)
 
-文本图元对象
+Text primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试文本重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个测试文本（SCH 坐标单位 10mil）
+const text = await eda.sch_PrimitiveText.create(x, y, '嘉立创示例_横排');
+
+// 3. 切换异步模式，旋转 90° 变竖排
+const asyncText = text.toAsync();
+asyncText.setState_Rotation(90);
+await asyncText.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveText.get(text.getState_PrimitiveId());
+
+console.log('rotation:', 0, '→', refetched.getState_Rotation());
+```
 
 ### setstate_textcolor
 
@@ -1162,7 +1597,7 @@ number
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：文本颜色
+Set the property state: text color
 
 ## Signature
 
@@ -1200,7 +1635,7 @@ string \| null
 
 </td><td>
 
-文本颜色
+Text color
 
 
 </td></tr>
@@ -1212,7 +1647,29 @@ string \| null
 
 [ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)
 
-文本图元对象
+Text primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试文本重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个黑色文字的测试文本（SCH 坐标单位 10mil）
+const text = await eda.sch_PrimitiveText.create(x, y, '嘉立创示例_说明', 0, '#000000');
+
+// 3. 切换异步模式，把文字换成红色警示色
+const asyncText = text.toAsync();
+asyncText.setState_TextColor('#FF0000');
+await asyncText.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveText.get(text.getState_PrimitiveId());
+
+console.log('textColor:', '#000000', '→', refetched.getState_TextColor());
+```
 
 ### setstate_underline
 
@@ -1220,7 +1677,7 @@ string \| null
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：是否加下划线
+Set the property state: whether it is underlined
 
 ## Signature
 
@@ -1258,7 +1715,7 @@ boolean
 
 </td><td>
 
-是否加下划线
+Whether it is underlined
 
 
 </td></tr>
@@ -1270,7 +1727,29 @@ boolean
 
 [ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)
 
-文本图元对象
+Text primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试文本重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个无下划线的测试文本（SCH 坐标单位 10mil）
+const text = await eda.sch_PrimitiveText.create(x, y, '嘉立创示例_V1.0');
+
+// 3. 切换异步模式，加下划线
+const asyncText = text.toAsync();
+asyncText.setState_UnderLine(true);
+await asyncText.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveText.get(text.getState_PrimitiveId());
+
+console.log('underLine:', false, '→', refetched.getState_UnderLine());
+```
 
 ### setstate_x
 
@@ -1278,7 +1757,7 @@ boolean
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：坐标 X
+Set the property state: X coordinate
 
 ## Signature
 
@@ -1316,7 +1795,7 @@ number
 
 </td><td>
 
-坐标 X
+X coordinate
 
 
 </td></tr>
@@ -1328,7 +1807,29 @@ number
 
 [ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)
 
-文本图元对象
+Text primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试文本重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个测试文本（SCH 坐标单位 10mil）
+const text = await eda.sch_PrimitiveText.create(x, y, '嘉立创示例_文本');
+
+// 3. 切换异步模式，把定位点 X 移到 x + 300
+const asyncText = text.toAsync();
+asyncText.setState_X(x + 300);
+await asyncText.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveText.get(text.getState_PrimitiveId());
+
+console.log('x:', x, '→', refetched.getState_X());
+```
 
 ### setstate_y
 
@@ -1336,7 +1837,7 @@ number
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：坐标 Y
+Set the property state: Y coordinate
 
 ## Signature
 
@@ -1374,7 +1875,7 @@ number
 
 </td><td>
 
-坐标 Y
+Y coordinate
 
 
 </td></tr>
@@ -1386,13 +1887,35 @@ number
 
 [ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)
 
-文本图元对象
+Text primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试文本重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个测试文本（SCH 坐标单位 10mil）
+const text = await eda.sch_PrimitiveText.create(x, y, '嘉立创示例_文本');
+
+// 3. 切换异步模式，把定位点 Y 移到 y + 200
+const asyncText = text.toAsync();
+asyncText.setState_Y(y + 200);
+await asyncText.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveText.get(text.getState_PrimitiveId());
+
+console.log('y:', y, '→', refetched.getState_Y());
+```
 
 ### toasync
 
 # ISCH\_PrimitiveText.toAsync() method
 
-将图元转换为异步图元
+Convert Primitive to Async primitive
 
 ## Signature
 
@@ -1405,13 +1928,36 @@ public toAsync(): ISCH_PrimitiveText;
 
 [ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)
 
-文本图元对象
+Text primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试文本重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个测试文本（创建后默认已处于异步模式）
+const text = await eda.sch_PrimitiveText.create(x, y, '嘉立创示例_文本');
+
+// 3. 显式转换为异步图元（返回自身，可链式累计修改后提交）
+const asyncText = text.toAsync();
+asyncText.setState_Content('嘉立创示例_已更新');
+await asyncText.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveText.get(text.getState_PrimitiveId());
+
+console.log('isAsync after toAsync:', text.isAsync());
+console.log('content:', '嘉立创示例_文本', '→', refetched.getState_Content());
+```
 
 ### tosync
 
 # ISCH\_PrimitiveText.toSync() method
 
-将图元转换为同步图元
+Convert Primitive to Sync primitive
 
 ## Signature
 
@@ -1424,4 +1970,28 @@ public toSync(): ISCH_PrimitiveText;
 
 [ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)
 
-文本图元对象
+Text primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试文本重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个测试文本（创建后默认处于异步模式）
+const text = await eda.sch_PrimitiveText.create(x, y, '嘉立创示例_文本');
+
+// 3. 转换为同步图元
+const syncText = text.toSync();
+
+// 4. 同步模式下把文字改为定稿内容，立即生效，无需 done()
+syncText.setState_Content('嘉立创示例_定稿');
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveText.get(text.getState_PrimitiveId());
+
+console.log('isAsync after toSync:', text.isAsync());
+console.log('content:', '嘉立创示例_文本', '→', refetched.getState_Content());
+```

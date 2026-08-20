@@ -47,7 +47,7 @@ Description
 
 </td><td>
 
-_(Optional)_ 单元格内对齐方式
+_(Optional)_ Alignment within the cell
 
 
 </td></tr>
@@ -66,7 +66,7 @@ any
 
 </td><td>
 
-_(Optional)_ 子节点
+_(Optional)_ Child node
 
 
 </td></tr>
@@ -85,7 +85,7 @@ number
 
 </td><td>
 
-_(Optional)_ 跨列数
+_(Optional)_ Column span
 
 
 </td></tr>
@@ -104,7 +104,7 @@ number
 
 </td><td>
 
-_(Optional)_ 跨行数
+_(Optional)_ Row span
 
 
 </td></tr>
@@ -118,7 +118,7 @@ _(Optional)_ 跨行数
 
 # GridItemProps.align property
 
-单元格内对齐方式
+Alignment within the cell
 
 ## Signature
 
@@ -130,7 +130,7 @@ align?: 'start' | 'center' | 'end' | 'stretch';
 
 # GridItemProps.children property
 
-子节点
+Child node
 
 ## Signature
 
@@ -142,7 +142,7 @@ children?: any;
 
 # GridItemProps.colSpan property
 
-跨列数
+Column span
 
 ## Signature
 
@@ -154,7 +154,7 @@ colSpan?: number;
 
 # GridItemProps.rowSpan property
 
-跨行数
+Row span
 
 ## Signature
 

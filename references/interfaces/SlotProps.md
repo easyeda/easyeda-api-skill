@@ -46,7 +46,7 @@ any
 
 </td><td>
 
-_(Optional)_ 插槽内容子节点
+_(Optional)_ Slot content child nodes
 
 
 </td></tr>
@@ -65,7 +65,7 @@ string
 
 </td><td>
 
-插槽名称（必填）
+Slot name (required)
 
 
 </td></tr>
@@ -79,7 +79,7 @@ string
 
 # SlotProps.children property
 
-插槽内容子节点
+Slot content child nodes
 
 ## Signature
 
@@ -91,7 +91,7 @@ children?: any;
 
 # SlotProps.name property
 
-插槽名称（必填）
+Slot name (required)
 
 ## Signature
 

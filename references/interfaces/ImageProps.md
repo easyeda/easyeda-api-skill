@@ -65,7 +65,7 @@ string
 
 </td><td>
 
-图片地址（必填）
+Image URL (required)
 
 
 </td></tr>
@@ -84,7 +84,7 @@ string
 
 </td><td>
 
-_(Optional)_ 图片标题（alt/text）
+_(Optional)_ Image title (alt/text)
 
 
 </td></tr>
@@ -110,7 +110,7 @@ onClick?: () => void;
 
 # ImageProps.src property
 
-图片地址（必填）
+Image URL (required)
 
 ## Signature
 
@@ -122,7 +122,7 @@ src: string;
 
 # ImageProps.title property
 
-图片标题（alt/text）
+Image title (alt/text)
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # ILIB\_ExtendLibrarySearchResult interface
 
-外部库搜索结果
+External library search result
 
 ## Signature
 
@@ -46,7 +46,7 @@ number
 
 </td><td>
 
-总条目数
+Total item count
 
 
 </td></tr>
@@ -65,7 +65,7 @@ Array&lt;T&gt;
 
 </td><td>
 
-结果列表
+Result list
 
 
 </td></tr>
@@ -84,7 +84,7 @@ number
 
 </td><td>
 
-当前页数
+Current page count
 
 
 </td></tr>
@@ -103,7 +103,7 @@ number
 
 </td><td>
 
-单页条目数
+Number of entries per page
 
 
 </td></tr>
@@ -122,7 +122,7 @@ number
 
 </td><td>
 
-总页数
+Total page count
 
 
 </td></tr>
@@ -136,7 +136,7 @@ number
 
 # ILIB\_ExtendLibrarySearchResult.count property
 
-总条目数
+Total item count
 
 ## Signature
 
@@ -148,7 +148,7 @@ count: number;
 
 # ILIB\_ExtendLibrarySearchResult.lists property
 
-结果列表
+Result list
 
 ## Signature
 
@@ -160,7 +160,7 @@ lists: Array<T>;
 
 # ILIB\_ExtendLibrarySearchResult.page property
 
-当前页数
+Current page count
 
 ## Signature
 
@@ -172,7 +172,7 @@ page: number;
 
 # ILIB\_ExtendLibrarySearchResult.pageSize property
 
-单页条目数
+Number of entries per page
 
 ## Signature
 
@@ -184,7 +184,7 @@ pageSize: number;
 
 # ILIB\_ExtendLibrarySearchResult.totalPage property
 
-总页数
+Total page count
 
 ## Signature
 

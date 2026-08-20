@@ -1,6 +1,6 @@
 # PCB\_SelectControl class
 
-PCB &amp; 封装 / 选择控制类
+PCB &amp; footprint / selection control class
 
 ## Signature
 
@@ -10,7 +10,7 @@ export class PCB_SelectControl
 
 ## Remarks
 
-获取或操作选择的元素
+Get or operate the selected elements
 
 ## Methods
 
@@ -40,7 +40,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 清除选中
+**_(BETA)_** Clear the selection
 
 
 </td></tr>
@@ -54,7 +54,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 进行交叉选择
+**_(BETA)_** Perform cross-probe selection
 
 
 </td></tr>
@@ -68,7 +68,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 使用图元 ID 选中图元
+**_(BETA)_** Select primitives using primitive IDs
 
 
 </td></tr>
@@ -82,7 +82,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 查询所有已选中图元的图元 ID
+**_(BETA)_** Query the primitive IDs of all selected primitives
 
 
 </td></tr>
@@ -96,7 +96,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 查询所有已选中图元的图元对象
+**_(BETA)_** Query the primitive objects of all selected primitives
 
 
 </td></tr>
@@ -110,7 +110,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取当前鼠标在画布上的位置
+**_(BETA)_** Get Current the mouse position on the canvas
 
 
 </td></tr>
@@ -124,7 +124,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 查询选中图元的所有参数
+**_(BETA)_** Query all parameters of the selected primitives
 
 
 </td></tr>
@@ -140,7 +140,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-清除选中
+Clear the selection
 
 ## Signature
 
@@ -153,7 +153,7 @@ public clearSelected(): Promise<boolean>;
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ### docrossprobeselect
 
@@ -161,7 +161,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-进行交叉选择
+Perform cross-probe selection
 
 ## Signature
 
@@ -199,7 +199,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-_(Optional)_ 器件位号
+_(Optional)_ Device designator
 
 
 </td></tr>
@@ -215,7 +215,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-_(Optional)_ 器件位号\_引脚编号，格式为 \['U1\_1', 'U1\_2'\]
+_(Optional)_ Device designator \_ pin number, format is \['U1\_1', 'U1\_2'\]
 
 
 </td></tr>
@@ -231,7 +231,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-_(Optional)_ 网络名称
+_(Optional)_ Net name
 
 
 </td></tr>
@@ -247,7 +247,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否高亮
+_(Optional)_ Whether to highlight
 
 
 </td></tr>
@@ -263,7 +263,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 操作是否成功
+_(Optional)_ Whether the operation is successful
 
 
 </td></tr>
@@ -281,7 +281,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-使用图元 ID 选中图元
+Select primitives using primitive IDs
 
 ## Signature
 
@@ -319,7 +319,7 @@ string \| Array&lt;string&gt;
 
 </td><td>
 
-图元 ID
+Primitive ID
 
 
 </td></tr>
@@ -331,7 +331,7 @@ string \| Array&lt;string&gt;
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ### getallselectedprimitives
 
@@ -339,7 +339,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-查询所有已选中图元的图元对象
+Query the primitive objects of all selected primitives
 
 ## Signature
 
@@ -352,7 +352,7 @@ public getAllSelectedPrimitives(): Promise<Array<IPCB_Primitive>>;
 
 Promise&lt;Array&lt;[IPCB\_Primitive](../interfaces/IPCB_Primitive.md)<!-- -->&gt;&gt;
 
-所有已选中图元的图元对象
+Primitive objects of all selected primitives
 
 ### getallselectedprimitives_primitiveid
 
@@ -360,7 +360,7 @@ Promise&lt;Array&lt;[IPCB\_Primitive](../interfaces/IPCB_Primitive.md)<!-- -->&g
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-查询所有已选中图元的图元 ID
+Query the primitive IDs of all selected primitives
 
 ## Signature
 
@@ -373,7 +373,7 @@ public getAllSelectedPrimitives_PrimitiveId(): Promise<Array<string>>;
 
 Promise&lt;Array&lt;string&gt;&gt;
 
-所有已选中图元的图元 ID
+Primitive IDs of all selected primitives
 
 ### getcurrentmouseposition
 
@@ -381,7 +381,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取当前鼠标在画布上的位置
+Get Current the mouse position on the canvas
 
 ## Signature
 
@@ -394,7 +394,7 @@ public getCurrentMousePosition(): Promise<{ x: number; y: number } | undefined>;
 
 Promise&lt;{ x: number; y: number } \| undefined&gt;
 
-鼠标在画布上的位置，`undefined` 代表当前鼠标不在画布上
+The mouse position on the canvas. `undefined` means the current mouse is not on the canvas
 
 ### getselectedprimitives
 
@@ -404,9 +404,9 @@ Promise&lt;{ x: number; y: number } \| undefined&gt;
 
 > Warning: This API is now obsolete.
 >
-> 请使用 [getAllSelectedPrimitives](./PCB_SelectControl.md) 替代
+> Please use [getAllSelectedPrimitives](./PCB_SelectControl.md) instead
 
-查询选中图元的所有参数
+Query all parameters of the selected primitives
 
 ## Signature
 
@@ -419,4 +419,4 @@ public getSelectedPrimitives(): Promise<Array<object>>;
 
 Promise&lt;Array&lt;object&gt;&gt;
 
-选中图元的所有参数
+All parameters of the selected primitives

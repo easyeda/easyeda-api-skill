@@ -1,6 +1,6 @@
 # TPCB\_PrimitiveDimensionCoordinateSet type
 
-尺寸标注坐标集
+Dimension coordinate set
 
 ## Signature
 
@@ -10,56 +10,56 @@ export type TPCB_PrimitiveDimensionCoordinateSet = [number, number, number, numb
 
 ## Remarks
 
-尺寸标注坐标集存在以下三种 [尺寸标注类型](../enums/EPCB_PrimitiveDimensionType.md)<!-- -->：
+The dimension coordinate set has the following three [dimension types](../enums/EPCB_PrimitiveDimensionType.md)<!-- -->:
 
-① 半径标注
+1. Radius dimension
 
 `[x1, y1, x2, y2, x3, y3]`
 
-- `{number}` `x1` - 圆、圆弧上的端点 X
+- `{number}` `x1` - X of the endpoint on the circle/arc
 
-- `{number}` `y1` - 圆、圆弧上的端点 Y
+- `{number}` `y1` - Y of the endpoint on the circle/arc
 
-- `{number}` `x2` - 标注线尾部的端点 X
+- `{number}` `x2` - X of the endpoint at the tail of the dimension line
 
-- `{number}` `y2` - 标注线尾部的端点 Y
+- `{number}` `y2` - Y of the endpoint at the tail of the dimension line
 
-- `{number}` `x3` - 标注文字的左下端点 X
+- `{number}` `x3` - X of the bottom-left endpoint of the dimension text
 
-- `{number}` `y3` - 标注文字的左下端点 Y
+- `{number}` `y3` - Y of the bottom-left endpoint of the dimension text
 
-② 长度标注
+2. Length dimension
 
 `[x1, y1, x2, y2, x3, y3, x4, y4]`
 
-- `{number}` `x1` - 第一测量端点 X
+- `{number}` `x1` - X of the first measurement endpoint
 
-- `{number}` `y1` - 第一测量端点 Y
+- `{number}` `y1` - Y of the first measurement endpoint
 
-- `{number}` `x2` - 第一标注箭头端点 X
+- `{number}` `x2` - X of the first dimension arrow endpoint
 
-- `{number}` `y2` - 第一标注箭头端点 Y
+- `{number}` `y2` - Y of the first dimension arrow endpoint
 
-- `{number}` `x3` - 第二标注箭头端点 X
+- `{number}` `x3` - X of the second dimension arrow endpoint
 
-- `{number}` `y3` - 第二标注箭头端点 Y
+- `{number}` `y3` - Y of the second dimension arrow endpoint
 
-- `{number}` `x4` - 第二测量端点 X
+- `{number}` `x4` - X of the second measurement endpoint
 
-- `{number}` `y4` - 第二测量端点 Y
+- `{number}` `y4` - Y of the second measurement endpoint
 
-③ 角度标注
+3. Angle dimension
 
 `[x1, y1, x2, y2, x3, y3]`
 
-- `{number}` `x1` - 第一边端点 X
+- `{number}` `x1` - X of the first side endpoint
 
-- `{number}` `y1` - 第一边端点 Y
+- `{number}` `y1` - Y of the first side endpoint
 
-- `{number}` `x2` - 角度中心 X
+- `{number}` `x2` - X of the angle center
 
-- `{number}` `y2` - 角度中心 Y
+- `{number}` `y2` - Y of the angle center
 
-- `{number}` `x3` - 第二边端点 X
+- `{number}` `x3` - X of the second side endpoint
 
-- `{number}` `y3` - 第二边端点 Y
+- `{number}` `y3` - Y of the second side endpoint

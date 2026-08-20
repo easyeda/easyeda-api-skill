@@ -1,6 +1,6 @@
 # ISCH\_PrimitiveAPI interface
 
-原理图图元接口
+Schematic primitive API
 
 ## Signature
 

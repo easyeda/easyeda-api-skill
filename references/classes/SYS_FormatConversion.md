@@ -1,6 +1,6 @@
 # SYS\_FormatConversion class
 
-系统 / 格式转换（Chameleon）类
+System / format conversion (Chameleon) class
 
 ## Signature
 
@@ -10,7 +10,7 @@ export class SYS_FormatConversion
 
 ## Remarks
 
-与其它板级 EDA 软件进行交叉文件格式转换
+Perform cross file format conversion with other board-level EDA software
 
 ## Methods
 
@@ -40,7 +40,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 转换 Altium Designer 库到多个嘉立创库文件（每个器件一个文件）
+**_(BETA)_** Convert Altium Designer libraries to multiple EasyEDA library files (one file per device)
 
 
 </td></tr>
@@ -54,7 +54,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 转换 Altium Designer 库到单个嘉立创库文件
+**_(BETA)_** Convert Altium Designer libraries to a single EasyEDA library file
 
 
 </td></tr>
@@ -68,7 +68,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 转换 T/DISA 4001 库到多个嘉立创库文件（每个器件一个文件）
+**_(BETA)_** Convert T/DISA 4001 libraries to multiple EasyEDA library files (one file per device)
 
 
 </td></tr>
@@ -82,7 +82,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 转换 T/DISA 4001 库到单个嘉立创库文件
+**_(BETA)_** Convert T/DISA 4001 libraries to a single EasyEDA library file
 
 
 </td></tr>
@@ -98,7 +98,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-转换 Altium Designer 库到多个嘉立创库文件（每个器件一个文件）
+Convert Altium Designer libraries to multiple EasyEDA library files (one file per device)
 
 ## Signature
 
@@ -136,7 +136,7 @@ File \| Array&lt;File&gt;
 
 </td><td>
 
-Altium Designer 库文件
+Altium Designer library file
 
 
 </td></tr>
@@ -148,7 +148,7 @@ Altium Designer 库文件
 
 Promise&lt;Array&lt;File&gt;&gt;
 
-多个嘉立创库文件
+Multiple EasyEDA library files
 
 ### convertaltiumdesignerlibrariestoeasyedasinglefile
 
@@ -156,7 +156,7 @@ Promise&lt;Array&lt;File&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-转换 Altium Designer 库到单个嘉立创库文件
+Convert Altium Designer libraries to a single EasyEDA library file
 
 ## Signature
 
@@ -194,7 +194,7 @@ File \| Array&lt;File&gt;
 
 </td><td>
 
-Altium Designer 库文件
+Altium Designer library file
 
 
 </td></tr>
@@ -206,7 +206,7 @@ Altium Designer 库文件
 
 Promise&lt;File \| undefined&gt;
 
-嘉立创库文件
+EasyEDA library file
 
 ### convertdisalibrariestoeasyedamultifiles
 
@@ -214,7 +214,7 @@ Promise&lt;File \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-转换 T/DISA 4001 库到多个嘉立创库文件（每个器件一个文件）
+Convert T/DISA 4001 libraries to multiple EasyEDA library files (one file per device)
 
 ## Signature
 
@@ -252,7 +252,7 @@ File \| Array&lt;File&gt;
 
 </td><td>
 
-T/DISA 4001 库文件
+T/DISA 4001 library file
 
 
 </td></tr>
@@ -264,7 +264,7 @@ T/DISA 4001 库文件
 
 Promise&lt;Array&lt;File&gt;&gt;
 
-多个嘉立创库文件
+Multiple EasyEDA library files
 
 ### convertdisalibrariestoeasyedasinglefile
 
@@ -272,7 +272,7 @@ Promise&lt;Array&lt;File&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-转换 T/DISA 4001 库到单个嘉立创库文件
+Convert T/DISA 4001 libraries to a single EasyEDA library file
 
 ## Signature
 
@@ -310,7 +310,7 @@ File \| Array&lt;File&gt;
 
 </td><td>
 
-T/DISA 4001 库文件
+T/DISA 4001 library file
 
 
 </td></tr>
@@ -322,4 +322,4 @@ T/DISA 4001 库文件
 
 Promise&lt;File \| undefined&gt;
 
-嘉立创库文件
+EasyEDA library file

@@ -1,6 +1,6 @@
 # ILIB\_ExtendLibraryItemIndex interface
 
-外部库元素索引
+External library item index
 
 ## Signature
 
@@ -10,13 +10,13 @@ export interface ILIB_ExtendLibraryItemIndex
 
 ## Remarks
 
-支持外部库使用名称或 UUID 作为元素的唯一 ID 索引
+Supports external libraries using a name or UUID as the unique ID index of the item
 
-正常情况下，希望每个库都拥有 UUID，但可能部分系统开发时不存在 UUID 字段（或可以做类似用途的字段）
+Under normal circumstances, each library is expected to have a UUID, but some systems may not have a UUID field (or a field that can serve a similar purpose) at development time
 
-此处仅传入 `name` 字段时，将把 `name` 做唯一 ID 用途，不可有重名的数据
+When only the `name` field is passed here, `name` will be used as the unique ID, and duplicate names are not allowed
 
-如若传入 `uuid` 和 `name` 字段，则只有 `uuid` 不可重复
+If both the `uuid` and `name` fields are passed, only `uuid` cannot be duplicated
 
 ## Properties
 
@@ -56,7 +56,7 @@ string
 
 </td><td>
 
-库名称
+Library name
 
 
 </td></tr>
@@ -75,7 +75,7 @@ string
 
 </td><td>
 
-_(Optional)_ 库 UUID
+_(Optional)_ Library UUID
 
 
 </td></tr>
@@ -89,7 +89,7 @@ _(Optional)_ 库 UUID
 
 # ILIB\_ExtendLibraryItemIndex.name property
 
-库名称
+Library name
 
 ## Signature
 
@@ -101,7 +101,7 @@ name: string;
 
 # ILIB\_ExtendLibraryItemIndex.uuid property
 
-库 UUID
+Library UUID
 
 ## Signature
 

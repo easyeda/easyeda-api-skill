@@ -1,6 +1,6 @@
 # SCH\_PrimitiveRectangle class
 
-原理图 &amp; 符号 / 矩形图元类
+Schematic &amp; symbol / rectangle primitive class
 
 ## Signature
 
@@ -37,7 +37,7 @@ Description
 
 </td><td>
 
-创建矩形
+Create Rectangle
 
 
 </td></tr>
@@ -51,7 +51,7 @@ Description
 
 </td><td>
 
-删除矩形
+Delete Rectangle
 
 
 </td></tr>
@@ -65,7 +65,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取矩形
+**_(BETA)_** Get Rectangle
 
 
 </td></tr>
@@ -79,7 +79,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取矩形
+**_(BETA)_** Get Rectangle
 
 
 </td></tr>
@@ -93,7 +93,7 @@ Description
 
 </td><td>
 
-获取所有矩形
+Get all Rectangle
 
 
 </td></tr>
@@ -107,7 +107,7 @@ Description
 
 </td><td>
 
-获取所有矩形的图元 ID
+Get all Rectangle primitive IDs
 
 
 </td></tr>
@@ -121,7 +121,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 修改矩形
+**_(BETA)_** Modify Rectangle
 
 
 </td></tr>
@@ -135,7 +135,7 @@ Description
 
 # SCH\_PrimitiveRectangle.create() method
 
-创建矩形
+Create Rectangle
 
 ## Signature
 
@@ -173,7 +173,7 @@ number
 
 </td><td>
 
-左上点 X
+Top-left point X
 
 
 </td></tr>
@@ -189,7 +189,7 @@ number
 
 </td><td>
 
-左上点 Y
+Top-left point Y
 
 
 </td></tr>
@@ -205,7 +205,7 @@ number
 
 </td><td>
 
-宽
+Width
 
 
 </td></tr>
@@ -221,7 +221,7 @@ number
 
 </td><td>
 
-高
+Height
 
 
 </td></tr>
@@ -237,7 +237,7 @@ number
 
 </td><td>
 
-_(Optional)_ 圆角半径
+_(Optional)_ Corner radius
 
 
 </td></tr>
@@ -253,7 +253,7 @@ number
 
 </td><td>
 
-_(Optional)_ 旋转角度，绕左上点旋转，可选 `0` `90` `180` `270`
+_(Optional)_ Rotation angle, rotating around the top-left point. Options: `0` `90` `180` `270`
 
 
 </td></tr>
@@ -269,7 +269,7 @@ string \| null
 
 </td><td>
 
-_(Optional)_ 颜色，`null` 表示默认
+_(Optional)_ Color, `null` indicates the default
 
 
 </td></tr>
@@ -285,7 +285,7 @@ string \| null
 
 </td><td>
 
-_(Optional)_ 填充颜色，`none` 表示无填充，`null` 表示默认
+_(Optional)_ Fill color. `none` indicates no fill, `null` indicates the default
 
 
 </td></tr>
@@ -301,7 +301,7 @@ number \| null
 
 </td><td>
 
-_(Optional)_ 线宽，范围 `1-10`<!-- -->，`null` 表示默认
+_(Optional)_ Line width, range `1-10`<!-- -->. `null` indicates the default
 
 
 </td></tr>
@@ -317,7 +317,7 @@ lineType
 
 </td><td>
 
-_(Optional)_ 线型，`null` 表示默认
+_(Optional)_ Line type. `null` indicates the default
 
 
 </td></tr>
@@ -333,7 +333,7 @@ fillStyle
 
 </td><td>
 
-_(Optional)_ 填充样式，`null` 表示默认
+_(Optional)_ Fill style, `null` indicates the default
 
 
 </td></tr>
@@ -345,13 +345,13 @@ _(Optional)_ 填充样式，`null` 表示默认
 
 Promise&lt;[ISCH\_PrimitiveRectangle](./ISCH_PrimitiveRectangle.md) \| undefined&gt;
 
-矩形图元对象
+Rectangle primitive object
 
 ### delete
 
 # SCH\_PrimitiveRectangle.delete() method
 
-删除矩形
+Delete Rectangle
 
 ## Signature
 
@@ -389,7 +389,7 @@ string \| [ISCH\_PrimitiveRectangle](./ISCH_PrimitiveRectangle.md) \| Array&lt;s
 
 </td><td>
 
-矩形的图元 ID 或矩形图元对象
+Rectangle primitive ID or Rectangle primitive object
 
 
 </td></tr>
@@ -401,7 +401,7 @@ string \| [ISCH\_PrimitiveRectangle](./ISCH_PrimitiveRectangle.md) \| Array&lt;s
 
 Promise&lt;boolean&gt;
 
-删除操作是否成功
+Delete Whether the operation is successful
 
 ### get
 
@@ -409,7 +409,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取矩形
+Get Rectangle
 
 ## Signature
 
@@ -447,7 +447,7 @@ string
 
 </td><td>
 
-矩形的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Rectangle primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -459,7 +459,7 @@ string
 
 Promise&lt;[ISCH\_PrimitiveRectangle](./ISCH_PrimitiveRectangle.md) \| undefined&gt;
 
-矩形图元对象，`undefined` 表示获取失败
+Rectangle primitive object, `undefined` indicates that the retrieval failed
 
 ### get_1
 
@@ -467,7 +467,7 @@ Promise&lt;[ISCH\_PrimitiveRectangle](./ISCH_PrimitiveRectangle.md) \| undefined
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取矩形
+Get Rectangle
 
 ## Signature
 
@@ -505,7 +505,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-矩形的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Rectangle primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -517,17 +517,17 @@ Array&lt;string&gt;
 
 Promise&lt;Array&lt;[ISCH\_PrimitiveRectangle](./ISCH_PrimitiveRectangle.md)<!-- -->&gt;&gt;
 
-矩形图元对象，空数组表示获取失败
+Rectangle primitive object; an empty array indicates that the retrieval failed
 
 ## Remarks
 
-如若传入多个图元 ID，任意图元 ID 未匹配到不影响其它图元的返回，即可能返回少于传入的图元 ID 数量的图元对象
+If multiple primitive IDs are passed in, a primitive ID that is not matched will not affect the return of other primitives; that is, fewer primitive objects than the number of primitive IDs passed in may be returned.
 
 ### getall
 
 # SCH\_PrimitiveRectangle.getAll() method
 
-获取所有矩形
+Get all Rectangle
 
 ## Signature
 
@@ -540,13 +540,13 @@ public getAll(): Promise<Array<ISCH_PrimitiveRectangle>>;
 
 Promise&lt;Array&lt;[ISCH\_PrimitiveRectangle](./ISCH_PrimitiveRectangle.md)<!-- -->&gt;&gt;
 
-矩形图元对象数组
+Array of Rectangle primitive objects
 
 ### getallprimitiveid
 
 # SCH\_PrimitiveRectangle.getAllPrimitiveId() method
 
-获取所有矩形的图元 ID
+Get all Rectangle primitive IDs
 
 ## Signature
 
@@ -559,7 +559,7 @@ public getAllPrimitiveId(): Promise<Array<string>>;
 
 Promise&lt;Array&lt;string&gt;&gt;
 
-矩形的图元 ID 数组
+Array of Rectangle primitive IDs
 
 ### modify
 
@@ -567,7 +567,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-修改矩形
+Modify Rectangle
 
 ## Signature
 
@@ -605,7 +605,7 @@ string \| [ISCH\_PrimitiveRectangle](./ISCH_PrimitiveRectangle.md)
 
 </td><td>
 
-图元 ID
+Primitive ID
 
 
 </td></tr>
@@ -621,7 +621,7 @@ property
 
 </td><td>
 
-修改参数
+Modify Parameter
 
 
 </td></tr>
@@ -633,4 +633,4 @@ property
 
 Promise&lt;[ISCH\_PrimitiveRectangle](./ISCH_PrimitiveRectangle.md) \| undefined&gt;
 
-矩形图元对象
+Rectangle primitive object

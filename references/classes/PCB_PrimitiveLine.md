@@ -1,6 +1,6 @@
 # PCB\_PrimitiveLine class
 
-PCB &amp; 封装 / 直线图元类
+PCB &amp; footprint / line primitive class
 
 ## Signature
 
@@ -11,7 +11,7 @@ export class PCB_PrimitiveLine implements IPCB_PrimitiveAPI
 
 ## Remarks
 
-直线和圆弧线均为导线，对应画布的线条走线和圆弧走线
+Both lines and arc lines are wires, corresponding to the line traces and arc traces on the canvas
 
 ## Methods
 
@@ -41,7 +41,7 @@ Description
 
 </td><td>
 
-创建直线
+Create a line
 
 
 </td></tr>
@@ -55,7 +55,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 删除直线
+**_(BETA)_** Delete the line
 
 
 </td></tr>
@@ -69,7 +69,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取直线
+**_(BETA)_** Get the line
 
 
 </td></tr>
@@ -83,7 +83,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取直线
+**_(BETA)_** Get the line
 
 
 </td></tr>
@@ -97,7 +97,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有直线
+**_(BETA)_** Get all lines
 
 
 </td></tr>
@@ -111,7 +111,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有直线的图元 ID
+**_(BETA)_** Get the primitive IDs of all lines
 
 
 </td></tr>
@@ -125,7 +125,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 修改直线
+**_(BETA)_** Modify the line
 
 
 </td></tr>
@@ -139,7 +139,7 @@ Description
 
 # PCB\_PrimitiveLine.create() method
 
-创建直线
+Create a line
 
 ## Signature
 
@@ -177,7 +177,7 @@ string
 
 </td><td>
 
-网络名称
+Net name
 
 
 </td></tr>
@@ -193,7 +193,7 @@ layer
 
 </td><td>
 
-层
+Layer
 
 
 </td></tr>
@@ -209,7 +209,7 @@ number
 
 </td><td>
 
-起始位置 X
+Start position X
 
 
 </td></tr>
@@ -225,7 +225,7 @@ number
 
 </td><td>
 
-起始位置 Y
+Start position Y
 
 
 </td></tr>
@@ -241,7 +241,7 @@ number
 
 </td><td>
 
-终止位置 X
+End position X
 
 
 </td></tr>
@@ -257,7 +257,7 @@ number
 
 </td><td>
 
-终止位置 Y
+End position Y
 
 
 </td></tr>
@@ -273,7 +273,7 @@ number
 
 </td><td>
 
-_(Optional)_ 线宽
+_(Optional)_ Line width
 
 
 </td></tr>
@@ -289,7 +289,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -301,7 +301,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md) \| undefined&gt;
 
-直线图元对象
+Line primitive object
 
 ### delete
 
@@ -309,7 +309,7 @@ Promise&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md) \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-删除直线
+Delete the line
 
 ## Signature
 
@@ -347,7 +347,7 @@ string \| [IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md) \| Array&lt;string&gt; 
 
 </td><td>
 
-直线的图元 ID 或直线图元对象
+Primitive ID of the line or the line primitive object
 
 
 </td></tr>
@@ -359,7 +359,7 @@ string \| [IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md) \| Array&lt;string&gt; 
 
 Promise&lt;boolean&gt;
 
-删除操作是否成功
+Delete Whether the operation is successful
 
 ### get
 
@@ -367,7 +367,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取直线
+Get the line
 
 ## Signature
 
@@ -405,7 +405,7 @@ string
 
 </td><td>
 
-直线的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Primitive ID of the line, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -417,7 +417,7 @@ string
 
 Promise&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md) \| undefined&gt;
 
-直线图元对象，`undefined` 表示获取失败
+Line primitive object, `undefined` indicates that the retrieval failed
 
 ### get_1
 
@@ -425,7 +425,7 @@ Promise&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md) \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取直线
+Get the line
 
 ## Signature
 
@@ -463,7 +463,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-直线的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Primitive ID of the line, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -475,11 +475,11 @@ Array&lt;string&gt;
 
 Promise&lt;Array&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)<!-- -->&gt;&gt;
 
-直线图元对象，空数组表示获取失败
+Line primitive object; an empty array indicates that the retrieval failed
 
 ## Remarks
 
-如若传入多个图元 ID，任意图元 ID 未匹配到不影响其它图元的返回，即可能返回少于传入的图元 ID 数量的图元对象
+If multiple primitive IDs are passed in, a primitive ID that is not matched will not affect the return of other primitives; that is, fewer primitive objects than the number of primitive IDs passed in may be returned.
 
 ### getall
 
@@ -487,7 +487,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)<!-- -->&gt;&g
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有直线
+Get all lines
 
 ## Signature
 
@@ -525,7 +525,7 @@ string
 
 </td><td>
 
-_(Optional)_ 网络名称
+_(Optional)_ Net name
 
 
 </td></tr>
@@ -541,7 +541,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层
+_(Optional)_ Layer
 
 
 </td></tr>
@@ -557,7 +557,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -569,7 +569,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;Array&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)<!-- -->&gt;&gt;
 
-直线图元对象数组
+Line primitive object array
 
 ### getallprimitiveid
 
@@ -577,7 +577,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)<!-- -->&gt;&g
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有直线的图元 ID
+Get the primitive IDs of all lines
 
 ## Signature
 
@@ -615,7 +615,7 @@ string
 
 </td><td>
 
-_(Optional)_ 网络名称
+_(Optional)_ Net name
 
 
 </td></tr>
@@ -631,7 +631,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层
+_(Optional)_ Layer
 
 
 </td></tr>
@@ -647,7 +647,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -659,7 +659,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;Array&lt;string&gt;&gt;
 
-折线的图元 ID 数组
+Array of polyline primitive IDs
 
 ### modify
 
@@ -667,7 +667,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-修改直线
+Modify the line
 
 ## Signature
 
@@ -705,7 +705,7 @@ string \| [IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)
 
 </td><td>
 
-图元 ID
+Primitive ID
 
 
 </td></tr>
@@ -721,7 +721,7 @@ property
 
 </td><td>
 
-修改参数
+Modify Parameter
 
 
 </td></tr>
@@ -733,4 +733,4 @@ property
 
 Promise&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md) \| undefined&gt;
 
-直线图元对象
+Line primitive object

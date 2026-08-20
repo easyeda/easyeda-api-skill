@@ -1,6 +1,6 @@
 # ISCH\_PrimitiveObject class
 
-二进制内嵌对象图元
+Binary embedded object primitive
 
 ## Signature
 
@@ -40,7 +40,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 将对图元的更改应用到画布
+**_(BETA)_** Apply the changes to the primitives to the canvas
 
 
 </td></tr>
@@ -54,7 +54,7 @@ Description
 
 </td><td>
 
-获取属性状态：对象内容
+Get the property state: object content
 
 
 </td></tr>
@@ -68,7 +68,7 @@ Description
 
 </td><td>
 
-获取属性状态：文件名称
+Get the property state: file name
 
 
 </td></tr>
@@ -82,7 +82,7 @@ Description
 
 </td><td>
 
-获取属性状态：高度
+Get the property state: height
 
 
 </td></tr>
@@ -96,7 +96,7 @@ Description
 
 </td><td>
 
-获取属性状态：是否镜像
+Get the property state: whether it is mirrored
 
 
 </td></tr>
@@ -110,7 +110,7 @@ Description
 
 </td><td>
 
-获取属性状态：图元 ID
+Get the property state: primitive ID
 
 
 </td></tr>
@@ -124,7 +124,7 @@ Description
 
 </td><td>
 
-获取属性状态：图元类型
+Get the property state: primitive type
 
 
 </td></tr>
@@ -138,7 +138,7 @@ Description
 
 </td><td>
 
-获取属性状态：旋转角度
+Get the property state: rotation angle
 
 
 </td></tr>
@@ -152,7 +152,7 @@ Description
 
 </td><td>
 
-获取属性状态：坐标 X
+Get the property state: X coordinate
 
 
 </td></tr>
@@ -166,7 +166,7 @@ Description
 
 </td><td>
 
-获取属性状态：坐标 Y
+Get the property state: Y coordinate
 
 
 </td></tr>
@@ -180,7 +180,7 @@ Description
 
 </td><td>
 
-获取属性状态：宽度
+Get the property state: width
 
 
 </td></tr>
@@ -194,7 +194,7 @@ Description
 
 </td><td>
 
-查询图元是否为异步图元
+Query whether the primitive is an async primitive
 
 
 </td></tr>
@@ -208,7 +208,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 将异步图元重置为当前画布状态
+**_(BETA)_** Reset the async primitive to the current canvas state
 
 
 </td></tr>
@@ -222,7 +222,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：对象内容
+**_(BETA)_** Set the property state: object content
 
 
 </td></tr>
@@ -236,7 +236,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：文件名称
+**_(BETA)_** Set the property state: file name
 
 
 </td></tr>
@@ -250,7 +250,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：高度
+**_(BETA)_** Set the property state: height
 
 
 </td></tr>
@@ -264,7 +264,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：是否镜像
+**_(BETA)_** Set the property state: whether it is mirrored
 
 
 </td></tr>
@@ -278,7 +278,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：旋转角度
+**_(BETA)_** Set the property state: rotation angle
 
 
 </td></tr>
@@ -292,7 +292,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：起点坐标 X
+**_(BETA)_** Set the property state: start point coordinates X
 
 
 </td></tr>
@@ -306,7 +306,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：起点坐标 Y
+**_(BETA)_** Set the property state: start point coordinates Y
 
 
 </td></tr>
@@ -320,7 +320,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：宽度
+**_(BETA)_** Set the property state: width
 
 
 </td></tr>
@@ -334,7 +334,7 @@ Description
 
 </td><td>
 
-将图元转换为异步图元
+Convert Primitive to Async primitive
 
 
 </td></tr>
@@ -348,7 +348,7 @@ Description
 
 </td><td>
 
-将图元转换为同步图元
+Convert Primitive to Sync primitive
 
 
 </td></tr>
@@ -364,7 +364,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-将对图元的更改应用到画布
+Apply the changes to the primitives to the canvas
 
 ## Signature
 
@@ -377,13 +377,13 @@ public done(): Promise<ISCH_PrimitiveObject>;
 
 Promise&lt;[ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md)<!-- -->&gt;
 
-二进制内嵌对象图元对象
+Binary embedded object primitive object
 
 ### getstate_content
 
 # ISCH\_PrimitiveObject.getState\_Content() method
 
-获取属性状态：对象内容
+Get the property state: object content
 
 ## Signature
 
@@ -396,13 +396,13 @@ public getState_Content(): File | string;
 
 File \| string
 
-对象内容
+Object content
 
 ### getstate_filename
 
 # ISCH\_PrimitiveObject.getState\_FileName() method
 
-获取属性状态：文件名称
+Get the property state: file name
 
 ## Signature
 
@@ -415,13 +415,13 @@ public getState_FileName(): string;
 
 string
 
-文件名称
+File name
 
 ### getstate_height
 
 # ISCH\_PrimitiveObject.getState\_Height() method
 
-获取属性状态：高度
+Get the property state: height
 
 ## Signature
 
@@ -434,13 +434,13 @@ public getState_Height(): number;
 
 number
 
-高度
+Height
 
 ### getstate_mirror
 
 # ISCH\_PrimitiveObject.getState\_Mirror() method
 
-获取属性状态：是否镜像
+Get the property state: whether it is mirrored
 
 ## Signature
 
@@ -453,13 +453,13 @@ public getState_Mirror(): boolean;
 
 boolean
 
-是否镜像
+Whether it is mirrored
 
 ### getstate_primitiveid
 
 # ISCH\_PrimitiveObject.getState\_PrimitiveId() method
 
-获取属性状态：图元 ID
+Get the property state: primitive ID
 
 ## Signature
 
@@ -472,13 +472,13 @@ public getState_PrimitiveId(): string;
 
 string
 
-图元 ID
+Primitive ID
 
 ### getstate_primitivetype
 
 # ISCH\_PrimitiveObject.getState\_PrimitiveType() method
 
-获取属性状态：图元类型
+Get the property state: primitive type
 
 ## Signature
 
@@ -491,13 +491,13 @@ public getState_PrimitiveType(): ESCH_PrimitiveType;
 
 [ESCH\_PrimitiveType](../enums/ESCH_PrimitiveType.md)
 
-图元类型
+Primitive type
 
 ### getstate_rotation
 
 # ISCH\_PrimitiveObject.getState\_Rotation() method
 
-获取属性状态：旋转角度
+Get the property state: rotation angle
 
 ## Signature
 
@@ -510,13 +510,13 @@ public getState_Rotation(): number;
 
 number
 
-旋转角度
+Rotation angle
 
 ### getstate_startx
 
 # ISCH\_PrimitiveObject.getState\_StartX() method
 
-获取属性状态：坐标 X
+Get the property state: X coordinate
 
 ## Signature
 
@@ -529,13 +529,13 @@ public getState_StartX(): number;
 
 number
 
-坐标 X
+X coordinate
 
 ### getstate_starty
 
 # ISCH\_PrimitiveObject.getState\_StartY() method
 
-获取属性状态：坐标 Y
+Get the property state: Y coordinate
 
 ## Signature
 
@@ -548,13 +548,13 @@ public getState_StartY(): number;
 
 number
 
-坐标 Y
+Y coordinate
 
 ### getstate_width
 
 # ISCH\_PrimitiveObject.getState\_Width() method
 
-获取属性状态：宽度
+Get the property state: width
 
 ## Signature
 
@@ -567,13 +567,13 @@ public getState_Width(): number;
 
 number
 
-宽度
+Width
 
 ### isasync
 
 # ISCH\_PrimitiveObject.isAsync() method
 
-查询图元是否为异步图元
+Query whether the primitive is an async primitive
 
 ## Signature
 
@@ -586,7 +586,7 @@ public isAsync(): boolean;
 
 boolean
 
-是否为异步图元
+Whether Is async primitive
 
 ### reset
 
@@ -594,7 +594,7 @@ boolean
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-将异步图元重置为当前画布状态
+Reset the async primitive to the current canvas state
 
 ## Signature
 
@@ -607,7 +607,7 @@ public reset(): Promise<ISCH_PrimitiveObject>;
 
 Promise&lt;[ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md)<!-- -->&gt;
 
-二进制内嵌对象图元对象
+Binary embedded object primitive object
 
 ### setstate_content
 
@@ -615,7 +615,7 @@ Promise&lt;[ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md)<!-- -->&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：对象内容
+Set the property state: object content
 
 ## Signature
 
@@ -653,7 +653,7 @@ File \| string
 
 </td><td>
 
-对象内容
+Object content
 
 
 </td></tr>
@@ -665,7 +665,7 @@ File \| string
 
 [ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md)
 
-二进制内嵌对象图元对象
+Binary embedded object primitive object
 
 ### setstate_filename
 
@@ -673,7 +673,7 @@ File \| string
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：文件名称
+Set the property state: file name
 
 ## Signature
 
@@ -711,7 +711,7 @@ string
 
 </td><td>
 
-文件名称
+File name
 
 
 </td></tr>
@@ -723,7 +723,7 @@ string
 
 [ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md)
 
-二进制内嵌对象图元对象
+Binary embedded object primitive object
 
 ### setstate_height
 
@@ -731,7 +731,7 @@ string
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：高度
+Set the property state: height
 
 ## Signature
 
@@ -769,7 +769,7 @@ number
 
 </td><td>
 
-高度
+Height
 
 
 </td></tr>
@@ -781,7 +781,7 @@ number
 
 [ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md)
 
-二进制内嵌对象图元对象
+Binary embedded object primitive object
 
 ### setstate_mirror
 
@@ -789,7 +789,7 @@ number
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：是否镜像
+Set the property state: whether it is mirrored
 
 ## Signature
 
@@ -827,7 +827,7 @@ boolean
 
 </td><td>
 
-是否镜像
+Whether it is mirrored
 
 
 </td></tr>
@@ -839,7 +839,7 @@ boolean
 
 [ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md)
 
-二进制内嵌对象图元对象
+Binary embedded object primitive object
 
 ### setstate_rotation
 
@@ -847,7 +847,7 @@ boolean
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：旋转角度
+Set the property state: rotation angle
 
 ## Signature
 
@@ -885,7 +885,7 @@ number
 
 </td><td>
 
-旋转角度
+Rotation angle
 
 
 </td></tr>
@@ -897,7 +897,7 @@ number
 
 [ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md)
 
-二进制内嵌对象图元对象
+Binary embedded object primitive object
 
 ### setstate_startx
 
@@ -905,7 +905,7 @@ number
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：起点坐标 X
+Set the property state: start point coordinates X
 
 ## Signature
 
@@ -943,7 +943,7 @@ number
 
 </td><td>
 
-起点坐标 X
+Start point coordinates X
 
 
 </td></tr>
@@ -955,7 +955,7 @@ number
 
 [ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md)
 
-二进制内嵌对象图元对象
+Binary embedded object primitive object
 
 ### setstate_starty
 
@@ -963,7 +963,7 @@ number
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：起点坐标 Y
+Set the property state: start point coordinates Y
 
 ## Signature
 
@@ -1001,7 +1001,7 @@ number
 
 </td><td>
 
-起点坐标 Y
+Start point coordinates Y
 
 
 </td></tr>
@@ -1013,7 +1013,7 @@ number
 
 [ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md)
 
-二进制内嵌对象图元对象
+Binary embedded object primitive object
 
 ### setstate_width
 
@@ -1021,7 +1021,7 @@ number
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：宽度
+Set the property state: width
 
 ## Signature
 
@@ -1059,7 +1059,7 @@ number
 
 </td><td>
 
-宽度
+Width
 
 
 </td></tr>
@@ -1071,13 +1071,13 @@ number
 
 [ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md)
 
-二进制内嵌对象图元对象
+Binary embedded object primitive object
 
 ### toasync
 
 # ISCH\_PrimitiveObject.toAsync() method
 
-将图元转换为异步图元
+Convert Primitive to Async primitive
 
 ## Signature
 
@@ -1090,13 +1090,13 @@ public toAsync(): ISCH_PrimitiveObject;
 
 [ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md)
 
-二进制内嵌对象图元对象
+Binary embedded object primitive object
 
 ### tosync
 
 # ISCH\_PrimitiveObject.toSync() method
 
-将图元转换为同步图元
+Convert Primitive to Sync primitive
 
 ## Signature
 
@@ -1109,4 +1109,4 @@ public toSync(): ISCH_PrimitiveObject;
 
 [ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md)
 
-二进制内嵌对象图元对象
+Binary embedded object primitive object

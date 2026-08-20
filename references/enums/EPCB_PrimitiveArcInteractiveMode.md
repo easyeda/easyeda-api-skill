@@ -1,6 +1,6 @@
 # EPCB\_PrimitiveArcInteractiveMode enum
 
-圆弧交互模式
+Arc interaction mode
 
 ## Signature
 

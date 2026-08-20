@@ -1,6 +1,6 @@
 # ComponentPropsMap interface
 
-组件名 → Props 类型映射 作为 createComponent 泛型约束的唯一来源
+Component name → Props type mapping, serving as the sole source of the `createComponent` generic constraint
 
 ## Signature
 

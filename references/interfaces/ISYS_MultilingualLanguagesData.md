@@ -1,6 +1,6 @@
 # ISYS\_MultilingualLanguagesData interface
 
-多语言数据
+Multilingual data
 
 ## Signature
 
@@ -10,4 +10,4 @@ export interface ISYS_MultilingualLanguagesData
 
 ## Remarks
 
-包含同一命名空间下的多种语言的数据
+Contains data of multiple languages under the same namespace

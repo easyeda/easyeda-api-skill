@@ -1,6 +1,6 @@
 # ISCH\_PrimitiveCircle class
 
-圆图元
+Circle primitive
 
 ## Signature
 
@@ -40,7 +40,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 将对图元的更改应用到画布
+**_(BETA)_** Apply the changes to the primitives to the canvas
 
 
 </td></tr>
@@ -54,7 +54,7 @@ Description
 
 </td><td>
 
-获取属性状态：圆心 X
+Get the property state: center of the circle X
 
 
 </td></tr>
@@ -68,7 +68,7 @@ Description
 
 </td><td>
 
-获取属性状态：圆心 Y
+Get the property state: center of the circle Y
 
 
 </td></tr>
@@ -82,7 +82,7 @@ Description
 
 </td><td>
 
-获取属性状态：颜色
+Get the property state: color
 
 
 </td></tr>
@@ -96,7 +96,7 @@ Description
 
 </td><td>
 
-获取属性状态：填充颜色
+Get the property state: fill color
 
 
 </td></tr>
@@ -110,7 +110,7 @@ Description
 
 </td><td>
 
-获取属性状态：填充样式
+Get the property state: fill style
 
 
 </td></tr>
@@ -124,7 +124,7 @@ Description
 
 </td><td>
 
-获取属性状态：线型
+Get the property state: line type
 
 
 </td></tr>
@@ -138,7 +138,7 @@ Description
 
 </td><td>
 
-获取属性状态：线宽
+Get the property state: Line width
 
 
 </td></tr>
@@ -152,7 +152,7 @@ Description
 
 </td><td>
 
-获取属性状态：图元 ID
+Get the property state: primitive ID
 
 
 </td></tr>
@@ -166,7 +166,7 @@ Description
 
 </td><td>
 
-获取属性状态：图元类型
+Get the property state: primitive type
 
 
 </td></tr>
@@ -180,7 +180,7 @@ Description
 
 </td><td>
 
-获取属性状态：半径
+Get the property state: radius
 
 
 </td></tr>
@@ -194,7 +194,7 @@ Description
 
 </td><td>
 
-查询图元是否为异步图元
+Query whether the primitive is an async primitive
 
 
 </td></tr>
@@ -208,7 +208,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 将异步图元重置为当前画布状态
+**_(BETA)_** Reset the async primitive to the current canvas state
 
 
 </td></tr>
@@ -222,7 +222,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：圆心 X
+**_(BETA)_** Set the property state: center of the circle X
 
 
 </td></tr>
@@ -236,7 +236,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：圆心 Y
+**_(BETA)_** Set the property state: center of the circle Y
 
 
 </td></tr>
@@ -250,7 +250,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：颜色
+**_(BETA)_** Set the property state: color
 
 
 </td></tr>
@@ -264,7 +264,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：填充颜色
+**_(BETA)_** Set the property state: fill color
 
 
 </td></tr>
@@ -278,7 +278,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：填充样式
+**_(BETA)_** Set the property state: fill style
 
 
 </td></tr>
@@ -292,7 +292,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：线型
+**_(BETA)_** Set the property state: line type
 
 
 </td></tr>
@@ -306,7 +306,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：线宽
+**_(BETA)_** Set the property state: Line width
 
 
 </td></tr>
@@ -320,7 +320,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：半径
+**_(BETA)_** Set the property state: radius
 
 
 </td></tr>
@@ -334,7 +334,7 @@ Description
 
 </td><td>
 
-将图元转换为异步图元
+Convert Primitive to Async primitive
 
 
 </td></tr>
@@ -348,7 +348,7 @@ Description
 
 </td><td>
 
-将图元转换为同步图元
+Convert Primitive to Sync primitive
 
 
 </td></tr>
@@ -364,7 +364,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-将对图元的更改应用到画布
+Apply the changes to the primitives to the canvas
 
 ## Signature
 
@@ -377,13 +377,39 @@ public done(): Promise<ISCH_PrimitiveCircle>;
 
 Promise&lt;[ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md)<!-- -->&gt;
 
-圆图元对象
+Circle primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个测试圆，圆心 (x, y)、半径 150（SCH 坐标单位 10mil）
+const circle = await eda.sch_PrimitiveCircle.create(x, y, 150);
+
+// 3. 切换异步模式，累计两处修改（半径扩大 + 改颜色）
+const asyncCircle = circle.toAsync();
+asyncCircle.setState_Radius(250);
+asyncCircle.setState_Color('#00AA00');
+
+// 4. 一次性提交到画布
+await asyncCircle.done();
+
+// 5. 从画布重新读取，确认两处修改都已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveCircle.get(circle.getState_PrimitiveId());
+
+console.log('radius:', 150, '→', refetched.getState_Radius());
+console.log('color:', '#00AA00', '→', refetched.getState_Color());
+```
 
 ### getstate_centerx
 
 # ISCH\_PrimitiveCircle.getState\_CenterX() method
 
-获取属性状态：圆心 X
+Get the property state: center of the circle X
 
 ## Signature
 
@@ -396,13 +422,29 @@ public getState_CenterX(): number;
 
 number
 
-圆心 X
+Center of the circle X
+
+## Example
+
+
+```javascript
+// 1. 创建一个测试圆，圆心 (400, 300)、半径 150（SCH 坐标单位 10mil）
+const circle = await eda.sch_PrimitiveCircle.create(400, 300, 150);
+
+// 2. 读取圆心 X
+const centerX = circle.getState_CenterX();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveCircle.delete([circle.getState_PrimitiveId()]);
+
+console.log('centerX:', centerX);
+```
 
 ### getstate_centery
 
 # ISCH\_PrimitiveCircle.getState\_CenterY() method
 
-获取属性状态：圆心 Y
+Get the property state: center of the circle Y
 
 ## Signature
 
@@ -415,13 +457,29 @@ public getState_CenterY(): number;
 
 number
 
-圆心 Y
+Center of the circle Y
+
+## Example
+
+
+```javascript
+// 1. 创建一个测试圆，圆心 (400, 300)、半径 150（SCH 坐标单位 10mil）
+const circle = await eda.sch_PrimitiveCircle.create(400, 300, 150);
+
+// 2. 读取圆心 Y
+const centerY = circle.getState_CenterY();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveCircle.delete([circle.getState_PrimitiveId()]);
+
+console.log('centerY:', centerY);
+```
 
 ### getstate_color
 
 # ISCH\_PrimitiveCircle.getState\_Color() method
 
-获取属性状态：颜色
+Get the property state: color
 
 ## Signature
 
@@ -434,13 +492,29 @@ public getState_Color(): string | null;
 
 string \| null
 
-颜色
+Color
+
+## Example
+
+
+```javascript
+// 1. 创建一个红色轮廓的测试圆（SCH 坐标单位 10mil）
+const circle = await eda.sch_PrimitiveCircle.create(400, 300, 150, '#FF0000');
+
+// 2. 读取轮廓颜色
+const color = circle.getState_Color();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveCircle.delete([circle.getState_PrimitiveId()]);
+
+console.log('color:', color);
+```
 
 ### getstate_fillcolor
 
 # ISCH\_PrimitiveCircle.getState\_FillColor() method
 
-获取属性状态：填充颜色
+Get the property state: fill color
 
 ## Signature
 
@@ -453,13 +527,29 @@ public getState_FillColor(): string | null;
 
 string \| null
 
-填充颜色
+Fill color
+
+## Example
+
+
+```javascript
+// 1. 创建一个带填充色的测试圆：轮廓红、填充黄（SCH 坐标单位 10mil）
+const circle = await eda.sch_PrimitiveCircle.create(400, 300, 150, '#FF0000', '#FFEC8B');
+
+// 2. 读取填充颜色
+const fillColor = circle.getState_FillColor();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveCircle.delete([circle.getState_PrimitiveId()]);
+
+console.log('fillColor:', fillColor);
+```
 
 ### getstate_fillstyle
 
 # ISCH\_PrimitiveCircle.getState\_FillStyle() method
 
-获取属性状态：填充样式
+Get the property state: fill style
 
 ## Signature
 
@@ -472,13 +562,29 @@ public getState_FillStyle(): ESCH_PrimitiveFillStyle | null;
 
 [ESCH\_PrimitiveFillStyle](../enums/ESCH_PrimitiveFillStyle.md) \| null
 
-填充样式
+Fill style
+
+## Example
+
+
+```javascript
+// 1. 创建一个实心填充的测试圆（fillStyle 传字符串枚举，如 'Solid'）
+const circle = await eda.sch_PrimitiveCircle.create(400, 300, 150, '#FF0000', '#FFEC8B', 6, 0, 'Solid');
+
+// 2. 读取填充样式
+const fillStyle = circle.getState_FillStyle();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveCircle.delete([circle.getState_PrimitiveId()]);
+
+console.log('fillStyle:', fillStyle);
+```
 
 ### getstate_linetype
 
 # ISCH\_PrimitiveCircle.getState\_LineType() method
 
-获取属性状态：线型
+Get the property state: line type
 
 ## Signature
 
@@ -491,13 +597,29 @@ public getState_LineType(): ESCH_PrimitiveLineType | null;
 
 [ESCH\_PrimitiveLineType](../enums/ESCH_PrimitiveLineType.md) \| null
 
-线型
+Line type
+
+## Example
+
+
+```javascript
+// 1. 创建一个虚线轮廓的测试圆（lineType 传数字枚举，1 = DASHED）
+const circle = await eda.sch_PrimitiveCircle.create(400, 300, 150, '#FF0000', null, 6, 1);
+
+// 2. 读取线型
+const lineType = circle.getState_LineType();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveCircle.delete([circle.getState_PrimitiveId()]);
+
+console.log('lineType:', lineType);
+```
 
 ### getstate_linewidth
 
 # ISCH\_PrimitiveCircle.getState\_LineWidth() method
 
-获取属性状态：线宽
+Get the property state: Line width
 
 ## Signature
 
@@ -510,13 +632,29 @@ public getState_LineWidth(): number | null;
 
 number \| null
 
-线宽
+Line width
+
+## Example
+
+
+```javascript
+// 1. 创建一个线宽 6 的测试圆（SCH 坐标单位 10mil）
+const circle = await eda.sch_PrimitiveCircle.create(400, 300, 150, '#FF0000', null, 6, 0);
+
+// 2. 读取线宽
+const lineWidth = circle.getState_LineWidth();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveCircle.delete([circle.getState_PrimitiveId()]);
+
+console.log('lineWidth:', lineWidth);
+```
 
 ### getstate_primitiveid
 
 # ISCH\_PrimitiveCircle.getState\_PrimitiveId() method
 
-获取属性状态：图元 ID
+Get the property state: primitive ID
 
 ## Signature
 
@@ -529,13 +667,29 @@ public getState_PrimitiveId(): string;
 
 string
 
-图元 ID
+Primitive ID
+
+## Example
+
+
+```javascript
+// 1. 创建一个测试圆（SCH 坐标单位 10mil）
+const circle = await eda.sch_PrimitiveCircle.create(400, 300, 150);
+
+// 2. 读取图元 ID
+const primitiveId = circle.getState_PrimitiveId();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveCircle.delete([circle.getState_PrimitiveId()]);
+
+console.log('primitiveId:', primitiveId);
+```
 
 ### getstate_primitivetype
 
 # ISCH\_PrimitiveCircle.getState\_PrimitiveType() method
 
-获取属性状态：图元类型
+Get the property state: primitive type
 
 ## Signature
 
@@ -548,13 +702,29 @@ public getState_PrimitiveType(): ESCH_PrimitiveType;
 
 [ESCH\_PrimitiveType](../enums/ESCH_PrimitiveType.md)
 
-图元类型
+Primitive type
+
+## Example
+
+
+```javascript
+// 1. 创建一个测试圆（SCH 坐标单位 10mil）
+const circle = await eda.sch_PrimitiveCircle.create(400, 300, 150);
+
+// 2. 读取图元类型
+const primitiveType = circle.getState_PrimitiveType();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveCircle.delete([circle.getState_PrimitiveId()]);
+
+console.log('primitiveType:', primitiveType);
+```
 
 ### getstate_radius
 
 # ISCH\_PrimitiveCircle.getState\_Radius() method
 
-获取属性状态：半径
+Get the property state: radius
 
 ## Signature
 
@@ -567,13 +737,29 @@ public getState_Radius(): number;
 
 number
 
-半径
+Radius
+
+## Example
+
+
+```javascript
+// 1. 创建一个半径 150 的测试圆（SCH 坐标单位 10mil）
+const circle = await eda.sch_PrimitiveCircle.create(400, 300, 150);
+
+// 2. 读取半径
+const radius = circle.getState_Radius();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveCircle.delete([circle.getState_PrimitiveId()]);
+
+console.log('radius:', radius);
+```
 
 ### isasync
 
 # ISCH\_PrimitiveCircle.isAsync() method
 
-查询图元是否为异步图元
+Query whether the primitive is an async primitive
 
 ## Signature
 
@@ -586,7 +772,26 @@ public isAsync(): boolean;
 
 boolean
 
-是否为异步图元
+Whether Is async primitive
+
+## Example
+
+
+```javascript
+// 1. 创建一个测试圆，创建后默认处于异步模式
+const circle = await eda.sch_PrimitiveCircle.create(400, 300, 150);
+const asyncOnCreate = circle.isAsync();
+
+// 2. 切换到同步模式再查询一次，对比两种模式
+circle.toSync();
+const asyncAfterToSync = circle.isAsync();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.sch_PrimitiveCircle.delete([circle.getState_PrimitiveId()]);
+
+console.log('isAsync on create:', asyncOnCreate);
+console.log('isAsync after toSync:', asyncAfterToSync);
+```
 
 ### reset
 
@@ -594,7 +799,7 @@ boolean
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-将异步图元重置为当前画布状态
+Reset the async primitive to the current canvas state
 
 ## Signature
 
@@ -607,7 +812,31 @@ public reset(): Promise<ISCH_PrimitiveCircle>;
 
 Promise&lt;[ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md)<!-- -->&gt;
 
-圆图元对象
+Circle primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个线宽 6 的测试圆（SCH 坐标单位 10mil）
+const circle = await eda.sch_PrimitiveCircle.create(x, y, 150, '#FF0000', null, 6, 0);
+
+// 3. 切换异步模式，累计一处未提交的线宽修改（6 → 99）
+const asyncCircle = circle.toAsync();
+asyncCircle.setState_LineWidth(99);
+
+// 4. 重置：丢弃未提交的修改，回到画布当前状态
+await asyncCircle.reset();
+
+// 5. 从画布重新读取，线宽仍是 6（保留现场供观察）
+const refetched = await eda.sch_PrimitiveCircle.get(circle.getState_PrimitiveId());
+
+console.log('lineWidth after reset:', refetched.getState_LineWidth());
+```
 
 ### setstate_centerx
 
@@ -615,7 +844,7 @@ Promise&lt;[ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md)<!-- -->&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：圆心 X
+Set the property state: center of the circle X
 
 ## Signature
 
@@ -653,7 +882,7 @@ number
 
 </td><td>
 
-圆心 X
+Center of the circle X
 
 
 </td></tr>
@@ -665,7 +894,29 @@ number
 
 [ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md)
 
-圆图元对象
+Circle primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个测试圆，圆心 (x, y)、半径 150（SCH 坐标单位 10mil）
+const circle = await eda.sch_PrimitiveCircle.create(x, y, 150);
+
+// 3. 切换异步模式并把圆心右移 200
+const asyncCircle = circle.toAsync();
+asyncCircle.setState_CenterX(x + 200);
+await asyncCircle.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveCircle.get(circle.getState_PrimitiveId());
+
+console.log('centerX:', x, '→', refetched.getState_CenterX());
+```
 
 ### setstate_centery
 
@@ -673,7 +924,7 @@ number
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：圆心 Y
+Set the property state: center of the circle Y
 
 ## Signature
 
@@ -711,7 +962,7 @@ number
 
 </td><td>
 
-圆心 Y
+Center of the circle Y
 
 
 </td></tr>
@@ -723,7 +974,29 @@ number
 
 [ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md)
 
-圆图元对象
+Circle primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个测试圆，圆心 (x, y)、半径 150（SCH 坐标单位 10mil）
+const circle = await eda.sch_PrimitiveCircle.create(x, y, 150);
+
+// 3. 切换异步模式并把圆心上移 200
+const asyncCircle = circle.toAsync();
+asyncCircle.setState_CenterY(y + 200);
+await asyncCircle.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveCircle.get(circle.getState_PrimitiveId());
+
+console.log('centerY:', y, '→', refetched.getState_CenterY());
+```
 
 ### setstate_color
 
@@ -731,7 +1004,7 @@ number
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：颜色
+Set the property state: color
 
 ## Signature
 
@@ -769,7 +1042,7 @@ string \| null
 
 </td><td>
 
-颜色
+Color
 
 
 </td></tr>
@@ -781,7 +1054,29 @@ string \| null
 
 [ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md)
 
-圆图元对象
+Circle primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个红色轮廓的测试圆（SCH 坐标单位 10mil）
+const circle = await eda.sch_PrimitiveCircle.create(x, y, 150, '#FF0000');
+
+// 3. 切换异步模式并改为绿色
+const asyncCircle = circle.toAsync();
+asyncCircle.setState_Color('#00AA00');
+await asyncCircle.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveCircle.get(circle.getState_PrimitiveId());
+
+console.log('color:', '#FF0000', '→', refetched.getState_Color());
+```
 
 ### setstate_fillcolor
 
@@ -789,7 +1084,7 @@ string \| null
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：填充颜色
+Set the property state: fill color
 
 ## Signature
 
@@ -827,7 +1122,7 @@ string \| null
 
 </td><td>
 
-填充颜色
+Fill color
 
 
 </td></tr>
@@ -839,7 +1134,29 @@ string \| null
 
 [ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md)
 
-圆图元对象
+Circle primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个黄色填充的测试圆（SCH 坐标单位 10mil）
+const circle = await eda.sch_PrimitiveCircle.create(x, y, 150, '#FF0000', '#FFEC8B');
+
+// 3. 切换异步模式并改为浅蓝填充
+const asyncCircle = circle.toAsync();
+asyncCircle.setState_FillColor('#A0D8EF');
+await asyncCircle.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveCircle.get(circle.getState_PrimitiveId());
+
+console.log('fillColor:', '#FFEC8B', '→', refetched.getState_FillColor());
+```
 
 ### setstate_fillstyle
 
@@ -847,7 +1164,7 @@ string \| null
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：填充样式
+Set the property state: fill style
 
 ## Signature
 
@@ -885,7 +1202,7 @@ fillStyle
 
 </td><td>
 
-填充样式
+Fill style
 
 
 </td></tr>
@@ -897,7 +1214,29 @@ fillStyle
 
 [ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md)
 
-圆图元对象
+Circle primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个实心填充的测试圆（fillStyle 传字符串枚举 'Solid'）
+const circle = await eda.sch_PrimitiveCircle.create(x, y, 150, '#FF0000', '#FFEC8B', 6, 0, 'Solid');
+
+// 3. 切换异步模式并改为网格填充
+const asyncCircle = circle.toAsync();
+asyncCircle.setState_FillStyle('Grid');
+await asyncCircle.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveCircle.get(circle.getState_PrimitiveId());
+
+console.log('fillStyle:', 'Solid', '→', refetched.getState_FillStyle());
+```
 
 ### setstate_linetype
 
@@ -905,7 +1244,7 @@ fillStyle
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：线型
+Set the property state: line type
 
 ## Signature
 
@@ -943,7 +1282,7 @@ lineType
 
 </td><td>
 
-线型
+Line type
 
 
 </td></tr>
@@ -955,7 +1294,29 @@ lineType
 
 [ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md)
 
-圆图元对象
+Circle primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个实线轮廓的测试圆（lineType 0 = SOLID）
+const circle = await eda.sch_PrimitiveCircle.create(x, y, 150, '#FF0000', null, 6, 0);
+
+// 3. 切换异步模式并改为虚线
+const asyncCircle = circle.toAsync();
+asyncCircle.setState_LineType(1);
+await asyncCircle.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveCircle.get(circle.getState_PrimitiveId());
+
+console.log('lineType:', 0, '→', refetched.getState_LineType());
+```
 
 ### setstate_linewidth
 
@@ -963,7 +1324,7 @@ lineType
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：线宽
+Set the property state: Line width
 
 ## Signature
 
@@ -1001,7 +1362,7 @@ number \| null
 
 </td><td>
 
-线宽
+Line width
 
 
 </td></tr>
@@ -1013,7 +1374,29 @@ number \| null
 
 [ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md)
 
-圆图元对象
+Circle primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个线宽 6 的测试圆（SCH 坐标单位 10mil）
+const circle = await eda.sch_PrimitiveCircle.create(x, y, 150, '#FF0000', null, 6, 0);
+
+// 3. 切换异步模式并把线宽加粗到 10
+const asyncCircle = circle.toAsync();
+asyncCircle.setState_LineWidth(10);
+await asyncCircle.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveCircle.get(circle.getState_PrimitiveId());
+
+console.log('lineWidth:', 6, '→', refetched.getState_LineWidth());
+```
 
 ### setstate_radius
 
@@ -1021,7 +1404,7 @@ number \| null
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：半径
+Set the property state: radius
 
 ## Signature
 
@@ -1059,7 +1442,7 @@ number
 
 </td><td>
 
-半径
+Radius
 
 
 </td></tr>
@@ -1071,13 +1454,35 @@ number
 
 [ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md)
 
-圆图元对象
+Circle primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个半径 150 的测试圆（SCH 坐标单位 10mil）
+const circle = await eda.sch_PrimitiveCircle.create(x, y, 150);
+
+// 3. 切换异步模式并把半径扩大到 250
+const asyncCircle = circle.toAsync();
+asyncCircle.setState_Radius(250);
+await asyncCircle.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveCircle.get(circle.getState_PrimitiveId());
+
+console.log('radius:', 150, '→', refetched.getState_Radius());
+```
 
 ### toasync
 
 # ISCH\_PrimitiveCircle.toAsync() method
 
-将图元转换为异步图元
+Convert Primitive to Async primitive
 
 ## Signature
 
@@ -1090,13 +1495,39 @@ public toAsync(): ISCH_PrimitiveCircle;
 
 [ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md)
 
-圆图元对象
+Circle primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个测试圆（SCH 坐标单位 10mil）
+const circle = await eda.sch_PrimitiveCircle.create(x, y, 150);
+
+// 3. 先切换到同步模式，再切回异步模式
+circle.toSync();
+const asyncCircle = circle.toAsync();
+
+// 4. 异步模式下修改半径，调用 done() 提交到画布
+asyncCircle.setState_Radius(250);
+await asyncCircle.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveCircle.get(circle.getState_PrimitiveId());
+
+console.log('isAsync after toAsync:', circle.isAsync());
+console.log('radius:', 150, '→', refetched.getState_Radius());
+```
 
 ### tosync
 
 # ISCH\_PrimitiveCircle.toSync() method
 
-将图元转换为同步图元
+Convert Primitive to Sync primitive
 
 ## Signature
 
@@ -1109,4 +1540,28 @@ public toSync(): ISCH_PrimitiveCircle;
 
 [ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md)
 
-圆图元对象
+Circle primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个测试圆（创建后默认处于异步模式）
+const circle = await eda.sch_PrimitiveCircle.create(x, y, 150);
+
+// 3. 转换为同步图元
+const syncCircle = circle.toSync();
+
+// 4. 同步模式下扩大半径，立即生效，无需 done()
+syncCircle.setState_Radius(250);
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveCircle.get(circle.getState_PrimitiveId());
+
+console.log('isAsync after toSync:', circle.isAsync());
+console.log('radius:', 150, '→', refetched.getState_Radius());
+```

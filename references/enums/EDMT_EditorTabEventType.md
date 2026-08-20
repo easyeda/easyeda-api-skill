@@ -1,6 +1,6 @@
 # EDMT\_EditorTabEventType enum
 
-编辑器标签页事件类型
+Editor tab event type
 
 ## Signature
 
@@ -72,4 +72,4 @@ TOGGLE
 
 ## Remarks
 
-在类型为 [关闭](./EDMT_EditorTabEventType.md) 或 [打开](./EDMT_EditorTabEventType.md) 时，均会同时触发 [切换](./EDMT_EditorTabEventType.md) 事件
+When the type is [close](./EDMT_EditorTabEventType.md) or [open](./EDMT_EditorTabEventType.md)<!-- -->, the [switch](./EDMT_EditorTabEventType.md) event will also be triggered

@@ -46,7 +46,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否禁用
+_(Optional)_ Whether Disable
 
 
 </td></tr>
@@ -65,7 +65,7 @@ _(Optional)_ 是否禁用
 
 </td><td>
 
-_(Optional)_ 按钮图标配置
+_(Optional)_ Button icon configuration
 
 
 </td></tr>
@@ -103,7 +103,7 @@ string
 
 </td><td>
 
-_(Optional)_ 按钮显示文本
+_(Optional)_ Button show text
 
 
 </td></tr>
@@ -122,7 +122,7 @@ _(Optional)_ 按钮显示文本
 
 </td><td>
 
-_(Optional)_ 按钮样式类型：default 默认 / primary 主按钮 / danger 危险 / forbidden 禁用态 / text 纯文本
+_(Optional)_ Button style type: default / primary / danger / forbidden / text
 
 
 </td></tr>
@@ -136,7 +136,7 @@ _(Optional)_ 按钮样式类型：default 默认 / primary 主按钮 / danger �
 
 # ButtonProps.disabled property
 
-是否禁用
+Whether Disable
 
 ## Signature
 
@@ -148,7 +148,7 @@ disabled?: boolean;
 
 # ButtonProps.icon property
 
-按钮图标配置
+Button icon configuration
 
 ## Signature
 
@@ -172,7 +172,7 @@ onClick?: () => void;
 
 # ButtonProps.text property
 
-按钮显示文本
+Button show text
 
 ## Signature
 
@@ -184,7 +184,7 @@ text?: string;
 
 # ButtonProps.type property
 
-按钮样式类型：default 默认 / primary 主按钮 / danger 危险 / forbidden 禁用态 / text 纯文本
+Button style type: default / primary / danger / forbidden / text
 
 ## Signature
 

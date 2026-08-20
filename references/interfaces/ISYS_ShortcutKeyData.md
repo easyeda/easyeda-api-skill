@@ -1,6 +1,6 @@
 # ISYS\_ShortcutKeyData interface
 
-快捷键数据
+Shortcut key data
 
 ## Signature
 
@@ -46,7 +46,7 @@ Array&lt;[ESYS\_ShortcutKeyEffectiveEditorRange](../enums/ESYS_ShortcutKeyEffect
 
 </td><td>
 
-快捷键生效页面范围
+Effective page range of the shortcut key
 
 
 </td></tr>
@@ -65,7 +65,7 @@ string
 
 </td><td>
 
-备注
+Remarks
 
 
 </td></tr>
@@ -84,7 +84,7 @@ Array&lt;[ESYS\_ShortcutKeyEffectiveEditorScene](../enums/ESYS_ShortcutKeyEffect
 
 </td><td>
 
-快捷键生效场景范围
+Effective scene range of the shortcut key
 
 
 </td></tr>
@@ -103,7 +103,7 @@ Array&lt;[ESYS\_ShortcutKeyEffectiveEditorScene](../enums/ESYS_ShortcutKeyEffect
 
 </td><td>
 
-快捷键
+Shortcut key
 
 
 </td></tr>
@@ -122,7 +122,7 @@ string
 
 </td><td>
 
-标题
+Title
 
 
 </td></tr>
@@ -136,7 +136,7 @@ string
 
 # ISYS\_ShortcutKeyData.range property
 
-快捷键生效页面范围
+Effective page range of the shortcut key
 
 ## Signature
 
@@ -148,7 +148,7 @@ range: Array<ESYS_ShortcutKeyEffectiveEditorRange>;
 
 # ISYS\_ShortcutKeyData.remark property
 
-备注
+Remarks
 
 ## Signature
 
@@ -160,7 +160,7 @@ remark: string;
 
 # ISYS\_ShortcutKeyData.scene property
 
-快捷键生效场景范围
+Effective scene range of the shortcut key
 
 ## Signature
 
@@ -172,7 +172,7 @@ scene: Array<ESYS_ShortcutKeyEffectiveEditorScene>;
 
 # ISYS\_ShortcutKeyData.shortcutKey property
 
-快捷键
+Shortcut key
 
 ## Signature
 
@@ -184,7 +184,7 @@ shortcutKey: TSYS_ShortcutKeys | null;
 
 # ISYS\_ShortcutKeyData.title property
 
-标题
+Title
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # ESCH\_PrimitiveComponentType enum
 
-器件类型
+Device type
 
 ## Signature
 

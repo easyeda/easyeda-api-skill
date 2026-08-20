@@ -1,6 +1,6 @@
 # SCH\_PrimitiveArc class
 
-原理图 &amp; 符号 / 圆弧图元类
+Schematic &amp; symbol / arc primitive class
 
 ## Signature
 
@@ -37,7 +37,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建圆弧
+**_(BETA)_** Create Arc
 
 
 </td></tr>
@@ -51,7 +51,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 删除圆弧
+**_(BETA)_** Delete Arc
 
 
 </td></tr>
@@ -65,7 +65,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取圆弧
+**_(BETA)_** Get Arc
 
 
 </td></tr>
@@ -79,7 +79,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取圆弧
+**_(BETA)_** Get Arc
 
 
 </td></tr>
@@ -93,7 +93,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有圆弧
+**_(BETA)_** Get all Arc
 
 
 </td></tr>
@@ -107,7 +107,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有圆弧的图元 ID
+**_(BETA)_** Get all Arc primitive IDs
 
 
 </td></tr>
@@ -121,7 +121,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 修改圆弧
+**_(BETA)_** Modify Arc
 
 
 </td></tr>
@@ -137,7 +137,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-创建圆弧
+Create Arc
 
 ## Signature
 
@@ -175,7 +175,7 @@ number
 
 </td><td>
 
-起始点 X
+Start point X
 
 
 </td></tr>
@@ -191,7 +191,7 @@ number
 
 </td><td>
 
-起始点 Y
+Start point Y
 
 
 </td></tr>
@@ -207,7 +207,7 @@ number
 
 </td><td>
 
-参考点 X
+Reference point X
 
 
 </td></tr>
@@ -223,7 +223,7 @@ number
 
 </td><td>
 
-参考点 Y
+Reference point Y
 
 
 </td></tr>
@@ -239,7 +239,7 @@ number
 
 </td><td>
 
-终止点 X
+End point X
 
 
 </td></tr>
@@ -255,7 +255,7 @@ number
 
 </td><td>
 
-终止点 Y
+End point Y
 
 
 </td></tr>
@@ -271,7 +271,7 @@ string \| null
 
 </td><td>
 
-_(Optional)_ 颜色，`null` 表示默认
+_(Optional)_ Color, `null` indicates the default
 
 
 </td></tr>
@@ -287,7 +287,7 @@ string \| null
 
 </td><td>
 
-_(Optional)_ 填充颜色，`none` 表示无填充，`null` 表示默认
+_(Optional)_ Fill color. `none` indicates no fill, `null` indicates the default
 
 
 </td></tr>
@@ -303,7 +303,7 @@ number \| null
 
 </td><td>
 
-_(Optional)_ 线宽，范围 `1-10`<!-- -->，`null` 表示默认
+_(Optional)_ Line width, range `1-10`<!-- -->. `null` indicates the default
 
 
 </td></tr>
@@ -319,7 +319,7 @@ lineType
 
 </td><td>
 
-_(Optional)_ 线型，`null` 表示默认
+_(Optional)_ Line type. `null` indicates the default
 
 
 </td></tr>
@@ -331,7 +331,7 @@ _(Optional)_ 线型，`null` 表示默认
 
 Promise&lt;[ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md) \| undefined&gt;
 
-圆弧图元对象
+Arc primitive object
 
 ### delete
 
@@ -339,7 +339,7 @@ Promise&lt;[ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md) \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-删除圆弧
+Delete Arc
 
 ## Signature
 
@@ -377,7 +377,7 @@ string \| [ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md) \| Array&lt;string&gt; \|
 
 </td><td>
 
-圆弧的图元 ID 或圆弧图元对象
+Arc primitive ID or Arc primitive object
 
 
 </td></tr>
@@ -389,7 +389,7 @@ string \| [ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md) \| Array&lt;string&gt; \|
 
 Promise&lt;boolean&gt;
 
-删除操作是否成功
+Delete Whether the operation is successful
 
 ### get
 
@@ -397,7 +397,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取圆弧
+Get Arc
 
 ## Signature
 
@@ -435,7 +435,7 @@ string
 
 </td><td>
 
-圆弧的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Arc primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -447,7 +447,7 @@ string
 
 Promise&lt;[ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md) \| undefined&gt;
 
-圆弧图元对象，`undefined` 表示获取失败
+Arc primitive object, `undefined` indicates that the retrieval failed
 
 ### get_1
 
@@ -455,7 +455,7 @@ Promise&lt;[ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md) \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取圆弧
+Get Arc
 
 ## Signature
 
@@ -493,7 +493,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-圆弧的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Arc primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -505,11 +505,11 @@ Array&lt;string&gt;
 
 Promise&lt;Array&lt;[ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md)<!-- -->&gt;&gt;
 
-圆弧图元对象，空数组表示获取失败
+Arc primitive object; an empty array indicates that the retrieval failed
 
 ## Remarks
 
-如若传入多个图元 ID，任意图元 ID 未匹配到不影响其它图元的返回，即可能返回少于传入的图元 ID 数量的图元对象
+If multiple primitive IDs are passed in, a primitive ID that is not matched will not affect the return of other primitives; that is, fewer primitive objects than the number of primitive IDs passed in may be returned.
 
 ### getall
 
@@ -517,7 +517,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md)<!-- -->&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有圆弧
+Get all Arc
 
 ## Signature
 
@@ -530,7 +530,7 @@ public getAll(): Promise<Array<ISCH_PrimitiveArc>>;
 
 Promise&lt;Array&lt;[ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md)<!-- -->&gt;&gt;
 
-圆弧图元对象数组
+Array of Arc primitive objects
 
 ### getallprimitiveid
 
@@ -538,7 +538,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md)<!-- -->&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有圆弧的图元 ID
+Get all Arc primitive IDs
 
 ## Signature
 
@@ -551,7 +551,7 @@ public getAllPrimitiveId(): Promise<Array<string>>;
 
 Promise&lt;Array&lt;string&gt;&gt;
 
-圆弧的图元 ID 数组
+Array of Arc primitive IDs
 
 ### modify
 
@@ -559,7 +559,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-修改圆弧
+Modify Arc
 
 ## Signature
 
@@ -597,7 +597,7 @@ string \| [ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md)
 
 </td><td>
 
-图元 ID
+Primitive ID
 
 
 </td></tr>
@@ -613,7 +613,7 @@ property
 
 </td><td>
 
-修改参数
+Modify Parameter
 
 
 </td></tr>
@@ -625,4 +625,4 @@ property
 
 Promise&lt;[ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md) \| undefined&gt;
 
-圆弧图元对象
+Arc primitive object

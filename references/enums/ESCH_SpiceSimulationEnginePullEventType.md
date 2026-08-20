@@ -1,6 +1,6 @@
 # ESCH\_SpiceSimulationEnginePullEventType enum
 
-Spice 仿真引擎拉取事件类型
+Spice simulation engine pull event type
 
 ## Signature
 

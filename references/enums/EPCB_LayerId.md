@@ -1,6 +1,6 @@
 # EPCB\_LayerId enum
 
-图层 ID
+Layer ID
 
 ## Signature
 

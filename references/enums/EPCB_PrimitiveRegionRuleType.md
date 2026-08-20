@@ -1,6 +1,6 @@
 # EPCB\_PrimitiveRegionRuleType enum
 
-区域图元区域规则类型
+Region primitive region rule type
 
 ## Signature
 
@@ -114,4 +114,4 @@ NO\_WIRES
 
 ## Remarks
 
-[FOLLOW\_REGION\_RULE](./EPCB_PrimitiveRegionRuleType.md) 即为约束区域
+[FOLLOW\_REGION\_RULE](./EPCB_PrimitiveRegionRuleType.md) is the constrained region

@@ -46,7 +46,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否显示边框
+_(Optional)_ Whether to show the border
 
 
 </td></tr>
@@ -65,7 +65,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否允许展开嵌套子项
+_(Optional)_ Whether nested child items are allowed to expand
 
 
 </td></tr>
@@ -84,7 +84,7 @@ number
 
 </td><td>
 
-_(Optional)_ 列表项高度（像素）
+_(Optional)_ List item height (pixels)
 
 
 </td></tr>
@@ -103,7 +103,7 @@ _(Optional)_ 列表项高度（像素）
 
 </td><td>
 
-列表数据（必填）
+List data ( required)
 
 
 </td></tr>
@@ -174,7 +174,7 @@ _(Optional)_ 双击列表项时触发，参数为 id
 
 # ListProps.border property
 
-是否显示边框
+Whether to show the border
 
 ## Signature
 
@@ -186,7 +186,7 @@ border?: boolean;
 
 # ListProps.expandEnable property
 
-是否允许展开嵌套子项
+Whether nested child items are allowed to expand
 
 ## Signature
 
@@ -198,7 +198,7 @@ expandEnable?: boolean;
 
 # ListProps.itemHeight property
 
-列表项高度（像素）
+List item height (pixels)
 
 ## Signature
 
@@ -210,7 +210,7 @@ itemHeight?: number;
 
 # ListProps.list property
 
-列表数据（必填）
+List data ( required)
 
 ## Signature
 

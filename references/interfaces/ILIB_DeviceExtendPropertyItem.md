@@ -1,6 +1,6 @@
 # ILIB\_DeviceExtendPropertyItem interface
 
-器件扩展属性
+Device extension property
 
 ## Signature
 
@@ -46,7 +46,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 加入 BOM
+_(Optional)_ Add to BOM
 
 
 </td></tr>
@@ -65,7 +65,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 转到 PCB
+_(Optional)_ Transfer to PCB
 
 
 </td></tr>
@@ -84,7 +84,7 @@ string
 
 </td><td>
 
-_(Optional)_ 位号
+_(Optional)_ Designator
 
 
 </td></tr>
@@ -103,7 +103,7 @@ string
 
 </td><td>
 
-_(Optional)_ 制造商
+_(Optional)_ Manufacturer
 
 
 </td></tr>
@@ -122,7 +122,7 @@ string
 
 </td><td>
 
-_(Optional)_ 制造商编号
+_(Optional)_ Manufacturer ID
 
 
 </td></tr>
@@ -141,7 +141,7 @@ string
 
 </td><td>
 
-_(Optional)_ 名称
+_(Optional)_ Name
 
 
 </td></tr>
@@ -160,7 +160,7 @@ string
 
 </td><td>
 
-_(Optional)_ 网络
+_(Optional)_ Net
 
 
 </td></tr>
@@ -179,7 +179,7 @@ Record&lt;string, boolean \| number \| string \| undefined&gt;
 
 </td><td>
 
-_(Optional)_ 其它属性
+_(Optional)_ Other property
 
 
 </td></tr>
@@ -198,7 +198,7 @@ string
 
 </td><td>
 
-_(Optional)_ 供应商
+_(Optional)_ Supplier
 
 
 </td></tr>
@@ -217,7 +217,7 @@ string
 
 </td><td>
 
-_(Optional)_ 供应商编号
+_(Optional)_ Supplier ID
 
 
 </td></tr>
@@ -231,7 +231,7 @@ _(Optional)_ 供应商编号
 
 # ILIB\_DeviceExtendPropertyItem.addIntoBom property
 
-加入 BOM
+Add to BOM
 
 ## Signature
 
@@ -243,7 +243,7 @@ addIntoBom?: boolean;
 
 # ILIB\_DeviceExtendPropertyItem.addIntoPcb property
 
-转到 PCB
+Transfer to PCB
 
 ## Signature
 
@@ -255,7 +255,7 @@ addIntoPcb?: boolean;
 
 # ILIB\_DeviceExtendPropertyItem.designator property
 
-位号
+Designator
 
 ## Signature
 
@@ -267,7 +267,7 @@ designator?: string;
 
 # ILIB\_DeviceExtendPropertyItem.manufacturer property
 
-制造商
+Manufacturer
 
 ## Signature
 
@@ -279,7 +279,7 @@ manufacturer?: string;
 
 # ILIB\_DeviceExtendPropertyItem.manufacturerId property
 
-制造商编号
+Manufacturer ID
 
 ## Signature
 
@@ -291,7 +291,7 @@ manufacturerId?: string;
 
 # ILIB\_DeviceExtendPropertyItem.name property
 
-名称
+Name
 
 ## Signature
 
@@ -303,7 +303,7 @@ name?: string;
 
 # ILIB\_DeviceExtendPropertyItem.net property
 
-网络
+Net
 
 ## Signature
 
@@ -315,7 +315,7 @@ net?: string;
 
 # ILIB\_DeviceExtendPropertyItem.otherProperty property
 
-其它属性
+Other property
 
 ## Signature
 
@@ -327,7 +327,7 @@ otherProperty?: Record<string, boolean | number | string | undefined>;
 
 # ILIB\_DeviceExtendPropertyItem.supplier property
 
-供应商
+Supplier
 
 ## Signature
 
@@ -339,7 +339,7 @@ supplier?: string;
 
 # ILIB\_DeviceExtendPropertyItem.supplierId property
 
-供应商编号
+Supplier ID
 
 ## Signature
 

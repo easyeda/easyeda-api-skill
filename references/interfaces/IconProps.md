@@ -46,7 +46,7 @@ string
 
 </td><td>
 
-_(Optional)_ 图标 CSS class 名
+_(Optional)_ Icon CSS class name
 
 
 </td></tr>
@@ -65,7 +65,7 @@ string
 
 </td><td>
 
-_(Optional)_ 图标图片地址
+_(Optional)_ Icon image URL
 
 
 </td></tr>
@@ -79,7 +79,7 @@ _(Optional)_ 图标图片地址
 
 # IconProps.iconClass property
 
-图标 CSS class 名
+Icon CSS class name
 
 ## Signature
 
@@ -91,7 +91,7 @@ iconClass?: string;
 
 # IconProps.iconUrl property
 
-图标图片地址
+Icon image URL
 
 ## Signature
 

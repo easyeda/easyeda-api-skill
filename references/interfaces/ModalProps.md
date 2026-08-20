@@ -46,7 +46,7 @@ any
 
 </td><td>
 
-_(Optional)_ 弹窗内容子节点
+_(Optional)_ Popup content child nodes
 
 
 </td></tr>
@@ -65,7 +65,7 @@ number
 
 </td><td>
 
-高度（像素，必填）
+Height ( pixels, required)
 
 
 </td></tr>
@@ -84,7 +84,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否隐藏弹窗
+_(Optional)_ Whether to hide the popup
 
 
 </td></tr>
@@ -103,7 +103,7 @@ number
 
 </td><td>
 
-距左侧位置（像素，必填）
+Position from the left (pixels, required)
 
 
 </td></tr>
@@ -122,7 +122,7 @@ number
 
 </td><td>
 
-_(Optional)_ 最大水平拖拽距离（像素）
+_(Optional)_ Maximum horizontal drag distance (pixels)
 
 
 </td></tr>
@@ -141,7 +141,7 @@ number
 
 </td><td>
 
-_(Optional)_ 最大垂直拖拽距离（像素）
+_(Optional)_ Maximum vertical drag distance ( pixels)
 
 
 </td></tr>
@@ -179,7 +179,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否显示遮罩层
+_(Optional)_ Whether to show the mask layer
 
 
 </td></tr>
@@ -198,7 +198,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否允许水平调整大小
+_(Optional)_ Whether horizontal resizing is allowed
 
 
 </td></tr>
@@ -217,7 +217,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否允许垂直调整大小
+_(Optional)_ Whether vertical resizing is allowed
 
 
 </td></tr>
@@ -236,7 +236,7 @@ number
 
 </td><td>
 
-距顶部位置（像素，必填）
+Position from the top (pixels, required)
 
 
 </td></tr>
@@ -255,7 +255,7 @@ number
 
 </td><td>
 
-宽度（像素，必填）
+Width ( pixels, required)
 
 
 </td></tr>
@@ -269,7 +269,7 @@ number
 
 # ModalProps.children property
 
-弹窗内容子节点
+Popup content child nodes
 
 ## Signature
 
@@ -281,7 +281,7 @@ children?: any;
 
 # ModalProps.height property
 
-高度（像素，必填）
+Height ( pixels, required)
 
 ## Signature
 
@@ -293,7 +293,7 @@ height: number;
 
 # ModalProps.hide property
 
-是否隐藏弹窗
+Whether to hide the popup
 
 ## Signature
 
@@ -305,7 +305,7 @@ hide?: boolean;
 
 # ModalProps.left property
 
-距左侧位置（像素，必填）
+Position from the left (pixels, required)
 
 ## Signature
 
@@ -317,7 +317,7 @@ left: number;
 
 # ModalProps.maxDragX property
 
-最大水平拖拽距离（像素）
+Maximum horizontal drag distance (pixels)
 
 ## Signature
 
@@ -329,7 +329,7 @@ maxDragX?: number;
 
 # ModalProps.maxDragY property
 
-最大垂直拖拽距离（像素）
+Maximum vertical drag distance ( pixels)
 
 ## Signature
 
@@ -353,7 +353,7 @@ onMoved?: (top: number, left: number) => void;
 
 # ModalProps.overlay property
 
-是否显示遮罩层
+Whether to show the mask layer
 
 ## Signature
 
@@ -365,7 +365,7 @@ overlay?: boolean;
 
 # ModalProps.resizeX property
 
-是否允许水平调整大小
+Whether horizontal resizing is allowed
 
 ## Signature
 
@@ -377,7 +377,7 @@ resizeX?: boolean;
 
 # ModalProps.resizeY property
 
-是否允许垂直调整大小
+Whether vertical resizing is allowed
 
 ## Signature
 
@@ -389,7 +389,7 @@ resizeY?: boolean;
 
 # ModalProps.top property
 
-距顶部位置（像素，必填）
+Position from the top (pixels, required)
 
 ## Signature
 
@@ -401,7 +401,7 @@ top: number;
 
 # ModalProps.width property
 
-宽度（像素，必填）
+Width ( pixels, required)
 
 ## Signature
 

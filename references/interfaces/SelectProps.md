@@ -46,7 +46,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否禁用
+_(Optional)_ Whether Disable
 
 
 </td></tr>
@@ -65,7 +65,7 @@ _(Optional)_ 是否禁用
 
 </td><td>
 
-_(Optional)_ 下拉选项列表
+_(Optional)_ Dropdown option list
 
 
 </td></tr>
@@ -103,7 +103,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否只读
+_(Optional)_ Whether it is read-only
 
 
 </td></tr>
@@ -122,7 +122,7 @@ string
 
 </td><td>
 
-_(Optional)_ 当前选中值
+_(Optional)_ Current select value
 
 
 </td></tr>
@@ -136,7 +136,7 @@ _(Optional)_ 当前选中值
 
 # SelectProps.disabled property
 
-是否禁用
+Whether Disable
 
 ## Signature
 
@@ -148,7 +148,7 @@ disabled?: boolean;
 
 # SelectProps.dropDownList property
 
-下拉选项列表
+Dropdown option list
 
 ## Signature
 
@@ -172,7 +172,7 @@ onChange?: (value: string) => void;
 
 # SelectProps.readonly property
 
-是否只读
+Whether it is read-only
 
 ## Signature
 
@@ -184,7 +184,7 @@ readonly?: boolean;
 
 # SelectProps.value property
 
-当前选中值
+Current select value
 
 ## Signature
 

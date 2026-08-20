@@ -46,7 +46,7 @@ string
 
 </td><td>
 
-_(Optional)_ 文本颜色
+_(Optional)_ Text color
 
 
 </td></tr>
@@ -65,7 +65,7 @@ string
 
 </td><td>
 
-_(Optional)_ 字体族
+_(Optional)_ Font family
 
 
 </td></tr>
@@ -84,7 +84,7 @@ number
 
 </td><td>
 
-_(Optional)_ 字号（像素）
+_(Optional)_ Font size ( pixels)
 
 
 </td></tr>
@@ -103,7 +103,7 @@ _(Optional)_ 字号（像素）
 
 </td><td>
 
-_(Optional)_ 水平对齐方式
+_(Optional)_ Horizontal alignment
 
 
 </td></tr>
@@ -122,7 +122,7 @@ string
 
 </td><td>
 
-文本内容（必填）
+Text content ( required)
 
 
 </td></tr>
@@ -136,7 +136,7 @@ string
 
 # TextProps.color property
 
-文本颜色
+Text color
 
 ## Signature
 
@@ -148,7 +148,7 @@ color?: string;
 
 # TextProps.fontFamily property
 
-字体族
+Font family
 
 ## Signature
 
@@ -160,7 +160,7 @@ fontFamily?: string;
 
 # TextProps.fontSize property
 
-字号（像素）
+Font size ( pixels)
 
 ## Signature
 
@@ -172,7 +172,7 @@ fontSize?: number;
 
 # TextProps.textAlign property
 
-水平对齐方式
+Horizontal alignment
 
 ## Signature
 
@@ -184,7 +184,7 @@ textAlign?: 'left' | 'center' | 'right';
 
 # TextProps.value property
 
-文本内容（必填）
+Text content ( required)
 
 ## Signature
 

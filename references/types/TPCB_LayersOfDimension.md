@@ -1,6 +1,6 @@
 # TPCB\_LayersOfDimension type
 
-尺寸标注所属层
+Layers of the dimension
 
 ## Signature
 

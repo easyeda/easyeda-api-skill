@@ -1,6 +1,6 @@
 # SCH\_PrimitiveComponent class
 
-原理图 &amp; 符号 / 器件图元类
+Schematic &amp; symbol / device primitive class
 
 ## Signature
 
@@ -40,7 +40,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建器件
+**_(BETA)_** Create Device
 
 
 </td></tr>
@@ -54,7 +54,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建复用模块符号
+**_(BETA)_** Create Reuse block symbol
 
 
 </td></tr>
@@ -68,7 +68,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建网络标识
+**_(BETA)_** Create Net flag
 
 
 </td></tr>
@@ -82,7 +82,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建网络端口
+**_(BETA)_** Create Net port
 
 
 </td></tr>
@@ -96,7 +96,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建短接标识
+**_(BETA)_** Create a short circuit flag
 
 
 </td></tr>
@@ -110,7 +110,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 删除器件
+**_(BETA)_** Delete Device
 
 
 </td></tr>
@@ -124,7 +124,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取器件
+**_(BETA)_** Get Device
 
 
 </td></tr>
@@ -138,7 +138,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取器件
+**_(BETA)_** Get Device
 
 
 </td></tr>
@@ -152,7 +152,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有器件
+**_(BETA)_** Get all Device
 
 
 </td></tr>
@@ -166,7 +166,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取器件关联的所有引脚
+**_(BETA)_** Get all pins associated with the device
 
 
 </td></tr>
@@ -180,7 +180,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有器件的图元 ID
+**_(BETA)_** Get all Device primitive IDs
 
 
 </td></tr>
@@ -194,7 +194,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有器件的所有属性名称集合
+**_(BETA)_** Get The set of all property names of all devices
 
 
 </td></tr>
@@ -208,7 +208,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 修改器件
+**_(BETA)_** Modify Device
 
 
 </td></tr>
@@ -222,7 +222,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 放置复用模块原理图图页
+**_(BETA)_** Place reuse block schematic sheet
 
 
 </td></tr>
@@ -236,7 +236,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 使用鼠标放置器件
+**_(BETA)_** Place with the mouse device
 
 
 </td></tr>
@@ -250,7 +250,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 使用鼠标放置符号
+**_(BETA)_** Place with the mouse symbol
 
 
 </td></tr>
@@ -264,7 +264,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置在扩展 API 中 AnalogGround 网络标识关联的器件 UUID
+**_(BETA)_** Set the device UUID associated with the AnalogGround net flag in the extension API
 
 
 </td></tr>
@@ -278,7 +278,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置在扩展 API 中 Ground 网络标识关联的器件 UUID
+**_(BETA)_** Set the device UUID associated with the Ground net flag in the extension API
 
 
 </td></tr>
@@ -292,7 +292,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置在扩展 API 中 Power 网络标识关联的器件 UUID
+**_(BETA)_** Set the device UUID associated with the Power net flag in the extension API
 
 
 </td></tr>
@@ -306,7 +306,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置在扩展 API 中 ProtectGround 网络标识关联的器件 UUID
+**_(BETA)_** Set the device UUID associated with the ProtectGround net flag in the extension API
 
 
 </td></tr>
@@ -320,7 +320,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置在扩展 API 中 BI 网络端口关联的器件 UUID
+**_(BETA)_** Set the device UUID associated with the BI net port in the extension API
 
 
 </td></tr>
@@ -334,7 +334,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置在扩展 API 中 IN 网络端口关联的器件 UUID
+**_(BETA)_** Set the device UUID associated with the IN net port in the extension API
 
 
 </td></tr>
@@ -348,7 +348,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置在扩展 API 中 OUT 网络端口关联的器件 UUID
+**_(BETA)_** Set the device UUID associated with the OUT net port in the extension API
 
 
 </td></tr>
@@ -364,7 +364,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-创建器件
+Create Device
 
 ## Signature
 
@@ -402,7 +402,7 @@ component
 
 </td><td>
 
-关联库器件
+Associate library device
 
 
 </td></tr>
@@ -418,7 +418,7 @@ number
 
 </td><td>
 
-坐标 X
+X coordinate
 
 
 </td></tr>
@@ -434,7 +434,7 @@ number
 
 </td><td>
 
-坐标 Y
+Y coordinate
 
 
 </td></tr>
@@ -450,7 +450,7 @@ string
 
 </td><td>
 
-_(Optional)_ 子部件名称
+_(Optional)_ Sub-part name
 
 
 </td></tr>
@@ -466,7 +466,7 @@ number
 
 </td><td>
 
-_(Optional)_ 旋转角度
+_(Optional)_ Rotation angle
 
 
 </td></tr>
@@ -482,7 +482,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否镜像
+_(Optional)_ Whether it is mirrored
 
 
 </td></tr>
@@ -498,7 +498,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否加入 BOM
+_(Optional)_ Whether Add to BOM
 
 
 </td></tr>
@@ -514,7 +514,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否转到 PCB
+_(Optional)_ Whether Transfer to PCB
 
 
 </td></tr>
@@ -526,7 +526,7 @@ _(Optional)_ 是否转到 PCB
 
 Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined&gt;
 
-器件图元对象
+Device primitive object
 
 ### createcbbsymbol
 
@@ -534,7 +534,7 @@ Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-创建复用模块符号
+Create Reuse block symbol
 
 ## Signature
 
@@ -572,7 +572,7 @@ cbbSymbol
 
 </td><td>
 
-关联库复用模块符号，`libraryUuid` 是 CBB 工程所在库的 UUID，`cbbUuid` 是 CBB 工程的 UUID，`uuid` 是 CBB 工程内符号的 UUID
+Associated library reuse block symbol. `libraryUuid` is the UUID of the library where the CBB project is located, `cbbUuid` is the UUID of the CBB project, and `uuid` is the UUID of the symbol in the CBB project
 
 
 </td></tr>
@@ -588,7 +588,7 @@ number
 
 </td><td>
 
-坐标 X
+X coordinate
 
 
 </td></tr>
@@ -604,7 +604,7 @@ number
 
 </td><td>
 
-坐标 Y
+Y coordinate
 
 
 </td></tr>
@@ -620,7 +620,7 @@ number
 
 </td><td>
 
-_(Optional)_ 旋转角度
+_(Optional)_ Rotation angle
 
 
 </td></tr>
@@ -636,7 +636,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否镜像
+_(Optional)_ Whether it is mirrored
 
 
 </td></tr>
@@ -648,7 +648,7 @@ _(Optional)_ 是否镜像
 
 Promise&lt;[ISCH\_PrimitiveCbbSymbolComponent](./ISCH_PrimitiveCbbSymbolComponent.md) \| undefined&gt;
 
-复用模块符号图元对象
+Reuse block symbol primitive object
 
 ### createnetflag
 
@@ -656,7 +656,7 @@ Promise&lt;[ISCH\_PrimitiveCbbSymbolComponent](./ISCH_PrimitiveCbbSymbolComponen
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-创建网络标识
+Create Net flag
 
 ## Signature
 
@@ -694,7 +694,7 @@ identification
 
 </td><td>
 
-标识类型
+Identification type
 
 
 </td></tr>
@@ -710,7 +710,7 @@ string
 
 </td><td>
 
-网络名称
+Net name
 
 
 </td></tr>
@@ -726,7 +726,7 @@ number
 
 </td><td>
 
-坐标 X
+X coordinate
 
 
 </td></tr>
@@ -742,7 +742,7 @@ number
 
 </td><td>
 
-坐标 Y
+Y coordinate
 
 
 </td></tr>
@@ -758,7 +758,7 @@ number
 
 </td><td>
 
-_(Optional)_ 旋转角度
+_(Optional)_ Rotation angle
 
 
 </td></tr>
@@ -774,7 +774,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否镜像
+_(Optional)_ Whether it is mirrored
 
 
 </td></tr>
@@ -786,7 +786,7 @@ _(Optional)_ 是否镜像
 
 Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined&gt;
 
-器件图元对象
+Device primitive object
 
 ### createnetport
 
@@ -794,7 +794,7 @@ Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-创建网络端口
+Create Net port
 
 ## Signature
 
@@ -832,7 +832,7 @@ direction
 
 </td><td>
 
-端口方向
+Port direction
 
 
 </td></tr>
@@ -848,7 +848,7 @@ string
 
 </td><td>
 
-网络名称
+Net name
 
 
 </td></tr>
@@ -864,7 +864,7 @@ number
 
 </td><td>
 
-坐标 X
+X coordinate
 
 
 </td></tr>
@@ -880,7 +880,7 @@ number
 
 </td><td>
 
-坐标 Y
+Y coordinate
 
 
 </td></tr>
@@ -896,7 +896,7 @@ number
 
 </td><td>
 
-_(Optional)_ 旋转角度
+_(Optional)_ Rotation angle
 
 
 </td></tr>
@@ -912,7 +912,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否镜像
+_(Optional)_ Whether it is mirrored
 
 
 </td></tr>
@@ -924,7 +924,7 @@ _(Optional)_ 是否镜像
 
 Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined&gt;
 
-器件图元对象
+Device primitive object
 
 ### createshortcircuitflag
 
@@ -932,7 +932,7 @@ Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-创建短接标识
+Create a short circuit flag
 
 ## Signature
 
@@ -970,7 +970,7 @@ number
 
 </td><td>
 
-坐标 X
+X coordinate
 
 
 </td></tr>
@@ -986,7 +986,7 @@ number
 
 </td><td>
 
-坐标 Y
+Y coordinate
 
 
 </td></tr>
@@ -1002,7 +1002,7 @@ number
 
 </td><td>
 
-_(Optional)_ 旋转角度
+_(Optional)_ Rotation angle
 
 
 </td></tr>
@@ -1018,7 +1018,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否镜像
+_(Optional)_ Whether it is mirrored
 
 
 </td></tr>
@@ -1030,7 +1030,7 @@ _(Optional)_ 是否镜像
 
 Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined&gt;
 
-器件图元对象
+Device primitive object
 
 ### delete
 
@@ -1038,7 +1038,7 @@ Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-删除器件
+Delete Device
 
 ## Signature
 
@@ -1076,7 +1076,7 @@ string \| [ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| Array&lt;s
 
 </td><td>
 
-器件的图元 ID 或器件图元对象
+Device primitive ID or Device primitive object
 
 
 </td></tr>
@@ -1088,7 +1088,7 @@ string \| [ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| Array&lt;s
 
 Promise&lt;boolean&gt;
 
-删除操作是否成功
+Delete Whether the operation is successful
 
 ### get
 
@@ -1096,7 +1096,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取器件
+Get Device
 
 ## Signature
 
@@ -1134,7 +1134,7 @@ string
 
 </td><td>
 
-器件的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Device primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -1146,7 +1146,7 @@ string
 
 Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined&gt;
 
-器件图元对象，`undefined` 表示获取失败
+Device primitive object, `undefined` indicates that the retrieval failed
 
 ### get_1
 
@@ -1154,7 +1154,7 @@ Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取器件
+Get Device
 
 ## Signature
 
@@ -1192,7 +1192,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-器件的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Device primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -1204,11 +1204,11 @@ Array&lt;string&gt;
 
 Promise&lt;Array&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)<!-- -->&gt;&gt;
 
-器件图元对象，空数组表示获取失败
+Device primitive object; an empty array indicates that the retrieval failed
 
 ## Remarks
 
-如若传入多个图元 ID，任意图元 ID 未匹配到不影响其它图元的返回，即可能返回少于传入的图元 ID 数量的图元对象
+If multiple primitive IDs are passed in, a primitive ID that is not matched will not affect the return of other primitives; that is, fewer primitive objects than the number of primitive IDs passed in may be returned.
 
 ### getall
 
@@ -1216,7 +1216,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)<!--
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有器件
+Get all Device
 
 ## Signature
 
@@ -1254,7 +1254,7 @@ componentType
 
 </td><td>
 
-_(Optional)_ 器件类型
+_(Optional)_ Device type
 
 
 </td></tr>
@@ -1270,7 +1270,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否获取所有原理图图页的器件
+_(Optional)_ Whether to get the devices of all schematic sheets
 
 
 </td></tr>
@@ -1282,7 +1282,7 @@ _(Optional)_ 是否获取所有原理图图页的器件
 
 Promise&lt;Array&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)<!-- -->&gt;&gt;
 
-器件图元对象数组
+Array of Device primitive objects
 
 ### getallpinsbyprimitiveid
 
@@ -1290,7 +1290,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)<!--
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取器件关联的所有引脚
+Get all pins associated with the device
 
 ## Signature
 
@@ -1328,7 +1328,7 @@ string
 
 </td><td>
 
-器件图元 ID
+Device primitive ID
 
 
 </td></tr>
@@ -1340,7 +1340,7 @@ string
 
 Promise&lt;Array&lt;[ISCH\_PrimitiveComponentPin](./ISCH_PrimitiveComponentPin.md)<!-- -->&gt; \| undefined&gt;
 
-器件引脚图元数组
+Device pin primitive array
 
 ### getallprimitiveid
 
@@ -1348,7 +1348,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveComponentPin](./ISCH_PrimitiveComponentPin.m
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有器件的图元 ID
+Get all Device primitive IDs
 
 ## Signature
 
@@ -1386,7 +1386,7 @@ componentType
 
 </td><td>
 
-_(Optional)_ 器件类型
+_(Optional)_ Device type
 
 
 </td></tr>
@@ -1402,7 +1402,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否获取所有原理图图页的器件
+_(Optional)_ Whether to get the devices of all schematic sheets
 
 
 </td></tr>
@@ -1414,7 +1414,7 @@ _(Optional)_ 是否获取所有原理图图页的器件
 
 Promise&lt;Array&lt;string&gt;&gt;
 
-器件的图元 ID 数组
+Array of Device primitive IDs
 
 ### getallpropertynames
 
@@ -1422,7 +1422,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有器件的所有属性名称集合
+Get The set of all property names of all devices
 
 ## Signature
 
@@ -1435,7 +1435,7 @@ public getAllPropertyNames(): Promise<Array<string>>;
 
 Promise&lt;Array&lt;string&gt;&gt;
 
-所有器件的所有属性名称集合
+The set of all property names of all devices
 
 ### modify
 
@@ -1443,7 +1443,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-修改器件
+Modify Device
 
 ## Signature
 
@@ -1481,7 +1481,7 @@ string \| [ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)
 
 </td><td>
 
-图元 ID
+Primitive ID
 
 
 </td></tr>
@@ -1507,11 +1507,11 @@ property
 
 Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined&gt;
 
-器件图元对象
+Device primitive object
 
 ## Remarks
 
-仅当器件类型为 [COMPONENT](../enums/ESCH_PrimitiveComponentType.md) 时允许使用该方法进行修改
+This method can only be used for modification when the device type is [COMPONENT](../enums/ESCH_PrimitiveComponentType.md)
 
 ### placecbbschematicpage
 
@@ -1519,7 +1519,7 @@ Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-放置复用模块原理图图页
+Place reuse block schematic sheet
 
 ## Signature
 
@@ -1557,7 +1557,7 @@ cbbSchematicPage
 
 </td><td>
 
-复用模块原理图图页，`libraryUuid` 是 CBB 工程所在库的 UUID，`cbbUuid` 是 CBB 工程的 UUID，`uuid` 是 CBB 工程内原理图图页的 UUID
+Reuse block schematic sheet. `libraryUuid` is the UUID of the library where the CBB project is located, `cbbUuid` is the UUID of the CBB project, and `uuid` is the UUID of the schematic sheet in the CBB project
 
 
 </td></tr>
@@ -1573,7 +1573,7 @@ number
 
 </td><td>
 
-坐标 X
+X coordinate
 
 
 </td></tr>
@@ -1589,7 +1589,7 @@ number
 
 </td><td>
 
-坐标 Y
+Y coordinate
 
 
 </td></tr>
@@ -1605,7 +1605,7 @@ props
 
 </td><td>
 
-_(Optional)_ 放置参数：`reimportWhenNameRepeated` 当存在重名模块时是否重新引入，默认 `true` ADD since EDA v4.2
+_(Optional)_ Placement parameters: `reimportWhenNameRepeated` - whether to re-import when a module with the same name exists, default `true`<!-- -->. ADD since EDA v4.2
 
 
 </td></tr>
@@ -1617,7 +1617,7 @@ _(Optional)_ 放置参数：`reimportWhenNameRepeated` 当存在重名模块时�
 
 Promise&lt;boolean&gt;
 
-放置操作是否成功
+Place whether the operation is successful
 
 ### placecomponentwithmouse
 
@@ -1625,7 +1625,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-使用鼠标放置器件
+Place with the mouse device
 
 ## Signature
 
@@ -1663,7 +1663,7 @@ component
 
 </td><td>
 
-关联库器件
+Associate library device
 
 
 </td></tr>
@@ -1679,7 +1679,7 @@ string
 
 </td><td>
 
-_(Optional)_ 子部件名称
+_(Optional)_ Sub-part name
 
 
 </td></tr>
@@ -1691,13 +1691,13 @@ _(Optional)_ 子部件名称
 
 Promise&lt;boolean&gt;
 
-是否找到器件
+Whether the device was found
 
 ## Remarks
 
-本接口模拟前端点击放置按钮，指定的器件将绑定到当前鼠标，并在用户后续点击时放置于画布
+This API simulates clicking the placement button on the front end. The specified device will be bound to the current mouse and placed on the canvas when the user clicks subsequently
 
-本接口的返回时机并不会等待用户的放置操作，一旦器件被绑定到鼠标，本接口将立即返回 `true` 的结果
+The return timing of this API does not wait for the user's placement operation. Once the device is bound to the mouse, this API will immediately return `true`
 
 ### placesymbolwithmouse
 
@@ -1705,7 +1705,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-使用鼠标放置符号
+Place with the mouse symbol
 
 ## Signature
 
@@ -1743,7 +1743,7 @@ symbol
 
 </td><td>
 
-关联库符号
+Associate library symbol
 
 
 </td></tr>
@@ -1759,7 +1759,7 @@ string
 
 </td><td>
 
-_(Optional)_ 子部件名称
+_(Optional)_ Sub-part name
 
 
 </td></tr>
@@ -1775,7 +1775,7 @@ Record&lt;string, boolean \| number \| string \| undefined&gt;
 
 </td><td>
 
-_(Optional)_ 器件属性
+_(Optional)_ Device property
 
 
 </td></tr>
@@ -1787,13 +1787,13 @@ _(Optional)_ 器件属性
 
 Promise&lt;boolean&gt;
 
-是否找到符号
+Whether the symbol was found
 
 ## Remarks
 
-本接口模拟前端点击放置按钮，指定的符号将绑定到当前鼠标，并在用户后续点击时放置于画布
+This API simulates clicking the placement button on the front end. The specified symbol will be bound to the current mouse and placed on the canvas when the user clicks subsequently
 
-本接口的返回时机并不会等待用户的放置操作，一旦符号被绑定到鼠标，本接口将立即返回 `true` 的结果 ADD since API v0.2.26
+The return timing of this API does not wait for the user's placement operation. Once the symbol is bound to the mouse, this API will immediately return `true` ADD since API v0.2.26
 
 ### setnetflagcomponentuuid_analogground
 
@@ -1801,7 +1801,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置在扩展 API 中 AnalogGround 网络标识关联的器件 UUID
+Set the device UUID associated with the AnalogGround net flag in the extension API
 
 ## Signature
 
@@ -1839,7 +1839,7 @@ component
 
 </td><td>
 
-关联库器件
+Associate library device
 
 
 </td></tr>
@@ -1851,7 +1851,7 @@ component
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ### setnetflagcomponentuuid_ground
 
@@ -1859,7 +1859,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置在扩展 API 中 Ground 网络标识关联的器件 UUID
+Set the device UUID associated with the Ground net flag in the extension API
 
 ## Signature
 
@@ -1897,7 +1897,7 @@ component
 
 </td><td>
 
-关联库器件
+Associate library device
 
 
 </td></tr>
@@ -1909,7 +1909,7 @@ component
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ### setnetflagcomponentuuid_power
 
@@ -1917,7 +1917,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置在扩展 API 中 Power 网络标识关联的器件 UUID
+Set the device UUID associated with the Power net flag in the extension API
 
 ## Signature
 
@@ -1955,7 +1955,7 @@ component
 
 </td><td>
 
-关联库器件
+Associate library device
 
 
 </td></tr>
@@ -1967,7 +1967,7 @@ component
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ### setnetflagcomponentuuid_protectground
 
@@ -1975,7 +1975,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置在扩展 API 中 ProtectGround 网络标识关联的器件 UUID
+Set the device UUID associated with the ProtectGround net flag in the extension API
 
 ## Signature
 
@@ -2013,7 +2013,7 @@ component
 
 </td><td>
 
-关联库器件
+Associate library device
 
 
 </td></tr>
@@ -2025,7 +2025,7 @@ component
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ### setnetportcomponentuuid_bi
 
@@ -2033,7 +2033,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置在扩展 API 中 BI 网络端口关联的器件 UUID
+Set the device UUID associated with the BI net port in the extension API
 
 ## Signature
 
@@ -2071,7 +2071,7 @@ component
 
 </td><td>
 
-关联库器件
+Associate library device
 
 
 </td></tr>
@@ -2083,7 +2083,7 @@ component
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ### setnetportcomponentuuid_in
 
@@ -2091,7 +2091,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置在扩展 API 中 IN 网络端口关联的器件 UUID
+Set the device UUID associated with the IN net port in the extension API
 
 ## Signature
 
@@ -2129,7 +2129,7 @@ component
 
 </td><td>
 
-关联库器件
+Associate library device
 
 
 </td></tr>
@@ -2141,7 +2141,7 @@ component
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ### setnetportcomponentuuid_out
 
@@ -2149,7 +2149,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置在扩展 API 中 OUT 网络端口关联的器件 UUID
+Set the device UUID associated with the OUT net port in the extension API
 
 ## Signature
 
@@ -2187,7 +2187,7 @@ component
 
 </td><td>
 
-关联库器件
+Associate library device
 
 
 </td></tr>
@@ -2199,4 +2199,4 @@ component
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful

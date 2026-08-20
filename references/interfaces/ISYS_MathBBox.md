@@ -1,6 +1,6 @@
 # ISYS\_MathBBox interface
 
-BBox（最小外接矩形）
+BBox (minimum bounding rectangle)
 
 ## Signature
 
@@ -46,7 +46,7 @@ number
 
 </td><td>
 
-最大 X 坐标
+Maximum X coordinate
 
 
 </td></tr>
@@ -65,7 +65,7 @@ number
 
 </td><td>
 
-最大 Y 坐标
+Maximum Y coordinate
 
 
 </td></tr>
@@ -84,7 +84,7 @@ number
 
 </td><td>
 
-最小 X 坐标
+Minimum X coordinate
 
 
 </td></tr>
@@ -103,7 +103,7 @@ number
 
 </td><td>
 
-最小 Y 坐标
+Minimum Y coordinate
 
 
 </td></tr>
@@ -117,7 +117,7 @@ number
 
 # ISYS\_MathBBox.maxX property
 
-最大 X 坐标
+Maximum X coordinate
 
 ## Signature
 
@@ -129,7 +129,7 @@ maxX: number;
 
 # ISYS\_MathBBox.maxY property
 
-最大 Y 坐标
+Maximum Y coordinate
 
 ## Signature
 
@@ -141,7 +141,7 @@ maxY: number;
 
 # ISYS\_MathBBox.minX property
 
-最小 X 坐标
+Minimum X coordinate
 
 ## Signature
 
@@ -153,7 +153,7 @@ minX: number;
 
 # ISYS\_MathBBox.minY property
 
-最小 Y 坐标
+Minimum Y coordinate
 
 ## Signature
 

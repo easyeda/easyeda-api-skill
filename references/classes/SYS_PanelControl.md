@@ -1,6 +1,6 @@
 # SYS\_PanelControl class
 
-系统 / 面板控制类
+System / panel control class
 
 ## Signature
 
@@ -36,7 +36,7 @@ Description
 
 </td><td>
 
-关闭底部面板
+Close the bottom panel
 
 
 </td></tr>
@@ -50,7 +50,7 @@ Description
 
 </td><td>
 
-关闭左侧面板
+Close the left panel
 
 
 </td></tr>
@@ -64,7 +64,7 @@ Description
 
 </td><td>
 
-关闭右侧面板
+Close the right panel
 
 
 </td></tr>
@@ -78,7 +78,7 @@ Description
 
 </td><td>
 
-查询底部面板是否已锁定
+Query whether the bottom panel is locked
 
 
 </td></tr>
@@ -92,7 +92,7 @@ Description
 
 </td><td>
 
-查询左侧面板是否已锁定
+Query whether the left panel is locked
 
 
 </td></tr>
@@ -106,7 +106,7 @@ Description
 
 </td><td>
 
-查询右侧面板是否已锁定
+Query whether the right panel is locked
 
 
 </td></tr>
@@ -120,7 +120,7 @@ Description
 
 </td><td>
 
-打开底部面板
+Open the bottom panel
 
 
 </td></tr>
@@ -134,7 +134,7 @@ Description
 
 </td><td>
 
-打开左侧面板
+Open the left panel
 
 
 </td></tr>
@@ -148,7 +148,7 @@ Description
 
 </td><td>
 
-打开右侧面板
+Open the right panel
 
 
 </td></tr>
@@ -162,7 +162,7 @@ Description
 
 </td><td>
 
-切换底部面板锁定状态
+Toggle the lock state of the bottom panel
 
 
 </td></tr>
@@ -176,7 +176,7 @@ Description
 
 </td><td>
 
-切换左侧面板锁定状态
+Toggle the lock state of the left panel
 
 
 </td></tr>
@@ -190,7 +190,7 @@ Description
 
 </td><td>
 
-切换右侧面板锁定状态
+Toggle the lock state of the right panel
 
 
 </td></tr>
@@ -204,7 +204,7 @@ Description
 
 # SYS\_PanelControl.closeBottomPanel() method
 
-关闭底部面板
+Close the bottom panel
 
 ## Signature
 
@@ -221,7 +221,7 @@ void
 
 # SYS\_PanelControl.closeLeftPanel() method
 
-关闭左侧面板
+Close the left panel
 
 ## Signature
 
@@ -238,7 +238,7 @@ void
 
 # SYS\_PanelControl.closeRightPanel() method
 
-关闭右侧面板
+Close the right panel
 
 ## Signature
 
@@ -255,7 +255,7 @@ void
 
 # SYS\_PanelControl.isBottomPanelLocked() method
 
-查询底部面板是否已锁定
+Query whether the bottom panel is locked
 
 ## Signature
 
@@ -268,13 +268,13 @@ public isBottomPanelLocked(): Promise<boolean>;
 
 Promise&lt;boolean&gt;
 
-是否已锁定
+Whether Already lock
 
 ### isleftpanellocked
 
 # SYS\_PanelControl.isLeftPanelLocked() method
 
-查询左侧面板是否已锁定
+Query whether the left panel is locked
 
 ## Signature
 
@@ -287,13 +287,13 @@ public isLeftPanelLocked(): Promise<boolean>;
 
 Promise&lt;boolean&gt;
 
-是否已锁定
+Whether Already lock
 
 ### isrightpanellocked
 
 # SYS\_PanelControl.isRightPanelLocked() method
 
-查询右侧面板是否已锁定
+Query whether the right panel is locked
 
 ## Signature
 
@@ -306,13 +306,13 @@ public isRightPanelLocked(): Promise<boolean>;
 
 Promise&lt;boolean&gt;
 
-是否已锁定
+Whether Already lock
 
 ### openbottompanel
 
 # SYS\_PanelControl.openBottomPanel() method
 
-打开底部面板
+Open the bottom panel
 
 ## Signature
 
@@ -350,7 +350,7 @@ tab
 
 </td><td>
 
-_(Optional)_ 标签页，如若不指定则不切换标签页
+_(Optional)_ Tab. If not specified, the tab will not be switched
 
 
 </td></tr>
@@ -366,7 +366,7 @@ void
 
 # SYS\_PanelControl.openLeftPanel() method
 
-打开左侧面板
+Open the left panel
 
 ## Signature
 
@@ -404,7 +404,7 @@ tab
 
 </td><td>
 
-_(Optional)_ 标签页，如若不指定则不切换标签页
+_(Optional)_ Tab. If not specified, the tab will not be switched
 
 
 </td></tr>
@@ -420,7 +420,7 @@ void
 
 # SYS\_PanelControl.openRightPanel() method
 
-打开右侧面板
+Open the right panel
 
 ## Signature
 
@@ -458,7 +458,7 @@ tab
 
 </td><td>
 
-_(Optional)_ 标签页，如若不指定则不切换标签页
+_(Optional)_ Tab. If not specified, the tab will not be switched
 
 
 </td></tr>
@@ -474,7 +474,7 @@ void
 
 # SYS\_PanelControl.toggleBottomPanelLockState() method
 
-切换底部面板锁定状态
+Toggle the lock state of the bottom panel
 
 ## Signature
 
@@ -512,7 +512,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定，如若不指定则反置当前状态
+_(Optional)_ Whether to lock. If not specified, the current state is inverted
 
 
 </td></tr>
@@ -528,7 +528,7 @@ void
 
 # SYS\_PanelControl.toggleLeftPanelLockState() method
 
-切换左侧面板锁定状态
+Toggle the lock state of the left panel
 
 ## Signature
 
@@ -566,7 +566,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定，如若不指定则反置当前状态
+_(Optional)_ Whether to lock. If not specified, the current state is inverted
 
 
 </td></tr>
@@ -582,7 +582,7 @@ void
 
 # SYS\_PanelControl.toggleRightPanelLockState() method
 
-切换右侧面板锁定状态
+Toggle the lock state of the right panel
 
 ## Signature
 
@@ -620,7 +620,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定，如若不指定则反置当前状态
+_(Optional)_ Whether to lock. If not specified, the current state is inverted
 
 
 </td></tr>

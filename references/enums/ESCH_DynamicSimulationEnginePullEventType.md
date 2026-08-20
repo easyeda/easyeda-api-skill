@@ -1,6 +1,6 @@
 # ESCH\_DynamicSimulationEnginePullEventType enum
 
-动态仿真引擎拉取事件类型
+Dynamic simulation engine pull event type
 
 ## Signature
 

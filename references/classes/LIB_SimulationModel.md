@@ -1,6 +1,6 @@
 # LIB\_SimulationModel class
 
-综合库 / 仿真模型类
+Comprehensive library / simulation model class
 
 ## Signature
 
@@ -36,7 +36,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 复制仿真模型
+**_(BETA)_** Copy the simulation model
 
 
 </td></tr>
@@ -50,7 +50,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建仿真模型
+**_(BETA)_** Create a simulation model
 
 
 </td></tr>
@@ -64,7 +64,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 删除仿真模型
+**_(BETA)_** Delete the simulation model
 
 
 </td></tr>
@@ -78,7 +78,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取仿真模型的所有属性
+**_(BETA)_** Get all properties of the simulation model
 
 
 </td></tr>
@@ -92,7 +92,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 修改仿真模型
+**_(BETA)_** Modify the simulation model
 
 
 </td></tr>
@@ -106,7 +106,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 搜索仿真模型
+**_(BETA)_** Search simulation models
 
 
 </td></tr>
@@ -122,7 +122,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-复制仿真模型
+Copy the simulation model
 
 ## Signature
 
@@ -160,7 +160,7 @@ string
 
 </td><td>
 
-仿真模型 UUID
+Simulation model UUID
 
 
 </td></tr>
@@ -176,7 +176,7 @@ string
 
 </td><td>
 
-库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+Library UUID, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -192,7 +192,7 @@ string
 
 </td><td>
 
-目标库 UUID
+Target library UUID
 
 
 </td></tr>
@@ -208,7 +208,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-_(Optional)_ 目标库内的分类
+_(Optional)_ Classification in the target library
 
 
 </td></tr>
@@ -224,7 +224,7 @@ string
 
 </td><td>
 
-_(Optional)_ 新仿真模型名称，如若目标库内存在重名符号将导致复制失败
+_(Optional)_ New simulation model name. If a symbol with the same name exists in the target library, the copy will fail
 
 
 </td></tr>
@@ -236,11 +236,41 @@ _(Optional)_ 新仿真模型名称，如若目标库内存在重名符号将导�
 
 Promise&lt;string \| undefined&gt;
 
-目标库内新仿真模型的 UUID
+UUID of the new simulation model in the target library
 
 ## Remarks
 
 ADD since EDA v3.2.167
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID，并新建一个仿真模型作为复制来源
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const sourceName = '嘉立创示例_仿真模型来源_' + Date.now();
+const sourceUuid = await eda.lib_SimulationModel.create(libraryUuid, {
+  modelType: 'Ngspice',
+  modelData: '* 示例电阻模型\n.model EXAMPLE_RES RES(R=1k)\n',
+  modelName: sourceName,
+});
+
+// 2. 同库复制，指定新名称避免同名冲突（分类传 [] = 不分类）
+const newName = '嘉立创示例_仿真模型副本_' + Date.now();
+const copiedUuid = await eda.lib_SimulationModel.copy(
+  sourceUuid,
+  libraryUuid,
+  libraryUuid,
+  [],
+  newName
+);
+
+// 创建类保留现场（副本留在个人库中供观察）
+
+console.log('sourceUuid:', sourceUuid);
+console.log('copiedUuid:', copiedUuid);
+console.log('newName:', newName);
+```
 
 ### create
 
@@ -248,7 +278,7 @@ ADD since EDA v3.2.167
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-创建仿真模型
+Create a simulation model
 
 ## Signature
 
@@ -286,7 +316,7 @@ string
 
 </td><td>
 
-库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+Library UUID, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -302,7 +332,7 @@ model
 
 </td><td>
 
-仿真模型数据
+Simulation model data
 
 
 </td></tr>
@@ -318,7 +348,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-_(Optional)_ 分类
+_(Optional)_ Classification
 
 
 </td></tr>
@@ -334,7 +364,7 @@ string
 
 </td><td>
 
-_(Optional)_ 描述
+_(Optional)_ Description
 
 
 </td></tr>
@@ -346,11 +376,38 @@ _(Optional)_ 描述
 
 Promise&lt;string \| undefined&gt;
 
-仿真模型 UUID
+Simulation model UUID
 
 ## Remarks
 
 ADD since EDA v3.2.167
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+
+// 2. 创建 Ngspice 仿真模型（modelData 传 .model 语句文本，分类传 [] = 不分类）
+const modelName = '嘉立创示例_新仿真模型_' + Date.now();
+const simulationModelUuid = await eda.lib_SimulationModel.create(
+  libraryUuid,
+  {
+    modelType: 'Ngspice',
+    modelData: '* 示例电阻模型\n.model EXAMPLE_RES RES(R=1k)\n',
+    modelName: modelName,
+    modelPin: '1,2',
+  },
+  [],
+  '示例仿真模型描述'
+);
+
+// 创建类保留现场（新仿真模型留在个人库中供观察）
+
+console.log('simulationModelUuid:', simulationModelUuid);
+console.log('modelName:', modelName);
+```
 
 ### delete
 
@@ -358,7 +415,7 @@ ADD since EDA v3.2.167
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-删除仿真模型
+Delete the simulation model
 
 ## Signature
 
@@ -396,7 +453,7 @@ string
 
 </td><td>
 
-仿真模型 UUID
+Simulation model UUID
 
 
 </td></tr>
@@ -412,7 +469,7 @@ string
 
 </td><td>
 
-库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+Library UUID, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -424,11 +481,34 @@ string
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
 ADD since EDA v3.2.167
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID 并新建删除对象
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const simulationModelUuid = await eda.lib_SimulationModel.create(
+  libraryUuid,
+  {
+    modelType: 'Ngspice',
+    modelData: '* 示例电阻模型\n.model EXAMPLE_RES RES(R=1k)\n',
+    modelName: '嘉立创示例_待删除仿真模型_' + Date.now(),
+  },
+  []
+);
+
+// 2. 删除该仿真模型
+const deleted = await eda.lib_SimulationModel.delete(simulationModelUuid, libraryUuid);
+
+console.log('simulationModelUuid:', simulationModelUuid);
+console.log('deleted:', deleted);
+```
 
 ### get
 
@@ -436,7 +516,7 @@ ADD since EDA v3.2.167
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取仿真模型的所有属性
+Get all properties of the simulation model
 
 ## Signature
 
@@ -474,7 +554,7 @@ string
 
 </td><td>
 
-仿真模型 UUID
+Simulation model UUID
 
 
 </td></tr>
@@ -490,7 +570,7 @@ string
 
 </td><td>
 
-_(Optional)_ 库 UUID，默认为系统库，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+_(Optional)_ Library UUID, default is system library, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -502,11 +582,11 @@ _(Optional)_ 库 UUID，默认为系统库，可以使用 [LIB\_LibrariesList](.
 
 Promise&lt;[ILIB\_SimulationModelItem](../interfaces/ILIB_SimulationModelItem.md) \| undefined&gt;
 
-仿真模型属性
+Simulation model properties
 
 ## Remarks
 
-注意：本接口仅私有化部署版本有效，如若在其他版本调用将始终 `throw Error` ADD since EDA v3.2.167
+Note: This API is only valid for the private deployment edition. Calling it in other editions will always `throw Error` ADD since EDA v3.2.167
 
 ### modify
 
@@ -514,7 +594,7 @@ Promise&lt;[ILIB\_SimulationModelItem](../interfaces/ILIB_SimulationModelItem.md
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-修改仿真模型
+Modify the simulation model
 
 ## Signature
 
@@ -552,7 +632,7 @@ string
 
 </td><td>
 
-仿真模型 UUID
+Simulation model UUID
 
 
 </td></tr>
@@ -568,7 +648,7 @@ string
 
 </td><td>
 
-库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+Library UUID, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -584,7 +664,7 @@ modelProps
 
 </td><td>
 
-_(Optional)_ 仿真模型属性
+_(Optional)_ Simulation model properties
 
 
 </td></tr>
@@ -600,7 +680,7 @@ Array&lt;string&gt; \| null
 
 </td><td>
 
-_(Optional)_ 分类
+_(Optional)_ Classification
 
 
 </td></tr>
@@ -616,7 +696,7 @@ string \| null
 
 </td><td>
 
-_(Optional)_ 描述
+_(Optional)_ Description
 
 
 </td></tr>
@@ -628,11 +708,45 @@ _(Optional)_ 描述
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-如希望清除某些属性，则将其的值设置为 `null` ADD since EDA v3.2.167
+If you want to clear certain properties, set their values to `null` ADD since EDA v3.2.167
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID 并新建修改对象
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const simulationModelUuid = await eda.lib_SimulationModel.create(
+  libraryUuid,
+  {
+    modelType: 'Ngspice',
+    modelData: '* 示例电阻模型\n.model EXAMPLE_RES RES(R=1k)\n',
+    modelName: '嘉立创示例_仿真模型修改前_' + Date.now(),
+  },
+  [],
+  '修改前的描述'
+);
+
+// 2. 修改名称和描述（分类保持不变传 []）
+const newName = '嘉立创示例_仿真模型修改后_' + Date.now();
+const modified = await eda.lib_SimulationModel.modify(
+  simulationModelUuid,
+  libraryUuid,
+  { modelName: newName },
+  [],
+  '修改后的描述'
+);
+
+// 修改类保留现场
+
+console.log('simulationModelUuid:', simulationModelUuid);
+console.log('modified:', modified);
+console.log('newName:', newName);
+```
 
 ### search
 
@@ -640,7 +754,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-搜索仿真模型
+Search simulation models
 
 ## Signature
 
@@ -678,7 +792,7 @@ string
 
 </td><td>
 
-搜索关键字
+Search keyword
 
 
 </td></tr>
@@ -694,7 +808,7 @@ string
 
 </td><td>
 
-_(Optional)_ 库 UUID，默认为系统库，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+_(Optional)_ Library UUID, default is system library, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -710,7 +824,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-_(Optional)_ 分类，默认为全部
+_(Optional)_ Classification, defaults to all
 
 
 </td></tr>
@@ -726,7 +840,7 @@ simulationModelType
 
 </td><td>
 
-_(Optional)_ 仿真模型类型，默认为全部
+_(Optional)_ Simulation model type, defaults to all
 
 
 </td></tr>
@@ -742,7 +856,7 @@ number
 
 </td><td>
 
-_(Optional)_ 一页搜索结果的数量
+_(Optional)_ Number of search results per page
 
 
 </td></tr>
@@ -758,7 +872,7 @@ number
 
 </td><td>
 
-_(Optional)_ 页数
+_(Optional)_ Page count
 
 
 </td></tr>
@@ -770,8 +884,22 @@ _(Optional)_ 页数
 
 Promise&lt;Array&lt;[ILIB\_SimulationModelSearchItem](../interfaces/ILIB_SimulationModelSearchItem.md)<!-- -->&gt;&gt;
 
-搜索到的仿真模型属性列表
+List of searched simulation model properties
 
 ## Remarks
 
 ADD since EDA v3.2.167
+
+## Example
+
+
+```javascript
+// 1. 按空关键字列出系统库中的仿真模型，每页 5 条，只看 Ngspice 类型（换成 '2N3904' 等关键字即为按名称过滤）
+const results = await eda.lib_SimulationModel.search('', undefined, undefined, 'Ngspice', 5, 1);
+
+// 2. 输出搜索结果
+console.log('count:', results.length);
+results.forEach((item, i) => {
+  console.log('[' + i + '] name:', item.name, 'uuid:', item.uuid, 'libraryUuid:', item.libraryUuid);
+});
+```

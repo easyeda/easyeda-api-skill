@@ -1,6 +1,6 @@
 # IPCB\_PrimitiveLine class
 
-直线图元
+Line primitive
 
 ## Signature
 
@@ -11,7 +11,7 @@ export class IPCB_PrimitiveLine implements IPCB_Primitive
 
 ## Remarks
 
-直线和圆弧线均为导线，对应画布的线条走线和圆弧走线
+Both lines and arc lines are wires, corresponding to the line traces and arc traces on the canvas
 
 
 ## Methods
@@ -42,7 +42,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 将对图元的更改应用到画布
+**_(BETA)_** Apply the changes to the primitives to the canvas
 
 
 </td></tr>
@@ -56,7 +56,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取相邻的图元对象
+**_(BETA)_** Get Adjacent primitive objects
 
 
 </td></tr>
@@ -70,7 +70,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取整段导线
+**_(BETA)_** Get the entire wire
 
 
 </td></tr>
@@ -84,7 +84,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取整段导线
+**_(BETA)_** Get the entire wire
 
 
 </td></tr>
@@ -98,7 +98,7 @@ Description
 
 </td><td>
 
-获取属性状态：终止位置 X
+Get the property state: end position X
 
 
 </td></tr>
@@ -112,7 +112,7 @@ Description
 
 </td><td>
 
-获取属性状态：终止位置 Y
+Get the property state: end position Y
 
 
 </td></tr>
@@ -126,7 +126,7 @@ Description
 
 </td><td>
 
-获取属性状态：层
+Get the property state: Layer
 
 
 </td></tr>
@@ -140,7 +140,7 @@ Description
 
 </td><td>
 
-获取属性状态：线宽
+Get the property state: Line width
 
 
 </td></tr>
@@ -154,7 +154,7 @@ Description
 
 </td><td>
 
-获取属性状态：网络名称
+Get the property state: net name
 
 
 </td></tr>
@@ -168,7 +168,7 @@ Description
 
 </td><td>
 
-获取属性状态：图元 ID
+Get the property state: primitive ID
 
 
 </td></tr>
@@ -182,7 +182,7 @@ Description
 
 </td><td>
 
-获取属性状态：是否锁定
+Get the property state: whether it is locked
 
 
 </td></tr>
@@ -196,7 +196,7 @@ Description
 
 </td><td>
 
-获取属性状态：图元类型
+Get the property state: primitive type
 
 
 </td></tr>
@@ -210,7 +210,7 @@ Description
 
 </td><td>
 
-获取属性状态：起始位置 X
+Get the property state: start position X
 
 
 </td></tr>
@@ -224,7 +224,7 @@ Description
 
 </td><td>
 
-获取属性状态：起始位置 Y
+Get the property state: start position Y
 
 
 </td></tr>
@@ -238,7 +238,7 @@ Description
 
 </td><td>
 
-查询图元是否为异步图元
+Query whether the primitive is an async primitive
 
 
 </td></tr>
@@ -252,7 +252,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 将异步图元重置为当前画布状态
+**_(BETA)_** Reset the async primitive to the current canvas state
 
 
 </td></tr>
@@ -266,7 +266,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：终止位置 X
+**_(BETA)_** Set the property state: end position X
 
 
 </td></tr>
@@ -280,7 +280,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：终止位置 Y
+**_(BETA)_** Set the property state: end position Y
 
 
 </td></tr>
@@ -294,7 +294,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：层
+**_(BETA)_** Set the property state: Layer
 
 
 </td></tr>
@@ -308,7 +308,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：线宽
+**_(BETA)_** Set the property state: Line width
 
 
 </td></tr>
@@ -322,7 +322,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：网络名称
+**_(BETA)_** Set the property state: net name
 
 
 </td></tr>
@@ -336,7 +336,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：是否锁定
+**_(BETA)_** Set the property state: whether it is locked
 
 
 </td></tr>
@@ -350,7 +350,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：起始位置 X
+**_(BETA)_** Set the property state: start position X
 
 
 </td></tr>
@@ -364,7 +364,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：起始位置 Y
+**_(BETA)_** Set the property state: start position Y
 
 
 </td></tr>
@@ -378,7 +378,7 @@ Description
 
 </td><td>
 
-将图元转换为异步图元
+Convert Primitive to Async primitive
 
 
 </td></tr>
@@ -392,7 +392,7 @@ Description
 
 </td><td>
 
-将图元转换为同步图元
+Convert Primitive to Sync primitive
 
 
 </td></tr>
@@ -408,7 +408,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-将对图元的更改应用到画布
+Apply the changes to the primitives to the canvas
 
 ## Signature
 
@@ -421,7 +421,33 @@ public done(): Promise<IPCB_PrimitiveLine>;
 
 Promise&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)<!-- -->&gt;
 
-直线图元对象
+Line primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试走线重合
+const x = 42000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一条测试直线走线
+const line = await eda.pcb_PrimitiveLine.create('', 1, x, y, x + 600, y, 10);
+
+// 3. 切换异步模式，连续累计两处修改（线宽 + 换层）
+const asyncLine = line.toAsync();
+asyncLine.setState_LineWidth(24);
+asyncLine.setState_Layer(2);
+
+// 4. 一次性提交到画布
+await asyncLine.done();
+
+// 5. 从画布重新读取，确认两处修改都已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveLine.get(line.getState_PrimitiveId());
+
+console.log('lineWidth:', 10, '→', refetched.getState_LineWidth());
+console.log('layer:', 1, '→', refetched.getState_Layer());
+```
 
 ### getadjacentprimitives
 
@@ -429,7 +455,7 @@ Promise&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)<!-- -->&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取相邻的图元对象
+Get Adjacent primitive objects
 
 ## Signature
 
@@ -442,11 +468,34 @@ public getAdjacentPrimitives(): Promise<Array<IPCB_PrimitiveLine | IPCB_Primitiv
 
 Promise&lt;Array&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md) \| [IPCB\_PrimitiveVia](./IPCB_PrimitiveVia.md) \| [IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md)<!-- -->&gt;&gt;
 
-相邻的直线、过孔、圆弧线图元对象
+Adjacent line, via, and arc-line primitive objects
 
 ## Remarks
 
-将会获取与直线两端直接相连的直线、过孔、圆弧线图元对象
+It will get the line, via, and arc-line primitive objects directly connected to both ends of the line
+
+## Example
+
+
+```javascript
+// 1. 创建一条直线走线，终点落在 (7500, 7000)
+const line = await eda.pcb_PrimitiveLine.create('', 1, 7000, 7000, 7500, 7000, 10);
+
+// 2. 创建一段圆弧，起点与直线终点重合，两段构成一整段导线
+const arc = await eda.pcb_PrimitiveArc.create('', 1, 7500, 7000, 7800, 7300, 90, 10, 1, false);
+
+// 3. 获取与直线直接相连的图元，并读出各自的类型
+const adjacent = await line.getAdjacentPrimitives();
+
+// 4. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveLine.delete([line.getState_PrimitiveId()]);
+await eda.pcb_PrimitiveArc.delete([arc.getState_PrimitiveId()]);
+
+console.log('adjacent count:', adjacent.length);
+adjacent.forEach((p, i) => {
+  console.log(`adjacent[${i}] type:`, p.getState_PrimitiveType());
+});
+```
 
 ### getentiretrack
 
@@ -454,7 +503,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md) \| [IPCB\_Pri
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取整段导线
+Get the entire wire
 
 ## Signature
 
@@ -492,7 +541,7 @@ false
 
 </td><td>
 
-是否包含导线两端的过孔
+Whether to include the vias at both ends of the wire
 
 
 </td></tr>
@@ -504,7 +553,34 @@ false
 
 Promise&lt;Array&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md) \| [IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md)<!-- -->&gt;&gt;
 
-整段导线内的所有直线和圆弧线
+All lines and arc lines in the entire wire
+
+## Example
+
+
+```javascript
+// 1. 创建一条直线走线，终点落在 (7500, 7000)
+const line = await eda.pcb_PrimitiveLine.create('', 1, 7000, 7000, 7500, 7000, 10);
+
+// 2. 创建一段圆弧，起点与直线终点重合，两段构成一整段导线
+const arc = await eda.pcb_PrimitiveArc.create('', 1, 7500, 7000, 7800, 7300, 90, 10, 1, false);
+
+// 3. 只取导线内的直线和圆弧
+const trackOnly = await line.getEntireTrack(false);
+
+// 4. 连两端过孔一起取（本例两端没有过孔，数量不变）
+const trackWithVias = await line.getEntireTrack(true);
+
+// 5. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveLine.delete([line.getState_PrimitiveId()]);
+await eda.pcb_PrimitiveArc.delete([arc.getState_PrimitiveId()]);
+
+console.log('track(false) count:', trackOnly.length);
+trackOnly.forEach((p, i) => {
+  console.log(`track(false)[${i}] type:`, p.getState_PrimitiveType());
+});
+console.log('track(true) count:', trackWithVias.length);
+```
 
 ### getentiretrack_1
 
@@ -512,7 +588,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md) \| [IPCB\_Pri
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取整段导线
+Get the entire wire
 
 ## Signature
 
@@ -550,7 +626,7 @@ true
 
 </td><td>
 
-是否包含导线两端的过孔
+Whether to include the vias at both ends of the wire
 
 
 </td></tr>
@@ -562,13 +638,13 @@ true
 
 Promise&lt;Array&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md) \| [IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md) \| [IPCB\_PrimitiveVia](./IPCB_PrimitiveVia.md)<!-- -->&gt;&gt;
 
-整段导线内的所有直线、圆弧线，以及两端连接的过孔（如果有）
+All lines and arc lines in the entire wire, as well as the vias connected at both ends (if any)
 
 ### getstate_endx
 
 # IPCB\_PrimitiveLine.getState\_EndX() method
 
-获取属性状态：终止位置 X
+Get the property state: end position X
 
 ## Signature
 
@@ -581,13 +657,29 @@ public getState_EndX(): number;
 
 number
 
-终止位置 X
+End position X
+
+## Example
+
+
+```javascript
+// 1. 创建一条测试直线，终点 (1600, 1000)
+const line = await eda.pcb_PrimitiveLine.create('', 1, 1000, 1000, 1600, 1000, 10);
+
+// 2. 读取终点 X
+const endX = line.getState_EndX();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveLine.delete([line.getState_PrimitiveId()]);
+
+console.log('endX:', endX);
+```
 
 ### getstate_endy
 
 # IPCB\_PrimitiveLine.getState\_EndY() method
 
-获取属性状态：终止位置 Y
+Get the property state: end position Y
 
 ## Signature
 
@@ -600,13 +692,29 @@ public getState_EndY(): number;
 
 number
 
-终止位置 Y
+End position Y
+
+## Example
+
+
+```javascript
+// 1. 创建一条测试直线，终点 (1600, 1000)
+const line = await eda.pcb_PrimitiveLine.create('', 1, 1000, 1000, 1600, 1000, 10);
+
+// 2. 读取终点 Y
+const endY = line.getState_EndY();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveLine.delete([line.getState_PrimitiveId()]);
+
+console.log('endY:', endY);
+```
 
 ### getstate_layer
 
 # IPCB\_PrimitiveLine.getState\_Layer() method
 
-获取属性状态：层
+Get the property state: Layer
 
 ## Signature
 
@@ -619,13 +727,29 @@ public getState_Layer(): TPCB_LayersOfLine;
 
 [TPCB\_LayersOfLine](../types/TPCB_LayersOfLine.md)
 
-层
+Layer
+
+## Example
+
+
+```javascript
+// 1. 创建一条顶层（1）测试直线
+const line = await eda.pcb_PrimitiveLine.create('', 1, 1000, 1000, 1600, 1000, 10);
+
+// 2. 读取所在层
+const layer = line.getState_Layer();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveLine.delete([line.getState_PrimitiveId()]);
+
+console.log('layer:', layer);
+```
 
 ### getstate_linewidth
 
 # IPCB\_PrimitiveLine.getState\_LineWidth() method
 
-获取属性状态：线宽
+Get the property state: Line width
 
 ## Signature
 
@@ -638,13 +762,29 @@ public getState_LineWidth(): number;
 
 number
 
-线宽
+Line width
+
+## Example
+
+
+```javascript
+// 1. 创建一条 10mil 线宽的测试直线
+const line = await eda.pcb_PrimitiveLine.create('', 1, 1000, 1000, 1600, 1000, 10);
+
+// 2. 读取线宽
+const lineWidth = line.getState_LineWidth();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveLine.delete([line.getState_PrimitiveId()]);
+
+console.log('lineWidth:', lineWidth);
+```
 
 ### getstate_net
 
 # IPCB\_PrimitiveLine.getState\_Net() method
 
-获取属性状态：网络名称
+Get the property state: net name
 
 ## Signature
 
@@ -657,13 +797,29 @@ public getState_Net(): string;
 
 string
 
-网络名称
+Net name
+
+## Example
+
+
+```javascript
+// 1. 创建一条指定网络的测试直线
+const line = await eda.pcb_PrimitiveLine.create('嘉立创示例_NET', 1, 1000, 1000, 1600, 1000, 10);
+
+// 2. 读取网络名称
+const net = line.getState_Net();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveLine.delete([line.getState_PrimitiveId()]);
+
+console.log('net:', net);
+```
 
 ### getstate_primitiveid
 
 # IPCB\_PrimitiveLine.getState\_PrimitiveId() method
 
-获取属性状态：图元 ID
+Get the property state: primitive ID
 
 ## Signature
 
@@ -676,13 +832,33 @@ public getState_PrimitiveId(): string;
 
 string
 
-图元 ID
+Primitive ID
+
+## Example
+
+
+```javascript
+// 1. 创建一条测试直线
+const line = await eda.pcb_PrimitiveLine.create('', 1, 1000, 1000, 1600, 1000, 10);
+
+// 2. 读取图元 ID
+const primitiveId = line.getState_PrimitiveId();
+
+// 3. 用该 ID 从画布重新取回直线，验证 ID 有效
+const refetched = await eda.pcb_PrimitiveLine.get(primitiveId);
+
+// 4. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveLine.delete([primitiveId]);
+
+console.log('primitiveId:', primitiveId);
+console.log('refetched type:', refetched.getState_PrimitiveType());
+```
 
 ### getstate_primitivelock
 
 # IPCB\_PrimitiveLine.getState\_PrimitiveLock() method
 
-获取属性状态：是否锁定
+Get the property state: whether it is locked
 
 ## Signature
 
@@ -695,13 +871,29 @@ public getState_PrimitiveLock(): boolean;
 
 boolean
 
-是否锁定
+Whether it is locked
+
+## Example
+
+
+```javascript
+// 1. 创建一条测试直线（默认不锁定）
+const line = await eda.pcb_PrimitiveLine.create('', 1, 1000, 1000, 1600, 1000, 10);
+
+// 2. 读取锁定状态
+const locked = line.getState_PrimitiveLock();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveLine.delete([line.getState_PrimitiveId()]);
+
+console.log('locked:', locked);
+```
 
 ### getstate_primitivetype
 
 # IPCB\_PrimitiveLine.getState\_PrimitiveType() method
 
-获取属性状态：图元类型
+Get the property state: primitive type
 
 ## Signature
 
@@ -714,13 +906,29 @@ public getState_PrimitiveType(): EPCB_PrimitiveType;
 
 [EPCB\_PrimitiveType](../enums/EPCB_PrimitiveType.md)
 
-图元类型
+Primitive type
+
+## Example
+
+
+```javascript
+// 1. 创建一条测试直线
+const line = await eda.pcb_PrimitiveLine.create('', 1, 1000, 1000, 1600, 1000, 10);
+
+// 2. 读取图元类型
+const type = line.getState_PrimitiveType();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveLine.delete([line.getState_PrimitiveId()]);
+
+console.log('type:', type);
+```
 
 ### getstate_startx
 
 # IPCB\_PrimitiveLine.getState\_StartX() method
 
-获取属性状态：起始位置 X
+Get the property state: start position X
 
 ## Signature
 
@@ -733,13 +941,29 @@ public getState_StartX(): number;
 
 number
 
-起始位置 X
+Start position X
+
+## Example
+
+
+```javascript
+// 1. 创建一条测试直线，起点 (1000, 1000)
+const line = await eda.pcb_PrimitiveLine.create('', 1, 1000, 1000, 1600, 1000, 10);
+
+// 2. 读取起点 X
+const startX = line.getState_StartX();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveLine.delete([line.getState_PrimitiveId()]);
+
+console.log('startX:', startX);
+```
 
 ### getstate_starty
 
 # IPCB\_PrimitiveLine.getState\_StartY() method
 
-获取属性状态：起始位置 Y
+Get the property state: start position Y
 
 ## Signature
 
@@ -752,13 +976,29 @@ public getState_StartY(): number;
 
 number
 
-起始位置 Y
+Start position Y
+
+## Example
+
+
+```javascript
+// 1. 创建一条测试直线，起点 (1000, 1000)
+const line = await eda.pcb_PrimitiveLine.create('', 1, 1000, 1000, 1600, 1000, 10);
+
+// 2. 读取起点 Y
+const startY = line.getState_StartY();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveLine.delete([line.getState_PrimitiveId()]);
+
+console.log('startY:', startY);
+```
 
 ### isasync
 
 # IPCB\_PrimitiveLine.isAsync() method
 
-查询图元是否为异步图元
+Query whether the primitive is an async primitive
 
 ## Signature
 
@@ -771,7 +1011,26 @@ public isAsync(): boolean;
 
 boolean
 
-是否为异步图元
+Whether Is async primitive
+
+## Example
+
+
+```javascript
+// 1. 创建一条测试直线，读出创建后的默认模式
+const line = await eda.pcb_PrimitiveLine.create('', 1, 1000, 1000, 1600, 1000, 10);
+const asyncOnCreate = line.isAsync();
+
+// 2. 切换到同步模式再查询一次，对比两种模式
+line.toSync();
+const asyncAfterToSync = line.isAsync();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveLine.delete([line.getState_PrimitiveId()]);
+
+console.log('isAsync on create:', asyncOnCreate);
+console.log('isAsync after toSync:', asyncAfterToSync);
+```
 
 ### reset
 
@@ -779,7 +1038,7 @@ boolean
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-将异步图元重置为当前画布状态
+Reset the async primitive to the current canvas state
 
 ## Signature
 
@@ -792,7 +1051,31 @@ public reset(): Promise<IPCB_PrimitiveLine>;
 
 Promise&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)<!-- -->&gt;
 
-直线图元对象
+Line primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试走线重合
+const x = 46000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一条 10mil 线宽的测试直线
+const line = await eda.pcb_PrimitiveLine.create('', 1, x, y, x + 600, y, 10);
+
+// 3. 切换异步模式，累计一处未提交的线宽修改（10 → 99）
+const asyncLine = line.toAsync();
+asyncLine.setState_LineWidth(99);
+
+// 4. 重置：丢弃未提交的修改，回到画布当前状态
+await asyncLine.reset();
+
+// 5. 从画布重新读取，线宽仍是 10（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveLine.get(line.getState_PrimitiveId());
+
+console.log('lineWidth after reset:', refetched.getState_LineWidth());
+```
 
 ### setstate_endx
 
@@ -800,7 +1083,7 @@ Promise&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)<!-- -->&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：终止位置 X
+Set the property state: end position X
 
 ## Signature
 
@@ -838,7 +1121,7 @@ number
 
 </td><td>
 
-终止位置 X
+End position X
 
 
 </td></tr>
@@ -850,7 +1133,33 @@ number
 
 [IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)
 
-直线图元对象
+Line primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试走线重合
+const x = 14000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一条测试直线，终点 (x + 600, y)
+const line = await eda.pcb_PrimitiveLine.create('', 1, x, y, x + 600, y, 10);
+
+// 3. 读取修改前的终点 X
+const before = line.getState_EndX();
+
+// 4. 切换异步模式并拉长终点（右移 300mil）
+const asyncLine = line.toAsync();
+asyncLine.setState_EndX(x + 900);
+await asyncLine.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveLine.get(line.getState_PrimitiveId());
+const after = refetched.getState_EndX();
+
+console.log('endX:', before, '→', after);
+```
 
 ### setstate_endy
 
@@ -858,7 +1167,7 @@ number
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：终止位置 Y
+Set the property state: end position Y
 
 ## Signature
 
@@ -896,7 +1205,7 @@ number
 
 </td><td>
 
-终止位置 Y
+End position Y
 
 
 </td></tr>
@@ -908,7 +1217,33 @@ number
 
 [IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)
 
-直线图元对象
+Line primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试走线重合
+const x = 18000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一条测试直线，终点 (x + 600, y)
+const line = await eda.pcb_PrimitiveLine.create('', 1, x, y, x + 600, y, 10);
+
+// 3. 读取修改前的终点 Y
+const before = line.getState_EndY();
+
+// 4. 切换异步模式并抬高终点（上移 300mil）
+const asyncLine = line.toAsync();
+asyncLine.setState_EndY(y + 300);
+await asyncLine.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveLine.get(line.getState_PrimitiveId());
+const after = refetched.getState_EndY();
+
+console.log('endY:', before, '→', after);
+```
 
 ### setstate_layer
 
@@ -916,7 +1251,7 @@ number
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：层
+Set the property state: Layer
 
 ## Signature
 
@@ -954,7 +1289,7 @@ layer
 
 </td><td>
 
-层
+Layer
 
 
 </td></tr>
@@ -966,7 +1301,33 @@ layer
 
 [IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)
 
-直线图元对象
+Line primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试走线重合
+const x = 22000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一条顶层（1）测试直线
+const line = await eda.pcb_PrimitiveLine.create('', 1, x, y, x + 600, y, 10);
+
+// 3. 读取修改前的层
+const before = line.getState_Layer();
+
+// 4. 切换异步模式并换层（顶层 1 → 底层 2）
+const asyncLine = line.toAsync();
+asyncLine.setState_Layer(2);
+await asyncLine.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveLine.get(line.getState_PrimitiveId());
+const after = refetched.getState_Layer();
+
+console.log('layer:', before, '→', after);
+```
 
 ### setstate_linewidth
 
@@ -974,7 +1335,7 @@ layer
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：线宽
+Set the property state: Line width
 
 ## Signature
 
@@ -1012,7 +1373,7 @@ number
 
 </td><td>
 
-线宽
+Line width
 
 
 </td></tr>
@@ -1024,7 +1385,33 @@ number
 
 [IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)
 
-直线图元对象
+Line primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试走线重合
+const x = 26000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一条 10mil 线宽的测试直线
+const line = await eda.pcb_PrimitiveLine.create('', 1, x, y, x + 600, y, 10);
+
+// 3. 读取修改前的线宽
+const before = line.getState_LineWidth();
+
+// 4. 切换异步模式并加宽（10 → 24）
+const asyncLine = line.toAsync();
+asyncLine.setState_LineWidth(24);
+await asyncLine.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveLine.get(line.getState_PrimitiveId());
+const after = refetched.getState_LineWidth();
+
+console.log('lineWidth:', before, '→', after);
+```
 
 ### setstate_net
 
@@ -1032,7 +1419,7 @@ number
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：网络名称
+Set the property state: net name
 
 ## Signature
 
@@ -1070,7 +1457,7 @@ string
 
 </td><td>
 
-网络名称
+Net name
 
 
 </td></tr>
@@ -1082,7 +1469,33 @@ string
 
 [IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)
 
-直线图元对象
+Line primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试走线重合
+const x = 30000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一条无网络的测试直线
+const line = await eda.pcb_PrimitiveLine.create('', 1, x, y, x + 600, y, 10);
+
+// 3. 读取修改前的网络名称
+const before = line.getState_Net();
+
+// 4. 切换异步模式并指定网络（'' → '嘉立创示例_NET'）
+const asyncLine = line.toAsync();
+asyncLine.setState_Net('嘉立创示例_NET');
+await asyncLine.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveLine.get(line.getState_PrimitiveId());
+const after = refetched.getState_Net();
+
+console.log('net:', before, '→', after);
+```
 
 ### setstate_primitivelock
 
@@ -1090,7 +1503,7 @@ string
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：是否锁定
+Set the property state: whether it is locked
 
 ## Signature
 
@@ -1128,7 +1541,7 @@ boolean
 
 </td><td>
 
-是否锁定
+Whether it is locked
 
 
 </td></tr>
@@ -1140,7 +1553,33 @@ boolean
 
 [IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)
 
-直线图元对象
+Line primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试走线重合
+const x = 34000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一条测试直线（默认不锁定）
+const line = await eda.pcb_PrimitiveLine.create('', 1, x, y, x + 600, y, 10);
+
+// 3. 读取修改前的锁定状态
+const before = line.getState_PrimitiveLock();
+
+// 4. 切换异步模式并锁定（false → true）
+const asyncLine = line.toAsync();
+asyncLine.setState_PrimitiveLock(true);
+await asyncLine.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveLine.get(line.getState_PrimitiveId());
+const after = refetched.getState_PrimitiveLock();
+
+console.log('locked:', before, '→', after);
+```
 
 ### setstate_startx
 
@@ -1148,7 +1587,7 @@ boolean
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：起始位置 X
+Set the property state: start position X
 
 ## Signature
 
@@ -1186,7 +1625,7 @@ number
 
 </td><td>
 
-起始位置 X
+Start position X
 
 
 </td></tr>
@@ -1198,7 +1637,33 @@ number
 
 [IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)
 
-直线图元对象
+Line primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试走线重合
+const x = 6000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一条测试直线，起点 (x, y)
+const line = await eda.pcb_PrimitiveLine.create('', 1, x, y, x + 600, y, 10);
+
+// 3. 读取修改前的起点 X
+const before = line.getState_StartX();
+
+// 4. 切换异步模式并平移起点 X（右移 300mil）
+const asyncLine = line.toAsync();
+asyncLine.setState_StartX(x + 300);
+await asyncLine.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveLine.get(line.getState_PrimitiveId());
+const after = refetched.getState_StartX();
+
+console.log('startX:', before, '→', after);
+```
 
 ### setstate_starty
 
@@ -1206,7 +1671,7 @@ number
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：起始位置 Y
+Set the property state: start position Y
 
 ## Signature
 
@@ -1244,7 +1709,7 @@ number
 
 </td><td>
 
-起始位置 Y
+Start position Y
 
 
 </td></tr>
@@ -1256,13 +1721,39 @@ number
 
 [IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)
 
-直线图元对象
+Line primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试走线重合
+const x = 10000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一条测试直线，起点 (x, y)
+const line = await eda.pcb_PrimitiveLine.create('', 1, x, y, x + 600, y, 10);
+
+// 3. 读取修改前的起点 Y
+const before = line.getState_StartY();
+
+// 4. 切换异步模式并平移起点 Y（上移 300mil）
+const asyncLine = line.toAsync();
+asyncLine.setState_StartY(y + 300);
+await asyncLine.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveLine.get(line.getState_PrimitiveId());
+const after = refetched.getState_StartY();
+
+console.log('startY:', before, '→', after);
+```
 
 ### toasync
 
 # IPCB\_PrimitiveLine.toAsync() method
 
-将图元转换为异步图元
+Convert Primitive to Async primitive
 
 ## Signature
 
@@ -1275,13 +1766,39 @@ public toAsync(): IPCB_PrimitiveLine;
 
 [IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)
 
-直线图元对象
+Line primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试走线重合
+const x = 52000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一条测试直线，切换到同步模式，让模式变化可观察
+const line = await eda.pcb_PrimitiveLine.create('', 1, x, y, x + 600, y, 10);
+line.toSync();
+
+// 3. 转换为异步图元
+const asyncLine = line.toAsync();
+
+// 4. 异步模式下累计修改并提交
+asyncLine.setState_LineWidth(24);
+await asyncLine.done();
+
+// 5. 从画布重新读取，确认提交生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveLine.get(line.getState_PrimitiveId());
+
+console.log('isAsync after toAsync:', line.isAsync());
+console.log('lineWidth:', 10, '→', refetched.getState_LineWidth());
+```
 
 ### tosync
 
 # IPCB\_PrimitiveLine.toSync() method
 
-将图元转换为同步图元
+Convert Primitive to Sync primitive
 
 ## Signature
 
@@ -1294,4 +1811,28 @@ public toSync(): IPCB_PrimitiveLine;
 
 [IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md)
 
-直线图元对象
+Line primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试走线重合
+const x = 56000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一条测试直线
+const line = await eda.pcb_PrimitiveLine.create('', 1, x, y, x + 600, y, 10);
+
+// 3. 转换为同步图元
+const syncLine = line.toSync();
+
+// 4. 同步模式下修改线宽，立即生效（无需 done()）
+syncLine.setState_LineWidth(40);
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveLine.get(line.getState_PrimitiveId());
+
+console.log('isSync after toSync:', !syncLine.isAsync());
+console.log('lineWidth:', 10, '→', refetched.getState_LineWidth());
+```

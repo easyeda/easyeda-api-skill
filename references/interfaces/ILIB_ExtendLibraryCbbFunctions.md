@@ -1,6 +1,6 @@
 # ILIB\_ExtendLibraryCbbFunctions interface
 
-外部库复用模块方法
+External library reuse block functions
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # PCB\_PrimitiveComponent class
 
-PCB &amp; 封装 / 器件图元类
+PCB &amp; footprint / device primitive class
 
 ## Signature
 
@@ -37,7 +37,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建器件
+**_(BETA)_** Create Device
 
 
 </td></tr>
@@ -51,7 +51,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 删除器件
+**_(BETA)_** Delete Device
 
 
 </td></tr>
@@ -65,7 +65,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取器件
+**_(BETA)_** Get Device
 
 
 </td></tr>
@@ -79,7 +79,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取器件
+**_(BETA)_** Get Device
 
 
 </td></tr>
@@ -93,7 +93,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有器件
+**_(BETA)_** Get all Device
 
 
 </td></tr>
@@ -107,7 +107,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取器件关联的所有焊盘
+**_(BETA)_** Get all pads associated with the device
 
 
 </td></tr>
@@ -121,7 +121,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有器件的图元 ID
+**_(BETA)_** Get all Device primitive IDs
 
 
 </td></tr>
@@ -135,7 +135,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有器件的所有属性名称集合
+**_(BETA)_** Get The set of all property names of all devices
 
 
 </td></tr>
@@ -149,7 +149,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 修改器件
+**_(BETA)_** Modify Device
 
 
 </td></tr>
@@ -163,7 +163,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 使用鼠标放置器件
+**_(BETA)_** Place with the mouse device
 
 
 </td></tr>
@@ -177,7 +177,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 使用鼠标放置封装
+**_(BETA)_** Place with the mouse footprint
 
 
 </td></tr>
@@ -193,7 +193,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-创建器件
+Create Device
 
 ## Signature
 
@@ -231,7 +231,7 @@ component
 
 </td><td>
 
-关联库器件
+Associate library device
 
 
 </td></tr>
@@ -247,7 +247,7 @@ layer
 
 </td><td>
 
-层
+Layer
 
 
 </td></tr>
@@ -263,7 +263,7 @@ number
 
 </td><td>
 
-坐标 X
+X coordinate
 
 
 </td></tr>
@@ -279,7 +279,7 @@ number
 
 </td><td>
 
-坐标 Y
+Y coordinate
 
 
 </td></tr>
@@ -295,7 +295,7 @@ number
 
 </td><td>
 
-_(Optional)_ 旋转角度
+_(Optional)_ Rotation angle
 
 
 </td></tr>
@@ -311,7 +311,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -323,7 +323,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;[IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md) \| undefined&gt;
 
-器件图元对象
+Device primitive object
 
 ### delete
 
@@ -331,7 +331,7 @@ Promise&lt;[IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md) \| undefined
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-删除器件
+Delete Device
 
 ## Signature
 
@@ -369,7 +369,7 @@ string \| [IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md) \| Array&lt;s
 
 </td><td>
 
-器件的图元 ID 或器件图元对象
+Device primitive ID or Device primitive object
 
 
 </td></tr>
@@ -381,7 +381,7 @@ string \| [IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md) \| Array&lt;s
 
 Promise&lt;boolean&gt;
 
-删除操作是否成功
+Delete Whether the operation is successful
 
 ### get
 
@@ -389,7 +389,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取器件
+Get Device
 
 ## Signature
 
@@ -427,7 +427,7 @@ string
 
 </td><td>
 
-器件的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Device primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -439,7 +439,7 @@ string
 
 Promise&lt;[IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md) \| undefined&gt;
 
-器件图元对象，`undefined` 表示获取失败
+Device primitive object, `undefined` indicates that the retrieval failed
 
 ### get_1
 
@@ -447,7 +447,7 @@ Promise&lt;[IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md) \| undefined
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取器件
+Get Device
 
 ## Signature
 
@@ -485,7 +485,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-器件的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Device primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -497,11 +497,11 @@ Array&lt;string&gt;
 
 Promise&lt;Array&lt;[IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md)<!-- -->&gt;&gt;
 
-器件图元对象，空数组表示获取失败
+Device primitive object; an empty array indicates that the retrieval failed
 
 ## Remarks
 
-如若传入多个图元 ID，任意图元 ID 未匹配到不影响其它图元的返回，即可能返回少于传入的图元 ID 数量的图元对象
+If multiple primitive IDs are passed in, a primitive ID that is not matched will not affect the return of other primitives; that is, fewer primitive objects than the number of primitive IDs passed in may be returned.
 
 ### getall
 
@@ -509,7 +509,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md)<!--
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有器件
+Get all Device
 
 ## Signature
 
@@ -547,7 +547,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层
+_(Optional)_ Layer
 
 
 </td></tr>
@@ -563,7 +563,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -575,7 +575,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;Array&lt;[IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md)<!-- -->&gt;&gt;
 
-器件图元对象数组
+Array of Device primitive objects
 
 ### getallpinsbyprimitiveid
 
@@ -583,7 +583,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md)<!--
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取器件关联的所有焊盘
+Get all pads associated with the device
 
 ## Signature
 
@@ -621,7 +621,7 @@ string
 
 </td><td>
 
-器件图元 ID
+Device primitive ID
 
 
 </td></tr>
@@ -633,7 +633,7 @@ string
 
 Promise&lt;Array&lt;[IPCB\_PrimitiveComponentPad](./IPCB_PrimitiveComponentPad.md)<!-- -->&gt; \| undefined&gt;
 
-器件焊盘图元数组
+Device pad primitive array
 
 ### getallprimitiveid
 
@@ -641,7 +641,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveComponentPad](./IPCB_PrimitiveComponentPad.m
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有器件的图元 ID
+Get all Device primitive IDs
 
 ## Signature
 
@@ -679,7 +679,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层
+_(Optional)_ Layer
 
 
 </td></tr>
@@ -695,7 +695,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -707,7 +707,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;Array&lt;string&gt;&gt;
 
-器件的图元 ID 数组
+Array of Device primitive IDs
 
 ### getallpropertynames
 
@@ -715,7 +715,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有器件的所有属性名称集合
+Get The set of all property names of all devices
 
 ## Signature
 
@@ -728,7 +728,7 @@ public getAllPropertyNames(): Promise<Array<string>>;
 
 Promise&lt;Array&lt;string&gt;&gt;
 
-所有器件的所有属性名称集合
+The set of all property names of all devices
 
 ### modify
 
@@ -736,7 +736,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-修改器件
+Modify Device
 
 ## Signature
 
@@ -774,7 +774,7 @@ string \| [IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md)
 
 </td><td>
 
-图元 ID
+Primitive ID
 
 
 </td></tr>
@@ -800,7 +800,7 @@ property
 
 Promise&lt;[IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md) \| undefined&gt;
 
-器件图元对象
+Device primitive object
 
 ### placecomponentwithmouse
 
@@ -808,7 +808,7 @@ Promise&lt;[IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md) \| undefined
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-使用鼠标放置器件
+Place with the mouse device
 
 ## Signature
 
@@ -846,7 +846,7 @@ component
 
 </td><td>
 
-关联库器件
+Associate library device
 
 
 </td></tr>
@@ -858,13 +858,13 @@ component
 
 Promise&lt;boolean&gt;
 
-是否找到器件
+Whether the device was found
 
 ## Remarks
 
-本接口模拟前端点击放置按钮，指定的器件将绑定到当前鼠标，并在用户后续点击时放置于画布
+This API simulates clicking the placement button on the front end. The specified device will be bound to the current mouse and placed on the canvas when the user clicks subsequently
 
-本接口的返回时机并不会等待用户的放置操作，一旦器件被绑定到鼠标，本接口将立即返回 `true` 的结果
+The return timing of this API does not wait for the user's placement operation. Once the device is bound to the mouse, this API will immediately return `true`
 
 ### placefootprintwithmouse
 
@@ -872,7 +872,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-使用鼠标放置封装
+Place with the mouse footprint
 
 ## Signature
 
@@ -910,7 +910,7 @@ footprint
 
 </td><td>
 
-关联库封装
+Associate library footprint
 
 
 </td></tr>
@@ -926,7 +926,7 @@ Record&lt;string, boolean \| number \| string \| undefined&gt;
 
 </td><td>
 
-_(Optional)_ 器件属性
+_(Optional)_ Device property
 
 
 </td></tr>
@@ -938,10 +938,10 @@ _(Optional)_ 器件属性
 
 Promise&lt;boolean&gt;
 
-是否找到封装
+Whether the footprint was found
 
 ## Remarks
 
-本接口模拟前端点击放置按钮，指定的封装将绑定到当前鼠标，并在用户后续点击时放置于画布
+This API simulates clicking the placement button on the front end. The specified footprint will be bound to the current mouse and placed on the canvas when the user clicks subsequently
 
-本接口的返回时机并不会等待用户的放置操作，一旦封装被绑定到鼠标，本接口将立即返回 `true` 的结果 ADD since API v0.2.26
+The return timing of this API does not wait for the user's placement operation. Once the footprint is bound to the mouse, this API will immediately return `true` ADD since API v0.2.26

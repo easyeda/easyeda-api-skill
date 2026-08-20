@@ -1,6 +1,6 @@
 # SYS\_Message class
 
-系统 / 消息通知类
+System / message notification class
 
 ## Signature
 
@@ -10,7 +10,7 @@ export class SYS_Message
 
 ## Remarks
 
-生成各种对用户的非侵入式提醒
+Generate various non-intrusive reminders for users
 
 ## Methods
 
@@ -40,7 +40,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 移除跟随鼠标的提示
+**_(BETA)_** Remove the follow-mouse tip
 
 
 </td></tr>
@@ -54,7 +54,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 展示跟随鼠标的提示
+**_(BETA)_** Show the follow-mouse tip
 
 
 </td></tr>
@@ -68,7 +68,7 @@ Description
 
 </td><td>
 
-显示吐司消息
+Show a toast message
 
 
 </td></tr>
@@ -84,7 +84,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-移除跟随鼠标的提示
+Remove the follow-mouse tip
 
 ## Signature
 
@@ -122,7 +122,7 @@ string
 
 </td><td>
 
-_(Optional)_ 提示内容，如若传入，则仅当当前提示为指定内容时才移除
+_(Optional)_ Tip content. If passed in, the tip is only removed when the current tip matches the specified content
 
 
 </td></tr>
@@ -136,7 +136,7 @@ Promise&lt;void&gt;
 
 ## Remarks
 
-移除当前或指定的跟随鼠标的提示
+Remove the current or specified follow-mouse tip
 
 ### showfollowmousetip
 
@@ -144,7 +144,7 @@ Promise&lt;void&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-展示跟随鼠标的提示
+Show the follow-mouse tip
 
 ## Signature
 
@@ -182,7 +182,7 @@ string
 
 </td><td>
 
-提示内容
+Tip content
 
 
 </td></tr>
@@ -198,7 +198,7 @@ number
 
 </td><td>
 
-_(Optional)_ 展示时间，以毫秒（ms）为单位，如若不传入则持续展示，直到调用 [removeFollowMouseTip](./SYS_Message.md) 或被其它提示覆盖
+_(Optional)_ Display duration in milliseconds (ms). If not passed in, the tip is displayed continuously until [removeFollowMouseTip](./SYS_Message.md) is called or it is covered by another tip
 
 
 </td></tr>
@@ -212,13 +212,13 @@ Promise&lt;void&gt;
 
 ## Remarks
 
-同一时间只能展示一条提示，如果展示新的提示，则之前的提示将被自动移除
+Only one tip can be shown at a time. If a new tip is shown, the previous tip will be automatically removed
 
 ### showtoastmessage
 
 # SYS\_Message.showToastMessage() method
 
-显示吐司消息
+Show a toast message
 
 ## Signature
 
@@ -256,7 +256,7 @@ string
 
 </td><td>
 
-消息内容
+Message content
 
 
 </td></tr>
@@ -272,7 +272,7 @@ messageType
 
 </td><td>
 
-_(Optional)_ 消息类型
+_(Optional)_ Message type
 
 
 </td></tr>
@@ -288,7 +288,7 @@ number
 
 </td><td>
 
-_(Optional)_ 自动关闭倒计时秒数，`0` 为不自动关闭
+_(Optional)_ Auto-close countdown in seconds. `0` means it will not auto-close
 
 
 </td></tr>
@@ -304,7 +304,7 @@ bottomPanel
 
 </td><td>
 
-_(Optional)_ 展开底部信息面板
+_(Optional)_ Expand the bottom information panel
 
 
 </td></tr>
@@ -320,7 +320,7 @@ string
 
 </td><td>
 
-_(Optional)_ 回调按钮标题
+_(Optional)_ Callback button title
 
 
 </td></tr>
@@ -336,7 +336,7 @@ string
 
 </td><td>
 
-_(Optional)_ 回调函数内容，字符串形式，会被自动解析并执行
+_(Optional)_ Callback function content, in string form. It will be automatically parsed and executed
 
 
 </td></tr>

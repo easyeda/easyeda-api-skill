@@ -1,6 +1,6 @@
 # ESYS\_RightPanelTab enum
 
-右侧面板标签页
+Right panel tab
 
 ## Signature
 

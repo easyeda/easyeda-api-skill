@@ -1,6 +1,6 @@
 # EPCB\_PrimitiveViaType enum
 
-过孔类型
+Via type
 
 ## Signature
 

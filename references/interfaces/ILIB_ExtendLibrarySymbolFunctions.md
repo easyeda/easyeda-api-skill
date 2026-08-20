@@ -1,6 +1,6 @@
 # ILIB\_ExtendLibrarySymbolFunctions interface
 
-外部库符号方法
+External library symbol functions
 
 ## Signature
 

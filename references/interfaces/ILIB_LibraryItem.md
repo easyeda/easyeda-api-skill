@@ -1,6 +1,6 @@
 # ILIB\_LibraryItem interface
 
-库属性
+Library property
 
 ## Signature
 
@@ -46,7 +46,7 @@ Description
 
 </td><td>
 
-库类型
+Library type
 
 
 </td></tr>
@@ -65,7 +65,7 @@ string
 
 </td><td>
 
-_(Optional)_ 所属库 UUID
+_(Optional)_ UUID of the library it belongs to
 
 
 </td></tr>
@@ -98,7 +98,7 @@ UUID
 
 # ILIB\_LibraryItem.libraryType property
 
-库类型
+Library type
 
 ## Signature
 
@@ -110,7 +110,7 @@ libraryType: ELIB_LibraryType;
 
 # ILIB\_LibraryItem.libraryUuid property
 
-所属库 UUID
+UUID of the library it belongs to
 
 ## Signature
 

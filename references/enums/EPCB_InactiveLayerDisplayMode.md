@@ -1,6 +1,6 @@
 # EPCB\_InactiveLayerDisplayMode enum
 
-非激活层展示模式
+Inactive layer display mode
 
 ## Signature
 

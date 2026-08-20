@@ -1,6 +1,6 @@
 # IDMT\_SchematicPageItem interface
 
-原理图图页属性
+Schematic sheet property
 
 ## Signature
 
@@ -48,7 +48,7 @@ Description
 
 </td><td>
 
-项目类型
+Project type
 
 
 </td></tr>
@@ -67,7 +67,7 @@ string
 
 </td><td>
 
-原理图图页名称
+Schematic sheet name
 
 
 </td></tr>
@@ -86,7 +86,7 @@ string
 
 </td><td>
 
-所属原理图 UUID
+UUID of the schematic it belongs to
 
 
 </td></tr>
@@ -105,7 +105,7 @@ boolean
 
 </td><td>
 
-是否显示明细表
+Whether to show the title block
 
 
 </td></tr>
@@ -124,7 +124,7 @@ Record&lt;string, { showTitle: boolean; showValue: boolean; value: any }&gt;
 
 </td><td>
 
-明细表数据
+Title block data
 
 
 </td></tr>
@@ -143,7 +143,7 @@ string
 
 </td><td>
 
-原理图图页 UUID
+Schematic sheet UUID
 
 
 </td></tr>
@@ -157,7 +157,7 @@ string
 
 # IDMT\_SchematicPageItem.itemType property
 
-项目类型
+Project type
 
 ## Signature
 
@@ -169,7 +169,7 @@ readonly itemType: EDMT_ItemType.SCHEMATIC_PAGE;
 
 # IDMT\_SchematicPageItem.name property
 
-原理图图页名称
+Schematic sheet name
 
 ## Signature
 
@@ -181,7 +181,7 @@ name: string;
 
 # IDMT\_SchematicPageItem.parentSchematicUuid property
 
-所属原理图 UUID
+UUID of the schematic it belongs to
 
 ## Signature
 
@@ -193,7 +193,7 @@ parentSchematicUuid: string;
 
 # IDMT\_SchematicPageItem.showTitleBlock property
 
-是否显示明细表
+Whether to show the title block
 
 ## Signature
 
@@ -205,7 +205,7 @@ showTitleBlock: boolean;
 
 # IDMT\_SchematicPageItem.titleBlockData property
 
-明细表数据
+Title block data
 
 ## Signature
 
@@ -217,7 +217,7 @@ titleBlockData: Record<string, { showTitle: boolean; showValue: boolean; value: 
 
 # IDMT\_SchematicPageItem.uuid property
 
-原理图图页 UUID
+Schematic sheet UUID
 
 ## Signature
 

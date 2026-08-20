@@ -1,6 +1,6 @@
 # IPCB\_LayerItem interface
 
-图层属性
+Layer properties
 
 ## Signature
 
@@ -46,7 +46,7 @@ string
 
 </td><td>
 
-颜色（RGB HEX 格式）
+Color (RGB HEX format)
 
 
 </td></tr>
@@ -65,7 +65,7 @@ string
 
 </td><td>
 
-图层 ID
+Layer ID
 
 
 </td></tr>
@@ -84,7 +84,7 @@ string
 
 </td><td>
 
-非激活颜色（RGB HEX 格式）
+Inactive color (RGB HEX format)
 
 
 </td></tr>
@@ -103,7 +103,7 @@ number
 
 </td><td>
 
-非激活透明度（%）
+Inactive transparency (%)
 
 
 </td></tr>
@@ -122,7 +122,7 @@ number
 
 </td><td>
 
-层状态
+Layer status
 
 
 </td></tr>
@@ -141,7 +141,7 @@ boolean
 
 </td><td>
 
-是否锁定
+Whether it is locked
 
 
 </td></tr>
@@ -160,7 +160,7 @@ string
 
 </td><td>
 
-名称
+Name
 
 
 </td></tr>
@@ -179,7 +179,7 @@ number
 
 </td><td>
 
-透明度（%）
+Transparency (%)
 
 
 </td></tr>
@@ -198,7 +198,7 @@ number
 
 </td><td>
 
-类型
+Type
 
 
 </td></tr>
@@ -212,7 +212,7 @@ number
 
 # IPCB\_LayerItem.color property
 
-颜色（RGB HEX 格式）
+Color (RGB HEX format)
 
 ## Signature
 
@@ -224,7 +224,7 @@ color: string;
 
 # IPCB\_LayerItem.id property
 
-图层 ID
+Layer ID
 
 ## Signature
 
@@ -236,7 +236,7 @@ id: EPCB_LayerId;
 
 # IPCB\_LayerItem.inactiveColor property
 
-非激活颜色（RGB HEX 格式）
+Inactive color (RGB HEX format)
 
 ## Signature
 
@@ -248,7 +248,7 @@ inactiveColor: string;
 
 # IPCB\_LayerItem.inactiveTransparency property
 
-非激活透明度（%）
+Inactive transparency (%)
 
 ## Signature
 
@@ -260,7 +260,7 @@ inactiveTransparency: number;
 
 # IPCB\_LayerItem.layerStatus property
 
-层状态
+Layer status
 
 ## Signature
 
@@ -272,7 +272,7 @@ layerStatus: EPCB_LayerStatus;
 
 # IPCB\_LayerItem.locked property
 
-是否锁定
+Whether it is locked
 
 ## Signature
 
@@ -284,7 +284,7 @@ locked: boolean;
 
 # IPCB\_LayerItem.name property
 
-名称
+Name
 
 ## Signature
 
@@ -296,7 +296,7 @@ name: string;
 
 # IPCB\_LayerItem.transparency property
 
-透明度（%）
+Transparency (%)
 
 ## Signature
 
@@ -308,7 +308,7 @@ transparency: number;
 
 # IPCB\_LayerItem.type property
 
-类型
+Type
 
 ## Signature
 

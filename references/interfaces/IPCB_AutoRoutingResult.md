@@ -1,6 +1,6 @@
 # IPCB\_AutoRoutingResult interface
 
-自动布线结果
+Auto routing result
 
 ## Signature
 
@@ -46,7 +46,7 @@ number
 
 </td><td>
 
-自动布线耗时（毫秒）
+Auto routing duration (milliseconds)
 
 
 </td></tr>
@@ -65,7 +65,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-未能完成布线的网络名称列表
+List of net names that failed to be routed
 
 
 </td></tr>
@@ -84,7 +84,7 @@ boolean
 
 </td><td>
 
-自动布线是否成功启动
+Whether auto routing started successfully
 
 
 </td></tr>
@@ -103,7 +103,7 @@ number
 
 </td><td>
 
-成功完成布线的网络数量
+Number of nets that were routed successfully
 
 
 </td></tr>
@@ -122,7 +122,7 @@ number
 
 </td><td>
 
-参与自动布线的网络总数
+Total number of nets participating in auto routing
 
 
 </td></tr>
@@ -136,7 +136,7 @@ number
 
 # IPCB\_AutoRoutingResult.duration property
 
-自动布线耗时（毫秒）
+Auto routing duration (milliseconds)
 
 ## Signature
 
@@ -148,7 +148,7 @@ duration: number;
 
 # IPCB\_AutoRoutingResult.failedNets property
 
-未能完成布线的网络名称列表
+List of net names that failed to be routed
 
 ## Signature
 
@@ -160,7 +160,7 @@ failedNets: Array<string>;
 
 # IPCB\_AutoRoutingResult.success property
 
-自动布线是否成功启动
+Whether auto routing started successfully
 
 ## Signature
 
@@ -172,7 +172,7 @@ success: boolean;
 
 # IPCB\_AutoRoutingResult.successNetsCount property
 
-成功完成布线的网络数量
+Number of nets that were routed successfully
 
 ## Signature
 
@@ -184,7 +184,7 @@ successNetsCount: number;
 
 # IPCB\_AutoRoutingResult.totalNetsCount property
 
-参与自动布线的网络总数
+Total number of nets participating in auto routing
 
 ## Signature
 

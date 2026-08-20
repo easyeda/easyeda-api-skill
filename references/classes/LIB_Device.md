@@ -1,6 +1,6 @@
 # LIB\_Device class
 
-综合库 / 器件类
+Comprehensive library / device class
 
 ## Signature
 
@@ -36,7 +36,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 复制器件
+**_(BETA)_** Copy Device
 
 
 </td></tr>
@@ -50,7 +50,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建器件
+**_(BETA)_** Create Device
 
 
 </td></tr>
@@ -64,7 +64,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 删除器件
+**_(BETA)_** Delete Device
 
 
 </td></tr>
@@ -78,7 +78,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取器件的所有属性
+**_(BETA)_** Get all properties of the device
 
 
 </td></tr>
@@ -92,7 +92,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 使用立创 C 编号获取器件
+**_(BETA)_** Get a device using an LCSC C number
 
 
 </td></tr>
@@ -106,7 +106,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 使用立创 C 编号批量获取器件
+**_(BETA)_** Batch get devices using LCSC C numbers
 
 
 </td></tr>
@@ -120,7 +120,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 修改器件
+**_(BETA)_** Modify Device
 
 
 </td></tr>
@@ -134,7 +134,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 搜索器件
+**_(BETA)_** Search device
 
 
 </td></tr>
@@ -148,7 +148,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 使用属性精确搜索器件
+**_(BETA)_** Search devices precisely by properties
 
 
 </td></tr>
@@ -164,7 +164,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-复制器件
+Copy Device
 
 ## Signature
 
@@ -202,7 +202,7 @@ string
 
 </td><td>
 
-器件 UUID
+Device UUID
 
 
 </td></tr>
@@ -218,7 +218,7 @@ string
 
 </td><td>
 
-库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+Library UUID, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -234,7 +234,7 @@ string
 
 </td><td>
 
-目标库 UUID
+Target library UUID
 
 
 </td></tr>
@@ -250,7 +250,7 @@ targetClassification
 
 </td><td>
 
-_(Optional)_ 目标库内的分类
+_(Optional)_ Classification in the target library
 
 
 </td></tr>
@@ -266,7 +266,7 @@ string
 
 </td><td>
 
-_(Optional)_ 新器件名称，如若目标库内存在重名器件将导致复制失败
+_(Optional)_ New device name. If a device with the same name exists in the target library, the copy will fail
 
 
 </td></tr>
@@ -278,7 +278,29 @@ _(Optional)_ 新器件名称，如若目标库内存在重名器件将导致复�
 
 Promise&lt;string \| undefined&gt;
 
-目标库内新器件的 UUID
+UUID of the new device in the target library
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+
+// 2. 新建一个轻量器件作为复制来源
+const sourceName = '嘉立创示例_复制源_' + Date.now();
+const sourceUuid = await eda.lib_Device.create(libraryUuid, sourceName, [], { symbolType: 2 });
+
+// 3. 复制到同一库，指定新名称避免同名冲突（分类传 [] = 不分类）
+const newName = '嘉立创示例_复制品_' + Date.now();
+const copiedUuid = await eda.lib_Device.copy(sourceUuid, libraryUuid, libraryUuid, [], newName);
+
+// 创建类保留现场（原件与复制品都留在个人库中供观察）
+
+console.log('sourceUuid:', sourceUuid);
+console.log('copiedUuid:', copiedUuid);
+console.log('newName:', newName);
+```
 
 ### create
 
@@ -286,7 +308,7 @@ Promise&lt;string \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-创建器件
+Create Device
 
 ## Signature
 
@@ -324,7 +346,7 @@ string
 
 </td><td>
 
-库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+Library UUID, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -340,7 +362,7 @@ string
 
 </td><td>
 
-器件名称
+Device name
 
 
 </td></tr>
@@ -356,7 +378,7 @@ classification
 
 </td><td>
 
-_(Optional)_ 分类
+_(Optional)_ Classification
 
 
 </td></tr>
@@ -372,7 +394,7 @@ association
 
 </td><td>
 
-_(Optional)_ 关联符号、封装、图像，指定 `symbolType` 则创建新符号，无需新建符号则无需指定 `symbolType`<!-- -->，但请注意，如若不新建符号也不指定符号的关联信息将无法创建器件
+_(Optional)_ Associate a symbol, footprint, and image. Specifying `symbolType` creates a new symbol; if no new symbol is needed, `symbolType` does not need to be specified. However, note that if no new symbol is created and no symbol association information is specified, the device cannot be created
 
 
 </td></tr>
@@ -388,7 +410,7 @@ string
 
 </td><td>
 
-_(Optional)_ 描述
+_(Optional)_ Description
 
 
 </td></tr>
@@ -404,7 +426,7 @@ property
 
 </td><td>
 
-_(Optional)_ 其它属性，仅 `designator`<!-- -->、`addIntoBom`<!-- -->、`addIntoPcb` 存在默认值
+_(Optional)_ Other property, only `designator`<!-- -->, `addIntoBom`<!-- -->, `addIntoPcb` exists default value
 
 
 </td></tr>
@@ -416,7 +438,31 @@ _(Optional)_ 其它属性，仅 `designator`<!-- -->、`addIntoBom`<!-- -->、`a
 
 Promise&lt;string \| undefined&gt;
 
-器件 UUID
+Device UUID
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+
+// 2. 创建器件：新建元件符号（symbolType: 2）并设置默认属性
+const deviceName = '嘉立创示例_新器件_' + Date.now();
+const deviceUuid = await eda.lib_Device.create(
+  libraryUuid,
+  deviceName,
+  [],
+  { symbolType: 2 },
+  '示例器件描述',
+  { designator: 'R', addIntoBom: true, addIntoPcb: true }
+);
+
+// 创建类保留现场（新器件留在个人库中供观察）
+
+console.log('deviceUuid:', deviceUuid);
+console.log('deviceName:', deviceName);
+```
 
 ### delete
 
@@ -424,7 +470,7 @@ Promise&lt;string \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-删除器件
+Delete Device
 
 ## Signature
 
@@ -462,7 +508,7 @@ string
 
 </td><td>
 
-器件 UUID
+Device UUID
 
 
 </td></tr>
@@ -478,7 +524,7 @@ string
 
 </td><td>
 
-库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+Library UUID, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -490,7 +536,27 @@ string
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID 并新建删除对象
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const deviceUuid = await eda.lib_Device.create(
+  libraryUuid,
+  '嘉立创示例_待删除_' + Date.now(),
+  [],
+  { symbolType: 2 }
+);
+
+// 2. 删除该器件
+const deleted = await eda.lib_Device.delete(deviceUuid, libraryUuid);
+
+console.log('deviceUuid:', deviceUuid);
+console.log('deleted:', deleted);
+```
 
 ### get
 
@@ -498,7 +564,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取器件的所有属性
+Get all properties of the device
 
 ## Signature
 
@@ -536,7 +602,7 @@ string
 
 </td><td>
 
-器件 UUID
+Device UUID
 
 
 </td></tr>
@@ -552,7 +618,7 @@ string
 
 </td><td>
 
-_(Optional)_ 库 UUID，默认为系统库，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+_(Optional)_ Library UUID, default is system library, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -564,7 +630,7 @@ _(Optional)_ 库 UUID，默认为系统库，可以使用 [LIB\_LibrariesList](.
 
 Promise&lt;[ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| undefined&gt;
 
-器件属性
+Device property
 
 ### getbylcscids
 
@@ -572,7 +638,7 @@ Promise&lt;[ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-使用立创 C 编号获取器件
+Get a device using an LCSC C number
 
 ## Signature
 
@@ -610,7 +676,7 @@ string
 
 </td><td>
 
-立创 C 编号
+LCSC C number
 
 
 </td></tr>
@@ -626,7 +692,7 @@ string
 
 </td><td>
 
-_(Optional)_ 库 UUID，默认为系统库，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+_(Optional)_ Library UUID, default is system library, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -642,7 +708,7 @@ T
 
 </td><td>
 
-_(Optional)_ 是否允许单个立创 C 编号匹配多个结果
+_(Optional)_ Whether a single LCSC C number is allowed to match multiple results
 
 
 </td></tr>
@@ -654,15 +720,15 @@ _(Optional)_ 是否允许单个立创 C 编号匹配多个结果
 
 Promise&lt;T extends true ? [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md) \| undefined : Array&lt;[ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)<!-- -->&gt;&gt;
 
-搜索到的器件属性
+Searched device properties
 
 ## Remarks
 
-默认情况下，如果在同一个库内匹配到多个相同 C 编号的器件，将只会返回第一个结果；
+By default, if multiple devices with the same C number are matched in the same library, only the first result will be returned;
 
-如果希望返回多个结果，请将 `allowMultiMatch` 置为 `true`<!-- -->；
+If you want to return multiple results, set `allowMultiMatch` to `true`<!-- -->;
 
-私有化部署环境暂无法使用本接口
+This API is temporarily unavailable in the private deployment environment
 
 ### getbylcscids_1
 
@@ -670,7 +736,7 @@ Promise&lt;T extends true ? [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSe
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-使用立创 C 编号批量获取器件
+Batch get devices using LCSC C numbers
 
 ## Signature
 
@@ -708,7 +774,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-立创 C 编号数组
+Array of LCSC C numbers
 
 
 </td></tr>
@@ -724,7 +790,7 @@ string
 
 </td><td>
 
-_(Optional)_ 库 UUID，默认为系统库，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+_(Optional)_ Library UUID, default is system library, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -740,7 +806,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否允许单个立创 C 编号匹配多个结果
+_(Optional)_ Whether a single LCSC C number is allowed to match multiple results
 
 
 </td></tr>
@@ -752,15 +818,32 @@ _(Optional)_ 是否允许单个立创 C 编号匹配多个结果
 
 Promise&lt;Array&lt;[ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)<!-- -->&gt;&gt;
 
-搜索到的器件属性的列表
+List of searched device properties
 
 ## Remarks
 
-默认情况下，如果在同一个库内匹配到多个相同 C 编号的器件，将只会返回第一个结果；
+By default, if multiple devices with the same C number are matched in the same library, only the first result will be returned;
 
-如果希望返回多个结果，请将 `allowMultiMatch` 置为 `true`<!-- -->；
+If you want to return multiple results, set `allowMultiMatch` to `true`<!-- -->;
 
-私有化部署环境暂无法使用本接口
+This API is temporarily unavailable in the private deployment environment
+
+## Example
+
+
+```javascript
+// 1. 单个 C 编号查询（默认搜索系统库）
+const one = await eda.lib_Device.getByLcscIds('C1523');
+console.log('single count:', one.length);
+console.log('[0] uuid:', one[0].uuid, 'supplierId:', one[0].supplierId);
+
+// 2. 批量查询多个 C 编号
+const many = await eda.lib_Device.getByLcscIds(['C1523', 'C17168']);
+console.log('batch count:', many.length);
+many.forEach((item, i) => {
+  console.log('[' + i + '] uuid:', item.uuid, 'supplierId:', item.supplierId);
+});
+```
 
 ### modify
 
@@ -768,7 +851,7 @@ Promise&lt;Array&lt;[ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-修改器件
+Modify Device
 
 ## Signature
 
@@ -806,7 +889,7 @@ string
 
 </td><td>
 
-器件 UUID
+Device UUID
 
 
 </td></tr>
@@ -822,7 +905,7 @@ string
 
 </td><td>
 
-库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+Library UUID, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -838,7 +921,7 @@ string
 
 </td><td>
 
-_(Optional)_ 器件名称
+_(Optional)_ Device name
 
 
 </td></tr>
@@ -854,7 +937,7 @@ classification
 
 </td><td>
 
-_(Optional)_ 分类
+_(Optional)_ Classification
 
 
 </td></tr>
@@ -870,7 +953,7 @@ association
 
 </td><td>
 
-_(Optional)_ 关联符号、封装、图像
+_(Optional)_ Associated symbol, footprint, image
 
 
 </td></tr>
@@ -886,7 +969,7 @@ string \| null
 
 </td><td>
 
-_(Optional)_ 描述
+_(Optional)_ Description
 
 
 </td></tr>
@@ -902,7 +985,7 @@ property
 
 </td><td>
 
-_(Optional)_ 其它属性
+_(Optional)_ Other property
 
 
 </td></tr>
@@ -914,11 +997,39 @@ _(Optional)_ 其它属性
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-如希望清除某些属性，则将其的值设置为 `null`
+If you want to clear certain properties, set their values to `null`
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID 并新建修改对象
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const deviceUuid = await eda.lib_Device.create(
+  libraryUuid,
+  '嘉立创示例_修改前_' + Date.now(),
+  [],
+  { symbolType: 2 },
+  '修改前的描述'
+);
+
+// 2. 修改名称和描述（分类保持不变传 []）
+const newName = '嘉立创示例_修改后_' + Date.now();
+const modified = await eda.lib_Device.modify(deviceUuid, libraryUuid, newName, [], '修改后的描述');
+
+// 3. 再补充修改扩展属性（位号、制造商）
+await eda.lib_Device.modify(deviceUuid, libraryUuid, undefined, [], undefined, { designator: 'R', manufacturer: '嘉立创' });
+
+// 修改类保留现场
+
+console.log('deviceUuid:', deviceUuid);
+console.log('modified:', modified);
+console.log('newName:', newName);
+```
 
 ### search
 
@@ -926,7 +1037,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-搜索器件
+Search device
 
 ## Signature
 
@@ -964,7 +1075,7 @@ string
 
 </td><td>
 
-搜索关键字
+Search keyword
 
 
 </td></tr>
@@ -980,7 +1091,7 @@ string
 
 </td><td>
 
-_(Optional)_ 库 UUID，默认为系统库，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+_(Optional)_ Library UUID, default is system library, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -996,7 +1107,7 @@ classification
 
 </td><td>
 
-_(Optional)_ 分类，默认为全部
+_(Optional)_ Classification, defaults to all
 
 
 </td></tr>
@@ -1012,7 +1123,7 @@ symbolType
 
 </td><td>
 
-_(Optional)_ 符号类型，默认为全部
+_(Optional)_ Symbol type, defaults to all
 
 
 </td></tr>
@@ -1028,7 +1139,7 @@ number
 
 </td><td>
 
-_(Optional)_ 一页搜索结果的数量
+_(Optional)_ Number of search results per page
 
 
 </td></tr>
@@ -1044,7 +1155,7 @@ number
 
 </td><td>
 
-_(Optional)_ 页数
+_(Optional)_ Page count
 
 
 </td></tr>
@@ -1056,7 +1167,21 @@ _(Optional)_ 页数
 
 Promise&lt;Array&lt;[ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)<!-- -->&gt;&gt;
 
-搜索到的器件属性的列表
+List of searched device properties
+
+## Example
+
+
+```javascript
+// 1. 按关键字搜索系统库中的器件，每页 5 条
+const results = await eda.lib_Device.search('0402', undefined, undefined, undefined, 5, 1);
+
+// 2. 输出搜索结果
+console.log('count:', results.length);
+results.forEach((item, i) => {
+  console.log('[' + i + '] name:', item.name, 'uuid:', item.uuid, 'supplierId:', item.supplierId);
+});
+```
 
 ### searchbyproperties
 
@@ -1064,7 +1189,7 @@ Promise&lt;Array&lt;[ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-使用属性精确搜索器件
+Search devices precisely by properties
 
 ## Signature
 
@@ -1102,7 +1227,7 @@ properties
 
 </td><td>
 
-属性
+Property
 
 
 </td></tr>
@@ -1118,7 +1243,7 @@ string
 
 </td><td>
 
-_(Optional)_ 库 UUID，默认为系统库，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+_(Optional)_ Library UUID, default is system library, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -1134,7 +1259,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-_(Optional)_ 分类，默认为全部 ADD since EDA v4
+_(Optional)_ Classification, defaults to all ADD since EDA v4
 
 
 </td></tr>
@@ -1150,7 +1275,7 @@ symbolType
 
 </td><td>
 
-_(Optional)_ 符号类型，默认为全部
+_(Optional)_ Symbol type, defaults to all
 
 
 </td></tr>
@@ -1166,7 +1291,7 @@ number
 
 </td><td>
 
-_(Optional)_ 一页搜索结果的数量
+_(Optional)_ Number of search results per page
 
 
 </td></tr>
@@ -1182,7 +1307,7 @@ number
 
 </td><td>
 
-_(Optional)_ 页数
+_(Optional)_ Page count
 
 
 </td></tr>
@@ -1194,4 +1319,25 @@ _(Optional)_ 页数
 
 Promise&lt;Array&lt;[ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md)<!-- -->&gt;&gt;
 
-搜索到的器件属性的列表
+List of searched device properties
+
+## Example
+
+
+```javascript
+// 1. 按立创 C 编号精确搜索，每页 5 条
+const results = await eda.lib_Device.searchByProperties(
+  { supplierId: 'C1523' },
+  undefined,
+  undefined,
+  undefined,
+  5,
+  1
+);
+
+// 2. 输出搜索结果
+console.log('count:', results.length);
+results.forEach((item, i) => {
+  console.log('[' + i + '] name:', item.name, 'uuid:', item.uuid, 'supplierId:', item.supplierId);
+});
+```

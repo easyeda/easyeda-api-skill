@@ -46,7 +46,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否禁用输入
+_(Optional)_ Whether Disable input
 
 
 </td></tr>
@@ -65,7 +65,7 @@ string
 
 </td><td>
 
-_(Optional)_ 输入框名称（表单 name 属性）
+_(Optional)_ Input box name (the form `name` attribute)
 
 
 </td></tr>
@@ -103,7 +103,7 @@ string
 
 </td><td>
 
-_(Optional)_ 占位提示文本
+_(Optional)_ Placeholder text
 
 
 </td></tr>
@@ -122,7 +122,7 @@ _(Optional)_ 占位提示文本
 
 </td><td>
 
-_(Optional)_ 是否可调整尺寸（x 水平 / y 垂直）
+_(Optional)_ Whether it is resizable (x horizontal / y vertical)
 
 
 </td></tr>
@@ -141,7 +141,7 @@ string
 
 </td><td>
 
-_(Optional)_ 当前文本值
+_(Optional)_ Current text value
 
 
 </td></tr>
@@ -155,7 +155,7 @@ _(Optional)_ 当前文本值
 
 # TextAreaProps.disabled property
 
-是否禁用输入
+Whether Disable input
 
 ## Signature
 
@@ -167,7 +167,7 @@ disabled?: boolean;
 
 # TextAreaProps.name property
 
-输入框名称（表单 name 属性）
+Input box name (the form `name` attribute)
 
 ## Signature
 
@@ -191,7 +191,7 @@ onChange?: (value: string) => void;
 
 # TextAreaProps.placeholder property
 
-占位提示文本
+Placeholder text
 
 ## Signature
 
@@ -203,7 +203,7 @@ placeholder?: string;
 
 # TextAreaProps.resizable property
 
-是否可调整尺寸（x 水平 / y 垂直）
+Whether it is resizable (x horizontal / y vertical)
 
 ## Signature
 
@@ -215,7 +215,7 @@ resizable?: { x?: undefined | false | true; y?: undefined | false | true };
 
 # TextAreaProps.value property
 
-当前文本值
+Current text value
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # SYS\_FileManager class
 
-系统 / 文件管理类
+System / file manager class
 
 ## Signature
 
@@ -36,7 +36,7 @@ Description
 
 </td><td>
 
-提取文件内的库配置信息
+Extract the library configuration information from the file
 
 
 </td></tr>
@@ -50,7 +50,7 @@ Description
 
 </td><td>
 
-提取文件内的工程配置信息
+Extract the project configuration information from the file
 
 
 </td></tr>
@@ -64,7 +64,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 使用复用模块 UUID 获取复用模块文件
+**_(BETA)_** Use reuse block UUID get reuse block file
 
 
 </td></tr>
@@ -78,7 +78,7 @@ Description
 
 </td><td>
 
-使用器件 UUID 获取器件文件
+Use device UUID get device file
 
 
 </td></tr>
@@ -92,7 +92,7 @@ Description
 
 </td><td>
 
-获取文档文件
+Get Document file
 
 
 </td></tr>
@@ -106,7 +106,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取文档封装源码
+**_(BETA)_** Get the document footprint source code
 
 
 </td></tr>
@@ -120,7 +120,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取文档源码
+**_(BETA)_** Get Document source code
 
 
 </td></tr>
@@ -134,7 +134,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 使用封装 UUID 获取封装文件
+**_(BETA)_** Use footprint UUID get footprint file
 
 
 </td></tr>
@@ -148,7 +148,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 使用面板库 UUID 获取面板库文件
+**_(BETA)_** Use panel library UUID get panel library file
 
 
 </td></tr>
@@ -162,7 +162,7 @@ Description
 
 </td><td>
 
-获取工程文件
+Get Project file
 
 
 </td></tr>
@@ -176,7 +176,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 使用工程 UUID 获取工程文件
+**_(BETA)_** Use project UUID get project file
 
 
 </td></tr>
@@ -190,7 +190,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 使用符号 UUID 获取符号文件
+**_(BETA)_** Use symbol UUID get symbol file
 
 
 </td></tr>
@@ -204,7 +204,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 使用工程文件导入工程
+**_(BETA)_** Use project file import project
 
 
 </td></tr>
@@ -218,7 +218,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 使用工程文件导入工程
+**_(BETA)_** Use project file import project
 
 
 </td></tr>
@@ -232,7 +232,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 修改文档源码
+**_(BETA)_** Modify Document source code
 
 
 </td></tr>
@@ -246,7 +246,7 @@ Description
 
 # SYS\_FileManager.extractLibInfo() method
 
-提取文件内的库配置信息
+Extract the library configuration information from the file
 
 ## Signature
 
@@ -284,7 +284,7 @@ File \| Array&lt;File&gt;
 
 </td><td>
 
-库文件
+Library file
 
 
 </td></tr>
@@ -296,13 +296,13 @@ File \| Array&lt;File&gt;
 
 Promise&lt;any&gt;
 
-库配置信息
+Library configuration information
 
 ### extractprojectinfo
 
 # SYS\_FileManager.extractProjectInfo() method
 
-提取文件内的工程配置信息
+Extract the project configuration information from the file
 
 ## Signature
 
@@ -340,7 +340,7 @@ File
 
 </td><td>
 
-工程文件
+Project file
 
 
 </td></tr>
@@ -352,7 +352,7 @@ File
 
 Promise&lt;any&gt;
 
-工程配置信息
+Project configuration information
 
 ### getcbbfilebycbbuuid
 
@@ -360,7 +360,7 @@ Promise&lt;any&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-使用复用模块 UUID 获取复用模块文件
+Use reuse block UUID get reuse block file
 
 ## Signature
 
@@ -398,7 +398,7 @@ string
 
 </td><td>
 
-复用模块 UUID
+Reuse block UUID
 
 
 </td></tr>
@@ -414,7 +414,7 @@ string
 
 </td><td>
 
-_(Optional)_ 库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取，如若不传入，则为系统库
+_(Optional)_ Library UUID. It can be obtained using the APIs in [LIB\_LibrariesList](./LIB_LibrariesList.md)<!-- -->. If not passed in, it is the system library
 
 
 </td></tr>
@@ -442,19 +442,19 @@ _(Optional)_
 
 Promise&lt;File \| undefined&gt;
 
-复用模块文件数据，`undefined` 表示数据获取失败
+Reuse block file data, `undefined` indicates that the data retrieval failed
 
 ## Remarks
 
-可以使用 [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) 接口将文件导出到本地文件系统
+You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the file to the local file system
 
-注意：本接口需要启用 \*\*团队模块 &gt; 下载模块\*\* 权限，没有权限调用将始终 `throw Error`
+Note: This API requires the \*\*Team Module &gt; Download Module\*\* permission. Calling it without permission will always `throw Error`
 
 ### getdevicefilebydeviceuuid
 
 # SYS\_FileManager.getDeviceFileByDeviceUuid() method
 
-使用器件 UUID 获取器件文件
+Use device UUID get device file
 
 ## Signature
 
@@ -492,7 +492,7 @@ string \| Array&lt;string&gt;
 
 </td><td>
 
-器件 UUID 或器件 UUID 列表
+Device UUID or device UUID list
 
 
 </td></tr>
@@ -508,7 +508,7 @@ string
 
 </td><td>
 
-_(Optional)_ 库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取，如若不传入，则为系统库
+_(Optional)_ Library UUID. It can be obtained using the APIs in [LIB\_LibrariesList](./LIB_LibrariesList.md)<!-- -->. If not passed in, it is the system library
 
 
 </td></tr>
@@ -536,19 +536,19 @@ _(Optional)_
 
 Promise&lt;File \| undefined&gt;
 
-器件文件数据，`undefined` 表示数据获取失败
+Device file data, `undefined` indicates that the data retrieval failed
 
 ## Remarks
 
-可以使用 [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) 接口将文件导出到本地文件系统
+You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the file to the local file system
 
-注意：本接口需要启用 \*\*团队库 &gt; 下载库\*\* 权限，没有权限调用将始终 `throw Error`
+Note: This API requires the \*\*Team Library &gt; Download Library\*\* permission. Calling it without permission will always `throw Error`
 
 ### getdocumentfile
 
 # SYS\_FileManager.getDocumentFile() method
 
-获取文档文件
+Get Document file
 
 ## Signature
 
@@ -586,7 +586,7 @@ string
 
 </td><td>
 
-_(Optional)_ 文件名
+_(Optional)_ File name
 
 
 </td></tr>
@@ -602,7 +602,7 @@ string
 
 </td><td>
 
-_(Optional)_ 加密密码
+_(Optional)_ Encrypted password
 
 
 </td></tr>
@@ -618,7 +618,7 @@ fileType
 
 </td><td>
 
-_(Optional)_ 文件格式
+_(Optional)_ File format
 
 
 </td></tr>
@@ -630,13 +630,13 @@ _(Optional)_ 文件格式
 
 Promise&lt;File \| undefined&gt;
 
-文档文件数据，`undefined` 表示当前未打开文档或数据获取失败
+Document file data, `undefined` indicates that it is currently not open document or data retrieval failed
 
 ## Remarks
 
-可以使用 [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) 接口将文件导出到本地文件系统
+You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the file to the local file system
 
-注意：本接口需要启用 \*\*工程设计图 &gt; 文件导出\*\* 权限，没有权限调用将始终 `throw Error`
+Note: This API requires the \*\*Engineering Design &gt; File Export\*\* permission. Calling it without permission will always `throw Error`
 
 ### getdocumentfootprintsources
 
@@ -644,7 +644,7 @@ Promise&lt;File \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取文档封装源码
+Get the document footprint source code
 
 ## Signature
 
@@ -657,7 +657,7 @@ public getDocumentFootprintSources(): Promise<Array<{ footprintUuid: string; doc
 
 Promise&lt;Array&lt;{ footprintUuid: string; documentSource: string }&gt;&gt;
 
-文档封装源码数据，数据获取失败将返回空数组
+Document footprint source code data. An empty array is returned if the data retrieval fails
 
 ### getdocumentsource
 
@@ -665,7 +665,7 @@ Promise&lt;Array&lt;{ footprintUuid: string; documentSource: string }&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取文档源码
+Get Document source code
 
 ## Signature
 
@@ -678,7 +678,7 @@ public getDocumentSource(): Promise<string | undefined>;
 
 Promise&lt;string \| undefined&gt;
 
-文档源码数据，`undefined` 表示当前未打开文档或数据获取失败
+Document source code data, `undefined` indicates that it is currently not open document or data retrieval failed
 
 ### getfootprintfilebyfootprintuuid
 
@@ -686,7 +686,7 @@ Promise&lt;string \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-使用封装 UUID 获取封装文件
+Use footprint UUID get footprint file
 
 ## Signature
 
@@ -724,7 +724,7 @@ string \| Array&lt;string&gt;
 
 </td><td>
 
-封装 UUID 或封装 UUID 列表
+Footprint UUID or footprint UUID list
 
 
 </td></tr>
@@ -740,7 +740,7 @@ string
 
 </td><td>
 
-_(Optional)_ 库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取，如若不传入，则为系统库
+_(Optional)_ Library UUID. It can be obtained using the APIs in [LIB\_LibrariesList](./LIB_LibrariesList.md)<!-- -->. If not passed in, it is the system library
 
 
 </td></tr>
@@ -768,13 +768,13 @@ _(Optional)_
 
 Promise&lt;File \| undefined&gt;
 
-封装文件数据，`undefined` 表示数据获取失败
+Footprint file data, `undefined` indicates that the data retrieval failed
 
 ## Remarks
 
-可以使用 [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) 接口将文件导出到本地文件系统
+You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the file to the local file system
 
-注意：本接口需要启用 \*\*团队库 &gt; 下载库\*\* 权限，没有权限调用将始终 `throw Error`
+Note: This API requires the \*\*Team Library &gt; Download Library\*\* permission. Calling it without permission will always `throw Error`
 
 ### getpanellibraryfilebypanellibraryuuid
 
@@ -782,7 +782,7 @@ Promise&lt;File \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-使用面板库 UUID 获取面板库文件
+Use panel library UUID get panel library file
 
 ## Signature
 
@@ -820,7 +820,7 @@ string \| Array&lt;string&gt;
 
 </td><td>
 
-面板库 UUID 或面板库 UUID 列表
+Panel library UUID or panel library UUID list
 
 
 </td></tr>
@@ -836,7 +836,7 @@ string
 
 </td><td>
 
-_(Optional)_ 库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取，如若不传入，则为系统库
+_(Optional)_ Library UUID. It can be obtained using the APIs in [LIB\_LibrariesList](./LIB_LibrariesList.md)<!-- -->. If not passed in, it is the system library
 
 
 </td></tr>
@@ -864,19 +864,19 @@ _(Optional)_
 
 Promise&lt;File \| undefined&gt;
 
-面板库文件数据，`undefined` 表示数据获取失败
+Panel library file data, `undefined` indicates that the data retrieval failed
 
 ## Remarks
 
-可以使用 [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) 接口将文件导出到本地文件系统
+You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the file to the local file system
 
-注意：本接口需要启用 \*\*团队库 &gt; 下载库\*\* 权限，没有权限调用将始终 `throw Error`
+Note: This API requires the \*\*Team Library &gt; Download Library\*\* permission. Calling it without permission will always `throw Error`
 
 ### getprojectfile
 
 # SYS\_FileManager.getProjectFile() method
 
-获取工程文件
+Get Project file
 
 ## Signature
 
@@ -914,7 +914,7 @@ string
 
 </td><td>
 
-_(Optional)_ 文件名
+_(Optional)_ File name
 
 
 </td></tr>
@@ -930,7 +930,7 @@ string
 
 </td><td>
 
-_(Optional)_ 加密密码
+_(Optional)_ Encrypted password
 
 
 </td></tr>
@@ -946,7 +946,7 @@ fileType
 
 </td><td>
 
-_(Optional)_ 文件格式
+_(Optional)_ File format
 
 
 </td></tr>
@@ -958,13 +958,13 @@ _(Optional)_ 文件格式
 
 Promise&lt;File \| undefined&gt;
 
-工程文件数据，`undefined` 表示当前未打开工程或数据获取失败
+Project file data, `undefined` indicates that it is currently not open project or data retrieval failed
 
 ## Remarks
 
-可以使用 [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) 接口将文件导出到本地文件系统
+You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the file to the local file system
 
-注意：本接口需要启用 \*\*工程管理 &gt; 下载工程\*\* 权限，没有权限调用将始终 `throw Error`
+Note: This API requires the \*\*Project Management &gt; Download Project\*\* permission. Calling it without permission will always `throw Error`
 
 ### getprojectfilebyprojectuuid
 
@@ -972,7 +972,7 @@ Promise&lt;File \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-使用工程 UUID 获取工程文件
+Use project UUID get project file
 
 ## Signature
 
@@ -1010,7 +1010,7 @@ string
 
 </td><td>
 
-工程 UUID
+Project UUID
 
 
 </td></tr>
@@ -1026,7 +1026,7 @@ string
 
 </td><td>
 
-_(Optional)_ 文件名
+_(Optional)_ File name
 
 
 </td></tr>
@@ -1042,7 +1042,7 @@ string
 
 </td><td>
 
-_(Optional)_ 加密密码
+_(Optional)_ Encrypted password
 
 
 </td></tr>
@@ -1058,7 +1058,7 @@ fileType
 
 </td><td>
 
-_(Optional)_ 文件格式
+_(Optional)_ File format
 
 
 </td></tr>
@@ -1070,13 +1070,13 @@ _(Optional)_ 文件格式
 
 Promise&lt;File \| undefined&gt;
 
-工程文件数据，`undefined` 表示当前未打开工程或数据获取失败
+Project file data, `undefined` indicates that it is currently not open project or data retrieval failed
 
 ## Remarks
 
-可以使用 [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) 接口将文件导出到本地文件系统
+You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the file to the local file system
 
-注意：本接口需要启用 \*\*工程管理 &gt; 下载工程\*\* 权限，没有权限调用将始终 `throw Error`
+Note: This API requires the \*\*Project Management &gt; Download Project\*\* permission. Calling it without permission will always `throw Error`
 
 ### getsymbolfilebysymboluuid
 
@@ -1084,7 +1084,7 @@ Promise&lt;File \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-使用符号 UUID 获取符号文件
+Use symbol UUID get symbol file
 
 ## Signature
 
@@ -1122,7 +1122,7 @@ string \| Array&lt;string&gt;
 
 </td><td>
 
-符号 UUID 或符号 UUID 列表
+Symbol UUID or symbol UUID list
 
 
 </td></tr>
@@ -1138,7 +1138,7 @@ string
 
 </td><td>
 
-_(Optional)_ 库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取，如若不传入，则为系统库
+_(Optional)_ Library UUID. It can be obtained using the APIs in [LIB\_LibrariesList](./LIB_LibrariesList.md)<!-- -->. If not passed in, it is the system library
 
 
 </td></tr>
@@ -1166,13 +1166,13 @@ _(Optional)_
 
 Promise&lt;File \| undefined&gt;
 
-符号文件数据，`undefined` 表示数据获取失败
+Symbol file data, `undefined` indicates that the data retrieval failed
 
 ## Remarks
 
-可以使用 [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) 接口将文件导出到本地文件系统
+You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the file to the local file system
 
-注意：本接口需要启用 \*\*团队库 &gt; 下载库\*\* 权限，没有权限调用将始终 `throw Error`
+Note: This API requires the \*\*Team Library &gt; Download Library\*\* permission. Calling it without permission will always `throw Error`
 
 ### importprojectbyprojectfile
 
@@ -1180,7 +1180,7 @@ Promise&lt;File \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-使用工程文件导入工程
+Use project file import project
 
 ## Signature
 
@@ -1218,7 +1218,7 @@ File
 
 </td><td>
 
-工程文件
+Project file
 
 
 </td></tr>
@@ -1234,7 +1234,7 @@ fileType
 
 </td><td>
 
-_(Optional)_ 文件类型
+_(Optional)_ File type
 
 
 </td></tr>
@@ -1250,7 +1250,7 @@ props
 
 </td><td>
 
-_(Optional)_ 导入参数，参考 EDA 前端 \*\*导入\*\* 窗口内的配置项
+_(Optional)_ Import parameters. Refer to the configuration items in the \*\*Import\*\* window of the EDA front end
 
 
 </td></tr>
@@ -1266,7 +1266,7 @@ saveTo
 
 </td><td>
 
-_(Optional)_ 保存到工程参数
+_(Optional)_ Save To project parameter
 
 
 </td></tr>
@@ -1294,11 +1294,11 @@ _(Optional)_
 
 Promise&lt;[IDMT\_BriefProjectItem](../interfaces/IDMT_BriefProjectItem.md) \| undefined&gt;
 
-导入的工程的简略工程属性
+Brief project properties of the imported project
 
 ## Remarks
 
-暂不支持提取库的相关配置，如果需求提取库，将会按照默认配置提取
+Extracting library-related configurations is not supported yet. If the library needs to be extracted, it will be extracted according to the default configuration
 
 ### importprojectbyprojectfile_1
 
@@ -1306,7 +1306,7 @@ Promise&lt;[IDMT\_BriefProjectItem](../interfaces/IDMT_BriefProjectItem.md) \| u
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-使用工程文件导入工程
+Use project file import project
 
 ## Signature
 
@@ -1344,7 +1344,7 @@ File
 
 </td><td>
 
-工程文件
+Project file
 
 
 </td></tr>
@@ -1360,7 +1360,7 @@ fileType
 
 </td><td>
 
-_(Optional)_ 文件类型
+_(Optional)_ File type
 
 
 </td></tr>
@@ -1376,7 +1376,7 @@ props
 
 </td><td>
 
-_(Optional)_ 导入参数，参考 EDA 前端 \*\*导入\*\* 窗口内的配置项
+_(Optional)_ Import parameters. Refer to the configuration items in the \*\*Import\*\* window of the EDA front end
 
 
 </td></tr>
@@ -1392,7 +1392,7 @@ saveTo
 
 </td><td>
 
-_(Optional)_ 保存到工程参数
+_(Optional)_ Save To project parameter
 
 
 </td></tr>
@@ -1420,11 +1420,11 @@ _(Optional)_
 
 Promise&lt;[IDMT\_BriefProjectItem](../interfaces/IDMT_BriefProjectItem.md) \| undefined&gt;
 
-导入的工程的简略工程属性
+Brief project properties of the imported project
 
 ## Remarks
 
-暂不支持提取库的相关配置，如果需求提取库，将会按照默认配置提取
+Extracting library-related configurations is not supported yet. If the library needs to be extracted, it will be extracted according to the default configuration
 
 ### setdocumentsource
 
@@ -1432,7 +1432,7 @@ Promise&lt;[IDMT\_BriefProjectItem](../interfaces/IDMT_BriefProjectItem.md) \| u
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-修改文档源码
+Modify Document source code
 
 ## Signature
 
@@ -1470,7 +1470,7 @@ string
 
 </td><td>
 
-文档源码
+Document source code
 
 
 </td></tr>
@@ -1482,4 +1482,4 @@ string
 
 Promise&lt;boolean&gt;
 
-是否修改成功，如果输入的文档源码格式错误，将返回 `false` 的结果
+Whether the modification was successful. If the input document source code format is incorrect, `false` is returned

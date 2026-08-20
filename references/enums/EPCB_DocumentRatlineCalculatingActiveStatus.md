@@ -4,7 +4,7 @@
 >
 > since EDA v4.2
 
-文档飞线计算功能状态
+Document ratline calculation function status
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # EPCB\_PcbPlateType enum
 
-PCB 板材类型
+PCB plate type
 
 ## Signature
 

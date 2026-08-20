@@ -1,6 +1,6 @@
 # LIB\_Footprint class
 
-综合库 / 封装类
+Comprehensive library / footprint class
 
 ## Signature
 
@@ -36,7 +36,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 复制封装
+**_(BETA)_** Copy Footprint
 
 
 </td></tr>
@@ -50,7 +50,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建封装
+**_(BETA)_** Create Footprint
 
 
 </td></tr>
@@ -64,7 +64,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 删除封装
+**_(BETA)_** Delete Footprint
 
 
 </td></tr>
@@ -78,7 +78,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取封装的所有属性
+**_(BETA)_** Get all properties of the footprint
 
 
 </td></tr>
@@ -92,7 +92,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取封装渲染图
+**_(BETA)_** Get the footprint render image
 
 
 </td></tr>
@@ -106,7 +106,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 修改封装
+**_(BETA)_** Modify Footprint
 
 
 </td></tr>
@@ -120,7 +120,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 在编辑器打开文档
+**_(BETA)_** Open in the editor document
 
 
 </td></tr>
@@ -134,7 +134,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 搜索封装
+**_(BETA)_** Search footprint
 
 
 </td></tr>
@@ -148,7 +148,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 使用属性精确搜索封装
+**_(BETA)_** Search footprints precisely by properties
 
 
 </td></tr>
@@ -162,7 +162,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 更新封装的文档源码
+**_(BETA)_** Update the document source code of the footprint
 
 
 </td></tr>
@@ -178,7 +178,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-复制封装
+Copy Footprint
 
 ## Signature
 
@@ -216,7 +216,7 @@ string
 
 </td><td>
 
-封装 UUID
+Footprint UUID
 
 
 </td></tr>
@@ -232,7 +232,7 @@ string
 
 </td><td>
 
-库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+Library UUID, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -248,7 +248,7 @@ string
 
 </td><td>
 
-目标库 UUID
+Target library UUID
 
 
 </td></tr>
@@ -264,7 +264,7 @@ targetClassification
 
 </td><td>
 
-_(Optional)_ 目标库内的分类
+_(Optional)_ Classification in the target library
 
 
 </td></tr>
@@ -280,7 +280,7 @@ string
 
 </td><td>
 
-_(Optional)_ 新封装名称，如若目标库内存在重名封装将导致复制失败
+_(Optional)_ New footprint name. If a footprint with the same name exists in the target library, the copy will fail
 
 
 </td></tr>
@@ -292,7 +292,34 @@ _(Optional)_ 新封装名称，如若目标库内存在重名封装将导致复�
 
 Promise&lt;string \| undefined&gt;
 
-目标库内新封装的 UUID
+UUID of the new footprint in the target library
+
+## Example
+
+
+```javascript
+// 1. 搜索系统库，取一个封装作为复制来源
+const [source] = await eda.lib_Footprint.search('0402', undefined, undefined, 1, 1);
+
+// 2. 获取个人库 UUID
+const targetLibraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+
+// 3. 从系统库复制到个人库，指定新名称避免同名冲突（分类传 [] = 不分类）
+const newName = '嘉立创示例_封装副本_' + Date.now();
+const copiedUuid = await eda.lib_Footprint.copy(
+  source.uuid,
+  source.libraryUuid,
+  targetLibraryUuid,
+  [],
+  newName
+);
+
+// 创建类保留现场（副本留在个人库中供观察）
+
+console.log('sourceUuid:', source.uuid);
+console.log('copiedUuid:', copiedUuid);
+console.log('newName:', newName);
+```
 
 ### create
 
@@ -300,7 +327,7 @@ Promise&lt;string \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-创建封装
+Create Footprint
 
 ## Signature
 
@@ -338,7 +365,7 @@ string
 
 </td><td>
 
-库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+Library UUID, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -354,7 +381,7 @@ string
 
 </td><td>
 
-封装名称
+Footprint name
 
 
 </td></tr>
@@ -370,7 +397,7 @@ classification
 
 </td><td>
 
-_(Optional)_ 分类
+_(Optional)_ Classification
 
 
 </td></tr>
@@ -386,7 +413,7 @@ string
 
 </td><td>
 
-_(Optional)_ 描述
+_(Optional)_ Description
 
 
 </td></tr>
@@ -398,7 +425,24 @@ _(Optional)_ 描述
 
 Promise&lt;string \| undefined&gt;
 
-封装 UUID
+Footprint UUID
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+
+// 2. 创建封装（分类传 [] = 不分类）
+const footprintName = '嘉立创示例_新封装_' + Date.now();
+const footprintUuid = await eda.lib_Footprint.create(libraryUuid, footprintName, [], '示例封装描述');
+
+// 创建类保留现场（新封装留在个人库中供观察）
+
+console.log('footprintUuid:', footprintUuid);
+console.log('footprintName:', footprintName);
+```
 
 ### delete
 
@@ -406,7 +450,7 @@ Promise&lt;string \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-删除封装
+Delete Footprint
 
 ## Signature
 
@@ -444,7 +488,7 @@ string
 
 </td><td>
 
-封装 UUID
+Footprint UUID
 
 
 </td></tr>
@@ -460,7 +504,7 @@ string
 
 </td><td>
 
-库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+Library UUID, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -472,7 +516,26 @@ string
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID 并新建删除对象
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const footprintUuid = await eda.lib_Footprint.create(
+  libraryUuid,
+  '嘉立创示例_待删除封装_' + Date.now(),
+  []
+);
+
+// 2. 删除该封装
+const deleted = await eda.lib_Footprint.delete(footprintUuid, libraryUuid);
+
+console.log('footprintUuid:', footprintUuid);
+console.log('deleted:', deleted);
+```
 
 ### get
 
@@ -480,7 +543,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取封装的所有属性
+Get all properties of the footprint
 
 ## Signature
 
@@ -518,7 +581,7 @@ string
 
 </td><td>
 
-封装 UUID
+Footprint UUID
 
 
 </td></tr>
@@ -534,7 +597,7 @@ string
 
 </td><td>
 
-_(Optional)_ 库 UUID，默认为系统库，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+_(Optional)_ Library UUID, default is system library, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -546,7 +609,7 @@ _(Optional)_ 库 UUID，默认为系统库，可以使用 [LIB\_LibrariesList](.
 
 Promise&lt;[ILIB\_FootprintItem](../interfaces/ILIB_FootprintItem.md) \| undefined&gt;
 
-封装属性
+Footprint property
 
 ### getrenderimage
 
@@ -554,7 +617,7 @@ Promise&lt;[ILIB\_FootprintItem](../interfaces/ILIB_FootprintItem.md) \| undefin
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取封装渲染图
+Get the footprint render image
 
 ## Signature
 
@@ -602,7 +665,26 @@ source
 
 Promise&lt;Blob \| undefined&gt;
 
-封装渲染图
+Footprint render image
+
+## Example
+
+
+```javascript
+// 1. 搜索系统库，取一个封装作为渲染来源
+const [source] = await eda.lib_Footprint.search('0402', undefined, undefined, 1, 1);
+
+// 2. 获取渲染图（PNG Blob）
+const blob = await eda.lib_Footprint.getRenderImage({
+  footprintUuid: source.uuid,
+  libraryUuid: source.libraryUuid,
+});
+
+// 3. Blob 可转成 URL 直接展示：URL.createObjectURL(blob)
+console.log('sourceName:', source.name);
+console.log('imageSize:', blob.size);
+console.log('imageType:', blob.type);
+```
 
 ### modify
 
@@ -610,7 +692,7 @@ Promise&lt;Blob \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-修改封装
+Modify Footprint
 
 ## Signature
 
@@ -648,7 +730,7 @@ string
 
 </td><td>
 
-封装 UUID
+Footprint UUID
 
 
 </td></tr>
@@ -664,7 +746,7 @@ string
 
 </td><td>
 
-库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+Library UUID, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -680,7 +762,7 @@ string
 
 </td><td>
 
-_(Optional)_ 封装名称
+_(Optional)_ Footprint name
 
 
 </td></tr>
@@ -696,7 +778,7 @@ classification
 
 </td><td>
 
-_(Optional)_ 分类
+_(Optional)_ Classification
 
 
 </td></tr>
@@ -712,7 +794,7 @@ string \| null
 
 </td><td>
 
-_(Optional)_ 描述
+_(Optional)_ Description
 
 
 </td></tr>
@@ -724,11 +806,35 @@ _(Optional)_ 描述
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-如希望清除某些属性，则将其的值设置为 `null`
+If you want to clear certain properties, set their values to `null`
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID 并新建修改对象
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const footprintUuid = await eda.lib_Footprint.create(
+  libraryUuid,
+  '嘉立创示例_封装修改前_' + Date.now(),
+  [],
+  '修改前的描述'
+);
+
+// 2. 修改名称和描述（分类保持不变传 []）
+const newName = '嘉立创示例_封装修改后_' + Date.now();
+const modified = await eda.lib_Footprint.modify(footprintUuid, libraryUuid, newName, [], '修改后的描述');
+
+// 修改类保留现场
+
+console.log('footprintUuid:', footprintUuid);
+console.log('modified:', modified);
+console.log('newName:', newName);
+```
 
 ### openineditor
 
@@ -736,7 +842,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-在编辑器打开文档
+Open in the editor document
 
 ## Signature
 
@@ -774,7 +880,7 @@ string
 
 </td><td>
 
-封装 UUID
+Footprint UUID
 
 
 </td></tr>
@@ -790,7 +896,7 @@ string
 
 </td><td>
 
-库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+Library UUID, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -806,7 +912,7 @@ string
 
 </td><td>
 
-_(Optional)_ 分屏 ID，不填写则默认在最后输入焦点的分屏内打开，可以使用 [DMT\_EditorControl](./DMT_EditorControl.md) 内的接口获取
+_(Optional)_ Split screen ID. If not filled in, it opens in the split screen with the last input focus by default. It can be obtained using the APIs in [DMT\_EditorControl](./DMT_EditorControl.md)
 
 
 </td></tr>
@@ -818,7 +924,29 @@ _(Optional)_ 分屏 ID，不填写则默认在最后输入焦点的分屏内打�
 
 Promise&lt;string \| undefined&gt;
 
-标签页 ID，对应 [IDMT\_EditorTabItem.tabId](../interfaces/IDMT_EditorTabItem.md)<!-- -->，可使用 [DMT\_EditorControl.getSplitScreenIdByTabId()](./DMT_EditorControl.md) 获取到分屏 ID
+Tab ID, corresponding to [IDMT\_EditorTabItem.tabId](../interfaces/IDMT_EditorTabItem.md)<!-- -->. You can use [DMT\_EditorControl.getSplitScreenIdByTabId()](./DMT_EditorControl.md) to get the split screen ID
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID 并新建封装
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const footprintUuid = await eda.lib_Footprint.create(
+  libraryUuid,
+  '嘉立创示例_编辑封装_' + Date.now(),
+  []
+);
+
+// 2. 在编辑器中打开该封装，返回标签页 ID（uuid@libraryUuid 格式）
+const tabId = await eda.lib_Footprint.openInEditor(footprintUuid, libraryUuid);
+
+// 打开后保留现场（编辑器停留在新封装页供观察；不需要时可传 tabId 给
+// dmt_EditorControl.closeDocument 关闭）
+
+console.log('footprintUuid:', footprintUuid);
+console.log('tabId:', tabId);
+```
 
 ### search
 
@@ -826,7 +954,7 @@ Promise&lt;string \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-搜索封装
+Search footprint
 
 ## Signature
 
@@ -864,7 +992,7 @@ string
 
 </td><td>
 
-搜索关键字
+Search keyword
 
 
 </td></tr>
@@ -880,7 +1008,7 @@ string
 
 </td><td>
 
-_(Optional)_ 库 UUID，默认为系统库，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+_(Optional)_ Library UUID, default is system library, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -896,7 +1024,7 @@ classification
 
 </td><td>
 
-_(Optional)_ 分类，默认为全部
+_(Optional)_ Classification, defaults to all
 
 
 </td></tr>
@@ -912,7 +1040,7 @@ number
 
 </td><td>
 
-_(Optional)_ 一页搜索结果的数量
+_(Optional)_ Number of search results per page
 
 
 </td></tr>
@@ -928,7 +1056,7 @@ number
 
 </td><td>
 
-_(Optional)_ 页数
+_(Optional)_ Page count
 
 
 </td></tr>
@@ -940,7 +1068,21 @@ _(Optional)_ 页数
 
 Promise&lt;Array&lt;[ILIB\_FootprintSearchItem](../interfaces/ILIB_FootprintSearchItem.md)<!-- -->&gt;&gt;
 
-搜索到的封装属性列表
+List of searched footprint properties
+
+## Example
+
+
+```javascript
+// 1. 按关键字搜索系统库中的封装，每页 5 条
+const results = await eda.lib_Footprint.search('0402', undefined, undefined, 5, 1);
+
+// 2. 输出搜索结果
+console.log('count:', results.length);
+results.forEach((item, i) => {
+  console.log('[' + i + '] name:', item.name, 'uuid:', item.uuid, 'libraryUuid:', item.libraryUuid);
+});
+```
 
 ### searchbyproperties
 
@@ -948,7 +1090,7 @@ Promise&lt;Array&lt;[ILIB\_FootprintSearchItem](../interfaces/ILIB_FootprintSear
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-使用属性精确搜索封装
+Search footprints precisely by properties
 
 ## Signature
 
@@ -986,7 +1128,7 @@ properties
 
 </td><td>
 
-属性
+Property
 
 
 </td></tr>
@@ -1002,7 +1144,7 @@ string
 
 </td><td>
 
-_(Optional)_ 库 UUID，默认为系统库，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+_(Optional)_ Library UUID, default is system library, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -1014,7 +1156,28 @@ _(Optional)_ 库 UUID，默认为系统库，可以使用 [LIB\_LibrariesList](.
 
 Promise&lt;Array&lt;[ILIB\_FootprintSearchItem](../interfaces/ILIB_FootprintSearchItem.md)<!-- -->&gt;&gt;
 
-搜索到的封装属性的列表
+List of searched footprint properties
+
+## Example
+
+
+```javascript
+// 1. 按名称精确搜索（官方属性集合目前仅支持 name）
+//    当前版本该接口不稳定：可能抛错，也可能正常返回 undefined，两种都要兼容
+let results;
+try {
+  results = await eda.lib_Footprint.searchByProperties({ name: '0402' });
+} catch (e) {
+  console.log('当前版本按 name 搜索抛错:', e.message);
+}
+if (!Array.isArray(results)) results = [];
+
+// 2. 输出搜索结果
+console.log('count:', results.length);
+results.forEach((item, i) => {
+  console.log('[' + i + '] name:', item.name, 'uuid:', item.uuid, 'libraryUuid:', item.libraryUuid);
+});
+```
 
 ### updatedocumentsource
 
@@ -1022,7 +1185,7 @@ Promise&lt;Array&lt;[ILIB\_FootprintSearchItem](../interfaces/ILIB_FootprintSear
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-更新封装的文档源码
+Update the document source code of the footprint
 
 ## Signature
 
@@ -1060,7 +1223,7 @@ string
 
 </td><td>
 
-封装 UUID
+Footprint UUID
 
 
 </td></tr>
@@ -1076,7 +1239,7 @@ string
 
 </td><td>
 
-库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+Library UUID, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -1092,7 +1255,7 @@ string
 
 </td><td>
 
-文档源码
+Document source code
 
 
 </td></tr>
@@ -1104,4 +1267,36 @@ string
 
 Promise&lt;boolean \| undefined&gt;
 
-是否更新成功
+Whether the update is successful
+
+## Example
+
+
+```javascript
+// 1. 获取个人库 UUID 并新建封装
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const footprintUuid = await eda.lib_Footprint.create(
+  libraryUuid,
+  '嘉立创示例_源码封装_' + Date.now(),
+  []
+);
+
+// 2. 在编辑器中打开封装，等待文档加载完成
+const tabId = await eda.lib_Footprint.openInEditor(footprintUuid, libraryUuid);
+await new Promise(r => setTimeout(r, 1500));
+
+// 3. 读取当前打开封装的文档源码
+const documentSource = await eda.sys_FileManager.getDocumentSource();
+
+// 4. 把源码写回库中的封装（此处原样写回；实际使用时可先改写 documentSource）
+const updated = await eda.lib_Footprint.updateDocumentSource(footprintUuid, libraryUuid, documentSource);
+
+// 5. 关闭编辑器标签页（封装本体保留在库中）
+await eda.dmt_EditorControl.closeDocument(tabId);
+
+// 修改类保留现场
+
+console.log('footprintUuid:', footprintUuid);
+console.log('sourceLength:', documentSource.length);
+console.log('updated:', updated);
+```

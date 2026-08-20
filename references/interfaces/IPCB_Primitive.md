@@ -1,6 +1,6 @@
 # IPCB\_Primitive interface
 
-PCB 图元
+PCB primitive
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # IDMT\_IndicatorMarkerShape interface
 
-指示标记外形
+Indicator marker shape
 
 ## Signature
 
@@ -236,7 +236,7 @@ _(Optional)_ 矩形：上 Y
 
 </td><td>
 
-类型
+Type
 
 
 </td></tr>
@@ -412,7 +412,7 @@ top?: number;
 
 # IDMT\_IndicatorMarkerShape.type property
 
-类型
+Type
 
 ## Signature
 

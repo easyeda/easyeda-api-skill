@@ -1,6 +1,6 @@
 # DMT\_Project class
 
-文档树 / 工程管理类
+Document tree / Project management class
 
 ## Signature
 
@@ -36,7 +36,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建工程
+**_(BETA)_** Create Project
 
 
 </td></tr>
@@ -50,7 +50,7 @@ Description
 
 </td><td>
 
-获取所有工程的 UUID
+Get the UUIDs of all projects
 
 
 </td></tr>
@@ -64,7 +64,7 @@ Description
 
 </td><td>
 
-获取当前工程的详细属性
+Get detailed properties of Current project
 
 
 </td></tr>
@@ -78,7 +78,7 @@ Description
 
 </td><td>
 
-获取工程属性
+Get Project property
 
 
 </td></tr>
@@ -92,7 +92,7 @@ Description
 
 </td><td>
 
-移动工程到文件夹
+Move a project to a folder
 
 
 </td></tr>
@@ -106,7 +106,7 @@ Description
 
 </td><td>
 
-打开工程
+Open project
 
 
 </td></tr>
@@ -122,7 +122,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-创建工程
+Create Project
 
 ## Signature
 
@@ -160,7 +160,7 @@ string
 
 </td><td>
 
-工程友好名称
+Project friendly name
 
 
 </td></tr>
@@ -176,7 +176,7 @@ string
 
 </td><td>
 
-_(Optional)_ 工程名称，不可重复，仅支持字母 `a-zA-Z`<!-- -->、数字 `0-9`<!-- -->、中划线 `-`<!-- -->，如若不指定，则根据工程友好名称自动生成
+_(Optional)_ Project name, which cannot be duplicated. Only letters `a-zA-Z`<!-- -->, digits `0-9`<!-- -->, and hyphens `-` are supported. If not specified, it is automatically generated based on the project friendly name
 
 
 </td></tr>
@@ -192,7 +192,7 @@ string
 
 </td><td>
 
-_(Optional)_ 团队 UUID，如若不指定，则默认为个人；在不存在个人工程的环境下必须指定团队 UUID
+_(Optional)_ Team UUID. If not specified, it defaults to personal. In an environment where personal projects do not exist, a team UUID must be specified
 
 
 </td></tr>
@@ -208,7 +208,7 @@ string
 
 </td><td>
 
-_(Optional)_ 文件夹 UUID，如若不指定，则为根文件夹
+_(Optional)_ Folder UUID. If not specified, it is the root folder
 
 
 </td></tr>
@@ -224,7 +224,7 @@ string
 
 </td><td>
 
-_(Optional)_ 工程描述
+_(Optional)_ Project description
 
 
 </td></tr>
@@ -240,7 +240,7 @@ collaborationMode
 
 </td><td>
 
-_(Optional)_ 工程协作模式，如若团队权限无需工程设置协作模式，则该参数将被忽略
+_(Optional)_ Project collaboration mode. If the team permission does not require the project to set a collaboration mode, this parameter will be ignored
 
 
 </td></tr>
@@ -252,13 +252,37 @@ _(Optional)_ 工程协作模式，如若团队权限无需工程设置协作模�
 
 Promise&lt;string \| undefined&gt;
 
-工程 UUID，如若为 `undefined` 则创建失败
+Project UUID, if it is `undefined` creation fails
+
+## Example
+
+
+```javascript
+// 1. 创建测试工程（友好名带时间戳避免重名，名称与团队留空走默认）
+const projectUuid = await eda.dmt_Project.createProject(
+  '嘉立创示例_工程 ' + Date.now(),
+  undefined,
+  undefined,
+  undefined,
+  '嘉立创示例：工程创建演示',
+);
+
+// 2. 等待工作区同步后回读，确认工程已落地
+await new Promise(r => setTimeout(r, 1500));
+const brief = await eda.dmt_Project.getProjectInfo(projectUuid);
+
+const folderLabel = !brief?.folderUuid ? '(根目录)' : brief.folderUuid;
+
+console.log('projectUuid:', projectUuid);
+console.log('friendlyName:', brief?.friendlyName);
+console.log('folderUuid:', folderLabel);
+```
 
 ### getallprojectsuuid
 
 # DMT\_Project.getAllProjectsUuid() method
 
-获取所有工程的 UUID
+Get the UUIDs of all projects
 
 ## Signature
 
@@ -296,7 +320,7 @@ string
 
 </td><td>
 
-_(Optional)_ 团队 UUID
+_(Optional)_ Team UUID
 
 
 </td></tr>
@@ -312,7 +336,7 @@ string
 
 </td><td>
 
-_(Optional)_ 文件夹 UUID，如若不指定，则默认为团队的根文件夹
+_(Optional)_ Folder UUID. If not specified, it defaults to the root folder of the team
 
 
 </td></tr>
@@ -328,7 +352,7 @@ string
 
 </td><td>
 
-_(Optional)_ 工作区 UUID
+_(Optional)_ Workspace UUID
 
 
 </td></tr>
@@ -340,23 +364,38 @@ _(Optional)_ 工作区 UUID
 
 Promise&lt;Array&lt;string&gt;&gt;
 
-工程 UUID 数组
+Project UUID array
 
 ## Remarks
 
-如若指定 `teamUuid`<!-- -->，则获取指定团队下的所有工程；
+If `teamUuid` is specified, all projects under the specified team are obtained;
 
-如若指定 `folderUuid`<!-- -->，则获取指定文件夹下的所有工程；
+If `folderUuid` is specified, all projects under the specified folder are obtained;
 
-`teamUuid`<!-- -->、`folderUuid` 需要且仅允许指定其一，如若都指定则只取 `folderUuid`<!-- -->；
+`teamUuid`<!-- -->, `folderUuid` only one of them may be specified, if both are specified, only `folderUuid`<!-- -->;
 
-如若指定 `workspaceUuid`<!-- -->，则在指定 Workspace 下获取指定团队/文件夹下的所有工程
+If `workspaceUuid` is specified, all projects under the specified team/folder are obtained in the specified Workspace
+
+## Example
+
+
+```javascript
+// 1. 取当前工程所属团队
+const projectInfo = await eda.dmt_Project.getCurrentProjectInfo();
+const teamUuid = projectInfo.teamUuid;
+
+// 2. 获取该团队下所有工程的 UUID
+const projectUuids = await eda.dmt_Project.getAllProjectsUuid(teamUuid);
+
+console.log('projectCount:', projectUuids.length);
+console.log('projectUuids:', projectUuids.join(', '));
+```
 
 ### getcurrentprojectinfo
 
 # DMT\_Project.getCurrentProjectInfo() method
 
-获取当前工程的详细属性
+Get detailed properties of Current project
 
 ## Signature
 
@@ -369,17 +408,17 @@ public getCurrentProjectInfo(): Promise<IDMT_ProjectItem | undefined>;
 
 Promise&lt;[IDMT\_ProjectItem](../interfaces/IDMT_ProjectItem.md) \| undefined&gt;
 
-工程属性，如若为 `undefined` 则获取失败
+Project property; if it is `undefined`<!-- -->, the retrieval failed
 
 ## Remarks
 
-将会获取当前打开且拥有最后输入焦点的原理图、PCB、面板所关联的工程的详细属性
+It will get the detailed properties of the project associated with the currently open schematic, PCB, or panel that has the last input focus
 
 ### getprojectinfo
 
 # DMT\_Project.getProjectInfo() method
 
-获取工程属性
+Get Project property
 
 ## Signature
 
@@ -417,7 +456,7 @@ string
 
 </td><td>
 
-工程 UUID
+Project UUID
 
 
 </td></tr>
@@ -429,17 +468,17 @@ string
 
 Promise&lt;[IDMT\_BriefProjectItem](../interfaces/IDMT_BriefProjectItem.md) \| undefined&gt;
 
-简略的工程属性，如若为 `undefined` 则获取失败
+Brief project properties. If it is `undefined`<!-- -->, the retrieval failed
 
 ## Remarks
 
-本接口只能读取简略的工程属性，如需详细的工程树，请使用 [getCurrentProjectInfo](./DMT_Project.md) 接口
+This API can only read brief project properties. For the detailed project tree, use the [getCurrentProjectInfo](./DMT_Project.md) API
 
 ### moveprojecttofolder
 
 # DMT\_Project.moveProjectToFolder() method
 
-移动工程到文件夹
+Move a project to a folder
 
 ## Signature
 
@@ -477,7 +516,7 @@ string
 
 </td><td>
 
-工程 UUID
+Project UUID
 
 
 </td></tr>
@@ -493,7 +532,7 @@ string
 
 </td><td>
 
-_(Optional)_ 文件夹 UUID，只能为当前工程所在团队或个人下的文件夹，如若为 `undefined` 则移动到当前团队的根文件夹
+_(Optional)_ Folder UUID, which can only be a folder under the team or personal space where the current project is located. If it is `undefined`<!-- -->, it is moved to the root folder of the current team
 
 
 </td></tr>
@@ -505,13 +544,44 @@ _(Optional)_ 文件夹 UUID，只能为当前工程所在团队或个人下的�
 
 Promise&lt;boolean&gt;
 
-是否移动成功
+Whether the move is successful
+
+## Example
+
+
+```javascript
+// 1. 记录当前工程的位置，作为移动后恢复的锚点
+const info = await eda.dmt_Project.getCurrentProjectInfo();
+const projectUuid = info.uuid;
+const teamUuid = info.teamUuid;
+const originalFolderUuid = info.folderUuid; // 可能为 undefined（团队根目录）
+
+// 2. 创建目标文件夹，等待 1.5s 让工作区同步
+const targetFolderUuid = await eda.dmt_Folder.createFolder('嘉立创示例_目标文件夹', teamUuid);
+await new Promise(r => setTimeout(r, 1500));
+
+// 3. 把当前工程移到目标文件夹下
+const moved = await eda.dmt_Project.moveProjectToFolder(projectUuid, targetFolderUuid);
+await new Promise(r => setTimeout(r, 1000));
+
+// 4. 回读验证工程已落到目标文件夹
+const after = await eda.dmt_Project.getCurrentProjectInfo();
+const folderChanged = after?.folderUuid === targetFolderUuid;
+
+// 5. 恢复：移回原位置（原为根目录时传 undefined）
+const restored = await eda.dmt_Project.moveProjectToFolder(projectUuid, originalFolderUuid);
+await new Promise(r => setTimeout(r, 1000));
+
+console.log('moved:', moved);
+console.log('folderChanged:', folderChanged);
+console.log('restored:', restored);
+```
 
 ### openproject
 
 # DMT\_Project.openProject() method
 
-打开工程
+Open project
 
 ## Signature
 
@@ -549,7 +619,7 @@ string
 
 </td><td>
 
-工程 UUID
+Project UUID
 
 
 </td></tr>
@@ -561,8 +631,22 @@ string
 
 Promise&lt;boolean&gt;
 
-是否成功打开工程
+Whether Successful open project
 
 ## Remarks
 
-本操作将会在 EDA 前端打开指定工程，如若原先已打开其它工程且有未保存的变更，执行本操作将直接丢失所有未保存的数据
+This operation will open the specified project in the EDA front end. If another project was previously opened with unsaved changes, executing this operation will directly lose all unsaved data
+
+## Example
+
+
+```javascript
+// 1. 取当前工程 UUID（打开自身，避免切换到其它工程）
+const info = await eda.dmt_Project.getCurrentProjectInfo();
+const projectUuid = info.uuid;
+
+// 2. 打开该工程
+const opened = await eda.dmt_Project.openProject(projectUuid);
+
+console.log('opened:', opened);
+```

@@ -1,6 +1,6 @@
 # ISYS\_HeaderMenuTopMenuItem interface
 
-顶部一级菜单项
+Top-level primary menu item
 
 ## Signature
 
@@ -46,7 +46,7 @@ string
 
 </td><td>
 
-菜单项 ID，不可重复
+Menu item ID, cannot be repeated
 
 
 </td></tr>
@@ -65,7 +65,7 @@ Array&lt;[ISYS\_HeaderMenuSub1MenuItem](./ISYS_HeaderMenuSub1MenuItem.md) \| nul
 
 </td><td>
 
-_(Optional)_ 子菜单项
+_(Optional)_ Sub-menu item
 
 
 </td></tr>
@@ -84,7 +84,7 @@ string
 
 </td><td>
 
-菜单项标题
+Menu item title
 
 
 </td></tr>
@@ -98,7 +98,7 @@ string
 
 # ISYS\_HeaderMenuTopMenuItem.id property
 
-菜单项 ID，不可重复
+Menu item ID, cannot be repeated
 
 ## Signature
 
@@ -110,7 +110,7 @@ id: string;
 
 # ISYS\_HeaderMenuTopMenuItem.menuItems property
 
-子菜单项
+Sub-menu item
 
 ## Signature
 
@@ -122,7 +122,7 @@ menuItems?: Array<ISYS_HeaderMenuSub1MenuItem | null>;
 
 # ISYS\_HeaderMenuTopMenuItem.title property
 
-菜单项标题
+Menu item title
 
 ## Signature
 

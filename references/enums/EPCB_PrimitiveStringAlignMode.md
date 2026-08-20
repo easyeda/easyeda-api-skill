@@ -1,6 +1,6 @@
 # EPCB\_PrimitiveStringAlignMode enum
 
-文本对齐模式
+Text alignment mode
 
 ## Signature
 

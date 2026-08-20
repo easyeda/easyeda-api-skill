@@ -1,6 +1,6 @@
 # ESYS\_ImportProjectSchematicObjectStyle enum
 
-导入工程原理图图元样式
+Import project schematic primitive style
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # EPCB\_DocumentCanvasUpdateCalculationActiveStatus enum
 
-画布更新计算功能状态
+Canvas update calculation function status
 
 ## Signature
 

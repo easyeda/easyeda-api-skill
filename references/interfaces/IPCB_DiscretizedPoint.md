@@ -1,6 +1,6 @@
 # IPCB\_DiscretizedPoint interface
 
-离散化点
+Discretized point
 
 ## Signature
 
@@ -46,7 +46,7 @@ number
 
 </td><td>
 
-X 坐标
+X coordinate
 
 
 </td></tr>
@@ -65,7 +65,7 @@ number
 
 </td><td>
 
-Y 坐标
+Y coordinate
 
 
 </td></tr>
@@ -79,7 +79,7 @@ Y 坐标
 
 # IPCB\_DiscretizedPoint.x property
 
-X 坐标
+X coordinate
 
 ## Signature
 
@@ -91,7 +91,7 @@ x: number;
 
 # IPCB\_DiscretizedPoint.y property
 
-Y 坐标
+Y coordinate
 
 ## Signature
 

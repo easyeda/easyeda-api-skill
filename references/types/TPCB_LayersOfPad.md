@@ -1,6 +1,6 @@
 # TPCB\_LayersOfPad type
 
-焊盘所属层
+Layers of the pad
 
 ## Signature
 

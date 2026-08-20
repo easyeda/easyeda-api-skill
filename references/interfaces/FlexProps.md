@@ -47,7 +47,7 @@ Description
 
 </td><td>
 
-_(Optional)_ 主轴对齐方式（水平）
+_(Optional)_ Main axis alignment (horizontal)
 
 
 </td></tr>
@@ -66,7 +66,7 @@ _(Optional)_ 主轴对齐方式（水平）
 
 </td><td>
 
-_(Optional)_ 交叉轴对齐方式（垂直）
+_(Optional)_ Cross axis alignment (vertical)
 
 
 </td></tr>
@@ -85,7 +85,7 @@ any
 
 </td><td>
 
-_(Optional)_ 子节点
+_(Optional)_ Child node
 
 
 </td></tr>
@@ -104,7 +104,7 @@ string\[\]
 
 </td><td>
 
-_(Optional)_ 附加的样式 class 名列表
+_(Optional)_ List of additional style class names
 
 
 </td></tr>
@@ -123,7 +123,7 @@ _(Optional)_ 附加的样式 class 名列表
 
 </td><td>
 
-_(Optional)_ 主轴方向：row 水平 / column 垂直（含反向）
+_(Optional)_ Main axis direction: row (horizontal) / column (vertical, including reverse)
 
 
 </td></tr>
@@ -142,7 +142,7 @@ number
 
 </td><td>
 
-_(Optional)_ 子元素间距（像素）
+_(Optional)_ Gap between child elements (pixels)
 
 
 </td></tr>
@@ -175,7 +175,7 @@ _(Optional)_ 点击容器时触发
 
 # FlexProps.alignX property
 
-主轴对齐方式（水平）
+Main axis alignment (horizontal)
 
 ## Signature
 
@@ -187,7 +187,7 @@ alignX?: 'start' | 'center' | 'end';
 
 # FlexProps.alignY property
 
-交叉轴对齐方式（垂直）
+Cross axis alignment (vertical)
 
 ## Signature
 
@@ -199,7 +199,7 @@ alignY?: 'start' | 'center' | 'end' | 'stretch';
 
 # FlexProps.children property
 
-子节点
+Child node
 
 ## Signature
 
@@ -211,7 +211,7 @@ children?: any;
 
 # FlexProps.classes property
 
-附加的样式 class 名列表
+List of additional style class names
 
 ## Signature
 
@@ -223,7 +223,7 @@ classes?: string[];
 
 # FlexProps.direction property
 
-主轴方向：row 水平 / column 垂直（含反向）
+Main axis direction: row (horizontal) / column (vertical, including reverse)
 
 ## Signature
 
@@ -235,7 +235,7 @@ direction?: 'column' | 'column-reverse' | 'row' | 'row-reverse';
 
 # FlexProps.gap property
 
-子元素间距（像素）
+Gap between child elements (pixels)
 
 ## Signature
 

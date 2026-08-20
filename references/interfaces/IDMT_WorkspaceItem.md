@@ -1,6 +1,6 @@
 # IDMT\_WorkspaceItem interface
 
-工作区属性
+Workspace properties
 
 ## Signature
 
@@ -48,7 +48,7 @@ Description
 
 </td><td>
 
-项目类型
+Project type
 
 
 </td></tr>
@@ -67,7 +67,7 @@ string
 
 </td><td>
 
-工作区名称
+Workspace name
 
 
 </td></tr>
@@ -86,7 +86,7 @@ string
 
 </td><td>
 
-工作区 UUID
+Workspace UUID
 
 
 </td></tr>
@@ -100,7 +100,7 @@ string
 
 # IDMT\_WorkspaceItem.itemType property
 
-项目类型
+Project type
 
 ## Signature
 
@@ -112,7 +112,7 @@ readonly itemType: EDMT_ItemType.WORKSPACE;
 
 # IDMT\_WorkspaceItem.name property
 
-工作区名称
+Workspace name
 
 ## Signature
 
@@ -124,7 +124,7 @@ name: string;
 
 # IDMT\_WorkspaceItem.uuid property
 
-工作区 UUID
+Workspace UUID
 
 ## Signature
 

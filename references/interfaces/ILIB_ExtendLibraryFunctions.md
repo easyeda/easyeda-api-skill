@@ -1,6 +1,6 @@
 # ILIB\_ExtendLibraryFunctions interface
 
-外部库方法
+External library functions
 
 ## Signature
 

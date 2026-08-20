@@ -1,6 +1,6 @@
 # EPCB\_PrimitiveType enum
 
-图元类型
+Primitive type
 
 ## Signature
 

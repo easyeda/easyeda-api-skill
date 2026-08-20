@@ -1,6 +1,6 @@
 # TPCB\_PrimitiveSpecialPadShape type
 
-特殊焊盘外形
+Special pad shape
 
 ## Signature
 
@@ -16,6 +16,6 @@ export type TPCB_PrimitiveSpecialPadShape = Array<[number, number, TPCB_Primitiv
 
 `Array<[startLayer, endLayer, TPCB_PrimitivePadShape]>`
 
-- `{number}` `startLayer` - 起始层
+- `{number}` `startLayer` - Start layer
 
-- `{number}` `endLayer` - 结束层
+- `{number}` `endLayer` - End layer

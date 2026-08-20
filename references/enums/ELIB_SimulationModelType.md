@@ -1,6 +1,6 @@
 # ELIB\_SimulationModelType enum
 
-仿真模型类型
+Simulation model type
 
 ## Signature
 

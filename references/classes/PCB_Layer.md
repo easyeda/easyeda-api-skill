@@ -1,6 +1,6 @@
 # PCB\_Layer class
 
-PCB &amp; 封装 / 图层操作类
+PCB &amp; footprint / layer operation class
 
 ## Signature
 
@@ -36,7 +36,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 新增自定义层
+**_(BETA)_** Add a custom layer
 
 
 </td></tr>
@@ -50,7 +50,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 删除物理叠层配置
+**_(BETA)_** Delete Physical stacking configuration
 
 
 </td></tr>
@@ -64,7 +64,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有图层的详细属性
+**_(BETA)_** Get the detailed properties of all layers
 
 
 </td></tr>
@@ -78,7 +78,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有物理叠层配置
+**_(BETA)_** Get all Physical stacking configuration
 
 
 </td></tr>
@@ -92,7 +92,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取当前图层的详细属性
+**_(BETA)_** Get the detailed properties of the current layer
 
 
 </td></tr>
@@ -106,7 +106,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取当前物理叠层配置
+**_(BETA)_** Get Current physical stacking configuration
 
 
 </td></tr>
@@ -120,7 +120,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取当前物理叠层配置名称
+**_(BETA)_** Get Current physical stacking configuration name
 
 
 </td></tr>
@@ -134,7 +134,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取新建 PCB 默认物理叠层配置的名称
+**_(BETA)_** Get the name of the default physical stacking configuration for new PCBs
 
 
 </td></tr>
@@ -148,7 +148,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取指定物理叠层配置
+**_(BETA)_** Get Specify physical stacking configuration
 
 
 </td></tr>
@@ -162,7 +162,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 锁定层
+**_(BETA)_** Lock the layer
 
 
 </td></tr>
@@ -176,7 +176,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 修改图层属性
+**_(BETA)_** Modify Layer properties
 
 
 </td></tr>
@@ -190,7 +190,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 覆写当前物理叠层配置
+**_(BETA)_** Overwrite current physical stacking configuration
 
 
 </td></tr>
@@ -204,7 +204,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 移除层
+**_(BETA)_** Remove Layer
 
 
 </td></tr>
@@ -218,7 +218,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 重命名物理叠层配置
+**_(BETA)_** Rename the physical stacking configuration
 
 
 </td></tr>
@@ -232,7 +232,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 保存物理叠层配置
+**_(BETA)_** Save Physical stacking configuration
 
 
 </td></tr>
@@ -246,7 +246,7 @@ Description
 
 </td><td>
 
-选中图层
+Select a layer
 
 
 </td></tr>
@@ -260,7 +260,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置为新建 PCB 默认物理叠层配置
+**_(BETA)_** Set as the default physical stacking configuration for new PCBs
 
 
 </td></tr>
@@ -274,7 +274,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置非激活层展示模式
+**_(BETA)_** Set Inactive layer display mode
 
 
 </td></tr>
@@ -288,7 +288,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置非激活层透明度
+**_(BETA)_** Set the inactive layer transparency
 
 
 </td></tr>
@@ -302,7 +302,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置层颜色配置
+**_(BETA)_** Set the layer color configuration
 
 
 </td></tr>
@@ -316,7 +316,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 将层设置为不可见
+**_(BETA)_** Set the layer to invisible
 
 
 </td></tr>
@@ -330,7 +330,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 将层设置为可见
+**_(BETA)_** Set the layer to visible
 
 
 </td></tr>
@@ -344,7 +344,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置 PCB 类型
+**_(BETA)_** Set PCB type
 
 
 </td></tr>
@@ -358,7 +358,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置铜箔层数
+**_(BETA)_** Set Number of copper layers
 
 
 </td></tr>
@@ -372,7 +372,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 取消锁定层
+**_(BETA)_** Unlock the layer
 
 
 </td></tr>
@@ -388,7 +388,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-新增自定义层
+Add a custom layer
 
 ## Signature
 
@@ -401,7 +401,7 @@ public addCustomLayer(): Promise<TPCB_LayersOfCustom | undefined>;
 
 Promise&lt;[TPCB\_LayersOfCustom](../types/TPCB_LayersOfCustom.md) \| undefined&gt;
 
-新增的自定义层的图层 ID，如若为 `undefined` 则为新增失败，可能是自定义层数量已达到上限
+The layer ID of the newly added custom layer. If it is `undefined`<!-- -->, the addition failed, possibly because the number of custom layers has reached the upper limit
 
 ### deletephysicalstackingconfiguration
 
@@ -409,7 +409,7 @@ Promise&lt;[TPCB\_LayersOfCustom](../types/TPCB_LayersOfCustom.md) \| undefined&
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-删除物理叠层配置
+Delete Physical stacking configuration
 
 ## Signature
 
@@ -447,7 +447,7 @@ string
 
 </td><td>
 
-配置名称
+Configuration name
 
 
 </td></tr>
@@ -463,7 +463,7 @@ physicalProps
 
 </td><td>
 
-_(Optional)_ 物理属性，如若不传入则默认为当前 PCB 属性
+_(Optional)_ Physical properties. If not passed in, the current PCB properties are used by default
 
 
 </td></tr>
@@ -475,7 +475,7 @@ _(Optional)_ 物理属性，如若不传入则默认为当前 PCB 属性
 
 Promise&lt;boolean&gt;
 
-删除是否成功
+Delete Whether Successful
 
 ## Remarks
 
@@ -487,7 +487,7 @@ ADD since EDA v4.2
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有图层的详细属性
+Get the detailed properties of all layers
 
 ## Signature
 
@@ -500,7 +500,7 @@ public getAllLayers(): Promise<Array<IPCB_LayerItem>>;
 
 Promise&lt;Array&lt;[IPCB\_LayerItem](../interfaces/IPCB_LayerItem.md)<!-- -->&gt;&gt;
 
-所有图层的详细属性
+Detailed properties of all layers
 
 ### getallphysicalstackingconfigurations
 
@@ -508,7 +508,7 @@ Promise&lt;Array&lt;[IPCB\_LayerItem](../interfaces/IPCB_LayerItem.md)<!-- -->&g
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有物理叠层配置
+Get all Physical stacking configuration
 
 ## Signature
 
@@ -546,7 +546,7 @@ physicalProps
 
 </td><td>
 
-_(Optional)_ 物理属性，如若不传入则默认为当前 PCB 属性
+_(Optional)_ Physical properties. If not passed in, the current PCB properties are used by default
 
 
 </td></tr>
@@ -558,7 +558,7 @@ _(Optional)_ 物理属性，如若不传入则默认为当前 PCB 属性
 
 Promise&lt;Array&lt;[IPCB\_PhysicalStackingConfiguration](../interfaces/IPCB_PhysicalStackingConfiguration.md)<!-- -->&gt;&gt;
 
-所有物理叠层配置
+All physical stacking configurations
 
 ## Remarks
 
@@ -570,7 +570,7 @@ ADD since EDA v4.2
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取当前图层的详细属性
+Get the detailed properties of the current layer
 
 ## Signature
 
@@ -583,7 +583,7 @@ public getCurrentLayer(): Promise<IPCB_LayerItem | undefined>;
 
 Promise&lt;[IPCB\_LayerItem](../interfaces/IPCB_LayerItem.md) \| undefined&gt;
 
-当前图层的详细属性，无激活层或无 PCB 画布时返回 `undefined`
+Detailed properties of the current layer. `undefined` is returned when there is no active layer or no PCB canvas
 
 ## Remarks
 
@@ -595,7 +595,7 @@ ADD since EDA v4.2
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取当前物理叠层配置
+Get Current physical stacking configuration
 
 ## Signature
 
@@ -608,7 +608,7 @@ public getCurrentPhysicalStackingConfiguration(): Promise<IPCB_PhysicalStackingC
 
 Promise&lt;[IPCB\_PhysicalStackingConfiguration](../interfaces/IPCB_PhysicalStackingConfiguration.md) \| undefined&gt;
 
-当前物理叠层配置，`undefined` 为获取失败
+Current physical stacking configuration; `undefined` indicates that the retrieval failed
 
 ## Remarks
 
@@ -620,7 +620,7 @@ ADD since EDA v4.2
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取当前物理叠层配置名称
+Get Current physical stacking configuration name
 
 ## Signature
 
@@ -633,7 +633,7 @@ public getCurrentPhysicalStackingConfigurationName(): Promise<string | undefined
 
 Promise&lt;string \| undefined&gt;
 
-当前物理叠层配置名称，`undefined` 为获取失败
+Current physical stacking configuration name; `undefined` indicates that the retrieval failed
 
 ## Remarks
 
@@ -645,7 +645,7 @@ ADD since EDA v4.2
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取新建 PCB 默认物理叠层配置的名称
+Get the name of the default physical stacking configuration for new PCBs
 
 ## Signature
 
@@ -683,7 +683,7 @@ physicalProps
 
 </td><td>
 
-_(Optional)_ 物理属性，如若不传入则默认为当前 PCB 属性
+_(Optional)_ Physical properties. If not passed in, the current PCB properties are used by default
 
 
 </td></tr>
@@ -695,7 +695,7 @@ _(Optional)_ 物理属性，如若不传入则默认为当前 PCB 属性
 
 Promise&lt;string \| undefined&gt;
 
-默认物理叠层配置的名称，`undefined` 为获取失败
+Default physical stacking configuration name of; `undefined` indicates that the retrieval failed
 
 ## Remarks
 
@@ -707,7 +707,7 @@ ADD since EDA v4.2
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取指定物理叠层配置
+Get Specify physical stacking configuration
 
 ## Signature
 
@@ -745,7 +745,7 @@ string
 
 </td><td>
 
-配置名称
+Configuration name
 
 
 </td></tr>
@@ -761,7 +761,7 @@ physicalProps
 
 </td><td>
 
-_(Optional)_ 物理属性，如若不传入则默认为当前 PCB 属性
+_(Optional)_ Physical properties. If not passed in, the current PCB properties are used by default
 
 
 </td></tr>
@@ -773,7 +773,7 @@ _(Optional)_ 物理属性，如若不传入则默认为当前 PCB 属性
 
 Promise&lt;[IPCB\_PhysicalStackingConfiguration](../interfaces/IPCB_PhysicalStackingConfiguration.md) \| undefined&gt;
 
-物理叠层配置，`undefined` 为不存在该物理叠层
+Physical stacking configuration, `undefined` is does not exist this physical stacking
 
 ## Remarks
 
@@ -785,7 +785,7 @@ ADD since EDA v4.2
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-锁定层
+Lock the layer
 
 ## Signature
 
@@ -823,7 +823,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层，如若不指定任何层则默认为所有层
+_(Optional)_ Layer. If no layer is specified, all layers are used by default
 
 
 </td></tr>
@@ -835,7 +835,7 @@ _(Optional)_ 层，如若不指定任何层则默认为所有层
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ### modifylayer
 
@@ -843,7 +843,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-修改图层属性
+Modify Layer properties
 
 ## Signature
 
@@ -881,7 +881,7 @@ layer
 
 </td><td>
 
-层
+Layer
 
 
 </td></tr>
@@ -897,7 +897,7 @@ property
 
 </td><td>
 
-属性
+Property
 
 
 </td></tr>
@@ -909,11 +909,11 @@ property
 
 Promise&lt;boolean&gt;
 
-修改后的图层属性，如若为 `undefined` 则代表修改失败或图层不存在
+The modified layer properties. If it is `undefined`<!-- -->, the modification failed or the layer does not exist
 
 ## Remarks
 
-仅内层和自定义层允许修改名称；仅内层允许修改类型, 透明度仅支持0-100之间的数
+Only inner layers and custom layers can have their names modified; only inner layers can have their types modified. Transparency only supports values between 0-100
 
 ### overwritecurrentphysicalstackingconfiguration
 
@@ -921,7 +921,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-覆写当前物理叠层配置
+Overwrite current physical stacking configuration
 
 ## Signature
 
@@ -969,13 +969,13 @@ physicalStackingConfiguration
 
 Promise&lt;boolean&gt;
 
-覆写是否成功
+Overwrite whether it is successful
 
 ## Remarks
 
-将会覆写 PCB 当前的物理叠层配置，请注意数据丢失风险
+It will overwrite the current physical stacking configuration of the PCB. Please note the risk of data loss
 
-如果传入的物理叠层配置不符合当前 PCB 的物理属性，将会直接返回 `false` 且不进行修改 ADD since EDA v4.2
+If the passed-in physical stacking configuration does not match the physical properties of the current PCB, `false` will be returned directly without modification ADD since EDA v4.2
 
 ### removelayer
 
@@ -983,7 +983,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-移除层
+Remove Layer
 
 ## Signature
 
@@ -1021,7 +1021,7 @@ layer
 
 </td><td>
 
-层
+Layer
 
 
 </td></tr>
@@ -1033,11 +1033,11 @@ layer
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-当前仅支持移除自定义层
+Currently only custom layers can be removed
 
 ### renamephysicalstackingconfiguration
 
@@ -1045,7 +1045,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-重命名物理叠层配置
+Rename the physical stacking configuration
 
 ## Signature
 
@@ -1083,7 +1083,7 @@ string
 
 </td><td>
 
-原物理叠层配置名称
+Original physical stacking configuration name
 
 
 </td></tr>
@@ -1099,7 +1099,7 @@ string
 
 </td><td>
 
-新物理叠层配置名称
+New physical stacking configuration name
 
 
 </td></tr>
@@ -1115,7 +1115,7 @@ physicalProps
 
 </td><td>
 
-_(Optional)_ 物理属性，如若不传入则默认为当前 PCB 属性
+_(Optional)_ Physical properties. If not passed in, the current PCB properties are used by default
 
 
 </td></tr>
@@ -1127,7 +1127,7 @@ _(Optional)_ 物理属性，如若不传入则默认为当前 PCB 属性
 
 Promise&lt;boolean&gt;
 
-重命名是否成功
+Whether the rename was successful
 
 ## Remarks
 
@@ -1139,7 +1139,7 @@ ADD since EDA v4.2
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-保存物理叠层配置
+Save Physical stacking configuration
 
 ## Signature
 
@@ -1177,7 +1177,7 @@ physicalStackingConfiguration
 
 </td><td>
 
-物理叠层配置
+Physical stacking configuration
 
 
 </td></tr>
@@ -1193,7 +1193,7 @@ string
 
 </td><td>
 
-配置名称
+Configuration name
 
 
 </td></tr>
@@ -1209,7 +1209,7 @@ physicalProps
 
 </td><td>
 
-_(Optional)_ 物理属性，如若不传入则默认为当前 PCB 属性
+_(Optional)_ Physical properties. If not passed in, the current PCB properties are used by default
 
 
 </td></tr>
@@ -1225,7 +1225,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否允许覆写同名物理叠层配置，`false` 则将在遇到同名物理叠层配置时返回 `false`<!-- -->，请注意可能的数据丢失风险
+_(Optional)_ Whether to allow overwriting a physical stacking configuration with the same name. If `false`<!-- -->, `false` will be returned when a configuration with the same name is encountered. Please note the possible risk of data loss
 
 
 </td></tr>
@@ -1237,7 +1237,7 @@ _(Optional)_ 是否允许覆写同名物理叠层配置，`false` 则将在遇�
 
 Promise&lt;boolean&gt;
 
-保存是否成功
+Save Whether Successful
 
 ## Remarks
 
@@ -1247,7 +1247,7 @@ ADD since EDA v4.2
 
 # PCB\_Layer.selectLayer() method
 
-选中图层
+Select a layer
 
 ## Signature
 
@@ -1285,7 +1285,7 @@ layer
 
 </td><td>
 
-层
+Layer
 
 
 </td></tr>
@@ -1297,7 +1297,7 @@ layer
 
 Promise&lt;boolean&gt;
 
-操作是否成功，不存在指定层将返回 `false`
+Whether the operation was successful. `false` is returned if the specified layer does not exist
 
 ### setasdefaultphysicalstackingconfiguration
 
@@ -1305,7 +1305,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置为新建 PCB 默认物理叠层配置
+Set as the default physical stacking configuration for new PCBs
 
 ## Signature
 
@@ -1343,7 +1343,7 @@ string
 
 </td><td>
 
-配置名称
+Configuration name
 
 
 </td></tr>
@@ -1359,7 +1359,7 @@ physicalProps
 
 </td><td>
 
-_(Optional)_ 物理属性，如若不传入则默认为当前 PCB 属性
+_(Optional)_ Physical properties. If not passed in, the current PCB properties are used by default
 
 
 </td></tr>
@@ -1371,11 +1371,11 @@ _(Optional)_ 物理属性，如若不传入则默认为当前 PCB 属性
 
 Promise&lt;boolean&gt;
 
-设置是否成功
+Set Whether Successful
 
 ## Remarks
 
-返回值为结果导向，重复设置相同的物理叠层为默认物理叠层也将返回 `true` ADD since EDA v4.2
+The return value is result-oriented. Repeatedly setting the same physical stacking as the default will also return `true` ADD since EDA v4.2
 
 ### setinactivelayerdisplaymode
 
@@ -1383,7 +1383,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置非激活层展示模式
+Set Inactive layer display mode
 
 ## Signature
 
@@ -1421,7 +1421,7 @@ displayMode
 
 </td><td>
 
-_(Optional)_ 展示模式
+_(Optional)_ Display mode
 
 
 </td></tr>
@@ -1433,7 +1433,7 @@ _(Optional)_ 展示模式
 
 Promise&lt;boolean&gt;
 
-是否设置成功
+Whether Set Successful
 
 ### setinactivelayertransparency
 
@@ -1441,7 +1441,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置非激活层透明度
+Set the inactive layer transparency
 
 ## Signature
 
@@ -1479,7 +1479,7 @@ number
 
 </td><td>
 
-透明度，范围 `0-100`
+Transparency, range `0-100`
 
 
 </td></tr>
@@ -1491,7 +1491,7 @@ number
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ### setlayercolorconfiguration
 
@@ -1499,7 +1499,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置层颜色配置
+Set the layer color configuration
 
 ## Signature
 
@@ -1537,7 +1537,7 @@ colorConfiguration
 
 </td><td>
 
-颜色配置
+Color configuration
 
 
 </td></tr>
@@ -1549,7 +1549,7 @@ colorConfiguration
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ### setlayerinvisible
 
@@ -1557,7 +1557,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-将层设置为不可见
+Set the layer to invisible
 
 ## Signature
 
@@ -1595,7 +1595,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层，如若不指定任何层则默认为所有层
+_(Optional)_ Layer. If no layer is specified, all layers are used by default
 
 
 </td></tr>
@@ -1611,7 +1611,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否将其它层设置为可见
+_(Optional)_ Whether to set other layers to visible
 
 
 </td></tr>
@@ -1623,7 +1623,7 @@ _(Optional)_ 是否将其它层设置为可见
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ### setlayervisible
 
@@ -1631,7 +1631,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-将层设置为可见
+Set the layer to visible
 
 ## Signature
 
@@ -1669,7 +1669,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层，如若不指定任何层则默认为所有层
+_(Optional)_ Layer. If no layer is specified, all layers are used by default
 
 
 </td></tr>
@@ -1685,7 +1685,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否将其它层设置为不可见
+_(Optional)_ Whether to set other layers to invisible
 
 
 </td></tr>
@@ -1697,7 +1697,7 @@ _(Optional)_ 是否将其它层设置为不可见
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ### setpcbtype
 
@@ -1705,7 +1705,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置 PCB 类型
+Set PCB type
 
 ## Signature
 
@@ -1743,7 +1743,7 @@ pcbType
 
 </td><td>
 
-PCB 类型
+PCB type
 
 
 </td></tr>
@@ -1755,17 +1755,17 @@ PCB 类型
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-此处主要是为了适配 FPC 软板的设计，如若将 PCB 类型设置为 FPC 软板，将会新增 FPC 补强层图层。
+This is mainly to support FPC flexible board design. If the PCB type is set to FPC flexible board, an FPC stiffener layer will be added.
 
-请注意：
+Please note:
 
-1. 嘉立创暂不支持超过 2 层铜箔层的 FPC 软板生产；
+1. EasyEDA does not yet support FPC flexible board production with more than 2 copper layers;
 
-2. 将 PCB 类型从 FPC 软板切换为普通板材时需要预先删除 FPC 补强层上的任何图元，否则将无法切换并返回 `false` 的结果。
+2. When switching the PCB type from FPC flexible board to ordinary board, any primitives on the FPC stiffener layer must be deleted in advance; otherwise, the switch will fail and `false` will be returned.
 
 ### setthenumberofcopperlayers
 
@@ -1773,7 +1773,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置铜箔层数
+Set Number of copper layers
 
 ## Signature
 
@@ -1811,7 +1811,7 @@ numberOfLayers
 
 </td><td>
 
-铜箔层数
+Number of copper layers
 
 
 </td></tr>
@@ -1823,11 +1823,11 @@ numberOfLayers
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-新建的 PCB 文档默认拥有两层铜箔层
+A newly created PCB document has two copper layers by default
 
 ### unlocklayer
 
@@ -1835,7 +1835,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-取消锁定层
+Unlock the layer
 
 ## Signature
 
@@ -1873,7 +1873,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层，如若不指定任何层则默认为所有层
+_(Optional)_ Layer. If no layer is specified, all layers are used by default
 
 
 </td></tr>
@@ -1885,4 +1885,4 @@ _(Optional)_ 层，如若不指定任何层则默认为所有层
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful

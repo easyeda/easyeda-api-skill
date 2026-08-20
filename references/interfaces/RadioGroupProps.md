@@ -46,7 +46,7 @@ number
 
 </td><td>
 
-_(Optional)_ 选项间距（像素）
+_(Optional)_ Option gap (pixels)
 
 
 </td></tr>
@@ -65,7 +65,7 @@ _(Optional)_ 选项间距（像素）
 
 </td><td>
 
-选项列表（必填）
+Option list (required)
 
 
 </td></tr>
@@ -84,7 +84,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否换行排列
+_(Optional)_ Whether to arrange in line breaks
 
 
 </td></tr>
@@ -122,7 +122,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否仅通过点击单选框本身来改变状态
+_(Optional)_ Whether the state can only be changed by clicking the radio button itself
 
 
 </td></tr>
@@ -141,7 +141,7 @@ string
 
 </td><td>
 
-_(Optional)_ 当前选中的值
+_(Optional)_ Currently selected value
 
 
 </td></tr>
@@ -155,7 +155,7 @@ _(Optional)_ 当前选中的值
 
 # RadioGroupProps.gap property
 
-选项间距（像素）
+Option gap (pixels)
 
 ## Signature
 
@@ -167,7 +167,7 @@ gap?: number;
 
 # RadioGroupProps.group property
 
-选项列表（必填）
+Option list (required)
 
 ## Signature
 
@@ -179,7 +179,7 @@ group: RadioItem[];
 
 # RadioGroupProps.lineBreak property
 
-是否换行排列
+Whether to arrange in line breaks
 
 ## Signature
 
@@ -203,7 +203,7 @@ onChange?: (value: string) => void;
 
 # RadioGroupProps.onlyChangeByBox property
 
-是否仅通过点击单选框本身来改变状态
+Whether the state can only be changed by clicking the radio button itself
 
 ## Signature
 
@@ -215,7 +215,7 @@ onlyChangeByBox?: boolean;
 
 # RadioGroupProps.selectedValue property
 
-当前选中的值
+Currently selected value
 
 ## Signature
 

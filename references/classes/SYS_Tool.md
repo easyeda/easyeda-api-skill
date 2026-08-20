@@ -1,6 +1,6 @@
 # SYS\_Tool class
 
-系统 / 工具类
+System / tool class
 
 ## Signature
 
@@ -36,7 +36,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 网表对比
+**_(BETA)_** Netlist comparison
 
 
 </td></tr>
@@ -50,7 +50,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** PCB 对比
+**_(BETA)_** PCB comparison
 
 
 </td></tr>
@@ -66,7 +66,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-网表对比
+Netlist comparison
 
 ## Signature
 
@@ -104,7 +104,7 @@ string \| { projectUuid: string; documentUuid: string } \| File
 
 </td><td>
 
-网表 1，可以为：①当前工程内的原理图、PCB 的 UUID；②其它工程的工程 UUID 和原理图、PCB UUID；③原理图、PCB 文件数据
+Netlist 1, which can be: 1. The UUID of a schematic or PCB in the current project; 2. The project UUID and schematic/PCB UUID of another project; 3. Schematic or PCB file data
 
 
 </td></tr>
@@ -120,7 +120,7 @@ string \| { projectUuid: string; documentUuid: string } \| File
 
 </td><td>
 
-网表 2，可以为：①当前工程内的原理图、PCB 的 UUID；②其它工程的工程 UUID 和原理图、PCB UUID；③原理图、PCB 文件数据
+Netlist 2, which can be: 1. The UUID of a schematic or PCB in the current project; 2. The project UUID and schematic/PCB UUID of another project; 3. Schematic or PCB file data
 
 
 </td></tr>
@@ -132,7 +132,7 @@ string \| { projectUuid: string; documentUuid: string } \| File
 
 Promise&lt;Array&lt;{ type: 'Net' \| 'Component'; object: string; netlist1Name: string\[\]; netlist2Name: string\[\] }&gt;&gt;
 
-网表对比结果
+Netlist comparison result
 
 ### pcbcomparison
 
@@ -140,7 +140,7 @@ Promise&lt;Array&lt;{ type: 'Net' \| 'Component'; object: string; netlist1Name: 
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-PCB 对比
+PCB comparison
 
 ## Signature
 
@@ -178,7 +178,7 @@ string \| { projectUuid: string; pcbUuid: string } \| File
 
 </td><td>
 
-PCB 1，可以为：①当前工程内的 PCB 的 UUID；②其它工程的工程 UUID 和 PCB UUID；③PCB 文件数据
+PCB 1, which can be: 1. The UUID of a PCB in the current project; 2. The project UUID and PCB UUID of another project; 3. PCB file data
 
 
 </td></tr>
@@ -194,7 +194,7 @@ string \| { projectUuid: string; pcbUuid: string } \| File
 
 </td><td>
 
-PCB 2，可以为：①当前工程内的 PCB 的 UUID；②其它工程的工程 UUID 和 PCB UUID；③PCB 文件数据
+PCB 2, which can be: 1. The UUID of a PCB in the current project; 2. The project UUID and PCB UUID of another project; 3. PCB file data
 
 
 </td></tr>
@@ -210,7 +210,7 @@ options
 
 </td><td>
 
-_(Optional)_ 对比参数
+_(Optional)_ Comparison options
 
 
 </td></tr>
@@ -222,7 +222,7 @@ _(Optional)_ 对比参数
 
 Promise&lt;[ISYS\_PcbComparisonResponse](../interfaces/ISYS_PcbComparisonResponse.md)<!-- -->&gt;
 
-PCB 对比响应：`success = true` 时 `data` 为对比结果；`success = false` 时 `error` 包含错误码与信息
+PCB comparison response: when `success = true`<!-- -->, `data` is the comparison result; when `success = false`<!-- -->, `error` contains the error code and message
 
 ## Remarks
 

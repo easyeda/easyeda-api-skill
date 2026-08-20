@@ -46,7 +46,7 @@ number
 
 </td><td>
 
-_(Optional)_ 额外缓冲渲染的行数
+_(Optional)_ Number of extra buffered rows to render
 
 
 </td></tr>
@@ -65,7 +65,7 @@ any
 
 </td><td>
 
-_(Optional)_ 子节点
+_(Optional)_ Child node
 
 
 </td></tr>
@@ -84,7 +84,7 @@ number
 
 </td><td>
 
-总行数（必填）
+Total row count (required)
 
 
 </td></tr>
@@ -103,7 +103,7 @@ number
 
 </td><td>
 
-每行高度（像素，必填）
+Height of each row (pixels, required)
 
 
 </td></tr>
@@ -136,7 +136,7 @@ _(Optional)_ 可见行变化时触发，参数为可见行索引与对应插槽�
 
 # ScrollerProps.buffer property
 
-额外缓冲渲染的行数
+Number of extra buffered rows to render
 
 ## Signature
 
@@ -148,7 +148,7 @@ buffer?: number;
 
 # ScrollerProps.children property
 
-子节点
+Child node
 
 ## Signature
 
@@ -160,7 +160,7 @@ children?: any;
 
 # ScrollerProps.itemCount property
 
-总行数（必填）
+Total row count (required)
 
 ## Signature
 
@@ -172,7 +172,7 @@ itemCount: number;
 
 # ScrollerProps.itemHeight property
 
-每行高度（像素，必填）
+Height of each row (pixels, required)
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # SCH\_PrimitivePin class
 
-原理图 &amp; 符号 / 引脚图元类
+Schematic &amp; symbol / pin primitive class
 
 ## Signature
 
@@ -11,7 +11,7 @@ export class SCH_PrimitivePin implements ISCH_PrimitiveAPI
 
 ## Remarks
 
-引脚图元仅符号编辑器可用，在原理图图页内，关联到符号的引脚被称为 [器件引脚图元](./ISCH_PrimitiveComponentPin.md)
+Pin primitives are only available in the symbol editor. In a schematic sheet, the pin associated with a symbol is called [a device pin primitive](./ISCH_PrimitiveComponentPin.md)
 
 ## Methods
 
@@ -41,7 +41,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建引脚
+**_(BETA)_** Create Pin
 
 
 </td></tr>
@@ -55,7 +55,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 删除引脚
+**_(BETA)_** Delete Pin
 
 
 </td></tr>
@@ -69,7 +69,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取引脚
+**_(BETA)_** Get Pin
 
 
 </td></tr>
@@ -83,7 +83,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取引脚
+**_(BETA)_** Get Pin
 
 
 </td></tr>
@@ -97,7 +97,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有引脚
+**_(BETA)_** Get all Pin
 
 
 </td></tr>
@@ -111,7 +111,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有引脚的图元 ID
+**_(BETA)_** Get all Pin primitive IDs
 
 
 </td></tr>
@@ -125,7 +125,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 修改引脚
+**_(BETA)_** Modify Pin
 
 
 </td></tr>
@@ -141,7 +141,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-创建引脚
+Create Pin
 
 ## Signature
 
@@ -179,7 +179,7 @@ number
 
 </td><td>
 
-坐标 X
+X coordinate
 
 
 </td></tr>
@@ -195,7 +195,7 @@ number
 
 </td><td>
 
-坐标 Y
+Y coordinate
 
 
 </td></tr>
@@ -211,7 +211,7 @@ string
 
 </td><td>
 
-引脚编号
+Pin number
 
 
 </td></tr>
@@ -227,7 +227,7 @@ string
 
 </td><td>
 
-_(Optional)_ 引脚名称
+_(Optional)_ Pin name
 
 
 </td></tr>
@@ -243,7 +243,7 @@ number
 
 </td><td>
 
-_(Optional)_ 旋转角度，可选 `0` `90` `180` `270`
+_(Optional)_ Rotation angle. Options: `0` `90` `180` `270`
 
 
 </td></tr>
@@ -259,7 +259,7 @@ number
 
 </td><td>
 
-_(Optional)_ 引脚长度
+_(Optional)_ Pin length
 
 
 </td></tr>
@@ -275,7 +275,7 @@ string \| null
 
 </td><td>
 
-_(Optional)_ 引脚颜色，`null` 表示默认
+_(Optional)_ Pin color, `null` indicates the default
 
 
 </td></tr>
@@ -291,7 +291,7 @@ pinShape
 
 </td><td>
 
-_(Optional)_ 引脚形状
+_(Optional)_ Pin shape
 
 
 </td></tr>
@@ -307,7 +307,7 @@ pinType
 
 </td><td>
 
-_(Optional)_ 引脚类型
+_(Optional)_ Pin type
 
 
 </td></tr>
@@ -319,7 +319,7 @@ _(Optional)_ 引脚类型
 
 Promise&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md) \| undefined&gt;
 
-引脚图元对象
+Pin primitive object
 
 ### delete
 
@@ -327,7 +327,7 @@ Promise&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md) \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-删除引脚
+Delete Pin
 
 ## Signature
 
@@ -365,7 +365,7 @@ string \| [ISCH\_PrimitivePin](./ISCH_PrimitivePin.md) \| Array&lt;string&gt; \|
 
 </td><td>
 
-引脚的图元 ID 或引脚图元对象
+Pin primitive ID or Pin primitive object
 
 
 </td></tr>
@@ -377,7 +377,7 @@ string \| [ISCH\_PrimitivePin](./ISCH_PrimitivePin.md) \| Array&lt;string&gt; \|
 
 Promise&lt;boolean&gt;
 
-删除操作是否成功
+Delete Whether the operation is successful
 
 ### get
 
@@ -385,7 +385,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取引脚
+Get Pin
 
 ## Signature
 
@@ -423,7 +423,7 @@ string
 
 </td><td>
 
-引脚的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Pin primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -435,7 +435,7 @@ string
 
 Promise&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md) \| [ISCH\_PrimitiveComponentPin](./ISCH_PrimitiveComponentPin.md) \| undefined&gt;
 
-引脚图元对象，`undefined` 表示获取失败
+Pin primitive object, `undefined` indicates that the retrieval failed
 
 ### get_1
 
@@ -443,7 +443,7 @@ Promise&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md) \| [ISCH\_PrimitiveCompo
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取引脚
+Get Pin
 
 ## Signature
 
@@ -481,7 +481,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-引脚的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Pin primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -493,11 +493,11 @@ Array&lt;string&gt;
 
 Promise&lt;Array&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md) \| [ISCH\_PrimitiveComponentPin](./ISCH_PrimitiveComponentPin.md)<!-- -->&gt;&gt;
 
-引脚图元对象，空数组表示获取失败
+Pin primitive object; an empty array indicates that the retrieval failed
 
 ## Remarks
 
-如若传入多个图元 ID，任意图元 ID 未匹配到不影响其它图元的返回，即可能返回少于传入的图元 ID 数量的图元对象
+If multiple primitive IDs are passed in, a primitive ID that is not matched will not affect the return of other primitives; that is, fewer primitive objects than the number of primitive IDs passed in may be returned.
 
 ### getall
 
@@ -505,7 +505,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md) \| [ISCH\_Primi
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有引脚
+Get all Pin
 
 ## Signature
 
@@ -518,7 +518,7 @@ public getAll(): Promise<Array<ISCH_PrimitivePin>>;
 
 Promise&lt;Array&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)<!-- -->&gt;&gt;
 
-引脚图元对象数组
+Array of Pin primitive objects
 
 ### getallprimitiveid
 
@@ -526,7 +526,7 @@ Promise&lt;Array&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)<!-- -->&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有引脚的图元 ID
+Get all Pin primitive IDs
 
 ## Signature
 
@@ -539,7 +539,7 @@ public getAllPrimitiveId(): Promise<Array<string>>;
 
 Promise&lt;Array&lt;string&gt;&gt;
 
-引脚的图元 ID 数组
+Array of Pin primitive IDs
 
 ### modify
 
@@ -547,7 +547,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-修改引脚
+Modify Pin
 
 ## Signature
 
@@ -585,7 +585,7 @@ string \| [ISCH\_PrimitivePin](./ISCH_PrimitivePin.md) \| [ISCH\_PrimitiveCompon
 
 </td><td>
 
-图元 ID
+Primitive ID
 
 
 </td></tr>
@@ -601,7 +601,7 @@ property
 
 </td><td>
 
-修改参数
+Modify Parameter
 
 
 </td></tr>
@@ -613,4 +613,4 @@ property
 
 Promise&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md) \| [ISCH\_PrimitiveComponentPin](./ISCH_PrimitiveComponentPin.md) \| undefined&gt;
 
-引脚图元对象
+Pin primitive object

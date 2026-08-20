@@ -1,6 +1,6 @@
 # EPCB\_PrimitiveEventType enum
 
-图元事件类型
+Primitive event type
 
 ## Signature
 

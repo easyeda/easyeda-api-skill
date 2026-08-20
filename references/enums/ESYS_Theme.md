@@ -1,6 +1,6 @@
 # ESYS\_Theme enum
 
-主题
+Theme
 
 ## Signature
 

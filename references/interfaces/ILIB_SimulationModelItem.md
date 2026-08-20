@@ -1,6 +1,6 @@
 # ILIB\_SimulationModelItem interface
 
-仿真模型属性
+Simulation model properties
 
 ## Signature
 
@@ -46,7 +46,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-_(Optional)_ 分类
+_(Optional)_ Classification
 
 
 </td></tr>
@@ -65,7 +65,7 @@ string
 
 </td><td>
 
-_(Optional)_ 描述
+_(Optional)_ Description
 
 
 </td></tr>
@@ -86,7 +86,7 @@ _(Optional)_ 描述
 
 </td><td>
 
-库类型
+Library type
 
 
 </td></tr>
@@ -105,7 +105,7 @@ string
 
 </td><td>
 
-所属库 UUID
+UUID of the library it belongs to
 
 
 </td></tr>
@@ -124,7 +124,7 @@ string
 
 </td><td>
 
-仿真模型分类
+Simulation model category
 
 
 </td></tr>
@@ -143,7 +143,7 @@ string
 
 </td><td>
 
-仿真模型数据
+Simulation model data
 
 
 </td></tr>
@@ -162,7 +162,7 @@ string
 
 </td><td>
 
-仿真模型引脚
+Simulation model pin
 
 
 </td></tr>
@@ -181,7 +181,7 @@ string
 
 </td><td>
 
-仿真模型名称
+Simulation model name
 
 
 </td></tr>
@@ -200,7 +200,7 @@ string
 
 </td><td>
 
-仿真模型类型
+Simulation model type
 
 
 </td></tr>
@@ -219,7 +219,7 @@ string
 
 </td><td>
 
-仿真模型 UUID
+Simulation model UUID
 
 
 </td></tr>
@@ -233,7 +233,7 @@ string
 
 # ILIB\_SimulationModelItem.classification property
 
-分类
+Classification
 
 ## Signature
 
@@ -245,7 +245,7 @@ classification?: Array<string>;
 
 # ILIB\_SimulationModelItem.description property
 
-描述
+Description
 
 ## Signature
 
@@ -257,7 +257,7 @@ description?: string;
 
 # ILIB\_SimulationModelItem.libraryType property
 
-库类型
+Library type
 
 ## Signature
 
@@ -269,7 +269,7 @@ readonly libraryType: ELIB_LibraryType.SIMULATION_MODEL_NGSPICE | ELIB_LibraryTy
 
 # ILIB\_SimulationModelItem.libraryUuid property
 
-所属库 UUID
+UUID of the library it belongs to
 
 ## Signature
 
@@ -281,7 +281,7 @@ libraryUuid: string;
 
 # ILIB\_SimulationModelItem.modelCategory property
 
-仿真模型分类
+Simulation model category
 
 ## Signature
 
@@ -293,7 +293,7 @@ modelCategory: string;
 
 # ILIB\_SimulationModelItem.modelData property
 
-仿真模型数据
+Simulation model data
 
 ## Signature
 
@@ -305,7 +305,7 @@ modelData: string;
 
 # ILIB\_SimulationModelItem.modelPin property
 
-仿真模型引脚
+Simulation model pin
 
 ## Signature
 
@@ -317,7 +317,7 @@ modelPin: string;
 
 # ILIB\_SimulationModelItem.name property
 
-仿真模型名称
+Simulation model name
 
 ## Signature
 
@@ -329,7 +329,7 @@ name: string;
 
 # ILIB\_SimulationModelItem.type property
 
-仿真模型类型
+Simulation model type
 
 ## Signature
 
@@ -341,7 +341,7 @@ type: ELIB_SimulationModelType;
 
 # ILIB\_SimulationModelItem.uuid property
 
-仿真模型 UUID
+Simulation model UUID
 
 ## Signature
 

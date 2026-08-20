@@ -1,6 +1,6 @@
 # IDMT\_ProjectItem interface
 
-工程属性
+Project property
 
 ## Signature
 
@@ -47,7 +47,7 @@ Description
 
 </td><td>
 
-_(Optional)_ 工程协作模式
+_(Optional)_ Project collaboration mode
 
 
 </td></tr>
@@ -66,7 +66,7 @@ Array&lt;[IDMT\_BoardItem](./IDMT_BoardItem.md) \| [IDMT\_SchematicItem](./IDMT_
 
 </td><td>
 
-工程内文档数据
+Project in document data
 
 
 </td></tr>
@@ -85,7 +85,7 @@ string
 
 </td><td>
 
-_(Optional)_ 描述
+_(Optional)_ Description
 
 
 </td></tr>
@@ -104,7 +104,7 @@ string
 
 </td><td>
 
-工程链接名称
+Project link name
 
 
 </td></tr>
@@ -118,7 +118,7 @@ string
 
 # IDMT\_ProjectItem.collaborationMode property
 
-工程协作模式
+Project collaboration mode
 
 ## Signature
 
@@ -130,7 +130,7 @@ collaborationMode?: EDMT_ProjectCollaborationMode;
 
 # IDMT\_ProjectItem.data property
 
-工程内文档数据
+Project in document data
 
 ## Signature
 
@@ -142,7 +142,7 @@ data: Array<IDMT_BoardItem | IDMT_SchematicItem | IDMT_PcbItem | IDMT_PanelItem>
 
 # IDMT\_ProjectItem.description property
 
-描述
+Description
 
 ## Signature
 
@@ -154,7 +154,7 @@ description?: string;
 
 # IDMT\_ProjectItem.name property
 
-工程链接名称
+Project link name
 
 ## Signature
 

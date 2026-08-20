@@ -1,6 +1,6 @@
 # ISYS\_LogLine interface
 
-日志行
+Log line
 
 ## Signature
 
@@ -46,7 +46,7 @@ string
 
 </td><td>
 
-日志内容
+Log content
 
 
 </td></tr>
@@ -65,7 +65,7 @@ number
 
 </td><td>
 
-时间戳
+Timestamp
 
 
 </td></tr>
@@ -84,7 +84,7 @@ number
 
 </td><td>
 
-日志类型
+Log type
 
 
 </td></tr>
@@ -98,7 +98,7 @@ number
 
 # ISYS\_LogLine.message property
 
-日志内容
+Log content
 
 ## Signature
 
@@ -110,7 +110,7 @@ message: string;
 
 # ISYS\_LogLine.timestamp property
 
-时间戳
+Timestamp
 
 ## Signature
 
@@ -122,7 +122,7 @@ timestamp: number;
 
 # ISYS\_LogLine.type property
 
-日志类型
+Log type
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # ESCH\_ExportDocumentFileType enum
 
-导出文档文件类型
+Export document file type
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # ILIB\_FootprintItem interface
 
-封装属性
+Footprint property
 
 ## Signature
 
@@ -46,7 +46,7 @@ Description
 
 </td><td>
 
-_(Optional)_ 分类
+_(Optional)_ Classification
 
 
 </td></tr>
@@ -65,7 +65,7 @@ string
 
 </td><td>
 
-_(Optional)_ 描述
+_(Optional)_ Description
 
 
 </td></tr>
@@ -86,7 +86,7 @@ _(Optional)_ 描述
 
 </td><td>
 
-库类型
+Library type
 
 
 </td></tr>
@@ -105,7 +105,7 @@ string
 
 </td><td>
 
-所属库 UUID
+UUID of the library it belongs to
 
 
 </td></tr>
@@ -124,7 +124,7 @@ string
 
 </td><td>
 
-封装名称
+Footprint name
 
 
 </td></tr>
@@ -143,7 +143,7 @@ string
 
 </td><td>
 
-封装 UUID
+Footprint UUID
 
 
 </td></tr>
@@ -157,7 +157,7 @@ string
 
 # ILIB\_FootprintItem.classification property
 
-分类
+Classification
 
 ## Signature
 
@@ -169,7 +169,7 @@ classification?: ILIB_ClassificationIndex | Array<string>;
 
 # ILIB\_FootprintItem.description property
 
-描述
+Description
 
 ## Signature
 
@@ -181,7 +181,7 @@ description?: string;
 
 # ILIB\_FootprintItem.libraryType property
 
-库类型
+Library type
 
 ## Signature
 
@@ -193,7 +193,7 @@ readonly libraryType: ELIB_LibraryType.FOOTPRINT;
 
 # ILIB\_FootprintItem.libraryUuid property
 
-所属库 UUID
+UUID of the library it belongs to
 
 ## Signature
 
@@ -205,7 +205,7 @@ libraryUuid: string;
 
 # ILIB\_FootprintItem.name property
 
-封装名称
+Footprint name
 
 ## Signature
 
@@ -217,7 +217,7 @@ name: string;
 
 # ILIB\_FootprintItem.uuid property
 
-封装 UUID
+Footprint UUID
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # EPCB\_LayerStatus enum
 
-层状态
+Layer status
 
 ## Signature
 

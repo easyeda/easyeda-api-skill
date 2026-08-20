@@ -1,6 +1,6 @@
 # SCH\_Net class
 
-原理图 &amp; 符号 / 网络类
+Schematic &amp; symbol / net class
 
 ## Signature
 
@@ -36,7 +36,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有网络的详细信息
+**_(BETA)_** Get all Detailed information of the net
 
 
 </td></tr>
@@ -50,7 +50,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有网络的网络名称
+**_(BETA)_** Get the net names of all nets
 
 
 </td></tr>
@@ -64,7 +64,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取当前工程下所有网络的详细信息
+**_(BETA)_** Get the detailed information of all nets under the current project
 
 
 </td></tr>
@@ -78,7 +78,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取指定网络的详细信息
+**_(BETA)_** Get Specify detailed information of the net
 
 
 </td></tr>
@@ -94,7 +94,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有网络的详细信息
+Get all Detailed information of the net
 
 ## Signature
 
@@ -107,7 +107,7 @@ public getAllNets(): Promise<Array<ISCH_NetInfo>>;
 
 Promise&lt;Array&lt;[ISCH\_NetInfo](../interfaces/ISCH_NetInfo.md)<!-- -->&gt;&gt;
 
-所有网络的详细信息
+Detailed information of all nets
 
 ## Remarks
 
@@ -119,7 +119,7 @@ ADD since EDA v4.2
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有网络的网络名称
+Get the net names of all nets
 
 ## Signature
 
@@ -132,7 +132,7 @@ public getAllNetsName(): Promise<Array<string>>;
 
 Promise&lt;Array&lt;string&gt;&gt;
 
-网络名称数组
+Net name array
 
 ## Remarks
 
@@ -144,7 +144,7 @@ ADD since EDA v4.2
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取当前工程下所有网络的详细信息
+Get the detailed information of all nets under the current project
 
 ## Signature
 
@@ -157,7 +157,7 @@ public getCurrentProjectAllNets(): Promise<Array<ISCH_ProjectNetInfo>>;
 
 Promise&lt;Array&lt;[ISCH\_ProjectNetInfo](../interfaces/ISCH_ProjectNetInfo.md)<!-- -->&gt;&gt;
 
-当前工程下所有网络的详细信息
+Detailed information of all nets under the current project
 
 ## Remarks
 
@@ -169,7 +169,7 @@ ADD since EDA v4.2
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取指定网络的详细信息
+Get Specify detailed information of the net
 
 ## Signature
 
@@ -207,7 +207,7 @@ string
 
 </td><td>
 
-网络名称
+Net name
 
 
 </td></tr>
@@ -219,7 +219,7 @@ string
 
 Promise&lt;[ISCH\_NetInfo](../interfaces/ISCH_NetInfo.md) \| undefined&gt;
 
-网络的详细信息, `undefined` 为不存在该网络
+Detailed information of the net, `undefined` is does not exist this net
 
 ## Remarks
 

@@ -1,6 +1,6 @@
 # EPCB\_PrimitivePadHeatWeldingConnectionMethod enum
 
-焊盘热焊连接方式
+Pad heat welding connection method
 
 ## Signature
 

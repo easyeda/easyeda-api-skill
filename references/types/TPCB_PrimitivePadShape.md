@@ -1,6 +1,6 @@
 # TPCB\_PrimitivePadShape type
 
-焊盘外形
+Pad shape
 
 ## Signature
 
@@ -14,36 +14,36 @@ export type TPCB_PrimitivePadShape = [EPCB_PrimitivePadShapeType.ELLIPSE | EPCB_
 
 ## Remarks
 
-焊盘当前存在以下四种 [外形种类](../enums/EPCB_PrimitivePadShapeType.md)<!-- -->：
+A pad currently has the following four [shape types](../enums/EPCB_PrimitivePadShapeType.md)<!-- -->:
 
-① 圆形
+1. Circle
 
 `[EPCB_PrimitivePadShapeType.ELLIPSE, width, height]`
 
-- `{number}` `width` - 宽
+- `{number}` `width` - width
 
-- `{number}` `height` - 高
+- `{number}` `height` - height
 
-② 矩形
+② rectangle
 
 `[EPCB_PrimitivePadShapeType.RECTANGLE, width, height, round]`
 
-- `{number}` `width` - 宽
+- `{number}` `width` - width
 
-- `{number}` `height` - 高
+- `{number}` `height` - height
 
-- `{number}` `round` - 圆角半径
+- `{number}` `round` - corner radius
 
-③ 正多边形
+3. Regular polygon
 
 `[EPCB_PrimitivePadShapeType.REGULAR_POLYGON, diameter, numberOfSides]`
 
-- `{number}` `diameter` - 直径
+- `{number}` `diameter` - diameter
 
-- `{number}` `numberOfSides` - 边数（＞ 2）
+- `{number}` `numberOfSides` - Number of sides (<!-- -->&gt; 2)
 
-④ 折线复杂多边形
+4. Polyline complex polygon
 
 `[EPCB_PrimitivePadShapeType.POLYLINE_COMPLEX_POLYGON, complexPolygon]`
 
-- `{TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray>}` `complexPolygon` - 复杂多边形源数组，可以使用 [IPCB\_ComplexPolygon.getSource()](../classes/IPCB_ComplexPolygon.md) 获取
+- `{TPCB_PolygonSourceArray | Array<TPCB_PolygonSourceArray>}` `complexPolygon` - complex polygon source array, you can use [IPCB\_ComplexPolygon.getSource()](../classes/IPCB_ComplexPolygon.md) get

@@ -1,6 +1,6 @@
 # EPCB\_PrimitivePadType enum
 
-焊盘类型
+Pad type
 
 ## Signature
 

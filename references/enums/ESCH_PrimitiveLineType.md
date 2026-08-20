@@ -1,6 +1,6 @@
 # ESCH\_PrimitiveLineType enum
 
-线型
+Line type
 
 ## Signature
 

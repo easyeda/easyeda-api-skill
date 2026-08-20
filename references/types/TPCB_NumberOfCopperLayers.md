@@ -1,6 +1,6 @@
 # TPCB\_NumberOfCopperLayers type
 
-铜箔层数
+Number of copper layers
 
 ## Signature
 

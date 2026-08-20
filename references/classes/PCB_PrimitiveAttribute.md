@@ -1,6 +1,6 @@
 # PCB\_PrimitiveAttribute class
 
-PCB &amp; 封装 / 属性图元类
+PCB &amp; footprint / property primitive class
 
 ## Signature
 
@@ -37,7 +37,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 删除属性
+**_(BETA)_** Delete Property
 
 
 </td></tr>
@@ -51,7 +51,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取属性
+**_(BETA)_** Get Property
 
 
 </td></tr>
@@ -65,7 +65,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取属性
+**_(BETA)_** Get Property
 
 
 </td></tr>
@@ -79,7 +79,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有属性
+**_(BETA)_** Get all Property
 
 
 </td></tr>
@@ -93,7 +93,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有属性的图元 ID
+**_(BETA)_** Get all Property primitive IDs
 
 
 </td></tr>
@@ -107,7 +107,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 修改文本
+**_(BETA)_** Modify Text
 
 
 </td></tr>
@@ -123,7 +123,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-删除属性
+Delete Property
 
 ## Signature
 
@@ -161,7 +161,7 @@ string \| [IPCB\_PrimitiveAttribute](./IPCB_PrimitiveAttribute.md) \| Array&lt;s
 
 </td><td>
 
-属性的图元 ID 或文本图元对象
+Property primitive ID or Text primitive object
 
 
 </td></tr>
@@ -173,7 +173,7 @@ string \| [IPCB\_PrimitiveAttribute](./IPCB_PrimitiveAttribute.md) \| Array&lt;s
 
 Promise&lt;boolean&gt;
 
-删除操作是否成功
+Delete Whether the operation is successful
 
 ### get
 
@@ -181,7 +181,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取属性
+Get Property
 
 ## Signature
 
@@ -219,7 +219,7 @@ string
 
 </td><td>
 
-属性的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Property primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -231,7 +231,7 @@ string
 
 Promise&lt;[IPCB\_PrimitiveAttribute](./IPCB_PrimitiveAttribute.md) \| undefined&gt;
 
-属性图元对象，`undefined` 表示获取失败
+Attribute primitive object, `undefined` indicates that the retrieval failed
 
 ### get_1
 
@@ -239,7 +239,7 @@ Promise&lt;[IPCB\_PrimitiveAttribute](./IPCB_PrimitiveAttribute.md) \| undefined
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取属性
+Get Property
 
 ## Signature
 
@@ -277,7 +277,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-属性的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Property primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -289,11 +289,11 @@ Array&lt;string&gt;
 
 Promise&lt;Array&lt;[IPCB\_PrimitiveAttribute](./IPCB_PrimitiveAttribute.md)<!-- -->&gt;&gt;
 
-属性图元对象，空数组表示获取失败
+Property primitive object; an empty array indicates that the retrieval failed
 
 ## Remarks
 
-如若传入多个图元 ID，任意图元 ID 未匹��到不影响其它图元的返回，即可能返回少于传入的图元 ID 数量的图元对象
+If multiple primitive IDs are passed in, a primitive ID that is not matched will not affect the return of other primitives; that is, fewer primitive objects than the number of primitive IDs passed in may be returned.
 
 ### getall
 
@@ -301,7 +301,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveAttribute](./IPCB_PrimitiveAttribute.md)<!--
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有属性
+Get all Property
 
 ## Signature
 
@@ -339,7 +339,7 @@ string
 
 </td><td>
 
-_(Optional)_ 关联的父图元 ID
+_(Optional)_ Associated parent primitive ID
 
 
 </td></tr>
@@ -355,7 +355,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层
+_(Optional)_ Layer
 
 
 </td></tr>
@@ -371,7 +371,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -383,7 +383,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;Array&lt;[IPCB\_PrimitiveAttribute](./IPCB_PrimitiveAttribute.md)<!-- -->&gt;&gt;
 
-属性图元对象数组
+Array of Property primitive objects
 
 ### getallprimitiveid
 
@@ -391,7 +391,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveAttribute](./IPCB_PrimitiveAttribute.md)<!--
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有属性的图元 ID
+Get all Property primitive IDs
 
 ## Signature
 
@@ -429,7 +429,7 @@ string
 
 </td><td>
 
-_(Optional)_ 关联的父图元 ID
+_(Optional)_ Associated parent primitive ID
 
 
 </td></tr>
@@ -445,7 +445,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层
+_(Optional)_ Layer
 
 
 </td></tr>
@@ -461,7 +461,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -473,7 +473,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;Array&lt;string&gt;&gt;
 
-属性的图元 ID 数组
+Array of Property primitive IDs
 
 ### modify
 
@@ -481,7 +481,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-修改文本
+Modify Text
 
 ## Signature
 
@@ -519,7 +519,7 @@ string \| [IPCB\_PrimitiveAttribute](./IPCB_PrimitiveAttribute.md)
 
 </td><td>
 
-图元 ID
+Primitive ID
 
 
 </td></tr>
@@ -535,7 +535,7 @@ property
 
 </td><td>
 
-修改参数
+Modify Parameter
 
 
 </td></tr>
@@ -547,4 +547,4 @@ property
 
 Promise&lt;[IPCB\_PrimitiveAttribute](./IPCB_PrimitiveAttribute.md) \| undefined&gt;
 
-文本图元对象
+Text primitive object

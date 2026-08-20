@@ -1,6 +1,6 @@
 # TPCB\_LayersOfObject type
 
-二进制内嵌对象所属层
+Layers of binary embedded objects
 
 ## Signature
 

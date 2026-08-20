@@ -1,6 +1,6 @@
 # IDMT\_SchematicItem interface
 
-原理图属性
+Schematic property
 
 ## Signature
 
@@ -46,7 +46,7 @@ Description
 
 </td><td>
 
-_(Optional)_ 复用模块原理图关联的模块符号
+_(Optional)_ The module symbol associated with the reuse block schematic
 
 
 </td></tr>
@@ -67,7 +67,7 @@ _(Optional)_ 复用模块原理图关联的模块符号
 
 </td><td>
 
-项目类型
+Project type
 
 
 </td></tr>
@@ -86,7 +86,7 @@ string
 
 </td><td>
 
-原理图名称
+Schematic name
 
 
 </td></tr>
@@ -105,7 +105,7 @@ Array&lt;[IDMT\_SchematicPageItem](./IDMT_SchematicPageItem.md)<!-- -->&gt;
 
 </td><td>
 
-下属原理图图页
+Subordinate schematic sheet
 
 
 </td></tr>
@@ -124,7 +124,7 @@ string
 
 </td><td>
 
-_(Optional)_ 所属板子名称
+_(Optional)_ Name of the board it belongs to
 
 
 </td></tr>
@@ -143,7 +143,7 @@ string
 
 </td><td>
 
-所属工程 UUID
+UUID of the project it belongs to
 
 
 </td></tr>
@@ -162,7 +162,7 @@ string
 
 </td><td>
 
-原理图 UUID
+Schematic UUID
 
 
 </td></tr>
@@ -176,7 +176,7 @@ string
 
 # IDMT\_SchematicItem.cbbSymbol property
 
-复用模块原理图关联的模块符号
+The module symbol associated with the reuse block schematic
 
 ## Signature
 
@@ -188,7 +188,7 @@ cbbSymbol?: ILIB_SymbolItem;
 
 # IDMT\_SchematicItem.itemType property
 
-项目类型
+Project type
 
 ## Signature
 
@@ -200,7 +200,7 @@ readonly itemType: EDMT_ItemType.SCHEMATIC | EDMT_ItemType.CBB_SCHEMATIC;
 
 # IDMT\_SchematicItem.name property
 
-原理图名称
+Schematic name
 
 ## Signature
 
@@ -212,7 +212,7 @@ name: string;
 
 # IDMT\_SchematicItem.page property
 
-下属原理图图页
+Subordinate schematic sheet
 
 ## Signature
 
@@ -224,7 +224,7 @@ page: Array<IDMT_SchematicPageItem>;
 
 # IDMT\_SchematicItem.parentBoardName property
 
-所属板子名称
+Name of the board it belongs to
 
 ## Signature
 
@@ -236,7 +236,7 @@ parentBoardName?: string;
 
 # IDMT\_SchematicItem.parentProjectUuid property
 
-所属工程 UUID
+UUID of the project it belongs to
 
 ## Signature
 
@@ -248,7 +248,7 @@ parentProjectUuid: string;
 
 # IDMT\_SchematicItem.uuid property
 
-原理图 UUID
+Schematic UUID
 
 ## Signature
 

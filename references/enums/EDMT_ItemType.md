@@ -1,6 +1,6 @@
 # EDMT\_ItemType enum
 
-文档树项目类型
+Document tree project type
 
 ## Signature
 

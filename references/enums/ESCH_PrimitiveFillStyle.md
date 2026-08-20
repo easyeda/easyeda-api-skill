@@ -1,6 +1,6 @@
 # ESCH\_PrimitiveFillStyle enum
 
-填充样式
+Fill style
 
 ## Signature
 

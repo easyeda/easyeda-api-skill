@@ -1,6 +1,6 @@
 # SCH\_Event class
 
-原理图 &amp; 符号 / 事件类
+Schematic &amp; symbol / event class
 
 ## Signature
 
@@ -10,7 +10,7 @@ export class SCH_Event
 
 ## Remarks
 
-注册事件回调
+Register an event callback
 
 
 ## Methods
@@ -41,7 +41,7 @@ Description
 
 </td><td>
 
-新增鼠标事件监听
+Add a mouse event listener
 
 
 </td></tr>
@@ -55,7 +55,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 新增图元事件监听
+**_(BETA)_** Add a primitive event listener
 
 
 </td></tr>
@@ -69,7 +69,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 注册仿真引擎拉取事件监听
+**_(BETA)_** Register a simulation engine pull event listener
 
 
 </td></tr>
@@ -83,7 +83,7 @@ Description
 
 </td><td>
 
-查询事件监听是否存在
+Query whether the event listener exists
 
 
 </td></tr>
@@ -97,7 +97,7 @@ Description
 
 </td><td>
 
-移除事件监听
+Remove Event listener
 
 
 </td></tr>
@@ -111,7 +111,7 @@ Description
 
 # SCH\_Event.addMouseEventListener() method
 
-新增鼠标事件监听
+Add a mouse event listener
 
 ## Signature
 
@@ -149,7 +149,7 @@ string
 
 </td><td>
 
-事件 ID，用以防止重复注册事件
+Event ID, used to prevent duplicate event registration
 
 
 </td></tr>
@@ -165,7 +165,7 @@ eventType
 
 </td><td>
 
-事件类型
+Event type
 
 
 </td></tr>
@@ -181,7 +181,7 @@ callFn
 
 </td><td>
 
-事件触发时的回调函数
+The callback function triggered when the event fires
 
 
 </td></tr>
@@ -197,7 +197,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否仅监听一次
+_(Optional)_ Whether to listen only once
 
 
 </td></tr>
@@ -211,7 +211,7 @@ void
 
 ## Remarks
 
-注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error`
+Note: This API is only valid for extensions. Calling it in a standalone script environment will always `throw Error`
 
 ### addprimitiveeventlistener
 
@@ -219,7 +219,7 @@ void
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-新增图元事件监听
+Add a primitive event listener
 
 ## Signature
 
@@ -257,7 +257,7 @@ string
 
 </td><td>
 
-事件 ID，用以防止重复注册事件
+Event ID, used to prevent duplicate event registration
 
 
 </td></tr>
@@ -273,7 +273,7 @@ eventType
 
 </td><td>
 
-事件类型
+Event type
 
 
 </td></tr>
@@ -289,7 +289,7 @@ callFn
 
 </td><td>
 
-事件触发时的回调函数
+The callback function triggered when the event fires
 
 
 </td></tr>
@@ -305,7 +305,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否仅监听一次
+_(Optional)_ Whether to listen only once
 
 
 </td></tr>
@@ -319,7 +319,7 @@ void
 
 ## Remarks
 
-注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error`
+Note: This API is only valid for extensions. Calling it in a standalone script environment will always `throw Error`
 
 ### addsimulationenginepulleventlistener
 
@@ -327,7 +327,7 @@ void
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-注册仿真引擎拉取事件监听
+Register a simulation engine pull event listener
 
 ## Signature
 
@@ -365,7 +365,7 @@ string
 
 </td><td>
 
-事件 ID，用以防止重复注册事件
+Event ID, used to prevent duplicate event registration
 
 
 </td></tr>
@@ -381,7 +381,7 @@ eventType
 
 </td><td>
 
-事件类型
+Event type
 
 
 </td></tr>
@@ -397,7 +397,7 @@ callFn
 
 </td><td>
 
-事件触发时的回调函数
+The callback function triggered when the event fires
 
 
 </td></tr>
@@ -411,13 +411,13 @@ void
 
 ## Remarks
 
-注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error`
+Note: This API is only valid for extensions. Calling it in a standalone script environment will always `throw Error`
 
 ### iseventlisteneralreadyexist
 
 # SCH\_Event.isEventListenerAlreadyExist() method
 
-查询事件监听是否存在
+Query whether the event listener exists
 
 ## Signature
 
@@ -455,7 +455,7 @@ string
 
 </td><td>
 
-事件 ID
+Event ID
 
 
 </td></tr>
@@ -467,13 +467,13 @@ string
 
 boolean
 
-事件监听是否存在
+Whether the event listener exists
 
 ### removeeventlistener
 
 # SCH\_Event.removeEventListener() method
 
-移除事件监听
+Remove Event listener
 
 ## Signature
 
@@ -511,7 +511,7 @@ string
 
 </td><td>
 
-事件 ID
+Event ID
 
 
 </td></tr>
@@ -523,4 +523,4 @@ string
 
 boolean
 
-是否移除指定事件监听
+Whether Remove Specify event listener

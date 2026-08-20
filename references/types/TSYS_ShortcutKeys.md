@@ -1,6 +1,6 @@
 # TSYS\_ShortcutKeys type
 
-快捷键按键
+Shortcut key
 
 ## Signature
 

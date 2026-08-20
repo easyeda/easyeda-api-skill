@@ -1,6 +1,6 @@
 # IRawPureSchematic interface
 
-原始数据 - pureSchematic
+Raw data - pureSchematic
 
 ## Signature
 

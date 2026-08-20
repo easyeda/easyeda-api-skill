@@ -1,6 +1,6 @@
 # ILIB\_SymbolItem interface
 
-符号属性
+Symbol property
 
 ## Signature
 
@@ -46,7 +46,7 @@ string
 
 </td><td>
 
-_(Optional)_ 所属复用模块 UUID，仅复用模块符号存在该属性
+_(Optional)_ UUID of the reuse block it belongs to. Only the reuse block symbol has this property
 
 
 </td></tr>
@@ -65,7 +65,7 @@ _(Optional)_ 所属复用模块 UUID，仅复用模块符号存在该属性
 
 </td><td>
 
-_(Optional)_ 分类
+_(Optional)_ Classification
 
 
 </td></tr>
@@ -84,7 +84,7 @@ string
 
 </td><td>
 
-_(Optional)_ 描述
+_(Optional)_ Description
 
 
 </td></tr>
@@ -105,7 +105,7 @@ _(Optional)_ 描述
 
 </td><td>
 
-库类型
+Library type
 
 
 </td></tr>
@@ -124,7 +124,7 @@ string
 
 </td><td>
 
-所属库 UUID
+UUID of the library it belongs to
 
 
 </td></tr>
@@ -143,7 +143,7 @@ string
 
 </td><td>
 
-符号名称
+Symbol name
 
 
 </td></tr>
@@ -162,7 +162,7 @@ string
 
 </td><td>
 
-子部件名称数组
+Sub-part name array
 
 
 </td></tr>
@@ -181,7 +181,7 @@ string
 
 </td><td>
 
-符号类型
+Symbol type
 
 
 </td></tr>
@@ -200,7 +200,7 @@ string
 
 </td><td>
 
-符号 UUID
+Symbol UUID
 
 
 </td></tr>
@@ -214,7 +214,7 @@ string
 
 # ILIB\_SymbolItem.cbbUuid property
 
-所属复用模块 UUID，仅复用模块符号存在该属性
+UUID of the reuse block it belongs to. Only the reuse block symbol has this property
 
 ## Signature
 
@@ -226,7 +226,7 @@ cbbUuid?: string;
 
 # ILIB\_SymbolItem.classification property
 
-分类
+Classification
 
 ## Signature
 
@@ -238,7 +238,7 @@ classification?: ILIB_ClassificationIndex | Array<string>;
 
 # ILIB\_SymbolItem.description property
 
-描述
+Description
 
 ## Signature
 
@@ -250,7 +250,7 @@ description?: string;
 
 # ILIB\_SymbolItem.libraryType property
 
-库类型
+Library type
 
 ## Signature
 
@@ -262,7 +262,7 @@ readonly libraryType: ELIB_LibraryType.SYMBOL;
 
 # ILIB\_SymbolItem.libraryUuid property
 
-所属库 UUID
+UUID of the library it belongs to
 
 ## Signature
 
@@ -274,7 +274,7 @@ libraryUuid: string;
 
 # ILIB\_SymbolItem.name property
 
-符号名称
+Symbol name
 
 ## Signature
 
@@ -286,7 +286,7 @@ name: string;
 
 # ILIB\_SymbolItem.subPartNames property
 
-子部件名称数组
+Sub-part name array
 
 ## Signature
 
@@ -298,7 +298,7 @@ subPartNames: [];
 
 # ILIB\_SymbolItem.type property
 
-符号类型
+Symbol type
 
 ## Signature
 
@@ -310,7 +310,7 @@ type: ELIB_SymbolType;
 
 # ILIB\_SymbolItem.uuid property
 
-符号 UUID
+Symbol UUID
 
 ## Signature
 

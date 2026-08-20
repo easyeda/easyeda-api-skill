@@ -1,6 +1,6 @@
 # IRawSchematic interface
 
-原始数据 - schematic
+Raw data - schematic
 
 ## Signature
 

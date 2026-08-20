@@ -1,6 +1,6 @@
 # EPCB\_PdfOutputMethod enum
 
-PDF 输出方式
+PDF output method
 
 ## Signature
 

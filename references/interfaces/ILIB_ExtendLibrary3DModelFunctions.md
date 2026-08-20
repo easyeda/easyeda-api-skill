@@ -1,6 +1,6 @@
 # ILIB\_ExtendLibrary3DModelFunctions interface
 
-外部库 3D 模型方法
+External library 3D model functions
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # EPCB\_LayerColorConfiguration enum
 
-图层颜色配置
+Layer color configuration
 
 ## Signature
 

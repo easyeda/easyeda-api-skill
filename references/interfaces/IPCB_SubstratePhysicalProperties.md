@@ -1,6 +1,6 @@
 # IPCB\_SubstratePhysicalProperties interface
 
-基板物理属性
+Substrate physical properties
 
 ## Signature
 
@@ -46,7 +46,7 @@ Description
 
 </td><td>
 
-铜箔层数
+Number of copper layers
 
 
 </td></tr>
@@ -65,7 +65,7 @@ Description
 
 </td><td>
 
-基板材料
+Substrate material
 
 
 </td></tr>
@@ -79,7 +79,7 @@ Description
 
 # IPCB\_SubstratePhysicalProperties.numberOfLayers property
 
-铜箔层数
+Number of copper layers
 
 ## Signature
 
@@ -91,7 +91,7 @@ numberOfLayers: TPCB_NumberOfCopperLayers;
 
 # IPCB\_SubstratePhysicalProperties.substrateMaterial property
 
-基板材料
+Substrate material
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # DMT\_EditorControl class
 
-文档树 / 编辑器控制类
+Document tree / Editor control class
 
 ## Signature
 
@@ -10,7 +10,7 @@ export class DMT_EditorControl
 
 ## Remarks
 
-此处编辑器控制基于当前已打开的工程设计下的图页，其它任何 `documentUuid` 都将被认为是不存在的文档页
+Here the editor control is based on the sheets under the currently open engineering design. Any other `documentUuid` will be considered a non-existent document page
 
 ## Methods
 
@@ -40,7 +40,7 @@ Description
 
 </td><td>
 
-激活文档
+Activate a document
 
 
 </td></tr>
@@ -54,7 +54,7 @@ Description
 
 </td><td>
 
-激活分屏
+Activate a split screen
 
 
 </td></tr>
@@ -68,7 +68,7 @@ Description
 
 </td><td>
 
-关闭文档
+Close document
 
 
 </td></tr>
@@ -82,7 +82,7 @@ Description
 
 </td><td>
 
-创建分屏
+Create Split screen
 
 
 </td></tr>
@@ -96,7 +96,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 生成指示标记
+**_(BETA)_** Generate indicator markers
 
 
 </td></tr>
@@ -110,7 +110,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取画布渲染区域图像
+**_(BETA)_** Get the canvas rendering region image
 
 
 </td></tr>
@@ -124,7 +124,7 @@ Description
 
 </td><td>
 
-使用标签页 ID 获取分屏 ID
+Use tab ID get split screen ID
 
 
 </td></tr>
@@ -138,7 +138,7 @@ Description
 
 </td><td>
 
-获取编辑器分屏属性树
+Get the editor split screen property tree
 
 
 </td></tr>
@@ -152,7 +152,7 @@ Description
 
 </td><td>
 
-获取指定分屏 ID 下的所有标签页
+Get all tabs under the specified split screen ID
 
 
 </td></tr>
@@ -166,7 +166,7 @@ Description
 
 </td><td>
 
-合并所有分屏
+Merge all split screens
 
 
 </td></tr>
@@ -180,7 +180,7 @@ Description
 
 </td><td>
 
-将文档移动到指定分屏
+Move a document to the specified split screen
 
 
 </td></tr>
@@ -194,7 +194,7 @@ Description
 
 </td><td>
 
-打开文档
+Open document
 
 
 </td></tr>
@@ -208,7 +208,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 打开库符号、封装文档
+**_(BETA)_** Open library symbol, footprint document
 
 
 </td></tr>
@@ -222,7 +222,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 移除指示标记
+**_(BETA)_** Remove indicator markers
 
 
 </td></tr>
@@ -236,7 +236,7 @@ Description
 
 </td><td>
 
-平铺所有文档
+Tile all documents
 
 
 </td></tr>
@@ -250,7 +250,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 缩放到坐标
+**_(BETA)_** Zoom to coordinates
 
 
 </td></tr>
@@ -264,7 +264,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 缩放到所有图元（适应全部）
+**_(BETA)_** Zoom to all primitives (fit all)
 
 
 </td></tr>
@@ -278,7 +278,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 缩放到区域
+**_(BETA)_** Zoom to region
 
 
 </td></tr>
@@ -292,7 +292,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 缩放到已选中图元（适应选中）
+**_(BETA)_** Zoom to the selected primitives (fit selection)
 
 
 </td></tr>
@@ -306,7 +306,7 @@ Description
 
 # DMT\_EditorControl.activateDocument() method
 
-激活文档
+Activate a document
 
 ## Signature
 
@@ -344,7 +344,7 @@ string
 
 </td><td>
 
-标签页 ID
+Tab ID
 
 
 </td></tr>
@@ -356,17 +356,32 @@ string
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-切换到指定文档的标签页，并将输入焦点置于其中
+Switch to the tab of the specified document and place the input focus in it
+
+## Example
+
+
+```javascript
+// 1. 先后打开原理图页与 PCB，此时焦点在最后打开的 PCB 上
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+const pcbs = await eda.dmt_Pcb.getAllPcbsInfo();
+const tabSch = await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+await eda.dmt_EditorControl.openDocument(pcbs[0].uuid);
+
+// 2. 激活原理图标签页（真实切换回原理图画布）
+const activated = await eda.dmt_EditorControl.activateDocument(tabSch);
+console.log('activated:', activated);
+```
 
 ### activatesplitscreen
 
 # DMT\_EditorControl.activateSplitScreen() method
 
-激活分屏
+Activate a split screen
 
 ## Signature
 
@@ -404,7 +419,7 @@ string
 
 </td><td>
 
-分屏 ID
+Split screen ID
 
 
 </td></tr>
@@ -416,17 +431,38 @@ string
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-使输入焦点
+Give input focus
+
+## Example
+
+
+```javascript
+// 1. 归一化布局后打开两个文档，并拆出一个新分屏
+await eda.dmt_EditorControl.mergeAllDocumentFromSplitScreen();
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+const pcbs = await eda.dmt_Pcb.getAllPcbsInfo();
+await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+const tabPcb = await eda.dmt_EditorControl.openDocument(pcbs[0].uuid);
+const split = await eda.dmt_EditorControl.createSplitScreen('vertical', tabPcb);
+
+// 2. 激活新分屏（输入焦点移到该分屏）
+const activated = await eda.dmt_EditorControl.activateSplitScreen(split.newSplitScreenId);
+console.log('activated:', activated);
+
+// 3. 合并所有分屏，恢复单屏布局
+const merged = await eda.dmt_EditorControl.mergeAllDocumentFromSplitScreen();
+console.log('merged:', merged);
+```
 
 ### closedocument
 
 # DMT\_EditorControl.closeDocument() method
 
-关闭文档
+Close document
 
 ## Signature
 
@@ -464,7 +500,7 @@ string
 
 </td><td>
 
-标签页 ID，此处支持 [IDMT\_SchematicPageItem.uuid](../interfaces/IDMT_SchematicPageItem.md)<!-- -->、[IDMT\_PcbItem.uuid](../interfaces/IDMT_PcbItem.md)<!-- -->、[IDMT\_PanelItem.uuid](../interfaces/IDMT_PanelItem.md) 作为输入
+Tab ID. Here [IDMT\_SchematicPageItem.uuid](../interfaces/IDMT_SchematicPageItem.md)<!-- -->, [IDMT\_PcbItem.uuid](../interfaces/IDMT_PcbItem.md)<!-- -->, and [IDMT\_PanelItem.uuid](../interfaces/IDMT_PanelItem.md) are supported as input
 
 
 </td></tr>
@@ -476,17 +512,38 @@ string
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-如若文档尚未保存，执行此操作将会直接丢失所有未保存的数据，请在修改操作完成后首先执行 [SCH\_Document.save()](./SCH_Document.md)<!-- -->、[PCB\_Document.save()](./PCB_Document.md)<!-- -->、[PNL\_Document.save()](./PNL_Document.md) 保存数据
+If the document has not been saved, executing this operation will directly lose all unsaved data. After completing modification operations, first execute [SCH\_Document.save()](./SCH_Document.md)<!-- -->, [PCB\_Document.save()](./PCB_Document.md)<!-- -->, and [PNL\_Document.save()](./PNL_Document.md) to save the data
+
+## Example
+
+
+```javascript
+// 1. 创建临时原理图并给它加一页（新建的原理图没有页面，需显式创建）
+const schematicUuid = await eda.dmt_Schematic.createSchematic('嘉立创示例_关闭文档');
+const pageUuid = await eda.dmt_Schematic.createSchematicPage(schematicUuid);
+
+// 2. 打开该页面作为关闭目标
+const tabId = await eda.dmt_EditorControl.openDocument(pageUuid);
+console.log('opened tab:', tabId);
+
+// 3. 关闭该标签页（空白文档，无未保存内容）
+const closed = await eda.dmt_EditorControl.closeDocument(tabId);
+console.log('closed:', closed);
+
+// 4. 删除临时原理图，保持工程整洁
+const deleted = await eda.dmt_Schematic.deleteSchematic(schematicUuid);
+console.log('deleted:', deleted);
+```
 
 ### createsplitscreen
 
 # DMT\_EditorControl.createSplitScreen() method
 
-创建分屏
+Create Split screen
 
 ## Signature
 
@@ -524,7 +581,7 @@ splitScreenType
 
 </td><td>
 
-分屏类型，`horizontal` 水平、`vertical` 垂直
+Split screen type, `horizontal` horizontal, `vertical` vertical
 
 
 </td></tr>
@@ -540,7 +597,7 @@ string
 
 </td><td>
 
-标签页 ID，该标签页将会被移入新的分屏中
+Tab ID. This tab will be moved into the new split screen
 
 
 </td></tr>
@@ -552,11 +609,38 @@ string
 
 Promise&lt;{ sourceSplitScreenId: string; newSplitScreenId: string } \| undefined&gt;
 
-分屏 ID，`sourceSplitScreenId` 代表源分屏，`newSplitScreenId` 代表新分屏
+Split screen ID. `sourceSplitScreenId` represents the source split screen, and `newSplitScreenId` represents the new split screen
 
 ## Remarks
 
-请确认 [tabId](./DMT_EditorControl.md) 对应的分屏存在两个以上的标签页，否则分屏将不会执行，并返回 `undefined`
+Please make sure the split screen corresponding to [tabId](./DMT_EditorControl.md) has more than two tabs; otherwise the split screen will not be executed and `undefined` will be returned
+
+## Example
+
+
+```javascript
+// 1. 归一化布局：先合并既有分屏，保证两个标签页落在同一分屏
+await eda.dmt_EditorControl.mergeAllDocumentFromSplitScreen();
+
+// 2. 打开两个文档，让当前分屏持有两个标签页
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+const pcbs = await eda.dmt_Pcb.getAllPcbsInfo();
+await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+const tabPcb = await eda.dmt_EditorControl.openDocument(pcbs[0].uuid);
+
+// 3. 把 PCB 标签页拆到一个新的水平分屏
+const split = await eda.dmt_EditorControl.createSplitScreen('horizontal', tabPcb);
+console.log('source split:', split?.sourceSplitScreenId);
+console.log('new split:', split?.newSplitScreenId);
+
+// 4. 回读新分屏的标签页，确认 PCB 已在其中
+const tabs = await eda.dmt_EditorControl.getTabsBySplitScreenId(split.newSplitScreenId);
+console.log('tabs in new split:', tabs.map(t => t.title));
+
+// 5. 合并所有分屏，恢复单屏布局
+const merged = await eda.dmt_EditorControl.mergeAllDocumentFromSplitScreen();
+console.log('merged:', merged);
+```
 
 ### generateindicatormarkers
 
@@ -564,7 +648,7 @@ Promise&lt;{ sourceSplitScreenId: string; newSplitScreenId: string } \| undefine
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-生成指示标记
+Generate indicator markers
 
 ## Signature
 
@@ -602,7 +686,7 @@ Array&lt;[IDMT\_IndicatorMarkerShape](../interfaces/IDMT_IndicatorMarkerShape.md
 
 </td><td>
 
-指示标记外形对象数组
+Array of indicator marker shape objects
 
 
 </td></tr>
@@ -618,7 +702,7 @@ color
 
 </td><td>
 
-_(Optional)_ 指示标记颜色
+_(Optional)_ Indicator marker color
 
 
 </td></tr>
@@ -634,7 +718,7 @@ number
 
 </td><td>
 
-_(Optional)_ 线宽
+_(Optional)_ Line width
 
 
 </td></tr>
@@ -650,7 +734,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否定位并缩放
+_(Optional)_ Whether to locate and zoom
 
 
 </td></tr>
@@ -666,7 +750,7 @@ string
 
 </td><td>
 
-_(Optional)_ 标签页 ID，如若未传入，则为最后输入焦点的画布
+_(Optional)_ Tab ID. If not passed in, the canvas with the last input focus will be used
 
 
 </td></tr>
@@ -678,11 +762,38 @@ _(Optional)_ 标签页 ID，如若未传入，则为最后输入焦点的画布
 
 Promise&lt;boolean&gt;
 
-指示标记生成是否成功，`false` 表示画布不支持该操作或 `tabId` 不存在
+Whether the indicator markers were generated successfully, `false` indicates that the canvas does not support this operation or `tabId` does not exist
 
 ## Remarks
 
-指示标记外形数据中，原理图、符号画布坐标单位跨度为 0.01inch，PCB、封装画布坐标单位跨度为 mil
+In the indicator marker shape data, the coordinate unit span of the schematic and symbol canvases is 0.01inch, and that of the PCB and footprint canvases is mil
+
+## Example
+
+
+```javascript
+// 1. 打开一个原理图页，确定标记作用的画布
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+const tabId = await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+
+// 2. 生成一组标记：点 + 圆 + 矩形（原理图画布坐标单位 0.01inch）
+const generated = await eda.dmt_EditorControl.generateIndicatorMarkers(
+  [
+    { type: 'point', x: 100, y: 100 },
+    { type: 'circle', x: 250, y: 150, r: 50 },
+    { type: 'rectangle', left: 350, right: 550, top: 100, bottom: 250 },
+  ],
+  { r: 255, g: 60, b: 60, alpha: 1 }, // 标记颜色
+  2,     // 线宽
+  false, // 不自动缩放定位到标记
+  tabId,
+);
+console.log('generated:', generated);
+
+// 3. 用完即清，保持画布干净
+const removed = await eda.dmt_EditorControl.removeIndicatorMarkers(tabId);
+console.log('removed:', removed);
+```
 
 ### getcurrentrenderedareaimage
 
@@ -690,7 +801,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取画布渲染区域图像
+Get the canvas rendering region image
 
 ## Signature
 
@@ -728,7 +839,7 @@ string
 
 </td><td>
 
-_(Optional)_ 标签页 ID，如若未传入，则获取最后输入焦点的画布
+_(Optional)_ Tab ID. If not passed in, the canvas with the last input focus will be obtained
 
 
 </td></tr>
@@ -740,13 +851,30 @@ _(Optional)_ 标签页 ID，如若未传入，则获取最后输入焦点的画�
 
 Promise&lt;Blob \| undefined&gt;
 
-- 画布渲染区域的 Blob 格式图像数据
+- Blob-format image data of the canvas rendering region
+
+## Example
+
+
+```javascript
+// 1. 打开一个原理图页，确定截图的画布
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+const tabId = await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+
+// 2. 获取该画布当前渲染区域的图像
+const image = await eda.dmt_EditorControl.getCurrentRenderedAreaImage(tabId);
+
+// 3. 读取 Blob 的基本信息（字节数与 MIME 类型）
+console.log('isBlob:', image instanceof Blob);
+console.log('size:', image.size);
+console.log('mimeType:', image.type);
+```
 
 ### getsplitscreenidbytabid
 
 # DMT\_EditorControl.getSplitScreenIdByTabId() method
 
-使用标签页 ID 获取分屏 ID
+Use tab ID get split screen ID
 
 ## Signature
 
@@ -784,7 +912,7 @@ string
 
 </td><td>
 
-标签页 ID
+Tab ID
 
 
 </td></tr>
@@ -796,13 +924,27 @@ string
 
 Promise&lt;string \| undefined&gt;
 
-分屏 ID
+Split screen ID
+
+## Example
+
+
+```javascript
+// 1. 打开一个原理图页，拿到它的标签页 ID
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+const tabId = await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+
+// 2. 查询该标签页所在的分屏
+const splitScreenId = await eda.dmt_EditorControl.getSplitScreenIdByTabId(tabId);
+console.log('tabId:', tabId);
+console.log('splitScreenId:', splitScreenId);
+```
 
 ### getsplitscreentree
 
 # DMT\_EditorControl.getSplitScreenTree() method
 
-获取编辑器分屏属性树
+Get the editor split screen property tree
 
 ## Signature
 
@@ -815,13 +957,36 @@ public getSplitScreenTree(): Promise<IDMT_EditorSplitScreenItem | undefined>;
 
 Promise&lt;[IDMT\_EditorSplitScreenItem](../interfaces/IDMT_EditorSplitScreenItem.md) \| undefined&gt;
 
-编辑器分屏属性树，如若为 `undefined`<!-- -->，则数据获取失败
+The editor split screen property tree. If it is `undefined`<!-- -->, the data retrieval failed
+
+## Example
+
+
+```javascript
+// 1. 打开一个原理图页，保证分屏树里有标签页可读
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+
+// 2. 读取分屏树
+const tree = await eda.dmt_EditorControl.getSplitScreenTree();
+
+// 3. 递归遍历，收集所有分屏 ID 与标签页标题
+const splitIds = [];
+const tabTitles = [];
+(function walk(node) {
+  splitIds.push(node.id);
+  if (node.tabs) tabTitles.push(...node.tabs.map(t => t.title));
+  (node.children || []).forEach(walk);
+})(tree);
+console.log('split count:', splitIds.length);
+console.log('tab titles:', tabTitles);
+```
 
 ### gettabsbysplitscreenid
 
 # DMT\_EditorControl.getTabsBySplitScreenId() method
 
-获取指定分屏 ID 下的所有标签页
+Get all tabs under the specified split screen ID
 
 ## Signature
 
@@ -859,7 +1024,7 @@ string
 
 </td><td>
 
-分屏 ID
+Split screen ID
 
 
 </td></tr>
@@ -871,17 +1036,38 @@ string
 
 Promise&lt;Array&lt;[IDMT\_EditorTabItem](../interfaces/IDMT_EditorTabItem.md)<!-- -->&gt;&gt;
 
-标签页列表
+Tab list
 
 ## Remarks
 
-如果指定分屏下不存在直接标签页（即它属下还存在 [children](../interfaces/IDMT_EditorSplitScreenItem.md)<!-- -->），则返回空数组
+If there are no direct tabs under the specified split screen (that is, it still has [children](../interfaces/IDMT_EditorSplitScreenItem.md) under it), an empty array will be returned
+
+## Example
+
+
+```javascript
+// 1. 打开一个原理图页并读取分屏树，定位一个直接持有标签页的分屏
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+const tree = await eda.dmt_EditorControl.getSplitScreenTree();
+let leaf = null;
+(function find(node) {
+  if (node.tabs?.length) { leaf = node; return; }
+  (node.children || []).forEach(find);
+})(tree);
+
+// 2. 查询该分屏下的所有标签页
+const tabs = await eda.dmt_EditorControl.getTabsBySplitScreenId(leaf.id);
+console.log('splitScreenId:', leaf.id);
+console.log('tab count:', tabs.length);
+console.log('titles:', tabs.map(t => t.title));
+```
 
 ### mergealldocumentfromsplitscreen
 
 # DMT\_EditorControl.mergeAllDocumentFromSplitScreen() method
 
-合并所有分屏
+Merge all split screens
 
 ## Signature
 
@@ -894,17 +1080,38 @@ public mergeAllDocumentFromSplitScreen(): Promise<boolean>;
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-仅当存在子分屏时可用，将会取消所有子分屏，并将所有文档标签页合并到初始分屏内
+Only available when child split screens exist. It will cancel all child split screens and merge all document tabs into the initial split screen
+
+## Example
+
+
+```javascript
+// 1. 制造"存在子分屏"的前提：归一化布局后打开两个文档并拆出一个分屏
+await eda.dmt_EditorControl.mergeAllDocumentFromSplitScreen();
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+const pcbs = await eda.dmt_Pcb.getAllPcbsInfo();
+await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+const tabPcb = await eda.dmt_EditorControl.openDocument(pcbs[0].uuid);
+await eda.dmt_EditorControl.createSplitScreen('vertical', tabPcb);
+
+// 2. 合并所有分屏，标签页全部回到初始分屏
+const merged = await eda.dmt_EditorControl.mergeAllDocumentFromSplitScreen();
+console.log('merged:', merged);
+
+// 3. 回读分屏树，确认已无子分屏
+const tree = await eda.dmt_EditorControl.getSplitScreenTree();
+console.log('child splits left:', tree.children?.length ?? 0);
+```
 
 ### movedocumenttosplitscreen
 
 # DMT\_EditorControl.moveDocumentToSplitScreen() method
 
-将文档移动到指定分屏
+Move a document to the specified split screen
 
 ## Signature
 
@@ -942,7 +1149,7 @@ string
 
 </td><td>
 
-标签页 ID
+Tab ID
 
 
 </td></tr>
@@ -958,7 +1165,7 @@ string
 
 </td><td>
 
-[分屏 ID](../interfaces/IDMT_EditorSplitScreenItem.md)
+[Split screen ID](../interfaces/IDMT_EditorSplitScreenItem.md)
 
 
 </td></tr>
@@ -970,17 +1177,42 @@ string
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-移动文档后，编辑器分屏属性树可能会出现变化
+After moving the document, the editor split screen property tree may change
+
+## Example
+
+
+```javascript
+// 1. 归一化布局后打开两个文档，把 PCB 拆到新分屏
+await eda.dmt_EditorControl.mergeAllDocumentFromSplitScreen();
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+const pcbs = await eda.dmt_Pcb.getAllPcbsInfo();
+await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+const tabPcb = await eda.dmt_EditorControl.openDocument(pcbs[0].uuid);
+const split = await eda.dmt_EditorControl.createSplitScreen('vertical', tabPcb);
+
+// 2. 把 PCB 标签页移回源分屏
+const moved = await eda.dmt_EditorControl.moveDocumentToSplitScreen(tabPcb, split.sourceSplitScreenId);
+console.log('moved:', moved);
+
+// 3. 回读源分屏标签页，确认两个标签页又同处一个分屏
+const tabs = await eda.dmt_EditorControl.getTabsBySplitScreenId(split.sourceSplitScreenId);
+console.log('source split tabs:', tabs.map(t => t.title));
+
+// 4. 清理：合并残余分屏，恢复单屏布局
+const mergedBack = await eda.dmt_EditorControl.mergeAllDocumentFromSplitScreen();
+console.log('mergedBack:', mergedBack);
+```
 
 ### opendocument
 
 # DMT\_EditorControl.openDocument() method
 
-打开文档
+Open document
 
 ## Signature
 
@@ -1018,7 +1250,7 @@ string
 
 </td><td>
 
-文档 UUID，此处支持 [IDMT\_SchematicItem.uuid](../interfaces/IDMT_SchematicItem.md)<!-- -->、[IDMT\_SchematicPageItem.uuid](../interfaces/IDMT_SchematicPageItem.md)<!-- -->、[IDMT\_PcbItem.uuid](../interfaces/IDMT_PcbItem.md)<!-- -->、[IDMT\_PanelItem.uuid](../interfaces/IDMT_PanelItem.md) 作为输入
+Document UUID. Here [IDMT\_SchematicItem.uuid](../interfaces/IDMT_SchematicItem.md)<!-- -->, [IDMT\_SchematicPageItem.uuid](../interfaces/IDMT_SchematicPageItem.md)<!-- -->, [IDMT\_PcbItem.uuid](../interfaces/IDMT_PcbItem.md)<!-- -->, and [IDMT\_PanelItem.uuid](../interfaces/IDMT_PanelItem.md) are supported as input
 
 
 </td></tr>
@@ -1034,7 +1266,7 @@ string
 
 </td><td>
 
-_(Optional)_ 分屏 ID，即 [DMT\_EditorControl.getSplitScreenTree()](./DMT_EditorControl.md) 方法获取到的 [IDMT\_EditorSplitScreenItem.id](../interfaces/IDMT_EditorSplitScreenItem.md)
+_(Optional)_ Split screen ID, which is the [IDMT\_EditorSplitScreenItem.id](../interfaces/IDMT_EditorSplitScreenItem.md) obtained by the [DMT\_EditorControl.getSplitScreenTree()](./DMT_EditorControl.md) method
 
 
 </td></tr>
@@ -1046,7 +1278,20 @@ _(Optional)_ 分屏 ID，即 [DMT\_EditorControl.getSplitScreenTree()](./DMT_Edi
 
 Promise&lt;string \| undefined&gt;
 
-标签页 ID，如若为 `undefined`<!-- -->，则打开文档失败
+Tab ID, if it is `undefined`<!-- -->, then open document failed
+
+## Example
+
+
+```javascript
+// 1. 取工程里第一个原理图页作为打开目标
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+console.log('target:', pages[0].name);
+
+// 2. 打开该页面，返回标签页 ID
+const tabId = await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+console.log('tabId:', tabId);
+```
 
 ### openlibrarydocument
 
@@ -1054,7 +1299,7 @@ Promise&lt;string \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-打开库符号、封装文档
+Open library symbol, footprint document
 
 ## Signature
 
@@ -1092,7 +1337,7 @@ string
 
 </td><td>
 
-库 UUID，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+Library UUID, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 
 </td></tr>
@@ -1108,7 +1353,7 @@ libraryType
 
 </td><td>
 
-库类型，支持符号和封装
+Library type, support symbol and footprint
 
 
 </td></tr>
@@ -1124,7 +1369,7 @@ string
 
 </td><td>
 
-符号、封装 UUID
+Symbol, footprint UUID
 
 
 </td></tr>
@@ -1140,7 +1385,7 @@ string
 
 </td><td>
 
-_(Optional)_ 分屏 ID，即 [DMT\_EditorControl.getSplitScreenTree()](./DMT_EditorControl.md) 方法获取到的 [IDMT\_EditorSplitScreenItem.id](../interfaces/IDMT_EditorSplitScreenItem.md)
+_(Optional)_ Split screen ID, which is the [IDMT\_EditorSplitScreenItem.id](../interfaces/IDMT_EditorSplitScreenItem.md) obtained by the [DMT\_EditorControl.getSplitScreenTree()](./DMT_EditorControl.md) method
 
 
 </td></tr>
@@ -1152,7 +1397,24 @@ _(Optional)_ 分屏 ID，即 [DMT\_EditorControl.getSplitScreenTree()](./DMT_Edi
 
 Promise&lt;string \| undefined&gt;
 
-标签页 ID，如若为 `undefined`<!-- -->，则打开文档失败
+Tab ID, if it is `undefined`<!-- -->, then open document failed
+
+## Example
+
+
+```javascript
+// 1. 搜索库符号，拿到其所在库 UUID 与符号 UUID
+const results = await eda.lib_Symbol.search('0603');
+console.log('symbol:', results[0].name);
+
+// 2. 打开该符号的编辑画布，返回标签页 ID（'2' = ELIB_LibraryType.SYMBOL）
+const tabId = await eda.dmt_EditorControl.openLibraryDocument(results[0].libraryUuid, '2', results[0].uuid);
+console.log('tabId:', tabId);
+
+// 3. 看完关闭标签页
+const closed = await eda.dmt_EditorControl.closeDocument(tabId);
+console.log('closed:', closed);
+```
 
 ### removeindicatormarkers
 
@@ -1160,7 +1422,7 @@ Promise&lt;string \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-移除指示标记
+Remove indicator markers
 
 ## Signature
 
@@ -1198,7 +1460,7 @@ string
 
 </td><td>
 
-_(Optional)_ 标签页 ID，如若未传入，则为最后输入焦点的画布
+_(Optional)_ Tab ID. If not passed in, the canvas with the last input focus will be used
 
 
 </td></tr>
@@ -1210,17 +1472,38 @@ _(Optional)_ 标签页 ID，如若未传入，则为最后输入焦点的画布
 
 Promise&lt;boolean&gt;
 
-指示标记移除是否成功，`false` 表示画布不支持该操作或 `tabId` 不存在
+Whether the indicator markers were removed successfully, `false` indicates that the canvas does not support this operation or `tabId` does not exist
 
 ## Remarks
 
-本接口会移除所有已生成的指示标记
+This API will remove all generated indicator markers
+
+## Example
+
+
+```javascript
+// 1. 打开一个原理图页，并先生成一个指示标记作为清理对象
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+const tabId = await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+const generated = await eda.dmt_EditorControl.generateIndicatorMarkers(
+  [{ type: 'circle', x: 150, y: 150, r: 60 }],
+  { r: 0, g: 128, b: 255, alpha: 1 },
+  2,
+  false,
+  tabId,
+);
+console.log('generated:', generated);
+
+// 2. 移除该画布上全部指示标记
+const removed = await eda.dmt_EditorControl.removeIndicatorMarkers(tabId);
+console.log('removed:', removed);
+```
 
 ### tilealldocumenttosplitscreen
 
 # DMT\_EditorControl.tileAllDocumentToSplitScreen() method
 
-平铺所有文档
+Tile all documents
 
 ## Signature
 
@@ -1233,11 +1516,33 @@ public tileAllDocumentToSplitScreen(): Promise<boolean>;
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-仅当不存在子分屏时可用，将会自动为所有已打开的文档标签页创建分屏
+Only available when no child split screens exist. It will automatically create split screens for all opened document tabs
+
+## Example
+
+
+```javascript
+// 1. 归一化布局：先合并既有子分屏，满足"无子分屏"前提
+await eda.dmt_EditorControl.mergeAllDocumentFromSplitScreen();
+
+// 2. 打开两个文档，给平铺提供素材
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+const pcbs = await eda.dmt_Pcb.getAllPcbsInfo();
+await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+await eda.dmt_EditorControl.openDocument(pcbs[0].uuid);
+
+// 3. 平铺：每个标签页各占一个分屏
+const tiled = await eda.dmt_EditorControl.tileAllDocumentToSplitScreen();
+console.log('tiled:', tiled);
+
+// 4. 合并所有分屏，恢复单屏布局
+const merged = await eda.dmt_EditorControl.mergeAllDocumentFromSplitScreen();
+console.log('merged:', merged);
+```
 
 ### zoomto
 
@@ -1245,7 +1550,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-缩放到坐标
+Zoom to coordinates
 
 ## Signature
 
@@ -1283,7 +1588,7 @@ number
 
 </td><td>
 
-_(Optional)_ 中心坐标 X，如若不传入则不改变当前 X 坐标
+_(Optional)_ Center X coordinate. If not passed in, the current X coordinate will not be changed
 
 
 </td></tr>
@@ -1299,7 +1604,7 @@ number
 
 </td><td>
 
-_(Optional)_ 中心坐标 Y，如若不传入则不改变当前 Y 坐标
+_(Optional)_ Center Y coordinate. If not passed in, the current Y coordinate will not be changed
 
 
 </td></tr>
@@ -1315,7 +1620,7 @@ number
 
 </td><td>
 
-_(Optional)_ 缩放比，如若不传入则不改变当前缩放比，单位跨度为 `1/100`<!-- -->，如若传入 `200`<!-- -->，则表示缩放比为 `200%`
+_(Optional)_ Zoom ratio. If not passed in, the current zoom ratio will not be changed. The unit span is `1/100`<!-- -->. If `200` is passed in, it means a zoom ratio of `200%`
 
 
 </td></tr>
@@ -1331,7 +1636,7 @@ string
 
 </td><td>
 
-_(Optional)_ 标签页 ID，如若未传入，则为最后输入焦点的画布
+_(Optional)_ Tab ID. If not passed in, the canvas with the last input focus will be used
 
 
 </td></tr>
@@ -1343,11 +1648,24 @@ _(Optional)_ 标签页 ID，如若未传入，则为最后输入焦点的画布
 
 Promise&lt;{ left: number; right: number; top: number; bottom: number } \| false&gt;
 
-缩放到的区域数据，`false` 表示画布不支持该缩放操作或 `tabId` 不存在
+Region data after zooming. `false` indicates that the canvas does not support the zoom operation or the `tabId` does not exist
 
 ## Remarks
 
-在原理图、符号画布坐标单位跨度为 0.01inch，在 PCB、封装画布坐标单位跨度为 mil
+In the schematic and symbol canvases, the coordinate unit span is 0.01inch; in the PCB and footprint canvases, it is mil
+
+## Example
+
+
+```javascript
+// 1. 打开一个原理图页，确定缩放的画布
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+const tabId = await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+
+// 2. 视口中心移到 (100, 100)，缩放比 200%（单位跨度 1/100）
+const bounds = await eda.dmt_EditorControl.zoomTo(100, 100, 200, tabId);
+console.log('bounds:', bounds);
+```
 
 ### zoomtoallprimitives
 
@@ -1355,7 +1673,7 @@ Promise&lt;{ left: number; right: number; top: number; bottom: number } \| false
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-缩放到所有图元（适应全部）
+Zoom to all primitives (fit all)
 
 ## Signature
 
@@ -1393,7 +1711,7 @@ string
 
 </td><td>
 
-_(Optional)_ 标签页 ID，如若未传入，则为最后输入焦点的画布
+_(Optional)_ Tab ID. If not passed in, the canvas with the last input focus will be used
 
 
 </td></tr>
@@ -1405,11 +1723,24 @@ _(Optional)_ 标签页 ID，如若未传入，则为最后输入焦点的画布
 
 Promise&lt;{ left: number; right: number; top: number; bottom: number } \| false&gt;
 
-缩放到的区域数据，`false` 表示画布不支持该缩放操作或 `tabId` 不存在
+Region data after zooming. `false` indicates that the canvas does not support the zoom operation or the `tabId` does not exist
 
 ## Remarks
 
-在返回数据中，原理图、符号画布坐标单位跨度为 0.01inch，PCB、封装画布坐标单位跨度为 mil
+In the returned data, the coordinate unit span of the schematic and symbol canvases is 0.01inch, and that of the PCB and footprint canvases is mil
+
+## Example
+
+
+```javascript
+// 1. 打开一个原理图页，确定缩放的画布
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+const tabId = await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+
+// 2. 适应全部图元，返回缩放后的可视区域边界
+const bounds = await eda.dmt_EditorControl.zoomToAllPrimitives(tabId);
+console.log('bounds:', bounds);
+```
 
 ### zoomtoregion
 
@@ -1417,7 +1748,7 @@ Promise&lt;{ left: number; right: number; top: number; bottom: number } \| false
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-缩放到区域
+Zoom to region
 
 ## Signature
 
@@ -1455,7 +1786,7 @@ number
 
 </td><td>
 
-矩形框第一 X 坐标
+First X coordinate of the rectangle
 
 
 </td></tr>
@@ -1471,7 +1802,7 @@ number
 
 </td><td>
 
-矩形框第二 X 坐标
+Second X coordinate of the rectangle
 
 
 </td></tr>
@@ -1487,7 +1818,7 @@ number
 
 </td><td>
 
-矩形框第一 Y 坐标
+First Y coordinate of the rectangle
 
 
 </td></tr>
@@ -1503,7 +1834,7 @@ number
 
 </td><td>
 
-矩形框第二 Y 坐标
+Second Y coordinate of the rectangle
 
 
 </td></tr>
@@ -1519,7 +1850,7 @@ string
 
 </td><td>
 
-_(Optional)_ 标签页 ID，如若未传入，则为最后输入焦点的画布
+_(Optional)_ Tab ID. If not passed in, the canvas with the last input focus will be used
 
 
 </td></tr>
@@ -1531,11 +1862,24 @@ _(Optional)_ 标签页 ID，如若未传入，则为最后输入焦点的画布
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-在原理图、符号画布坐标单位跨度为 0.01inch，在 PCB、封装画布坐标单位跨度为 mil
+In the schematic and symbol canvases, the coordinate unit span is 0.01inch; in the PCB and footprint canvases, it is mil
+
+## Example
+
+
+```javascript
+// 1. 打开一个原理图页，确定缩放的画布
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+const tabId = await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+
+// 2. 缩放到 (0,0)-(400,300) 的矩形区域
+const zoomed = await eda.dmt_EditorControl.zoomToRegion(0, 400, 0, 300, tabId);
+console.log('zoomed:', zoomed);
+```
 
 ### zoomtoselectedprimitives
 
@@ -1543,7 +1887,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-缩放到已选中图元（适应选中）
+Zoom to the selected primitives (fit selection)
 
 ## Signature
 
@@ -1581,7 +1925,7 @@ string
 
 </td><td>
 
-_(Optional)_ 标签页 ID，如若未传入，则为最后输入焦点的画布
+_(Optional)_ Tab ID. If not passed in, the canvas with the last input focus will be used
 
 
 </td></tr>
@@ -1593,8 +1937,31 @@ _(Optional)_ 标签页 ID，如若未传入，则为最后输入焦点的画布
 
 Promise&lt;{ left: number; right: number; top: number; bottom: number } \| false&gt;
 
-缩放到的区域数据，`false` 表示画布不支持该缩放操作或 `tabId` 不存在
+Region data after zooming. `false` indicates that the canvas does not support the zoom operation or the `tabId` does not exist
 
 ## Remarks
 
-在返回数据中，原理图、符号画布坐标单位跨度为 0.01inch，PCB、封装画布坐标单位跨度为 mil
+In the returned data, the coordinate unit span of the schematic and symbol canvases is 0.01inch, and that of the PCB and footprint canvases is mil
+
+## Example
+
+
+```javascript
+// 1. 打开原理图页，创建一个文本图元作为选中目标
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+const tabId = await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+const text = await eda.sch_PrimitiveText.create(100, 80, '嘉立创示例_缩放目标');
+
+// 2. 以图元 ID 建立选中状态
+const selected = await eda.sch_SelectControl.doSelectPrimitives([text.getState_PrimitiveId()]);
+console.log('selected:', selected);
+
+// 3. 缩放到选中的图元，返回可视区域边界
+const bounds = await eda.dmt_EditorControl.zoomToSelectedPrimitives(tabId);
+console.log('bounds:', bounds);
+
+// 4. 清理：取消选中并删除测试图元
+await eda.sch_SelectControl.clearSelected();
+await eda.sch_PrimitiveText.delete([text.getState_PrimitiveId()]);
+console.log('cleaned');
+```

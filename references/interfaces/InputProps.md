@@ -46,7 +46,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否显示清除按钮
+_(Optional)_ Whether Show clear button
 
 
 </td></tr>
@@ -65,7 +65,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否显示点击按钮
+_(Optional)_ Whether to show the click button
 
 
 </td></tr>
@@ -84,7 +84,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否禁用输入
+_(Optional)_ Whether Disable input
 
 
 </td></tr>
@@ -103,7 +103,7 @@ _(Optional)_ 是否禁用输入
 
 </td><td>
 
-_(Optional)_ 下拉列表数据，提供时输入框可下拉选择
+_(Optional)_ Dropdown list data. When provided, the input box can select from a dropdown
 
 
 </td></tr>
@@ -236,7 +236,7 @@ _(Optional)_ 点击搜索按钮时触发，参数为当前输入值
 
 </td><td>
 
-_(Optional)_ 附加到 input 元素的其他属性（键值对字符串）
+_(Optional)_ Other attributes attached to the input element (key-value pair string)
 
 
 </td></tr>
@@ -255,7 +255,7 @@ string
 
 </td><td>
 
-_(Optional)_ 占位提示文本
+_(Optional)_ Placeholder text
 
 
 </td></tr>
@@ -274,7 +274,7 @@ string
 
 </td><td>
 
-_(Optional)_ 前缀文本
+_(Optional)_ Prefix text
 
 
 </td></tr>
@@ -293,7 +293,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否只读
+_(Optional)_ Whether it is read-only
 
 
 </td></tr>
@@ -312,7 +312,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否显示搜索按钮
+_(Optional)_ Whether Show search button
 
 
 </td></tr>
@@ -331,7 +331,7 @@ string
 
 </td><td>
 
-_(Optional)_ 测试用校验值
+_(Optional)_ Validation value for testing
 
 
 </td></tr>
@@ -350,7 +350,7 @@ _(Optional)_ 测试用校验值
 
 </td><td>
 
-输入框类型（必填）
+Input box type (required)
 
 
 </td></tr>
@@ -369,7 +369,7 @@ string
 
 </td><td>
 
-_(Optional)_ 当前输入值
+_(Optional)_ Current input value
 
 
 </td></tr>
@@ -383,7 +383,7 @@ _(Optional)_ 当前输入值
 
 # InputProps.clearBtn property
 
-是否显示清除按钮
+Whether Show clear button
 
 ## Signature
 
@@ -395,7 +395,7 @@ clearBtn?: boolean;
 
 # InputProps.clickBtn property
 
-是否显示点击按钮
+Whether to show the click button
 
 ## Signature
 
@@ -407,7 +407,7 @@ clickBtn?: boolean;
 
 # InputProps.disabled property
 
-是否禁用输入
+Whether Disable input
 
 ## Signature
 
@@ -419,7 +419,7 @@ disabled?: boolean;
 
 # InputProps.dropDownList property
 
-下拉列表数据，提供时输入框可下拉选择
+Dropdown list data. When provided, the input box can select from a dropdown
 
 ## Signature
 
@@ -503,7 +503,7 @@ onSearchClick?: (data: string) => void;
 
 # InputProps.otherAttr property
 
-附加到 input 元素的其他属性（键值对字符串）
+Other attributes attached to the input element (key-value pair string)
 
 ## Signature
 
@@ -515,7 +515,7 @@ otherAttr?: { [key: string]: string };
 
 # InputProps.placeholder property
 
-占位提示文本
+Placeholder text
 
 ## Signature
 
@@ -527,7 +527,7 @@ placeholder?: string;
 
 # InputProps.preText property
 
-前缀文本
+Prefix text
 
 ## Signature
 
@@ -539,7 +539,7 @@ preText?: string;
 
 # InputProps.readonly property
 
-是否只读
+Whether it is read-only
 
 ## Signature
 
@@ -551,7 +551,7 @@ readonly?: boolean;
 
 # InputProps.searchBtn property
 
-是否显示搜索按钮
+Whether Show search button
 
 ## Signature
 
@@ -563,7 +563,7 @@ searchBtn?: boolean;
 
 # InputProps.testVal property
 
-测试用校验值
+Validation value for testing
 
 ## Signature
 
@@ -575,7 +575,7 @@ testVal?: string;
 
 # InputProps.type property
 
-输入框类型（必填）
+Input box type (required)
 
 ## Signature
 
@@ -587,7 +587,7 @@ type: 'text' | 'telephone' | 'number' | 'password' | 'color' | 'email';
 
 # InputProps.value property
 
-当前输入值
+Current input value
 
 ## Signature
 

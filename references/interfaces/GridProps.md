@@ -47,7 +47,7 @@ any
 
 </td><td>
 
-_(Optional)_ 子节点
+_(Optional)_ Child node
 
 
 </td></tr>
@@ -66,7 +66,7 @@ number
 
 </td><td>
 
-_(Optional)_ 列间距（像素）
+_(Optional)_ Column gap (pixels)
 
 
 </td></tr>
@@ -85,7 +85,7 @@ number
 
 </td><td>
 
-列数（必填）
+Number of columns (required)
 
 
 </td></tr>
@@ -104,7 +104,7 @@ number
 
 </td><td>
 
-_(Optional)_ 行间距（像素）
+_(Optional)_ Row gap (pixels)
 
 
 </td></tr>
@@ -118,7 +118,7 @@ _(Optional)_ 行间距（像素）
 
 # GridProps.children property
 
-子节点
+Child node
 
 ## Signature
 
@@ -130,7 +130,7 @@ children?: any;
 
 # GridProps.colGap property
 
-列间距（像素）
+Column gap (pixels)
 
 ## Signature
 
@@ -142,7 +142,7 @@ colGap?: number;
 
 # GridProps.columns property
 
-列数（必填）
+Number of columns (required)
 
 ## Signature
 
@@ -154,7 +154,7 @@ columns: number;
 
 # GridProps.rowGap property
 
-行间距（像素）
+Row gap (pixels)
 
 ## Signature
 

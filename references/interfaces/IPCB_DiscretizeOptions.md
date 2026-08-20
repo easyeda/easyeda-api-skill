@@ -1,6 +1,6 @@
 # IPCB\_DiscretizeOptions interface
 
-离散化选项
+Discretization options
 
 ## Signature
 

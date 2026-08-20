@@ -1,6 +1,6 @@
 # ILIB\_DevicePropertiesForSearch interface
 
-可用于精确搜索的器件参数
+Device parameters that can be used for precise search
 
 ## Signature
 
@@ -46,7 +46,7 @@ string
 
 </td><td>
 
-_(Optional)_ 关联封装名称
+_(Optional)_ Associate footprint name
 
 
 </td></tr>
@@ -65,7 +65,7 @@ string
 
 </td><td>
 
-_(Optional)_ 器件名称
+_(Optional)_ Device name
 
 
 </td></tr>
@@ -84,7 +84,7 @@ string
 
 </td><td>
 
-_(Optional)_ 元件编码
+_(Optional)_ Part code
 
 
 </td></tr>
@@ -103,7 +103,7 @@ string
 
 </td><td>
 
-_(Optional)_ 料号
+_(Optional)_ Part number
 
 
 </td></tr>
@@ -122,7 +122,7 @@ string
 
 </td><td>
 
-_(Optional)_ 供应商封装名称
+_(Optional)_ Supplier footprint name
 
 
 </td></tr>
@@ -141,7 +141,7 @@ string
 
 </td><td>
 
-_(Optional)_ 供应商编号
+_(Optional)_ Supplier ID
 
 
 </td></tr>
@@ -160,7 +160,7 @@ string
 
 </td><td>
 
-_(Optional)_ 关联符号名称
+_(Optional)_ Associated symbol name
 
 
 </td></tr>
@@ -179,7 +179,7 @@ string
 
 </td><td>
 
-_(Optional)_ 值
+_(Optional)_ Value
 
 
 </td></tr>
@@ -193,7 +193,7 @@ _(Optional)_ 值
 
 # ILIB\_DevicePropertiesForSearch.footprintName property
 
-关联封装名称
+Associate footprint name
 
 ## Signature
 
@@ -205,7 +205,7 @@ footprintName?: string;
 
 # ILIB\_DevicePropertiesForSearch.name property
 
-器件名称
+Device name
 
 ## Signature
 
@@ -217,7 +217,7 @@ name?: string;
 
 # ILIB\_DevicePropertiesForSearch.partCode property
 
-元件编码
+Part code
 
 ## Signature
 
@@ -229,7 +229,7 @@ partCode?: string;
 
 # ILIB\_DevicePropertiesForSearch.partNumber property
 
-料号
+Part number
 
 ## Signature
 
@@ -241,7 +241,7 @@ partNumber?: string;
 
 # ILIB\_DevicePropertiesForSearch.supplierFootprint property
 
-供应商封装名称
+Supplier footprint name
 
 ## Signature
 
@@ -253,7 +253,7 @@ supplierFootprint?: string;
 
 # ILIB\_DevicePropertiesForSearch.supplierId property
 
-供应商编号
+Supplier ID
 
 ## Signature
 
@@ -265,7 +265,7 @@ supplierId?: string;
 
 # ILIB\_DevicePropertiesForSearch.symbolName property
 
-关联符号名称
+Associated symbol name
 
 ## Signature
 
@@ -277,7 +277,7 @@ symbolName?: string;
 
 # ILIB\_DevicePropertiesForSearch.value property
 
-值
+Value
 
 ## Signature
 

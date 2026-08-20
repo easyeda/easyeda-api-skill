@@ -1,6 +1,6 @@
 # PCB\_PrimitiveString class
 
-PCB &amp; 封装 / 文本图元类
+PCB &amp; footprint / text primitive class
 
 ## Signature
 
@@ -37,7 +37,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建文本
+**_(BETA)_** Create Text
 
 
 </td></tr>
@@ -51,7 +51,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 删除文本
+**_(BETA)_** Delete Text
 
 
 </td></tr>
@@ -65,7 +65,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取文本
+**_(BETA)_** Get Text
 
 
 </td></tr>
@@ -79,7 +79,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取文本
+**_(BETA)_** Get Text
 
 
 </td></tr>
@@ -93,7 +93,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有文本
+**_(BETA)_** Get all Text
 
 
 </td></tr>
@@ -107,7 +107,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有文本的图元 ID
+**_(BETA)_** Get all Text primitive IDs
 
 
 </td></tr>
@@ -121,7 +121,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 修改文本
+**_(BETA)_** Modify Text
 
 
 </td></tr>
@@ -137,7 +137,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-创建文本
+Create Text
 
 ## Signature
 
@@ -175,7 +175,7 @@ layer
 
 </td><td>
 
-层
+Layer
 
 
 </td></tr>
@@ -191,7 +191,7 @@ number
 
 </td><td>
 
-坐标 X
+X coordinate
 
 
 </td></tr>
@@ -207,7 +207,7 @@ number
 
 </td><td>
 
-坐标 Y
+Y coordinate
 
 
 </td></tr>
@@ -223,7 +223,7 @@ string
 
 </td><td>
 
-文本内容
+Text content
 
 
 </td></tr>
@@ -239,7 +239,7 @@ string
 
 </td><td>
 
-字体，需要预先导入嘉立创 EDA
+Font. It needs to be imported into EasyEDA in advance
 
 
 </td></tr>
@@ -255,7 +255,7 @@ number
 
 </td><td>
 
-字号
+Font size
 
 
 </td></tr>
@@ -271,7 +271,7 @@ number
 
 </td><td>
 
-线宽
+Line width
 
 
 </td></tr>
@@ -287,7 +287,7 @@ alignMode
 
 </td><td>
 
-对齐模式
+Alignment mode
 
 
 </td></tr>
@@ -303,7 +303,7 @@ number
 
 </td><td>
 
-旋转角度
+Rotation angle
 
 
 </td></tr>
@@ -319,7 +319,7 @@ boolean
 
 </td><td>
 
-是否反相
+Whether it is inverted
 
 
 </td></tr>
@@ -335,7 +335,7 @@ number
 
 </td><td>
 
-反相扩展
+Inverted expansion
 
 
 </td></tr>
@@ -351,7 +351,7 @@ boolean
 
 </td><td>
 
-是否镜像
+Whether it is mirrored
 
 
 </td></tr>
@@ -367,7 +367,7 @@ boolean
 
 </td><td>
 
-是否锁定
+Whether it is locked
 
 
 </td></tr>
@@ -379,7 +379,7 @@ boolean
 
 Promise&lt;[IPCB\_PrimitiveString](./IPCB_PrimitiveString.md) \| undefined&gt;
 
-文本图元对象
+Text primitive object
 
 ### delete
 
@@ -387,7 +387,7 @@ Promise&lt;[IPCB\_PrimitiveString](./IPCB_PrimitiveString.md) \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-删除文本
+Delete Text
 
 ## Signature
 
@@ -425,7 +425,7 @@ string \| [IPCB\_PrimitiveString](./IPCB_PrimitiveString.md) \| Array&lt;string&
 
 </td><td>
 
-文本的图元 ID 或文本图元对象
+Text primitive ID or Text primitive object
 
 
 </td></tr>
@@ -437,7 +437,7 @@ string \| [IPCB\_PrimitiveString](./IPCB_PrimitiveString.md) \| Array&lt;string&
 
 Promise&lt;boolean&gt;
 
-删除操作是否成功
+Delete Whether the operation is successful
 
 ### get
 
@@ -445,7 +445,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取文本
+Get Text
 
 ## Signature
 
@@ -483,7 +483,7 @@ string
 
 </td><td>
 
-文本的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Text primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -495,7 +495,7 @@ string
 
 Promise&lt;[IPCB\_PrimitiveString](./IPCB_PrimitiveString.md) \| undefined&gt;
 
-文本图元对象，`undefined` 表示获取失败
+Text primitive object, `undefined` indicates that the retrieval failed
 
 ### get_1
 
@@ -503,7 +503,7 @@ Promise&lt;[IPCB\_PrimitiveString](./IPCB_PrimitiveString.md) \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取文本
+Get Text
 
 ## Signature
 
@@ -541,7 +541,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-文本的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Text primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -553,11 +553,11 @@ Array&lt;string&gt;
 
 Promise&lt;Array&lt;[IPCB\_PrimitiveString](./IPCB_PrimitiveString.md)<!-- -->&gt;&gt;
 
-文本图元对象，空数组表示获取失败
+Text primitive object; an empty array indicates that the retrieval failed
 
 ## Remarks
 
-如若传入多个图元 ID，任意图元 ID 未匹配到不影响其它图元的返回，即可能返回少于传入的图元 ID 数量的图元对象
+If multiple primitive IDs are passed in, a primitive ID that is not matched will not affect the return of other primitives; that is, fewer primitive objects than the number of primitive IDs passed in may be returned.
 
 ### getall
 
@@ -565,7 +565,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveString](./IPCB_PrimitiveString.md)<!-- -->&g
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有文本
+Get all Text
 
 ## Signature
 
@@ -603,7 +603,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层
+_(Optional)_ Layer
 
 
 </td></tr>
@@ -619,7 +619,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -631,7 +631,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;Array&lt;[IPCB\_PrimitiveString](./IPCB_PrimitiveString.md)<!-- -->&gt;&gt;
 
-文本图元对象数组
+Array of Text primitive objects
 
 ### getallprimitiveid
 
@@ -639,7 +639,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveString](./IPCB_PrimitiveString.md)<!-- -->&g
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有文本的图元 ID
+Get all Text primitive IDs
 
 ## Signature
 
@@ -677,7 +677,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层
+_(Optional)_ Layer
 
 
 </td></tr>
@@ -693,7 +693,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -705,7 +705,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;Array&lt;string&gt;&gt;
 
-文本的图元 ID 数组
+Array of Text primitive IDs
 
 ### modify
 
@@ -713,7 +713,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-修改文本
+Modify Text
 
 ## Signature
 
@@ -751,7 +751,7 @@ string \| [IPCB\_PrimitiveString](./IPCB_PrimitiveString.md)
 
 </td><td>
 
-图元 ID
+Primitive ID
 
 
 </td></tr>
@@ -767,7 +767,7 @@ property
 
 </td><td>
 
-修改参数
+Modify Parameter
 
 
 </td></tr>
@@ -779,4 +779,4 @@ property
 
 Promise&lt;[IPCB\_PrimitiveString](./IPCB_PrimitiveString.md) \| undefined&gt;
 
-文本图元对象
+Text primitive object

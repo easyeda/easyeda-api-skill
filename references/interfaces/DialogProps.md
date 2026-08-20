@@ -46,7 +46,7 @@ any
 
 </td><td>
 
-_(Optional)_ 对话框内容子节点
+_(Optional)_ Dialog content child nodes
 
 
 </td></tr>
@@ -65,7 +65,7 @@ number
 
 </td><td>
 
-_(Optional)_ 高度（像素）
+_(Optional)_ Height ( pixels)
 
 
 </td></tr>
@@ -84,7 +84,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否隐藏对话框
+_(Optional)_ Whether Hide dialog
 
 
 </td></tr>
@@ -103,7 +103,7 @@ number
 
 </td><td>
 
-_(Optional)_ 距左侧位置（像素）
+_(Optional)_ Position from the left (pixels)
 
 
 </td></tr>
@@ -122,7 +122,7 @@ number
 
 </td><td>
 
-_(Optional)_ 最大垂直拖拽距离（像素）
+_(Optional)_ Maximum vertical drag distance ( pixels)
 
 
 </td></tr>
@@ -141,7 +141,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否以模态方式显示
+_(Optional)_ Whether to display in modal mode
 
 
 </td></tr>
@@ -179,7 +179,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否显示遮罩层
+_(Optional)_ Whether to show the mask layer
 
 
 </td></tr>
@@ -198,7 +198,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否允许水平调整大小
+_(Optional)_ Whether horizontal resizing is allowed
 
 
 </td></tr>
@@ -217,7 +217,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否允许垂直调整大小
+_(Optional)_ Whether vertical resizing is allowed
 
 
 </td></tr>
@@ -236,7 +236,7 @@ string
 
 </td><td>
 
-标题文本（必填）
+Title text ( required)
 
 
 </td></tr>
@@ -255,7 +255,7 @@ number
 
 </td><td>
 
-_(Optional)_ 距顶部位置（像素）
+_(Optional)_ Position from the top (pixels)
 
 
 </td></tr>
@@ -274,7 +274,7 @@ number
 
 </td><td>
 
-_(Optional)_ 宽度（像素）
+_(Optional)_ Width ( pixels)
 
 
 </td></tr>
@@ -288,7 +288,7 @@ _(Optional)_ 宽度（像素）
 
 # DialogProps.children property
 
-对话框内容子节点
+Dialog content child nodes
 
 ## Signature
 
@@ -300,7 +300,7 @@ children?: any;
 
 # DialogProps.height property
 
-高度（像素）
+Height ( pixels)
 
 ## Signature
 
@@ -312,7 +312,7 @@ height?: number;
 
 # DialogProps.hide property
 
-是否隐藏对话框
+Whether Hide dialog
 
 ## Signature
 
@@ -324,7 +324,7 @@ hide?: boolean;
 
 # DialogProps.left property
 
-距左侧位置（像素）
+Position from the left (pixels)
 
 ## Signature
 
@@ -336,7 +336,7 @@ left?: number;
 
 # DialogProps.maxDragY property
 
-最大垂直拖拽距离（像素）
+Maximum vertical drag distance ( pixels)
 
 ## Signature
 
@@ -348,7 +348,7 @@ maxDragY?: number;
 
 # DialogProps.modal property
 
-是否以模态方式显示
+Whether to display in modal mode
 
 ## Signature
 
@@ -372,7 +372,7 @@ onClose?: () => void;
 
 # DialogProps.overlay property
 
-是否显示遮罩层
+Whether to show the mask layer
 
 ## Signature
 
@@ -384,7 +384,7 @@ overlay?: boolean;
 
 # DialogProps.resizeX property
 
-是否允许水平调整大小
+Whether horizontal resizing is allowed
 
 ## Signature
 
@@ -396,7 +396,7 @@ resizeX?: boolean;
 
 # DialogProps.resizeY property
 
-是否允许垂直调整大小
+Whether vertical resizing is allowed
 
 ## Signature
 
@@ -408,7 +408,7 @@ resizeY?: boolean;
 
 # DialogProps.title property
 
-标题文本（必填）
+Title text ( required)
 
 ## Signature
 
@@ -420,7 +420,7 @@ title: string;
 
 # DialogProps.top property
 
-距顶部位置（像素）
+Position from the top (pixels)
 
 ## Signature
 
@@ -432,7 +432,7 @@ top?: number;
 
 # DialogProps.width property
 
-宽度（像素）
+Width ( pixels)
 
 ## Signature
 

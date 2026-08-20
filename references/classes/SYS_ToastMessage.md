@@ -2,9 +2,9 @@
 
 > Warning: This API is now obsolete.
 >
-> 即将移除吐司消息类，合并入 [消息通知类](./SYS_Message.md)
+> The toast message class will soon be removed and merged into [the message notification class](./SYS_Message.md)
 
-系统 / 吐司消息类
+System / toast message class
 
 ## Signature
 
@@ -14,7 +14,7 @@ export class SYS_ToastMessage
 
 ## Remarks
 
-在屏幕的边缘弹出简短的消息提醒，会在一定时间后自动消除
+Pops up a brief message notification at the edge of the screen, which will automatically disappear after a certain period of time
 
 ## Methods
 
@@ -44,7 +44,7 @@ Description
 
 </td><td>
 
-显示吐司消息
+Show a toast message
 
 
 </td></tr>
@@ -60,9 +60,9 @@ Description
 
 > Warning: This API is now obsolete.
 >
-> 请使用 [SYS\_Message.showToastMessage()](./SYS_Message.md) 方法替代
+> Please use the [SYS\_Message.showToastMessage()](./SYS_Message.md) method instead
 
-显示吐司消息
+Show a toast message
 
 ## Signature
 
@@ -100,7 +100,7 @@ string
 
 </td><td>
 
-消息内容
+Message content
 
 
 </td></tr>
@@ -116,7 +116,7 @@ messageType
 
 </td><td>
 
-_(Optional)_ 消息类型
+_(Optional)_ Message type
 
 
 </td></tr>
@@ -132,7 +132,7 @@ number
 
 </td><td>
 
-_(Optional)_ 自动关闭倒计时秒数，`0` 为不自动关闭
+_(Optional)_ Auto-close countdown in seconds. `0` means it will not auto-close
 
 
 </td></tr>
@@ -148,7 +148,7 @@ bottomPanel
 
 </td><td>
 
-_(Optional)_ 展开底部信息面板
+_(Optional)_ Expand the bottom information panel
 
 
 </td></tr>
@@ -164,7 +164,7 @@ string
 
 </td><td>
 
-_(Optional)_ 回调按钮标题
+_(Optional)_ Callback button title
 
 
 </td></tr>
@@ -180,7 +180,7 @@ string
 
 </td><td>
 
-_(Optional)_ 回调函数内容，字符串形式，会被自动解析并执行
+_(Optional)_ Callback function content, in string form. It will be automatically parsed and executed
 
 
 </td></tr>

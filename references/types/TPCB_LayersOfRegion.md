@@ -1,6 +1,6 @@
 # TPCB\_LayersOfRegion type
 
-区域所属层
+Layers of the region
 
 ## Signature
 

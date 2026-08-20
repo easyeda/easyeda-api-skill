@@ -1,6 +1,6 @@
 # ISYS\_MessageBusTask interface
 
-消息总线任务
+Message bus task
 
 ## Signature
 

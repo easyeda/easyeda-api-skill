@@ -4,7 +4,7 @@
 >
 > since EDA v3.2; dropped EDA v3.3
 
-分类索引
+Classification index
 
 ## Signature
 
@@ -14,7 +14,7 @@ export interface ILIB_ClassificationIndex
 
 ## Remarks
 
-本分类索引用于索引指定库内的分类，其中库 UUID 和库类型仅作针对于本索引的识别用途，防止将不同库内的索引互相引用从而引发错误
+This classification index is used to index the classifications in the specified library. The library UUID and library type are only used for identification purposes of this index, to prevent indexes in different libraries from referencing each other and causing errors
 
 ## Properties
 
@@ -54,7 +54,7 @@ Description
 
 </td><td>
 
-库类型
+Library type
 
 
 </td></tr>
@@ -73,7 +73,7 @@ string
 
 </td><td>
 
-库 UUID
+Library UUID
 
 
 </td></tr>
@@ -92,7 +92,7 @@ string
 
 </td><td>
 
-一级分类 UUID
+Primary classification UUID
 
 
 </td></tr>
@@ -111,7 +111,7 @@ string
 
 </td><td>
 
-_(Optional)_ 二级分类 UUID
+_(Optional)_ Secondary classification UUID
 
 
 </td></tr>
@@ -125,7 +125,7 @@ _(Optional)_ 二级分类 UUID
 
 # ILIB\_ClassificationIndex.libraryType property
 
-库类型
+Library type
 
 ## Signature
 
@@ -137,7 +137,7 @@ libraryType: ELIB_LibraryType;
 
 # ILIB\_ClassificationIndex.libraryUuid property
 
-库 UUID
+Library UUID
 
 ## Signature
 
@@ -149,7 +149,7 @@ libraryUuid: string;
 
 # ILIB\_ClassificationIndex.primaryClassificationUuid property
 
-一级分类 UUID
+Primary classification UUID
 
 ## Signature
 
@@ -161,7 +161,7 @@ primaryClassificationUuid: string;
 
 # ILIB\_ClassificationIndex.secondaryClassificationUuid property
 
-二级分类 UUID
+Secondary classification UUID
 
 ## Signature
 

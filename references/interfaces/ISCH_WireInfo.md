@@ -1,6 +1,6 @@
 # ISCH\_WireInfo interface
 
-导线属性
+Wire property
 
 ## Signature
 
@@ -46,7 +46,7 @@ string
 
 </td><td>
 
-全局网络名
+Global net name
 
 
 </td></tr>
@@ -84,7 +84,7 @@ string
 
 </td><td>
 
-导线名称
+Wire name
 
 
 </td></tr>
@@ -103,7 +103,7 @@ string
 
 </td><td>
 
-原理图图页名称
+Schematic sheet name
 
 
 </td></tr>
@@ -122,7 +122,7 @@ string
 
 </td><td>
 
-原理图图页 UUID
+Schematic sheet UUID
 
 
 </td></tr>
@@ -136,7 +136,7 @@ string
 
 # ISCH\_WireInfo.globalNetName property
 
-全局网络名
+Global net name
 
 ## Signature
 
@@ -160,7 +160,7 @@ id: string;
 
 # ISCH\_WireInfo.name property
 
-导线名称
+Wire name
 
 ## Signature
 
@@ -172,7 +172,7 @@ name: string;
 
 # ISCH\_WireInfo.pageName property
 
-原理图图页名称
+Schematic sheet name
 
 ## Signature
 
@@ -184,7 +184,7 @@ pageName: string;
 
 # ISCH\_WireInfo.pageUuid property
 
-原理图图页 UUID
+Schematic sheet UUID
 
 ## Signature
 

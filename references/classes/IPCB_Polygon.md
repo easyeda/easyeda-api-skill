@@ -1,6 +1,6 @@
 # IPCB\_Polygon class
 
-单多边形
+Single polygon
 
 ## Signature
 
@@ -39,7 +39,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 将单多边形离散化为点数据
+**_(BETA)_** Discretize a single polygon into point data
 
 
 </td></tr>
@@ -53,7 +53,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取单多边形中心点
+**_(BETA)_** Get Single polygon center point
 
 
 </td></tr>
@@ -67,7 +67,7 @@ Description
 
 </td><td>
 
-获取单多边形数据
+Get Single polygon data
 
 
 </td></tr>
@@ -83,7 +83,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-将单多边形离散化为点数据
+Discretize a single polygon into point data
 
 ## Signature
 
@@ -121,7 +121,7 @@ options
 
 </td><td>
 
-_(Optional)_ 离散化选项
+_(Optional)_ Discretization options
 
 
 </td></tr>
@@ -133,11 +133,11 @@ _(Optional)_ 离散化选项
 
 Promise&lt;Array&lt;[IPCB\_DiscretizedPoint](../interfaces/IPCB_DiscretizedPoint.md)<!-- -->&gt;&gt;
 
-离散化点数据
+Discretized point data
 
 ## Remarks
 
-将单多边形的边界离散化为一系列点
+Discretize the boundary of a single polygon into a series of points
 
 ### getcenter
 
@@ -145,7 +145,7 @@ Promise&lt;Array&lt;[IPCB\_DiscretizedPoint](../interfaces/IPCB_DiscretizedPoint
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取单多边形中心点
+Get Single polygon center point
 
 ## Signature
 
@@ -158,13 +158,13 @@ public getCenter(): Promise<{ x: number; y: number }>;
 
 Promise&lt;{ x: number; y: number }&gt;
 
-单多边形中心点
+Single polygon center point
 
 ### getsource
 
 # IPCB\_Polygon.getSource() method
 
-获取单多边形数据
+Get Single polygon data
 
 ## Signature
 
@@ -177,4 +177,23 @@ public getSource(): TPCB_PolygonSourceArray;
 
 [TPCB\_PolygonSourceArray](../types/TPCB_PolygonSourceArray.md)
 
-单多边形数据
+Single polygon data
+
+## Example
+
+
+```javascript
+// 1. 用矩形模式（R x y width height rot round）创建一块单多边形
+const rectPolygon = eda.pcb_MathPolygon.createPolygon(['R', 1000, 1000, 500, 300, 0, 0]);
+
+// 2. 再用圆形模式（CIRCLE x y radius）创建一块，展示不同模式的源数据形态
+const circlePolygon = eda.pcb_MathPolygon.createPolygon(['CIRCLE', 2000, 1150, 100]);
+
+// 3. 读取源数组：矩形是 "R" 打头的参数序列，圆形是 "CIRCLE" 打头
+console.log('rectSource:', JSON.stringify(rectPolygon.getSource()));
+console.log('circleSource:', JSON.stringify(circlePolygon.getSource()));
+
+// 4. 源数组可以直接喂回 createPolygon 复制出一块等价的多边形（数据回环）
+const copied = eda.pcb_MathPolygon.createPolygon(rectPolygon.getSource());
+console.log('roundTripMatch:', JSON.stringify(copied.getSource()) === JSON.stringify(rectPolygon.getSource()));
+```

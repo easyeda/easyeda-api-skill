@@ -1,6 +1,6 @@
 # IDMT\_EditorSplitScreenItem interface
 
-编辑器分屏属性
+Editor split screen property
 
 ## Signature
 
@@ -10,7 +10,7 @@ export interface IDMT_EditorSplitScreenItem
 
 ## Remarks
 
-[tabs](./IDMT_EditorSplitScreenItem.md) 和 [children](./IDMT_EditorSplitScreenItem.md) 并不同时存在，当 [tabs](./IDMT_EditorSplitScreenItem.md) 存在时，代表不存在分屏，[children](./IDMT_EditorSplitScreenItem.md) 将为 `undefined`
+[tabs](./IDMT_EditorSplitScreenItem.md) and [children](./IDMT_EditorSplitScreenItem.md) do not exist at the same time. When [tabs](./IDMT_EditorSplitScreenItem.md) exists, it means there is no split screen, and [children](./IDMT_EditorSplitScreenItem.md) will be `undefined`
 
 ## Properties
 
@@ -50,7 +50,7 @@ Array&lt;[IDMT\_EditorSplitScreenItem](./IDMT_EditorSplitScreenItem.md)<!-- -->&
 
 </td><td>
 
-_(Optional)_ 子分屏
+_(Optional)_ Child split screens
 
 
 </td></tr>
@@ -69,7 +69,7 @@ _(Optional)_ 子分屏
 
 </td><td>
 
-_(Optional)_ 分屏方向
+_(Optional)_ Split screen direction
 
 
 </td></tr>
@@ -88,7 +88,7 @@ string
 
 </td><td>
 
-_(Optional)_ 父级分屏 ID
+_(Optional)_ Parent split screen ID
 
 
 </td></tr>
@@ -107,7 +107,7 @@ string
 
 </td><td>
 
-分屏 ID
+Split screen ID
 
 
 </td></tr>
@@ -126,7 +126,7 @@ Array&lt;[IDMT\_EditorTabItem](./IDMT_EditorTabItem.md)<!-- -->&gt;
 
 </td><td>
 
-_(Optional)_ 分屏内标签页
+_(Optional)_ Split screen in tab
 
 
 </td></tr>
@@ -140,7 +140,7 @@ _(Optional)_ 分屏内标签页
 
 # IDMT\_EditorSplitScreenItem.children property
 
-子分屏
+Child split screens
 
 ## Signature
 
@@ -152,7 +152,7 @@ children?: Array<IDMT_EditorSplitScreenItem>;
 
 # IDMT\_EditorSplitScreenItem.direction property
 
-分屏方向
+Split screen direction
 
 ## Signature
 
@@ -164,7 +164,7 @@ direction?: EDMT_EditorSplitScreenDirection;
 
 # IDMT\_EditorSplitScreenItem.fatherId property
 
-父级分屏 ID
+Parent split screen ID
 
 ## Signature
 
@@ -176,7 +176,7 @@ fatherId?: string;
 
 # IDMT\_EditorSplitScreenItem.id property
 
-分屏 ID
+Split screen ID
 
 ## Signature
 
@@ -188,7 +188,7 @@ id: string;
 
 # IDMT\_EditorSplitScreenItem.tabs property
 
-分屏内标签页
+Split screen in tab
 
 ## Signature
 

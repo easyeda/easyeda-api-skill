@@ -1,6 +1,6 @@
 # IPCB\_DifferentialPairItem interface
 
-差分对属性
+Differential pair properties
 
 ## Signature
 
@@ -46,7 +46,7 @@ string
 
 </td><td>
 
-差分对名称
+Differential pair name
 
 
 </td></tr>
@@ -65,7 +65,7 @@ string
 
 </td><td>
 
-负网络
+Negative net
 
 
 </td></tr>
@@ -84,7 +84,7 @@ string
 
 </td><td>
 
-正网络
+Positive net
 
 
 </td></tr>
@@ -98,7 +98,7 @@ string
 
 # IPCB\_DifferentialPairItem.name property
 
-差分对名称
+Differential pair name
 
 ## Signature
 
@@ -110,7 +110,7 @@ name: string;
 
 # IPCB\_DifferentialPairItem.negativeNet property
 
-负网络
+Negative net
 
 ## Signature
 
@@ -122,7 +122,7 @@ negativeNet: string;
 
 # IPCB\_DifferentialPairItem.positiveNet property
 
-正网络
+Positive net
 
 ## Signature
 

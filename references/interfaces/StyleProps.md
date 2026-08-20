@@ -46,7 +46,7 @@ string
 
 </td><td>
 
-_(Optional)_ 背景颜色，接受任意 CSS 颜色值
+_(Optional)_ Background color. Accepts any CSS color value
 
 
 </td></tr>
@@ -65,7 +65,7 @@ string
 
 </td><td>
 
-_(Optional)_ 边框颜色，仅在 borderWidth &gt; 0 时生效
+_(Optional)_ Border color. Only takes effect when borderWidth &gt; 0
 
 
 </td></tr>
@@ -84,7 +84,7 @@ number
 
 </td><td>
 
-_(Optional)_ 边框宽度（像素），<!-- -->&gt;<!-- -->0 时生效
+_(Optional)_ Border width (pixels). Takes effect when &gt; 0
 
 
 </td></tr>
@@ -103,7 +103,7 @@ string
 
 </td><td>
 
-_(Optional)_ 文本颜色，接受任意 CSS 颜色值
+_(Optional)_ Text color. Accepts any CSS color value
 
 
 </td></tr>
@@ -122,7 +122,7 @@ _(Optional)_ 文本颜色，接受任意 CSS 颜色值
 
 </td><td>
 
-_(Optional)_ 鼠标悬停时的光标样式
+_(Optional)_ Cursor style when the mouse hovers
 
 
 </td></tr>
@@ -141,7 +141,7 @@ string
 
 </td><td>
 
-_(Optional)_ 覆盖 display 样式
+_(Optional)_ Override the display style
 
 
 </td></tr>
@@ -160,7 +160,7 @@ number \| '100%'
 
 </td><td>
 
-_(Optional)_ 高度（像素）或 '100%'
+_(Optional)_ Height ( pixels) or '100%'
 
 
 </td></tr>
@@ -179,7 +179,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否隐藏（display: none），优先于 invisible
+_(Optional)_ Whether to hide (display: none), taking precedence over invisible
 
 
 </td></tr>
@@ -198,7 +198,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否仅隐藏视觉（visibility: hidden），仍占位
+_(Optional)_ Whether to only hide visually (visibility: hidden), still occupying space
 
 
 </td></tr>
@@ -217,7 +217,7 @@ number\[\]
 
 </td><td>
 
-_(Optional)_ 外边距（CSS 简写），如 \[上,右,下,左\] 或 \[上下,左右\] 或 \[全部\]
+_(Optional)_ Margin (CSS shorthand), e.g. \[top, right, bottom, left\] or \[vertical, horizontal\] or \[all\]
 
 
 </td></tr>
@@ -236,7 +236,7 @@ number\[\]
 
 </td><td>
 
-_(Optional)_ 内边距（CSS 简写），如 \[上,右,下,左\] 或 \[上下,左右\] 或 \[全部\]
+_(Optional)_ Padding (CSS shorthand), e.g. \[top, right, bottom, left\] or \[vertical, horizontal\] or \[all\]
 
 
 </td></tr>
@@ -255,7 +255,7 @@ number
 
 </td><td>
 
-_(Optional)_ 旋转角度（度）
+_(Optional)_ Rotation angle (degrees)
 
 
 </td></tr>
@@ -274,7 +274,7 @@ number \| '100%'
 
 </td><td>
 
-_(Optional)_ 宽度（像素）或 '100%'
+_(Optional)_ Width ( pixels) or '100%'
 
 
 </td></tr>
@@ -288,7 +288,7 @@ _(Optional)_ 宽度（像素）或 '100%'
 
 # StyleProps.backgroundColor property
 
-背景颜色，接受任意 CSS 颜色值
+Background color. Accepts any CSS color value
 
 ## Signature
 
@@ -300,7 +300,7 @@ backgroundColor?: string;
 
 # StyleProps.borderColor property
 
-边框颜色，仅在 borderWidth &gt; 0 时生效
+Border color. Only takes effect when borderWidth &gt; 0
 
 ## Signature
 
@@ -312,7 +312,7 @@ borderColor?: string;
 
 # StyleProps.borderWidth property
 
-边框宽度（像素），<!-- -->&gt;<!-- -->0 时生效
+Border width (pixels). Takes effect when &gt; 0
 
 ## Signature
 
@@ -324,7 +324,7 @@ borderWidth?: number;
 
 # StyleProps.color property
 
-文本颜色，接受任意 CSS 颜色值
+Text color. Accepts any CSS color value
 
 ## Signature
 
@@ -336,7 +336,7 @@ color?: string;
 
 # StyleProps.cursor property
 
-鼠标悬停时的光标样式
+Cursor style when the mouse hovers
 
 ## Signature
 
@@ -348,7 +348,7 @@ cursor?: 'pointer' | 'default' | 'none' | 'move' | 'text';
 
 # StyleProps.display property
 
-覆盖 display 样式
+Override the display style
 
 ## Signature
 
@@ -360,7 +360,7 @@ display?: string;
 
 # StyleProps.height property
 
-高度（像素）或 '100%'
+Height ( pixels) or '100%'
 
 ## Signature
 
@@ -372,7 +372,7 @@ height?: number | '100%';
 
 # StyleProps.hide property
 
-是否隐藏（display: none），优先于 invisible
+Whether to hide (display: none), taking precedence over invisible
 
 ## Signature
 
@@ -384,7 +384,7 @@ hide?: boolean;
 
 # StyleProps.invisible property
 
-是否仅隐藏视觉（visibility: hidden），仍占位
+Whether to only hide visually (visibility: hidden), still occupying space
 
 ## Signature
 
@@ -396,7 +396,7 @@ invisible?: boolean;
 
 # StyleProps.margin property
 
-外边距（CSS 简写），如 \[上,右,下,左\] 或 \[上下,左右\] 或 \[全部\]
+Margin (CSS shorthand), e.g. \[top, right, bottom, left\] or \[vertical, horizontal\] or \[all\]
 
 ## Signature
 
@@ -408,7 +408,7 @@ margin?: number[];
 
 # StyleProps.padding property
 
-内边距（CSS 简写），如 \[上,右,下,左\] 或 \[上下,左右\] 或 \[全部\]
+Padding (CSS shorthand), e.g. \[top, right, bottom, left\] or \[vertical, horizontal\] or \[all\]
 
 ## Signature
 
@@ -420,7 +420,7 @@ padding?: number[];
 
 # StyleProps.rotate property
 
-旋转角度（度）
+Rotation angle (degrees)
 
 ## Signature
 
@@ -432,7 +432,7 @@ rotate?: number;
 
 # StyleProps.width property
 
-宽度（像素）或 '100%'
+Width ( pixels) or '100%'
 
 ## Signature
 

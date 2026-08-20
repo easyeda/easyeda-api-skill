@@ -1,6 +1,6 @@
 # PCB\_PrimitiveImage class
 
-PCB &amp; 封装 / 图像图元类
+PCB &amp; footprint / image primitive class
 
 ## Signature
 
@@ -37,7 +37,7 @@ Description
 
 </td><td>
 
-创建图像
+Create Image
 
 
 </td></tr>
@@ -51,7 +51,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 删除图像
+**_(BETA)_** Delete Image
 
 
 </td></tr>
@@ -65,7 +65,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取图像
+**_(BETA)_** Get Image
 
 
 </td></tr>
@@ -79,7 +79,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取图像
+**_(BETA)_** Get Image
 
 
 </td></tr>
@@ -93,7 +93,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有图像
+**_(BETA)_** Get all Image
 
 
 </td></tr>
@@ -107,7 +107,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有图像的图元 ID
+**_(BETA)_** Get all Image primitive IDs
 
 
 </td></tr>
@@ -121,7 +121,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 修改图像
+**_(BETA)_** Modify Image
 
 
 </td></tr>
@@ -135,7 +135,7 @@ Description
 
 # PCB\_PrimitiveImage.create() method
 
-创建图像
+Create Image
 
 ## Signature
 
@@ -173,7 +173,7 @@ number
 
 </td><td>
 
-BBox 左上点坐标 X
+BBox top-left point coordinates X
 
 
 </td></tr>
@@ -189,7 +189,7 @@ number
 
 </td><td>
 
-BBox 左上点坐标 Y
+BBox top-left point coordinates Y
 
 
 </td></tr>
@@ -205,7 +205,7 @@ complexPolygon
 
 </td><td>
 
-图像源数据（复杂多边形），可以使用 [PCB\_MathPolygon.convertImageToComplexPolygon()](./PCB_MathPolygon.md) 方法将图像文件转换为复杂多边形数据
+Image source data (complex polygon). You can use the [PCB\_MathPolygon.convertImageToComplexPolygon()](./PCB_MathPolygon.md) method to convert an image file into complex polygon data
 
 
 </td></tr>
@@ -221,7 +221,7 @@ layer
 
 </td><td>
 
-层
+Layer
 
 
 </td></tr>
@@ -237,7 +237,7 @@ number
 
 </td><td>
 
-_(Optional)_ 宽
+_(Optional)_ Width
 
 
 </td></tr>
@@ -253,7 +253,7 @@ number
 
 </td><td>
 
-_(Optional)_ 高
+_(Optional)_ Height
 
 
 </td></tr>
@@ -269,7 +269,7 @@ number
 
 </td><td>
 
-_(Optional)_ 旋转角度
+_(Optional)_ Rotation angle
 
 
 </td></tr>
@@ -285,7 +285,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否水平镜像
+_(Optional)_ Whether it is horizontally mirrored
 
 
 </td></tr>
@@ -301,7 +301,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -313,11 +313,11 @@ _(Optional)_ 是否锁定
 
 Promise&lt;[IPCB\_PrimitiveImage](./IPCB_PrimitiveImage.md) \| undefined&gt;
 
-图像图元对象
+Image primitive object
 
 ## Remarks
 
-如需创建彩色丝印图像，请使用 [二进制内嵌对象图元类](./PCB_PrimitiveObject.md)
+To create a color silkscreen image, use the [binary embedded object primitive class](./PCB_PrimitiveObject.md)
 
 ### delete
 
@@ -325,7 +325,7 @@ Promise&lt;[IPCB\_PrimitiveImage](./IPCB_PrimitiveImage.md) \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-删除图像
+Delete Image
 
 ## Signature
 
@@ -363,7 +363,7 @@ string \| [IPCB\_PrimitiveImage](./IPCB_PrimitiveImage.md) \| Array&lt;string&gt
 
 </td><td>
 
-图像的图元 ID 或图像图元对象
+Image primitive ID or Image primitive object
 
 
 </td></tr>
@@ -375,7 +375,7 @@ string \| [IPCB\_PrimitiveImage](./IPCB_PrimitiveImage.md) \| Array&lt;string&gt
 
 Promise&lt;boolean&gt;
 
-删除操作是否成功
+Delete Whether the operation is successful
 
 ### get
 
@@ -383,7 +383,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取图像
+Get Image
 
 ## Signature
 
@@ -421,7 +421,7 @@ string
 
 </td><td>
 
-图像的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Image primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -433,7 +433,7 @@ string
 
 Promise&lt;[IPCB\_PrimitiveImage](./IPCB_PrimitiveImage.md) \| undefined&gt;
 
-图像图元对象，`undefined` 表示获取失败
+Image primitive object, `undefined` indicates that the retrieval failed
 
 ### get_1
 
@@ -441,7 +441,7 @@ Promise&lt;[IPCB\_PrimitiveImage](./IPCB_PrimitiveImage.md) \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取图像
+Get Image
 
 ## Signature
 
@@ -479,7 +479,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-图像的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Image primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -491,11 +491,11 @@ Array&lt;string&gt;
 
 Promise&lt;Array&lt;[IPCB\_PrimitiveImage](./IPCB_PrimitiveImage.md)<!-- -->&gt;&gt;
 
-图像图元对象，空数组表示获取失败
+Image primitive object; an empty array indicates that the retrieval failed
 
 ## Remarks
 
-如若传入多个图元 ID，任意图元 ID 未匹配到不影响其它图元的返回，即可能返回少于传入的图元 ID 数量的图元对象
+If multiple primitive IDs are passed in, a primitive ID that is not matched will not affect the return of other primitives; that is, fewer primitive objects than the number of primitive IDs passed in may be returned.
 
 ### getall
 
@@ -503,7 +503,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveImage](./IPCB_PrimitiveImage.md)<!-- -->&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有图像
+Get all Image
 
 ## Signature
 
@@ -541,7 +541,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层
+_(Optional)_ Layer
 
 
 </td></tr>
@@ -557,7 +557,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -569,7 +569,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;Array&lt;[IPCB\_PrimitiveImage](./IPCB_PrimitiveImage.md)<!-- -->&gt;&gt;
 
-图像图元对象数组
+Array of Image primitive objects
 
 ### getallprimitiveid
 
@@ -577,7 +577,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveImage](./IPCB_PrimitiveImage.md)<!-- -->&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有图像的图元 ID
+Get all Image primitive IDs
 
 ## Signature
 
@@ -615,7 +615,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层
+_(Optional)_ Layer
 
 
 </td></tr>
@@ -631,7 +631,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -643,7 +643,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;Array&lt;string&gt;&gt;
 
-图像的图元 ID 数组
+Array of Image primitive IDs
 
 ### modify
 
@@ -651,7 +651,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-修改图像
+Modify Image
 
 ## Signature
 
@@ -689,7 +689,7 @@ string \| [IPCB\_PrimitiveImage](./IPCB_PrimitiveImage.md)
 
 </td><td>
 
-图元 ID
+Primitive ID
 
 
 </td></tr>
@@ -705,7 +705,7 @@ property
 
 </td><td>
 
-修改参数
+Modify Parameter
 
 
 </td></tr>
@@ -717,4 +717,4 @@ property
 
 Promise&lt;[IPCB\_PrimitiveImage](./IPCB_PrimitiveImage.md) \| undefined&gt;
 
-图像图元对象
+Image primitive object

@@ -1,6 +1,6 @@
 # ILIB\_LibraryInfo interface
 
-库信息
+Library information
 
 ## Signature
 
@@ -10,7 +10,7 @@ export interface ILIB_LibraryInfo
 
 ## Remarks
 
-包含库的名称以及它的 UUID
+Contains the name of the library and its UUID
 
 ## Properties
 
@@ -50,7 +50,7 @@ string
 
 </td><td>
 
-库名称
+Library name
 
 
 </td></tr>
@@ -69,7 +69,7 @@ string
 
 </td><td>
 
-库 UUID
+Library UUID
 
 
 </td></tr>
@@ -83,7 +83,7 @@ string
 
 # ILIB\_LibraryInfo.name property
 
-库名称
+Library name
 
 ## Signature
 
@@ -95,7 +95,7 @@ name: string;
 
 # ILIB\_LibraryInfo.uuid property
 
-库 UUID
+Library UUID
 
 ## Signature
 

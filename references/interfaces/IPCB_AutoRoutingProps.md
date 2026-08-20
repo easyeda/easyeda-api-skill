@@ -1,6 +1,6 @@
 # IPCB\_AutoRoutingProps interface
 
-自动布线入参
+Auto routing props
 
 ## Signature
 

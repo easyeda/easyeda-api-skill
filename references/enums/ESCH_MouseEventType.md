@@ -1,6 +1,6 @@
 # ESCH\_MouseEventType enum
 
-鼠标事件类型
+Mouse event type
 
 ## Signature
 

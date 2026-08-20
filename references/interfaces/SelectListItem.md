@@ -46,7 +46,7 @@ Description
 
 </td><td>
 
-_(Optional)_ 子选项，用于多级嵌套
+_(Optional)_ Child options, used for multi-level nesting
 
 
 </td></tr>
@@ -65,7 +65,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否选中
+_(Optional)_ Whether Select
 
 
 </td></tr>
@@ -84,7 +84,7 @@ string
 
 </td><td>
 
-选项标题（必填）
+Option title (required)
 
 
 </td></tr>
@@ -103,7 +103,7 @@ string
 
 </td><td>
 
-_(Optional)_ 选项关联值
+_(Optional)_ Associated value of the option
 
 
 </td></tr>
@@ -117,7 +117,7 @@ _(Optional)_ 选项关联值
 
 # SelectListItem.children property
 
-子选项，用于多级嵌套
+Child options, used for multi-level nesting
 
 ## Signature
 
@@ -129,7 +129,7 @@ children?: SelectListItem[];
 
 # SelectListItem.selected property
 
-是否选中
+Whether Select
 
 ## Signature
 
@@ -141,7 +141,7 @@ selected?: boolean;
 
 # SelectListItem.title property
 
-选项标题（必填）
+Option title (required)
 
 ## Signature
 
@@ -153,7 +153,7 @@ title: string;
 
 # SelectListItem.value property
 
-选项关联值
+Associated value of the option
 
 ## Signature
 

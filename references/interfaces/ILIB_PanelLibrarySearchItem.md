@@ -1,6 +1,6 @@
 # ILIB\_PanelLibrarySearchItem interface
 
-搜索到的面板库属性
+Searched panel library properties
 
 ## Signature
 
@@ -46,7 +46,7 @@ string
 
 </td><td>
 
-归属
+Ownership
 
 
 </td></tr>
@@ -65,7 +65,7 @@ string
 
 </td><td>
 
-_(Optional)_ 分类
+_(Optional)_ Classification
 
 
 </td></tr>
@@ -84,7 +84,7 @@ string
 
 </td><td>
 
-_(Optional)_ 描述
+_(Optional)_ Description
 
 
 </td></tr>
@@ -103,7 +103,7 @@ string
 
 </td><td>
 
-前次修改者
+Last modifier
 
 
 </td></tr>
@@ -122,7 +122,7 @@ string
 
 </td><td>
 
-所属库 UUID
+UUID of the library it belongs to
 
 
 </td></tr>
@@ -141,7 +141,7 @@ string
 
 </td><td>
 
-面板库名称
+Panel library name
 
 
 </td></tr>
@@ -160,7 +160,7 @@ number
 
 </td><td>
 
-排序
+Sorting
 
 
 </td></tr>
@@ -179,7 +179,7 @@ number
 
 </td><td>
 
-更新时间戳
+Update timestamp
 
 
 </td></tr>
@@ -198,7 +198,7 @@ string
 
 </td><td>
 
-面板库 UUID
+Panel library UUID
 
 
 </td></tr>
@@ -212,7 +212,7 @@ string
 
 # ILIB\_PanelLibrarySearchItem.ascription property
 
-归属
+Ownership
 
 ## Signature
 
@@ -224,7 +224,7 @@ ascription: string;
 
 # ILIB\_PanelLibrarySearchItem.classification property
 
-分类
+Classification
 
 ## Signature
 
@@ -236,7 +236,7 @@ classification?: ILIB_ClassificationIndex | Array<string>;
 
 # ILIB\_PanelLibrarySearchItem.description property
 
-描述
+Description
 
 ## Signature
 
@@ -248,7 +248,7 @@ description?: string;
 
 # ILIB\_PanelLibrarySearchItem.lastModifiedBy property
 
-前次修改者
+Last modifier
 
 ## Signature
 
@@ -260,7 +260,7 @@ lastModifiedBy: string;
 
 # ILIB\_PanelLibrarySearchItem.libraryUuid property
 
-所属库 UUID
+UUID of the library it belongs to
 
 ## Signature
 
@@ -272,7 +272,7 @@ libraryUuid: string;
 
 # ILIB\_PanelLibrarySearchItem.name property
 
-面板库名称
+Panel library name
 
 ## Signature
 
@@ -284,7 +284,7 @@ name: string;
 
 # ILIB\_PanelLibrarySearchItem.ordinal property
 
-排序
+Sorting
 
 ## Signature
 
@@ -296,7 +296,7 @@ ordinal: number;
 
 # ILIB\_PanelLibrarySearchItem.updateTimestamp property
 
-更新时间戳
+Update timestamp
 
 ## Signature
 
@@ -308,7 +308,7 @@ updateTimestamp: number;
 
 # ILIB\_PanelLibrarySearchItem.uuid property
 
-面板库 UUID
+Panel library UUID
 
 ## Signature
 

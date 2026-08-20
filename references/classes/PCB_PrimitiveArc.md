@@ -1,6 +1,6 @@
 # PCB\_PrimitiveArc class
 
-PCB &amp; 封装 / 圆弧线图元类
+PCB &amp; footprint / arc line primitive class
 
 ## Signature
 
@@ -11,7 +11,7 @@ export class PCB_PrimitiveArc implements IPCB_PrimitiveAPI
 
 ## Remarks
 
-直线和圆弧线均为导线，对应画布的线条走线和圆弧走线
+Both lines and arc lines are wires, corresponding to the line traces and arc traces on the canvas
 
 ## Methods
 
@@ -41,7 +41,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建圆弧线
+**_(BETA)_** Create Arc line
 
 
 </td></tr>
@@ -55,7 +55,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 删除圆弧线
+**_(BETA)_** Delete Arc line
 
 
 </td></tr>
@@ -69,7 +69,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取圆弧线
+**_(BETA)_** Get Arc line
 
 
 </td></tr>
@@ -83,7 +83,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取圆弧线
+**_(BETA)_** Get Arc line
 
 
 </td></tr>
@@ -97,7 +97,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有圆弧线
+**_(BETA)_** Get all Arc line
 
 
 </td></tr>
@@ -111,7 +111,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有圆弧线的图元 ID
+**_(BETA)_** Get all Arc line primitive IDs
 
 
 </td></tr>
@@ -125,7 +125,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 修改圆弧线
+**_(BETA)_** Modify Arc line
 
 
 </td></tr>
@@ -141,7 +141,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-创建圆弧线
+Create Arc line
 
 ## Signature
 
@@ -179,7 +179,7 @@ string
 
 </td><td>
 
-网络名称
+Net name
 
 
 </td></tr>
@@ -195,7 +195,7 @@ layer
 
 </td><td>
 
-层
+Layer
 
 
 </td></tr>
@@ -211,7 +211,7 @@ number
 
 </td><td>
 
-起始位置 X
+Start position X
 
 
 </td></tr>
@@ -227,7 +227,7 @@ number
 
 </td><td>
 
-起始位置 Y
+Start position Y
 
 
 </td></tr>
@@ -243,7 +243,7 @@ number
 
 </td><td>
 
-终止位置 X
+End position X
 
 
 </td></tr>
@@ -259,7 +259,7 @@ number
 
 </td><td>
 
-终止位置 Y
+End position Y
 
 
 </td></tr>
@@ -275,7 +275,7 @@ number
 
 </td><td>
 
-圆弧角度
+Arc angle
 
 
 </td></tr>
@@ -291,7 +291,7 @@ number
 
 </td><td>
 
-_(Optional)_ 线宽
+_(Optional)_ Line width
 
 
 </td></tr>
@@ -307,7 +307,7 @@ interactiveMode
 
 </td><td>
 
-_(Optional)_ 交互模式
+_(Optional)_ Interaction mode
 
 
 </td></tr>
@@ -323,7 +323,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -335,7 +335,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;[IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md) \| undefined&gt;
 
-圆弧线图元对象
+Arc line primitive object
 
 ### delete
 
@@ -343,7 +343,7 @@ Promise&lt;[IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md) \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-删除圆弧线
+Delete Arc line
 
 ## Signature
 
@@ -381,7 +381,7 @@ string \| [IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md) \| Array&lt;string&gt; \|
 
 </td><td>
 
-圆弧线的图元 ID 或圆弧线图元对象
+Arc line primitive ID or Arc line primitive object
 
 
 </td></tr>
@@ -393,7 +393,7 @@ string \| [IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md) \| Array&lt;string&gt; \|
 
 Promise&lt;boolean&gt;
 
-删除操作是否成功
+Delete Whether the operation is successful
 
 ### get
 
@@ -401,7 +401,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取圆弧线
+Get Arc line
 
 ## Signature
 
@@ -439,7 +439,7 @@ string
 
 </td><td>
 
-圆弧线的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Arc line primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -451,7 +451,7 @@ string
 
 Promise&lt;[IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md) \| undefined&gt;
 
-圆弧线图元对象，`undefined` 表示获取失败
+Arc line primitive object, `undefined` indicates that the retrieval failed
 
 ### get_1
 
@@ -459,7 +459,7 @@ Promise&lt;[IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md) \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取圆弧线
+Get Arc line
 
 ## Signature
 
@@ -497,7 +497,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-圆弧线的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Arc line primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -509,11 +509,11 @@ Array&lt;string&gt;
 
 Promise&lt;Array&lt;[IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md)<!-- -->&gt;&gt;
 
-圆弧线图元对象，空数组表示获取失败
+Arc line primitive object; an empty array indicates that the retrieval failed
 
 ## Remarks
 
-如若传入多个图元 ID，任意图元 ID 未匹配到不影响其它图元的返回，即可能返回少于传入的图元 ID 数量的图元对象
+If multiple primitive IDs are passed in, a primitive ID that is not matched will not affect the return of other primitives; that is, fewer primitive objects than the number of primitive IDs passed in may be returned.
 
 ### getall
 
@@ -521,7 +521,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md)<!-- -->&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有圆弧线
+Get all Arc line
 
 ## Signature
 
@@ -559,7 +559,7 @@ string
 
 </td><td>
 
-_(Optional)_ 网络名称
+_(Optional)_ Net name
 
 
 </td></tr>
@@ -575,7 +575,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层
+_(Optional)_ Layer
 
 
 </td></tr>
@@ -591,7 +591,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -603,7 +603,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;Array&lt;[IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md)<!-- -->&gt;&gt;
 
-圆弧线图元对象数组
+Array of Arc line primitive objects
 
 ### getallprimitiveid
 
@@ -611,7 +611,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md)<!-- -->&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有圆弧线的图元 ID
+Get all Arc line primitive IDs
 
 ## Signature
 
@@ -649,7 +649,7 @@ string
 
 </td><td>
 
-_(Optional)_ 网络名称
+_(Optional)_ Net name
 
 
 </td></tr>
@@ -665,7 +665,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层
+_(Optional)_ Layer
 
 
 </td></tr>
@@ -681,7 +681,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -693,7 +693,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;Array&lt;string&gt;&gt;
 
-圆弧线的图元 ID 数组
+Array of Arc line primitive IDs
 
 ### modify
 
@@ -701,7 +701,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-修改圆弧线
+Modify Arc line
 
 ## Signature
 
@@ -739,7 +739,7 @@ string \| [IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md)
 
 </td><td>
 
-图元 ID
+Primitive ID
 
 
 </td></tr>
@@ -755,7 +755,7 @@ property
 
 </td><td>
 
-修改参数
+Modify Parameter
 
 
 </td></tr>
@@ -767,4 +767,4 @@ property
 
 Promise&lt;[IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md) \| undefined&gt;
 
-圆弧线图元对象
+Arc line primitive object

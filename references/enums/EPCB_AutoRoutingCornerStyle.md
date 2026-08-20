@@ -1,6 +1,6 @@
 # EPCB\_AutoRoutingCornerStyle enum
 
-自动布线拐角风格
+Auto routing corner style
 
 ## Signature
 

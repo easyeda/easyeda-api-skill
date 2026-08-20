@@ -1,6 +1,6 @@
 # ISCH\_DrcError interface
 
-DRC 错误条目
+DRC error item
 
 ## Signature
 
@@ -46,7 +46,7 @@ string
 
 </td><td>
 
-_(Optional)_ 涉及网络（若有）
+_(Optional)_ Involved net (if any)
 
 
 </td></tr>
@@ -65,7 +65,7 @@ Array&lt;[ISCH\_DrcErrorPrimitive](./ISCH_DrcErrorPrimitive.md)<!-- -->&gt;
 
 </td><td>
 
-涉及的图元
+Involved primitives
 
 
 </td></tr>
@@ -84,7 +84,7 @@ string
 
 </td><td>
 
-触发规则 key，如 `IN-IN`<!-- -->、`OUT-OUT`
+Triggered rule key, e.g. `IN-IN`<!-- -->, `OUT-OUT`
 
 
 </td></tr>
@@ -103,7 +103,7 @@ string
 
 </td><td>
 
-错误级别
+Error level
 
 
 </td></tr>
@@ -117,7 +117,7 @@ string
 
 # ISCH\_DrcError.net property
 
-涉及网络（若有）
+Involved net (if any)
 
 ## Signature
 
@@ -129,7 +129,7 @@ net?: string;
 
 # ISCH\_DrcError.primitives property
 
-涉及的图元
+Involved primitives
 
 ## Signature
 
@@ -141,7 +141,7 @@ primitives: Array<ISCH_DrcErrorPrimitive>;
 
 # ISCH\_DrcError.rule property
 
-触发规则 key，如 `IN-IN`<!-- -->、`OUT-OUT`
+Triggered rule key, e.g. `IN-IN`<!-- -->, `OUT-OUT`
 
 ## Signature
 
@@ -153,7 +153,7 @@ rule: string;
 
 # ISCH\_DrcError.type property
 
-错误级别
+Error level
 
 ## Signature
 

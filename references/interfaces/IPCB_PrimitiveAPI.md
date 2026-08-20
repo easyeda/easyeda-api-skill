@@ -1,6 +1,6 @@
 # IPCB\_PrimitiveAPI interface
 
-PCB 图元接口
+PCB primitive API
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # ILIB\_SimulationModelSearchItem interface
 
-搜索到的仿真模型属性
+Searched simulation model properties
 
 ## Signature
 
@@ -46,7 +46,7 @@ string
 
 </td><td>
 
-归属
+Ownership
 
 
 </td></tr>
@@ -65,7 +65,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-_(Optional)_ 分类
+_(Optional)_ Classification
 
 
 </td></tr>
@@ -84,7 +84,7 @@ string
 
 </td><td>
 
-_(Optional)_ 描述
+_(Optional)_ Description
 
 
 </td></tr>
@@ -103,7 +103,7 @@ string
 
 </td><td>
 
-前次修改者
+Last modifier
 
 
 </td></tr>
@@ -122,7 +122,7 @@ string
 
 </td><td>
 
-所属库 UUID
+UUID of the library it belongs to
 
 
 </td></tr>
@@ -141,7 +141,7 @@ string
 
 </td><td>
 
-仿真模型名称
+Simulation model name
 
 
 </td></tr>
@@ -160,7 +160,7 @@ number
 
 </td><td>
 
-排序
+Sorting
 
 
 </td></tr>
@@ -179,7 +179,7 @@ number
 
 </td><td>
 
-仿真模型类型
+Simulation model type
 
 
 </td></tr>
@@ -198,7 +198,7 @@ number
 
 </td><td>
 
-更新时间戳
+Update timestamp
 
 
 </td></tr>
@@ -217,7 +217,7 @@ string
 
 </td><td>
 
-仿真模型 UUID
+Simulation model UUID
 
 
 </td></tr>
@@ -231,7 +231,7 @@ string
 
 # ILIB\_SimulationModelSearchItem.ascription property
 
-归属
+Ownership
 
 ## Signature
 
@@ -243,7 +243,7 @@ ascription: string;
 
 # ILIB\_SimulationModelSearchItem.classification property
 
-分类
+Classification
 
 ## Signature
 
@@ -255,7 +255,7 @@ classification?: Array<string>;
 
 # ILIB\_SimulationModelSearchItem.description property
 
-描述
+Description
 
 ## Signature
 
@@ -267,7 +267,7 @@ description?: string;
 
 # ILIB\_SimulationModelSearchItem.lastModifiedBy property
 
-前次修改者
+Last modifier
 
 ## Signature
 
@@ -279,7 +279,7 @@ lastModifiedBy: string;
 
 # ILIB\_SimulationModelSearchItem.libraryUuid property
 
-所属库 UUID
+UUID of the library it belongs to
 
 ## Signature
 
@@ -291,7 +291,7 @@ libraryUuid: string;
 
 # ILIB\_SimulationModelSearchItem.name property
 
-仿真模型名称
+Simulation model name
 
 ## Signature
 
@@ -303,7 +303,7 @@ name: string;
 
 # ILIB\_SimulationModelSearchItem.ordinal property
 
-排序
+Sorting
 
 ## Signature
 
@@ -315,7 +315,7 @@ ordinal: number;
 
 # ILIB\_SimulationModelSearchItem.type property
 
-仿真模型类型
+Simulation model type
 
 ## Signature
 
@@ -327,7 +327,7 @@ type: ELIB_SimulationModelType;
 
 # ILIB\_SimulationModelSearchItem.updateTimestamp property
 
-更新时间戳
+Update timestamp
 
 ## Signature
 
@@ -339,7 +339,7 @@ updateTimestamp: number;
 
 # ILIB\_SimulationModelSearchItem.uuid property
 
-仿真模型 UUID
+Simulation model UUID
 
 ## Signature
 

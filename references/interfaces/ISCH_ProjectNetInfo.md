@@ -1,6 +1,6 @@
 # ISCH\_ProjectNetInfo interface
 
-工程网络属性
+Project net property
 
 ## Signature
 
@@ -46,7 +46,7 @@ string
 
 </td><td>
 
-板子名称
+Board name
 
 
 </td></tr>
@@ -65,7 +65,7 @@ Array&lt;[ISCH\_NetInfo](./ISCH_NetInfo.md)<!-- -->&gt;
 
 </td><td>
 
-网络
+Net
 
 
 </td></tr>
@@ -84,7 +84,7 @@ string
 
 </td><td>
 
-原理图名称
+Schematic name
 
 
 </td></tr>
@@ -103,7 +103,7 @@ string
 
 </td><td>
 
-原理图 UUID
+Schematic UUID
 
 
 </td></tr>
@@ -117,7 +117,7 @@ string
 
 # ISCH\_ProjectNetInfo.boardName property
 
-板子名称
+Board name
 
 ## Signature
 
@@ -129,7 +129,7 @@ boardName: string;
 
 # ISCH\_ProjectNetInfo.nets property
 
-网络
+Net
 
 ## Signature
 
@@ -141,7 +141,7 @@ nets: Array<ISCH_NetInfo>;
 
 # ISCH\_ProjectNetInfo.schematicName property
 
-原理图名称
+Schematic name
 
 ## Signature
 
@@ -153,7 +153,7 @@ schematicName: string;
 
 # ISCH\_ProjectNetInfo.schematicUuid property
 
-原理图 UUID
+Schematic UUID
 
 ## Signature
 

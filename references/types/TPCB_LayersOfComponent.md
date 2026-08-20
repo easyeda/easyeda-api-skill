@@ -1,6 +1,6 @@
 # TPCB\_LayersOfComponent type
 
-器件所属层
+Layers of the device
 
 ## Signature
 

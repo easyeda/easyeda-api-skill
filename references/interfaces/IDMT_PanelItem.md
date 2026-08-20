@@ -1,6 +1,6 @@
 # IDMT\_PanelItem interface
 
-面板属性
+Panel property
 
 ## Signature
 
@@ -48,7 +48,7 @@ Description
 
 </td><td>
 
-项目类型
+Project type
 
 
 </td></tr>
@@ -67,7 +67,7 @@ string
 
 </td><td>
 
-面板名称
+Panel name
 
 
 </td></tr>
@@ -86,7 +86,7 @@ string
 
 </td><td>
 
-所属工程 UUID
+UUID of the project it belongs to
 
 
 </td></tr>
@@ -105,7 +105,7 @@ string
 
 </td><td>
 
-面板 UUID
+Panel UUID
 
 
 </td></tr>
@@ -119,7 +119,7 @@ string
 
 # IDMT\_PanelItem.itemType property
 
-项目类型
+Project type
 
 ## Signature
 
@@ -131,7 +131,7 @@ readonly itemType: EDMT_ItemType.PANEL;
 
 # IDMT\_PanelItem.name property
 
-面板名称
+Panel name
 
 ## Signature
 
@@ -143,7 +143,7 @@ name: string;
 
 # IDMT\_PanelItem.parentProjectUuid property
 
-所属工程 UUID
+UUID of the project it belongs to
 
 ## Signature
 
@@ -155,7 +155,7 @@ parentProjectUuid: string;
 
 # IDMT\_PanelItem.uuid property
 
-面板 UUID
+Panel UUID
 
 ## Signature
 

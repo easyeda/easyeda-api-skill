@@ -1,6 +1,6 @@
 # IPCB\_PrimitivePadHeatWelding interface
 
-焊盘热焊优化参数
+Pad thermal relief optimization parameters
 
 ## Signature
 
@@ -10,7 +10,7 @@ export interface IPCB_PrimitivePadHeatWelding
 
 ## Remarks
 
-当连接方式（[connectionMethod](./IPCB_PrimitivePadHeatWelding.md)<!-- -->）为直连（[DIRECT\_CONNECTED](../enums/EPCB_PrimitivePadHeatWeldingConnectionMethod.md)<!-- -->）、无连接（[NON\_CONNECTED](../enums/EPCB_PrimitivePadHeatWeldingConnectionMethod.md)<!-- -->）时，发散间距、发散线宽、发散角度的设置将被忽略
+When the connection method ([connectionMethod](./IPCB_PrimitivePadHeatWelding.md)<!-- -->) is direct connection ([DIRECT\_CONNECTED](../enums/EPCB_PrimitivePadHeatWeldingConnectionMethod.md)<!-- -->) or no connection ([NON\_CONNECTED](../enums/EPCB_PrimitivePadHeatWeldingConnectionMethod.md)<!-- -->), the settings of divergence spacing, divergence line width, and divergence angle will be ignored
 
 ## Properties
 
@@ -50,7 +50,7 @@ Description
 
 </td><td>
 
-连接方式
+Connection method
 
 
 </td></tr>
@@ -69,7 +69,7 @@ number
 
 </td><td>
 
-_(Optional)_ 发散角度
+_(Optional)_ Divergence angle
 
 
 </td></tr>
@@ -88,7 +88,7 @@ number
 
 </td><td>
 
-_(Optional)_ 发散线宽
+_(Optional)_ Divergence line width
 
 
 </td></tr>
@@ -107,7 +107,7 @@ number
 
 </td><td>
 
-_(Optional)_ 发散间距
+_(Optional)_ Divergence spacing
 
 
 </td></tr>
@@ -121,7 +121,7 @@ _(Optional)_ 发散间距
 
 # IPCB\_PrimitivePadHeatWelding.divergenceAngle property
 
-发散角度
+Divergence angle
 
 ## Signature
 
@@ -133,7 +133,7 @@ divergenceAngle?: number;
 
 # IPCB\_PrimitivePadHeatWelding.divergenceLineWidth property
 
-发散线宽
+Divergence line width
 
 ## Signature
 
@@ -145,7 +145,7 @@ divergenceLineWidth?: number;
 
 # IPCB\_PrimitivePadHeatWelding.divergenceSpacing property
 
-发散间距
+Divergence spacing
 
 ## Signature
 
@@ -162,7 +162,7 @@ divergenceSpacing?: number;
 
 # IPCB\_PrimitivePadHeatWelding.connectionMethod property
 
-连接方式
+Connection method
 
 ## Signature
 

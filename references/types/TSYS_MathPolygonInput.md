@@ -1,6 +1,6 @@
 # TSYS\_MathPolygonInput type
 
-多边形输入类型
+Polygon input type
 
 ## Signature
 
@@ -14,4 +14,4 @@ export type TSYS_MathPolygonInput = Array<ISYS_MathPoint> | TPCB_PolygonSourceAr
 
 ## Remarks
 
-支持以下输入格式： - 离散点数组：`[{x, y}, {x, y}, ...]` - 单多边形源数组：[TPCB\_PolygonSourceArray](./TPCB_PolygonSourceArray.md) - 单多边形对象：[IPCB\_Polygon](../classes/IPCB_Polygon.md) - 复杂多边形对象：[IPCB\_ComplexPolygon](../classes/IPCB_ComplexPolygon.md) - 多边形组：[TSYS\_MathPolygonGroup](./TSYS_MathPolygonGroup.md)
+The following input formats are supported: - Discrete point array: `[{x, y}, {x, y}, ...]` - Single polygon source array: [TPCB\_PolygonSourceArray](./TPCB_PolygonSourceArray.md) - Single polygon object: [IPCB\_Polygon](../classes/IPCB_Polygon.md) - Complex polygon object: [IPCB\_ComplexPolygon](../classes/IPCB_ComplexPolygon.md) - Polygon group: [TSYS\_MathPolygonGroup](./TSYS_MathPolygonGroup.md)

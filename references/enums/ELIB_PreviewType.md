@@ -1,6 +1,6 @@
 # ELIB\_PreviewType enum
 
-预览视图类型
+Preview view type
 
 ## Signature
 

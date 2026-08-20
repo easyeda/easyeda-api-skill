@@ -1,6 +1,6 @@
 # SCH\_Document class
 
-原理图 &amp; 符号 / 文档操作类
+Schematic &amp; symbol / document operation class
 
 ## Signature
 
@@ -10,7 +10,7 @@ export class SCH_Document
 
 ## Remarks
 
-对设计文档总体进行的操作
+Operations performed on the design document as a whole
 
 ## Methods
 
@@ -40,7 +40,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 自动布局
+**_(BETA)_** Auto layout
 
 
 </td></tr>
@@ -54,7 +54,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 自动布线
+**_(BETA)_** Auto routing
 
 
 </td></tr>
@@ -68,7 +68,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取当前画布过滤器配置
+**_(BETA)_** Get Current canvas filter configuration
 
 
 </td></tr>
@@ -82,7 +82,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取坐标点的图元
+**_(BETA)_** Get The primitive at the coordinate point
 
 
 </td></tr>
@@ -96,7 +96,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取区域内所有图元
+**_(BETA)_** Get All primitives in the region
 
 
 </td></tr>
@@ -110,7 +110,7 @@ Description
 
 </td><td>
 
-从 PCB 导入变更
+Import changes from the PCB
 
 
 </td></tr>
@@ -124,7 +124,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 定位到画布坐标
+**_(BETA)_** Locate to canvas coordinate
 
 
 </td></tr>
@@ -138,7 +138,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 定位到画布区域
+**_(BETA)_** Locate to canvas region
 
 
 </td></tr>
@@ -152,7 +152,7 @@ Description
 
 </td><td>
 
-保存文档
+Save Document
 
 
 </td></tr>
@@ -168,7 +168,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-自动布局
+Auto layout
 
 ## Signature
 
@@ -206,7 +206,7 @@ props
 
 </td><td>
 
-_(Optional)_ 自动布局参数
+_(Optional)_ Auto layout parameter
 
 
 </td></tr>
@@ -218,11 +218,11 @@ _(Optional)_ 自动布局参数
 
 Promise&lt;any&gt;
 
-自动布局结果
+Auto layout result
 
 ## Remarks
 
-如不传入任何参数，将对所有器件进行自动布局
+If no parameters are passed in, auto layout will be performed for all devices
 
 ### autorouting
 
@@ -230,7 +230,7 @@ Promise&lt;any&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-自动布线
+Auto routing
 
 ## Signature
 
@@ -268,7 +268,7 @@ props
 
 </td><td>
 
-_(Optional)_ 自动布线参数
+_(Optional)_ Auto routing parameter
 
 
 </td></tr>
@@ -280,11 +280,11 @@ _(Optional)_ 自动布线参数
 
 Promise&lt;any&gt;
 
-自动布线结果
+Auto routing result
 
 ## Remarks
 
-如不传入任何参数，将对所有未布线的网络进行自动布线
+If no parameters are passed in, auto routing will be performed for all unrouted nets
 
 ### getcurrentfilterconfiguration
 
@@ -292,7 +292,7 @@ Promise&lt;any&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取当前画布过滤器配置
+Get Current canvas filter configuration
 
 ## Signature
 
@@ -305,7 +305,7 @@ public getCurrentFilterConfiguration(): Promise<Record<string, boolean> | undefi
 
 Promise&lt;Record&lt;string, boolean&gt; \| undefined&gt;
 
-当前画布过滤器配置，`undefined` 为获取失败
+Current canvas filter configuration; `undefined` indicates that the retrieval failed
 
 ## Remarks
 
@@ -317,7 +317,7 @@ ADD since EDA v4.2
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取坐标点的图元
+Get The primitive at the coordinate point
 
 ## Signature
 
@@ -355,7 +355,7 @@ number
 
 </td><td>
 
-坐标点 X
+Coordinate point X
 
 
 </td></tr>
@@ -371,7 +371,7 @@ number
 
 </td><td>
 
-坐标点 Y
+Coordinate point Y
 
 
 </td></tr>
@@ -383,11 +383,11 @@ number
 
 Promise&lt;[ISCH\_Primitive](../interfaces/ISCH_Primitive.md) \| undefined&gt;
 
-坐标点的图元，如若坐标点无法找到图元，将返回 `undefined`
+The primitive at the coordinate point. If no primitive can be found at the coordinate point, `undefined` will be returned
 
 ## Remarks
 
-本操作和前端鼠标点击操作类似，将会获取指定坐标点上的图元 ADD since EDA v4.2
+This operation is similar to clicking with the mouse on the front end; it will get the primitive at the specified coordinate point ADD since EDA v4.2
 
 ### getprimitivesinregion
 
@@ -395,7 +395,7 @@ Promise&lt;[ISCH\_Primitive](../interfaces/ISCH_Primitive.md) \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取区域内所有图元
+Get All primitives in the region
 
 ## Signature
 
@@ -433,7 +433,7 @@ number
 
 </td><td>
 
-矩形框第一 X 坐标
+First X coordinate of the rectangle
 
 
 </td></tr>
@@ -449,7 +449,7 @@ number
 
 </td><td>
 
-矩形框第二 X 坐标
+Second X coordinate of the rectangle
 
 
 </td></tr>
@@ -465,7 +465,7 @@ number
 
 </td><td>
 
-矩形框第一 Y 坐标
+First Y coordinate of the rectangle
 
 
 </td></tr>
@@ -481,7 +481,7 @@ number
 
 </td><td>
 
-矩形框第二 Y 坐标
+Second Y coordinate of the rectangle
 
 
 </td></tr>
@@ -493,17 +493,17 @@ number
 
 Promise&lt;Array&lt;[ISCH\_Primitive](../interfaces/ISCH_Primitive.md)<!-- -->&gt;&gt;
 
-区域内所有图元
+All primitives in the region
 
 ## Remarks
 
-本接口仅会返回完全包含在区域内的图元，如果图元有部分位于区域外，将被忽略 ADD since EDA v4.2
+This API only returns primitives that are completely contained in the region. If a primitive is partially outside the region, it will be ignored ADD since EDA v4.2
 
 ### importchanges
 
 # SCH\_Document.importChanges() method
 
-从 PCB 导入变更
+Import changes from the PCB
 
 ## Signature
 
@@ -516,7 +516,7 @@ public importChanges(): Promise<boolean>;
 
 Promise&lt;boolean&gt;
 
-导入操作是否成功，导入失败或游离原理图返回 `false`
+Whether the import operation is successful, import failed or a free schematic return `false`
 
 ### navigatetocoordinates
 
@@ -524,7 +524,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-定位到画布坐标
+Locate to canvas coordinate
 
 ## Signature
 
@@ -562,7 +562,7 @@ number
 
 </td><td>
 
-坐标 X
+X coordinate
 
 
 </td></tr>
@@ -578,7 +578,7 @@ number
 
 </td><td>
 
-坐标 Y
+Y coordinate
 
 
 </td></tr>
@@ -590,13 +590,13 @@ number
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-本接口在前端画布上定位到指定的坐标；
+This API positions on the front-end canvas to the specified coordinate;
 
-此处的单位跨度为 0.01inch ADD since EDA v4.2
+The unit span here is 0.01inch ADD since EDA v4.2
 
 ### navigatetoregion
 
@@ -604,7 +604,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-定位到画布区域
+Locate to canvas region
 
 ## Signature
 
@@ -642,7 +642,7 @@ number
 
 </td><td>
 
-矩形框第一 X 坐标
+First X coordinate of the rectangle
 
 
 </td></tr>
@@ -658,7 +658,7 @@ number
 
 </td><td>
 
-矩形框第二 X 坐标
+Second X coordinate of the rectangle
 
 
 </td></tr>
@@ -674,7 +674,7 @@ number
 
 </td><td>
 
-矩形框第一 Y 坐标
+First Y coordinate of the rectangle
 
 
 </td></tr>
@@ -690,7 +690,7 @@ number
 
 </td><td>
 
-矩形框第二 Y 坐标
+Second Y coordinate of the rectangle
 
 
 </td></tr>
@@ -702,23 +702,23 @@ number
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-本接口在前端画布上定位到指定的区域；
+This API positions on the front-end canvas to the specified region;
 
-例如：传入数据为 `{left: 0, right: 60, top: 100, bottom: -20}` =<!-- -->&gt; `navigateToRegion(0, 60, 100, -20)`<!-- -->， 则画布将会定位到以 `[30, 40]` 为中心的，`x` 轴方向长度为 `60`<!-- -->，`y` 轴方向长度为 `120` 的矩形范围；
+For example: the passed-in data is `{left: 0, right: 60, top: 100, bottom: -20}` =<!-- -->&gt; `navigateToRegion(0, 60, 100, -20)`<!-- -->, then the canvas will be positioned to a rectangular range centered at `[30, 40]` with a length of `60` in the x-axis direction and `120` in the y-axis direction;
 
-本接口不进行缩放操作，但会生成指示定位中心及表示区域范围的矩形框；
+This API does not perform zooming, but it will generate a rectangle frame indicating the positioning center and the region range;
 
-此处的单位跨度为 0.01inch ADD since EDA v4.2
+The unit span here is 0.01inch ADD since EDA v4.2
 
 ### save
 
 # SCH\_Document.save() method
 
-保存文档
+Save Document
 
 ## Signature
 
@@ -731,4 +731,4 @@ public save(): Promise<boolean>;
 
 Promise&lt;boolean&gt;
 
-保存操作是否成功，保存失败、上传失败等错误均返回 `false`
+Whether the save operation was successful. Errors such as save failure and upload failure all return `false`

@@ -1,6 +1,6 @@
 # IDesignPortal interface
 
-组件树操作契约。
+Component tree operation contract.
 
 ## Signature
 

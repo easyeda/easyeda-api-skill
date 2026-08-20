@@ -1,6 +1,6 @@
 # EPCB\_NetEventType enum
 
-网络事件类型
+Net event type
 
 ## Signature
 

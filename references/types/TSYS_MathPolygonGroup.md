@@ -1,6 +1,6 @@
 # TSYS\_MathPolygonGroup type
 
-多边形组
+Polygon group
 
 ## Signature
 
@@ -14,4 +14,4 @@ export type TSYS_MathPolygonGroup = Array<ISYS_MathPolygonWithHoles>;
 
 ## Remarks
 
-布尔运算的返回类型，由多个带孔洞的多边形组成，保留外环与孔洞的归属关系
+The return type of Boolean operations, composed of multiple polygons with holes, preserving the association between outer rings and holes

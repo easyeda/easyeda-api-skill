@@ -1,6 +1,6 @@
 # IPCB\_NetClassItem interface
 
-网络类属性
+Net class property
 
 ## Signature
 
@@ -46,7 +46,7 @@ Description
 
 </td><td>
 
-网络类颜色
+Net class color
 
 
 </td></tr>
@@ -65,7 +65,7 @@ string
 
 </td><td>
 
-网络类名称
+Net class name
 
 
 </td></tr>
@@ -84,7 +84,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-网络名称数组
+Net name array
 
 
 </td></tr>
@@ -98,7 +98,7 @@ Array&lt;string&gt;
 
 # IPCB\_NetClassItem.color property
 
-网络类颜色
+Net class color
 
 ## Signature
 
@@ -110,7 +110,7 @@ color: { r: number; g: number; b: number; alpha: number } | null;
 
 # IPCB\_NetClassItem.name property
 
-网络类名称
+Net class name
 
 ## Signature
 
@@ -122,7 +122,7 @@ name: string;
 
 # IPCB\_NetClassItem.nets property
 
-网络名称数组
+Net name array
 
 ## Signature
 

@@ -46,7 +46,7 @@ string
 
 </td><td>
 
-_(Optional)_ 背景颜色，接受任意 CSS 颜色值
+_(Optional)_ Background color. Accepts any CSS color value
 
 
 </td></tr>
@@ -65,7 +65,7 @@ any
 
 </td><td>
 
-_(Optional)_ 面板内容子节点
+_(Optional)_ Panel content child nodes
 
 
 </td></tr>
@@ -103,7 +103,7 @@ number\[\]
 
 </td><td>
 
-_(Optional)_ 内边距（CSS 简写数组）
+_(Optional)_ Padding (CSS shorthand array)
 
 
 </td></tr>
@@ -122,7 +122,7 @@ string
 
 </td><td>
 
-标题文本（必填）
+Title text ( required)
 
 
 </td></tr>
@@ -136,7 +136,7 @@ string
 
 # BoardProps.bgColor property
 
-背景颜色，接受任意 CSS 颜色值
+Background color. Accepts any CSS color value
 
 ## Signature
 
@@ -148,7 +148,7 @@ bgColor?: string;
 
 # BoardProps.children property
 
-面板内容子节点
+Panel content child nodes
 
 ## Signature
 
@@ -172,7 +172,7 @@ onClick?: () => void;
 
 # BoardProps.padding property
 
-内边距（CSS 简写数组）
+Padding (CSS shorthand array)
 
 ## Signature
 
@@ -184,7 +184,7 @@ padding?: number[];
 
 # BoardProps.title property
 
-标题文本（必填）
+Title text ( required)
 
 ## Signature
 

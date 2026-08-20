@@ -1,6 +1,6 @@
 # DMT\_Board class
 
-文档树 / 板子管理类
+Document tree / Board management class
 
 ## Signature
 
@@ -10,7 +10,7 @@ export class DMT_Board
 
 ## Remarks
 
-在当前打开的工程内进行板子管理的相关操作
+Operations related to board management in the currently open project
 
 ## Methods
 
@@ -40,7 +40,7 @@ Description
 
 </td><td>
 
-复制板子
+Copy Board
 
 
 </td></tr>
@@ -54,7 +54,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建板子
+**_(BETA)_** Create Board
 
 
 </td></tr>
@@ -68,7 +68,7 @@ Description
 
 </td><td>
 
-删除板子
+Delete Board
 
 
 </td></tr>
@@ -82,7 +82,7 @@ Description
 
 </td><td>
 
-获取工程内所有板子的详细属性
+Get all in the project board detailed properties of
 
 
 </td></tr>
@@ -96,7 +96,7 @@ Description
 
 </td><td>
 
-获取板子的详细属性
+Get detailed properties of Board
 
 
 </td></tr>
@@ -110,7 +110,7 @@ Description
 
 </td><td>
 
-获取当前板子的详细属性
+Get detailed properties of Current board
 
 
 </td></tr>
@@ -124,7 +124,7 @@ Description
 
 </td><td>
 
-修改板子名称
+Modify Board name
 
 
 </td></tr>
@@ -138,7 +138,7 @@ Description
 
 # DMT\_Board.copyBoard() method
 
-复制板子
+Copy Board
 
 ## Signature
 
@@ -176,7 +176,7 @@ string
 
 </td><td>
 
-源板子名称
+Source board name
 
 
 </td></tr>
@@ -188,7 +188,25 @@ string
 
 Promise&lt;string \| undefined&gt;
 
-新板子名称，如若为 `undefined` 则复制失败
+New board name, if it is `undefined` the copy fails
+
+## Example
+
+
+```javascript
+// 1. 取第一块板子的名称作为复制源
+const boards = await eda.dmt_Board.getAllBoardsInfo();
+const sourceName = boards[0].name;
+
+// 2. 复制板子，返回新板子名称
+const newBoardName = await eda.dmt_Board.copyBoard(sourceName);
+console.log('source:', sourceName);
+console.log('copy:', newBoardName);
+
+// 3. 删除复制的板子，保持工程整洁
+const deleted = await eda.dmt_Board.deleteBoard(newBoardName);
+console.log('deleted:', deleted);
+```
 
 ### createboard
 
@@ -196,7 +214,7 @@ Promise&lt;string \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-创建板子
+Create Board
 
 ## Signature
 
@@ -234,7 +252,7 @@ string
 
 </td><td>
 
-_(Optional)_ 关联原理图 UUID
+_(Optional)_ Associated schematic UUID
 
 
 </td></tr>
@@ -250,7 +268,7 @@ string
 
 </td><td>
 
-_(Optional)_ 关联 PCB UUID
+_(Optional)_ Associated PCB UUID
 
 
 </td></tr>
@@ -262,13 +280,26 @@ _(Optional)_ 关联 PCB UUID
 
 Promise&lt;string \| undefined&gt;
 
-板子名称，如若为 `undefined` 则创建失败
+Board name, if it is `undefined` creation fails
+
+## Example
+
+
+```javascript
+// 1. 无参调用，由系统自动创建一对原理图/PCB 文档并关联
+const boardName = await eda.dmt_Board.createBoard();
+console.log('create:', boardName);
+
+// 2. 删除新板子（其关联文档是本例新建的，删除不影响其他板子），保持工程整洁
+const deleted = await eda.dmt_Board.deleteBoard(boardName);
+console.log('deleted:', deleted);
+```
 
 ### deleteboard
 
 # DMT\_Board.deleteBoard() method
 
-删除板子
+Delete Board
 
 ## Signature
 
@@ -306,7 +337,7 @@ string
 
 </td><td>
 
-板子名称
+Board name
 
 
 </td></tr>
@@ -318,17 +349,31 @@ string
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-如若指定板子不存在，接口将返回 `false` 的结果，表示操作失败
+If the specified board does not exist, the API will return `false`<!-- -->, indicating that the operation failed
+
+## Example
+
+
+```javascript
+// 1. 复制一块板子作为删除目标，避免误删工程里有用的板子
+const boards = await eda.dmt_Board.getAllBoardsInfo();
+const tempName = await eda.dmt_Board.copyBoard(boards[0].name);
+console.log('temp board:', tempName);
+
+// 2. 删除该板子
+const deleted = await eda.dmt_Board.deleteBoard(tempName);
+console.log('deleted:', deleted);
+```
 
 ### getallboardsinfo
 
 # DMT\_Board.getAllBoardsInfo() method
 
-获取工程内所有板子的详细属性
+Get all in the project board detailed properties of
 
 ## Signature
 
@@ -341,13 +386,28 @@ public getAllBoardsInfo(): Promise<Array<IDMT_BoardItem>>;
 
 Promise&lt;Array&lt;[IDMT\_BoardItem](../interfaces/IDMT_BoardItem.md)<!-- -->&gt;&gt;
 
-所有板子的详细属性的数组
+Array of detailed properties of all Board
+
+## Example
+
+
+```javascript
+// 1. 获取工程内所有板子
+const boards = await eda.dmt_Board.getAllBoardsInfo();
+
+// 2. 输出每块板子的名称与下属文档
+boards.forEach((board, i) => {
+  console.log(`board[${i}]:`, board.name, 'schematic:', board.schematic?.uuid, 'pcb:', board.pcb?.uuid);
+});
+
+console.log('total:', boards.length);
+```
 
 ### getboardinfo
 
 # DMT\_Board.getBoardInfo() method
 
-获取板子的详细属性
+Get detailed properties of Board
 
 ## Signature
 
@@ -385,7 +445,7 @@ string
 
 </td><td>
 
-板子名称
+Board name
 
 
 </td></tr>
@@ -397,13 +457,31 @@ string
 
 Promise&lt;[IDMT\_BoardItem](../interfaces/IDMT_BoardItem.md) \| undefined&gt;
 
-板子的详细属性，如若为 `undefined` 则获取失败
+Board detailed properties of; if it is `undefined`<!-- -->, the retrieval failed
+
+## Example
+
+
+```javascript
+// 1. 先盘点所有板子，取第一块的名称作为查询目标
+const boards = await eda.dmt_Board.getAllBoardsInfo();
+const targetName = boards[0].name;
+
+// 2. 按名称查询该板子的详细属性
+const board = await eda.dmt_Board.getBoardInfo(targetName);
+
+// 3. 输出板子属性
+console.log('name:', board.name);
+console.log('parentProjectUuid:', board.parentProjectUuid);
+console.log('schematic:', board.schematic?.uuid);
+console.log('pcb:', board.pcb?.uuid);
+```
 
 ### getcurrentboardinfo
 
 # DMT\_Board.getCurrentBoardInfo() method
 
-获取当前板子的详细属性
+Get detailed properties of Current board
 
 ## Signature
 
@@ -416,17 +494,35 @@ public getCurrentBoardInfo(): Promise<IDMT_BoardItem | undefined>;
 
 Promise&lt;[IDMT\_BoardItem](../interfaces/IDMT_BoardItem.md) \| undefined&gt;
 
-板子的详细属性，如若为 `undefined` 则获取失败
+Board detailed properties of; if it is `undefined`<!-- -->, the retrieval failed
 
 ## Remarks
 
-将会获取当前打开且拥有最后输入焦点的原理图、PCB 所关联的板子的详细属性
+It will get the detailed properties of the board associated with the currently open schematic or PCB that has the last input focus
+
+## Example
+
+
+```javascript
+// 1. 切换到第一块板子下属的 PCB 文档（工程里可能存在不属于任何板子的 PCB，不能直接取 getAllPcbsInfo()[0]）
+const boards = await eda.dmt_Board.getAllBoardsInfo();
+await eda.dmt_EditorControl.openDocument(boards[0].pcb.uuid);
+await new Promise(r => setTimeout(r, 500));
+
+// 2. 获取当前焦点对应的板子
+const board = await eda.dmt_Board.getCurrentBoardInfo();
+
+// 3. 输出板子属性
+console.log('name:', board.name);
+console.log('schematic:', board.schematic?.uuid);
+console.log('pcb:', board.pcb?.uuid);
+```
 
 ### modifyboardname
 
 # DMT\_Board.modifyBoardName() method
 
-修改板子名称
+Modify Board name
 
 ## Signature
 
@@ -464,7 +560,7 @@ string
 
 </td><td>
 
-原板子名称
+Original board name
 
 
 </td></tr>
@@ -480,7 +576,7 @@ string
 
 </td><td>
 
-新板子名称
+New board name
 
 
 </td></tr>
@@ -492,4 +588,25 @@ string
 
 Promise&lt;boolean&gt;
 
-是否修改成功
+Whether Modify Successful
+
+## Example
+
+
+```javascript
+// 1. 取第一块板子，记录原名称
+const boards = await eda.dmt_Board.getAllBoardsInfo();
+const originalName = boards[0].name;
+const newName = originalName + '_tmp';
+
+// 2. 改名并输出结果
+const modified = await eda.dmt_Board.modifyBoardName(originalName, newName);
+console.log('original:', originalName);
+console.log('new:', newName);
+console.log('modified:', modified);
+
+// 3. 等待改名生效后改回原名称（改名是异步提交，紧跟的第二次改名会返回 false）
+await new Promise(r => setTimeout(r, 1000));
+const restored = await eda.dmt_Board.modifyBoardName(newName, originalName);
+console.log('restored:', restored);
+```

@@ -47,7 +47,7 @@ any
 
 </td><td>
 
-_(Optional)_ 子节点
+_(Optional)_ Child node
 
 
 </td></tr>
@@ -66,7 +66,7 @@ number
 
 </td><td>
 
-_(Optional)_ 弹性占比（flex 生长因子）
+_(Optional)_ Flex ratio (flex grow factor)
 
 
 </td></tr>
@@ -99,7 +99,7 @@ _(Optional)_ 点击子项时触发
 
 # FlexItemProps.children property
 
-子节点
+Child node
 
 ## Signature
 
@@ -111,7 +111,7 @@ children?: any;
 
 # FlexItemProps.flexRatio property
 
-弹性占比（flex 生长因子）
+Flex ratio (flex grow factor)
 
 ## Signature
 

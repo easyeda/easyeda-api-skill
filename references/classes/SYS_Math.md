@@ -1,6 +1,6 @@
 # SYS\_Math class
 
-系统 / 数学计算类
+System / math class
 
 ## Signature
 
@@ -10,7 +10,7 @@ export class SYS_Math
 
 ## Remarks
 
-提供多边形几何计算方法，支持离散点坐标和 [TPCB\_PolygonSourceArray](../types/TPCB_PolygonSourceArray.md) 多边形数据
+Provides polygon geometry calculation methods, supporting discrete point coordinates and [TPCB\_PolygonSourceArray](../types/TPCB_PolygonSourceArray.md) polygon data
 
 ## Methods
 
@@ -40,7 +40,7 @@ Description
 
 </td><td>
 
-快速判断两个 BBox 是否相交
+Quickly determine whether two BBoxes intersect
 
 
 </td></tr>
@@ -54,7 +54,7 @@ Description
 
 </td><td>
 
-计算多边形面积
+Calculate the area of a polygon
 
 
 </td></tr>
@@ -68,7 +68,7 @@ Description
 
 </td><td>
 
-计算多边形周长
+Calculate the perimeter of a polygon
 
 
 </td></tr>
@@ -82,7 +82,7 @@ Description
 
 </td><td>
 
-判断 polygon1 是否完全包含 polygon2
+Determine whether polygon1 completely contains polygon2
 
 
 </td></tr>
@@ -96,7 +96,7 @@ Description
 
 </td><td>
 
-判断点是否在多边形内部
+Determine whether the point is inside the polygon
 
 
 </td></tr>
@@ -110,7 +110,7 @@ Description
 
 </td><td>
 
-计算点到多边形边界的最短距离
+Calculate the shortest distance from a point to the polygon boundary
 
 
 </td></tr>
@@ -124,7 +124,7 @@ Description
 
 </td><td>
 
-获取多边形的最小外接矩形（BBox）
+Get the minimum bounding rectangle (BBox) of the polygon
 
 
 </td></tr>
@@ -138,7 +138,7 @@ Description
 
 </td><td>
 
-计算多边形质心
+Calculate the centroid of the polygon
 
 
 </td></tr>
@@ -152,7 +152,7 @@ Description
 
 </td><td>
 
-计算两个多边形的交集
+Calculate the intersection of two polygons
 
 
 </td></tr>
@@ -166,7 +166,7 @@ Description
 
 </td><td>
 
-判断两个多边形是否相交
+Determine whether two polygons intersect
 
 
 </td></tr>
@@ -180,7 +180,7 @@ Description
 
 </td><td>
 
-旋转多边形
+Rotate the polygon
 
 
 </td></tr>
@@ -194,7 +194,7 @@ Description
 
 </td><td>
 
-缩放多边形
+Scale the polygon
 
 
 </td></tr>
@@ -208,7 +208,7 @@ Description
 
 </td><td>
 
-计算两个多边形的差集（polygon1 - polygon2）
+Calculate the difference of two polygons (polygon1 - polygon2)
 
 
 </td></tr>
@@ -222,7 +222,7 @@ Description
 
 </td><td>
 
-平移多边形
+Translate the polygon
 
 
 </td></tr>
@@ -236,7 +236,7 @@ Description
 
 </td><td>
 
-计算两个多边形的并集
+Calculate the union of two polygons
 
 
 </td></tr>
@@ -250,7 +250,7 @@ Description
 
 </td><td>
 
-计算两个多边形的对称差集（异或）
+Calculate the symmetric difference (XOR) of two polygons
 
 
 </td></tr>
@@ -264,7 +264,7 @@ Description
 
 # SYS\_Math.bboxIntersects() method
 
-快速判断两个 BBox 是否相交
+Quickly determine whether two BBoxes intersect
 
 ## Signature
 
@@ -330,13 +330,13 @@ BBox 2
 
 boolean
 
-是否相交
+Whether they intersect
 
 ### calculatearea
 
 # SYS\_Math.calculateArea() method
 
-计算多边形面积
+Calculate the area of a polygon
 
 ## Signature
 
@@ -374,7 +374,7 @@ polygon
 
 </td><td>
 
-多边形或多边形组
+Polygon or polygon group
 
 
 </td></tr>
@@ -386,17 +386,17 @@ polygon
 
 number
 
-面积（单个多边形为绝对面积，多边形组为净面积）
+Area (absolute area for a single polygon, net area for a polygon group)
 
 ## Remarks
 
-使用 Shoelace 公式计算： - 传入单个多边形时，返回该多边形的绝对面积 - 传入多边形组（[TSYS\_MathPolygonGroup](../types/TSYS_MathPolygonGroup.md)<!-- -->，如布尔运算的返回值）时， 计算所有外环面积之和减去所有孔洞面积之和，得到净面积
+Calculated using the Shoelace formula: - When a single polygon is passed in, the absolute area of the polygon is returned - When a polygon group ([TSYS\_MathPolygonGroup](../types/TSYS_MathPolygonGroup.md)<!-- -->, such as the return value of Boolean operations) is passed in, the net area is obtained by subtracting the sum of all hole areas from the sum of all outer ring areas
 
 ### calculateperimeter
 
 # SYS\_Math.calculatePerimeter() method
 
-计算多边形周长
+Calculate the perimeter of a polygon
 
 ## Signature
 
@@ -434,7 +434,7 @@ polygon
 
 </td><td>
 
-多边形
+Polygon
 
 
 </td></tr>
@@ -446,13 +446,13 @@ polygon
 
 number
 
-周长
+Perimeter
 
 ### contains
 
 # SYS\_Math.contains() method
 
-判断 polygon1 是否完全包含 polygon2
+Determine whether polygon1 completely contains polygon2
 
 ## Signature
 
@@ -490,7 +490,7 @@ polygon1
 
 </td><td>
 
-外部多边形
+Outer polygon
 
 
 </td></tr>
@@ -506,7 +506,7 @@ polygon2
 
 </td><td>
 
-内部多边形
+Internal polygon
 
 
 </td></tr>
@@ -518,13 +518,13 @@ polygon2
 
 boolean
 
-polygon1 是否完全包含 polygon2
+Whether polygon1 completely contains polygon2
 
 ### containspoint
 
 # SYS\_Math.containsPoint() method
 
-判断点是否在多边形内部
+Determine whether the point is inside the polygon
 
 ## Signature
 
@@ -562,7 +562,7 @@ polygon
 
 </td><td>
 
-多边形
+Polygon
 
 
 </td></tr>
@@ -578,7 +578,7 @@ point
 
 </td><td>
 
-待判断的点
+The point to determine
 
 
 </td></tr>
@@ -590,21 +590,21 @@ point
 
 boolean
 
-是否在多边形内部
+Whether In polygon internal
 
 ## Remarks
 
-使用射线法（Ray Casting）判断点是否在多边形内部
+Use the ray casting method to determine whether the point is inside the polygon
 
-由于射线法的特性，边界上的点行为不一致：部分边界上的点可能返回 `true`<!-- -->，部分可能返回 `false`<!-- -->， 具体取决于射线方向与边界的几何关系
+Due to the characteristics of the ray casting method, points on the boundary behave inconsistently: some boundary points may return `true`<!-- -->, and some may return `false`<!-- -->, depending on the geometric relationship between the ray direction and the boundary
 
-如需严格判断点是否在边界上，请结合 [SYS\_Math.distanceToPoint()](./SYS_Math.md) 判断距离是否为 `0`
+To strictly determine whether the point is on the boundary, combine [SYS\_Math.distanceToPoint()](./SYS_Math.md) to check whether the distance is `0`
 
 ### distancetopoint
 
 # SYS\_Math.distanceToPoint() method
 
-计算点到多边形边界的最短距离
+Calculate the shortest distance from a point to the polygon boundary
 
 ## Signature
 
@@ -642,7 +642,7 @@ polygon
 
 </td><td>
 
-多边形
+Polygon
 
 
 </td></tr>
@@ -658,7 +658,7 @@ point
 
 </td><td>
 
-待计算的点
+The point to calculate
 
 
 </td></tr>
@@ -670,13 +670,13 @@ point
 
 number
 
-最短距离，如点在多边形内部则返回 `0`
+Shortest distance. If the point is inside the polygon, `0` is returned
 
 ### getbbox
 
 # SYS\_Math.getBBox() method
 
-获取多边形的最小外接矩形（BBox）
+Get the minimum bounding rectangle (BBox) of the polygon
 
 ## Signature
 
@@ -714,7 +714,7 @@ polygon
 
 </td><td>
 
-多边形
+Polygon
 
 
 </td></tr>
@@ -732,7 +732,7 @@ BBox
 
 # SYS\_Math.getCentroid() method
 
-计算多边形质心
+Calculate the centroid of the polygon
 
 ## Signature
 
@@ -770,7 +770,7 @@ polygon
 
 </td><td>
 
-多边形
+Polygon
 
 
 </td></tr>
@@ -782,13 +782,13 @@ polygon
 
 [ISYS\_MathPoint](../interfaces/ISYS_MathPoint.md)
 
-质心坐标
+Centroid coordinate
 
 ### intersection
 
 # SYS\_Math.intersection() method
 
-计算两个多边形的交集
+Calculate the intersection of two polygons
 
 ## Signature
 
@@ -826,7 +826,7 @@ polygon1
 
 </td><td>
 
-多边形 1
+Polygon 1
 
 
 </td></tr>
@@ -842,7 +842,7 @@ polygon2
 
 </td><td>
 
-多边形 2
+Polygon 2
 
 
 </td></tr>
@@ -854,13 +854,13 @@ polygon2
 
 [TSYS\_MathPolygonGroup](../types/TSYS_MathPolygonGroup.md)
 
-交集结果的多边形组，空数组表示无交集
+Polygon group of the intersection result. An empty array means no intersection
 
 ### intersects
 
 # SYS\_Math.intersects() method
 
-判断两个多边形是否相交
+Determine whether two polygons intersect
 
 ## Signature
 
@@ -898,7 +898,7 @@ polygon1
 
 </td><td>
 
-多边形 1
+Polygon 1
 
 
 </td></tr>
@@ -914,7 +914,7 @@ polygon2
 
 </td><td>
 
-多边形 2
+Polygon 2
 
 
 </td></tr>
@@ -926,17 +926,17 @@ polygon2
 
 boolean
 
-是否相交
+Whether they intersect
 
 ## Remarks
 
-判断两个多边形的区域是否有任何重叠（包括包含、部分相交、边界接触）
+Determine whether the regions of two polygons have any overlap (including containment, partial intersection, and boundary contact)
 
 ### rotate
 
 # SYS\_Math.rotate() method
 
-旋转多边形
+Rotate the polygon
 
 ## Signature
 
@@ -974,7 +974,7 @@ polygon
 
 </td><td>
 
-多边形
+Polygon
 
 
 </td></tr>
@@ -990,7 +990,7 @@ number
 
 </td><td>
 
-旋转角度（角度制，正值为逆时针）
+Rotation angle (in degrees, positive values are counterclockwise)
 
 
 </td></tr>
@@ -1006,7 +1006,7 @@ number
 
 </td><td>
 
-_(Optional)_ 旋转中心 X 坐标，默认为质心
+_(Optional)_ X coordinate of the rotation center, defaulting to the centroid
 
 
 </td></tr>
@@ -1022,7 +1022,7 @@ number
 
 </td><td>
 
-_(Optional)_ 旋转中心 Y 坐标，默认为质心
+_(Optional)_ Y coordinate of the rotation center, defaulting to the centroid
 
 
 </td></tr>
@@ -1034,13 +1034,13 @@ _(Optional)_ 旋转中心 Y 坐标，默认为质心
 
 Array&lt;[ISYS\_MathPoint](../interfaces/ISYS_MathPoint.md)<!-- -->&gt;
 
-旋转后的离散点数组
+Array of discrete points after rotation
 
 ### scale
 
 # SYS\_Math.scale() method
 
-缩放多边形
+Scale the polygon
 
 ## Signature
 
@@ -1078,7 +1078,7 @@ polygon
 
 </td><td>
 
-多边形
+Polygon
 
 
 </td></tr>
@@ -1094,7 +1094,7 @@ number
 
 </td><td>
 
-X 方向缩放比例
+X direction scale ratio
 
 
 </td></tr>
@@ -1110,7 +1110,7 @@ number
 
 </td><td>
 
-_(Optional)_ Y 方向缩放比例，默认与 scaleX 相同
+_(Optional)_ Y direction scale ratio, defaulting to the same as scaleX
 
 
 </td></tr>
@@ -1126,7 +1126,7 @@ number
 
 </td><td>
 
-_(Optional)_ 缩放中心 X 坐标，默认为质心
+_(Optional)_ X coordinate of the scaling center, defaulting to the centroid
 
 
 </td></tr>
@@ -1142,7 +1142,7 @@ number
 
 </td><td>
 
-_(Optional)_ 缩放中心 Y 坐标，默认为质心
+_(Optional)_ Y coordinate of the scaling center, defaulting to the centroid
 
 
 </td></tr>
@@ -1154,13 +1154,13 @@ _(Optional)_ 缩放中心 Y 坐标，默认为质心
 
 Array&lt;[ISYS\_MathPoint](../interfaces/ISYS_MathPoint.md)<!-- -->&gt;
 
-缩放后的离散点数组
+Array of discrete points after scaling
 
 ### subtract
 
 # SYS\_Math.subtract() method
 
-计算两个多边形的差集（polygon1 - polygon2）
+Calculate the difference of two polygons (polygon1 - polygon2)
 
 ## Signature
 
@@ -1198,7 +1198,7 @@ polygon1
 
 </td><td>
 
-被减多边形
+Minuend polygon
 
 
 </td></tr>
@@ -1214,7 +1214,7 @@ polygon2
 
 </td><td>
 
-减去的多边形
+Subtrahend polygon
 
 
 </td></tr>
@@ -1226,13 +1226,13 @@ polygon2
 
 [TSYS\_MathPolygonGroup](../types/TSYS_MathPolygonGroup.md)
 
-差集结果的多边形组，保留外环与孔洞的归属关系
+Polygon group of the difference result, preserving the association between outer rings and holes
 
 ### translate
 
 # SYS\_Math.translate() method
 
-平移多边形
+Translate the polygon
 
 ## Signature
 
@@ -1270,7 +1270,7 @@ polygon
 
 </td><td>
 
-多边形
+Polygon
 
 
 </td></tr>
@@ -1286,7 +1286,7 @@ number
 
 </td><td>
 
-X 方向偏移量
+X direction offset
 
 
 </td></tr>
@@ -1302,7 +1302,7 @@ number
 
 </td><td>
 
-Y 方向偏移量
+Y direction offset
 
 
 </td></tr>
@@ -1314,13 +1314,13 @@ Y 方向偏移量
 
 Array&lt;[ISYS\_MathPoint](../interfaces/ISYS_MathPoint.md)<!-- -->&gt;
 
-平移后的离散点数组
+Array of discrete points after translation
 
 ### union
 
 # SYS\_Math.union() method
 
-计算两个多边形的并集
+Calculate the union of two polygons
 
 ## Signature
 
@@ -1358,7 +1358,7 @@ polygon1
 
 </td><td>
 
-多边形 1
+Polygon 1
 
 
 </td></tr>
@@ -1374,7 +1374,7 @@ polygon2
 
 </td><td>
 
-多边形 2
+Polygon 2
 
 
 </td></tr>
@@ -1386,13 +1386,13 @@ polygon2
 
 [TSYS\_MathPolygonGroup](../types/TSYS_MathPolygonGroup.md)
 
-并集结果的多边形组，保留外环与孔洞的归属关系
+Polygon group of the union result, preserving the association between outer rings and holes
 
 ### xor
 
 # SYS\_Math.xor() method
 
-计算两个多边形的对称差集（异或）
+Calculate the symmetric difference (XOR) of two polygons
 
 ## Signature
 
@@ -1430,7 +1430,7 @@ polygon1
 
 </td><td>
 
-多边形 1
+Polygon 1
 
 
 </td></tr>
@@ -1446,7 +1446,7 @@ polygon2
 
 </td><td>
 
-多边形 2
+Polygon 2
 
 
 </td></tr>
@@ -1458,4 +1458,4 @@ polygon2
 
 [TSYS\_MathPolygonGroup](../types/TSYS_MathPolygonGroup.md)
 
-对称差集结果的多边形组，保留外环与孔洞的归属关系
+Polygon group of the symmetric difference result, preserving the association between outer rings and holes

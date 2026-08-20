@@ -1,6 +1,6 @@
 # ISCH\_PrimitivePin class
 
-引脚图元
+Pin primitive
 
 ## Signature
 
@@ -11,7 +11,7 @@ export class ISCH_PrimitivePin implements ISCH_Primitive
 
 ## Remarks
 
-引脚图元仅符号编辑器可用，在原理图图页内，关联到符号的引脚被称为 [器件引脚图元](./ISCH_PrimitiveComponentPin.md)
+Pin primitives are only available in the symbol editor. In a schematic sheet, the pin associated with a symbol is called [a device pin primitive](./ISCH_PrimitiveComponentPin.md)
 
 
 ## Properties
@@ -363,7 +363,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 将对图元的更改应用到画布
+**_(BETA)_** Apply the changes to the primitives to the canvas
 
 
 </td></tr>
@@ -377,7 +377,7 @@ Description
 
 </td><td>
 
-获取属性状态：是否存在非连接标识
+Get the property state: whether there is a no-connect flag
 
 
 </td></tr>
@@ -391,7 +391,7 @@ Description
 
 </td><td>
 
-获取属性状态：其它参数
+Get the property state: other parameters
 
 
 </td></tr>
@@ -405,7 +405,7 @@ Description
 
 </td><td>
 
-获取属性状态：引脚颜色
+Get the property state: pin color
 
 
 </td></tr>
@@ -419,7 +419,7 @@ Description
 
 </td><td>
 
-获取属性状态：引脚长度
+Get the property state: pin length
 
 
 </td></tr>
@@ -433,7 +433,7 @@ Description
 
 </td><td>
 
-获取属性状态：引脚名称
+Get the property state: pin name
 
 
 </td></tr>
@@ -447,7 +447,7 @@ Description
 
 </td><td>
 
-获取属性状态：引脚编号
+Get the property state: pin number
 
 
 </td></tr>
@@ -461,7 +461,7 @@ Description
 
 </td><td>
 
-获取属性状态：引脚形状
+Get the property state: pin shape
 
 
 </td></tr>
@@ -475,7 +475,7 @@ Description
 
 </td><td>
 
-获取属性状态：引脚类型
+Get the property state: pin type
 
 
 </td></tr>
@@ -489,7 +489,7 @@ Description
 
 </td><td>
 
-获取属性状态：图元 ID
+Get the property state: primitive ID
 
 
 </td></tr>
@@ -503,7 +503,7 @@ Description
 
 </td><td>
 
-获取属性状态：图元类型
+Get the property state: primitive type
 
 
 </td></tr>
@@ -517,7 +517,7 @@ Description
 
 </td><td>
 
-获取属性状态：旋转角度
+Get the property state: rotation angle
 
 
 </td></tr>
@@ -531,7 +531,7 @@ Description
 
 </td><td>
 
-获取属性状态：坐标 X
+Get the property state: X coordinate
 
 
 </td></tr>
@@ -545,7 +545,7 @@ Description
 
 </td><td>
 
-获取属性状态：坐标 Y
+Get the property state: Y coordinate
 
 
 </td></tr>
@@ -559,7 +559,7 @@ Description
 
 </td><td>
 
-查询图元是否为异步图元
+Query whether the primitive is an async primitive
 
 
 </td></tr>
@@ -573,7 +573,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 将异步图元重置为当前画布状态
+**_(BETA)_** Reset the async primitive to the current canvas state
 
 
 </td></tr>
@@ -587,7 +587,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：是否存在非连接标识
+**_(BETA)_** Set the property state: whether there is a no-connect flag
 
 
 </td></tr>
@@ -601,7 +601,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：其它参数
+**_(BETA)_** Set the property state: other parameters
 
 
 </td></tr>
@@ -615,7 +615,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：引脚颜色
+**_(BETA)_** Set the property state: pin color
 
 
 </td></tr>
@@ -629,7 +629,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：引脚长度
+**_(BETA)_** Set the property state: pin length
 
 
 </td></tr>
@@ -643,7 +643,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：引脚名称
+**_(BETA)_** Set the property state: pin name
 
 
 </td></tr>
@@ -657,7 +657,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：引脚编号
+**_(BETA)_** Set the property state: pin number
 
 
 </td></tr>
@@ -671,7 +671,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：引脚形状
+**_(BETA)_** Set the property state: pin shape
 
 
 </td></tr>
@@ -685,7 +685,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：引脚类型
+**_(BETA)_** Set the property state: pin type
 
 
 </td></tr>
@@ -699,7 +699,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：旋转角度
+**_(BETA)_** Set the property state: rotation angle
 
 
 </td></tr>
@@ -713,7 +713,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：坐标 X
+**_(BETA)_** Set the property state: X coordinate
 
 
 </td></tr>
@@ -727,7 +727,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：坐标 Y
+**_(BETA)_** Set the property state: Y coordinate
 
 
 </td></tr>
@@ -741,7 +741,7 @@ Description
 
 </td><td>
 
-将图元转换为异步图元
+Convert Primitive to Async primitive
 
 
 </td></tr>
@@ -755,7 +755,7 @@ Description
 
 </td><td>
 
-将图元转换为同步图元
+Convert Primitive to Sync primitive
 
 
 </td></tr>
@@ -944,7 +944,7 @@ protected y: number;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-将对图元的更改应用到画布
+Apply the changes to the primitives to the canvas
 
 ## Signature
 
@@ -957,13 +957,46 @@ public done(): Promise<ISCH_PrimitivePin>;
 
 Promise&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)<!-- -->&gt;
 
-引脚图元对象
+Pin primitive object
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试引脚重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 在符号画布上创建一个测试引脚
+const pin = await eda.sch_PrimitivePin.create(x, y, '1', 'CLK', 0, 10, null, 'None', 'IN');
+
+// 3. 异步模式下连续修改编号和名称（此时画布尚未变化）
+const asyncPin = pin.toAsync();
+asyncPin.setState_PinNumber('A1');
+asyncPin.setState_PinName('SYS_CLK');
+
+// 4. done() 一次性提交两处修改
+const applied = await asyncPin.done();
+
+// 5. 从画布重新取引脚，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitivePin.get(pin.getState_PrimitiveId());
+
+console.log('applied number:', refetched.getState_PinNumber());
+console.log('applied name:', refetched.getState_PinName());
+console.log('done returns same primitive:', applied.getState_PrimitiveId() === pin.getState_PrimitiveId());
+```
 
 ### getstate_noconnected
 
 # ISCH\_PrimitivePin.getState\_NoConnected() method
 
-获取属性状态：是否存在非连接标识
+Get the property state: whether there is a no-connect flag
 
 ## Signature
 
@@ -976,13 +1009,36 @@ public getState_NoConnected(): boolean | undefined;
 
 boolean \| undefined
 
-是否存在非连接标识
+Whether there is a no-connect flag
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 在符号画布上创建一个测试引脚
+const pin = await eda.sch_PrimitivePin.create(400, 300, '1', 'NC', 0, 10, null, 'None', 'Passive');
+
+// 2. 从画布重新取引脚实例后读取非连接标识（新引脚默认 false）
+const fresh = await eda.sch_PrimitivePin.get(pin.getState_PrimitiveId());
+const noConnected = fresh.getState_NoConnected();
+
+// 3. 清理测试引脚（查询类需要清理）
+await eda.sch_PrimitivePin.delete([pin.getState_PrimitiveId()]);
+
+console.log('noConnected:', noConnected);
+```
 
 ### getstate_otherproperty
 
 # ISCH\_PrimitivePin.getState\_OtherProperty() method
 
-获取属性状态：其它参数
+Get the property state: other parameters
 
 ## Signature
 
@@ -995,13 +1051,36 @@ public getState_OtherProperty(): Record<string, string | number | boolean> | und
 
 Record&lt;string, string \| number \| boolean&gt; \| undefined
 
-其它参数
+Other parameters
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 在符号画布上创建一个测试引脚
+const pin = await eda.sch_PrimitivePin.create(400, 300, '1', 'CLK', 0, 10, null, 'None', 'IN');
+
+// 2. 从画布重新取引脚实例后读取其它参数
+const fresh = await eda.sch_PrimitivePin.get(pin.getState_PrimitiveId());
+const otherProperty = fresh.getState_OtherProperty();
+
+// 3. 清理测试引脚（查询类需要清理）
+await eda.sch_PrimitivePin.delete([pin.getState_PrimitiveId()]);
+
+console.log('otherProperty:', otherProperty);
+```
 
 ### getstate_pincolor
 
 # ISCH\_PrimitivePin.getState\_PinColor() method
 
-获取属性状态：引脚颜色
+Get the property state: pin color
 
 ## Signature
 
@@ -1014,13 +1093,35 @@ public getState_PinColor(): string | null;
 
 string \| null
 
-引脚颜色
+Pin color
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 在符号画布上创建一个测试引脚，指定颜色 #0000FF
+const pin = await eda.sch_PrimitivePin.create(400, 300, '1', 'CLK', 0, 10, '#0000FF', 'None', 'IN');
+
+// 2. 读取引脚颜色
+const pinColor = pin.getState_PinColor();
+
+// 3. 清理测试引脚（查询类需要清理）
+await eda.sch_PrimitivePin.delete([pin.getState_PrimitiveId()]);
+
+console.log('pinColor:', pinColor);
+```
 
 ### getstate_pinlength
 
 # ISCH\_PrimitivePin.getState\_PinLength() method
 
-获取属性状态：引脚长度
+Get the property state: pin length
 
 ## Signature
 
@@ -1033,13 +1134,35 @@ public getState_PinLength(): number;
 
 number
 
-引脚长度
+Pin length
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 在符号画布上创建一个测试引脚，引脚长度 20
+const pin = await eda.sch_PrimitivePin.create(400, 300, '1', 'CLK', 0, 20, null, 'None', 'IN');
+
+// 2. 读取引脚长度
+const pinLength = pin.getState_PinLength();
+
+// 3. 清理测试引脚（查询类需要清理）
+await eda.sch_PrimitivePin.delete([pin.getState_PrimitiveId()]);
+
+console.log('pinLength:', pinLength);
+```
 
 ### getstate_pinname
 
 # ISCH\_PrimitivePin.getState\_PinName() method
 
-获取属性状态：引脚名称
+Get the property state: pin name
 
 ## Signature
 
@@ -1052,13 +1175,35 @@ public getState_PinName(): string;
 
 string
 
-引脚名称
+Pin name
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 在符号画布上创建一个测试引脚，名称为 CLK
+const pin = await eda.sch_PrimitivePin.create(400, 300, '1', 'CLK', 0, 10, null, 'None', 'IN');
+
+// 2. 读取引脚名称
+const pinName = pin.getState_PinName();
+
+// 3. 清理测试引脚（查询类需要清理）
+await eda.sch_PrimitivePin.delete([pin.getState_PrimitiveId()]);
+
+console.log('pinName:', pinName);
+```
 
 ### getstate_pinnumber
 
 # ISCH\_PrimitivePin.getState\_PinNumber() method
 
-获取属性状态：引脚编号
+Get the property state: pin number
 
 ## Signature
 
@@ -1071,13 +1216,35 @@ public getState_PinNumber(): string;
 
 string
 
-引脚编号
+Pin number
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 在符号画布上创建一个测试引脚，编号为 1
+const pin = await eda.sch_PrimitivePin.create(400, 300, '1', 'CLK', 0, 10, null, 'None', 'IN');
+
+// 2. 读取引脚编号
+const pinNumber = pin.getState_PinNumber();
+
+// 3. 清理测试引脚（查询类需要清理）
+await eda.sch_PrimitivePin.delete([pin.getState_PrimitiveId()]);
+
+console.log('pinNumber:', pinNumber);
+```
 
 ### getstate_pinshape
 
 # ISCH\_PrimitivePin.getState\_PinShape() method
 
-获取属性状态：引脚形状
+Get the property state: pin shape
 
 ## Signature
 
@@ -1090,13 +1257,35 @@ public getState_PinShape(): ESCH_PrimitivePinShape;
 
 [ESCH\_PrimitivePinShape](../enums/ESCH_PrimitivePinShape.md)
 
-引脚形状
+Pin shape
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 在符号画布上创建一个测试引脚，形状为 Clock（时钟标记）
+const pin = await eda.sch_PrimitivePin.create(400, 300, '1', 'CLK', 0, 10, null, 'Clock', 'IN');
+
+// 2. 读取引脚形状
+const pinShape = pin.getState_PinShape();
+
+// 3. 清理测试引脚（查询类需要清理）
+await eda.sch_PrimitivePin.delete([pin.getState_PrimitiveId()]);
+
+console.log('pinShape:', pinShape);
+```
 
 ### getstate_pintype
 
 # ISCH\_PrimitivePin.getState\_pinType() method
 
-获取属性状态：引脚类型
+Get the property state: pin type
 
 ## Signature
 
@@ -1109,13 +1298,35 @@ public getState_pinType(): ESCH_PrimitivePinType;
 
 [ESCH\_PrimitivePinType](../enums/ESCH_PrimitivePinType.md)
 
-引脚类型
+Pin type
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 在符号画布上创建一个测试引脚，电气类型为 IN
+const pin = await eda.sch_PrimitivePin.create(400, 300, '1', 'CLK', 0, 10, null, 'None', 'IN');
+
+// 2. 读取引脚电气类型（方法名小写 p 开头，签名如此）
+const pinType = pin.getState_pinType();
+
+// 3. 清理测试引脚（查询类需要清理）
+await eda.sch_PrimitivePin.delete([pin.getState_PrimitiveId()]);
+
+console.log('pinType:', pinType);
+```
 
 ### getstate_primitiveid
 
 # ISCH\_PrimitivePin.getState\_PrimitiveId() method
 
-获取属性状态：图元 ID
+Get the property state: primitive ID
 
 ## Signature
 
@@ -1128,13 +1339,39 @@ public getState_PrimitiveId(): string;
 
 string
 
-图元 ID
+Primitive ID
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 在符号画布上创建一个测试引脚
+const pin = await eda.sch_PrimitivePin.create(400, 300, '1', 'CLK', 0, 10, null, 'None', 'IN');
+
+// 2. 读取图元 ID
+const primitiveId = pin.getState_PrimitiveId();
+
+// 3. 用该 ID 从画布重新取回引脚，验证 ID 有效
+const refetched = await eda.sch_PrimitivePin.get(primitiveId);
+
+// 4. 清理测试引脚（查询类需要清理）
+await eda.sch_PrimitivePin.delete([primitiveId]);
+
+console.log('primitiveId:', primitiveId);
+console.log('refetched number:', refetched.getState_PinNumber());
+```
 
 ### getstate_primitivetype
 
 # ISCH\_PrimitivePin.getState\_PrimitiveType() method
 
-获取属性状态：图元类型
+Get the property state: primitive type
 
 ## Signature
 
@@ -1147,13 +1384,35 @@ public getState_PrimitiveType(): ESCH_PrimitiveType;
 
 [ESCH\_PrimitiveType](../enums/ESCH_PrimitiveType.md)
 
-图元类型
+Primitive type
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 在符号画布上创建一个测试引脚
+const pin = await eda.sch_PrimitivePin.create(400, 300, '1', 'CLK', 0, 10, null, 'None', 'IN');
+
+// 2. 读取图元类型
+const primitiveType = pin.getState_PrimitiveType();
+
+// 3. 清理测试引脚（查询类需要清理）
+await eda.sch_PrimitivePin.delete([pin.getState_PrimitiveId()]);
+
+console.log('primitiveType:', primitiveType);
+```
 
 ### getstate_rotation
 
 # ISCH\_PrimitivePin.getState\_Rotation() method
 
-获取属性状态：旋转角度
+Get the property state: rotation angle
 
 ## Signature
 
@@ -1166,13 +1425,35 @@ public getState_Rotation(): number;
 
 number
 
-旋转角度
+Rotation angle
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 在符号画布上创建一个测试引脚，旋转 90 度（朝上）
+const pin = await eda.sch_PrimitivePin.create(400, 300, '1', 'CLK', 90, 10, null, 'None', 'IN');
+
+// 2. 读取旋转角度
+const rotation = pin.getState_Rotation();
+
+// 3. 清理测试引脚（查询类需要清理）
+await eda.sch_PrimitivePin.delete([pin.getState_PrimitiveId()]);
+
+console.log('rotation:', rotation);
+```
 
 ### getstate_x
 
 # ISCH\_PrimitivePin.getState\_X() method
 
-获取属性状态：坐标 X
+Get the property state: X coordinate
 
 ## Signature
 
@@ -1185,13 +1466,35 @@ public getState_X(): number;
 
 number
 
-坐标 X
+X coordinate
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 在符号画布上创建一个测试引脚（X = 400，约 101.6mm）
+const pin = await eda.sch_PrimitivePin.create(400, 300, '1', 'CLK', 0, 10, null, 'None', 'IN');
+
+// 2. 读取引脚坐标 X
+const x = pin.getState_X();
+
+// 3. 清理测试引脚（查询类需要清理）
+await eda.sch_PrimitivePin.delete([pin.getState_PrimitiveId()]);
+
+console.log('x:', x);
+```
 
 ### getstate_y
 
 # ISCH\_PrimitivePin.getState\_Y() method
 
-获取属性状态：坐标 Y
+Get the property state: Y coordinate
 
 ## Signature
 
@@ -1204,13 +1507,35 @@ public getState_Y(): number;
 
 number
 
-坐标 Y
+Y coordinate
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 在符号画布上创建一个测试引脚（Y = 300，约 76.2mm）
+const pin = await eda.sch_PrimitivePin.create(400, 300, '1', 'CLK', 0, 10, null, 'None', 'IN');
+
+// 2. 读取引脚坐标 Y
+const y = pin.getState_Y();
+
+// 3. 清理测试引脚（查询类需要清理）
+await eda.sch_PrimitivePin.delete([pin.getState_PrimitiveId()]);
+
+console.log('y:', y);
+```
 
 ### isasync
 
 # ISCH\_PrimitivePin.isAsync() method
 
-查询图元是否为异步图元
+Query whether the primitive is an async primitive
 
 ## Signature
 
@@ -1223,7 +1548,37 @@ public isAsync(): boolean;
 
 boolean
 
-是否为异步图元
+Whether Is async primitive
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 在符号画布上创建一个测试引脚（默认异步模式）
+const pin = await eda.sch_PrimitivePin.create(400, 300, '1', 'CLK', 0, 10, null, 'None', 'IN');
+const asyncByDefault = pin.isAsync();
+
+// 2. 转同步后再查，模式变为 false
+const syncPin = pin.toSync();
+const afterToSync = syncPin.isAsync();
+
+// 3. 再转回异步，模式恢复 true
+const asyncAgain = syncPin.toAsync();
+const afterToAsync = asyncAgain.isAsync();
+
+// 4. 清理测试引脚（查询类需要清理）
+await eda.sch_PrimitivePin.delete([pin.getState_PrimitiveId()]);
+
+console.log('asyncByDefault:', asyncByDefault);
+console.log('afterToSync:', afterToSync);
+console.log('afterToAsync:', afterToAsync);
+```
 
 ### reset
 
@@ -1231,7 +1586,7 @@ boolean
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-将异步图元重置为当前画布状态
+Reset the async primitive to the current canvas state
 
 ## Signature
 
@@ -1244,7 +1599,37 @@ public reset(): Promise<ISCH_PrimitivePin>;
 
 Promise&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)<!-- -->&gt;
 
-引脚图元对象
+Pin primitive object
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试引脚重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 在符号画布上创建一个测试引脚，名称为 CLK
+const pin = await eda.sch_PrimitivePin.create(x, y, '1', 'CLK', 0, 10, null, 'None', 'IN');
+
+// 3. 异步模式下把名称改成错误值
+const asyncPin = pin.toAsync();
+asyncPin.setState_PinName('WRONG_NAME');
+
+// 4. reset() 丢弃未提交的修改
+await asyncPin.reset();
+
+// 5. 从画布重新取引脚，名称仍是原来的值（保留现场供观察）
+const refetched = await eda.sch_PrimitivePin.get(pin.getState_PrimitiveId());
+
+console.log('pinName after reset:', refetched.getState_PinName());
+```
 
 ### setstate_noconnected
 
@@ -1252,7 +1637,7 @@ Promise&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)<!-- -->&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：是否存在非连接标识
+Set the property state: whether there is a no-connect flag
 
 ## Signature
 
@@ -1290,7 +1675,7 @@ boolean
 
 </td><td>
 
-是否存在非连接标识
+Whether there is a no-connect flag
 
 
 </td></tr>
@@ -1302,7 +1687,36 @@ boolean
 
 [ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)
 
-引脚图元对象
+Pin primitive object
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试引脚重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 在符号画布上创建一个测试引脚，默认无非连接标识
+const pin = await eda.sch_PrimitivePin.create(x, y, '1', 'NC', 0, 10, null, 'None', 'Passive');
+const before = pin.getState_NoConnected();
+
+// 3. 切换异步模式，打上非连接标识后提交画布
+const asyncPin = pin.toAsync();
+asyncPin.setState_NoConnected(true);
+await asyncPin.done();
+
+// 4. 从画布重新取引脚，确认标识已更新（保留现场供观察）
+const refetched = await eda.sch_PrimitivePin.get(pin.getState_PrimitiveId());
+
+console.log('noConnected:', before, '→', refetched.getState_NoConnected());
+```
 
 ### setstate_otherproperty
 
@@ -1310,7 +1724,7 @@ boolean
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：其它参数
+Set the property state: other parameters
 
 ## Signature
 
@@ -1348,7 +1762,7 @@ Record&lt;string, string \| number \| boolean&gt;
 
 </td><td>
 
-其它参数
+Other parameters
 
 
 </td></tr>
@@ -1360,7 +1774,36 @@ Record&lt;string, string \| number \| boolean&gt;
 
 [ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)
 
-引脚图元对象
+Pin primitive object
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试引脚重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 在符号画布上创建一个测试引脚
+const pin = await eda.sch_PrimitivePin.create(x, y, '1', 'CLK', 0, 10, null, 'None', 'IN');
+const before = pin.getState_OtherProperty();
+
+// 3. 切换异步模式，写入一个扩展键值后提交画布
+const asyncPin = pin.toAsync();
+asyncPin.setState_OtherProperty({ note: 'demo', level: 3 });
+await asyncPin.done();
+
+// 4. 从画布重新取引脚，查看其它参数（保留现场供观察）
+const refetched = await eda.sch_PrimitivePin.get(pin.getState_PrimitiveId());
+
+console.log('otherProperty:', before, '→', refetched.getState_OtherProperty());
+```
 
 ### setstate_pincolor
 
@@ -1368,7 +1811,7 @@ Record&lt;string, string \| number \| boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：引脚颜色
+Set the property state: pin color
 
 ## Signature
 
@@ -1406,7 +1849,7 @@ string \| null
 
 </td><td>
 
-引脚颜色
+Pin color
 
 
 </td></tr>
@@ -1418,7 +1861,36 @@ string \| null
 
 [ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)
 
-引脚图元对象
+Pin primitive object
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试引脚重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 在符号画布上创建一个测试引脚，颜色 #0000FF
+const pin = await eda.sch_PrimitivePin.create(x, y, '1', 'CLK', 0, 10, '#0000FF', 'None', 'IN');
+const before = pin.getState_PinColor();
+
+// 3. 切换异步模式，把颜色改成 #FF0000 后提交画布
+const asyncPin = pin.toAsync();
+asyncPin.setState_PinColor('#FF0000');
+await asyncPin.done();
+
+// 4. 从画布重新取引脚，确认颜色已更新（保留现场供观察）
+const refetched = await eda.sch_PrimitivePin.get(pin.getState_PrimitiveId());
+
+console.log('pinColor:', before, '→', refetched.getState_PinColor());
+```
 
 ### setstate_pinlength
 
@@ -1426,7 +1898,7 @@ string \| null
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：引脚长度
+Set the property state: pin length
 
 ## Signature
 
@@ -1464,7 +1936,7 @@ number
 
 </td><td>
 
-引脚长度
+Pin length
 
 
 </td></tr>
@@ -1476,7 +1948,36 @@ number
 
 [ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)
 
-引脚图元对象
+Pin primitive object
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试引脚重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 在符号画布上创建一个测试引脚，引脚长度 10
+const pin = await eda.sch_PrimitivePin.create(x, y, '1', 'CLK', 0, 10, null, 'None', 'IN');
+const before = pin.getState_PinLength();
+
+// 3. 切换异步模式，把长度改成 20 后提交画布
+const asyncPin = pin.toAsync();
+asyncPin.setState_PinLength(20);
+await asyncPin.done();
+
+// 4. 从画布重新取引脚，确认长度已更新（保留现场供观察）
+const refetched = await eda.sch_PrimitivePin.get(pin.getState_PrimitiveId());
+
+console.log('pinLength:', before, '→', refetched.getState_PinLength());
+```
 
 ### setstate_pinname
 
@@ -1484,7 +1985,7 @@ number
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：引脚名称
+Set the property state: pin name
 
 ## Signature
 
@@ -1522,7 +2023,7 @@ string
 
 </td><td>
 
-引脚名称
+Pin name
 
 
 </td></tr>
@@ -1534,7 +2035,36 @@ string
 
 [ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)
 
-引脚图元对象
+Pin primitive object
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试引脚重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 在符号画布上创建一个测试引脚，名称为 CLK
+const pin = await eda.sch_PrimitivePin.create(x, y, '1', 'CLK', 0, 10, null, 'None', 'IN');
+const before = pin.getState_PinName();
+
+// 3. 切换异步模式，把名称改成 SYS_CLK 后提交画布
+const asyncPin = pin.toAsync();
+asyncPin.setState_PinName('SYS_CLK');
+await asyncPin.done();
+
+// 4. 从画布重新取引脚，确认名称已更新（保留现场供观察）
+const refetched = await eda.sch_PrimitivePin.get(pin.getState_PrimitiveId());
+
+console.log('pinName:', before, '→', refetched.getState_PinName());
+```
 
 ### setstate_pinnumber
 
@@ -1542,7 +2072,7 @@ string
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：引脚编号
+Set the property state: pin number
 
 ## Signature
 
@@ -1580,7 +2110,7 @@ string
 
 </td><td>
 
-引脚编号
+Pin number
 
 
 </td></tr>
@@ -1592,7 +2122,36 @@ string
 
 [ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)
 
-引脚图元对象
+Pin primitive object
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试引脚重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 在符号画布上创建一个测试引脚，编号为 1
+const pin = await eda.sch_PrimitivePin.create(x, y, '1', 'CLK', 0, 10, null, 'None', 'IN');
+const before = pin.getState_PinNumber();
+
+// 3. 切换异步模式，把编号改成 A1 后提交画布
+const asyncPin = pin.toAsync();
+asyncPin.setState_PinNumber('A1');
+await asyncPin.done();
+
+// 4. 从画布重新取引脚，确认编号已更新（保留现场供观察）
+const refetched = await eda.sch_PrimitivePin.get(pin.getState_PrimitiveId());
+
+console.log('pinNumber:', before, '→', refetched.getState_PinNumber());
+```
 
 ### setstate_pinshape
 
@@ -1600,7 +2159,7 @@ string
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：引脚形状
+Set the property state: pin shape
 
 ## Signature
 
@@ -1638,7 +2197,7 @@ pinShape
 
 </td><td>
 
-引脚形状
+Pin shape
 
 
 </td></tr>
@@ -1650,7 +2209,36 @@ pinShape
 
 [ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)
 
-引脚图元对象
+Pin primitive object
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试引脚重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 在符号画布上创建一个测试引脚，形状 None
+const pin = await eda.sch_PrimitivePin.create(x, y, '1', 'CLK', 0, 10, null, 'None', 'IN');
+const before = pin.getState_PinShape();
+
+// 3. 切换异步模式，把形状改成 Clock（时钟标记）后提交画布
+const asyncPin = pin.toAsync();
+asyncPin.setState_PinShape('Clock');
+await asyncPin.done();
+
+// 4. 从画布重新取引脚，确认形状已更新（保留现场供观察）
+const refetched = await eda.sch_PrimitivePin.get(pin.getState_PrimitiveId());
+
+console.log('pinShape:', before, '→', refetched.getState_PinShape());
+```
 
 ### setstate_pintype
 
@@ -1658,7 +2246,7 @@ pinShape
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：引脚类型
+Set the property state: pin type
 
 ## Signature
 
@@ -1696,7 +2284,7 @@ pinType
 
 </td><td>
 
-引脚类型
+Pin type
 
 
 </td></tr>
@@ -1708,7 +2296,36 @@ pinType
 
 [ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)
 
-引脚图元对象
+Pin primitive object
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试引脚重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 在符号画布上创建一个测试引脚，电气类型 IN
+const pin = await eda.sch_PrimitivePin.create(x, y, '1', 'CLK', 0, 10, null, 'None', 'IN');
+const before = pin.getState_pinType();
+
+// 3. 切换异步模式，把类型改成 OUT 后提交画布
+const asyncPin = pin.toAsync();
+asyncPin.setState_PinType('OUT');
+await asyncPin.done();
+
+// 4. 从画布重新取引脚，确认类型已更新（保留现场供观察）
+const refetched = await eda.sch_PrimitivePin.get(pin.getState_PrimitiveId());
+
+console.log('pinType:', before, '→', refetched.getState_pinType());
+```
 
 ### setstate_rotation
 
@@ -1716,7 +2333,7 @@ pinType
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：旋转角度
+Set the property state: rotation angle
 
 ## Signature
 
@@ -1754,7 +2371,7 @@ number
 
 </td><td>
 
-旋转角度
+Rotation angle
 
 
 </td></tr>
@@ -1766,7 +2383,36 @@ number
 
 [ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)
 
-引脚图元对象
+Pin primitive object
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试引脚重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 在符号画布上创建一个测试引脚，旋转 0 度
+const pin = await eda.sch_PrimitivePin.create(x, y, '1', 'CLK', 0, 10, null, 'None', 'IN');
+const before = pin.getState_Rotation();
+
+// 3. 切换异步模式，把旋转角度改成 90（朝上）后提交画布
+const asyncPin = pin.toAsync();
+asyncPin.setState_Rotation(90);
+await asyncPin.done();
+
+// 4. 从画布重新取引脚，确认角度已更新（保留现场供观察）
+const refetched = await eda.sch_PrimitivePin.get(pin.getState_PrimitiveId());
+
+console.log('rotation:', before, '→', refetched.getState_Rotation());
+```
 
 ### setstate_x
 
@@ -1774,7 +2420,7 @@ number
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：坐标 X
+Set the property state: X coordinate
 
 ## Signature
 
@@ -1812,7 +2458,7 @@ number
 
 </td><td>
 
-坐标 X
+X coordinate
 
 
 </td></tr>
@@ -1824,7 +2470,36 @@ number
 
 [ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)
 
-引脚图元对象
+Pin primitive object
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试引脚重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 在符号画布上创建一个测试引脚
+const pin = await eda.sch_PrimitivePin.create(x, y, '1', 'CLK', 0, 10, null, 'None', 'IN');
+const before = pin.getState_X();
+
+// 3. 切换异步模式，右移 200（约 50.8mm）后提交画布
+const asyncPin = pin.toAsync();
+asyncPin.setState_X(before + 200);
+await asyncPin.done();
+
+// 4. 从画布重新取引脚，确认坐标已更新（保留现场供观察）
+const refetched = await eda.sch_PrimitivePin.get(pin.getState_PrimitiveId());
+
+console.log('x:', before, '→', refetched.getState_X());
+```
 
 ### setstate_y
 
@@ -1832,7 +2507,7 @@ number
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：坐标 Y
+Set the property state: Y coordinate
 
 ## Signature
 
@@ -1870,7 +2545,7 @@ number
 
 </td><td>
 
-坐标 Y
+Y coordinate
 
 
 </td></tr>
@@ -1882,13 +2557,42 @@ number
 
 [ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)
 
-引脚图元对象
+Pin primitive object
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试引脚重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 在符号画布上创建一个测试引脚
+const pin = await eda.sch_PrimitivePin.create(x, y, '1', 'CLK', 0, 10, null, 'None', 'IN');
+const before = pin.getState_Y();
+
+// 3. 切换异步模式，上移 200（约 50.8mm）后提交画布
+const asyncPin = pin.toAsync();
+asyncPin.setState_Y(before + 200);
+await asyncPin.done();
+
+// 4. 从画布重新取引脚，确认坐标已更新（保留现场供观察）
+const refetched = await eda.sch_PrimitivePin.get(pin.getState_PrimitiveId());
+
+console.log('y:', before, '→', refetched.getState_Y());
+```
 
 ### toasync
 
 # ISCH\_PrimitivePin.toAsync() method
 
-将图元转换为异步图元
+Convert Primitive to Async primitive
 
 ## Signature
 
@@ -1901,13 +2605,43 @@ public toAsync(): ISCH_PrimitivePin;
 
 [ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)
 
-引脚图元对象
+Pin primitive object
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试引脚重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 在符号画布上创建一个测试引脚，并转入异步模式
+const pin = await eda.sch_PrimitivePin.create(x, y, '1', 'CLK', 0, 10, null, 'None', 'IN');
+const asyncPin = pin.toAsync();
+const isAsyncNow = asyncPin.isAsync();
+
+// 3. 异步模式下修改编号，done() 提交画布
+asyncPin.setState_PinNumber('B2');
+await asyncPin.done();
+
+// 4. 从画布重新取引脚，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitivePin.get(pin.getState_PrimitiveId());
+
+console.log('isAsync after toAsync:', isAsyncNow);
+console.log('pinNumber:', refetched.getState_PinNumber());
+```
 
 ### tosync
 
 # ISCH\_PrimitivePin.toSync() method
 
-将图元转换为同步图元
+Convert Primitive to Sync primitive
 
 ## Signature
 
@@ -1920,4 +2654,33 @@ public toSync(): ISCH_PrimitivePin;
 
 [ISCH\_PrimitivePin](./ISCH_PrimitivePin.md)
 
-引脚图元对象
+Pin primitive object
+
+## Example
+
+
+```javascript
+// 0. 确保当前文档是符号编辑器：优先复用测试符号，没有则新建后打开
+const libUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const found = await eda.lib_Symbol.search('嘉立创示例_Pin测试符号', libUuid);
+const symUuid = found[0] ? found[0].uuid : await eda.lib_Symbol.create(libUuid, '嘉立创示例_Pin测试符号');
+await eda.lib_Symbol.openInEditor(symUuid, libUuid);
+
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试引脚重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 在符号画布上创建一个测试引脚，并转入同步模式
+const pin = await eda.sch_PrimitivePin.create(x, y, '1', 'CLK', 0, 10, null, 'None', 'IN');
+const syncPin = pin.toSync();
+const isAsyncNow = syncPin.isAsync();
+
+// 3. 同步模式下改编号，立即生效，无需 done()
+syncPin.setState_PinNumber('C3');
+
+// 4. 从画布重新取引脚，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitivePin.get(pin.getState_PrimitiveId());
+
+console.log('isAsync after toSync:', isAsyncNow);
+console.log('pinNumber:', refetched.getState_PinNumber());
+```

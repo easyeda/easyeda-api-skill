@@ -1,6 +1,6 @@
 # SYS\_Window class
 
-系统 / 窗口类
+System / window class
 
 ## Signature
 
@@ -10,7 +10,7 @@ export class SYS_Window
 
 ## Remarks
 
-为了保证安全性，仅提供有限的窗口跳转与监听支持，更多操作请使用内联框架窗口 [SYS\_IFrame](./SYS_IFrame.md)
+For security, only limited window navigation and listening support is provided. For more operations, use the iframe window [SYS\_IFrame](./SYS_IFrame.md)
 
 
 ## Methods
@@ -41,7 +41,7 @@ Description
 
 </td><td>
 
-新增事件监听
+Add an event listener
 
 
 </td></tr>
@@ -55,7 +55,7 @@ Description
 
 </td><td>
 
-获取当前主题
+Get Current theme
 
 
 </td></tr>
@@ -69,7 +69,7 @@ Description
 
 </td><td>
 
-获取 URL 锚点
+Get the URL anchor
 
 
 </td></tr>
@@ -83,7 +83,7 @@ Description
 
 </td><td>
 
-获取 URL 参数
+Get URL parameter
 
 
 </td></tr>
@@ -97,7 +97,7 @@ Description
 
 </td><td>
 
-获取页面当前视口大小
+Get the current viewport size of the page
 
 
 </td></tr>
@@ -111,7 +111,7 @@ Description
 
 </td><td>
 
-隐藏开始页快速启动选项
+Hide start page quick start items
 
 
 </td></tr>
@@ -125,7 +125,7 @@ Description
 
 </td><td>
 
-隐藏开始页支持信息悬浮组件
+Hide the start page support information floating components
 
 
 </td></tr>
@@ -139,7 +139,7 @@ Description
 
 </td><td>
 
-打开资源窗口
+Open a resource window
 
 
 </td></tr>
@@ -153,7 +153,7 @@ Description
 
 </td><td>
 
-打开 UI 窗口
+Open UI window
 
 
 </td></tr>
@@ -167,7 +167,7 @@ Description
 
 </td><td>
 
-移除事件监听
+Remove Event listener
 
 
 </td></tr>
@@ -181,7 +181,7 @@ Description
 
 </td><td>
 
-追加新的 URL 历史记录栈信息
+Append new URL history stack information
 
 
 </td></tr>
@@ -195,7 +195,7 @@ Description
 
 </td><td>
 
-修改当前的 URL 历史记录栈信息
+Modify the current URL history stack information
 
 
 </td></tr>
@@ -209,7 +209,7 @@ Description
 
 # SYS\_Window.addEventListener() method
 
-新增事件监听
+Add an event listener
 
 ## Signature
 
@@ -247,7 +247,7 @@ type
 
 </td><td>
 
-事件类型，当前支持 `blur` `focus`
+Event type, current support `blur` `focus`
 
 
 </td></tr>
@@ -263,7 +263,7 @@ listener
 
 </td><td>
 
-事件监听回调
+Event listener callback
 
 
 </td></tr>
@@ -279,7 +279,7 @@ options
 
 </td><td>
 
-_(Optional)_ 可选参数
+_(Optional)_ Optional parameters
 
 
 </td></tr>
@@ -291,13 +291,13 @@ _(Optional)_ 可选参数
 
 [ISYS\_WindowEventListenerRemovableObject](../interfaces/ISYS_WindowEventListenerRemovableObject.md) \| undefined
 
-事件监听方法，用于移除事件监听，如若为 `undefined` 则表示创建事件监听失败
+Event listener method, used to remove the event listener. If it is `undefined`<!-- -->, it means creating the event listener failed
 
 ### getcurrenttheme
 
 # SYS\_Window.getCurrentTheme() method
 
-获取当前主题
+Get Current theme
 
 ## Signature
 
@@ -310,17 +310,17 @@ public getCurrentTheme(): Promise<ESYS_Theme>;
 
 Promise&lt;[ESYS\_Theme](../enums/ESYS_Theme.md)<!-- -->&gt;
 
-当前主题
+Current theme
 
 ## Remarks
 
-获取当前 EDA 主题，\*\*浅色\*\* 或 \*\*深色\*\*
+Get the current EDA theme, \*\*light\*\* or \*\*dark\*\*
 
 ### geturlanchor
 
 # SYS\_Window.getUrlAnchor() method
 
-获取 URL 锚点
+Get the URL anchor
 
 ## Signature
 
@@ -333,13 +333,13 @@ public getUrlAnchor(): string;
 
 string
 
-URL 锚点值
+URL anchor value
 
 ### geturlparam
 
 # SYS\_Window.getUrlParam() method
 
-获取 URL 参数
+Get URL parameter
 
 ## Signature
 
@@ -377,7 +377,7 @@ string
 
 </td><td>
 
-参数名
+Parameter name
 
 
 </td></tr>
@@ -389,13 +389,13 @@ string
 
 string \| null
 
-参数值
+Parameter value
 
 ### getviewportsize
 
 # SYS\_Window.getViewportSize() method
 
-获取页面当前视口大小
+Get the current viewport size of the page
 
 ## Signature
 
@@ -408,7 +408,7 @@ public getViewportSize(): { width: number; height: number };
 
 \{ width: number; height: number \}
 
-视口宽高（单位：像素）
+Viewport width and height (in pixels)
 
 ## Remarks
 
@@ -418,7 +418,7 @@ ADD since EDA v3.2.162
 
 # SYS\_Window.hideStartPageQuickStartItems() method
 
-隐藏开始页快速启动选项
+Hide start page quick start items
 
 ## Signature
 
@@ -456,7 +456,7 @@ Array&lt;[ESYS\_StartPageQuickStartItem](../enums/ESYS_StartPageQuickStartItem.m
 
 </td><td>
 
-欲隐藏的快速启动项数组
+Array of quick start items to hide
 
 
 </td></tr>
@@ -468,21 +468,21 @@ Array&lt;[ESYS\_StartPageQuickStartItem](../enums/ESYS_StartPageQuickStartItem.m
 
 Promise&lt;boolean&gt;
 
-是否全部隐藏成功（若存在未知项或已隐藏的项则返回 `false`<!-- -->）
+Whether all items were hidden successfully (`false` is returned if unknown items or already-hidden items exist)
 
 ## Remarks
 
-隐藏开始页快速启动模块中的指定项
+Hide the specified items in the quick start module of the start page
 
-注意 1：本接口需要使用者启用扩展的外部交互权限，如若未启用将始终 `throw Error`
+Note 1: This API requires the user to enable the extension external interaction permission, if not enabled, it will always `throw Error`
 
-注意 2：本接口为私有化部署版本专用接口，如若在其它版本调用将始终 `throw Error` ADD since EDA v3.2.162
+Note 2: This API is dedicated to the private deployment edition. Calling it in other editions will always `throw Error` ADD since EDA v3.2.162
 
 ### hidestartpagesupportfloatbaritems
 
 # SYS\_Window.hideStartPageSupportFloatBarItems() method
 
-隐藏开始页支持信息悬浮组件
+Hide the start page support information floating components
 
 ## Signature
 
@@ -495,21 +495,21 @@ public hideStartPageSupportFloatBarItems(): Promise<boolean>;
 
 Promise&lt;boolean&gt;
 
-是否隐藏成功
+Whether Hide successful
 
 ## Remarks
 
-隐藏开始页右侧悬浮组件（微信、客服、电话、反馈）
+Hide the floating components on the right side of the start page (WeChat, customer service, phone, feedback)
 
-注意 1：本接口需要使用者启用扩展的外部交互权限，如若未启用将始终 `throw Error`
+Note 1: This API requires the user to enable the extension external interaction permission, if not enabled, it will always `throw Error`
 
-注意 2：本接口为私有化部署版本专用接口，如若在其它版本调用将始终 `throw Error` ADD since EDA v3.2.162
+Note 2: This API is dedicated to the private deployment edition. Calling it in other editions will always `throw Error` ADD since EDA v3.2.162
 
 ### open
 
 # SYS\_Window.open() method
 
-打开资源窗口
+Open a resource window
 
 ## Signature
 
@@ -547,7 +547,7 @@ string
 
 </td><td>
 
-欲加载资源的 URL 或路径
+URL or path of the resource to load
 
 
 </td></tr>
@@ -563,7 +563,7 @@ target
 
 </td><td>
 
-_(Optional)_ 上下文目标
+_(Optional)_ Context target
 
 
 </td></tr>
@@ -579,7 +579,7 @@ void
 
 # SYS\_Window.openUI() method
 
-打开 UI 窗口
+Open UI window
 
 ## Signature
 
@@ -617,7 +617,7 @@ string
 
 </td><td>
 
-UI 名称
+UI name
 
 
 </td></tr>
@@ -633,7 +633,7 @@ Record&lt;string, any&gt;
 
 </td><td>
 
-_(Optional)_ 可选参数对象
+_(Optional)_ Optional parameter object
 
 
 </td></tr>
@@ -647,13 +647,13 @@ Promise&lt;void&gt;
 
 ## Remarks
 
-非公开接口使用提醒：本接口按原样提供，不提供参数的额外文档，参数可能在任何版本出现破坏性更改并不另行通知
+Non-public API usage notice: This API is provided as-is without additional documentation for parameters. Parameters may be changed in a breaking manner in any version without notice.
 
 ### removeeventlistener
 
 # SYS\_Window.removeEventListener() method
 
-移除事件监听
+Remove Event listener
 
 ## Signature
 
@@ -691,7 +691,7 @@ removableObject
 
 </td><td>
 
-窗口事件监听可移除对象
+Window event listener can remove object
 
 
 </td></tr>
@@ -707,7 +707,7 @@ void
 
 # SYS\_Window.urlPushState() method
 
-追加新的 URL 历史记录栈信息
+Append new URL history stack information
 
 ## Signature
 
@@ -761,7 +761,7 @@ void
 
 # SYS\_Window.urlReplaceState() method
 
-修改当前的 URL 历史记录栈信息
+Modify the current URL history stack information
 
 ## Signature
 

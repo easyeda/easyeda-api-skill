@@ -1,6 +1,6 @@
 # ESYS\_ImportProjectImportOption enum
 
-导入工程导入选项
+Import project import option
 
 ## Signature
 

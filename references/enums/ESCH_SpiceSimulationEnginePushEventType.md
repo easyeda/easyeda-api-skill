@@ -1,6 +1,6 @@
 # ESCH\_SpiceSimulationEnginePushEventType enum
 
-Spice 仿真引擎推送事件类型
+Spice simulation engine push event type
 
 ## Signature
 

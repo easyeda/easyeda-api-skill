@@ -1,6 +1,6 @@
 # SYS\_IFrame class
 
-系统 / 内联框架窗口类
+System / iframe window class
 
 ## Signature
 
@@ -39,7 +39,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 关闭内联框架窗口
+**_(BETA)_** Close iframe window
 
 
 </td></tr>
@@ -53,7 +53,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 隐藏内联框架窗口
+**_(BETA)_** Hide iframe window
 
 
 </td></tr>
@@ -67,7 +67,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 内联框架是否已存在
+**_(BETA)_** Whether the iframe already exists
 
 
 </td></tr>
@@ -81,7 +81,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 打开内联框架窗口
+**_(BETA)_** Open iframe window
 
 
 </td></tr>
@@ -95,7 +95,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 显示内联框架窗口
+**_(BETA)_** Show iframe window
 
 
 </td></tr>
@@ -111,7 +111,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-关闭内联框架窗口
+Close iframe window
 
 ## Signature
 
@@ -149,7 +149,7 @@ string
 
 </td><td>
 
-_(Optional)_ 内联框架窗口 ID，未传入时将关闭由本扩展打开的所有内联框架窗口
+_(Optional)_ Iframe window ID. If not passed in, all iframe windows opened by this extension will be closed
 
 
 </td></tr>
@@ -161,13 +161,13 @@ _(Optional)_ 内联框架窗口 ID，未传入时将关闭由本扩展打开的�
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-关闭指定 ID 的内联框架窗口
+Close the iframe window with the specified ID
 
-注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error`
+Note: This API is only valid for extensions. Calling it in a standalone script environment will always `throw Error`
 
 ### hideiframe
 
@@ -175,7 +175,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-隐藏内联框架窗口
+Hide iframe window
 
 ## Signature
 
@@ -213,7 +213,7 @@ string
 
 </td><td>
 
-_(Optional)_ 内联框架窗口 ID，未传入时将隐藏扩展关联的所有内联框架窗口
+_(Optional)_ Iframe window ID. If not passed in, all iframe windows associated with the extension will be hidden
 
 
 </td></tr>
@@ -225,13 +225,13 @@ _(Optional)_ 内联框架窗口 ID，未传入时将隐藏扩展关联的所有�
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-本接口为结果导向的： 如若未找到指定内联框架窗口，接口将会返回 `false`<!-- -->； 如若在执行操作前该内联框架窗口已处于隐藏状态，接口将会返回 `true`
+This API is result-oriented: If the specified iframe window is not found, the API returns `false`<!-- -->; if the iframe window was already hidden before the operation, the API returns `true`
 
-注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error`
+Note: This API is only valid for extensions. Calling it in a standalone script environment will always `throw Error`
 
 ### isiframealreadyexist
 
@@ -239,7 +239,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-内联框架是否已存在
+Whether the iframe already exists
 
 ## Signature
 
@@ -277,7 +277,7 @@ string
 
 </td><td>
 
-内联框架 ID
+Iframe ID
 
 
 </td></tr>
@@ -289,11 +289,11 @@ string
 
 Promise&lt;boolean&gt;
 
-是否存在
+Whether Exists
 
 ## Remarks
 
-注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error` ADD since EDA v4.2
+Note: This API is only valid for extensions. Calling it in a standalone script environment will always `throw Error` ADD since EDA v4.2
 
 ### openiframe
 
@@ -301,7 +301,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-打开内联框架窗口
+Open iframe window
 
 ## Signature
 
@@ -339,7 +339,7 @@ string
 
 </td><td>
 
-需要加载的 HTML 文件在扩展包内的路径，从扩展根目录起始，例如 `/iframe/index.html`
+The path of the HTML file to load within the extension package, starting from the extension root directory, e.g. `/iframe/index.html`
 
 
 </td></tr>
@@ -355,7 +355,7 @@ number
 
 </td><td>
 
-_(Optional)_ 内联框架窗口的宽度
+_(Optional)_ Width of the iframe window
 
 
 </td></tr>
@@ -371,7 +371,7 @@ number
 
 </td><td>
 
-_(Optional)_ 内联框架窗口的高度
+_(Optional)_ Height of the iframe window
 
 
 </td></tr>
@@ -387,7 +387,7 @@ string
 
 </td><td>
 
-_(Optional)_ 内联框架窗口 ID，用于关闭内联框架窗口
+_(Optional)_ Iframe window ID, used to close the iframe window
 
 
 </td></tr>
@@ -403,7 +403,7 @@ props
 
 </td><td>
 
-_(Optional)_ 其它参数
+_(Optional)_ Other parameters
 
 
 </td></tr>
@@ -415,19 +415,19 @@ _(Optional)_ 其它参数
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-本接口仅扩展包允许调用，用户需要在扩展包内包含用于内联的 HTML 文件；
+This API can only be called by extension packages. Users need to include an HTML file for embedding in the extension package;
 
-本接口调用后将会打开一个 Dialog 窗口，该 Dialog 窗口的标题为 HTML 文件的 `<title>`<!-- -->，标题栏有关闭按钮；
+After this API is called, a Dialog window will open. The title of the Dialog window is the `<title>` of the HTML file, and the title bar has a close button;
 
-正文部分为内联框架，`width` 和 `height` 均为正文部分内联框架的宽高；
+The body is an iframe. `width` and `height` are the width and height of the iframe in the body;
 
-内联框架需要展示 `htmlFileName` 的内容，该 HTML 从扩展包内获取，并已在安装时被存储至 IndexedDB 中
+The iframe needs to display the content of `htmlFileName`<!-- -->. This HTML is obtained from the extension package and has been stored in IndexedDB during installation
 
-注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error`
+Note: This API is only valid for extensions. Calling it in a standalone script environment will always `throw Error`
 
 ### showiframe
 
@@ -435,7 +435,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-显示内联框架窗口
+Show iframe window
 
 ## Signature
 
@@ -473,7 +473,7 @@ string
 
 </td><td>
 
-_(Optional)_ 内联框架窗口 ID，未传入时将显示扩展关联的所有内联框架窗口
+_(Optional)_ Iframe window ID. If not passed in, all iframe windows associated with the extension will be shown
 
 
 </td></tr>
@@ -485,10 +485,10 @@ _(Optional)_ 内联框架窗口 ID，未传入时将显示扩展关联的所有�
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
 
 ## Remarks
 
-本接口为结果导向的： 如若未找到指定内联框架窗口，接口将会返回 `false`<!-- -->； 如若在执行操作前该内联框架窗口已处于显示状态，接口将会返回 `true`
+This API is result-oriented: If the specified iframe window is not found, the API returns `false`<!-- -->; if the iframe window was already in the shown state before the operation, the API returns `true`
 
-注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error`
+Note: This API is only valid for extensions. Calling it in a standalone script environment will always `throw Error`

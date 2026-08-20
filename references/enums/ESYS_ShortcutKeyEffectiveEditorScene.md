@@ -1,6 +1,6 @@
 # ESYS\_ShortcutKeyEffectiveEditorScene enum
 
-快捷键生效场景范围
+Effective scene range of the shortcut key
 
 ## Signature
 

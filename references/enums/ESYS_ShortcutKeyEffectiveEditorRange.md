@@ -1,6 +1,6 @@
 # ESYS\_ShortcutKeyEffectiveEditorRange enum
 
-快捷键生效页面范围
+Effective page range of the shortcut key
 
 ## Signature
 

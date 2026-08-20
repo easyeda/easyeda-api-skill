@@ -1,6 +1,6 @@
 # EDMT\_EditorSplitScreenDirection enum
 
-编辑器分屏方向
+Editor split screen direction
 
 ## Signature
 

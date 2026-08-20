@@ -1,6 +1,6 @@
 # TPCB\_PolygonSourceArray type
 
-单多边形源数组
+Single polygon source array
 
 ## Signature
 
@@ -10,9 +10,9 @@ export type TPCB_PolygonSourceArray = Array<'L' | 'ARC' | 'CARC' | 'C' | 'R' | '
 
 ## Remarks
 
-单多边形为首尾重合的一条不间断的线所描述的区域，如果首尾不重合将会自动重合。
+A single polygon is a region described by an unbroken line whose start and end coincide. If the start and end do not coincide, they will be automatically closed.
 
-单多边形的数据格式举例：
+Example of the data format of a single polygon:
 
 `[300, 200, 'L', 400, 200, 'ARC', 400, 220, 15, 'C', 200, 500, 400, 300, 100, 100]`
 
@@ -20,64 +20,64 @@ export type TPCB_PolygonSourceArray = Array<'L' | 'ARC' | 'CARC' | 'C' | 'R' | '
 
 `['CIRCLE', 100, 200, 5]`
 
-单多边形的数据由以下几种模式组合而成：
+The data of a single polygon is composed of the following modes:
 
-① L 直线模式
+1. L line mode
 
 `x1 y1 L x2 y3 x3 y3 ...`
 
-- `{number}` `x` - 直线点的 X 坐标
+- `{number}` `x` - X coordinate of the line point
 
-- `{number}` `y` - 直线点的 Y 坐标
+- `{number}` `y` - Y coordinate of the line point
 
-② ARC/CARC 圆弧模式
+② ARC/CARC arc mode
 
-`ARC` 为两点交互，`CARC` 为中心圆弧交互
+`ARC` is two-point arc interaction, and `CARC` is center arc interaction
 
 `startX startY ARC arcAngle endX endY`
 
 `startX startY CARC arcAngle endX endY`
 
-- `{number}` `startX` - 起始 X
+- `{number}` `startX` - Start X
 
-- `{number}` `startY` - 起始 Y
+- `{number}` `startY` - Start Y
 
-- `{number}` `arcAngle` - 圆弧角（负值为顺时针旋转；角度制）
+- `{number}` `arcAngle` - Arc angle (negative values rotate clockwise; in degrees)
 
-- `{number}` `endX` - 终止 X
+- `{number}` `endX` - End X
 
-- `{number}` `endY` - 终止 Y
+- `{number}` `endY` - End Y
 
-③ C 三阶贝塞尔模式
+3. C cubic Bezier mode
 
 `x1 y1 C x2 y2 x3 y3 x4 y4 ...`
 
-- `{number}` `x` - 控制点 X
+- `{number}` `x` - Control point X
 
-- `{number}` `y` - 控制点 Y
+- `{number}` `y` - Control point Y
 
-④ R 矩形模式
+④ R rectangle mode
 
 `R x y width height rot round`
 
-- `{number}` `x` - 左上点 X
+- `{number}` `x` - top-left point X
 
-- `{number}` `y` - 左上点 Y
+- `{number}` `y` - top-left point Y
 
-- `{number}` `width` - 宽
+- `{number}` `width` - width
 
-- `{number}` `height` - 高
+- `{number}` `height` - height
 
-- `{number}` `rotation` - 旋转角度
+- `{number}` `rotation` - rotation angle
 
-- `{number}` `round` - 圆角半径
+- `{number}` `round` - corner radius
 
-⑤ CIRCLE 圆形模式
+5. CIRCLE mode
 
 `CIRCLE cx cy radius`
 
-- `{number}` `cx` - 中心点 X
+- `{number}` `cx` - center point X
 
-- `{number}` `xy` - 中心点 Y
+- `{number}` `xy` - center point Y
 
-- `{number}` `radius` - 半径
+- `{number}` `radius` - radius

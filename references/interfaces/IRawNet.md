@@ -1,6 +1,6 @@
 # IRawNet interface
 
-原始数据 - net
+Raw data - net
 
 ## Signature
 

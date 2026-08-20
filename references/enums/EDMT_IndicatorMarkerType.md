@@ -1,6 +1,6 @@
 # EDMT\_IndicatorMarkerType enum
 
-指示标记类型
+Indicator marker type
 
 ## Signature
 

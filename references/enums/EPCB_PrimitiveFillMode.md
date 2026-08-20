@@ -1,6 +1,6 @@
 # EPCB\_PrimitiveFillMode enum
 
-填充图元填充模式
+Fill primitive fill mode
 
 ## Signature
 
@@ -72,4 +72,4 @@ SOLID
 
 ## Remarks
 
-网格填充和内电层填充为预留配置
+Grid fill and inner layer fill are reserved configurations

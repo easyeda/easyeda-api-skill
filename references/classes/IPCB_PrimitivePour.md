@@ -1,6 +1,6 @@
 # IPCB\_PrimitivePour class
 
-覆铜边框图元
+Copper border primitive
 
 ## Signature
 
@@ -40,7 +40,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 转换到：填充图元(默认是填充区域)
+**_(BETA)_** Convert to: fill primitive (default is the fill region)
 
 
 </td></tr>
@@ -54,7 +54,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 转换到：折线图元(默认是线条)
+**_(BETA)_** Convert to: polyline primitive (default is the line)
 
 
 </td></tr>
@@ -68,7 +68,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 转换到：区域图元(默认是禁止区域)
+**_(BETA)_** Convert to: region primitive (default is the forbidden region)
 
 
 </td></tr>
@@ -82,7 +82,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 将对图元的更改应用到画布
+**_(BETA)_** Apply the changes to the primitives to the canvas
 
 
 </td></tr>
@@ -96,7 +96,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取铺铜区域覆铜填充图元
+**_(BETA)_** Get the copper fill primitive of the copper region
 
 
 </td></tr>
@@ -110,7 +110,7 @@ Description
 
 </td><td>
 
-获取属性状态：复杂多边形
+Get the property state: complex polygon
 
 
 </td></tr>
@@ -124,7 +124,7 @@ Description
 
 </td><td>
 
-获取属性状态：层
+Get the property state: Layer
 
 
 </td></tr>
@@ -138,7 +138,7 @@ Description
 
 </td><td>
 
-获取属性状态：线宽
+Get the property state: Line width
 
 
 </td></tr>
@@ -152,7 +152,7 @@ Description
 
 </td><td>
 
-获取属性状态：网络名称
+Get the property state: net name
 
 
 </td></tr>
@@ -166,7 +166,7 @@ Description
 
 </td><td>
 
-获取属性状态：覆铜填充方法
+Get the property state: copper fill method
 
 
 </td></tr>
@@ -180,7 +180,7 @@ Description
 
 </td><td>
 
-获取属性状态：覆铜边框名称
+Get the property state: copper border name
 
 
 </td></tr>
@@ -194,7 +194,7 @@ Description
 
 </td><td>
 
-获取属性状态：覆铜优先级
+Get the property state: copper priority
 
 
 </td></tr>
@@ -208,7 +208,7 @@ Description
 
 </td><td>
 
-获取属性状态：是否保留孤岛
+Get the property state: whether to keep islands
 
 
 </td></tr>
@@ -222,7 +222,7 @@ Description
 
 </td><td>
 
-获取属性状态：图元 ID
+Get the property state: primitive ID
 
 
 </td></tr>
@@ -236,7 +236,7 @@ Description
 
 </td><td>
 
-获取属性状态：是否锁定
+Get the property state: whether it is locked
 
 
 </td></tr>
@@ -250,7 +250,7 @@ Description
 
 </td><td>
 
-获取属性状态：图元类型
+Get the property state: primitive type
 
 
 </td></tr>
@@ -264,7 +264,7 @@ Description
 
 </td><td>
 
-查询图元是否为异步图元
+Query whether the primitive is an async primitive
 
 
 </td></tr>
@@ -278,7 +278,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 重建铺铜区域覆铜填充
+**_(BETA)_** Rebuild the copper fill of the copper region
 
 
 </td></tr>
@@ -292,7 +292,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 将异步图元重置为当前画布状态
+**_(BETA)_** Reset the async primitive to the current canvas state
 
 
 </td></tr>
@@ -306,7 +306,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：复杂多边形
+**_(BETA)_** Set the property state: complex polygon
 
 
 </td></tr>
@@ -320,7 +320,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：层
+**_(BETA)_** Set the property state: Layer
 
 
 </td></tr>
@@ -334,7 +334,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：线宽
+**_(BETA)_** Set the property state: Line width
 
 
 </td></tr>
@@ -348,7 +348,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：网络名称
+**_(BETA)_** Set the property state: net name
 
 
 </td></tr>
@@ -362,7 +362,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：覆铜填充方法
+**_(BETA)_** Set the property state: copper fill method
 
 
 </td></tr>
@@ -376,7 +376,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：覆铜边框名称
+**_(BETA)_** Set the property state: copper border name
 
 
 </td></tr>
@@ -390,7 +390,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：覆铜优先级
+**_(BETA)_** Set the property state: copper priority
 
 
 </td></tr>
@@ -404,7 +404,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：是否保留孤岛
+**_(BETA)_** Set the property state: whether to keep islands
 
 
 </td></tr>
@@ -418,7 +418,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 设置属性状态：是否锁定
+**_(BETA)_** Set the property state: whether it is locked
 
 
 </td></tr>
@@ -432,7 +432,7 @@ Description
 
 </td><td>
 
-将图元转换为异步图元
+Convert Primitive to Async primitive
 
 
 </td></tr>
@@ -446,7 +446,7 @@ Description
 
 </td><td>
 
-将图元转换为同步图元
+Convert Primitive to Sync primitive
 
 
 </td></tr>
@@ -462,7 +462,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-转换到：填充图元(默认是填充区域)
+Convert to: fill primitive (default is the fill region)
 
 ## Signature
 
@@ -475,7 +475,26 @@ public convertToFill(): Promise<IPCB_PrimitiveFill>;
 
 Promise&lt;[IPCB\_PrimitiveFill](./IPCB_PrimitiveFill.md)<!-- -->&gt;
 
-填充图元对象
+Fill primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个实心覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_转填充', 5, 10, false);
+
+// 3. 转换为填充图元（原覆铜边框被替换，填充保留现场供观察）
+const fill = await pour.convertToFill();
+
+console.log('primitiveType:', pour.getState_PrimitiveType() + ' → ' + fill.getState_PrimitiveType());
+console.log('primitiveId:', fill.getState_PrimitiveId());
+```
 
 ### converttopolyline
 
@@ -483,7 +502,7 @@ Promise&lt;[IPCB\_PrimitiveFill](./IPCB_PrimitiveFill.md)<!-- -->&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-转换到：折线图元(默认是线条)
+Convert to: polyline primitive (default is the line)
 
 ## Signature
 
@@ -496,7 +515,26 @@ public convertToPolyline(): Promise<IPCB_PrimitivePolyline>;
 
 Promise&lt;[IPCB\_PrimitivePolyline](./IPCB_PrimitivePolyline.md)<!-- -->&gt;
 
-折线图元对象
+Polyline primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个实心覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_转折线', 5, 10, false);
+
+// 3. 转换为折线图元（原覆铜边框被替换，折线保留现场供观察）
+const polyline = await pour.convertToPolyline();
+
+console.log('primitiveType:', pour.getState_PrimitiveType() + ' → ' + polyline.getState_PrimitiveType());
+console.log('primitiveId:', polyline.getState_PrimitiveId());
+```
 
 ### converttoregion
 
@@ -504,7 +542,7 @@ Promise&lt;[IPCB\_PrimitivePolyline](./IPCB_PrimitivePolyline.md)<!-- -->&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-转换到：区域图元(默认是禁止区域)
+Convert to: region primitive (default is the forbidden region)
 
 ## Signature
 
@@ -517,7 +555,26 @@ public convertToRegion(): Promise<IPCB_PrimitiveRegion>;
 
 Promise&lt;[IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md)<!-- -->&gt;
 
-区域图元对象
+Region primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个实心覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_转区域', 5, 10, false);
+
+// 3. 转换为区域图元（默认是禁止区域，原覆铜边框被替换，区域保留现场供观察）
+const region = await pour.convertToRegion();
+
+console.log('primitiveType:', pour.getState_PrimitiveType() + ' → ' + region.getState_PrimitiveType());
+console.log('primitiveId:', region.getState_PrimitiveId());
+```
 
 ### done
 
@@ -525,7 +582,7 @@ Promise&lt;[IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md)<!-- -->&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-将对图元的更改应用到画布
+Apply the changes to the primitives to the canvas
 
 ## Signature
 
@@ -538,7 +595,31 @@ public done(): Promise<IPCB_PrimitivePour>;
 
 Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)<!-- -->&gt;
 
-覆铜边框图元对象
+Copper border primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个顶层铜层的覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_提交', 5, 10, false);
+const before = pour.getState_Layer();
+
+// 3. 异步模式下把覆铜边框挪到底层铜层（此时画布还没变）
+const asyncPour = pour.toAsync();
+asyncPour.setState_Layer(2);
+await asyncPour.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitivePour.get(pour.getState_PrimitiveId());
+
+console.log('layer:', before, '→', refetched.getState_Layer());
+```
 
 ### getcopperregion
 
@@ -546,7 +627,7 @@ Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)<!-- -->&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取铺铜区域覆铜填充图元
+Get the copper fill primitive of the copper region
 
 ## Signature
 
@@ -559,13 +640,35 @@ public getCopperRegion(): Promise<IPCB_PrimitivePoured | undefined>;
 
 Promise&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md) \| undefined&gt;
 
-覆铜填充图元，如若不存在关联的覆铜填充图元则返回 `undefined`
+The copper fill primitive. If no associated copper fill primitive exists, `undefined` is returned
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个覆铜边框（刚创建还没有生成填充）
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_查填充', 5, 10, false);
+
+// 3. 查询关联的覆铜填充图元
+const copperRegion = await pour.getCopperRegion();
+const hasFill = copperRegion !== undefined;
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePour.delete([pour.getState_PrimitiveId()]);
+
+console.log('hasCopperRegion:', hasFill);
+```
 
 ### getstate_complexpolygon
 
 # IPCB\_PrimitivePour.getState\_ComplexPolygon() method
 
-获取属性状态：复杂多边形
+Get the property state: complex polygon
 
 ## Signature
 
@@ -578,13 +681,35 @@ public getState_ComplexPolygon(): IPCB_Polygon;
 
 [IPCB\_Polygon](./IPCB_Polygon.md)
 
-复杂多边形
+Complex polygon
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个矩形轮廓的覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_读轮廓', 5, 10, false);
+
+// 3. 读取轮廓多边形并取源数组
+const complexPolygon = pour.getState_ComplexPolygon();
+const source = complexPolygon.getSource();
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePour.delete([pour.getState_PrimitiveId()]);
+
+console.log('source:', JSON.stringify(source));
+```
 
 ### getstate_layer
 
 # IPCB\_PrimitivePour.getState\_Layer() method
 
-获取属性状态：层
+Get the property state: Layer
 
 ## Signature
 
@@ -597,13 +722,34 @@ public getState_Layer(): TPCB_LayersOfCopper;
 
 [TPCB\_LayersOfCopper](../types/TPCB_LayersOfCopper.md)
 
-层
+Layer
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个顶层铜层（1）的覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_读层', 5, 10, false);
+
+// 3. 读取层号
+const layer = pour.getState_Layer();
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePour.delete([pour.getState_PrimitiveId()]);
+
+console.log('layer:', layer);
+```
 
 ### getstate_linewidth
 
 # IPCB\_PrimitivePour.getState\_LineWidth() method
 
-获取属性状态：线宽
+Get the property state: Line width
 
 ## Signature
 
@@ -616,13 +762,34 @@ public getState_LineWidth(): number;
 
 number
 
-线宽
+Line width
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个 10mil 线宽的覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_读线宽', 5, 10, false);
+
+// 3. 读取线宽
+const lineWidth = pour.getState_LineWidth();
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePour.delete([pour.getState_PrimitiveId()]);
+
+console.log('lineWidth:', lineWidth);
+```
 
 ### getstate_net
 
 # IPCB\_PrimitivePour.getState\_Net() method
 
-获取属性状态：网络名称
+Get the property state: net name
 
 ## Signature
 
@@ -635,13 +802,34 @@ public getState_Net(): string;
 
 string
 
-网络名称
+Net name
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个挂 GND 网络的覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('GND', 1, polygon, 'solid', false, '嘉立创示例_读网络', 5, 10, false);
+
+// 3. 读取网络名称
+const net = pour.getState_Net();
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePour.delete([pour.getState_PrimitiveId()]);
+
+console.log('net:', net);
+```
 
 ### getstate_pourfillmethod
 
 # IPCB\_PrimitivePour.getState\_PourFillMethod() method
 
-获取属性状态：覆铜填充方法
+Get the property state: copper fill method
 
 ## Signature
 
@@ -654,13 +842,34 @@ public getState_PourFillMethod(): any;
 
 any
 
-覆铜填充方法
+Copper fill method
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个实心填充的覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_读填充法', 5, 10, false);
+
+// 3. 读取填充方法
+const fillMethod = pour.getState_PourFillMethod();
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePour.delete([pour.getState_PrimitiveId()]);
+
+console.log('pourFillMethod:', fillMethod);
+```
 
 ### getstate_pourname
 
 # IPCB\_PrimitivePour.getState\_PourName() method
 
-获取属性状态：覆铜边框名称
+Get the property state: copper border name
 
 ## Signature
 
@@ -673,13 +882,34 @@ public getState_PourName(): string;
 
 string
 
-覆铜边框名称
+Copper border name
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个带名称的覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_地平面', 5, 10, false);
+
+// 3. 读取名称
+const pourName = pour.getState_PourName();
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePour.delete([pour.getState_PrimitiveId()]);
+
+console.log('pourName:', pourName);
+```
 
 ### getstate_pourpriority
 
 # IPCB\_PrimitivePour.getState\_PourPriority() method
 
-获取属性状态：覆铜优先级
+Get the property state: copper priority
 
 ## Signature
 
@@ -692,13 +922,34 @@ public getState_PourPriority(): number;
 
 number
 
-覆铜优先级
+Copper priority
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个优先级为 5 的覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_读优先级', 5, 10, false);
+
+// 3. 读取优先级
+const priority = pour.getState_PourPriority();
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePour.delete([pour.getState_PrimitiveId()]);
+
+console.log('pourPriority:', priority);
+```
 
 ### getstate_preservesilos
 
 # IPCB\_PrimitivePour.getState\_PreserveSilos() method
 
-获取属性状态：是否保留孤岛
+Get the property state: whether to keep islands
 
 ## Signature
 
@@ -711,13 +962,34 @@ public getState_PreserveSilos(): boolean;
 
 boolean
 
-是否保留孤岛
+Whether to keep islands
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个保留孤岛的覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', true, '嘉立创示例_读孤岛', 5, 10, false);
+
+// 3. 读取是否保留孤岛
+const preserveSilos = pour.getState_PreserveSilos();
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePour.delete([pour.getState_PrimitiveId()]);
+
+console.log('preserveSilos:', preserveSilos);
+```
 
 ### getstate_primitiveid
 
 # IPCB\_PrimitivePour.getState\_PrimitiveId() method
 
-获取属性状态：图元 ID
+Get the property state: primitive ID
 
 ## Signature
 
@@ -730,13 +1002,34 @@ public getState_PrimitiveId(): string;
 
 string
 
-图元 ID
+Primitive ID
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_读ID', 5, 10, false);
+
+// 3. 读取图元 ID
+const primitiveId = pour.getState_PrimitiveId();
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePour.delete([pour.getState_PrimitiveId()]);
+
+console.log('primitiveId:', primitiveId);
+```
 
 ### getstate_primitivelock
 
 # IPCB\_PrimitivePour.getState\_PrimitiveLock() method
 
-获取属性状态：是否锁定
+Get the property state: whether it is locked
 
 ## Signature
 
@@ -749,13 +1042,34 @@ public getState_PrimitiveLock(): boolean;
 
 boolean
 
-是否锁定
+Whether it is locked
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个锁定状态的覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_读锁定', 5, 10, true);
+
+// 3. 读取锁定状态
+const locked = pour.getState_PrimitiveLock();
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePour.delete([pour.getState_PrimitiveId()]);
+
+console.log('primitiveLock:', locked);
+```
 
 ### getstate_primitivetype
 
 # IPCB\_PrimitivePour.getState\_PrimitiveType() method
 
-获取属性状态：图元类型
+Get the property state: primitive type
 
 ## Signature
 
@@ -768,13 +1082,34 @@ public getState_PrimitiveType(): EPCB_PrimitiveType;
 
 [EPCB\_PrimitiveType](../enums/EPCB_PrimitiveType.md)
 
-图元类型
+Primitive type
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_读类型', 5, 10, false);
+
+// 3. 读取图元类型
+const primitiveType = pour.getState_PrimitiveType();
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePour.delete([pour.getState_PrimitiveId()]);
+
+console.log('primitiveType:', primitiveType);
+```
 
 ### isasync
 
 # IPCB\_PrimitivePour.isAsync() method
 
-查询图元是否为异步图元
+Query whether the primitive is an async primitive
 
 ## Signature
 
@@ -787,7 +1122,28 @@ public isAsync(): boolean;
 
 boolean
 
-是否为异步图元
+Whether Is async primitive
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_查异步', 5, 10, false);
+
+// 3. 查询异步状态（create 返回的即异步图元，修改需 toAsync + done）
+const asyncMode = pour.isAsync();
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePour.delete([pour.getState_PrimitiveId()]);
+
+console.log('isAsync:', asyncMode);
+```
 
 ### rebuildcopperregion
 
@@ -795,7 +1151,7 @@ boolean
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-重建铺铜区域覆铜填充
+Rebuild the copper fill of the copper region
 
 ## Signature
 
@@ -808,7 +1164,34 @@ public rebuildCopperRegion(): Promise<IPCB_PrimitivePoured | undefined>;
 
 Promise&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md) \| undefined&gt;
 
-覆铜填充图元，如若未重建出覆铜填充图元则返回 `undefined`
+The copper fill primitive. If no copper fill primitive is rebuilt, `undefined` is returned
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个挂 GND 网络的覆铜边框（保留现场供观察）
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('GND', 1, polygon, 'solid', false, '嘉立创示例_重建覆铜', 5, 10, false);
+
+// 3. 重建覆铜填充（成功时返回生成的覆铜填充图元）
+let rebuilt = false;
+let result = undefined;
+try {
+  result = await pour.rebuildCopperRegion();
+  rebuilt = result !== undefined;
+} catch (e) {
+  // 当前版本在纯 API 创建的覆铜上重建会报内部错误，捕获后继续
+  console.log('说明: 当前环境 rebuildCopperRegion 报错:', e.message);
+}
+
+console.log('rebuildRequested:', true);
+console.log('hasCopperRegion:', rebuilt);
+```
 
 ### reset
 
@@ -816,7 +1199,7 @@ Promise&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md) \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-将异步图元重置为当前画布状态
+Reset the async primitive to the current canvas state
 
 ## Signature
 
@@ -829,7 +1212,33 @@ public reset(): Promise<IPCB_PrimitivePour>;
 
 Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)<!-- -->&gt;
 
-覆铜边框图元对象
+Copper border primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个顶层铜层的覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_重置', 5, 10, false);
+const before = pour.getState_Layer();
+
+// 3. 异步模式下把层改到底层（2），随后反悔
+const asyncPour = pour.toAsync();
+asyncPour.setState_Layer(2);
+
+// 4. reset 丢弃未提交的修改（保留现场供观察）
+await asyncPour.reset();
+
+// 5. 从画布重新读取，确认层没有变
+const refetched = await eda.pcb_PrimitivePour.get(pour.getState_PrimitiveId());
+
+console.log('layer:', before, '→', refetched.getState_Layer());
+```
 
 ### setstate_complexpolygon
 
@@ -837,7 +1246,7 @@ Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)<!-- -->&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：复杂多边形
+Set the property state: complex polygon
 
 ## Signature
 
@@ -875,7 +1284,7 @@ complexPolygon
 
 </td><td>
 
-复杂多边形
+Complex polygon
 
 
 </td></tr>
@@ -887,7 +1296,33 @@ complexPolygon
 
 [IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)
 
-覆铜边框图元对象
+Copper border primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个 500x300 的矩形覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_改轮廓', 5, 10, false);
+const before = pour.getState_ComplexPolygon().getSource();
+
+// 3. 异步模式下换成更大的 800x500 轮廓并提交
+const asyncPour = pour.toAsync();
+asyncPour.setState_ComplexPolygon(eda.pcb_MathPolygon.createPolygon(['R', x, y, 800, 500, 0, 0]));
+await asyncPour.done();
+
+// 4. 从画布重新读取，确认轮廓已更新（保留现场供观察）
+const refetched = await eda.pcb_PrimitivePour.get(pour.getState_PrimitiveId());
+const after = refetched.getState_ComplexPolygon().getSource();
+
+console.log('before:', JSON.stringify(before));
+console.log('after:', JSON.stringify(after));
+```
 
 ### setstate_layer
 
@@ -895,7 +1330,7 @@ complexPolygon
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：层
+Set the property state: Layer
 
 ## Signature
 
@@ -933,7 +1368,7 @@ layer
 
 </td><td>
 
-层
+Layer
 
 
 </td></tr>
@@ -945,7 +1380,31 @@ layer
 
 [IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)
 
-覆铜边框图元对象
+Copper border primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个顶层铜层（1）的覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_改层', 5, 10, false);
+const before = pour.getState_Layer();
+
+// 3. 异步模式把覆铜挪到底层铜层（2）
+const asyncPour = pour.toAsync();
+asyncPour.setState_Layer(2);
+await asyncPour.done();
+
+// 4. 从画布重新读取，确认层已切换（保留现场供观察）
+const refetched = await eda.pcb_PrimitivePour.get(pour.getState_PrimitiveId());
+
+console.log('layer:', before, '→', refetched.getState_Layer());
+```
 
 ### setstate_linewidth
 
@@ -953,7 +1412,7 @@ layer
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：线宽
+Set the property state: Line width
 
 ## Signature
 
@@ -991,7 +1450,7 @@ number
 
 </td><td>
 
-线宽
+Line width
 
 
 </td></tr>
@@ -1003,7 +1462,32 @@ number
 
 [IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)
 
-覆铜边框图元对象
+Copper border primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个 10mil 线宽的矩形覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_改线宽', 5, 10, false);
+const before = pour.getState_LineWidth();
+
+// 3. 切换异步模式，线宽加粗到 20mil
+const asyncPour = pour.toAsync();
+asyncPour.setState_LineWidth(20);
+await asyncPour.done();
+
+// 4. 从图元对象读回新值（保留现场供观察）
+// 注：当前版本画布侧渲染线宽保持默认值，修改在图元对象上生效
+const after = pour.getState_LineWidth();
+
+console.log('lineWidth:', before, '→', after);
+```
 
 ### setstate_net
 
@@ -1011,7 +1495,7 @@ number
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：网络名称
+Set the property state: net name
 
 ## Signature
 
@@ -1049,7 +1533,7 @@ string
 
 </td><td>
 
-网络名称
+Net name
 
 
 </td></tr>
@@ -1061,7 +1545,31 @@ string
 
 [IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)
 
-覆铜边框图元对象
+Copper border primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个无网络的覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_改网络', 5, 10, false);
+const before = pour.getState_Net();
+
+// 3. 异步模式把覆铜挂到 GND 网络
+const asyncPour = pour.toAsync();
+asyncPour.setState_Net('GND');
+await asyncPour.done();
+
+// 4. 从画布重新读取，确认网络已更新（保留现场供观察）
+const refetched = await eda.pcb_PrimitivePour.get(pour.getState_PrimitiveId());
+
+console.log('net:', before, '→', refetched.getState_Net());
+```
 
 ### setstate_pourfillmethod
 
@@ -1069,7 +1577,7 @@ string
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：覆铜填充方法
+Set the property state: copper fill method
 
 ## Signature
 
@@ -1107,7 +1615,7 @@ pourFillMethod
 
 </td><td>
 
-覆铜填充方法
+Copper fill method
 
 
 </td></tr>
@@ -1119,7 +1627,31 @@ pourFillMethod
 
 [IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)
 
-覆铜边框图元对象
+Copper border primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个实心填充的覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_改填充法', 5, 10, false);
+const before = pour.getState_PourFillMethod();
+
+// 3. 异步模式把填充方法改成 90 度网格
+const asyncPour = pour.toAsync();
+asyncPour.setState_PourFillMethod('90grid');
+await asyncPour.done();
+
+// 4. 从画布重新读取，确认填充方法已切换（保留现场供观察）
+const refetched = await eda.pcb_PrimitivePour.get(pour.getState_PrimitiveId());
+
+console.log('pourFillMethod:', before, '→', refetched.getState_PourFillMethod());
+```
 
 ### setstate_pourname
 
@@ -1127,7 +1659,7 @@ pourFillMethod
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：覆铜边框名称
+Set the property state: copper border name
 
 ## Signature
 
@@ -1165,7 +1697,7 @@ string
 
 </td><td>
 
-覆铜边框名称
+Copper border name
 
 
 </td></tr>
@@ -1177,7 +1709,31 @@ string
 
 [IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)
 
-覆铜边框图元对象
+Copper border primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_原名', 5, 10, false);
+const before = pour.getState_PourName();
+
+// 3. 异步模式改名为电源区
+const asyncPour = pour.toAsync();
+asyncPour.setState_PourName('嘉立创示例_电源区');
+await asyncPour.done();
+
+// 4. 从画布重新读取，确认名称已更新（保留现场供观察）
+const refetched = await eda.pcb_PrimitivePour.get(pour.getState_PrimitiveId());
+
+console.log('pourName:', before, '→', refetched.getState_PourName());
+```
 
 ### setstate_pourpriority
 
@@ -1185,7 +1741,7 @@ string
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：覆铜优先级
+Set the property state: copper priority
 
 ## Signature
 
@@ -1223,7 +1779,7 @@ number
 
 </td><td>
 
-覆铜优先级
+Copper priority
 
 
 </td></tr>
@@ -1235,7 +1791,31 @@ number
 
 [IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)
 
-覆铜边框图元对象
+Copper border primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个优先级为 5 的覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_改优先级', 5, 10, false);
+const before = pour.getState_PourPriority();
+
+// 3. 异步模式把优先级提到 3（更早铺铜）
+const asyncPour = pour.toAsync();
+asyncPour.setState_PourPriority(3);
+await asyncPour.done();
+
+// 4. 从画布重新读取，确认优先级已更新（保留现场供观察）
+const refetched = await eda.pcb_PrimitivePour.get(pour.getState_PrimitiveId());
+
+console.log('pourPriority:', before, '→', refetched.getState_PourPriority());
+```
 
 ### setstate_preservesilos
 
@@ -1243,7 +1823,7 @@ number
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：是否保留孤岛
+Set the property state: whether to keep islands
 
 ## Signature
 
@@ -1281,7 +1861,7 @@ boolean
 
 </td><td>
 
-是否保留孤岛
+Whether to keep islands
 
 
 </td></tr>
@@ -1293,7 +1873,31 @@ boolean
 
 [IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)
 
-覆铜边框图元对象
+Copper border primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个不保留孤岛的覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_改孤岛', 5, 10, false);
+const before = pour.getState_PreserveSilos();
+
+// 3. 异步模式开启保留孤岛
+const asyncPour = pour.toAsync();
+asyncPour.setState_PreserveSilos(true);
+await asyncPour.done();
+
+// 4. 从画布重新读取，确认设置已更新（保留现场供观察）
+const refetched = await eda.pcb_PrimitivePour.get(pour.getState_PrimitiveId());
+
+console.log('preserveSilos:', before, '→', refetched.getState_PreserveSilos());
+```
 
 ### setstate_primitivelock
 
@@ -1301,7 +1905,7 @@ boolean
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-设置属性状态：是否锁定
+Set the property state: whether it is locked
 
 ## Signature
 
@@ -1339,7 +1943,7 @@ boolean
 
 </td><td>
 
-是否锁定
+Whether it is locked
 
 
 </td></tr>
@@ -1351,13 +1955,37 @@ boolean
 
 [IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)
 
-覆铜边框图元对象
+Copper border primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个未锁定的覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_改锁定', 5, 10, false);
+const before = pour.getState_PrimitiveLock();
+
+// 3. 异步模式锁定图元
+const asyncPour = pour.toAsync();
+asyncPour.setState_PrimitiveLock(true);
+await asyncPour.done();
+
+// 4. 从画布重新读取，确认已锁定（保留现场供观察）
+const refetched = await eda.pcb_PrimitivePour.get(pour.getState_PrimitiveId());
+
+console.log('primitiveLock:', before, '→', refetched.getState_PrimitiveLock());
+```
 
 ### toasync
 
 # IPCB\_PrimitivePour.toAsync() method
 
-将图元转换为异步图元
+Convert Primitive to Async primitive
 
 ## Signature
 
@@ -1370,13 +1998,41 @@ public toAsync(): IPCB_PrimitivePour;
 
 [IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)
 
-覆铜边框图元对象
+Copper border primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个顶层铜层的覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_转异步', 5, 10, false);
+
+// 3. 转换为异步图元
+const asyncPour = pour.toAsync();
+
+// 4. 异步模式下连续改两个属性，一次提交
+asyncPour.setState_Layer(2);
+asyncPour.setState_PourName('嘉立创示例_批量改名');
+await asyncPour.done();
+
+// 5. 从画布重新读取，确认批量修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitivePour.get(pour.getState_PrimitiveId());
+
+console.log('isAsync:', asyncPour.isAsync());
+console.log('layer:', pour.getState_Layer(), '→', refetched.getState_Layer());
+console.log('pourName:', pour.getState_PourName(), '→', refetched.getState_PourName());
+```
 
 ### tosync
 
 # IPCB\_PrimitivePour.toSync() method
 
-将图元转换为同步图元
+Convert Primitive to Sync primitive
 
 ## Signature
 
@@ -1389,4 +2045,30 @@ public toSync(): IPCB_PrimitivePour;
 
 [IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)
 
-覆铜边框图元对象
+Copper border primitive object
+
+## Example
+
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一个顶层铜层的覆铜边框
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('', 1, polygon, 'solid', false, '嘉立创示例_转同步', 5, 10, false);
+const before = pour.getState_Layer();
+
+// 3. 转换为同步图元（isAsync 变为 false）
+const syncPour = pour.toSync();
+
+// 4. 同步模式下直接改层，无需 done()
+syncPour.setState_Layer(2);
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitivePour.get(pour.getState_PrimitiveId());
+
+console.log('isAsync:', syncPour.isAsync());
+console.log('layer:', before, '→', refetched.getState_Layer());
+```

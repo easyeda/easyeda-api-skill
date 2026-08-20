@@ -1,6 +1,6 @@
 # SYS\_Environment class
 
-系统 / 运行环境类
+System / runtime environment class
 
 ## Signature
 
@@ -10,7 +10,7 @@ export class SYS_Environment
 
 ## Remarks
 
-获取嘉立创 EDA 专业版运行环境参数
+Get the runtime environment parameters of EasyEDA Pro
 
 ## Methods
 
@@ -40,7 +40,7 @@ Description
 
 </td><td>
 
-获取编辑器编译日期
+Get the editor compiled date
 
 
 </td></tr>
@@ -54,7 +54,7 @@ Description
 
 </td><td>
 
-获取编辑器当前版本
+Get the current version of the editor
 
 
 </td></tr>
@@ -68,7 +68,7 @@ Description
 
 </td><td>
 
-获取用户信息
+Get user information
 
 
 </td></tr>
@@ -82,7 +82,7 @@ Description
 
 </td><td>
 
-是否处于客户端环境
+Whether it is in the client environment
 
 
 </td></tr>
@@ -96,7 +96,7 @@ Description
 
 </td><td>
 
-是否为 EasyEDA Pro 版本
+Whether it is the EasyEDA Pro edition
 
 
 </td></tr>
@@ -110,7 +110,7 @@ Description
 
 </td><td>
 
-是否为半离线模式
+Whether it is half-offline mode
 
 
 </td></tr>
@@ -124,7 +124,7 @@ Description
 
 </td><td>
 
-是否为 嘉立创EDA 专业版本
+Whether it is the EasyEDA Pro edition
 
 
 </td></tr>
@@ -138,7 +138,7 @@ Description
 
 </td><td>
 
-是否为全离线模式
+Whether it is fully-offline mode
 
 
 </td></tr>
@@ -152,7 +152,7 @@ Description
 
 </td><td>
 
-是否为在线模式
+Whether it is online mode
 
 
 </td></tr>
@@ -166,7 +166,7 @@ Description
 
 </td><td>
 
-是否为私有化部署版本
+Whether it is the private deployment edition
 
 
 </td></tr>
@@ -180,7 +180,7 @@ Description
 
 </td><td>
 
-是否处于浏览器环境
+Whether it is in the browser environment
 
 
 </td></tr>
@@ -194,7 +194,7 @@ Description
 
 # SYS\_Environment.getEditorCompliedDate() method
 
-获取编辑器编译日期
+Get the editor compiled date
 
 ## Signature
 
@@ -207,13 +207,13 @@ public getEditorCompliedDate(): string;
 
 string
 
-编辑器编译日期
+Editor compiled date
 
 ### geteditorcurrentversion
 
 # SYS\_Environment.getEditorCurrentVersion() method
 
-获取编辑器当前版本
+Get the current version of the editor
 
 ## Signature
 
@@ -251,7 +251,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否仅返回语义化版本号 ADD since EDA v3.2.176 ADD since EDA v4.1.13
+_(Optional)_ Whether to only return the semantic version number. ADD since EDA v3.2.176, ADD since EDA v4.1.13
 
 
 </td></tr>
@@ -263,13 +263,13 @@ _(Optional)_ 是否仅返回语义化版本号 ADD since EDA v3.2.176 ADD since 
 
 string
 
-编辑器当前版本
+Current version of the editor
 
 ### getuserinfo
 
 # SYS\_Environment.getUserInfo() method
 
-获取用户信息
+Get user information
 
 ## Signature
 
@@ -282,13 +282,13 @@ public getUserInfo(): { username?: undefined | string; nickname?: undefined | st
 
 \{ username?: undefined \| string; nickname?: undefined \| string; avatar?: undefined \| string; uuid?: undefined \| string; customerCode?: undefined \| string \}
 
-用户信息
+User information
 
 ### isclient
 
 # SYS\_Environment.isClient() method
 
-是否处于客户端环境
+Whether it is in the client environment
 
 ## Signature
 
@@ -301,13 +301,13 @@ public isClient(): boolean;
 
 boolean
 
-是否处于客户端环境
+Whether it is in the client environment
 
 ### iseasyedaproedition
 
 # SYS\_Environment.isEasyEDAProEdition() method
 
-是否为 EasyEDA Pro 版本
+Whether it is the EasyEDA Pro edition
 
 ## Signature
 
@@ -320,13 +320,13 @@ public isEasyEDAProEdition(): boolean;
 
 boolean
 
-是否为 EasyEDA Pro 版本
+Whether it is the EasyEDA Pro edition
 
 ### ishalfofflinemode
 
 # SYS\_Environment.isHalfOfflineMode() method
 
-是否为半离线模式
+Whether it is half-offline mode
 
 ## Signature
 
@@ -339,13 +339,13 @@ public isHalfOfflineMode(): boolean;
 
 boolean
 
-是否为半离线模式
+Whether it is half-offline mode
 
 ### isjlcedaproedition
 
 # SYS\_Environment.isJLCEDAProEdition() method
 
-是否为 嘉立创EDA 专业版本
+Whether it is the EasyEDA Pro edition
 
 ## Signature
 
@@ -358,13 +358,13 @@ public isJLCEDAProEdition(): boolean;
 
 boolean
 
-是否为嘉立创EDA 专业版本
+Whether it is the EasyEDA Pro edition
 
 ### isofflinemode
 
 # SYS\_Environment.isOfflineMode() method
 
-是否为全离线模式
+Whether it is fully-offline mode
 
 ## Signature
 
@@ -377,13 +377,13 @@ public isOfflineMode(): boolean;
 
 boolean
 
-是否为全离线模式
+Whether it is fully-offline mode
 
 ### isonlinemode
 
 # SYS\_Environment.isOnlineMode() method
 
-是否为在线模式
+Whether it is online mode
 
 ## Signature
 
@@ -396,13 +396,13 @@ public isOnlineMode(): boolean;
 
 boolean
 
-是否为在线模式
+Whether it is online mode
 
 ### isproprivateedition
 
 # SYS\_Environment.isProPrivateEdition() method
 
-是否为私有化部署版本
+Whether it is the private deployment edition
 
 ## Signature
 
@@ -415,13 +415,13 @@ public isProPrivateEdition(): boolean;
 
 boolean
 
-是否为私有化部署版本
+Whether it is the private deployment edition
 
 ### isweb
 
 # SYS\_Environment.isWeb() method
 
-是否处于浏览器环境
+Whether it is in the browser environment
 
 ## Signature
 
@@ -434,4 +434,4 @@ public isWeb(): boolean;
 
 boolean
 
-是否处于浏览器环境
+Whether it is in the browser environment

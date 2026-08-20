@@ -1,6 +1,6 @@
 # ILIB\_DeviceSearchItem interface
 
-搜索到的器件属性
+Searched device properties
 
 ## Signature
 
@@ -46,7 +46,7 @@ Description
 
 </td><td>
 
-_(Optional)_ 器件分类
+_(Optional)_ Device classification
 
 
 </td></tr>
@@ -65,7 +65,7 @@ string
 
 </td><td>
 
-_(Optional)_ 描述
+_(Optional)_ Description
 
 
 </td></tr>
@@ -84,7 +84,7 @@ _(Optional)_ 描述
 
 </td><td>
 
-_(Optional)_ 关联封装
+_(Optional)_ Associate footprint
 
 
 </td></tr>
@@ -141,7 +141,7 @@ string \| string\[\]
 
 </td><td>
 
-_(Optional)_ 关联图片 UUID
+_(Optional)_ Associate image UUID
 
 
 </td></tr>
@@ -160,7 +160,7 @@ string
 
 </td><td>
 
-所属库 UUID
+UUID of the library it belongs to
 
 
 </td></tr>
@@ -179,7 +179,7 @@ string
 
 </td><td>
 
-_(Optional)_ 关联 3D 模型
+_(Optional)_ Associate 3D model
 
 
 </td></tr>
@@ -236,7 +236,7 @@ string
 
 </td><td>
 
-器件名称
+Device name
 
 
 </td></tr>
@@ -255,7 +255,7 @@ number
 
 </td><td>
 
-排序
+Sorting
 
 
 </td></tr>
@@ -274,7 +274,7 @@ Record&lt;string, boolean \| number \| string \| undefined&gt;
 
 </td><td>
 
-_(Optional)_ 其它属性
+_(Optional)_ Other property
 
 
 </td></tr>
@@ -293,7 +293,7 @@ _(Optional)_ 其它属性
 
 </td><td>
 
-关联符号
+Associated symbol
 
 
 </td></tr>
@@ -350,7 +350,7 @@ string
 
 </td><td>
 
-器件 UUID
+Device UUID
 
 
 </td></tr>
@@ -364,7 +364,7 @@ string
 
 # ILIB\_DeviceSearchItem.classification property
 
-器件分类
+Device classification
 
 ## Signature
 
@@ -376,7 +376,7 @@ classification?: ILIB_ClassificationIndex | Array<string>;
 
 # ILIB\_DeviceSearchItem.description property
 
-描述
+Description
 
 ## Signature
 
@@ -388,7 +388,7 @@ description?: string;
 
 # ILIB\_DeviceSearchItem.footprint property
 
-关联封装
+Associate footprint
 
 ## Signature
 
@@ -432,7 +432,7 @@ footprintUuid: string;
 
 # ILIB\_DeviceSearchItem.imageUuid property
 
-关联图片 UUID
+Associate image UUID
 
 ## Signature
 
@@ -444,7 +444,7 @@ imageUuid?: string | string[];
 
 # ILIB\_DeviceSearchItem.libraryUuid property
 
-所属库 UUID
+UUID of the library it belongs to
 
 ## Signature
 
@@ -456,7 +456,7 @@ libraryUuid: string;
 
 # ILIB\_DeviceSearchItem.model3D property
 
-关联 3D 模型
+Associate 3D model
 
 ## Signature
 
@@ -500,7 +500,7 @@ model3DUuid: string;
 
 # ILIB\_DeviceSearchItem.name property
 
-器件名称
+Device name
 
 ## Signature
 
@@ -512,7 +512,7 @@ name: string;
 
 # ILIB\_DeviceSearchItem.ordinal property
 
-排序
+Sorting
 
 ## Signature
 
@@ -524,7 +524,7 @@ ordinal: number;
 
 # ILIB\_DeviceSearchItem.otherProperty property
 
-其它属性
+Other property
 
 ## Signature
 
@@ -536,7 +536,7 @@ otherProperty?: Record<string, boolean | number | string | undefined>;
 
 # ILIB\_DeviceSearchItem.symbol property
 
-关联符号
+Associated symbol
 
 ## Signature
 
@@ -580,7 +580,7 @@ symbolUuid: string;
 
 # ILIB\_DeviceSearchItem.uuid property
 
-器件 UUID
+Device UUID
 
 ## Signature
 

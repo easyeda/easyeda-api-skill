@@ -1,6 +1,6 @@
 # ILIB\_DeviceAssociationItem interface
 
-器件关联符号、封装属性
+Device associated symbol, footprint property
 
 ## Signature
 
@@ -46,7 +46,7 @@ Description
 
 </td><td>
 
-_(Optional)_ 封装
+_(Optional)_ Footprint
 
 
 </td></tr>
@@ -103,7 +103,7 @@ _(Optional)_
 
 </td><td>
 
-符号
+Symbol
 
 
 </td></tr>
@@ -155,7 +155,7 @@ string
 
 # ILIB\_DeviceAssociationItem.footprint property
 
-封装
+Footprint
 
 ## Signature
 
@@ -193,7 +193,7 @@ images?: Array<string>;
 
 # ILIB\_DeviceAssociationItem.symbol property
 
-符号
+Symbol
 
 ## Signature
 

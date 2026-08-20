@@ -1,6 +1,6 @@
 # SCH\_SimulationEngine class
 
-原理图 &amp; 符号 / 仿真引擎类
+Schematic &amp; symbol / simulation engine class
 
 ## Signature
 
@@ -10,7 +10,7 @@ export class SCH_SimulationEngine
 
 ## Remarks
 
-控制仿真引擎的对接和交互
+Controls the docking and interaction of the simulation engine
 
 ## Methods
 
@@ -40,7 +40,7 @@ Description
 
 </td><td>
 
-向仿真内核发送数据
+Send data to the simulation kernel
 
 
 </td></tr>
@@ -54,7 +54,7 @@ Description
 
 # SCH\_SimulationEngine.pushData() method
 
-向仿真内核发送数据
+Send data to the simulation kernel
 
 ## Signature
 
@@ -92,7 +92,7 @@ eventType
 
 </td><td>
 
-事件类型
+Event type
 
 
 </td></tr>
@@ -108,7 +108,7 @@ Record&lt;string, any&gt;
 
 </td><td>
 
-数据
+Data
 
 
 </td></tr>

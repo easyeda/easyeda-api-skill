@@ -1,6 +1,6 @@
 # PCB\_PrimitiveDimension class
 
-PCB &amp; 封装 / 尺寸标注图元类
+PCB &amp; footprint / dimension primitive class
 
 ## Signature
 
@@ -37,7 +37,7 @@ Description
 
 </td><td>
 
-创建尺寸标注
+Create a dimension
 
 
 </td></tr>
@@ -51,7 +51,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 删除尺寸标注
+**_(BETA)_** Delete the dimension
 
 
 </td></tr>
@@ -65,7 +65,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取尺寸标注
+**_(BETA)_** Get the dimension
 
 
 </td></tr>
@@ -79,7 +79,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取尺寸标注
+**_(BETA)_** Get the dimension
 
 
 </td></tr>
@@ -93,7 +93,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有尺寸标注
+**_(BETA)_** Get all dimensions
 
 
 </td></tr>
@@ -107,7 +107,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有尺寸标注的图元 ID
+**_(BETA)_** Get the primitive IDs of all dimensions
 
 
 </td></tr>
@@ -121,7 +121,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 修改尺寸标注
+**_(BETA)_** Modify the dimension
 
 
 </td></tr>
@@ -135,7 +135,7 @@ Description
 
 # PCB\_PrimitiveDimension.create() method
 
-创建尺寸标注
+Create a dimension
 
 ## Signature
 
@@ -173,7 +173,7 @@ dimensionType
 
 </td><td>
 
-尺寸标注类型
+Dimension type
 
 
 </td></tr>
@@ -189,7 +189,7 @@ coordinateSet
 
 </td><td>
 
-尺寸标注坐标集
+Dimension coordinate set
 
 
 </td></tr>
@@ -205,7 +205,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层
+_(Optional)_ Layer
 
 
 </td></tr>
@@ -221,7 +221,7 @@ unit
 
 </td><td>
 
-_(Optional)_ 单位
+_(Optional)_ Unit
 
 
 </td></tr>
@@ -237,7 +237,7 @@ number
 
 </td><td>
 
-_(Optional)_ 线宽
+_(Optional)_ Line width
 
 
 </td></tr>
@@ -253,7 +253,7 @@ number
 
 </td><td>
 
-_(Optional)_ 精度，取值范围 `0`<!-- -->-`4`
+_(Optional)_ Precision, value range `0`<!-- -->-`4`
 
 
 </td></tr>
@@ -269,7 +269,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -281,7 +281,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;[IPCB\_PrimitiveDimension](./IPCB_PrimitiveDimension.md) \| undefined&gt;
 
-尺寸标注图元对象
+Dimension primitive object
 
 ### delete
 
@@ -289,7 +289,7 @@ Promise&lt;[IPCB\_PrimitiveDimension](./IPCB_PrimitiveDimension.md) \| undefined
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-删除尺寸标注
+Delete the dimension
 
 ## Signature
 
@@ -327,7 +327,7 @@ string \| [IPCB\_PrimitiveDimension](./IPCB_PrimitiveDimension.md) \| Array&lt;s
 
 </td><td>
 
-尺寸标注的图元 ID 或尺寸标注图元对象
+Primitive ID of the dimension or the dimension primitive object
 
 
 </td></tr>
@@ -339,7 +339,7 @@ string \| [IPCB\_PrimitiveDimension](./IPCB_PrimitiveDimension.md) \| Array&lt;s
 
 Promise&lt;boolean&gt;
 
-删除操作是否成功
+Delete Whether the operation is successful
 
 ### get
 
@@ -347,7 +347,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取尺寸标注
+Get the dimension
 
 ## Signature
 
@@ -385,7 +385,7 @@ string
 
 </td><td>
 
-尺寸标注的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Primitive ID of the dimension, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -397,7 +397,7 @@ string
 
 Promise&lt;[IPCB\_PrimitiveDimension](./IPCB_PrimitiveDimension.md) \| undefined&gt;
 
-尺寸标注图元对象，`undefined` 表示获取失败
+Dimension primitive object, `undefined` indicates that the retrieval failed
 
 ### get_1
 
@@ -405,7 +405,7 @@ Promise&lt;[IPCB\_PrimitiveDimension](./IPCB_PrimitiveDimension.md) \| undefined
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取尺寸标注
+Get the dimension
 
 ## Signature
 
@@ -443,7 +443,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-尺寸标注的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Primitive ID of the dimension, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -455,11 +455,11 @@ Array&lt;string&gt;
 
 Promise&lt;Array&lt;[IPCB\_PrimitiveDimension](./IPCB_PrimitiveDimension.md)<!-- -->&gt;&gt;
 
-尺寸标注图元对象，空数组表示获取失败
+Dimension primitive object; an empty array indicates that the retrieval failed
 
 ## Remarks
 
-如若传入多个图元 ID，任意图元 ID 未匹配到不影响其它图元的返回，即可能返回少于传入的图元 ID 数量的图元对象
+If multiple primitive IDs are passed in, a primitive ID that is not matched will not affect the return of other primitives; that is, fewer primitive objects than the number of primitive IDs passed in may be returned.
 
 ### getall
 
@@ -467,7 +467,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveDimension](./IPCB_PrimitiveDimension.md)<!--
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有尺寸标注
+Get all dimensions
 
 ## Signature
 
@@ -505,7 +505,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层
+_(Optional)_ Layer
 
 
 </td></tr>
@@ -521,7 +521,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -533,7 +533,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;Array&lt;[IPCB\_PrimitiveDimension](./IPCB_PrimitiveDimension.md)<!-- -->&gt;&gt;
 
-尺寸标注图元对象数组
+Dimension primitive object array
 
 ### getallprimitiveid
 
@@ -541,7 +541,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveDimension](./IPCB_PrimitiveDimension.md)<!--
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有尺寸标注的图元 ID
+Get the primitive IDs of all dimensions
 
 ## Signature
 
@@ -579,7 +579,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层
+_(Optional)_ Layer
 
 
 </td></tr>
@@ -595,7 +595,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -607,7 +607,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;Array&lt;string&gt;&gt;
 
-尺寸标注的图元 ID 数组
+Array of dimension primitive IDs
 
 ### modify
 
@@ -615,7 +615,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-修改尺寸标注
+Modify the dimension
 
 ## Signature
 
@@ -653,7 +653,7 @@ string \| [IPCB\_PrimitiveDimension](./IPCB_PrimitiveDimension.md)
 
 </td><td>
 
-图元 ID
+Primitive ID
 
 
 </td></tr>
@@ -669,7 +669,7 @@ property
 
 </td><td>
 
-修改参数
+Modify Parameter
 
 
 </td></tr>
@@ -681,4 +681,4 @@ property
 
 Promise&lt;[IPCB\_PrimitiveDimension](./IPCB_PrimitiveDimension.md) \| undefined&gt;
 
-尺寸标注图元对象
+Dimension primitive object

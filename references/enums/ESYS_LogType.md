@@ -1,6 +1,6 @@
 # ESYS\_LogType enum
 
-日志类型
+Log type
 
 ## Signature
 

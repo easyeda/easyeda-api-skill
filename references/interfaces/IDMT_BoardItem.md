@@ -1,6 +1,6 @@
 # IDMT\_BoardItem interface
 
-板子属性
+Board property
 
 ## Signature
 
@@ -48,7 +48,7 @@ Description
 
 </td><td>
 
-项目类型
+Project type
 
 
 </td></tr>
@@ -67,7 +67,7 @@ string
 
 </td><td>
 
-板子名称
+Board name
 
 
 </td></tr>
@@ -86,7 +86,7 @@ string
 
 </td><td>
 
-所属工程 UUID
+UUID of the project it belongs to
 
 
 </td></tr>
@@ -105,7 +105,7 @@ string
 
 </td><td>
 
-下属 PCB
+Subordinate PCB
 
 
 </td></tr>
@@ -124,7 +124,7 @@ string
 
 </td><td>
 
-下属原理图
+Subordinate schematic
 
 
 </td></tr>
@@ -138,7 +138,7 @@ string
 
 # IDMT\_BoardItem.itemType property
 
-项目类型
+Project type
 
 ## Signature
 
@@ -150,7 +150,7 @@ readonly itemType: EDMT_ItemType.BOARD;
 
 # IDMT\_BoardItem.name property
 
-板子名称
+Board name
 
 ## Signature
 
@@ -162,7 +162,7 @@ name: string;
 
 # IDMT\_BoardItem.parentProjectUuid property
 
-所属工程 UUID
+UUID of the project it belongs to
 
 ## Signature
 
@@ -174,7 +174,7 @@ parentProjectUuid: string;
 
 # IDMT\_BoardItem.pcb property
 
-下属 PCB
+Subordinate PCB
 
 ## Signature
 
@@ -186,7 +186,7 @@ pcb: IDMT_PcbItem;
 
 # IDMT\_BoardItem.schematic property
 
-下属原理图
+Subordinate schematic
 
 ## Signature
 

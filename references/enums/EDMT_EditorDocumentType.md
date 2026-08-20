@@ -1,6 +1,6 @@
 # EDMT\_EditorDocumentType enum
 
-编辑器文档类型
+Editor document type
 
 ## Signature
 

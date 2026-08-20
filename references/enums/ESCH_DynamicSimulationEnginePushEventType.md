@@ -1,6 +1,6 @@
 # ESCH\_DynamicSimulationEnginePushEventType enum
 
-动态仿真引擎推送事件类型
+Dynamic simulation engine push event type
 
 ## Signature
 

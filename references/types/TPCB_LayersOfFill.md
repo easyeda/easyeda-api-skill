@@ -1,6 +1,6 @@
 # TPCB\_LayersOfFill type
 
-填充所属层
+Layers of the fill
 
 ## Signature
 
@@ -14,4 +14,4 @@ export type TPCB_LayersOfFill = TPCB_LayersOfCopper | TPCB_LayersOfCustom | EPCB
 
 ## Remarks
 
-填充所属层为 [EPCB\_LayerId.MULTI](../enums/EPCB_LayerId.md) 时代表挖槽区域
+When the fill layer is [EPCB\_LayerId.MULTI](../enums/EPCB_LayerId.md)<!-- -->, it represents a slot region

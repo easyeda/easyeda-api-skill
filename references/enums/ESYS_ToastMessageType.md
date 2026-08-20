@@ -1,6 +1,6 @@
 # ESYS\_ToastMessageType enum
 
-吐司消息类型
+Toast message type
 
 ## Signature
 

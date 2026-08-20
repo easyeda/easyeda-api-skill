@@ -1,6 +1,6 @@
 # SYS\_HeaderMenu class
 
-系统 / 顶部菜单类
+System / header menu class
 
 ## Signature
 
@@ -39,7 +39,7 @@ Description
 
 </td><td>
 
-导入顶部菜单数据
+Import top menu data
 
 
 </td></tr>
@@ -53,7 +53,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 在指定位置插入系统顶部菜单项
+**_(BETA)_** Insert a system header menu item at the specified position
 
 
 </td></tr>
@@ -67,7 +67,7 @@ Description
 
 </td><td>
 
-移除顶部菜单数据
+Remove Top menu data
 
 
 </td></tr>
@@ -81,7 +81,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 移除系统顶部菜单项
+**_(BETA)_** Remove a system header menu item
 
 
 </td></tr>
@@ -95,7 +95,7 @@ Description
 
 </td><td>
 
-替换顶部菜单数据
+Replace top menu data
 
 
 </td></tr>
@@ -109,7 +109,7 @@ Description
 
 # SYS\_HeaderMenu.insertHeaderMenus() method
 
-导入顶部菜单数据
+Import top menu data
 
 ## Signature
 
@@ -147,7 +147,7 @@ headerMenus
 
 </td><td>
 
-顶部菜单数据
+Top menu data
 
 
 </td></tr>
@@ -165,7 +165,7 @@ Promise&lt;void&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-在指定位置插入系统顶部菜单项
+Insert a system header menu item at the specified position
 
 ## Signature
 
@@ -203,7 +203,7 @@ env
 
 </td><td>
 
-环境
+Environment
 
 
 </td></tr>
@@ -219,7 +219,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-菜单项 ID 树，将会按照数组顺序按层级匹配菜单项，并将数组最后一位作为插入的菜单项的 ID
+Menu item ID tree. It will match menu items by hierarchy in array order and use the last element of the array as the ID of the menu item to insert
 
 
 </td></tr>
@@ -235,7 +235,7 @@ props
 
 </td><td>
 
-其它参数
+Other parameters
 
 
 </td></tr>
@@ -247,27 +247,27 @@ props
 
 Promise&lt;string \| undefined&gt;
 
-顶部菜单项的 ID，分隔线是否插入并不会影响操作结果的返回值，不包含 menuItems 中的子项的 ID
+The ID of the header menu item. Whether a separator is inserted does not affect the return value of the operation. The IDs of sub-items in menuItems are not included
 
 ## Remarks
 
-本接口需要在系统已有的系统一级菜单下新增子菜单，无法新增和修改一级菜单，`id` 数组请至少传递 `2` 个值
+This API adds a sub-menu under an existing system first-level menu. First-level menus cannot be added or modified. The `id` array should contain at least `2` values
 
-本接口将会强制新建的系统顶部菜单的 ID 包含扩展 UUID，例如输入的 `id = 'example'`<!-- -->，将会被自动重写为 `e143d88179874e7f851cc890cd22fc71|example`<!-- -->，后续如需移除该菜单，请输入重写后的名称
+This API forces the ID of the newly created system header menu to include the extension UUID. For example, an input `id = 'example'` will be automatically rewritten to `e143d88179874e7f851cc890cd22fc71|example`<!-- -->. To remove this menu later, enter the rewritten name
 
-本接口不能在 \*\*高级\*\* 菜单下新增任何子菜单
+This API cannot add any sub-menu under the \*\*Advanced\*\* menu
 
-本接口新增的子菜单将默认排列在原菜单的结尾，除非指定了 `props.insertBefore` 参数
+Sub-menus added by this API are placed at the end of the original menu by default, unless the `props.insertBefore` parameter is specified
 
-注意：本接口需要使用者启用扩展的外部交互权限，如若未启用将始终 `throw Error`
+Note: This API requires the user to enable the extension external interaction permission, if not enabled, it will always `throw Error`
 
-非公开接口使用提醒：本接口按原样提供，不提供参数的额外文档，参数可能在任何版本出现破坏性更改并不另行通知
+Non-public API usage notice: This API is provided as-is without additional documentation for parameters. Parameters may be changed in a breaking manner in any version without notice.
 
 ### removeheadermenus
 
 # SYS\_HeaderMenu.removeHeaderMenus() method
 
-移除顶部菜单数据
+Remove Top menu data
 
 ## Signature
 
@@ -286,7 +286,7 @@ void
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-移除系统顶部菜单项
+Remove a system header menu item
 
 ## Signature
 
@@ -324,7 +324,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-菜单项 ID 树，将会按照数组顺序按层级匹配菜单项，并移除数组最后一位对应的菜单项；仅传递一个元素时移除对应的一级菜单
+Menu item ID tree. It will match menu items by hierarchy in array order and remove the menu item corresponding to the last element; when only one element is passed, the corresponding first-level menu is removed
 
 
 </td></tr>
@@ -340,7 +340,7 @@ props
 
 </td><td>
 
-_(Optional)_ 其它参数，是否移除菜单项之前、之后的分隔线（仅在移除子菜单项时生效）
+_(Optional)_ Other parameters. Whether to remove the separators before and after the menu item (only takes effect when removing a sub-menu item)
 
 
 </td></tr>
@@ -352,29 +352,29 @@ _(Optional)_ 其它参数，是否移除菜单项之前、之后的分隔线（�
 
 Promise&lt;boolean&gt;
 
-移除操作是否成功，菜单已移除但分隔线未找到也会返回 `true` 的结果
+Whether the removal operation was successful. If the menu is removed but the separator is not found, `true` is also returned
 
 ## Remarks
 
-一旦菜单被移除，需要重启嘉立创 EDA 软件才可以恢复
+Once a menu is removed, restarting the EasyEDA software is required to restore it
 
-本接口无法移除  接口导入的系统顶部菜单项
+This API cannot remove the system header menu items imported by the  API
 
-当 `id` 数组仅包含一个元素时，将移除对应的一级菜单；当 `id` 数组包含多个元素时，将按照数组顺序按层级匹配菜单项，并移除数组最后一位对应的子菜单项
+When the `id` array contains only one element, the corresponding first-level menu is removed; when it contains multiple elements, the menu items are matched by hierarchy in array order, and the sub-menu item corresponding to the last element is removed
 
-本接口无法移除 \*\*高级\*\* 菜单本身及其下的任何子菜单
+This API cannot remove the \*\*Advanced\*\* menu itself or any sub-menu under it
 
-注意 1：本接口需要使用者启用扩展的外部交互权限，如若未启用将始终 `throw Error`
+Note 1: This API requires the user to enable the extension external interaction permission, if not enabled, it will always `throw Error`
 
-注意 2：本接口 \*\*移除一级菜单\*\* 为私有化部署版本专用功能，如若在其它版本调用将始终 `throw Error`
+Note 2: The \*\*remove first-level menu\*\* function of this API is exclusive to the private deployment edition. Calling it in other editions will always `throw Error`
 
-非公开接口使用提醒：本接口按原样提供，不提供参数的额外文档，参数可能在任何版本出现破坏性更改并不另行通知
+Non-public API usage notice: This API is provided as-is without additional documentation for parameters. Parameters may be changed in a breaking manner in any version without notice.
 
 ### replaceheadermenus
 
 # SYS\_HeaderMenu.replaceHeaderMenus() method
 
-替换顶部菜单数据
+Replace top menu data
 
 ## Signature
 
@@ -412,7 +412,7 @@ headerMenus
 
 </td><td>
 
-顶部菜单数据
+Top menu data
 
 
 </td></tr>
@@ -426,4 +426,4 @@ Promise&lt;void&gt;
 
 ## Remarks
 
-本接口相当于同时执行了 [移除](./SYS_HeaderMenu.md) 和 [导入](./SYS_HeaderMenu.md) 操作
+This API is equivalent to executing the [remove](./SYS_HeaderMenu.md) and [insert](./SYS_HeaderMenu.md) operations at the same time

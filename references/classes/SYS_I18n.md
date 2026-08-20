@@ -1,6 +1,6 @@
 # SYS\_I18n class
 
-系统 / 多语言类
+System / multilingual class
 
 ## Signature
 
@@ -10,7 +10,7 @@ export class SYS_I18n
 
 ## Remarks
 
-使用多语言系统展示多语言文本
+Use the multilingual system to display multilingual text
 
 
 ## Methods
@@ -41,7 +41,7 @@ Description
 
 </td><td>
 
-新增语言切换事件监听
+Add a language change event listener
 
 
 </td></tr>
@@ -55,7 +55,7 @@ Description
 
 </td><td>
 
-查询所有支持的语言
+Query all supported languages
 
 
 </td></tr>
@@ -69,7 +69,7 @@ Description
 
 </td><td>
 
-获取当前语言环境
+Get Current language environment
 
 
 </td></tr>
@@ -83,7 +83,7 @@ Description
 
 </td><td>
 
-导入多语言
+Import multilingual
 
 
 </td></tr>
@@ -97,7 +97,7 @@ Description
 
 </td><td>
 
-导入多语言：指定命名空间和语言
+Import multilingual: specify namespace and language
 
 
 </td></tr>
@@ -111,7 +111,7 @@ Description
 
 </td><td>
 
-导入多语言：指定命名空间
+Import multilingual: specify namespace
 
 
 </td></tr>
@@ -125,7 +125,7 @@ Description
 
 </td><td>
 
-查询事件监听是否存在
+Query whether the event listener exists
 
 
 </td></tr>
@@ -139,7 +139,7 @@ Description
 
 </td><td>
 
-检查语言是否受支持
+Check whether the language is supported
 
 
 </td></tr>
@@ -153,7 +153,7 @@ Description
 
 </td><td>
 
-移除事件监听
+Remove Event listener
 
 
 </td></tr>
@@ -167,7 +167,7 @@ Description
 
 </td><td>
 
-输出语言文本
+Output language text
 
 
 </td></tr>
@@ -181,7 +181,7 @@ Description
 
 # SYS\_I18n.addLanguageChangedEventListener() method
 
-新增语言切换事件监听
+Add a language change event listener
 
 ## Signature
 
@@ -219,7 +219,7 @@ string
 
 </td><td>
 
-事件 ID，用以防止重复注册事件
+Event ID, used to prevent duplicate event registration
 
 
 </td></tr>
@@ -235,7 +235,7 @@ callFn
 
 </td><td>
 
-事件触发时的回调函数
+The callback function triggered when the event fires
 
 
 </td></tr>
@@ -265,7 +265,7 @@ void
 
 # SYS\_I18n.getAllSupportedLanguages() method
 
-查询所有支持的语言
+Query all supported languages
 
 ## Signature
 
@@ -278,13 +278,13 @@ public getAllSupportedLanguages(): Array<string>;
 
 Array&lt;string&gt;
 
-所有支持的语言列表
+List of all supported languages
 
 ### getcurrentlanguage
 
 # SYS\_I18n.getCurrentLanguage() method
 
-获取当前语言环境
+Get Current language environment
 
 ## Signature
 
@@ -297,17 +297,17 @@ public getCurrentLanguage(): Promise<string>;
 
 Promise&lt;string&gt;
 
-语言
+Language
 
 ## Remarks
 
-能够获取到的语言受 EDA 当前支持语言限制，其它 API 支持的语言需要显式指定 `language` 参数才能使用
+The languages that can be obtained are limited by the languages currently supported by EDA. Languages supported by other APIs need to explicitly specify the `language` parameter to be used
 
 ### importmultilingual
 
 # SYS\_I18n.importMultilingual() method
 
-导入多语言
+Import multilingual
 
 ## Signature
 
@@ -345,7 +345,7 @@ string
 
 </td><td>
 
-语言
+Language
 
 
 </td></tr>
@@ -361,7 +361,7 @@ source
 
 </td><td>
 
-欲导入的多语言数据对象
+The multilingual data object to import
 
 
 </td></tr>
@@ -373,17 +373,17 @@ source
 
 boolean
 
-导入是否成功
+Import whether it is successful
 
 ## Remarks
 
-注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error`
+Note: This API is only valid for extensions. Calling it in a standalone script environment will always `throw Error`
 
 ### importmultilinguallanguage
 
 # SYS\_I18n.importMultilingualLanguage() method
 
-导入多语言：指定命名空间和语言
+Import multilingual: specify namespace and language
 
 ## Signature
 
@@ -421,7 +421,7 @@ string
 
 </td><td>
 
-命名空间
+Namespace
 
 
 </td></tr>
@@ -437,7 +437,7 @@ string
 
 </td><td>
 
-语言
+Language
 
 
 </td></tr>
@@ -453,7 +453,7 @@ source
 
 </td><td>
 
-欲导入的多语言数据对象
+The multilingual data object to import
 
 
 </td></tr>
@@ -465,13 +465,13 @@ source
 
 boolean
 
-导入是否成功
+Import whether it is successful
 
 ### importmultilingualnamespace
 
 # SYS\_I18n.importMultilingualNamespace() method
 
-导入多语言：指定命名空间
+Import multilingual: specify namespace
 
 ## Signature
 
@@ -509,7 +509,7 @@ string
 
 </td><td>
 
-命名空间
+Namespace
 
 
 </td></tr>
@@ -525,7 +525,7 @@ source
 
 </td><td>
 
-欲导入的多语言数据对象
+The multilingual data object to import
 
 
 </td></tr>
@@ -537,13 +537,13 @@ source
 
 boolean
 
-导入是否成功
+Import whether it is successful
 
 ### iseventlisteneralreadyexist
 
 # SYS\_I18n.isEventListenerAlreadyExist() method
 
-查询事件监听是否存在
+Query whether the event listener exists
 
 ## Signature
 
@@ -581,7 +581,7 @@ string
 
 </td><td>
 
-事件 ID
+Event ID
 
 
 </td></tr>
@@ -593,13 +593,13 @@ string
 
 boolean
 
-事件监听是否存在
+Whether the event listener exists
 
 ### islanguagesupported
 
 # SYS\_I18n.isLanguageSupported() method
 
-检查语言是否受支持
+Check whether the language is supported
 
 ## Signature
 
@@ -637,7 +637,7 @@ string
 
 </td><td>
 
-语言
+Language
 
 
 </td></tr>
@@ -649,13 +649,13 @@ string
 
 boolean
 
-是否受支持
+Whether it is supported
 
 ### removeeventlistener
 
 # SYS\_I18n.removeEventListener() method
 
-移除事件监听
+Remove Event listener
 
 ## Signature
 
@@ -693,7 +693,7 @@ string
 
 </td><td>
 
-事件 ID
+Event ID
 
 
 </td></tr>
@@ -705,13 +705,13 @@ string
 
 boolean
 
-是否移除指定事件监听
+Whether Remove Specify event listener
 
 ### text
 
 # SYS\_I18n.text() method
 
-输出语言文本
+Output language text
 
 ## Signature
 
@@ -749,7 +749,7 @@ string
 
 </td><td>
 
-文本标签，对应多语言文件键值对中的键
+Text tag, corresponding to the key in the multilingual file key-value pairs
 
 
 </td></tr>
@@ -765,7 +765,7 @@ string
 
 </td><td>
 
-_(Optional)_ 文本命名空间，在扩展运行环境内默认为扩展的 UUID，否则为系统默认命名空间
+_(Optional)_ Text namespace. In the extension runtime environment, it defaults to the extension UUID; otherwise, it is the system default namespace
 
 
 </td></tr>
@@ -781,7 +781,7 @@ string
 
 </td><td>
 
-_(Optional)_ 语言，`undefined` 为 EDA 当前的显示语言
+_(Optional)_ Language. `undefined` is the current display language of EDA
 
 
 </td></tr>
@@ -797,7 +797,7 @@ Array&lt;any&gt;
 
 </td><td>
 
-语言文本中替换占位符的参数
+Arguments for replacing placeholders in the language text
 
 
 </td></tr>
@@ -809,10 +809,10 @@ Array&lt;any&gt;
 
 string
 
-语言文本
+Language text
 
 ## Remarks
 
-可以使用 `${1}` 格式的占位符表示参数；
+Placeholders in the `${1}` format can be used to represent parameters;
 
-语言优先级：当前显示语言 &gt; 系统默认语言 &gt; 数据集中第一个搜索到的包含该文本标签的语言 &gt; 文本标签(tag)
+Language priority: current display language &gt; system default language &gt; the first language in the data set that contains the text tag &gt; the text tag

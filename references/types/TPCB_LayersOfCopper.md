@@ -1,6 +1,6 @@
 # TPCB\_LayersOfCopper type
 
-铜箔所属层
+Layers of copper
 
 ## Signature
 
@@ -14,4 +14,4 @@ export type TPCB_LayersOfCopper = TPCB_LayersOfInner | EPCB_LayerId.TOP | EPCB_L
 
 ## Remarks
 
-此处为方便单层铜箔层设计，不包含 [EPCB\_LayerId.MULTI](../enums/EPCB_LayerId.md)
+This is for the convenience of single-layer copper design and does not include [EPCB\_LayerId.MULTI](../enums/EPCB_LayerId.md)

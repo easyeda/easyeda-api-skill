@@ -1,6 +1,6 @@
 # ELIB\_LibraryType enum
 
-综合库库类型
+Comprehensive library library type
 
 ## Signature
 

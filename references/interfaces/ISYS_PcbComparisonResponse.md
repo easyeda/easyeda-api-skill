@@ -1,6 +1,6 @@
 # ISYS\_PcbComparisonResponse interface
 
-PCB 对比响应
+PCB comparison response
 
 ## Signature
 
@@ -46,7 +46,7 @@ any
 
 </td><td>
 
-_(Optional)_ 对比结果（`success = true` 时存在）
+_(Optional)_ Comparison result (present when `success = true`<!-- -->)
 
 
 </td></tr>
@@ -65,7 +65,7 @@ _(Optional)_ 对比结果（`success = true` 时存在）
 
 </td><td>
 
-_(Optional)_ 错误（`success = false` 时存在）
+_(Optional)_ Error (present when `success = false`<!-- -->)
 
 
 </td></tr>
@@ -84,7 +84,7 @@ boolean
 
 </td><td>
 
-是否成功
+Whether Successful
 
 
 </td></tr>
@@ -98,7 +98,7 @@ boolean
 
 # ISYS\_PcbComparisonResponse.data property
 
-对比结果（`success = true` 时存在）
+Comparison result (present when `success = true`<!-- -->)
 
 ## Signature
 
@@ -110,7 +110,7 @@ data?: any;
 
 # ISYS\_PcbComparisonResponse.error property
 
-错误（`success = false` 时存在）
+Error (present when `success = false`<!-- -->)
 
 ## Signature
 
@@ -122,7 +122,7 @@ error?: { code: TSYS_PcbComparisonErrorCode; message: string };
 
 # ISYS\_PcbComparisonResponse.success property
 
-是否成功
+Whether Successful
 
 ## Signature
 

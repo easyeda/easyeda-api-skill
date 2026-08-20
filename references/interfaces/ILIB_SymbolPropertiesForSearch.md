@@ -1,6 +1,6 @@
 # ILIB\_SymbolPropertiesForSearch interface
 
-可用于精确搜索的符号参数
+Symbol parameters that can be used for precise search
 
 ## Signature
 
@@ -46,7 +46,7 @@ string
 
 </td><td>
 
-_(Optional)_ 符号名称
+_(Optional)_ Symbol name
 
 
 </td></tr>
@@ -60,7 +60,7 @@ _(Optional)_ 符号名称
 
 # ILIB\_SymbolPropertiesForSearch.name property
 
-符号名称
+Symbol name
 
 ## Signature
 

@@ -1,6 +1,6 @@
 # TPCB\_LayersInTheSelectable type
 
-可选中图层
+Selectable layers
 
 ## Signature
 
@@ -14,4 +14,4 @@ export type TPCB_LayersInTheSelectable = TPCB_LayersOfInner | TPCB_LayersOfCusto
 
 ## Remarks
 
-此处为所有在编辑器图层菜单中可以选中并设置可见性的图层
+Here are all layers that can be selected and set visible in the editor layer menu

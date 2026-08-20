@@ -1,6 +1,6 @@
 # ESYS\_BottomPanelTab enum
 
-底部面板标签页
+Bottom panel tab
 
 ## Signature
 

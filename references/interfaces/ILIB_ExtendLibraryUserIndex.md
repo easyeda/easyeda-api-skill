@@ -1,6 +1,6 @@
 # ILIB\_ExtendLibraryUserIndex interface
 
-外部库用户索引
+External library user index
 
 ## Signature
 
@@ -10,11 +10,11 @@ export interface ILIB_ExtendLibraryUserIndex
 
 ## Remarks
 
-支持外部库使用名称或关联的嘉立创 EDA 系统内用户 UUID 作为用户的唯一 ID 索引
+Supports external libraries using a name or the associated user UUID within the EasyEDA system as the unique ID index of the user
 
-如若希望关联嘉立创 EDA 的用户，请传入该用户的 UUID，将会自动读取用户的名称（如若用户存在）
+If you want to associate with an EasyEDA user, pass in the user's UUID. The user's name will be automatically read (if the user exists)
 
-如若仅希望显示用户名称，可以传入 `name` 字段
+If you only want to display the user name, you can pass in the `name` field
 
 ## Properties
 
@@ -54,7 +54,7 @@ string
 
 </td><td>
 
-_(Optional)_ 用户名称
+_(Optional)_ User name
 
 
 </td></tr>
@@ -73,7 +73,7 @@ string
 
 </td><td>
 
-_(Optional)_ 嘉立创 EDA 系统内的用户 UUID
+_(Optional)_ User UUID within the EasyEDA system
 
 
 </td></tr>
@@ -87,7 +87,7 @@ _(Optional)_ 嘉立创 EDA 系统内的用户 UUID
 
 # ILIB\_ExtendLibraryUserIndex.name property
 
-用户名称
+User name
 
 ## Signature
 
@@ -99,7 +99,7 @@ name?: string;
 
 # ILIB\_ExtendLibraryUserIndex.uuid property
 
-嘉立创 EDA 系统内的用户 UUID
+User UUID within the EasyEDA system
 
 ## Signature
 

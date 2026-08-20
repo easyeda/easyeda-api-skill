@@ -1,6 +1,6 @@
 # DMT\_Panel class
 
-文档树 / 面板管理类
+Document tree / Panel management class
 
 ## Signature
 
@@ -10,7 +10,7 @@ export class DMT_Panel
 
 ## Remarks
 
-在当前打开的工程内进行面板管理的相关操作
+Operations related to panel management in the currently open project
 
 ## Methods
 
@@ -40,7 +40,7 @@ Description
 
 </td><td>
 
-复制面板
+Copy Panel
 
 
 </td></tr>
@@ -54,7 +54,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建面板
+**_(BETA)_** Create Panel
 
 
 </td></tr>
@@ -68,7 +68,7 @@ Description
 
 </td><td>
 
-删除面板
+Delete Panel
 
 
 </td></tr>
@@ -82,7 +82,7 @@ Description
 
 </td><td>
 
-获取工程内所有面板的详细属性
+Get all in the project panel detailed properties of
 
 
 </td></tr>
@@ -96,7 +96,7 @@ Description
 
 </td><td>
 
-获取当前面板的详细属性
+Get detailed properties of Current panel
 
 
 </td></tr>
@@ -110,7 +110,7 @@ Description
 
 </td><td>
 
-获取面板的详细属性
+Get detailed properties of Panel
 
 
 </td></tr>
@@ -124,7 +124,7 @@ Description
 
 </td><td>
 
-修改面板名称
+Modify Panel name
 
 
 </td></tr>
@@ -138,7 +138,7 @@ Description
 
 # DMT\_Panel.copyPanel() method
 
-复制面板
+Copy Panel
 
 ## Signature
 
@@ -176,7 +176,7 @@ string
 
 </td><td>
 
-源面板 UUID
+Source panel UUID
 
 
 </td></tr>
@@ -188,7 +188,31 @@ string
 
 Promise&lt;string \| undefined&gt;
 
-新面板 UUID，如若为 `undefined` 则复制失败
+New panel UUID. If it is `undefined`<!-- -->, the copy failed
+
+## Example
+
+
+```javascript
+// 1. 创建一个专用源面板并等 1.5s 同步（复制前源面板必须已在工作区落地）
+const sourceUuid = await eda.dmt_Panel.createPanel();
+await new Promise(r => setTimeout(r, 1500));
+
+// 2. 复制源面板，返回副本 UUID
+const copiedUuid = await eda.dmt_Panel.copyPanel(sourceUuid);
+await new Promise(r => setTimeout(r, 1500));
+
+// 3. 回读副本，确认名称与所属工程
+const copyInfo = await eda.dmt_Panel.getPanelInfo(copiedUuid);
+console.log('copiedUuid:', copiedUuid);
+console.log('copyName:', copyInfo?.name);
+
+// 4. 清理本例创建的两个面板（先删副本再删源），保持工程整洁
+const deletedCopy = await eda.dmt_Panel.deletePanel(copiedUuid);
+console.log('deleted:', deletedCopy);
+const deletedSource = await eda.dmt_Panel.deletePanel(sourceUuid);
+console.log('deleted:', deletedSource);
+```
 
 ### createpanel
 
@@ -196,7 +220,7 @@ Promise&lt;string \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-创建面板
+Create Panel
 
 ## Signature
 
@@ -209,13 +233,31 @@ public createPanel(): Promise<string | undefined>;
 
 Promise&lt;string \| undefined&gt;
 
-面板 UUID，如若为 `undefined` 则创建失败
+Panel UUID, if it is `undefined` creation fails
+
+## Example
+
+
+```javascript
+// 1. 创建面板，返回新面板 UUID
+const panelUuid = await eda.dmt_Panel.createPanel();
+console.log('panelUuid:', panelUuid);
+
+// 2. 等 1.5s 让面板在工作区落地，回读确认
+await new Promise(r => setTimeout(r, 1500));
+const panelInfo = await eda.dmt_Panel.getPanelInfo(panelUuid);
+console.log('name:', panelInfo?.name);
+
+// 3. 删除本例创建的面板，保持工程整洁
+const deleted = await eda.dmt_Panel.deletePanel(panelUuid);
+console.log('deleted:', deleted);
+```
 
 ### deletepanel
 
 # DMT\_Panel.deletePanel() method
 
-删除面板
+Delete Panel
 
 ## Signature
 
@@ -253,7 +295,7 @@ string
 
 </td><td>
 
-面板 UUID
+Panel UUID
 
 
 </td></tr>
@@ -265,13 +307,30 @@ string
 
 Promise&lt;boolean&gt;
 
-操作是否成功
+Whether the operation is successful
+
+## Example
+
+
+```javascript
+// 1. 创建专用测试面板（避免误删工程里的现有面板），等 1.5s 同步
+const panelUuid = await eda.dmt_Panel.createPanel();
+await new Promise(r => setTimeout(r, 1500));
+
+// 2. 删除该面板
+const deleted = await eda.dmt_Panel.deletePanel(panelUuid);
+console.log('deleted:', deleted);
+
+// 3. 回读确认已删除（返回 undefined 说明面板已不存在）
+const info = await eda.dmt_Panel.getPanelInfo(panelUuid);
+console.log('info after delete:', info === undefined ? '已不存在' : info.name);
+```
 
 ### getallpanelsinfo
 
 # DMT\_Panel.getAllPanelsInfo() method
 
-获取工程内所有面板的详细属性
+Get all in the project panel detailed properties of
 
 ## Signature
 
@@ -284,13 +343,35 @@ public getAllPanelsInfo(): Promise<Array<IDMT_PanelItem>>;
 
 Promise&lt;Array&lt;[IDMT\_PanelItem](../interfaces/IDMT_PanelItem.md)<!-- -->&gt;&gt;
 
-所有面板的详细属性的数组
+Array of detailed properties of all panels
+
+## Example
+
+
+```javascript
+// 1. 创建一个测试面板并等 1.5s 同步，保证列表里有新近创建的对象
+const panelUuid = await eda.dmt_Panel.createPanel();
+await new Promise(r => setTimeout(r, 1500));
+
+// 2. 获取所有面板的详细属性
+const panels = await eda.dmt_Panel.getAllPanelsInfo();
+
+// 3. 输出每个面板的名称与 UUID，确认测试面板在列
+panels.forEach((p, i) => {
+  console.log(`panel[${i}]:`, p.name, p.uuid);
+});
+console.log('total:', panels.length);
+console.log('test panel included:', panels.some(p => p.uuid === panelUuid));
+
+// 4. 清理测试面板（查询类案例不留测试对象）
+await eda.dmt_Panel.deletePanel(panelUuid);
+```
 
 ### getcurrentpanelinfo
 
 # DMT\_Panel.getCurrentPanelInfo() method
 
-获取当前面板的详细属性
+Get detailed properties of Current panel
 
 ## Signature
 
@@ -303,17 +384,39 @@ public getCurrentPanelInfo(): Promise<IDMT_PanelItem | undefined>;
 
 Promise&lt;[IDMT\_PanelItem](../interfaces/IDMT_PanelItem.md) \| undefined&gt;
 
-面板的详细属性，如若为 `undefined` 则获取失败
+Panel detailed properties of; if it is `undefined`<!-- -->, the retrieval failed
 
 ## Remarks
 
-将会获取当前打开且拥有最后输入焦点的面板的详细属性
+It will get the detailed properties of the currently open panel that has the last input focus
+
+## Example
+
+
+```javascript
+// 1. 创建测试面板并打开它，让焦点落到面板文档上（原理图/PCB 焦点下返回 undefined）
+const panelUuid = await eda.dmt_Panel.createPanel();
+await new Promise(r => setTimeout(r, 1500));
+await eda.dmt_EditorControl.openDocument(panelUuid);
+await new Promise(r => setTimeout(r, 1000));
+
+// 2. 获取当前焦点面板的详细属性
+const panel = await eda.dmt_Panel.getCurrentPanelInfo();
+
+// 3. 输出面板的名称、UUID 与所属工程
+console.log('name:', panel?.name);
+console.log('panelUuid:', panel?.uuid);
+console.log('parentProjectUuid:', panel?.parentProjectUuid);
+
+// 4. 清理测试面板（面板处于打开状态也可以直接删除）
+await eda.dmt_Panel.deletePanel(panelUuid);
+```
 
 ### getpanelinfo
 
 # DMT\_Panel.getPanelInfo() method
 
-获取面板的详细属性
+Get detailed properties of Panel
 
 ## Signature
 
@@ -351,7 +454,7 @@ string
 
 </td><td>
 
-面板 UUID
+Panel UUID
 
 
 </td></tr>
@@ -363,13 +466,33 @@ string
 
 Promise&lt;[IDMT\_PanelItem](../interfaces/IDMT_PanelItem.md) \| undefined&gt;
 
-面板的详细属性，如若为 `undefined` 则获取失败
+Panel detailed properties of; if it is `undefined`<!-- -->, the retrieval failed
+
+## Example
+
+
+```javascript
+// 1. 创建测试面板并等 1.5s 同步
+const panelUuid = await eda.dmt_Panel.createPanel();
+await new Promise(r => setTimeout(r, 1500));
+
+// 2. 按 UUID 查询面板详细属性
+const panelInfo = await eda.dmt_Panel.getPanelInfo(panelUuid);
+
+// 3. 输出属性
+console.log('name:', panelInfo?.name);
+console.log('itemType:', panelInfo?.itemType);
+console.log('parentProjectUuid:', panelInfo?.parentProjectUuid);
+
+// 4. 清理测试面板（查询类案例不留测试对象）
+await eda.dmt_Panel.deletePanel(panelUuid);
+```
 
 ### modifypanelname
 
 # DMT\_Panel.modifyPanelName() method
 
-修改面板名称
+Modify Panel name
 
 ## Signature
 
@@ -407,7 +530,7 @@ string
 
 </td><td>
 
-面板 UUID
+Panel UUID
 
 
 </td></tr>
@@ -423,7 +546,7 @@ string
 
 </td><td>
 
-面板名称
+Panel name
 
 
 </td></tr>
@@ -435,4 +558,43 @@ string
 
 Promise&lt;boolean&gt;
 
-是否修改成功
+Whether Modify Successful
+
+## Example
+
+
+```javascript
+// 1. 改名目标优先用当前面板（它必然已打开），其次用列表里的现有面板，都没有时创建一个
+let target = await eda.dmt_Panel.getCurrentPanelInfo();
+if (!target) {
+  const panels = await eda.dmt_Panel.getAllPanelsInfo();
+  target = panels[0];
+}
+let createdHere = false;
+if (!target) {
+  createdHere = true;
+  const uuid = await eda.dmt_Panel.createPanel();
+  await new Promise(r => setTimeout(r, 1500));
+  target = await eda.dmt_Panel.getPanelInfo(uuid);
+}
+
+// 2. 打开目标面板（改名只对已打开的面板生效）
+await eda.dmt_EditorControl.openDocument(target.uuid);
+await new Promise(r => setTimeout(r, 1000));
+
+// 3. 修改面板名称
+const newName = '嘉立创示例_面板新名称';
+const renamed = await eda.dmt_Panel.modifyPanelName(target.uuid, newName);
+console.log('renamed:', renamed);
+
+// 4. 等 1s 让改名同步，回读验证（英文名可能被归一化为小写，按不区分大小写比较）
+await new Promise(r => setTimeout(r, 1000));
+const info = await eda.dmt_Panel.getPanelInfo(target.uuid);
+console.log('renamedTo:', info?.name);
+console.log('renameVerified:', (info?.name ?? '').toLowerCase() === newName.toLowerCase());
+
+// 5. 本例创建的测试面板验证后删除清理；现有面板保留改名现场，人工验收后可改回原名
+if (createdHere) {
+  await eda.dmt_Panel.deletePanel(target.uuid);
+}
+```

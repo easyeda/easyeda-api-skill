@@ -1,6 +1,6 @@
 # PCB\_PrimitivePour class
 
-PCB &amp; 封装 / 覆铜边框图元类
+PCB &amp; footprint / copper border primitive class
 
 ## Signature
 
@@ -37,7 +37,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 创建覆铜边框
+**_(BETA)_** Create Copper border
 
 
 </td></tr>
@@ -51,7 +51,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 删除覆铜边框
+**_(BETA)_** Delete Copper border
 
 
 </td></tr>
@@ -65,7 +65,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取覆铜边框
+**_(BETA)_** Get Copper border
 
 
 </td></tr>
@@ -79,7 +79,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取覆铜边框
+**_(BETA)_** Get Copper border
 
 
 </td></tr>
@@ -93,7 +93,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有覆铜边框图元
+**_(BETA)_** Get all Copper border primitive
 
 
 </td></tr>
@@ -107,7 +107,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 获取所有覆铜边框的图元 ID
+**_(BETA)_** Get all Copper border primitive IDs
 
 
 </td></tr>
@@ -121,7 +121,7 @@ Description
 
 </td><td>
 
-**_(BETA)_** 修改覆铜边框
+**_(BETA)_** Modify Copper border
 
 
 </td></tr>
@@ -137,7 +137,7 @@ Description
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-创建覆铜边框
+Create Copper border
 
 ## Signature
 
@@ -175,7 +175,7 @@ string
 
 </td><td>
 
-网络名称
+Net name
 
 
 </td></tr>
@@ -191,7 +191,7 @@ layer
 
 </td><td>
 
-层
+Layer
 
 
 </td></tr>
@@ -207,7 +207,7 @@ complexPolygon
 
 </td><td>
 
-复杂多边形对象
+Complex polygon object
 
 
 </td></tr>
@@ -223,7 +223,7 @@ pourFillMethod
 
 </td><td>
 
-_(Optional)_ 覆铜填充方法
+_(Optional)_ Copper fill method
 
 
 </td></tr>
@@ -239,7 +239,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否保留孤岛
+_(Optional)_ Whether to keep islands
 
 
 </td></tr>
@@ -255,7 +255,7 @@ string
 
 </td><td>
 
-_(Optional)_ 覆铜名称
+_(Optional)_ Copper name
 
 
 </td></tr>
@@ -271,7 +271,7 @@ number
 
 </td><td>
 
-_(Optional)_ 覆铜优先级
+_(Optional)_ Copper priority
 
 
 </td></tr>
@@ -287,7 +287,7 @@ number
 
 </td><td>
 
-_(Optional)_ 线宽
+_(Optional)_ Line width
 
 
 </td></tr>
@@ -303,7 +303,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -315,7 +315,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md) \| undefined&gt;
 
-覆铜边框图元对象
+Copper border primitive object
 
 ### delete
 
@@ -323,7 +323,7 @@ Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md) \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-删除覆铜边框
+Delete Copper border
 
 ## Signature
 
@@ -361,7 +361,7 @@ string \| [IPCB\_PrimitivePour](./IPCB_PrimitivePour.md) \| Array&lt;string&gt; 
 
 </td><td>
 
-覆铜边框的图元 ID 或覆铜边框图元对象
+Copper border primitive ID or Copper border primitive object
 
 
 </td></tr>
@@ -373,7 +373,7 @@ string \| [IPCB\_PrimitivePour](./IPCB_PrimitivePour.md) \| Array&lt;string&gt; 
 
 Promise&lt;boolean&gt;
 
-删除操作是否成功
+Delete Whether the operation is successful
 
 ### get
 
@@ -381,7 +381,7 @@ Promise&lt;boolean&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取覆铜边框
+Get Copper border
 
 ## Signature
 
@@ -419,7 +419,7 @@ string
 
 </td><td>
 
-覆铜边框的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Copper border primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -431,7 +431,7 @@ string
 
 Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md) \| undefined&gt;
 
-覆铜边框图元对象，`undefined` 表示获取失败
+Copper border primitive object, `undefined` indicates that the retrieval failed
 
 ### get_1
 
@@ -439,7 +439,7 @@ Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md) \| undefined&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取覆铜边框
+Get Copper border
 
 ## Signature
 
@@ -477,7 +477,7 @@ Array&lt;string&gt;
 
 </td><td>
 
-覆铜边框的图元 ID，可以为字符串或字符串数组，如若为数组，则返回的也是数组
+Copper border primitive ID, which can be a string or an array of strings. If it is an array, an array is also returned
 
 
 </td></tr>
@@ -489,11 +489,11 @@ Array&lt;string&gt;
 
 Promise&lt;Array&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)<!-- -->&gt;&gt;
 
-覆铜边框图元对象，空数组表示获取失败
+Copper border primitive object; an empty array indicates that the retrieval failed
 
 ## Remarks
 
-如若传入多个图元 ID，任意图元 ID 未匹配到不影响其它图元的返回，即可能返回少于传入的图元 ID 数量的图元对象
+If multiple primitive IDs are passed in, a primitive ID that is not matched will not affect the return of other primitives; that is, fewer primitive objects than the number of primitive IDs passed in may be returned.
 
 ### getall
 
@@ -501,7 +501,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)<!-- -->&gt;&g
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有覆铜边框图元
+Get all Copper border primitive
 
 ## Signature
 
@@ -539,7 +539,7 @@ string
 
 </td><td>
 
-_(Optional)_ 网络名称
+_(Optional)_ Net name
 
 
 </td></tr>
@@ -555,7 +555,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层
+_(Optional)_ Layer
 
 
 </td></tr>
@@ -571,7 +571,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -583,7 +583,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;Array&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)<!-- -->&gt;&gt;
 
-覆铜边框图元对象数组
+Array of Copper border primitive objects
 
 ### getallprimitiveid
 
@@ -591,7 +591,7 @@ Promise&lt;Array&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)<!-- -->&gt;&g
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-获取所有覆铜边框的图元 ID
+Get all Copper border primitive IDs
 
 ## Signature
 
@@ -629,7 +629,7 @@ string
 
 </td><td>
 
-_(Optional)_ 网络名称
+_(Optional)_ Net name
 
 
 </td></tr>
@@ -645,7 +645,7 @@ layer
 
 </td><td>
 
-_(Optional)_ 层
+_(Optional)_ Layer
 
 
 </td></tr>
@@ -661,7 +661,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ 是否锁定
+_(Optional)_ Whether it is locked
 
 
 </td></tr>
@@ -673,7 +673,7 @@ _(Optional)_ 是否锁定
 
 Promise&lt;Array&lt;string&gt;&gt;
 
-覆铜边框的图元 ID 数组
+Array of Copper border primitive IDs
 
 ### modify
 
@@ -681,7 +681,7 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-修改覆铜边框
+Modify Copper border
 
 ## Signature
 
@@ -719,7 +719,7 @@ string \| [IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)
 
 </td><td>
 
-图元 ID
+Primitive ID
 
 
 </td></tr>
@@ -735,7 +735,7 @@ property
 
 </td><td>
 
-修改参数
+Modify Parameter
 
 
 </td></tr>
@@ -747,4 +747,4 @@ property
 
 Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md) \| undefined&gt;
 
-覆铜边框图元对象，`undefined` 表示修改失败
+Copper border primitive object, `undefined` indicates that the modification failed

@@ -134,6 +134,30 @@ Promise&lt;Array&lt;{ type: 'Net' \| 'Component'; object: string; netlist1Name: 
 
 Netlist comparison result
 
+## Example
+
+
+```javascript
+// 1. 取工程内前两张 PCB 作为两份网表的来源
+const pcbs = await eda.dmt_Pcb.getAllPcbsInfo();
+const docA = pcbs[0];
+const docB = pcbs[1];
+
+// 2. 同一文档与自身对比：网表完全一致，返回空数组（无差异）
+const selfDiff = await eda.sys_Tool.netlistComparison(docA.uuid, docA.uuid);
+console.log('自身对比差异条数：', selfDiff.length);
+
+// 3. 两张不同 PCB 对比：返回差异清单
+const diff = await eda.sys_Tool.netlistComparison(docA.uuid, docB.uuid);
+console.log('两文档对比差异条数：', diff.length);
+
+// 4. 展示差异结构：type 为差异类型，object 为差异对象，
+//    net1 / net2 分别是该对象在两份网表中的名称列表（运行时字段名）
+for (const item of diff.slice(0, 5)) {
+  console.log('差异：', item.type, item.object, '网表 1：', item.net1.join('、') || '（无）', '网表 2：', item.net2.join('、') || '（无）');
+}
+```
+
 ### pcbcomparison
 
 # SYS\_Tool.pcbComparison() method

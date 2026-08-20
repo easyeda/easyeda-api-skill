@@ -154,6 +154,33 @@ Promise&lt;boolean&gt;
 
 Whether the DRC check passed
 
+## Example
+
+
+```javascript
+// 1. 创建测试原理图并打开（DRC 作用于当前激活的原理图）
+const schematicUuid = await eda.dmt_Schematic.createSchematic();
+await new Promise(r => setTimeout(r, 1500));
+const schInfo = await eda.dmt_Schematic.getSchematicInfo(schematicUuid);
+await eda.dmt_EditorControl.openDocument(schInfo.page[0].uuid);
+await new Promise(r => setTimeout(r, 1000));
+
+// 2. 详细模式：返回全部违规项，无违规则为空数组
+const violations = await eda.sch_Drc.check(true, false, true);
+console.log('violationCount:', violations.length);
+violations.forEach((v, i) => {
+  console.log('[' + i + ']', typeof v === 'string' ? v : JSON.stringify(v));
+});
+
+// 3. 布尔模式：只返回是否全部通过
+const passed = await eda.sch_Drc.check(true, false, false);
+console.log('allPassed:', passed);
+
+// 4. 清理测试原理图
+await new Promise(r => setTimeout(r, 1500));
+await eda.dmt_Schematic.deleteSchematic(schematicUuid);
+```
+
 ### check_1
 
 # SCH\_Drc.check() method

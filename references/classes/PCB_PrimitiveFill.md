@@ -269,6 +269,28 @@ Promise&lt;[IPCB\_PrimitiveFill](./IPCB_PrimitiveFill.md) \| undefined&gt;
 
 Fill primitive object
 
+## Example
+
+
+```javascript
+// 1. 生成随机基准坐标，避免与画布上已有的填充重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 构造矩形轮廓（宽 500mil、高 300mil），填充轮廓必须是 MathPolygon 对象
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+
+// 3. 在顶层铜层（1）创建实心填充（SOLID=0），不挂网络，不锁定
+const fill = await eda.pcb_PrimitiveFill.create(1, polygon, '', 0, 10, false);
+
+// 4. 创建类保留现场，不删除图元
+console.log('primitiveId:', fill.getState_PrimitiveId());
+console.log('layer:', fill.getState_Layer());
+console.log('fillMode:', fill.getState_FillMode());
+console.log('net:', fill.getState_Net());
+console.log('primitiveType:', fill.getState_PrimitiveType());
+```
+
 ### delete
 
 # PCB\_PrimitiveFill.delete() method
@@ -327,6 +349,34 @@ Promise&lt;boolean&gt;
 
 Delete Whether the operation is successful
 
+## Example
+
+
+```javascript
+// 1. 创建两个待删除的测试填充（随机坐标避免与画布已有填充重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon1 = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const polygon2 = eda.pcb_MathPolygon.createPolygon(['R', x, y + 1000, 500, 300, 0, 0]);
+const fill1 = await eda.pcb_PrimitiveFill.create(1, polygon1, '', 0, 10, false);
+const fill2 = await eda.pcb_PrimitiveFill.create(1, polygon2, '', 0, 10, false);
+
+// 2. 记录删除前的填充数量
+const beforeCount = (await eda.pcb_PrimitiveFill.getAll()).length;
+
+// 3. 以 ID 数组形式批量删除两个填充
+const deleted = await eda.pcb_PrimitiveFill.delete([
+  fill1.getState_PrimitiveId(),
+  fill2.getState_PrimitiveId()
+]);
+
+// 4. 删除类保留现场（图元已删除，不恢复）
+const afterCount = (await eda.pcb_PrimitiveFill.getAll()).length;
+
+console.log('deleted:', deleted);
+console.log('beforeCount:', beforeCount, '→ afterCount:', afterCount);
+```
+
 ### get
 
 # PCB\_PrimitiveFill.get() method
@@ -384,6 +434,51 @@ Primitive ID of the fill, which can be a string or an array of strings. If it is
 Promise&lt;[IPCB\_PrimitiveFill](./IPCB_PrimitiveFill.md) \| undefined&gt;
 
 Fill primitive object, `undefined` indicates that the retrieval failed
+
+## Example
+
+
+```javascript
+// 1. 创建两个测试填充（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const fill1 = await eda.pcb_PrimitiveFill.create(
+  1,
+  eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]),
+  '',
+  0,
+  10,
+  false
+);
+const fill2 = await eda.pcb_PrimitiveFill.create(
+  2,
+  eda.pcb_MathPolygon.createPolygon(['R', x, y + 1000, 500, 300, 0, 0]),
+  '',
+  0,
+  10,
+  false
+);
+
+// 2. 传单个 ID 字符串，返回单个填充对象
+const single = await eda.pcb_PrimitiveFill.get(fill1.getState_PrimitiveId());
+
+// 3. 传 ID 数组，返回填充对象数组
+const arr = await eda.pcb_PrimitiveFill.get([
+  fill1.getState_PrimitiveId(),
+  fill2.getState_PrimitiveId()
+]);
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitiveFill.delete([
+  fill1.getState_PrimitiveId(),
+  fill2.getState_PrimitiveId()
+]);
+
+console.log('single layer:', single.getState_Layer());
+console.log('single fillMode:', single.getState_FillMode());
+console.log('array length:', arr.length);
+console.log('fill2 layer:', arr[1].getState_Layer());
+```
 
 ### get_1
 
@@ -537,6 +632,31 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveFill](./IPCB_PrimitiveFill.md)<!-- -->&gt;&g
 
 Fill primitive object array
 
+## Example
+
+
+```javascript
+// 1. 创建一个顶层铜层（1）测试填充作为过滤目标（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const fill = await eda.pcb_PrimitiveFill.create(1, polygon, '', 0, 10, false);
+const fillId = fill.getState_PrimitiveId();
+
+// 2. 不带参数：获取 PCB 上全部填充
+const all = await eda.pcb_PrimitiveFill.getAll();
+
+// 3. 按层过滤：只取顶层铜层（1）的填充
+const topCopper = await eda.pcb_PrimitiveFill.getAll(1);
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitiveFill.delete([fillId]);
+
+console.log('total fills:', all.length);
+console.log('top copper fills:', topCopper.length);
+console.log('marker fill found:', topCopper.some(f => f.getState_PrimitiveId() === fillId));
+```
+
 ### getallprimitiveid
 
 # PCB\_PrimitiveFill.getAllPrimitiveId() method
@@ -627,6 +747,31 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 Array of fill primitive IDs
 
+## Example
+
+
+```javascript
+// 1. 创建一个顶层铜层（1）测试填充作为查找目标（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const fill = await eda.pcb_PrimitiveFill.create(1, polygon, '', 0, 10, false);
+const fillId = fill.getState_PrimitiveId();
+
+// 2. 获取全部填充的图元 ID
+const allIds = await eda.pcb_PrimitiveFill.getAllPrimitiveId();
+
+// 3. 按层过滤：只取顶层铜层（1）填充的图元 ID
+const topCopperIds = await eda.pcb_PrimitiveFill.getAllPrimitiveId(1);
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitiveFill.delete([fillId]);
+
+console.log('total fill ids:', allIds.length);
+console.log('top copper fill ids:', topCopperIds.length);
+console.log('marker id in top copper list:', topCopperIds.includes(fillId));
+```
+
 ### modify
 
 # PCB\_PrimitiveFill.modify() method
@@ -700,3 +845,30 @@ Modify Parameter
 Promise&lt;[IPCB\_PrimitiveFill](./IPCB_PrimitiveFill.md) \| undefined&gt;
 
 Fill primitive object, `undefined` indicates that the modification failed
+
+## Example
+
+
+```javascript
+// 1. 创建待修改的测试填充（随机坐标避免与画布已有填充重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const fill = await eda.pcb_PrimitiveFill.create(1, polygon, '', 0, 10, false);
+const fillId = fill.getState_PrimitiveId();
+
+// 2. 读取修改前的层与锁定状态
+const beforeLayer = fill.getState_Layer();
+const beforeLock = fill.getState_PrimitiveLock();
+
+// 3. 批量修改：顶层铜层（1）→ 底层铜层（2），未锁定 → 锁定
+await eda.pcb_PrimitiveFill.modify(fillId, { layer: 2, primitiveLock: true });
+
+// 4. modify 返回后需要重新 get() 才能读到画布上的最新值
+const refreshed = await eda.pcb_PrimitiveFill.get(fillId);
+
+// 5. 修改类保留现场，供观察修改结果
+console.log('primitiveId:', fillId);
+console.log('layer:', beforeLayer, '→', refreshed.getState_Layer());
+console.log('primitiveLock:', beforeLock, '→', refreshed.getState_PrimitiveLock());
+```

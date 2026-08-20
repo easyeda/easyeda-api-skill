@@ -253,6 +253,32 @@ Promise&lt;[ISCH\_PrimitiveWire](./ISCH_PrimitiveWire.md) \| undefined&gt;
 
 Wire primitive object
 
+## Example
+
+
+```javascript
+// 1. 生成随机起点坐标，避免与画布上已有的导线重合（SCH 坐标单位 10mil）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一条两段相连的 L 形导线：先向右再向上，段与段必须首尾相连且各自水平或垂直
+const wire = await eda.sch_PrimitiveWire.create(
+  [[x, y, x + 400, y], [x + 400, y, x + 400, y + 200]],
+  'SIG_A',    // 网络名称（自由字符串，未指定时按落点自动推断）
+  '#FF0000',  // 导线颜色
+  6,          // 线宽（范围 1-10）
+  1           // 线型：1 = DASHED（虚线）
+);
+
+// 3. 创建类保留现场，不删除图元；Line 读回是画布规格化坐标（端点顺序可能与传入相反），只打印不做断言
+console.log('primitiveId:', wire.getState_PrimitiveId());
+console.log('primitiveType:', wire.getState_PrimitiveType());
+console.log('net:', wire.getState_Net());
+console.log('color:', wire.getState_Color());
+console.log('lineWidth:', wire.getState_LineWidth());
+console.log('line:', JSON.stringify(wire.getState_Line()));
+```
+
 ### delete
 
 # SCH\_PrimitiveWire.delete() method
@@ -311,6 +337,31 @@ Promise&lt;boolean&gt;
 
 Delete Whether the operation is successful
 
+## Example
+
+
+```javascript
+// 1. 创建两条待删除的测试导线（随机坐标避免重合，SCH 坐标单位 10mil）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const wire1 = await eda.sch_PrimitiveWire.create([x, y, x + 400, y], 'SIG_A');
+const wire2 = await eda.sch_PrimitiveWire.create([x, y + 200, x + 400, y + 200], 'SIG_B');
+
+// 2. 记录删除前的导线数量
+const beforeCount = (await eda.sch_PrimitiveWire.getAll()).length;
+
+// 3. 分别以 ID 字符串和图元对象两种形式删除两条导线
+const deleted1 = await eda.sch_PrimitiveWire.delete(wire1.getState_PrimitiveId());
+const deleted2 = await eda.sch_PrimitiveWire.delete(wire2);
+
+// 4. 删除类保留现场（图元已删除，不恢复）
+const afterCount = (await eda.sch_PrimitiveWire.getAll()).length;
+
+console.log('deleted by id:', deleted1);
+console.log('deleted by object:', deleted2);
+console.log('beforeCount:', beforeCount, '→ afterCount:', afterCount);
+```
+
 ### get
 
 # SCH\_PrimitiveWire.get() method
@@ -368,6 +419,30 @@ Wire primitive ID, which can be a string or an array of strings. If it is an arr
 Promise&lt;[ISCH\_PrimitiveWire](./ISCH_PrimitiveWire.md) \| undefined&gt;
 
 Wire primitive object, `undefined` indicates that the retrieval failed
+
+## Example
+
+
+```javascript
+// 1. 创建两条测试导线，分别属于不同网络（随机坐标避免重合，SCH 坐标单位 10mil）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const wire1 = await eda.sch_PrimitiveWire.create([x, y, x + 400, y], 'SIG_A');
+const wire2 = await eda.sch_PrimitiveWire.create([x, y + 200, x + 400, y + 200], 'SIG_B');
+
+// 2. 传单个 ID 字符串，返回单条导线对象
+const single = await eda.sch_PrimitiveWire.get(wire1.getState_PrimitiveId());
+
+// 3. 传 ID 数组，返回导线对象数组（任一 ID 未匹配不影响其它图元的返回）
+const arr = await eda.sch_PrimitiveWire.get([wire1.getState_PrimitiveId(), wire2.getState_PrimitiveId()]);
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.sch_PrimitiveWire.delete([wire1.getState_PrimitiveId(), wire2.getState_PrimitiveId()]);
+
+console.log('single net:', single.getState_Net());
+console.log('array length:', arr.length);
+console.log('wire2 net:', arr[1].getState_Net());
+```
 
 ### get_1
 
@@ -489,6 +564,32 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveWire](./ISCH_PrimitiveWire.md)<!-- -->&gt;&g
 
 Array of Wire primitive objects
 
+## Example
+
+
+```javascript
+// 1. 创建两条测试导线，分别属于不同网络（随机坐标避免重合，SCH 坐标单位 10mil）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const wire1 = await eda.sch_PrimitiveWire.create([x, y, x + 400, y], 'SIG_A');
+const wire2 = await eda.sch_PrimitiveWire.create([x, y + 200, x + 400, y + 200], 'SIG_B');
+const wire1Id = wire1.getState_PrimitiveId();
+
+// 2. 不传参数，获取当前原理图页上的全部导线
+const all = await eda.sch_PrimitiveWire.getAll();
+
+// 3. 传网络名称，只获取该网络的导线
+const onlyA = await eda.sch_PrimitiveWire.getAll('SIG_A');
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.sch_PrimitiveWire.delete([wire1.getState_PrimitiveId(), wire2.getState_PrimitiveId()]);
+
+console.log('total wires:', all.length);
+console.log('marker wire found:', all.some(w => w.getState_PrimitiveId() === wire1Id));
+console.log('SIG_A wires:', onlyA.length);
+console.log('SIG_A all same net:', onlyA.every(w => w.getState_Net() === 'SIG_A'));
+```
+
 ### getallprimitiveid
 
 # SCH\_PrimitiveWire.getAllPrimitiveId() method
@@ -546,6 +647,32 @@ _(Optional)_ Net name
 Promise&lt;Array&lt;string&gt;&gt;
 
 Array of Wire primitive IDs
+
+## Example
+
+
+```javascript
+// 1. 创建两条测试导线，分别属于不同网络（随机坐标避免重合，SCH 坐标单位 10mil）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const wire1 = await eda.sch_PrimitiveWire.create([x, y, x + 400, y], 'SIG_A');
+const wire2 = await eda.sch_PrimitiveWire.create([x, y + 200, x + 400, y + 200], 'SIG_B');
+const wire1Id = wire1.getState_PrimitiveId();
+
+// 2. 不传参数，获取全部导线的图元 ID
+const allIds = await eda.sch_PrimitiveWire.getAllPrimitiveId();
+
+// 3. 传网络名称，只获取该网络导线的图元 ID
+const onlyAIds = await eda.sch_PrimitiveWire.getAllPrimitiveId('SIG_A');
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.sch_PrimitiveWire.delete([wire1.getState_PrimitiveId(), wire2.getState_PrimitiveId()]);
+
+console.log('total wire ids:', allIds.length);
+console.log('marker id in list:', allIds.includes(wire1Id));
+console.log('SIG_A id count:', onlyAIds.length);
+console.log('SIG_A contains marker:', onlyAIds.includes(wire1Id));
+```
 
 ### modify
 
@@ -620,3 +747,37 @@ Modify Parameter
 Promise&lt;[ISCH\_PrimitiveWire](./ISCH_PrimitiveWire.md) \| undefined&gt;
 
 Wire primitive object
+
+## Example
+
+
+```javascript
+// 1. 创建待修改的测试导线（随机坐标避免与画布已有导线重合）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const wire = await eda.sch_PrimitiveWire.create([x, y, x + 400, y], 'SIG_A', '#FF0000', 6, 1);
+const wireId = wire.getState_PrimitiveId();
+
+// 2. 读取修改前的网络、线宽与颜色
+const beforeNet = wire.getState_Net();
+const beforeWidth = wire.getState_LineWidth();
+const beforeColor = wire.getState_Color();
+
+// 3. 批量修改：网络 SIG_A → SIG_B、线宽 6 → 10、颜色改为绿色，路径改为向右再向上的 L 形
+await eda.sch_PrimitiveWire.modify(wireId, {
+  line: [[x, y, x + 400, y], [x + 400, y, x + 400, y + 200]],
+  net: 'SIG_B',
+  lineWidth: 10,
+  color: '#00AA00',
+});
+
+// 4. modify 返回后需要重新 get() 才能读到画布上的最新值（Line 是规格化坐标，只打印不断言）
+const refreshed = await eda.sch_PrimitiveWire.get(wireId);
+
+// 5. 修改类保留现场，供观察修改结果
+console.log('primitiveId:', wireId);
+console.log('net:', beforeNet, '→', refreshed.getState_Net());
+console.log('lineWidth:', beforeWidth, '→', refreshed.getState_LineWidth());
+console.log('color:', beforeColor, '→', refreshed.getState_Color());
+console.log('line:', JSON.stringify(refreshed.getState_Line()));
+```

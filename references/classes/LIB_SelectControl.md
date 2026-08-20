@@ -80,8 +80,8 @@ const row = await eda.lib_SelectControl.getSelectedLibraryRowInfo();
 
 // 2. 库类型对照（ELIB_LibraryType）
 const typeNames = {
-  '1': '复用模块', '2': '符号', '3': '器件', '4': '封装', '5': '3D模型',
-  '29': '面板库', '32': '仿真模型(Ngspice)', '33': '仿真模型(SimulIDE)',
+  '1': '复用模块', '2': '符号', '3': '器件', '4': '封装', '5': '3D 模型',
+  '29': '面板库', '32': '仿真模型（Ngspice）', '33': '仿真模型（SimulIDE）',
 };
 
 // 3. 输出选中行的关键信息（uuid + libraryUuid 可直接传给库管理接口）

@@ -105,3 +105,30 @@ Array&lt;Array&lt;number \| Array&lt;number&gt;&gt;&gt; \| undefined
 ## Remarks
 
 Splits polyline coordinate groups that have no connections to each other into multiple polylines. Regardless of whether there are multiple polylines, this function wraps an extra layer of array around the input data; it is recommended for scenarios containing polylines such as [ISCH\_PrimitiveBus](./ISCH_PrimitiveBus.md) and [ISCH\_PrimitiveWire](./ISCH_PrimitiveWire.md)
+
+## Example
+
+
+```javascript
+// 1. 一条连续线的扁平坐标（SCH 坐标单位是 10mil，100 ≈ 25.4mm）
+const flatLine = [100, 100, 400, 100, 400, 300];
+const single = eda.sch_Utils.splitLines(flatLine);
+console.log('单条连续线：', JSON.stringify(single), '，多段线条数：', single.length);
+
+// 2. 相互断开的两条线——各自保留为列表中的独立条目
+const separated = eda.sch_Utils.splitLines([
+  [100, 100, 300, 100],
+  [500, 100, 700, 100, 700, 300],
+]);
+console.log('断开的两条线：', JSON.stringify(separated), '，多段线条数：', separated.length);
+
+// 3. 实际场景：读取画布上导线的坐标数据（嵌套段数组）并归一化
+const wire = await eda.sch_PrimitiveWire.create([800, 300, 1200, 300, 1200, 500]);
+const lineData = wire.getState_Line();
+console.log('导线原始坐标：', JSON.stringify(lineData));
+const polylines = eda.sch_Utils.splitLines(lineData);
+console.log('导线归一化结果：', JSON.stringify(polylines), '，多段线条数：', polylines.length);
+
+// 4. 清理测试图元（查询演示，保持画布干净）
+await eda.sch_PrimitiveWire.delete([wire.getState_PrimitiveId()]);
+```

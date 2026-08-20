@@ -155,6 +155,31 @@ Promise&lt;boolean&gt;
 
 Whether the operation is successful
 
+## Example
+
+
+```javascript
+// 1. 创建测试焊盘并选中它
+const pad = await eda.pcb_PrimitivePad.create(1, '1', 2000, 2000, 0, ['ELLIPSE', 60, 60], '', null, 0, 0, 0, false, 0);
+const padId = pad.getState_PrimitiveId();
+await eda.pcb_SelectControl.doSelectPrimitives([padId]);
+
+// 2. 确认清除前有选中图元
+const beforeIds = await eda.pcb_SelectControl.getAllSelectedPrimitives_PrimitiveId();
+console.log('清除前选中数量：', beforeIds.length);
+
+// 3. 清除选中
+const cleared = await eda.pcb_SelectControl.clearSelected();
+console.log('cleared:', cleared);
+
+// 4. 确认选中集已清空
+const afterIds = await eda.pcb_SelectControl.getAllSelectedPrimitives_PrimitiveId();
+console.log('清除后选中数量：', afterIds.length);
+
+// 5. 清理测试图元
+await eda.pcb_PrimitivePad.delete([padId]);
+```
+
 ### docrossprobeselect
 
 # PCB\_SelectControl.doCrossProbeSelect() method
@@ -275,6 +300,29 @@ _(Optional)_ Whether the operation is successful
 
 Promise&lt;boolean&gt;
 
+## Example
+
+
+```javascript
+// 1. 创建 2 个挂同一网络的测试焊盘，作为交叉选择的目标
+const netName = '嘉立创示例_NET';
+const pad1 = await eda.pcb_PrimitivePad.create(1, '1', 2000, 2000, 0, ['ELLIPSE', 60, 60], netName, null, 0, 0, 0, false, 0);
+const pad2 = await eda.pcb_PrimitivePad.create(1, '2', 3000, 2000, 0, ['ELLIPSE', 60, 60], netName, null, 0, 0, 0, false, 0);
+const padIds = [pad1.getState_PrimitiveId(), pad2.getState_PrimitiveId()];
+
+// 2. 按网络名交叉选择（highlight=true 高亮，select=true 选中）
+const crossProbed = await eda.pcb_SelectControl.doCrossProbeSelect(undefined, undefined, [netName], true, true);
+console.log('crossProbed:', crossProbed);
+
+// 3. 确认该网络上的焊盘已进入选中集
+const selectedIds = await eda.pcb_SelectControl.getAllSelectedPrimitives_PrimitiveId();
+console.log('选中图元数量：', selectedIds.length);
+
+// 4. 清理选中状态和测试图元
+await eda.pcb_SelectControl.clearSelected();
+await eda.pcb_PrimitivePad.delete(padIds);
+```
+
 ### doselectprimitives
 
 # PCB\_SelectControl.doSelectPrimitives() method
@@ -333,6 +381,28 @@ Promise&lt;boolean&gt;
 
 Whether the operation is successful
 
+## Example
+
+
+```javascript
+// 1. 创建测试焊盘
+const pad = await eda.pcb_PrimitivePad.create(1, '1', 2000, 2000, 0, ['ELLIPSE', 60, 60], '', null, 0, 0, 0, false, 0);
+const padId = pad.getState_PrimitiveId();
+
+// 2. 用图元 ID 选中焊盘
+const selected = await eda.pcb_SelectControl.doSelectPrimitives([padId]);
+console.log('selected:', selected);
+
+// 3. 确认焊盘已在选中集里
+const selectedIds = await eda.pcb_SelectControl.getAllSelectedPrimitives_PrimitiveId();
+console.log('选中数量：', selectedIds.length);
+console.log('包含测试焊盘：', selectedIds.includes(padId));
+
+// 4. 清理：清除选中并删除测试图元
+await eda.pcb_SelectControl.clearSelected();
+await eda.pcb_PrimitivePad.delete([padId]);
+```
+
 ### getallselectedprimitives
 
 # PCB\_SelectControl.getAllSelectedPrimitives() method
@@ -353,6 +423,29 @@ public getAllSelectedPrimitives(): Promise<Array<IPCB_Primitive>>;
 Promise&lt;Array&lt;[IPCB\_Primitive](../interfaces/IPCB_Primitive.md)<!-- -->&gt;&gt;
 
 Primitive objects of all selected primitives
+
+## Example
+
+
+```javascript
+// 1. 创建测试焊盘并选中
+const pad = await eda.pcb_PrimitivePad.create(1, '1', 2000, 2000, 0, ['ELLIPSE', 60, 60], '', null, 0, 0, 0, false, 0);
+const padId = pad.getState_PrimitiveId();
+await eda.pcb_SelectControl.doSelectPrimitives([padId]);
+
+// 2. 获取所有已选中图元的图元对象
+const primitives = await eda.pcb_SelectControl.getAllSelectedPrimitives();
+console.log('选中图元数量：', primitives.length);
+
+// 3. 图元对象可直接调用图元方法读取属性
+const first = primitives[0];
+console.log('primitiveId:', first.getState_PrimitiveId());
+console.log('layer:', first.getState_Layer());
+
+// 4. 清理：清除选中并删除测试图元
+await eda.pcb_SelectControl.clearSelected();
+await eda.pcb_PrimitivePad.delete([padId]);
+```
 
 ### getallselectedprimitives_primitiveid
 
@@ -375,6 +468,26 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 Primitive IDs of all selected primitives
 
+## Example
+
+
+```javascript
+// 1. 创建 2 个测试焊盘并选中
+const pad1 = await eda.pcb_PrimitivePad.create(1, '1', 2000, 2000, 0, ['ELLIPSE', 60, 60], '', null, 0, 0, 0, false, 0);
+const pad2 = await eda.pcb_PrimitivePad.create(1, '2', 3000, 2000, 0, ['ELLIPSE', 60, 60], '', null, 0, 0, 0, false, 0);
+const padIds = [pad1.getState_PrimitiveId(), pad2.getState_PrimitiveId()];
+await eda.pcb_SelectControl.doSelectPrimitives(padIds);
+
+// 2. 查询所有已选中图元的图元 ID
+const selectedIds = await eda.pcb_SelectControl.getAllSelectedPrimitives_PrimitiveId();
+console.log('选中图元数量：', selectedIds.length);
+console.log('包含全部测试焊盘：', padIds.every(id => selectedIds.includes(id)));
+
+// 3. 清理：清除选中并删除测试图元
+await eda.pcb_SelectControl.clearSelected();
+await eda.pcb_PrimitivePad.delete(padIds);
+```
+
 ### getcurrentmouseposition
 
 # PCB\_SelectControl.getCurrentMousePosition() method
@@ -395,6 +508,22 @@ public getCurrentMousePosition(): Promise<{ x: number; y: number } | undefined>;
 Promise&lt;{ x: number; y: number } \| undefined&gt;
 
 The mouse position on the canvas. `undefined` means the current mouse is not on the canvas
+
+## Example
+
+
+```javascript
+// 1. 查询鼠标当前位置
+const position = await eda.pcb_SelectControl.getCurrentMousePosition();
+
+// 2. 鼠标在画布上时输出坐标，不在画布上时返回 undefined
+if (position) {
+  console.log('x:', position.x);
+  console.log('y:', position.y);
+} else {
+  console.log('鼠标当前不在画布上');
+}
+```
 
 ### getselectedprimitives
 

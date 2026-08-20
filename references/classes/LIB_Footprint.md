@@ -1168,7 +1168,7 @@ let results;
 try {
   results = await eda.lib_Footprint.searchByProperties({ name: '0402' });
 } catch (e) {
-  console.log('当前版本按 name 搜索抛错:', e.message);
+  console.log('当前版本按 name 搜索抛错：', e.message);
 }
 if (!Array.isArray(results)) results = [];
 

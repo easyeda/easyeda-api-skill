@@ -528,6 +528,34 @@ Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined
 
 Device primitive object
 
+## Example
+
+
+```javascript
+// 1. 从系统库搜索器件，随机坐标避免与画布已有器件重合（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('');
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建器件：搜索结果直接作为关联库器件传入，加入 BOM 并转到 PCB
+const comp = await eda.sch_PrimitiveComponent.create(
+  devices[0],  // 关联库器件
+  x,           // 坐标 X
+  y,           // 坐标 Y
+  undefined,   // 子部件名称（多子部件器件才需要指定）
+  0,           // 旋转角度
+  false,       // 是否镜像
+  true,        // 是否加入 BOM
+  true         // 是否转到 PCB
+);
+
+// 3. 创建类保留现场，供在画布上观察摆放结果
+console.log('primitiveId:', comp.getState_PrimitiveId());
+console.log('designator:', comp.getState_Designator());
+console.log('position:', comp.getState_X(), ',', comp.getState_Y());
+console.log('addIntoBom:', comp.getState_AddIntoBom());
+```
+
 ### createcbbsymbol
 
 # SCH\_PrimitiveComponent.createCbbSymbol() method
@@ -649,6 +677,36 @@ _(Optional)_ Whether it is mirrored
 Promise&lt;[ISCH\_PrimitiveCbbSymbolComponent](./ISCH_PrimitiveCbbSymbolComponent.md) \| undefined&gt;
 
 Reuse block symbol primitive object
+
+## Example
+
+
+```javascript
+// 1. 从系统库搜索可用的复用模块
+const cbbList = await eda.lib_Cbb.search('');
+const cbb = cbbList[0];
+
+// 2. 随机坐标避免与画布已有图元重合（SCH 坐标单位 10mil）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 3. 创建复用模块符号（cbbUuid 传模块工程 UUID，符号 uuid 可省略由模块默认提供）
+const symbol = await eda.sch_PrimitiveComponent.createCbbSymbol(
+  {
+    libraryUuid: cbb.libraryUuid,  // CBB 工程所在库的 UUID
+    cbbUuid: cbb.uuid              // CBB 工程的 UUID
+  },
+  x,      // 坐标 X
+  y,      // 坐标 Y
+  0,      // 旋转角度
+  false   // 是否镜像
+);
+
+// 4. 创建类保留现场，供在画布上观察模块符号
+console.log('primitiveId:', symbol.getState_PrimitiveId());
+console.log('primitiveType:', symbol.getState_PrimitiveType());
+console.log('position:', symbol.getState_X(), ',', symbol.getState_Y());
+```
 
 ### createnetflag
 
@@ -788,6 +846,30 @@ Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined
 
 Device primitive object
 
+## Example
+
+
+```javascript
+// 1. 随机坐标避免与画布已有图元重合（SCH 坐标单位 10mil）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建 Power 类型的网络标识，网络名为 VCC
+const flag = await eda.sch_PrimitiveComponent.createNetFlag(
+  'Power',            // 标识类型：'Power' / 'Ground' / 'AnalogGround' / 'ProtectGround'
+  '嘉立创示例_VCC',   // 网络名称
+  x,                  // 坐标 X
+  y,                  // 坐标 Y
+  0,                  // 旋转角度
+  false               // 是否镜像
+);
+
+// 3. 创建类保留现场，供在画布上观察标识样式
+console.log('primitiveId:', flag.getState_PrimitiveId());
+console.log('net:', flag.getState_Net());
+console.log('componentType:', flag.getState_ComponentType());
+```
+
 ### createnetport
 
 # SCH\_PrimitiveComponent.createNetPort() method
@@ -926,6 +1008,30 @@ Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined
 
 Device primitive object
 
+## Example
+
+
+```javascript
+// 1. 随机坐标避免与画布已有图元重合（SCH 坐标单位 10mil）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建输入方向的端口，网络名为 SIG_IN
+const port = await eda.sch_PrimitiveComponent.createNetPort(
+  'IN',               // 端口方向：'IN' / 'OUT' / 'BI'
+  '嘉立创示例_SIG',   // 网络名称
+  x,                  // 坐标 X
+  y,                  // 坐标 Y
+  0,                  // 旋转角度
+  false               // 是否镜像
+);
+
+// 3. 创建类保留现场，供在画布上观察端口样式
+console.log('primitiveId:', port.getState_PrimitiveId());
+console.log('net:', port.getState_Net());
+console.log('componentType:', port.getState_ComponentType());
+```
+
 ### createshortcircuitflag
 
 # SCH\_PrimitiveComponent.createShortCircuitFlag() method
@@ -1032,6 +1138,28 @@ Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined
 
 Device primitive object
 
+## Example
+
+
+```javascript
+// 1. 随机坐标避免与画布已有图元重合（SCH 坐标单位 10mil）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建短接标识（无网络名参数，仅位置与姿态）
+const flag = await eda.sch_PrimitiveComponent.createShortCircuitFlag(
+  x,      // 坐标 X
+  y,      // 坐标 Y
+  0,      // 旋转角度
+  false   // 是否镜像
+);
+
+// 3. 创建类保留现场，供在画布上观察标识样式
+console.log('primitiveId:', flag.getState_PrimitiveId());
+console.log('componentType:', flag.getState_ComponentType());
+console.log('position:', flag.getState_X(), ',', flag.getState_Y());
+```
+
 ### delete
 
 # SCH\_PrimitiveComponent.delete() method
@@ -1090,6 +1218,32 @@ Promise&lt;boolean&gt;
 
 Delete Whether the operation is successful
 
+## Example
+
+
+```javascript
+// 1. 创建两个待删除的测试器件（随机坐标避免重合，SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('');
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const comp1 = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const comp2 = await eda.sch_PrimitiveComponent.create(devices[0], x + 400, y);
+
+// 2. 记录删除前的器件数量
+const beforeCount = (await eda.sch_PrimitiveComponent.getAll()).length;
+
+// 3. 分别以 ID 字符串和图元对象两种形式删除两个器件
+const deleted1 = await eda.sch_PrimitiveComponent.delete(comp1.getState_PrimitiveId());
+const deleted2 = await eda.sch_PrimitiveComponent.delete(comp2);
+
+// 4. 删除类保留现场（图元已删除，不恢复）
+const afterCount = (await eda.sch_PrimitiveComponent.getAll()).length;
+
+console.log('deleted by id:', deleted1);
+console.log('deleted by object:', deleted2);
+console.log('beforeCount:', beforeCount, '→ afterCount:', afterCount);
+```
+
 ### get
 
 # SCH\_PrimitiveComponent.get() method
@@ -1147,6 +1301,34 @@ Device primitive ID, which can be a string or an array of strings. If it is an a
 Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined&gt;
 
 Device primitive object, `undefined` indicates that the retrieval failed
+
+## Example
+
+
+```javascript
+// 1. 创建两个测试器件（随机坐标避免重合，SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('');
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const comp1 = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const comp2 = await eda.sch_PrimitiveComponent.create(devices[0], x + 400, y);
+
+// 2. 传单个 ID 字符串，返回单个器件对象
+const single = await eda.sch_PrimitiveComponent.get(comp1.getState_PrimitiveId());
+
+// 3. 传 ID 数组，返回器件对象数组（任一 ID 未匹配不影响其它图元的返回）
+const arr = await eda.sch_PrimitiveComponent.get([
+  comp1.getState_PrimitiveId(),
+  comp2.getState_PrimitiveId()
+]);
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([comp1.getState_PrimitiveId(), comp2.getState_PrimitiveId()]);
+
+console.log('single designator:', single.getState_Designator());
+console.log('array length:', arr.length);
+console.log('comp2 designator:', arr[1].getState_Designator());
+```
 
 ### get_1
 
@@ -1284,6 +1466,32 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)<!--
 
 Array of Device primitive objects
 
+## Example
+
+
+```javascript
+// 1. 创建一个普通元件和一个网络标识作为查找目标（随机坐标避免重合）
+const devices = await eda.lib_Device.search('');
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const flag = await eda.sch_PrimitiveComponent.createNetFlag('Power', '嘉立创示例_VCC', x + 600, y);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 不传参数，取当前图页全部器件
+const all = await eda.sch_PrimitiveComponent.getAll();
+
+// 3. 传入类型 'netflag' 只取网络标识（ESCH_PrimitiveComponentType 值）
+const flags = await eda.sch_PrimitiveComponent.getAll('netflag');
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId, flag.getState_PrimitiveId()]);
+
+console.log('total components:', all.length);
+console.log('marker comp found:', all.some(c => c.getState_PrimitiveId() === compId));
+console.log('netflag count:', flags.length);
+```
+
 ### getallpinsbyprimitiveid
 
 # SCH\_PrimitiveComponent.getAllPinsByPrimitiveId() method
@@ -1341,6 +1549,28 @@ Device primitive ID
 Promise&lt;Array&lt;[ISCH\_PrimitiveComponentPin](./ISCH_PrimitiveComponentPin.md)<!-- -->&gt; \| undefined&gt;
 
 Device pin primitive array
+
+## Example
+
+
+```javascript
+// 1. 创建一个带引脚的测试器件（随机坐标避免重合，SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('');
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 按图元 ID 取出该器件的全部引脚（返回纯数据对象，字段直接可读）
+const pins = await eda.sch_PrimitiveComponent.getAllPinsByPrimitiveId(compId);
+
+// 3. 清理测试图元（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('pin count:', pins.length);
+console.log('first pin number:', pins[0].pinNumber);
+console.log('first pin type:', pins[0].pinType);
+```
 
 ### getallprimitiveid
 
@@ -1416,6 +1646,30 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 Array of Device primitive IDs
 
+## Example
+
+
+```javascript
+// 1. 创建一个网络标识作为查找目标（随机坐标避免重合，SCH 坐标单位 10mil）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const flag = await eda.sch_PrimitiveComponent.createNetFlag('Power', '嘉立创示例_VCC', x, y);
+const flagId = flag.getState_PrimitiveId();
+
+// 2. 不传参数，取当前图页全部器件的图元 ID
+const allIds = await eda.sch_PrimitiveComponent.getAllPrimitiveId();
+
+// 3. 传入类型 'netflag' 只取网络标识的图元 ID
+const flagIds = await eda.sch_PrimitiveComponent.getAllPrimitiveId('netflag');
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([flagId]);
+
+console.log('total ids:', allIds.length);
+console.log('netflag ids:', flagIds.length);
+console.log('marker flag found:', flagIds.includes(flagId));
+```
+
 ### getallpropertynames
 
 # SCH\_PrimitiveComponent.getAllPropertyNames() method
@@ -1436,6 +1690,26 @@ public getAllPropertyNames(): Promise<Array<string>>;
 Promise&lt;Array&lt;string&gt;&gt;
 
 The set of all property names of all devices
+
+## Example
+
+
+```javascript
+// 1. 创建一个测试器件，保证画布上有带属性的器件（随机坐标避免重合）
+const devices = await eda.lib_Device.search('');
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+
+// 2. 取所有器件出现过的属性名称集合
+const names = await eda.sch_PrimitiveComponent.getAllPropertyNames();
+
+// 3. 清理测试图元（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('property name count:', names.length);
+console.log('names:', names.join(', '));
+```
 
 ### modify
 
@@ -1512,6 +1786,39 @@ Device primitive object
 ## Remarks
 
 This method can only be used for modification when the device type is [COMPONENT](../enums/ESCH_PrimitiveComponentType.md)
+
+## Example
+
+
+```javascript
+// 1. 创建待修改的测试器件（随机坐标避免与画布已有器件重合）
+const devices = await eda.lib_Device.search('');
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取修改前的位号、旋转与 X 坐标
+const beforeDesignator = comp.getState_Designator();
+const beforeRotation = comp.getState_Rotation();
+const beforeX = comp.getState_X();
+
+// 3. 批量修改：右移 400（约 101.6mm）、旋转 90 度、位号改为 U100
+await eda.sch_PrimitiveComponent.modify(compId, {
+  x: x + 400,
+  rotation: 90,
+  designator: '嘉立创示例_U100'
+});
+
+// 4. modify 返回后需要重新 get() 才能读到画布上的最新值
+const refreshed = await eda.sch_PrimitiveComponent.get(compId);
+
+// 5. 修改类保留现场，供观察修改结果
+console.log('primitiveId:', compId);
+console.log('designator:', beforeDesignator, '→', refreshed.getState_Designator());
+console.log('rotation:', beforeRotation, '→', refreshed.getState_Rotation());
+console.log('x:', beforeX, '→', refreshed.getState_X());
+```
 
 ### placecbbschematicpage
 

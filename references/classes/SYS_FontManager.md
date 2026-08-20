@@ -134,6 +134,23 @@ Promise&lt;boolean&gt;
 
 Add Whether the operation is successful
 
+## Example
+
+
+```javascript
+// 1. 添加一个字体到字体列表
+const added = await eda.sys_FontManager.addFont('嘉立创示例_测试字体');
+
+// 2. 确认字体已进入列表
+const fonts = await eda.sys_FontManager.getFontsList();
+
+// 3. 清理测试字体，恢复原有配置
+await eda.sys_FontManager.deleteFont('嘉立创示例_测试字体');
+
+console.log('添加结果：', added);
+console.log('已进入字体列表：', fonts.includes('嘉立创示例_测试字体'));
+```
+
 ### deletefont
 
 # SYS\_FontManager.deleteFont() method
@@ -190,6 +207,23 @@ Promise&lt;boolean&gt;
 
 Delete Whether the operation is successful
 
+## Example
+
+
+```javascript
+// 1. 准备一个待删除的测试字体
+await eda.sys_FontManager.addFont('嘉立创示例_测试字体');
+
+// 2. 从字体列表删除该字体
+const deleted = await eda.sys_FontManager.deleteFont('嘉立创示例_测试字体');
+
+// 3. 确认字体已不在列表中
+const fonts = await eda.sys_FontManager.getFontsList();
+
+console.log('删除结果：', deleted);
+console.log('已不在字体列表：', !fonts.includes('嘉立创示例_测试字体'));
+```
+
 ### getfontslist
 
 # SYS\_FontManager.getFontsList() method
@@ -208,3 +242,15 @@ public getFontsList(): Promise<Array<string>>;
 Promise&lt;Array&lt;string&gt;&gt;
 
 Font list
+
+## Example
+
+
+```javascript
+// 1. 获取当前已配置的字体列表
+const fonts = await eda.sys_FontManager.getFontsList();
+
+// 2. 输出字体数量与全部字体名
+console.log('字体数量：', fonts.length);
+console.log('字体列表：', fonts.join('、'));
+```

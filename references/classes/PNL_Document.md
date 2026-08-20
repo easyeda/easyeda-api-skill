@@ -70,3 +70,22 @@ public save(): Promise<boolean>;
 Promise&lt;boolean&gt;
 
 Whether the save operation was successful. Errors such as save failure and upload failure all return `false`
+
+## Example
+
+
+```javascript
+// 1. 创建测试面板并打开（save 只对已打开的面板生效）
+const panelUuid = await eda.dmt_Panel.createPanel();
+await new Promise(r => setTimeout(r, 1500));
+await eda.dmt_EditorControl.openDocument(panelUuid);
+await new Promise(r => setTimeout(r, 1000));
+
+// 2. 保存面板文档
+const saved = await eda.pnl_Document.save();
+console.log('saved:', saved);
+
+// 3. 删除本例创建的测试面板，保持工程整洁
+const deleted = await eda.dmt_Panel.deletePanel(panelUuid);
+console.log('deleted:', deleted);
+```

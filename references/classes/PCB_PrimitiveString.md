@@ -381,6 +381,25 @@ Promise&lt;[IPCB\_PrimitiveString](./IPCB_PrimitiveString.md) \| undefined&gt;
 
 Text primitive object
 
+## Example
+
+
+```javascript
+// 1. 生成随机放置坐标，避免与画布上已有的文本重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 在顶层丝印层（3）创建文本：默认字体、字号 45、线宽 6、左下对齐（3）、不旋转、不反相、不镜像、不锁定
+const text = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_版本V1.0', 'default', 45, 6, 3, 0, false, 0, false, false);
+
+// 3. 创建类保留现场，不删除图元
+console.log('primitiveId:', text.getState_PrimitiveId());
+console.log('primitiveType:', text.getState_PrimitiveType());
+console.log('layer:', text.getState_Layer());
+console.log('text:', text.getState_Text());
+console.log('fontSize:', text.getState_FontSize());
+```
+
 ### delete
 
 # PCB\_PrimitiveString.delete() method
@@ -439,6 +458,29 @@ Promise&lt;boolean&gt;
 
 Delete Whether the operation is successful
 
+## Example
+
+
+```javascript
+// 1. 创建两个待删除的测试文本（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const text1 = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_删除A', 'default', 45, 6, 3, 0, false, 0, false, false);
+const text2 = await eda.pcb_PrimitiveString.create(3, x, y + 500, '嘉立创示例_删除B', 'default', 45, 6, 3, 0, false, 0, false, false);
+
+// 2. 记录删除前的文本数量
+const beforeCount = (await eda.pcb_PrimitiveString.getAll()).length;
+
+// 3. 以 ID 数组形式批量删除两个文本
+const deleted = await eda.pcb_PrimitiveString.delete([text1.getState_PrimitiveId(), text2.getState_PrimitiveId()]);
+
+// 4. 删除类保留现场（图元已删除，不恢复）
+const afterCount = (await eda.pcb_PrimitiveString.getAll()).length;
+
+console.log('deleted:', deleted);
+console.log('beforeCount:', beforeCount, '→ afterCount:', afterCount);
+```
+
 ### get
 
 # PCB\_PrimitiveString.get() method
@@ -496,6 +538,30 @@ Text primitive ID, which can be a string or an array of strings. If it is an arr
 Promise&lt;[IPCB\_PrimitiveString](./IPCB_PrimitiveString.md) \| undefined&gt;
 
 Text primitive object, `undefined` indicates that the retrieval failed
+
+## Example
+
+
+```javascript
+// 1. 创建两个测试文本（随机坐标避免重合），内容不同便于区分
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const text1 = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_文本A', 'default', 45, 6, 3, 0, false, 0, false, false);
+const text2 = await eda.pcb_PrimitiveString.create(3, x, y + 500, '嘉立创示例_文本B', 'default', 60, 6, 3, 0, false, 0, false, false);
+
+// 2. 传单个 ID 字符串，返回单个文本对象
+const single = await eda.pcb_PrimitiveString.get(text1.getState_PrimitiveId());
+
+// 3. 传 ID 数组，返回文本对象数组
+const arr = await eda.pcb_PrimitiveString.get([text1.getState_PrimitiveId(), text2.getState_PrimitiveId()]);
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitiveString.delete([text1.getState_PrimitiveId(), text2.getState_PrimitiveId()]);
+
+console.log('single text:', single.getState_Text());
+console.log('array length:', arr.length);
+console.log('text2 fontSize:', arr[1].getState_FontSize());
+```
 
 ### get_1
 
@@ -633,6 +699,30 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveString](./IPCB_PrimitiveString.md)<!-- -->&g
 
 Array of Text primitive objects
 
+## Example
+
+
+```javascript
+// 1. 创建一个顶层丝印（3）测试文本作为过滤目标（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const text = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_过滤目标', 'default', 45, 6, 3, 0, false, 0, false, false);
+const textId = text.getState_PrimitiveId();
+
+// 2. 不带参数：获取 PCB 上全部文本
+const all = await eda.pcb_PrimitiveString.getAll();
+
+// 3. 按层过滤：只取顶层丝印（3）的文本
+const topSilk = await eda.pcb_PrimitiveString.getAll(3);
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitiveString.delete([textId]);
+
+console.log('total strings:', all.length);
+console.log('top silkscreen strings:', topSilk.length);
+console.log('marker string found:', topSilk.some(s => s.getState_PrimitiveId() === textId));
+```
+
 ### getallprimitiveid
 
 # PCB\_PrimitiveString.getAllPrimitiveId() method
@@ -707,6 +797,30 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 Array of Text primitive IDs
 
+## Example
+
+
+```javascript
+// 1. 创建一个顶层丝印（3）测试文本作为查找目标（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const text = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_ID查找目标', 'default', 45, 6, 3, 0, false, 0, false, false);
+const textId = text.getState_PrimitiveId();
+
+// 2. 获取全部文本的图元 ID
+const allIds = await eda.pcb_PrimitiveString.getAllPrimitiveId();
+
+// 3. 按层过滤：只取顶层丝印（3）文本的图元 ID
+const silkIds = await eda.pcb_PrimitiveString.getAllPrimitiveId(3);
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitiveString.delete([textId]);
+
+console.log('total string ids:', allIds.length);
+console.log('top silkscreen string ids:', silkIds.length);
+console.log('marker id in filtered list:', silkIds.includes(textId));
+```
+
 ### modify
 
 # PCB\_PrimitiveString.modify() method
@@ -780,3 +894,29 @@ Modify Parameter
 Promise&lt;[IPCB\_PrimitiveString](./IPCB_PrimitiveString.md) \| undefined&gt;
 
 Text primitive object
+
+## Example
+
+
+```javascript
+// 1. 创建待修改的测试文本：顶层丝印（3），字号 45（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const text = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_待修改', 'default', 45, 6, 3, 0, false, 0, false, false);
+const textId = text.getState_PrimitiveId();
+
+// 2. 读取修改前的内容与字号
+const beforeText = text.getState_Text();
+const beforeSize = text.getState_FontSize();
+
+// 3. 批量修改：更换文字内容并把字号从 45 调大到 60
+await eda.pcb_PrimitiveString.modify(textId, { text: '嘉立创示例_已更新', fontSize: 60 });
+
+// 4. modify 返回后需要重新 get() 才能读到画布上的最新值
+const refreshed = await eda.pcb_PrimitiveString.get(textId);
+
+// 5. 修改类保留现场，供观察修改结果
+console.log('primitiveId:', textId);
+console.log('text:', beforeText, '→', refreshed.getState_Text());
+console.log('fontSize:', beforeSize, '→', refreshed.getState_FontSize());
+```

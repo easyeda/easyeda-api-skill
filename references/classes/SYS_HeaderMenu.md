@@ -159,6 +159,30 @@ Top menu data
 
 Promise&lt;void&gt;
 
+## Example
+
+
+```javascript
+// 1. 组装菜单数据：环境键 → 一级菜单数组（title / id / menuItems）
+const headerMenus = {
+  blank: [
+    {
+      id: '嘉立创示例_菜单',
+      title: '嘉立创示例',
+      menuItems: [{ id: '嘉立创示例_子项', title: '打开示例面板' }],
+    },
+  ],
+};
+
+// 2. 导入顶部菜单数据（blank 环境的顶部菜单被替换为上述内容）
+await eda.sys_HeaderMenu.insertHeaderMenus(headerMenus);
+console.log('已导入 blank 环境的顶部菜单数据');
+
+// 3. 还原：移除导入的数据，恢复系统默认菜单
+eda.sys_HeaderMenu.removeHeaderMenus();
+console.log('已还原系统默认菜单');
+```
+
 ### insertsystemheadermenuitem
 
 # SYS\_HeaderMenu.insertSystemHeaderMenuItem() method
@@ -263,6 +287,28 @@ Note: This API requires the user to enable the extension external interaction pe
 
 Non-public API usage notice: This API is provided as-is without additional documentation for parameters. Parameters may be changed in a breaking manner in any version without notice.
 
+## Example
+
+
+```javascript
+// 1. 在 PCB 环境的 工具（Tools）菜单下插入子菜单项，并带上两个三级菜单项
+const menuId = await eda.sys_HeaderMenu.insertSystemHeaderMenuItem('pcb', ['Tools', '嘉立创示例_扩展工具'], {
+  title: '嘉立创示例 扩展工具',
+  menuItems: [
+    { id: '嘉立创示例_打开面板', title: '打开扩展面板' },
+    { id: '嘉立创示例_扩展设置', title: '扩展设置' },
+  ],
+});
+
+// 2. 输出重写后的菜单 ID（真实扩展中通过 registerFn 指定点击回调）
+console.log('插入的菜单 ID：', menuId);
+
+// 3. 移除刚插入的菜单项还原菜单栏（同一 ID 重复插入会返回 undefined，
+//    自建自删保证案例可重复运行）
+const removed = await eda.sys_HeaderMenu.removeSystemHeaderMenuItem(['Tools', menuId]);
+console.log('移除结果：', removed);
+```
+
 ### removeheadermenus
 
 # SYS\_HeaderMenu.removeHeaderMenus() method
@@ -279,6 +325,21 @@ public removeHeaderMenus(): void;
 ## Returns
 
 void
+
+## Example
+
+
+```javascript
+// 1. 先导入一份菜单数据，让移除操作有实际对象
+await eda.sys_HeaderMenu.insertHeaderMenus({
+  blank: [{ id: '嘉立创示例_菜单', title: '嘉立创示例', menuItems: [{ id: '嘉立创示例_子项', title: '示例子项' }] }],
+});
+console.log('已导入菜单数据');
+
+// 2. 移除全部已导入的顶部菜单数据（同步方法，无需 await）
+eda.sys_HeaderMenu.removeHeaderMenus();
+console.log('已移除导入的顶部菜单数据');
+```
 
 ### removesystemheadermenuitem
 
@@ -370,6 +431,21 @@ Note 2: The \*\*remove first-level menu\*\* function of this API is exclusive to
 
 Non-public API usage notice: This API is provided as-is without additional documentation for parameters. Parameters may be changed in a breaking manner in any version without notice.
 
+## Example
+
+
+```javascript
+// 1. 先插入一个待移除的子菜单项（id 树：[一级菜单 ID, 新项 ID]）
+const menuId = await eda.sys_HeaderMenu.insertSystemHeaderMenuItem('pcb', ['Tools', '嘉立创示例_待移除项'], {
+  title: '嘉立创示例 待移除项',
+});
+console.log('待移除的菜单 ID：', menuId);
+
+// 2. 移除该菜单项（id 树：[一级菜单 ID, insert 返回的重写 ID]）
+const removed = await eda.sys_HeaderMenu.removeSystemHeaderMenuItem(['Tools', menuId]);
+console.log('移除结果：', removed);
+```
+
 ### replaceheadermenus
 
 # SYS\_HeaderMenu.replaceHeaderMenus() method
@@ -427,3 +503,24 @@ Promise&lt;void&gt;
 ## Remarks
 
 This API is equivalent to executing the [remove](./SYS_HeaderMenu.md) and [insert](./SYS_HeaderMenu.md) operations at the same time
+
+## Example
+
+
+```javascript
+// 1. 先导入一版菜单数据作为被替换对象（blank 空白页环境）
+await eda.sys_HeaderMenu.insertHeaderMenus({
+  blank: [{ id: '嘉立创示例_菜单A', title: '菜单 A', menuItems: [{ id: '嘉立创示例_子A', title: '子项 A' }] }],
+});
+console.log('已导入第一版菜单');
+
+// 2. 整体替换为第二版菜单数据
+await eda.sys_HeaderMenu.replaceHeaderMenus({
+  blank: [{ id: '嘉立创示例_菜单B', title: '菜单 B', menuItems: [{ id: '嘉立创示例_子B', title: '子项 B' }] }],
+});
+console.log('已替换为第二版菜单');
+
+// 3. 还原系统默认菜单
+eda.sys_HeaderMenu.removeHeaderMenus();
+console.log('已还原系统默认菜单');
+```

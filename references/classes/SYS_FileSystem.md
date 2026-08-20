@@ -399,6 +399,19 @@ ObjectURL string
 
 Create an ObjectURL pointing to the passed-in Blob / File object ADD since EDA v3.2.162
 
+## Example
+
+
+```javascript
+// 1. 构造一段文本数据
+const blob = new Blob(['嘉立创示例数据'], { type: 'text/plain' });
+
+// 2. 创建 ObjectURL（同步方法，直接返回字符串）
+const url = eda.sys_FileSystem.createObjectURL(blob);
+
+console.log('ObjectURL：', url);
+```
+
 ### deletefileinfilesystem
 
 # SYS\_FileSystem.deleteFileInFileSystem() method
@@ -657,6 +670,18 @@ Promise&lt;File \| undefined&gt;
 
 File format file
 
+## Example
+
+
+```javascript
+// 1. 读取扩展安装目录下的 extension.json
+const file = await eda.sys_FileSystem.getExtensionFile('extension.json');
+
+// 2. 输出文件信息（size 单位为字节，内容可用 file.text() 读取）
+console.log('文件名：', file.name);
+console.log('文件大小：', file.size);
+```
+
 ### getlibrariespaths
 
 # SYS\_FileSystem.getLibrariesPaths() method
@@ -864,6 +889,22 @@ _(Optional)_ Whether multiple files are allowed to be read
 Promise&lt;Array&lt;File&gt; \| undefined&gt;
 
 File format file array
+
+## Example
+
+
+```javascript
+// 1. 打开选择窗口（限定 .json 文件，单选；用户选择前 Promise 一直挂起）
+eda.sys_FileSystem.openReadFileDialog('.json').then(file => {
+  // 用户完成选择后触发；直接关闭窗口时 file 为 undefined
+  if (file) {
+    console.log('已选择文件：', file.name);
+  }
+});
+
+// 2. 窗口已弹出，主流程不等待用户操作
+console.log('已打开文件选择窗口');
+```
 
 ### openreadfiledialog_1
 
@@ -1086,6 +1127,20 @@ void
 
 Revoke the specified ObjectURL ADD since EDA v3.2.162
 
+## Example
+
+
+```javascript
+// 1. 先创建一个 ObjectURL
+const blob = new Blob(['嘉立创示例数据']);
+const url = eda.sys_FileSystem.createObjectURL(blob);
+console.log('创建的 ObjectURL：', url);
+
+// 2. 用完后吊销（同步方法，无返回值）
+eda.sys_FileSystem.revokeObjectURL(url);
+console.log('已吊销');
+```
+
 ### savefile
 
 # SYS\_FileSystem.saveFile() method
@@ -1159,6 +1214,20 @@ Promise&lt;void&gt;
 ## Remarks
 
 Calls the browser download API or the Electron save-file API to save the passed-in file stream locally
+
+## Example
+
+
+```javascript
+// 1. 构造要保存的 CSV 内容
+const content = '编号,器件,数量\n1,C0402,10\n2,C0603,20';
+const blob = new Blob([content], { type: 'text/csv' });
+
+// 2. 保存到本地（完成后 Promise 才结束）
+await eda.sys_FileSystem.saveFile(blob, '嘉立创示例_BOM导出.csv');
+
+console.log('已保存文件：', '嘉立创示例_BOM导出.csv', blob.size, '字节');
+```
 
 ### savefiletofilesystem
 

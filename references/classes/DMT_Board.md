@@ -200,12 +200,12 @@ const sourceName = boards[0].name;
 
 // 2. 复制板子，返回新板子名称
 const newBoardName = await eda.dmt_Board.copyBoard(sourceName);
-console.log('source:', sourceName);
-console.log('copy:', newBoardName);
+console.log("source:", sourceName);
+console.log("copy:", newBoardName);
 
 // 3. 删除复制的板子，保持工程整洁
 const deleted = await eda.dmt_Board.deleteBoard(newBoardName);
-console.log('deleted:', deleted);
+console.log("deleted:", deleted);
 ```
 
 ### createboard

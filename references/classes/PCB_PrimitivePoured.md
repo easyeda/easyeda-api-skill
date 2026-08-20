@@ -161,6 +161,30 @@ Promise&lt;boolean&gt;
 
 Delete Whether the operation is successful
 
+## Example
+
+
+```javascript
+// 1. 获取画布上已有的覆铜填充图元
+const pouredList = await eda.pcb_PrimitivePoured.getAll();
+if (!pouredList || pouredList.length === 0) {
+  console.log('说明：PCB 上没有覆铜填充，请先手动绘制覆铜并重建（设计 → 覆铜）');
+  return;
+}
+
+// 2. 记录删除前的覆铜填充数量
+const beforeCount = (await eda.pcb_PrimitivePoured.getAll()).length;
+
+// 3. 以 ID 数组形式删除第一个覆铜填充（也可以传图元对象）
+const deleted = await eda.pcb_PrimitivePoured.delete([pouredList[0].getState_PrimitiveId()]);
+
+// 4. 删除类保留现场（图元已删除，不恢复），从画布确认数量变化
+const afterCount = (await eda.pcb_PrimitivePoured.getAll()).length;
+
+console.log('deleted:', deleted);
+console.log('beforeCount:', beforeCount, '→ afterCount:', afterCount);
+```
+
 ### get
 
 # PCB\_PrimitivePoured.get() method
@@ -218,6 +242,31 @@ Copper fill primitive ID, which can be a string or an array of strings. If it is
 Promise&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md) \| undefined&gt;
 
 Copper fill primitive object, `undefined` indicates that the retrieval failed
+
+## Example
+
+
+```javascript
+// 1. 获取画布上已有的覆铜填充图元
+const pouredList = await eda.pcb_PrimitivePoured.getAll();
+if (!pouredList || pouredList.length === 0) {
+  console.log('说明：PCB 上没有覆铜填充，请先手动绘制覆铜并重建（设计 → 覆铜）');
+  return;
+}
+const ids = pouredList.slice(0, 2).map(p => p.getState_PrimitiveId());
+
+// 2. 传单个 ID 字符串，返回单个覆铜填充对象
+const single = await eda.pcb_PrimitivePoured.get(ids[0]);
+
+// 3. 传 ID 数组，返回覆铜填充对象数组（未匹配到的 ID 不影响其它项返回）
+const arr = await eda.pcb_PrimitivePoured.get(ids);
+const partial = await eda.pcb_PrimitivePoured.get([ids[0], 'unknown-id']);
+
+console.log('single primitiveType:', single.getState_PrimitiveType());
+console.log('array length:', arr.length);
+console.log('含未匹配 ID 时返回数量：', partial.length);
+console.log('关联覆铜边框 ID：', single.getState_PourPrimitiveId());
+```
 
 ### get_1
 
@@ -302,6 +351,26 @@ Promise&lt;Array&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md)<!-- -->&g
 
 Array of Copper fill primitive objects
 
+## Example
+
+
+```javascript
+// 1. 获取画布上全部覆铜填充图元
+const pouredList = await eda.pcb_PrimitivePoured.getAll();
+if (!pouredList || pouredList.length === 0) {
+  console.log('说明：PCB 上没有覆铜填充，请先手动绘制覆铜并重建（设计 → 覆铜）');
+  return;
+}
+
+// 2. 读取第一个覆铜填充的关键状态
+const first = pouredList[0];
+
+console.log('total poured:', pouredList.length);
+console.log('first primitiveType:', first.getState_PrimitiveType());
+console.log('first 关联覆铜边框 ID：', first.getState_PourPrimitiveId());
+console.log('first 子区域数量：', first.getState_PourFills().length);
+```
+
 ### getallprimitiveid
 
 # PCB\_PrimitivePoured.getAllPrimitiveId() method
@@ -322,3 +391,21 @@ public getAllPrimitiveId(): Promise<Array<string>>;
 Promise&lt;Array&lt;string&gt;&gt;
 
 Array of Copper fill primitive IDs
+
+## Example
+
+
+```javascript
+// 1. 获取画布上全部覆铜填充的图元 ID
+const ids = await eda.pcb_PrimitivePoured.getAllPrimitiveId();
+if (!ids || ids.length === 0) {
+  console.log('说明：PCB 上没有覆铜填充，请先手动绘制覆铜并重建（设计 → 覆铜）');
+  return;
+}
+
+// 2. 任取一个 ID 反查覆铜填充对象，验证列表有效
+const poured = await eda.pcb_PrimitivePoured.get(ids[0]);
+
+console.log('total poured ids:', ids.length);
+console.log('refetched primitiveType:', poured.getState_PrimitiveType());
+```

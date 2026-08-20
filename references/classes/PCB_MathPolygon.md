@@ -36,6 +36,8 @@ Description
 
 </td><td>
 
+计算多边形源数组的 BBox 高度
+
 
 </td></tr>
 <tr><td>
@@ -146,6 +148,8 @@ Split single polygon
 
 # PCB\_MathPolygon.calculateBBoxHeight() method
 
+计算多边形源数组的 BBox 高度
+
 ## Signature
 
 ```typescript
@@ -191,6 +195,23 @@ complexPolygon
 ## Returns
 
 number
+
+## Example
+
+
+```javascript
+// 1. 单个矩形源数组（宽 100、高 50），BBox 高度为 50
+console.log('rectHeight:', eda.pcb_MathPolygon.calculateBBoxHeight(['R', 0, 0, 100, 50, 0, 0]));
+
+// 2. 单个圆源数组（圆心在原点、半径 50），BBox 高度为直径 100
+console.log('circleHeight:', eda.pcb_MathPolygon.calculateBBoxHeight(['CIRCLE', 0, 0, 50]));
+
+// 3. 多块组合：矩形 Y 范围 0～50，圆 Y 范围 170～230，整体跨度 230
+console.log('multiHeight:', eda.pcb_MathPolygon.calculateBBoxHeight([
+  ['R', 0, 0, 100, 50, 0, 0],
+  ['CIRCLE', 200, 200, 30],
+]));
+```
 
 ### calculateheight
 
@@ -250,6 +271,24 @@ number
 
 BBox height
 
+## Example
+
+
+```javascript
+// 1. 矩形源数组（宽 100、高 50），BBox 高度为 50
+console.log('rectHeight:', eda.pcb_MathPolygon.calculateHeight(['R', 0, 0, 100, 50, 0, 0]));
+
+// 2. 圆心在原点、半径 50 的圆，BBox 高度为直径 100
+console.log('circleHeight:', eda.pcb_MathPolygon.calculateHeight(['CIRCLE', 0, 0, 50]));
+
+// 3. 传复杂多边形对象：矩形 Y 范围 0～50，圆 Y 范围 170～230，整体跨度 230
+const complexPolygon = eda.pcb_MathPolygon.createComplexPolygon([
+  ['R', 0, 0, 100, 50, 0, 0],
+  ['CIRCLE', 200, 200, 30],
+]);
+console.log('complexHeight:', eda.pcb_MathPolygon.calculateHeight(complexPolygon));
+```
+
 ### calculatewidth
 
 # PCB\_MathPolygon.calculateWidth() method
@@ -307,6 +346,24 @@ Complex polygon
 number
 
 BBox width
+
+## Example
+
+
+```javascript
+// 1. 矩形源数组（宽 100、高 50），BBox 宽度为 100
+console.log('rectWidth:', eda.pcb_MathPolygon.calculateWidth(['R', 0, 0, 100, 50, 0, 0]));
+
+// 2. 圆心在原点、半径 50 的圆，BBox 宽度为直径 100
+console.log('circleWidth:', eda.pcb_MathPolygon.calculateWidth(['CIRCLE', 0, 0, 50]));
+
+// 3. 传复杂多边形对象：矩形 X 范围 0～100，圆 X 范围 170～230，整体跨度 230
+const complexPolygon = eda.pcb_MathPolygon.createComplexPolygon([
+  ['R', 0, 0, 100, 50, 0, 0],
+  ['CIRCLE', 200, 200, 30],
+]);
+console.log('complexWidth:', eda.pcb_MathPolygon.calculateWidth(complexPolygon));
+```
 
 ### convertimagetocomplexpolygon
 
@@ -494,6 +551,32 @@ Promise&lt;[IPCB\_ComplexPolygon](./IPCB_ComplexPolygon.md) \| undefined&gt;
 
 Complex polygon object
 
+## Example
+
+
+```javascript
+// 1. 用 canvas 画一张测试图：白色背景，中间 10×10 像素的黑色方块
+const canvas = document.createElement('canvas');
+canvas.width = 20;
+canvas.height = 20;
+const ctx = canvas.getContext('2d');
+ctx.fillStyle = '#ffffff';
+ctx.fillRect(0, 0, 20, 20);
+ctx.fillStyle = '#000000';
+ctx.fillRect(5, 5, 10, 10);
+
+// 2. 导出为 PNG Blob
+const imageBlob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+
+// 3. 描摹为复杂多边形（全部可选参数走默认值）
+const complexPolygon = await eda.pcb_MathPolygon.convertImageToComplexPolygon(imageBlob, 20, 20);
+
+// 4. 读取描摹结果：分块数量与第一块的源数据（描摹出的轮廓点，坐标由算法生成）
+const sources = complexPolygon.getSourceStrictComplex();
+console.log('polygonCount:', sources.length);
+console.log('firstSource:', JSON.stringify(sources[0]).slice(0, 120));
+```
+
 ### createcomplexpolygon
 
 # PCB\_MathPolygon.createComplexPolygon() method
@@ -550,6 +633,24 @@ Complex polygon data
 
 Complex polygon object. `undefined` indicates that the data is invalid
 
+## Example
+
+
+```javascript
+// 1. 传入两个源数组的数组，创建矩形外框加圆形第二块的复杂多边形（纯数据对象，画布上还看不到）
+const complexPolygon = eda.pcb_MathPolygon.createComplexPolygon([
+  ['R', 1000, 1000, 500, 300, 0, 0],
+  ['CIRCLE', 3000, 1150, 100],
+]);
+
+// 2. 读取复杂多边形的分块源数据，确认两块都被解析
+const sources = complexPolygon.getSourceStrictComplex();
+sources.forEach((source, index) => {
+  console.log('source' + (index + 1) + ':', JSON.stringify(source));
+});
+console.log('count:', sources.length);
+```
+
 ### createpolygon
 
 # PCB\_MathPolygon.createPolygon() method
@@ -605,6 +706,21 @@ Single polygon data
 [IPCB\_Polygon](./IPCB_Polygon.md) \| undefined
 
 Single polygon object. `undefined` indicates that the data is invalid
+
+## Example
+
+
+```javascript
+// 1. 用矩形模式源数组创建单多边形对象（x、y、宽、高、旋转、圆角）
+const rectPolygon = eda.pcb_MathPolygon.createPolygon(['R', 1000, 1000, 500, 300, 0, 0]);
+
+// 2. 用圆形模式源数组再创建一个（圆心 x、y、半径）
+const circlePolygon = eda.pcb_MathPolygon.createPolygon(['CIRCLE', 1250, 1150, 80]);
+
+// 3. 读取单多边形的源数据，确认数据被完整解析
+console.log('rectSource:', JSON.stringify(rectPolygon.getSource()));
+console.log('circleSource:', JSON.stringify(circlePolygon.getSource()));
+```
 
 ### discretize
 
@@ -739,3 +855,23 @@ Complex polygon
 Array&lt;[IPCB\_Polygon](./IPCB_Polygon.md)<!-- -->&gt;
 
 Single polygon array
+
+## Example
+
+
+```javascript
+// 1. 构建一个两块的复杂多边形（矩形外框 + 圆形）
+const complexPolygon = eda.pcb_MathPolygon.createComplexPolygon([
+  ['R', 1000, 1000, 500, 300, 0, 0],
+  ['CIRCLE', 3000, 1150, 100],
+]);
+
+// 2. 拆分为单多边形对象数组
+const polygons = eda.pcb_MathPolygon.splitPolygon(complexPolygon);
+
+// 3. 逐个读取单多边形的源数据
+polygons.forEach((polygon, index) => {
+  console.log('polygon' + (index + 1) + ':', JSON.stringify(polygon.getSource()));
+});
+console.log('count:', polygons.length);
+```

@@ -936,7 +936,7 @@ console.log('hitPrimitiveId:', hit.getState_PrimitiveId());
 
 // 4. 拾取空白坐标点，返回 undefined
 const miss = await eda.pcb_Document.getPrimitiveAtPoint(90000, 90000);
-console.log('空白坐标点:', miss === undefined ? '未找到图元' : '找到图元');
+console.log('空白坐标点：', miss === undefined ? '未找到图元' : '找到图元');
 
 // 5. 清理测试图元和测试 PCB
 await eda.pcb_PrimitivePad.delete([padId]);

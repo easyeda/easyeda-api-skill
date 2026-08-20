@@ -269,6 +269,28 @@ Promise&lt;[IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md) \| undefined&gt;
 
 Region primitive object
 
+## Example
+
+
+```javascript
+// 1. 生成随机起点坐标，避免与画布上已有的区域重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 用 pcb_MathPolygon.createPolygon 构造矩形边界：宽 500、高 300
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+
+// 3. 在顶层铜层创建禁止区域：规则 [2, 5] 即禁止元件 + 禁止布线，线宽 10mil，不锁定
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon, [2, 5], '嘉立创示例_禁布区', 10, false);
+
+// 4. 创建类保留现场，不删除图元
+console.log('primitiveId:', region.getState_PrimitiveId());
+console.log('primitiveType:', region.getState_PrimitiveType());
+console.log('layer:', region.getState_Layer());
+console.log('ruleType:', region.getState_RuleType());
+console.log('regionName:', region.getState_RegionName());
+```
+
 ### delete
 
 # PCB\_PrimitiveRegion.delete() method
@@ -327,6 +349,31 @@ Promise&lt;boolean&gt;
 
 Delete Whether the operation is successful
 
+## Example
+
+
+```javascript
+// 1. 创建两个待删除的测试区域（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon1 = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const polygon2 = eda.pcb_MathPolygon.createPolygon(['R', x, y + 500, 500, 300, 0, 0]);
+const region1 = await eda.pcb_PrimitiveRegion.create(1, polygon1, [2], '嘉立创示例_删除A');
+const region2 = await eda.pcb_PrimitiveRegion.create(1, polygon2, [5], '嘉立创示例_删除B');
+
+// 2. 记录删除前的区域数量
+const beforeCount = (await eda.pcb_PrimitiveRegion.getAll()).length;
+
+// 3. 以 ID 数组形式批量删除两个区域
+const deleted = await eda.pcb_PrimitiveRegion.delete([region1.getState_PrimitiveId(), region2.getState_PrimitiveId()]);
+
+// 4. 删除类保留现场（图元已删除，不恢复）
+const afterCount = (await eda.pcb_PrimitiveRegion.getAll()).length;
+
+console.log('deleted:', deleted);
+console.log('beforeCount:', beforeCount, '→ afterCount:', afterCount);
+```
+
 ### get
 
 # PCB\_PrimitiveRegion.get() method
@@ -384,6 +431,32 @@ Region primitive ID, which can be a string or an array of strings. If it is an a
 Promise&lt;[IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md) \| undefined&gt;
 
 Region primitive object, `undefined` indicates that the retrieval failed
+
+## Example
+
+
+```javascript
+// 1. 创建两个测试区域（随机坐标避免重合），分别用不同规则便于区分
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon1 = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const polygon2 = eda.pcb_MathPolygon.createPolygon(['R', x, y + 500, 500, 300, 0, 0]);
+const region1 = await eda.pcb_PrimitiveRegion.create(1, polygon1, [2], '嘉立创示例_区域A');
+const region2 = await eda.pcb_PrimitiveRegion.create(1, polygon2, [5], '嘉立创示例_区域B');
+
+// 2. 传单个 ID 字符串，返回单个区域对象
+const single = await eda.pcb_PrimitiveRegion.get(region1.getState_PrimitiveId());
+
+// 3. 传 ID 数组，返回区域对象数组
+const arr = await eda.pcb_PrimitiveRegion.get([region1.getState_PrimitiveId(), region2.getState_PrimitiveId()]);
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitiveRegion.delete([region1.getState_PrimitiveId(), region2.getState_PrimitiveId()]);
+
+console.log('single ruleType:', single.getState_RuleType());
+console.log('array length:', arr.length);
+console.log('region2 ruleType:', arr[1].getState_RuleType());
+```
 
 ### get_1
 
@@ -537,6 +610,35 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md)<!-- -->&g
 
 Array of Region primitive objects
 
+## Example
+
+
+```javascript
+// 1. 创建一个顶层测试区域作为过滤目标：规则 [2] 即禁止元件（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon, [2], '嘉立创示例_过滤目标');
+const regionId = region.getState_PrimitiveId();
+
+// 2. 不带参数：获取 PCB 上全部区域
+const all = await eda.pcb_PrimitiveRegion.getAll();
+
+// 3. 按层过滤：只取顶层（1）的区域
+const topLayer = await eda.pcb_PrimitiveRegion.getAll(1);
+
+// 4. 按规则类型过滤：只取规则为 [2]（禁止元件）的区域，要求规则完全一致
+const noComponents = await eda.pcb_PrimitiveRegion.getAll(undefined, [2]);
+
+// 5. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitiveRegion.delete([regionId]);
+
+console.log('total regions:', all.length);
+console.log('top layer regions:', topLayer.length);
+console.log('no-component regions:', noComponents.length);
+console.log('marker region found:', noComponents.some(r => r.getState_PrimitiveId() === regionId));
+```
+
 ### getallprimitiveid
 
 # PCB\_PrimitiveRegion.getAllPrimitiveId() method
@@ -627,6 +729,31 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 Array of Region primitive IDs
 
+## Example
+
+
+```javascript
+// 1. 创建一个顶层测试区域作为查找目标：规则 [2] 即禁止元件（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon, [2], '嘉立创示例_ID查找目标');
+const regionId = region.getState_PrimitiveId();
+
+// 2. 获取全部区域的图元 ID
+const allIds = await eda.pcb_PrimitiveRegion.getAllPrimitiveId();
+
+// 3. 按层 + 规则类型过滤：只取顶层（1）禁止元件（[2]）区域的图元 ID
+const filteredIds = await eda.pcb_PrimitiveRegion.getAllPrimitiveId(1, [2]);
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitiveRegion.delete([regionId]);
+
+console.log('total region ids:', allIds.length);
+console.log('filtered region ids:', filteredIds.length);
+console.log('marker id in filtered list:', filteredIds.includes(regionId));
+```
+
 ### modify
 
 # PCB\_PrimitiveRegion.modify() method
@@ -700,3 +827,30 @@ Modify Parameter
 Promise&lt;[IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md) \| undefined&gt;
 
 Region primitive object, `undefined` indicates that the modification failed
+
+## Example
+
+
+```javascript
+// 1. 创建待修改的测试区域：顶层，规则 [2] 即禁止元件（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const region = await eda.pcb_PrimitiveRegion.create(1, polygon, [2], '嘉立创示例_待修改');
+const regionId = region.getState_PrimitiveId();
+
+// 2. 读取修改前的层与规则类型
+const beforeLayer = region.getState_Layer();
+const beforeRuleType = region.getState_RuleType();
+
+// 3. 批量修改：层从顶层（1）换到底层（2），规则 [2] 禁止元件扩展为 [2, 5] 禁止元件 + 禁止布线
+await eda.pcb_PrimitiveRegion.modify(regionId, { layer: 2, ruleType: [2, 5] });
+
+// 4. modify 返回后需要重新 get() 才能读到画布上的最新值
+const refreshed = await eda.pcb_PrimitiveRegion.get(regionId);
+
+// 5. 修改类保留现场，供观察修改结果
+console.log('primitiveId:', regionId);
+console.log('layer:', beforeLayer, '→', refreshed.getState_Layer());
+console.log('ruleType:', JSON.stringify(beforeRuleType), '→', JSON.stringify(refreshed.getState_RuleType()));
+```

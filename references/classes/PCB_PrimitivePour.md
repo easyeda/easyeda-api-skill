@@ -317,6 +317,30 @@ Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md) \| undefined&gt;
 
 Copper border primitive object
 
+## Example
+
+
+```javascript
+// 1. 生成随机起点坐标，避免与画布上已有的覆铜边框重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 用 pcb_MathPolygon.createPolygon 构造覆铜轮廓：500×300 的矩形区域
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+
+// 3. 在顶层铜层创建覆铜边框：挂 GND 网络、实心填充、不保留孤岛、优先级 5、线宽 10mil、不锁定
+//    注意：net 不能传空字符串（会报参数不正确），需传已有网络名
+const pour = await eda.pcb_PrimitivePour.create('GND', 1, polygon, 'solid', false, '嘉立创示例_覆铜', 5, 10, false);
+
+// 4. 创建类保留现场，不删除图元
+console.log('primitiveId:', pour.getState_PrimitiveId());
+console.log('primitiveType:', pour.getState_PrimitiveType());
+console.log('pourName:', pour.getState_PourName());
+console.log('pourFillMethod:', pour.getState_PourFillMethod());
+console.log('pourPriority:', pour.getState_PourPriority());
+console.log('layer:', pour.getState_Layer());
+```
+
 ### delete
 
 # PCB\_PrimitivePour.delete() method
@@ -375,6 +399,31 @@ Promise&lt;boolean&gt;
 
 Delete Whether the operation is successful
 
+## Example
+
+
+```javascript
+// 1. 创建两条待删除的测试覆铜边框（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon1 = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const polygon2 = eda.pcb_MathPolygon.createPolygon(['R', x, y + 500, 500, 300, 0, 0]);
+const pour1 = await eda.pcb_PrimitivePour.create('GND', 1, polygon1, 'solid', false, '嘉立创示例_覆铜1', 5, 10, false);
+const pour2 = await eda.pcb_PrimitivePour.create('GND', 1, polygon2, 'solid', false, '嘉立创示例_覆铜2', 5, 10, false);
+
+// 2. 记录删除前的覆铜边框数量
+const beforeCount = (await eda.pcb_PrimitivePour.getAll()).length;
+
+// 3. 以 ID 数组形式批量删除两条覆铜边框
+const deleted = await eda.pcb_PrimitivePour.delete([pour1.getState_PrimitiveId(), pour2.getState_PrimitiveId()]);
+
+// 4. 删除类保留现场（图元已删除，不恢复）
+const afterCount = (await eda.pcb_PrimitivePour.getAll()).length;
+
+console.log('deleted:', deleted);
+console.log('beforeCount:', beforeCount, '→ afterCount:', afterCount);
+```
+
 ### get
 
 # PCB\_PrimitivePour.get() method
@@ -432,6 +481,32 @@ Copper border primitive ID, which can be a string or an array of strings. If it 
 Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md) \| undefined&gt;
 
 Copper border primitive object, `undefined` indicates that the retrieval failed
+
+## Example
+
+
+```javascript
+// 1. 创建两条测试覆铜边框（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon1 = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const polygon2 = eda.pcb_MathPolygon.createPolygon(['R', x, y + 500, 500, 300, 0, 0]);
+const pour1 = await eda.pcb_PrimitivePour.create('GND', 1, polygon1, 'solid', false, '嘉立创示例_覆铜1', 5, 10, false);
+const pour2 = await eda.pcb_PrimitivePour.create('GND', 1, polygon2, '90grid', false, '嘉立创示例_覆铜2', 6, 10, false);
+
+// 2. 传单个 ID 字符串，返回单个覆铜边框对象
+const single = await eda.pcb_PrimitivePour.get(pour1.getState_PrimitiveId());
+
+// 3. 传 ID 数组，返回覆铜边框对象数组
+const arr = await eda.pcb_PrimitivePour.get([pour1.getState_PrimitiveId(), pour2.getState_PrimitiveId()]);
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePour.delete([pour1.getState_PrimitiveId(), pour2.getState_PrimitiveId()]);
+
+console.log('single pourName:', single.getState_PourName());
+console.log('array length:', arr.length);
+console.log('pour2 fillMethod:', arr[1].getState_PourFillMethod());
+```
 
 ### get_1
 
@@ -585,6 +660,31 @@ Promise&lt;Array&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)<!-- -->&gt;&g
 
 Array of Copper border primitive objects
 
+## Example
+
+
+```javascript
+// 1. 创建一条顶层测试覆铜边框作为过滤目标（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('GND', 1, polygon, 'solid', false, '嘉立创示例_覆铜', 5, 10, false);
+const pourId = pour.getState_PrimitiveId();
+
+// 2. 不带参数：获取 PCB 上全部覆铜边框
+const all = await eda.pcb_PrimitivePour.getAll();
+
+// 3. 按网络和层过滤：只取 GND 网络顶层（1）的覆铜边框
+const gndTop = await eda.pcb_PrimitivePour.getAll('GND', 1);
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePour.delete([pourId]);
+
+console.log('total pours:', all.length);
+console.log('GND top layer pours:', gndTop.length);
+console.log('marker pour found in GND top layer:', gndTop.some(p => p.getState_PrimitiveId() === pourId));
+```
+
 ### getallprimitiveid
 
 # PCB\_PrimitivePour.getAllPrimitiveId() method
@@ -675,6 +775,31 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 Array of Copper border primitive IDs
 
+## Example
+
+
+```javascript
+// 1. 创建一条顶层测试覆铜边框作为查找目标（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('GND', 1, polygon, 'solid', false, '嘉立创示例_覆铜', 5, 10, false);
+const pourId = pour.getState_PrimitiveId();
+
+// 2. 获取全部覆铜边框的图元 ID
+const allIds = await eda.pcb_PrimitivePour.getAllPrimitiveId();
+
+// 3. 按网络和层过滤：只取 GND 网络顶层（1）覆铜边框的图元 ID
+const gndTopIds = await eda.pcb_PrimitivePour.getAllPrimitiveId('GND', 1);
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePour.delete([pourId]);
+
+console.log('total pour ids:', allIds.length);
+console.log('GND top layer pour ids:', gndTopIds.length);
+console.log('marker id in GND top layer list:', gndTopIds.includes(pourId));
+```
+
 ### modify
 
 # PCB\_PrimitivePour.modify() method
@@ -748,3 +873,30 @@ Modify Parameter
 Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md) \| undefined&gt;
 
 Copper border primitive object, `undefined` indicates that the modification failed
+
+## Example
+
+
+```javascript
+// 1. 创建待修改的测试覆铜边框（随机坐标避免与画布已有覆铜重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const pour = await eda.pcb_PrimitivePour.create('GND', 1, polygon, 'solid', false, '嘉立创示例_覆铜', 5, 10, false);
+const pourId = pour.getState_PrimitiveId();
+
+// 2. 读取修改前的层与优先级
+const beforeLayer = pour.getState_Layer();
+const beforePriority = pour.getState_PourPriority();
+
+// 3. 批量修改：层从顶层（1）换到底层（2），优先级 5 → 6
+await eda.pcb_PrimitivePour.modify(pourId, { layer: 2, pourPriority: 6 });
+
+// 4. modify 返回后需要重新 get() 才能读到画布上的最新值
+const refreshed = await eda.pcb_PrimitivePour.get(pourId);
+
+// 5. 修改类保留现场，供观察修改结果
+console.log('primitiveId:', pourId);
+console.log('layer:', beforeLayer, '→', refreshed.getState_Layer());
+console.log('pourPriority:', beforePriority, '→', refreshed.getState_PourPriority());
+```

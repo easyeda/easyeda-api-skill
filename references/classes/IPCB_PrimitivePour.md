@@ -1186,7 +1186,7 @@ try {
   rebuilt = result !== undefined;
 } catch (e) {
   // 当前版本在纯 API 创建的覆铜上重建会报内部错误，捕获后继续
-  console.log('说明: 当前环境 rebuildCopperRegion 报错:', e.message);
+  console.log('说明：当前环境 rebuildCopperRegion 报错：', e.message);
 }
 
 console.log('rebuildRequested:', true);

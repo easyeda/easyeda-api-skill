@@ -1112,7 +1112,7 @@ try {
   console.log('关键字搜索返回', keywordResults.length, '条');
 } catch (e) {
   // 剥掉错误类型前缀；注意：正则写法尾部会产生星号+斜杠序列，会闭掉 tsdoc 注释，故用 split
-  console.log('关键字搜索当前版本抛错:', String(e.message).split('Error: ').pop());
+  console.log('关键字搜索当前版本抛错：', String(e.message).split('Error: ').pop());
 }
 
 // 2. 改用空关键字列出系统库符号，每页 5 条
@@ -1209,7 +1209,7 @@ let results;
 try {
   results = await eda.lib_Symbol.searchByProperties({ name: '0402' });
 } catch (e) {
-  console.log('当前版本按 name 搜索抛错:', e.message);
+  console.log('当前版本按 name 搜索抛错：', e.message);
 }
 if (!Array.isArray(results)) results = [];
 

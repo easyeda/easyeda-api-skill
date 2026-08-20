@@ -349,6 +349,44 @@ Promise&lt;[ISCH\_PrimitiveText](./ISCH_PrimitiveText.md) \| undefined&gt;
 
 Text primitive object
 
+## Example
+
+
+```javascript
+// 1. 生成随机坐标，避免与画布上已有的文本重合（SCH 坐标单位 10mil）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一段完整样式的文本：旋转 90 度、红色、Arial 字体、字号 20、加粗、带下划线、居中对齐（CENTER = 5）
+const text = await eda.sch_PrimitiveText.create(
+  x,
+  y,
+  '嘉立创示例_设计说明',
+  90,
+  '#FF0000',
+  'Arial',
+  20,
+  true,
+  false,
+  true,
+  5
+);
+
+// 3. 创建类保留现场，不删除图元；读回各属性确认样式已生效
+console.log('primitiveId:', text.getState_PrimitiveId());
+console.log('primitiveType:', text.getState_PrimitiveType());
+console.log('position:', text.getState_X(), text.getState_Y());
+console.log('content:', text.getState_Content());
+console.log('rotation:', text.getState_Rotation());
+console.log('textColor:', text.getState_TextColor());
+console.log('fontName:', text.getState_FontName());
+console.log('fontSize:', text.getState_FontSize());
+console.log('bold:', text.getState_Bold());
+console.log('italic:', text.getState_Italic());
+console.log('underLine:', text.getState_UnderLine());
+console.log('alignMode:', text.getState_AlignMode());
+```
+
 ### delete
 
 # SCH\_PrimitiveText.delete() method
@@ -407,6 +445,31 @@ Promise&lt;boolean&gt;
 
 Delete Whether the operation is successful
 
+## Example
+
+
+```javascript
+// 1. 创建两个待删除的测试文本（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const text1 = await eda.sch_PrimitiveText.create(x, y, '嘉立创示例_待删除A');
+const text2 = await eda.sch_PrimitiveText.create(x, y + 300, '嘉立创示例_待删除B');
+
+// 2. 记录删除前的文本数量
+const beforeCount = (await eda.sch_PrimitiveText.getAll()).length;
+
+// 3. 分别以 ID 字符串和图元对象两种形式删除两个文本
+const deleted1 = await eda.sch_PrimitiveText.delete(text1.getState_PrimitiveId());
+const deleted2 = await eda.sch_PrimitiveText.delete(text2);
+
+// 4. 删除类保留现场（图元已删除，不恢复）
+const afterCount = (await eda.sch_PrimitiveText.getAll()).length;
+
+console.log('deleted by id:', deleted1);
+console.log('deleted by object:', deleted2);
+console.log('beforeCount:', beforeCount, '→ afterCount:', afterCount);
+```
+
 ### get
 
 # SCH\_PrimitiveText.get() method
@@ -464,6 +527,34 @@ Text primitive ID, which can be a string or an array of strings. If it is an arr
 Promise&lt;[ISCH\_PrimitiveText](./ISCH_PrimitiveText.md) \| undefined&gt;
 
 Text primitive object, `undefined` indicates that the retrieval failed
+
+## Example
+
+
+```javascript
+// 1. 在画布空白处创建两个测试文本（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const text1 = await eda.sch_PrimitiveText.create(x, y, '嘉立创示例_文本A', 0, '#FF0000');
+const text2 = await eda.sch_PrimitiveText.create(x, y + 300, '嘉立创示例_文本B', 0, '#0000FF');
+const id1 = text1.getState_PrimitiveId();
+const id2 = text2.getState_PrimitiveId();
+
+// 2. 传单个 ID 字符串，返回单个文本对象
+const single = await eda.sch_PrimitiveText.get(id1);
+
+// 3. 传 ID 数组，返回文本对象数组（任一 ID 未匹配不影响其它图元的返回）
+const arr = await eda.sch_PrimitiveText.get([id1, id2]);
+
+// 4. 清理测试文本（查询类需要清理）
+await eda.sch_PrimitiveText.delete([id1, id2]);
+
+console.log('single content:', single.getState_Content());
+console.log('single color:', single.getState_TextColor());
+console.log('array length:', arr.length);
+console.log('textB content:', arr[1].getState_Content());
+console.log('textB color:', arr[1].getState_TextColor());
+```
 
 ### get_1
 
@@ -548,6 +639,28 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveText](./ISCH_PrimitiveText.md)<!-- -->&gt;&g
 
 Array of Text primitive objects
 
+## Example
+
+
+```javascript
+// 1. 创建一个测试文本作为查找目标（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const text = await eda.sch_PrimitiveText.create(x, y, '嘉立创示例_查找目标', 0, '#FF0000');
+const textId = text.getState_PrimitiveId();
+
+// 2. 获取当前原理图页的全部文本
+const all = await eda.sch_PrimitiveText.getAll();
+
+// 3. 清理测试文本（查询类需要清理）
+await eda.sch_PrimitiveText.delete([textId]);
+
+console.log('total texts:', all.length);
+console.log('marker text found:', all.some(t => t.getState_PrimitiveId() === textId));
+console.log('marker content:', all.find(t => t.getState_PrimitiveId() === textId).getState_Content());
+console.log('marker color:', all.find(t => t.getState_PrimitiveId() === textId).getState_TextColor());
+```
+
 ### getallprimitiveid
 
 # SCH\_PrimitiveText.getAllPrimitiveId() method
@@ -568,6 +681,26 @@ public getAllPrimitiveId(): Promise<Array<string>>;
 Promise&lt;Array&lt;string&gt;&gt;
 
 Array of Text primitive IDs
+
+## Example
+
+
+```javascript
+// 1. 创建一个测试文本作为查找目标（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const text = await eda.sch_PrimitiveText.create(x, y, '嘉立创示例_ID查找目标');
+const textId = text.getState_PrimitiveId();
+
+// 2. 获取全部文本的图元 ID
+const allIds = await eda.sch_PrimitiveText.getAllPrimitiveId();
+
+// 3. 清理测试文本（查询类需要清理）
+await eda.sch_PrimitiveText.delete([textId]);
+
+console.log('total text ids:', allIds.length);
+console.log('marker id in list:', allIds.includes(textId));
+```
 
 ### modify
 
@@ -642,3 +775,40 @@ Modify Parameter
 Promise&lt;[ISCH\_PrimitiveText](./ISCH_PrimitiveText.md) \| undefined&gt;
 
 Text primitive object
+
+## Example
+
+
+```javascript
+// 1. 创建待修改的测试文本：默认样式（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const text = await eda.sch_PrimitiveText.create(x, y, '嘉立创示例_原始文本');
+const textId = text.getState_PrimitiveId();
+
+// 2. 记录修改前的内容、颜色与字号
+const beforeContent = text.getState_Content();
+const beforeColor = text.getState_TextColor();
+const beforeFontSize = text.getState_FontSize();
+
+// 3. 批量修改：平移位置、内容更新、颜色改蓝、字号 20、加粗
+await eda.sch_PrimitiveText.modify(textId, {
+  x: x + 200,
+  y: y + 100,
+  content: '嘉立创示例_修改后的文本',
+  textColor: '#0000FF',
+  fontSize: 20,
+  bold: true,
+});
+
+// 4. modify 返回后需要重新 get() 才能读到画布上的最新值
+const refreshed = await eda.sch_PrimitiveText.get(textId);
+
+// 5. 修改类保留现场，供观察修改结果
+console.log('primitiveId:', textId);
+console.log('content:', beforeContent, '→', refreshed.getState_Content());
+console.log('textColor:', beforeColor, '→', refreshed.getState_TextColor());
+console.log('fontSize:', beforeFontSize, '→', refreshed.getState_FontSize());
+console.log('bold:', refreshed.getState_Bold());
+console.log('position:', x, y, '→', refreshed.getState_X(), refreshed.getState_Y());
+```

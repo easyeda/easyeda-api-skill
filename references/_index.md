@@ -232,8 +232,6 @@
 | [ESYS_WindowOpenTarget](enums/ESYS_WindowOpenTarget.md) | Open window context target |  |
 | [NetportDeviceName](enums/NetportDeviceName.md) | 网络端口符号对应的器件名称 |  |
 | [SchToolBarDeviceName](enums/SchToolBarDeviceName.md) | 悬浮框特殊符号对应的器件名称 |  |
-| [createDesignPortal()](enums/createDesignPortal().md) | 创建一个组件化弹出窗口的通信入口（客户端 API）。  扩展可在任意环境（iframe / worker / Main）调用，返回一个 IDesignPortal 对象， 所有通信（发消息 + 收事件）均封装在对象内部，扩展无需感知 bus。  扩展结合 lc-editor-design-react 的 VirtualRender / 虚拟机组件使用：  ```tsx const portal = eda.sys_Dialog.createDesignPortal(); const root = new VirtualRender(); root.render(   <PortalContext.Provider value={portal}>     <MyDialog />   </PortalContext.Provider> ); ``` |  |
-| [registerDesignPortalHost()](enums/registerDesignPortalHost().md) | 注册组件化弹出窗口服务端（仅在 Main 环境调用一次）。  监听客户端（iframe / worker / Main）经 bus 发来的 create/update/detach 消息， 驱动 Main 端的 EditorDesignPortal 实际渲染组件，并将组件事件回传给客户端。 |  |
 
 
 ---

@@ -138,6 +138,28 @@ Promise&lt;void&gt;
 
 Remove the current or specified follow-mouse tip
 
+## Example
+
+
+```javascript
+// 1. 展示一条持续提示（不传时间参数，不会自动消失）
+eda.sys_Message.showFollowMouseTip('嘉立创示例_待移除的提示');
+console.log('鼠标提示已显示');
+
+// 2. 传入不匹配的内容：当前提示内容不同，不会被移除
+eda.sys_Message.removeFollowMouseTip('嘉立创示例_另一条提示');
+console.log('传入内容与当前提示不匹配，提示仍在显示');
+
+// 3. 传入匹配的内容：内容一致时移除
+eda.sys_Message.removeFollowMouseTip('嘉立创示例_待移除的提示');
+console.log('传入内容与当前提示一致，提示已移除');
+
+// 4. 不传参数：无论内容直接移除当前提示
+eda.sys_Message.showFollowMouseTip('嘉立创示例_新的提示');
+eda.sys_Message.removeFollowMouseTip();
+console.log('不传参数已直接移除当前提示');
+```
+
 ### showfollowmousetip
 
 # SYS\_Message.showFollowMouseTip() method
@@ -213,6 +235,24 @@ Promise&lt;void&gt;
 ## Remarks
 
 Only one tip can be shown at a time. If a new tip is shown, the previous tip will be automatically removed
+
+## Example
+
+
+```javascript
+// 1. 限时提示：2000 毫秒后自动消失，无需手动清理
+eda.sys_Message.showFollowMouseTip('嘉立创示例_这条提示 2 秒后自动消失', 2000);
+console.log('限时鼠标提示已显示，2 秒后自动消失');
+
+// 2. 持续提示：不传时间参数则一直展示，直到被移除或被新提示覆盖
+eda.sys_Message.showFollowMouseTip('嘉立创示例_这条提示会一直跟随鼠标');
+console.log('持续鼠标提示已显示（新提示覆盖了上一条）');
+
+// 3. 持续提示必须手动收尾，避免遗留（自建自删，保证案例可重复运行）
+await new Promise(r => setTimeout(r, 1000));
+eda.sys_Message.removeFollowMouseTip();
+console.log('持续鼠标提示已手动移除');
+```
 
 ### showtoastmessage
 
@@ -347,3 +387,27 @@ _(Optional)_ Callback function content, in string form. It will be automatically
 ## Returns
 
 void
+
+## Example
+
+
+```javascript
+// 1. 最简调用：默认信息类型，默认 3 秒后自动关闭
+eda.sys_Message.showToastMessage('嘉立创示例 工程已自动保存');
+console.log('信息吐司已显示，3 秒后自动关闭');
+
+// 2. 指定消息类型与倒计时秒数：成功图标，2 秒后自动关闭
+eda.sys_Message.showToastMessage('嘉立创示例 导出完成', 'success', 2);
+console.log('成功吐司已显示，2 秒后自动关闭');
+
+// 3. 带回调按钮与底部面板联动：点击按钮执行回调并展开日志面板
+eda.sys_Message.showToastMessage(
+  '嘉立创示例 检查完成，详见日志面板',
+  'warn',
+  5,
+  'log',
+  '查看日志',
+  'console.log("嘉立创示例 按钮回调被执行")'
+);
+console.log('警告吐司已显示，附带查看日志按钮，5 秒后自动关闭');
+```

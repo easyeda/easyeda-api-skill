@@ -298,6 +298,28 @@ Promise&lt;any&gt;
 
 Library configuration information
 
+## Example
+
+
+```javascript
+// 1. 导出当前工程为文件
+const projectFile = await eda.sys_FileManager.getProjectFile();
+
+// 2. 从工程文件中提取库配置信息
+const libInfo = await eda.sys_FileManager.extractLibInfo(projectFile);
+
+// 3. 输出各类型库的引用数量（字段：devices / symbols / footprints / panelLibs）
+console.log('器件数：', libInfo.devices.length);
+console.log('符号数：', libInfo.symbols.length);
+console.log('封装数：', libInfo.footprints.length);
+console.log('面板库数：', libInfo.panelLibs.length);
+
+// 4. 列出第一个封装的库信息（uuid 可用于后续按 UUID 下载封装文件）
+const firstFootprint = libInfo.footprints[0];
+console.log('首个封装标题：', firstFootprint?.title);
+console.log('首个封装 uuid：', firstFootprint?.uuid);
+```
+
 ### extractprojectinfo
 
 # SYS\_FileManager.extractProjectInfo() method
@@ -353,6 +375,25 @@ Project file
 Promise&lt;any&gt;
 
 Project configuration information
+
+## Example
+
+
+```javascript
+// 1. 导出当前工程为文件
+const projectFile = await eda.sys_FileManager.getProjectFile();
+
+// 2. 从工程文件中提取工程配置信息
+const projectInfo = await eda.sys_FileManager.extractProjectInfo(projectFile);
+
+// 3. 输出工程配置（title 是工程标题，editorVersion 是导出时的编辑器版本）
+console.log('工程标题：', projectInfo.title);
+console.log('编辑器版本：', projectInfo.editorVersion);
+console.log('是否复用模块工程：', projectInfo.cbbProject);
+
+// 4. 输出标签（工程未设置标签时 tags 为 undefined，兜底为空数组）
+console.log('标签：', (projectInfo.tags ?? []).join('、'));
+```
 
 ### getcbbfilebycbbuuid
 
@@ -450,6 +491,25 @@ You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the fil
 
 Note: This API requires the \*\*Team Module &gt; Download Module\*\* permission. Calling it without permission will always `throw Error`
 
+## Example
+
+
+```javascript
+// 1. 列出系统库中的复用模块，取第一个的 UUID
+const cbbList = await eda.lib_Cbb.search('', undefined, undefined, 5);
+const cbb = cbbList[0];
+
+// 2. 按复用模块 UUID 获取文件，props.fileName 指定导出文件名
+const cbbFile = await eda.sys_FileManager.getCbbFileByCbbUuid(cbb.uuid, undefined, {
+  fileName: '嘉立创示例_复用模块',
+});
+
+// 3. 输出复用模块与文件信息（size 单位为字节）
+console.log('复用模块名：', cbb.name);
+console.log('文件名：', cbbFile.name);
+console.log('文件大小：', cbbFile.size);
+```
+
 ### getdevicefilebydeviceuuid
 
 # SYS\_FileManager.getDeviceFileByDeviceUuid() method
@@ -543,6 +603,23 @@ Device file data, `undefined` indicates that the data retrieval failed
 You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the file to the local file system
 
 Note: This API requires the \*\*Team Library &gt; Download Library\*\* permission. Calling it without permission will always `throw Error`
+
+## Example
+
+
+```javascript
+// 1. 按立创编号精确搜索系统库器件，取第一个的 UUID
+const deviceList = await eda.lib_Device.searchByProperties({ supplierId: 'C1523' }, undefined, undefined, undefined, 5, 1);
+const device = deviceList[0];
+
+// 2. 按器件 UUID 获取器件文件
+const deviceFile = await eda.sys_FileManager.getDeviceFileByDeviceUuid(device.uuid);
+
+// 3. 输出器件与文件信息（size 单位为字节）
+console.log('器件名：', device.name);
+console.log('文件名：', deviceFile.name);
+console.log('文件大小：', deviceFile.size);
+```
 
 ### getdocumentfile
 
@@ -638,6 +715,18 @@ You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the fil
 
 Note: This API requires the \*\*Engineering Design &gt; File Export\*\* permission. Calling it without permission will always `throw Error`
 
+## Example
+
+
+```javascript
+// 1. 导出当前文档为文件（文件名自动带上 epro2 扩展名）
+const documentFile = await eda.sys_FileManager.getDocumentFile('嘉立创示例_文档导出');
+
+// 2. 输出文件信息（size 单位为字节）
+console.log('文件名：', documentFile.name);
+console.log('文件大小：', documentFile.size);
+```
+
 ### getdocumentfootprintsources
 
 # SYS\_FileManager.getDocumentFootprintSources() method
@@ -659,6 +748,20 @@ Promise&lt;Array&lt;{ footprintUuid: string; documentSource: string }&gt;&gt;
 
 Document footprint source code data. An empty array is returned if the data retrieval fails
 
+## Example
+
+
+```javascript
+// 1. 获取当前文档全部封装源码
+const sources = await eda.sys_FileManager.getDocumentFootprintSources();
+
+// 2. 输出封装数量与每个封装的源码长度
+console.log('封装数量：', sources.length);
+sources.forEach((item, i) => {
+  console.log('[' + i + '] footprintUuid：', item.footprintUuid, '源码长度：', item.documentSource.length);
+});
+```
+
 ### getdocumentsource
 
 # SYS\_FileManager.getDocumentSource() method
@@ -679,6 +782,18 @@ public getDocumentSource(): Promise<string | undefined>;
 Promise&lt;string \| undefined&gt;
 
 Document source code data, `undefined` indicates that it is currently not open document or data retrieval failed
+
+## Example
+
+
+```javascript
+// 1. 读取当前文档源码
+const source = await eda.sys_FileManager.getDocumentSource();
+
+// 2. 输出源码长度与前 60 字符预览（DOCHEAD 开头的 JSON 分段结构）
+console.log('源码长度：', source.length);
+console.log('源码预览：', source.slice(0, 60));
+```
 
 ### getfootprintfilebyfootprintuuid
 
@@ -776,6 +891,23 @@ You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the fil
 
 Note: This API requires the \*\*Team Library &gt; Download Library\*\* permission. Calling it without permission will always `throw Error`
 
+## Example
+
+
+```javascript
+// 1. 列出系统库封装，取第一个的 UUID
+const footprintList = await eda.lib_Footprint.search('', undefined, [], undefined, 5, 1);
+const footprint = footprintList[0];
+
+// 2. 按封装 UUID 获取封装文件
+const footprintFile = await eda.sys_FileManager.getFootprintFileByFootprintUuid(footprint.uuid);
+
+// 3. 输出封装与文件信息（size 单位为字节）
+console.log('封装名：', footprint.name);
+console.log('文件名：', footprintFile.name);
+console.log('文件大小：', footprintFile.size);
+```
+
 ### getpanellibraryfilebypanellibraryuuid
 
 # SYS\_FileManager.getPanelLibraryFileByPanelLibraryUuid() method
@@ -872,6 +1004,23 @@ You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the fil
 
 Note: This API requires the \*\*Team Library &gt; Download Library\*\* permission. Calling it without permission will always `throw Error`
 
+## Example
+
+
+```javascript
+// 1. 列出系统库面板库，取第一个的 UUID
+const panelList = await eda.lib_PanelLibrary.search('', undefined, undefined, 5);
+const panel = panelList[0];
+
+// 2. 按面板库 UUID 获取面板库文件
+const panelFile = await eda.sys_FileManager.getPanelLibraryFileByPanelLibraryUuid(panel.uuid);
+
+// 3. 输出面板库与文件信息（size 单位为字节）
+console.log('面板库名：', panel.name);
+console.log('文件名：', panelFile.name);
+console.log('文件大小：', panelFile.size);
+```
+
 ### getprojectfile
 
 # SYS\_FileManager.getProjectFile() method
@@ -965,6 +1114,18 @@ Project file data, `undefined` indicates that it is currently not open project o
 You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the file to the local file system
 
 Note: This API requires the \*\*Project Management &gt; Download Project\*\* permission. Calling it without permission will always `throw Error`
+
+## Example
+
+
+```javascript
+// 1. 导出当前工程为文件（文件名自动带上 epro2 扩展名）
+const projectFile = await eda.sys_FileManager.getProjectFile('嘉立创示例_工程导出');
+
+// 2. 输出文件信息（size 单位为字节）
+console.log('文件名：', projectFile.name);
+console.log('文件大小：', projectFile.size);
+```
 
 ### getprojectfilebyprojectuuid
 
@@ -1078,6 +1239,21 @@ You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the fil
 
 Note: This API requires the \*\*Project Management &gt; Download Project\*\* permission. Calling it without permission will always `throw Error`
 
+## Example
+
+
+```javascript
+// 1. 获取当前工程的 UUID
+const projectInfo = await eda.dmt_Project.getCurrentProjectInfo();
+
+// 2. 按工程 UUID 下载工程文件（文件名自动带上 epro2 扩展名）
+const projectFile = await eda.sys_FileManager.getProjectFileByProjectUuid(projectInfo.uuid, '嘉立创示例_按UUID导出');
+
+// 3. 输出文件信息（size 单位为字节）
+console.log('文件名：', projectFile.name);
+console.log('文件大小：', projectFile.size);
+```
+
 ### getsymbolfilebysymboluuid
 
 # SYS\_FileManager.getSymbolFileBySymbolUuid() method
@@ -1173,6 +1349,23 @@ Symbol file data, `undefined` indicates that the data retrieval failed
 You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the file to the local file system
 
 Note: This API requires the \*\*Team Library &gt; Download Library\*\* permission. Calling it without permission will always `throw Error`
+
+## Example
+
+
+```javascript
+// 1. 列出系统库符号，取第一个的 UUID
+const symbolList = await eda.lib_Symbol.search('', undefined, [], undefined, 5, 1);
+const symbol = symbolList[0];
+
+// 2. 按符号 UUID 获取符号文件
+const symbolFile = await eda.sys_FileManager.getSymbolFileBySymbolUuid(symbol.uuid);
+
+// 3. 输出符号与文件信息（size 单位为字节）
+console.log('符号名：', symbol.name);
+console.log('文件名：', symbolFile.name);
+console.log('文件大小：', symbolFile.size);
+```
 
 ### importprojectbyprojectfile
 
@@ -1483,3 +1676,17 @@ Document source code
 Promise&lt;boolean&gt;
 
 Whether the modification was successful. If the input document source code format is incorrect, `false` is returned
+
+## Example
+
+
+```javascript
+// 1. 读取当前文档源码
+const source = await eda.sys_FileManager.getDocumentSource();
+
+// 2. 把源码原样写回文档（源码格式合法，返回 true 表示修改成功）
+const modified = await eda.sys_FileManager.setDocumentSource(source);
+
+// 3. 输出修改结果
+console.log('修改结果：', modified);
+```

@@ -502,8 +502,8 @@ const binaryData = obj.getState_BinaryData();
 // 3. 清理测试图元（查询类案例不留测试对象）
 await eda.pcb_PrimitiveObject.delete([obj.getState_PrimitiveId()]);
 
-console.log('binaryData 长度:', binaryData.length);
-console.log('binaryData 前缀:', binaryData.substring(0, 30));
+console.log('binaryData 长度：', binaryData.length);
+console.log('binaryData 前缀：', binaryData.substring(0, 30));
 ```
 
 ### getstate_filename
@@ -1104,7 +1104,7 @@ await asyncObj.done();
 // 3. 从画布重新读取，确认数据已更新（保留现场供观察）
 const refetched = await eda.pcb_PrimitiveObject.get(obj.getState_PrimitiveId());
 
-console.log('binaryData 长度:', before, '→', refetched.getState_BinaryData().length);
+console.log('binaryData 长度：', before, '→', refetched.getState_BinaryData().length);
 ```
 
 ### setstate_filename

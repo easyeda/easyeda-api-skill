@@ -265,6 +265,29 @@ void
 
 Show a window with confirmation and cancel buttons
 
+## Example
+
+
+```javascript
+// 1. 弹出确认窗口，等待用户点击
+eda.sys_Dialog.showConfirmationMessage(
+  '即将删除选中的 3 个图元，是否继续？',
+  '删除确认',   // 窗口标题
+  '删除',       // 主按钮（确认）
+  '取消',       // 次按钮（取消）
+  (mainButtonClicked) => {
+    if (mainButtonClicked) {
+      console.log('用户点击了主按钮（删除）');
+    } else {
+      console.log('用户点击了次按钮（取消）');
+    }
+  }
+);
+
+// 2. 窗口已弹出，本方法无返回值；回调需用户点击按钮后才会触发
+console.log('已弹出确认窗口');
+```
+
 ### showinformationmessage
 
 # SYS\_Dialog.showInformationMessage() method
@@ -354,6 +377,17 @@ void
 ## Remarks
 
 Show a text message window
+
+## Example
+
+
+```javascript
+// 1. 弹出消息窗口（content 用 \n 换行展示两行内容）
+eda.sys_Dialog.showInformationMessage('DRC 检查完成\n 共检查 128 个图元，未发现违规', '检查结果', '知道了');
+
+// 2. 窗口立即弹出；本方法无返回值，也不阻塞后续代码
+console.log('已弹出消息窗口');
+```
 
 ### showinputdialog
 
@@ -509,6 +543,27 @@ void
 
 The value entered by the user, always of type `string`<!-- -->, unless the user clicks the \*\*Cancel\*\* button
 
+## Example
+
+
+```javascript
+// 1. 弹出数字输入窗口（默认值 5，范围 1～100）
+eda.sys_Dialog.showInputDialog(
+  '请输入铺铜间距',               // 输入框上方文字
+  '输入 1～100 之间的整数（单位 mil）', // 输入框下方文字
+  '铺铜设置',                     // 窗口标题
+  'number',                       // 输入类型（同 HTML input 的 type）
+  5,                              // 默认值
+  { min: 1, max: 100, step: 1 },  // 其它输入属性（min、max、step 等）
+  (value) => {
+    console.log('用户输入的间距：', value);
+  }
+);
+
+// 2. 窗口已弹出；回调需用户点击确认后才会触发
+console.log('已弹出输入窗口');
+```
+
 ### showselectdialog
 
 # SYS\_Dialog.showSelectDialog() method
@@ -662,6 +717,43 @@ _(Optional)_ Callback function
 void
 
 The value selected by the user, corresponding to the `value` field in the passed-in `options`
+
+## Example
+
+
+```javascript
+// 1. 单选：对象数组让 value 与展示文案分离，默认选中 TOP
+eda.sys_Dialog.showSelectDialog(
+  [
+    { value: 'TOP', displayContent: '顶层' },
+    { value: 'BOTTOM', displayContent: '底层' }
+  ],
+  '请选择丝印放置的层',   // 选择框上方文字
+  '设置会应用到全部丝印', // 选择框下方文字
+  '丝印层设置',           // 窗口标题
+  'TOP',                  // 默认选项（匹配选项的 value）
+  false,                  // 单选
+  (value) => {
+    console.log('单选结果：', value);
+  }
+);
+
+// 2. 多选：字符串数组作选项，multiple 传 true，默认选中两项
+eda.sys_Dialog.showSelectDialog(
+  ['DRC', 'BOM', 'Gerber'],
+  '请选择需要导出的内容', // 多选框上方文字
+  '',                    // 多选框下方文字
+  '导出设置',            // 窗口标题
+  ['DRC', 'BOM'],        // 默认选项数组
+  true,                  // 多选
+  (values) => {
+    console.log('多选结果：', values);
+  }
+);
+
+// 3. 两个窗口已弹出；回调需用户点击确认后才会触发
+console.log('已弹出选择窗口（单选 + 多选）');
+```
 
 ### showselectdialog_1
 

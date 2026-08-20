@@ -2518,7 +2518,7 @@ const before = comp.getState_Name();
 
 // 3. 切换异步模式，写入用途名后提交
 const asyncComp = comp.toAsync();
-asyncComp.setState_Name('12V输入滤波电容');
+asyncComp.setState_Name('12V 输入滤波电容');
 await asyncComp.done();
 
 // 4. 从画布重新读取，确认修改已生效（保留现场供观察）

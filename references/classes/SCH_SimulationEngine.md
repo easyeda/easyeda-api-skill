@@ -119,3 +119,30 @@ Data
 ## Returns
 
 void
+
+## Example
+
+
+```javascript
+// 1. 推送动态仿真的会话状态（SESSION_STATE：RUNNING/PAUSED/STOPPED 等）
+eda.sch_SimulationEngine.pushData('SESSION_STATE', {
+  state: 'RUNNING',
+});
+
+// 2. 推送动态仿真的实时数据帧（STREAM_DATA：波形点/节点电压等内部量）
+eda.sch_SimulationEngine.pushData('STREAM_DATA', {
+  time: 0.001,
+  signals: { VOUT: 3.3, ILOAD: 0.02 },
+});
+
+// 3. 推送 SPICE 仿真的仿真结果（SIMULATION_RESULT：分析类型 + 数据点）
+eda.sch_SimulationEngine.pushData('SIMULATION_RESULT', {
+  analysis: 'tran',
+  points: [
+    { t: 0, v: 0 },
+    { t: 0.001, v: 3.3 },
+  ],
+});
+
+console.log('已向仿真内核推送 3 组数据：SESSION_STATE、STREAM_DATA、SIMULATION_RESULT');
+```

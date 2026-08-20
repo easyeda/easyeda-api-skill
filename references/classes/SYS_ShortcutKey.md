@@ -292,6 +292,24 @@ Promise&lt;Array&lt;{ shortcutKey: [TSYS\_ShortcutKeys](../types/TSYS_ShortcutKe
 
 Shortcut key list
 
+## Example
+
+
+```javascript
+// 1. 只查非系统快捷键（扩展注册的），列表精简便于观察
+const custom = await eda.sys_ShortcutKey.getShortcutKeys();
+console.log('非系统快捷键数量：', custom.length);
+
+// 2. 连同系统快捷键一起查（用于完整键位冲突检测）
+const all = await eda.sys_ShortcutKey.getShortcutKeys(true);
+console.log('含系统快捷键总数：', all.length);
+
+// 3. 观察单条数据结构：shortcutKey 是键位数组，title 是名称，
+//    documentType 是生效页面，scene 是生效场景
+const sample = all[0];
+console.log('首条快捷键：', JSON.stringify(sample));
+```
+
 ### register
 
 # SYS\_ShortcutKey.register() method
@@ -504,6 +522,34 @@ Promise&lt;boolean&gt;
 
 Register whether the operation is successful
 
+## Example
+
+
+```javascript
+// 1. 注册冷门组合键 Ctrl+Alt+Shift+F9，避免占用常用键位
+//    documentType 传 2（原理图图页）与 4（PCB）；scene 传 4（画布绘制）
+const ok = await eda.sys_ShortcutKey.registerShortcutKey(
+  ['CONTROL', 'ALT', 'SHIFT', 'F9'],
+  '嘉立创示例_演示快捷键',
+  (shortcutKey) => {
+    // 用户实际按键时才触发，自动化测试不按键，此处仅演示回调写法
+    console.log('快捷键被按下：', JSON.stringify(shortcutKey));
+  },
+  [2, 4],
+  [4]
+);
+console.log('注册快捷键返回：', ok);
+
+// 2. 查询验证：新注册的快捷键出现在非系统快捷键列表中
+const list = await eda.sys_ShortcutKey.getShortcutKeys();
+const found = list.some(item => item.title === '嘉立创示例_演示快捷键');
+console.log('已注册到快捷键列表：', found);
+
+// 3. 反注册还原键位，保证案例可重复运行且不残留全局快捷键
+const removed = await eda.sys_ShortcutKey.unregisterShortcutKey(['CONTROL', 'ALT', 'SHIFT', 'F9']);
+console.log('反注册还原返回：', removed);
+```
+
 ### unregister
 
 # SYS\_ShortcutKey.unregister() method
@@ -631,3 +677,24 @@ Shortcut key. The order of the passed-in elements is not distinguished; it will 
 Promise&lt;boolean&gt;
 
 Whether the unregistration operation was successful
+
+## Example
+
+
+```javascript
+// 1. 先注册一个演示快捷键作为操作对象
+await eda.sys_ShortcutKey.registerShortcutKey(
+  ['CONTROL', 'ALT', 'F9'],
+  '嘉立创示例_待移除快捷键',
+  () => {}
+);
+
+// 2. 反注册：故意打乱键序传入，验证不区分排列顺序的匹配规则
+const ok = await eda.sys_ShortcutKey.unregisterShortcutKey(['F9', 'ALT', 'CONTROL']);
+console.log('反注册返回：', ok);
+
+// 3. 复查快捷键列表，确认演示键位已被移除
+const list = await eda.sys_ShortcutKey.getShortcutKeys();
+const still = list.some(item => item.title === '嘉立创示例_待移除快捷键');
+console.log('反注册后仍在列表中：', still);
+```

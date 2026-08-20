@@ -150,6 +150,25 @@ Promise&lt;Array&lt;File&gt;&gt;
 
 Multiple EasyEDA library files
 
+## Example
+
+
+```javascript
+// 1. 准备 Altium Designer 库文件（真实场景用 sys_FileSystem.openReadFileDialog
+//    选取用户文件，此处直接构造 File 对象演示调用）
+const schLib = new File(['占位内容，真实场景为 .SchLib 文件内容'], '嘉立创示例_元件库.SchLib');
+const pcbLib = new File(['占位内容，真实场景为 .PcbLib 文件内容'], '嘉立创示例_封装库.PcbLib');
+
+// 2. 转换为多个嘉立创库文件（每个器件一个文件）
+const libFiles = await eda.sys_FormatConversion.convertAltiumDesignerLibrariesToEasyEDAMultiFiles([schLib, pcbLib]);
+
+// 3. 输出转换得到的库文件列表
+console.log('转换得到库文件数：', libFiles.length);
+libFiles.forEach((file, index) => {
+  console.log(`第 ${index + 1} 个文件：`, file.name);
+});
+```
+
 ### convertaltiumdesignerlibrariestoeasyedasinglefile
 
 # SYS\_FormatConversion.convertAltiumDesignerLibrariesToEasyEDASingleFile() method
@@ -207,6 +226,22 @@ Altium Designer library file
 Promise&lt;File \| undefined&gt;
 
 EasyEDA library file
+
+## Example
+
+
+```javascript
+// 1. 准备 Altium Designer 库文件（真实场景用 sys_FileSystem.openReadFileDialog
+//    选取用户文件，此处直接构造 File 对象演示调用）
+const schLib = new File(['占位内容，真实场景为 .SchLib 文件内容'], '嘉立创示例_元件库.SchLib');
+
+// 2. 转换为单个嘉立创库文件
+const easyedaLib = await eda.sys_FormatConversion.convertAltiumDesignerLibrariesToEasyEDASingleFile(schLib);
+
+// 3. 输出转换得到的库文件信息
+console.log('库文件名：', easyedaLib.name);
+console.log('文件大小：', easyedaLib.size, '字节');
+```
 
 ### convertdisalibrariestoeasyedamultifiles
 
@@ -266,6 +301,24 @@ Promise&lt;Array&lt;File&gt;&gt;
 
 Multiple EasyEDA library files
 
+## Example
+
+
+```javascript
+// 1. 准备 T/DISA 4001 库文件（真实场景用 sys_FileSystem.openReadFileDialog
+//    选取用户文件，此处直接构造 File 对象演示调用）
+const disaLib = new File(['占位内容，真实场景为 T/DISA 4001 库文件内容'], '嘉立创示例_旧版器件库.lib');
+
+// 2. 转换为多个嘉立创库文件（每个器件一个文件）
+const libFiles = await eda.sys_FormatConversion.convertDisaLibrariesToEasyEDAMultiFiles(disaLib);
+
+// 3. 输出转换得到的库文件列表（空数组表示没有可转换的器件）
+console.log('转换得到库文件数：', libFiles.length);
+libFiles.forEach((file, index) => {
+  console.log(`第 ${index + 1} 个文件：`, file.name);
+});
+```
+
 ### convertdisalibrariestoeasyedasinglefile
 
 # SYS\_FormatConversion.convertDisaLibrariesToEasyEDASingleFile() method
@@ -323,3 +376,19 @@ T/DISA 4001 library file
 Promise&lt;File \| undefined&gt;
 
 EasyEDA library file
+
+## Example
+
+
+```javascript
+// 1. 准备 T/DISA 4001 库文件（真实场景用 sys_FileSystem.openReadFileDialog
+//    选取用户文件，此处直接构造 File 对象演示调用）
+const disaLib = new File(['占位内容，真实场景为 T/DISA 4001 库文件内容'], '嘉立创示例_旧版器件库.lib');
+
+// 2. 转换为单个嘉立创库文件
+const easyedaLib = await eda.sys_FormatConversion.convertDisaLibrariesToEasyEDASingleFile(disaLib);
+
+// 3. 输出转换得到的库文件信息
+console.log('库文件名：', easyedaLib.name);
+console.log('文件大小：', easyedaLib.size, '字节');
+```

@@ -315,6 +315,26 @@ Promise&lt;[IPCB\_PrimitiveVia](./IPCB_PrimitiveVia.md) \| undefined&gt;
 
 Via primitive object
 
+## Example
+
+
+```javascript
+// 1. 生成随机放置坐标，避免与画布上已有的过孔重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建通孔：孔径 20mil、外径 40mil，不挂网络、不锁定（viaType 省略时默认通孔 0）
+const via = await eda.pcb_PrimitiveVia.create('', x, y, 20, 40);
+
+// 3. 创建类保留现场，不删除图元
+console.log('primitiveId:', via.getState_PrimitiveId());
+console.log('primitiveType:', via.getState_PrimitiveType());
+console.log('net:', via.getState_Net());
+console.log('holeDiameter:', via.getState_HoleDiameter());
+console.log('diameter:', via.getState_Diameter());
+console.log('x:', via.getState_X(), 'y:', via.getState_Y());
+```
+
 ### delete
 
 # PCB\_PrimitiveVia.delete() method
@@ -373,6 +393,29 @@ Promise&lt;boolean&gt;
 
 Delete Whether the operation is successful
 
+## Example
+
+
+```javascript
+// 1. 创建两个待删除的测试过孔（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const via1 = await eda.pcb_PrimitiveVia.create('', x, y, 20, 40);
+const via2 = await eda.pcb_PrimitiveVia.create('', x, y + 500, 20, 40);
+
+// 2. 记录删除前的过孔数量
+const beforeCount = (await eda.pcb_PrimitiveVia.getAll()).length;
+
+// 3. 以 ID 数组形式批量删除两个过孔
+const deleted = await eda.pcb_PrimitiveVia.delete([via1.getState_PrimitiveId(), via2.getState_PrimitiveId()]);
+
+// 4. 删除类保留现场（图元已删除，不恢复）
+const afterCount = (await eda.pcb_PrimitiveVia.getAll()).length;
+
+console.log('deleted:', deleted);
+console.log('beforeCount:', beforeCount, '→ afterCount:', afterCount);
+```
+
 ### get
 
 # PCB\_PrimitiveVia.get() method
@@ -430,6 +473,30 @@ Via primitive ID, which can be a string or an array of strings. If it is an arra
 Promise&lt;[IPCB\_PrimitiveVia](./IPCB_PrimitiveVia.md) \| undefined&gt;
 
 Via primitive object, `undefined` indicates that the retrieval failed
+
+## Example
+
+
+```javascript
+// 1. 创建两个测试过孔（随机坐标避免重合），尺寸不同便于区分
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const via1 = await eda.pcb_PrimitiveVia.create('', x, y, 20, 40);
+const via2 = await eda.pcb_PrimitiveVia.create('', x, y + 500, 30, 60);
+
+// 2. 传单个 ID 字符串，返回单个过孔对象
+const single = await eda.pcb_PrimitiveVia.get(via1.getState_PrimitiveId());
+
+// 3. 传 ID 数组，返回过孔对象数组
+const arr = await eda.pcb_PrimitiveVia.get([via1.getState_PrimitiveId(), via2.getState_PrimitiveId()]);
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitiveVia.delete([via1.getState_PrimitiveId(), via2.getState_PrimitiveId()]);
+
+console.log('single holeDiameter:', single.getState_HoleDiameter());
+console.log('array length:', arr.length);
+console.log('via2 diameter:', arr[1].getState_Diameter());
+```
 
 ### get_1
 
@@ -567,6 +634,30 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveVia](./IPCB_PrimitiveVia.md)<!-- -->&gt;&gt;
 
 Array of Via primitive objects
 
+## Example
+
+
+```javascript
+// 1. 创建一个挂网络的测试过孔作为过滤目标（网络不存在会自动创建，随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const via = await eda.pcb_PrimitiveVia.create('嘉立创示例_NET1', x, y, 20, 40);
+const viaId = via.getState_PrimitiveId();
+
+// 2. 不带参数：获取 PCB 上全部过孔
+const all = await eda.pcb_PrimitiveVia.getAll();
+
+// 3. 按网络过滤：只取挂在该网络下的过孔
+const netVias = await eda.pcb_PrimitiveVia.getAll('嘉立创示例_NET1');
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitiveVia.delete([viaId]);
+
+console.log('total vias:', all.length);
+console.log('vias on demo net:', netVias.length);
+console.log('marker via found:', netVias.some(v => v.getState_PrimitiveId() === viaId));
+```
+
 ### getallprimitiveid
 
 # PCB\_PrimitiveVia.getAllPrimitiveId() method
@@ -641,6 +732,30 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 Array of Via primitive IDs
 
+## Example
+
+
+```javascript
+// 1. 创建一个挂网络的测试过孔作为查找目标（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const via = await eda.pcb_PrimitiveVia.create('嘉立创示例_NET1', x, y, 20, 40);
+const viaId = via.getState_PrimitiveId();
+
+// 2. 获取全部过孔的图元 ID
+const allIds = await eda.pcb_PrimitiveVia.getAllPrimitiveId();
+
+// 3. 按网络过滤：只取挂在该网络下过孔的图元 ID
+const netIds = await eda.pcb_PrimitiveVia.getAllPrimitiveId('嘉立创示例_NET1');
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitiveVia.delete([viaId]);
+
+console.log('total via ids:', allIds.length);
+console.log('demo net via ids:', netIds.length);
+console.log('marker id in filtered list:', netIds.includes(viaId));
+```
+
 ### modify
 
 # PCB\_PrimitiveVia.modify() method
@@ -714,3 +829,29 @@ Modify Parameter
 Promise&lt;[IPCB\_PrimitiveVia](./IPCB_PrimitiveVia.md) \| undefined&gt;
 
 Via primitive object
+
+## Example
+
+
+```javascript
+// 1. 创建待修改的测试过孔：孔径 20mil、外径 40mil（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const via = await eda.pcb_PrimitiveVia.create('', x, y, 20, 40);
+const viaId = via.getState_PrimitiveId();
+
+// 2. 读取修改前的孔径与外径
+const beforeHole = via.getState_HoleDiameter();
+const beforeDiameter = via.getState_Diameter();
+
+// 3. 批量修改：孔径从 20 调大到 30，外径从 40 调大到 60
+await eda.pcb_PrimitiveVia.modify(viaId, { holeDiameter: 30, diameter: 60 });
+
+// 4. modify 返回后需要重新 get() 才能读到画布上的最新值
+const refreshed = await eda.pcb_PrimitiveVia.get(viaId);
+
+// 5. 修改类保留现场，供观察修改结果
+console.log('primitiveId:', viaId);
+console.log('holeDiameter:', beforeHole, '→', refreshed.getState_HoleDiameter());
+console.log('diameter:', beforeDiameter, '→', refreshed.getState_Diameter());
+```

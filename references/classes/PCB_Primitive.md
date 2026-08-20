@@ -138,6 +138,31 @@ Promise&lt;[IPCB\_ComplexPolygon](./IPCB_ComplexPolygon.md) \| undefined&gt;
 
 Complex polygon. If the primitive ID does not match or the primitive does not exist on the specified layer, `undefined` is returned
 
+## Example
+
+
+```javascript
+// 1. 创建顶层圆形焊盘作为测试图元
+const pad = await eda.pcb_PrimitivePad.create(1, '1', 2000, 2000, 0, ['ELLIPSE', 80, 80], '', null, 0, 0, 0, false, 0);
+const primitiveId = pad.getState_PrimitiveId();
+
+// 2. 计算边框线：文档签名为同步返回，实测返回 Promise（第二参数可指定参与计算的层）
+const pending = eda.pcb_Primitive.getPrimitiveBoardLine(primitiveId, [1]);
+
+// 3. 等待 3 秒观察结果状态（当前版本 Promise 不 settle，用超时保护避免卡住）
+const settled = await Promise.race([
+  Promise.resolve(pending).then(() => 'fulfilled', () => 'rejected'),
+  new Promise(resolve => setTimeout(() => resolve('pending（3 秒内未返回）'), 3000)),
+]);
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePad.delete([primitiveId]);
+
+console.log('primitiveId:', primitiveId);
+console.log('returns:', typeof pending.then === 'function' ? 'Promise' : typeof pending);
+console.log('settled:', settled);
+```
+
 ### getprimitivesbbox
 
 # PCB\_Primitive.getPrimitivesBBox() method
@@ -195,3 +220,23 @@ Array of Primitive ID array or primitive objects
 Promise&lt;{ minX: number; minY: number; maxX: number; maxY: number } \| undefined&gt;
 
 The BBox of the primitive. If the primitive does not exist or has no BBox, `undefined` will be returned
+
+## Example
+
+
+```javascript
+// 1. 创建两个顶层测试焊盘：一个 80x80 放在（2000,2000），一个 60x60 放在（3000,3000）
+const pad1 = await eda.pcb_PrimitivePad.create(1, '1', 2000, 2000, 0, ['ELLIPSE', 80, 80], '', null, 0, 0, 0, false, 0);
+const pad2 = await eda.pcb_PrimitivePad.create(1, '2', 3000, 3000, 0, ['ELLIPSE', 60, 60], '', null, 0, 0, 0, false, 0);
+
+// 2. 计算两个焊盘整体的 BBox（传图元 ID 数组，也支持直接传图元对象数组）
+const bbox = await eda.pcb_Primitive.getPrimitivesBBox([pad1.getState_PrimitiveId(), pad2.getState_PrimitiveId()]);
+
+// 3. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePad.delete([pad1.getState_PrimitiveId(), pad2.getState_PrimitiveId()]);
+
+console.log('minX:', bbox.minX);
+console.log('minY:', bbox.minY);
+console.log('maxX:', bbox.maxX);
+console.log('maxY:', bbox.maxY);
+```

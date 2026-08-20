@@ -301,6 +301,35 @@ Promise&lt;[ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md) \| undefined&gt;
 
 Circle primitive object
 
+## Example
+
+
+```javascript
+// 1. 生成随机圆心坐标，避免与画布上已有的圆重合（SCH 坐标单位 10mil）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个红色虚线边框、绿色网格填充的圆
+const circle = await eda.sch_PrimitiveCircle.create(
+  x,            // 圆心 X
+  y,            // 圆心 Y
+  150,          // 半径
+  '#FF0000',    // 边框颜色
+  '#00FF00',    // 填充颜色（'none' 表示无填充）
+  6,            // 线宽（范围 1-10）
+  1,            // 线型：1 = DASHED（虚线）
+  'Grid'        // 填充样式（'Solid'/'Grid' 等字符串枚举）
+);
+
+// 3. 创建类保留现场，不删除图元
+console.log('primitiveId:', circle.getState_PrimitiveId());
+console.log('primitiveType:', circle.getState_PrimitiveType());
+console.log('center:', circle.getState_CenterX(), ',', circle.getState_CenterY());
+console.log('radius:', circle.getState_Radius());
+console.log('color:', circle.getState_Color());
+console.log('fillStyle:', circle.getState_FillStyle());
+```
+
 ### delete
 
 # SCH\_PrimitiveCircle.delete() method
@@ -359,6 +388,31 @@ Promise&lt;boolean&gt;
 
 Delete Whether the operation is successful
 
+## Example
+
+
+```javascript
+// 1. 创建两个待删除的测试圆（随机坐标避免重合，SCH 坐标单位 10mil）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const circle1 = await eda.sch_PrimitiveCircle.create(x, y, 100);
+const circle2 = await eda.sch_PrimitiveCircle.create(x + 400, y, 150);
+
+// 2. 记录删除前的圆数量
+const beforeCount = (await eda.sch_PrimitiveCircle.getAll()).length;
+
+// 3. 分别以 ID 字符串和图元对象两种形式删除两个圆
+const deleted1 = await eda.sch_PrimitiveCircle.delete(circle1.getState_PrimitiveId());
+const deleted2 = await eda.sch_PrimitiveCircle.delete(circle2);
+
+// 4. 删除类保留现场（图元已删除，不恢复）
+const afterCount = (await eda.sch_PrimitiveCircle.getAll()).length;
+
+console.log('deleted by id:', deleted1);
+console.log('deleted by object:', deleted2);
+console.log('beforeCount:', beforeCount, '→ afterCount:', afterCount);
+```
+
 ### get
 
 # SCH\_PrimitiveCircle.get() method
@@ -416,6 +470,30 @@ Primitive ID of the circle, which can be a string or an array of strings. If it 
 Promise&lt;[ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md) \| undefined&gt;
 
 Circle primitive object, `undefined` indicates that the retrieval failed
+
+## Example
+
+
+```javascript
+// 1. 创建两个测试圆（随机坐标避免重合，SCH 坐标单位 10mil）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const circle1 = await eda.sch_PrimitiveCircle.create(x, y, 100);
+const circle2 = await eda.sch_PrimitiveCircle.create(x + 400, y, 150);
+
+// 2. 传单个 ID 字符串，返回单个圆对象
+const single = await eda.sch_PrimitiveCircle.get(circle1.getState_PrimitiveId());
+
+// 3. 传 ID 数组，返回圆对象数组（任一 ID 未匹配不影响其它图元的返回）
+const arr = await eda.sch_PrimitiveCircle.get([circle1.getState_PrimitiveId(), circle2.getState_PrimitiveId()]);
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.sch_PrimitiveCircle.delete([circle1.getState_PrimitiveId(), circle2.getState_PrimitiveId()]);
+
+console.log('single radius:', single.getState_Radius());
+console.log('array length:', arr.length);
+console.log('circle2 radius:', arr[1].getState_Radius());
+```
 
 ### get_1
 
@@ -500,6 +578,26 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md)<!-- -->&g
 
 Array of circle primitive objects
 
+## Example
+
+
+```javascript
+// 1. 创建一个测试圆作为查找目标（随机坐标避免重合，SCH 坐标单位 10mil）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const circle = await eda.sch_PrimitiveCircle.create(x, y, 120, '#FF0000');
+const circleId = circle.getState_PrimitiveId();
+
+// 2. 获取当前原理图页上的全部圆
+const all = await eda.sch_PrimitiveCircle.getAll();
+
+// 3. 清理测试图元（查询类需要清理）
+await eda.sch_PrimitiveCircle.delete([circleId]);
+
+console.log('total circles:', all.length);
+console.log('marker circle found:', all.some(c => c.getState_PrimitiveId() === circleId));
+```
+
 ### getallprimitiveid
 
 # SCH\_PrimitiveCircle.getAllPrimitiveId() method
@@ -520,6 +618,26 @@ public getAllPrimitiveId(): Promise<Array<string>>;
 Promise&lt;Array&lt;string&gt;&gt;
 
 Array of circle primitive IDs
+
+## Example
+
+
+```javascript
+// 1. 创建一个测试圆作为查找目标（随机坐标避免重合，SCH 坐标单位 10mil）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const circle = await eda.sch_PrimitiveCircle.create(x, y, 120, '#FF0000');
+const circleId = circle.getState_PrimitiveId();
+
+// 2. 获取全部圆的图元 ID
+const allIds = await eda.sch_PrimitiveCircle.getAllPrimitiveId();
+
+// 3. 清理测试图元（查询类需要清理）
+await eda.sch_PrimitiveCircle.delete([circleId]);
+
+console.log('total circle ids:', allIds.length);
+console.log('marker id in list:', allIds.includes(circleId));
+```
 
 ### modify
 
@@ -594,3 +712,31 @@ Modify Parameter
 Promise&lt;[ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md) \| undefined&gt;
 
 Circle primitive object
+
+## Example
+
+
+```javascript
+// 1. 创建待修改的测试圆（随机坐标避免与画布已有圆重合）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const circle = await eda.sch_PrimitiveCircle.create(x, y, 100, '#FF0000', 'none', 6, 1);
+const circleId = circle.getState_PrimitiveId();
+
+// 2. 读取修改前的半径、线宽与填充样式
+const beforeRadius = circle.getState_Radius();
+const beforeWidth = circle.getState_LineWidth();
+const beforeFillStyle = circle.getState_FillStyle();
+
+// 3. 批量修改：半径 100 → 200、线宽 6 → 10、填充样式改为实心
+await eda.sch_PrimitiveCircle.modify(circleId, { radius: 200, lineWidth: 10, fillStyle: 'Solid' });
+
+// 4. modify 返回后需要重新 get() 才能读到画布上的最新值
+const refreshed = await eda.sch_PrimitiveCircle.get(circleId);
+
+// 5. 修改类保留现场，供观察修改结果
+console.log('primitiveId:', circleId);
+console.log('radius:', beforeRadius, '→', refreshed.getState_Radius());
+console.log('lineWidth:', beforeWidth, '→', refreshed.getState_LineWidth());
+console.log('fillStyle:', beforeFillStyle, '→', refreshed.getState_FillStyle());
+```

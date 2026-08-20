@@ -1064,6 +1064,18 @@ Auto routing JSON file data
 
 You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the file to the local file system
 
+## Example
+
+
+```javascript
+// 1. 导出 JRouter 专用自动布线 JSON 文件（参数为目标文件名）
+const jrouterFile = await eda.pcb_ManufactureData.getAutoRouteJsonFileForJRouter('嘉立创示例_JRouter');
+
+// 2. 查看导出结果
+console.log('导出文件名：', jrouterFile?.name);
+console.log('文件大小：', jrouterFile?.size);
+```
+
 ### getbomfile
 
 # PCB\_ManufactureData.getBomFile() method
@@ -1528,6 +1540,31 @@ DXF file data
 
 You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the file to the local file system
 
+## Example
+
+
+```javascript
+// 1. 指定导出层：顶层铜层（layerId 1）和板框层（layerId 11），不镜像
+const layers = [
+    { layerId: 1, mirror: false },
+    { layerId: 11, mirror: false }
+];
+
+// 2. 发起导出，25 秒内完成就输出文件信息
+const dxfFile = await Promise.race([
+    eda.pcb_ManufactureData.getDxfFile('嘉立创示例_DXF', layers),
+    new Promise(resolve => setTimeout(() => resolve(undefined), 25000))
+]);
+
+// 3. 查看导出结果
+if (dxfFile) {
+    console.log('导出文件名：', dxfFile.name);
+    console.log('文件大小：', dxfFile.size);
+} else {
+    console.log('导出超过 25 秒仍在后台进行，真实使用直接 await 等待完成即可');
+}
+```
+
 ### getflyingprobetestfile
 
 # PCB\_ManufactureData.getFlyingProbeTestFile() method
@@ -1970,6 +2007,26 @@ IPC-2581C file data
 
 You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the file to the local file system
 
+## Example
+
+
+```javascript
+// 1. 发起导出（XML 格式、毫米单位、OEM 编号取元件的 Device 属性），
+//    25 秒内完成就输出文件信息
+const ipcFile = await Promise.race([
+    eda.pcb_ManufactureData.getIpc2581CFile('嘉立创示例_IPC2581C', 'xml', 'mm', 'Device'),
+    new Promise(resolve => setTimeout(() => resolve(undefined), 25000))
+]);
+
+// 2. 查看导出结果
+if (ipcFile) {
+    console.log('导出文件名：', ipcFile.name);
+    console.log('文件大小：', ipcFile.size);
+} else {
+    console.log('导出超过 25 秒仍在后台进行，真实使用直接 await 等待完成即可');
+}
+```
+
 ### getipcd356afile
 
 # PCB\_ManufactureData.getIpcD356AFile() method
@@ -2070,6 +2127,20 @@ This API corresponds to the one-click manufacture data export function of the pr
 It will obtain the file data according to the configuration of the one-click manufacture data export popup on the front end
 
 Note: This API is only valid for the private deployment edition. Calling it in other editions will always `throw Error`
+
+## Example
+
+
+```javascript
+// 1. 按弹窗当前配置一键导出制造文件
+try {
+    const manufactureFile = await eda.pcb_ManufactureData.getManufactureData();
+    console.log('制造文件大小：', manufactureFile?.size);
+} catch (e) {
+    // 非私有化部署版本调用会直接抛错，属预期行为
+    console.log('当前版本不支持一键导出制造文件（仅私有化部署版本有效）');
+}
+```
 
 ### getnetlistfile
 
@@ -2885,6 +2956,21 @@ Whether the ordering check passed. Until the input parameters are fully develope
 
 This API currently only supports interactive checking. The input parameters have no effect for now and are reserved for future development
 
+## Example
+
+
+```javascript
+// 1. 交互式下单检查：弹出检查弹窗等待确认，确认后打开下单页面
+// const passed = await eda.pcb_ManufactureData.place3DShellOrder(true);
+
+// 2. 静默检查：不弹任何弹窗，忽略警告并直接生成下单资料
+// const passed = await eda.pcb_ManufactureData.place3DShellOrder(false, true);
+// console.log('下单检查结果 ' + passed);
+
+// 下单会真实打开订单页面并产生订单数据，案例中不实际执行
+console.log('演示调用：place3DShellOrder(true) 交互式检查，或 place3DShellOrder(false, true) 静默下单');
+```
+
 ### placecomponentsorder
 
 # PCB\_ManufactureData.placeComponentsOrder() method
@@ -2962,6 +3048,21 @@ Whether the ordering check passed. Until the input parameters are fully develope
 ## Remarks
 
 This API currently only supports interactive checking. The input parameters have no effect for now and are reserved for future development
+
+## Example
+
+
+```javascript
+// 1. 交互式下单检查：弹出检查弹窗等待确认，确认后打开购买页面
+// const passed = await eda.pcb_ManufactureData.placeComponentsOrder(true);
+
+// 2. 静默检查：不弹任何弹窗，忽略警告并直接生成下单资料
+// const passed = await eda.pcb_ManufactureData.placeComponentsOrder(false, true);
+// console.log('下单检查结果 ' + passed);
+
+// 下单会真实打开订单页面并产生订单数据，案例中不实际执行
+console.log('演示调用：placeComponentsOrder(true) 交互式检查，或 placeComponentsOrder(false, true) 静默下单');
+```
 
 ### placepcborder
 
@@ -3041,6 +3142,21 @@ Whether the ordering check passed. Until the input parameters are fully develope
 
 This API currently only supports interactive checking. The input parameters have no effect for now and are reserved for future development
 
+## Example
+
+
+```javascript
+// 1. 交互式下单检查：弹出检查弹窗等待确认，确认后打开下单页面
+// const passed = await eda.pcb_ManufactureData.placePcbOrder(true);
+
+// 2. 静默检查：不弹任何弹窗，忽略警告并直接生成下单资料
+// const passed = await eda.pcb_ManufactureData.placePcbOrder(false, true);
+// console.log('下单检查结果 ' + passed);
+
+// 下单会真实打开订单页面并产生订单数据，案例中不实际执行
+console.log('演示调用：placePcbOrder(true) 交互式检查，或 placePcbOrder(false, true) 静默下单');
+```
+
 ### placesmtcomponentsorder
 
 # PCB\_ManufactureData.placeSmtComponentsOrder() method
@@ -3118,6 +3234,21 @@ Whether the ordering check passed. Until the input parameters are fully develope
 ## Remarks
 
 This API currently only supports interactive checking. The input parameters have no effect for now and are reserved for future development
+
+## Example
+
+
+```javascript
+// 1. 交互式下单检查：弹出检查弹窗等待确认，确认后打开下单页面
+// const passed = await eda.pcb_ManufactureData.placeSmtComponentsOrder(true);
+
+// 2. 静默检查：不弹任何弹窗，忽略警告并直接生成下单资料
+// const passed = await eda.pcb_ManufactureData.placeSmtComponentsOrder(false, true);
+// console.log('下单检查结果 ' + passed);
+
+// 下单会真实打开订单页面并产生订单数据，案例中不实际执行
+console.log('演示调用：placeSmtComponentsOrder(true) 交互式检查，或 placeSmtComponentsOrder(false, true) 静默下单');
+```
 
 ### uploadbomtemplatefile
 

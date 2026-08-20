@@ -248,6 +248,19 @@ Promise&lt;boolean&gt;
 
 Whether the operation is successful
 
+## Example
+
+
+```javascript
+// 1. 查看当前账号下的 BOM 模板
+const templates = await eda.sch_ManufactureData.getBomTemplates();
+console.log('当前模板：', templates.join('、'));
+
+// 2. 删除一个不存在的模板名，验证 API 的返回行为（不影响任何已有模板）
+const success = await eda.sch_ManufactureData.deleteBomTemplate('嘉立创示例_不存在的模板');
+console.log('删除不存在模板的返回值：', success);
+```
+
 ### getassemblyvariantsconfigs
 
 # SCH\_ManufactureData.getAssemblyVariantsConfigs() method
@@ -268,6 +281,18 @@ public getAssemblyVariantsConfigs(): Promise<Array<{ text: string; value: string
 Promise&lt;Array&lt;{ text: string; value: string }&gt;&gt;
 
 Assembly variants configuration list
+
+## Example
+
+
+```javascript
+// 1. 获取全部装配体变量配置
+const variantsConfigs = await eda.sch_ManufactureData.getAssemblyVariantsConfigs();
+
+// 2. 逐个查看
+console.log('配置数量：', variantsConfigs.length);
+variantsConfigs.forEach((config, index) => console.log(`配置 ${index + 1}：`, config.text, config.value));
+```
 
 ### getbomfile
 
@@ -443,6 +468,23 @@ BOM file data
 
 You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the file to the local file system
 
+## Example
+
+
+```javascript
+// 1. 导出 xlsx 格式 BOM，只包含标记了加入 BOM 的元件
+const bomFile = await eda.sch_ManufactureData.getBomFile(
+    '嘉立创示例_BOM',
+    'xlsx',
+    undefined,
+    [{ property: 'Add into BOM', includeValue: 'yes' }]
+);
+
+// 2. 查看导出结果
+console.log('导出文件名：', bomFile?.name);
+console.log('文件大小：', bomFile?.size);
+```
+
 ### getbomtemplatefile
 
 # SCH\_ManufactureData.getBomTemplateFile() method
@@ -501,6 +543,21 @@ Promise&lt;File \| undefined&gt;
 
 BOM template file
 
+## Example
+
+
+```javascript
+// 1. 先拿到账号下可用的 BOM 模板列表
+const templates = await eda.sch_ManufactureData.getBomTemplates();
+console.log('可用模板：', templates.join('、'));
+
+// 2. 导出第一个模板的文件
+const templateFile = await eda.sch_ManufactureData.getBomTemplateFile(templates[0]);
+
+// 3. 查看导出结果
+console.log('模板文件大小：', templateFile?.size);
+```
+
 ### getbomtemplates
 
 # SCH\_ManufactureData.getBomTemplates() method
@@ -521,6 +578,18 @@ public getBomTemplates(): Promise<Array<string>>;
 Promise&lt;Array&lt;string&gt;&gt;
 
 BOM template list
+
+## Example
+
+
+```javascript
+// 1. 获取全部 BOM 模板名
+const templates = await eda.sch_ManufactureData.getBomTemplates();
+
+// 2. 逐个查看
+console.log('模板数量：', templates.length);
+templates.forEach((name, index) => console.log(`模板 ${index + 1}：`, name));
+```
 
 ### getexportdocumentfile
 
@@ -652,6 +721,33 @@ Exported document file data (or archive)
 
 You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the file to the local file system
 
+## Example
+
+
+```javascript
+// 1. 把当前图页导出为 PDF（'PDF' 对应 ESCH_ExportDocumentFileType.PDF）
+// const pdfFile = await eda.sch_ManufactureData.getExportDocumentFile(
+//     '嘉立创示例_原理图',
+//     'PDF',
+//     undefined,
+//     'Current Schematic Page'
+// );
+// console.log('导出文件名：', pdfFile?.name);
+
+// 2. 也可以导出 PNG 位图，并通过类型特定参数控制主题和线宽
+// const pngFile = await eda.sch_ManufactureData.getExportDocumentFile(
+//     '嘉立创示例_原理图',
+//     'PNG',
+//     { theme: 'Black on White', lineWidth: 'Always 1px' },
+//     'All Schematic',
+//     { outputMethod: 'Separated sheet' }  // 多图页时逐页分张输出
+// );
+// console.log('导出文件名：', pngFile?.name);
+
+// 3. 拿到文件后用 sys_FileSystem.saveFile() 保存到本地
+console.log('演示调用：getExportDocumentFile(文件名, 文件类型, 显示参数, 导出范围, 多页参数)');
+```
+
 ### getnetlistfile
 
 # SCH\_ManufactureData.getNetlistFile() method
@@ -729,6 +825,21 @@ Netlist file data
 ## Remarks
 
 You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the file to the local file system
+
+## Example
+
+
+```javascript
+// 1. 导出 Altium Designer 格式的网表（'Protel2' 对应 ESYS_NetlistType.ALTIUM_DESIGNER）
+try {
+    const netlistFile = await eda.sch_ManufactureData.getNetlistFile('嘉立创示例_网表', 'Protel2');
+    console.log('导出文件名：', netlistFile?.name);
+    console.log('文件大小：', netlistFile?.size);
+} catch (e) {
+    // 原理图数据不满足网表校验（如引脚编号重复）时会抛错
+    console.log('当前原理图数据不满足网表导出要求，导出未完成');
+}
+```
 
 ### getsimulationnetlistfile
 
@@ -808,6 +919,19 @@ Simulation netlist file data
 
 You can use [SYS\_FileSystem.saveFile()](./SYS_FileSystem.md) API export the file to the local file system
 
+## Example
+
+
+```javascript
+// 1. 导出 Ngspice 仿真网表（'Ngspice' 对应 ESCH_SimulationNetlistType.NGSPICE）
+// const simNetlistFile = await eda.sch_ManufactureData.getSimulationNetlistFile('嘉立创示例_仿真网表', 'Ngspice');
+// console.log('导出文件名：', simNetlistFile?.name);
+// console.log('文件大小：', simNetlistFile?.size);
+
+// 2. 拿到文件后用 sys_FileSystem.saveFile() 保存到本地，或交给仿真工具直接使用
+console.log('演示调用：getSimulationNetlistFile(文件名, 网表类型)');
+```
+
 ### placecomponentsorder
 
 # SCH\_ManufactureData.placeComponentsOrder() method
@@ -881,6 +1005,21 @@ _(Optional)_ Ignore warnings during non-interactive checking. If set to `true`<!
 Promise&lt;boolean&gt;
 
 Whether the ordering check passed
+
+## Example
+
+
+```javascript
+// 1. 交互式下单检查：弹出检查弹窗等待确认，确认后打开购买页面
+// const passed = await eda.sch_ManufactureData.placeComponentsOrder(true);
+
+// 2. 静默检查：不弹任何弹窗，忽略警告并直接生成下单资料
+// const passed = await eda.sch_ManufactureData.placeComponentsOrder(false, true);
+// console.log('下单检查结果 ' + passed);
+
+// 下单会真实打开订单页面并产生订单数据，案例中不实际执行
+console.log('演示调用：placeComponentsOrder(true) 交互式检查，或 placeComponentsOrder(false, true) 静默下单');
+```
 
 ### placesmtcomponentsorder
 
@@ -956,6 +1095,21 @@ Promise&lt;boolean&gt;
 
 Whether the ordering check passed
 
+## Example
+
+
+```javascript
+// 1. 交互式下单检查：弹出检查弹窗等待确认，确认后打开下单页面
+// const passed = await eda.sch_ManufactureData.placeSmtComponentsOrder(true);
+
+// 2. 静默检查：不弹任何弹窗，忽略警告并直接生成下单资料
+// const passed = await eda.sch_ManufactureData.placeSmtComponentsOrder(false, true);
+// console.log('下单检查结果 ' + passed);
+
+// 下单会真实打开订单页面并产生订单数据，案例中不实际执行
+console.log('演示调用：placeSmtComponentsOrder(true) 交互式检查，或 placeSmtComponentsOrder(false, true) 静默下单');
+```
+
 ### uploadbomtemplatefile
 
 # SCH\_ManufactureData.uploadBomTemplateFile() method
@@ -1029,3 +1183,18 @@ _(Optional)_ BOM template name. If it is `undefined`<!-- -->, the value is autom
 Promise&lt;string \| undefined&gt;
 
 BOM template name
+
+## Example
+
+
+```javascript
+// 1. 从本地选择模板文件（弹窗需要用户交互）
+// const templateFile = await eda.sys_FileSystem.openReadFileDialog('.xlsx');
+
+// 2. 上传为新的 BOM 模板（第二参数指定模板名，不传则从文件名取）
+// const templateName = await eda.sch_ManufactureData.uploadBomTemplateFile(templateFile, '嘉立创示例_模板');
+// console.log('上传后的模板名 ' + templateName);
+
+// 3. 上传后用 getBomTemplates 查看列表确认，不再需要时用 deleteBomTemplate 删除
+console.log('演示流程：openReadFileDialog 读取 xlsx → uploadBomTemplateFile 上传 → getBomTemplates 确认');
+```

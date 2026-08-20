@@ -101,9 +101,9 @@ Detailed properties of all workspaces
 const workspaces = await eda.dmt_Workspace.getAllWorkspacesInfo();
 
 // 2. 输出工作区数量与每个工作区的属性（name/uuid/itemType）
-console.log('工作区数量:', workspaces.length);
+console.log('工作区数量：', workspaces.length);
 workspaces.forEach((ws, i) => {
-  console.log(`工作区${i + 1}:`, ws.name, 'uuid:', ws.uuid);
+  console.log(`工作区${i + 1}：`, ws.name, 'uuid:', ws.uuid);
 });
 ```
 
@@ -138,8 +138,8 @@ It will get the detailed properties of the current workspace
 const workspace = await eda.dmt_Workspace.getCurrentWorkspaceInfo();
 
 // 2. 输出当前工作区属性（uuid 可直接用作 toggleToWorkspace 的切换参数）
-console.log('当前工作区名称:', workspace?.name);
-console.log('当前工作区uuid:', workspace?.uuid);
+console.log('当前工作区名称：', workspace?.name);
+console.log('当前工作区 uuid：', workspace?.uuid);
 ```
 
 ### toggletoworkspace
@@ -211,13 +211,13 @@ const target = workspaces.find((ws) => ws.uuid !== before.uuid) || before;
 
 // 3. 切换到目标工作区
 const toggled = await eda.dmt_Workspace.toggleToWorkspace(target.uuid);
-console.log('切换是否成功:', toggled);
+console.log('切换是否成功：', toggled);
 
 // 4. 回读当前工作区，确认已切换到目标
 const now = await eda.dmt_Workspace.getCurrentWorkspaceInfo();
-console.log('切换后工作区:', now.name, 'uuid:', now.uuid);
+console.log('切换后工作区：', now.name, 'uuid:', now.uuid);
 
 // 5. 切回原工作区，恢复现场
 const restored = await eda.dmt_Workspace.toggleToWorkspace(before.uuid);
-console.log('切回是否成功:', restored);
+console.log('切回是否成功：', restored);
 ```

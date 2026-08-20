@@ -333,6 +333,27 @@ Promise&lt;[ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md) \| undefined&gt;
 
 Arc primitive object
 
+## Example
+
+
+```javascript
+// 1. 生成随机起点坐标，避免与画布上已有的圆弧重合（SCH 坐标单位 10mil）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一段红色虚线圆弧：起点（x, y），参考点（x+100, y+100），终点（x+200, y），线宽 6
+const arc = await eda.sch_PrimitiveArc.create(x, y, x + 100, y + 100, x + 200, y, '#FF0000', null, 6, 1);
+
+// 3. 创建类保留现场，不删除图元
+console.log('primitiveId:', arc.getState_PrimitiveId());
+console.log('primitiveType:', arc.getState_PrimitiveType());
+console.log('startX:', arc.getState_StartX(), 'startY:', arc.getState_StartY());
+console.log('referenceX:', arc.getState_ReferenceX(), 'referenceY:', arc.getState_ReferenceY());
+console.log('endX:', arc.getState_EndX(), 'endY:', arc.getState_EndY());
+console.log('color:', arc.getState_Color());
+console.log('lineWidth:', arc.getState_LineWidth());
+```
+
 ### delete
 
 # SCH\_PrimitiveArc.delete() method
@@ -391,6 +412,29 @@ Promise&lt;boolean&gt;
 
 Delete Whether the operation is successful
 
+## Example
+
+
+```javascript
+// 1. 创建两段待删除的测试圆弧（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const arc1 = await eda.sch_PrimitiveArc.create(x, y, x + 100, y + 100, x + 200, y);
+const arc2 = await eda.sch_PrimitiveArc.create(x, y + 200, x + 100, y + 300, x + 200, y + 200);
+
+// 2. 记录删除前的圆弧数量
+const beforeCount = (await eda.sch_PrimitiveArc.getAll()).length;
+
+// 3. 以 ID 数组形式批量删除两段圆弧
+const deleted = await eda.sch_PrimitiveArc.delete([arc1.getState_PrimitiveId(), arc2.getState_PrimitiveId()]);
+
+// 4. 删除类保留现场（图元已删除，不恢复）
+const afterCount = (await eda.sch_PrimitiveArc.getAll()).length;
+
+console.log('deleted:', deleted);
+console.log('beforeCount:', beforeCount, '→ afterCount:', afterCount);
+```
+
 ### get
 
 # SCH\_PrimitiveArc.get() method
@@ -448,6 +492,30 @@ Arc primitive ID, which can be a string or an array of strings. If it is an arra
 Promise&lt;[ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md) \| undefined&gt;
 
 Arc primitive object, `undefined` indicates that the retrieval failed
+
+## Example
+
+
+```javascript
+// 1. 创建两段测试圆弧（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const arc1 = await eda.sch_PrimitiveArc.create(x, y, x + 100, y + 100, x + 200, y);
+const arc2 = await eda.sch_PrimitiveArc.create(x, y + 200, x + 100, y + 300, x + 200, y + 200);
+
+// 2. 传单个 ID 字符串，返回单个圆弧对象
+const single = await eda.sch_PrimitiveArc.get(arc1.getState_PrimitiveId());
+
+// 3. 传 ID 数组，返回圆弧对象数组（任一 ID 未匹配不影响其它图元的返回）
+const arr = await eda.sch_PrimitiveArc.get([arc1.getState_PrimitiveId(), arc2.getState_PrimitiveId()]);
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.sch_PrimitiveArc.delete([arc1.getState_PrimitiveId(), arc2.getState_PrimitiveId()]);
+
+console.log('single startX:', single.getState_StartX());
+console.log('array length:', arr.length);
+console.log('arc2 endX:', arr[1].getState_EndX());
+```
 
 ### get_1
 
@@ -532,6 +600,26 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md)<!-- -->&gt;&gt;
 
 Array of Arc primitive objects
 
+## Example
+
+
+```javascript
+// 1. 创建一段测试圆弧作为查找目标（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const arc = await eda.sch_PrimitiveArc.create(x, y, x + 100, y + 100, x + 200, y);
+const arcId = arc.getState_PrimitiveId();
+
+// 2. 获取当前原理图页上的全部圆弧
+const all = await eda.sch_PrimitiveArc.getAll();
+
+// 3. 清理测试图元（查询类需要清理）
+await eda.sch_PrimitiveArc.delete([arcId]);
+
+console.log('total arcs:', all.length);
+console.log('marker arc found:', all.some(a => a.getState_PrimitiveId() === arcId));
+```
+
 ### getallprimitiveid
 
 # SCH\_PrimitiveArc.getAllPrimitiveId() method
@@ -552,6 +640,26 @@ public getAllPrimitiveId(): Promise<Array<string>>;
 Promise&lt;Array&lt;string&gt;&gt;
 
 Array of Arc primitive IDs
+
+## Example
+
+
+```javascript
+// 1. 创建一段测试圆弧作为查找目标（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const arc = await eda.sch_PrimitiveArc.create(x, y, x + 100, y + 100, x + 200, y);
+const arcId = arc.getState_PrimitiveId();
+
+// 2. 获取全部圆弧的图元 ID
+const allIds = await eda.sch_PrimitiveArc.getAllPrimitiveId();
+
+// 3. 清理测试图元（查询类需要清理）
+await eda.sch_PrimitiveArc.delete([arcId]);
+
+console.log('total arc ids:', allIds.length);
+console.log('marker id in list:', allIds.includes(arcId));
+```
 
 ### modify
 
@@ -626,3 +734,30 @@ Modify Parameter
 Promise&lt;[ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md) \| undefined&gt;
 
 Arc primitive object
+
+## Example
+
+
+```javascript
+// 1. 创建待修改的测试圆弧（随机坐标避免与画布已有圆弧重合）
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+const arc = await eda.sch_PrimitiveArc.create(x, y, x + 100, y + 100, x + 200, y, '#FF0000', null, 6, 1);
+const arcId = arc.getState_PrimitiveId();
+
+// 2. 读取修改前的线宽与颜色
+const beforeWidth = arc.getState_LineWidth();
+const beforeColor = arc.getState_Color();
+
+// 3. 批量修改：终点右移、线宽 6 → 10、颜色改为绿色
+await eda.sch_PrimitiveArc.modify(arcId, { endX: x + 400, lineWidth: 10, color: '#00AA00' });
+
+// 4. modify 返回后需要重新 get() 才能读到画布上的最新值
+const refreshed = await eda.sch_PrimitiveArc.get(arcId);
+
+// 5. 修改类保留现场，供观察修改结果
+console.log('primitiveId:', arcId);
+console.log('lineWidth:', beforeWidth, '→', refreshed.getState_LineWidth());
+console.log('color:', beforeColor, '→', refreshed.getState_Color());
+console.log('endX:', x + 200, '→', refreshed.getState_EndX());
+```

@@ -185,6 +185,25 @@ void
 
 Note: This API requires the user to enable the extension external interaction permission, if not enabled, it will always `throw Error`
 
+## Example
+
+
+```javascript
+// 1. 先注册一条连接用于演示
+eda.sys_WebSocket.register('嘉立创示例_关闭', 'ws://127.0.0.1:49620',
+  () => {},
+  () => {
+    console.log('连接已建立');
+  });
+
+// 2. 等待握手完成
+await new Promise(r => setTimeout(r, 1500));
+
+// 3. 以「正常关闭」状态码 1000 关闭连接，并附带原因
+eda.sys_WebSocket.close('嘉立创示例_关闭', 1000, '演示完毕');
+console.log('已关闭连接（code 1000）');
+```
+
 ### register
 
 # SYS\_WebSocket.register() method
@@ -309,6 +328,28 @@ It can be used to detect whether the WebSocket connection is normal before execu
 
 Note: This API requires the user to enable the extension external interaction permission, if not enabled, it will always `throw Error`
 
+## Example
+
+
+```javascript
+// 1. 注册连接，挂上「连接成功」与「收到消息」两个回调
+eda.sys_WebSocket.register('嘉立创示例_注册', 'ws://127.0.0.1:49620',
+  (event) => {
+    // 服务器推送的每条消息都会进入这个回调（event.data 是消息内容）
+    console.log('收到服务器消息：', event.data);
+  },
+  () => {
+    console.log('连接已建立');
+  });
+
+// 2. register 是同步调用，只登记意图，握手需要一点时间，等待回调触发
+await new Promise(r => setTimeout(r, 1500));
+
+// 3. 演示完毕后关闭连接，避免残留
+eda.sys_WebSocket.close('嘉立创示例_注册');
+console.log('已关闭连接');
+```
+
 ### send
 
 # SYS\_WebSocket.send() method
@@ -398,3 +439,30 @@ void
 ## Remarks
 
 Note: This API requires the user to enable the extension external interaction permission, if not enabled, it will always `throw Error`
+
+## Example
+
+
+```javascript
+// 1. 注册连接（本例的桥接服务对 ping 消息回 pong，用来演示完整收发回路）
+eda.sys_WebSocket.register('嘉立创示例_发送', 'ws://127.0.0.1:49620',
+  (event) => {
+    console.log('收到服务器回复：', event.data);
+  },
+  () => {
+    console.log('连接已建立');
+  });
+
+// 2. 等待握手完成
+await new Promise(r => setTimeout(r, 1500));
+
+// 3. 发送数据（data 支持字符串、Blob、BufferSource，这里发 JSON 字符串）
+eda.sys_WebSocket.send('嘉立创示例_发送', JSON.stringify({ type: 'ping', id: '嘉立创示例_发送' }));
+
+// 4. 等待服务器回复进入 receiveMessageCallFn
+await new Promise(r => setTimeout(r, 1500));
+
+// 5. 演示完毕后关闭连接
+eda.sys_WebSocket.close('嘉立创示例_发送');
+console.log('已关闭连接');
+```

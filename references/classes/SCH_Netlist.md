@@ -195,3 +195,25 @@ Netlist data
 ## Returns
 
 Promise&lt;void&gt;
+
+## Example
+
+
+```javascript
+try {
+    // 1. 取出当前网表字符串（'Protel2' 对应 ESYS_NetlistType.ALTIUM_DESIGNER）
+    const netlist = await eda.sch_Netlist.getNetlist('Protel2');
+    console.log('写回前网表长度：', netlist.length);
+
+    // 2. 原样写回当前网表（返回 void，不抛错即表示写回成功）
+    await eda.sch_Netlist.setNetlist('Protel2', netlist);
+
+    // 3. 重新读取，确认网表内容未被破坏
+    const after = await eda.sch_Netlist.getNetlist('Protel2');
+    console.log('写回后网表长度：', after.length);
+    console.log('写回前后一致：', after === netlist);
+} catch (e) {
+    // 原理图数据不满足网表校验（如引脚编号重复）时会抛错
+    console.log('当前原理图数据不满足网表校验，写回未完成');
+}
+```

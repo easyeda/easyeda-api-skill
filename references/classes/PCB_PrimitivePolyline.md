@@ -251,6 +251,28 @@ Promise&lt;[IPCB\_PrimitivePolyline](./IPCB_PrimitivePolyline.md) \| undefined&g
 
 Polyline primitive object
 
+## Example
+
+
+```javascript
+// 1. 生成随机起点坐标，避免与画布上已有的折线重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 用 pcb_MathPolygon.createPolygon 构造折线路径：起点 → 右移 500 → 上移 300 的 L 形三顶点折线
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+
+// 3. 在顶层铜层创建折线：空网络，线宽 10mil，不锁定
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+
+// 4. 创建类保留现场，不删除图元
+console.log('primitiveId:', polyline.getState_PrimitiveId());
+console.log('primitiveType:', polyline.getState_PrimitiveType());
+console.log('lineWidth:', polyline.getState_LineWidth());
+console.log('layer:', polyline.getState_Layer());
+console.log('polygon source:', polyline.getState_Polygon().getSource().join(', '));
+```
+
 ### delete
 
 # PCB\_PrimitivePolyline.delete() method
@@ -309,6 +331,31 @@ Promise&lt;boolean&gt;
 
 Delete Whether the operation is successful
 
+## Example
+
+
+```javascript
+// 1. 创建两条待删除的测试折线（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon1 = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polygon2 = eda.pcb_MathPolygon.createPolygon([x, y + 500, 'L', x + 500, y + 500, x + 500, y + 800]);
+const polyline1 = await eda.pcb_PrimitivePolyline.create('', 1, polygon1, 10, false);
+const polyline2 = await eda.pcb_PrimitivePolyline.create('', 1, polygon2, 10, false);
+
+// 2. 记录删除前的折线数量
+const beforeCount = (await eda.pcb_PrimitivePolyline.getAll()).length;
+
+// 3. 以 ID 数组形式批量删除两条折线
+const deleted = await eda.pcb_PrimitivePolyline.delete([polyline1.getState_PrimitiveId(), polyline2.getState_PrimitiveId()]);
+
+// 4. 删除类保留现场（图元已删除，不恢复）
+const afterCount = (await eda.pcb_PrimitivePolyline.getAll()).length;
+
+console.log('deleted:', deleted);
+console.log('beforeCount:', beforeCount, '→ afterCount:', afterCount);
+```
+
 ### get
 
 # PCB\_PrimitivePolyline.get() method
@@ -366,6 +413,32 @@ Primitive ID of the polyline, which can be a string or an array of strings. If i
 Promise&lt;[IPCB\_PrimitivePolyline](./IPCB_PrimitivePolyline.md) \| undefined&gt;
 
 Polyline primitive object, `undefined` indicates that the retrieval failed
+
+## Example
+
+
+```javascript
+// 1. 创建两条测试折线（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon1 = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polygon2 = eda.pcb_MathPolygon.createPolygon([x, y + 500, 'L', x + 500, y + 500, x + 500, y + 800, x, y + 800]);
+const polyline1 = await eda.pcb_PrimitivePolyline.create('', 1, polygon1, 10, false);
+const polyline2 = await eda.pcb_PrimitivePolyline.create('', 1, polygon2, 16, false);
+
+// 2. 传单个 ID 字符串，返回单个折线对象
+const single = await eda.pcb_PrimitivePolyline.get(polyline1.getState_PrimitiveId());
+
+// 3. 传 ID 数组，返回折线对象数组
+const arr = await eda.pcb_PrimitivePolyline.get([polyline1.getState_PrimitiveId(), polyline2.getState_PrimitiveId()]);
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePolyline.delete([polyline1.getState_PrimitiveId(), polyline2.getState_PrimitiveId()]);
+
+console.log('single lineWidth:', single.getState_LineWidth());
+console.log('array length:', arr.length);
+console.log('polyline2 lineWidth:', arr[1].getState_LineWidth());
+```
 
 ### get_1
 
@@ -519,6 +592,31 @@ Promise&lt;Array&lt;[IPCB\_PrimitivePolyline](./IPCB_PrimitivePolyline.md)<!-- -
 
 Polyline primitive object array
 
+## Example
+
+
+```javascript
+// 1. 创建一条顶层测试折线作为过滤目标（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+const polylineId = polyline.getState_PrimitiveId();
+
+// 2. 不带参数：获取 PCB 上全部折线
+const all = await eda.pcb_PrimitivePolyline.getAll();
+
+// 3. 按层过滤：只取顶层（1）的折线
+const topLayer = await eda.pcb_PrimitivePolyline.getAll('', 1);
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePolyline.delete([polylineId]);
+
+console.log('total polylines:', all.length);
+console.log('top layer polylines:', topLayer.length);
+console.log('marker polyline found in top layer:', topLayer.some(p => p.getState_PrimitiveId() === polylineId));
+```
+
 ### getallprimitiveid
 
 # PCB\_PrimitivePolyline.getAllPrimitiveId() method
@@ -609,6 +707,31 @@ Promise&lt;Array&lt;string&gt;&gt;
 
 Array of polyline primitive IDs
 
+## Example
+
+
+```javascript
+// 1. 创建一条顶层测试折线作为查找目标（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+const polylineId = polyline.getState_PrimitiveId();
+
+// 2. 获取全部折线的图元 ID
+const allIds = await eda.pcb_PrimitivePolyline.getAllPrimitiveId();
+
+// 3. 按层过滤：只取顶层（1）折线的图元 ID
+const topLayerIds = await eda.pcb_PrimitivePolyline.getAllPrimitiveId('', 1);
+
+// 4. 清理测试图元（查询类需要清理）
+await eda.pcb_PrimitivePolyline.delete([polylineId]);
+
+console.log('total polyline ids:', allIds.length);
+console.log('top layer polyline ids:', topLayerIds.length);
+console.log('marker id in top layer list:', topLayerIds.includes(polylineId));
+```
+
 ### modify
 
 # PCB\_PrimitivePolyline.modify() method
@@ -682,3 +805,30 @@ Modify Parameter
 Promise&lt;[IPCB\_PrimitivePolyline](./IPCB_PrimitivePolyline.md) \| undefined&gt;
 
 Polyline primitive object
+
+## Example
+
+
+```javascript
+// 1. 创建待修改的测试折线（随机坐标避免与画布已有折线重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+const polylineId = polyline.getState_PrimitiveId();
+
+// 2. 读取修改前的线宽与层
+const beforeWidth = polyline.getState_LineWidth();
+const beforeLayer = polyline.getState_Layer();
+
+// 3. 批量修改：线宽 10 → 24，层从顶层（1）换到底层（2）
+await eda.pcb_PrimitivePolyline.modify(polylineId, { lineWidth: 24, layer: 2 });
+
+// 4. modify 返回后需要重新 get() 才能读到画布上的最新值
+const refreshed = await eda.pcb_PrimitivePolyline.get(polylineId);
+
+// 5. 修改类保留现场，供观察修改结果
+console.log('primitiveId:', polylineId);
+console.log('lineWidth:', beforeWidth, '→', refreshed.getState_LineWidth());
+console.log('layer:', beforeLayer, '→', refreshed.getState_Layer());
+```

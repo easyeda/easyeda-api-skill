@@ -102,16 +102,16 @@ let teams;
 try {
   teams = await eda.dmt_Team.getAllInvolvedTeamInfo();
 } catch (e) {
-  console.log('说明: 当前版本触发内部缺陷，改用 getAllTeamsInfo 替代:', e.message);
+  console.log('说明：当前版本触发内部缺陷，改用 getAllTeamsInfo 替代：', e.message);
 
   // 2. 替代方案：获取所有直接团队
   teams = await eda.dmt_Team.getAllTeamsInfo();
 }
 
 // 3. 输出团队数量与每个团队的属性
-console.log('团队数量:', teams.length);
+console.log('团队数量：', teams.length);
 teams.forEach((team, i) => {
-  console.log(`团队${i + 1}:`, team.name, 'uuid:', team.uuid);
+  console.log(`团队${i + 1}：`, team.name, 'uuid:', team.uuid);
 });
 ```
 
@@ -146,9 +146,9 @@ A personal space is essentially a team named \*\*Personal\*\*
 const teams = await eda.dmt_Team.getAllTeamsInfo();
 
 // 2. 输出团队数量与每个团队的属性（name/uuid/identity/itemType）
-console.log('团队数量:', teams.length);
+console.log('团队数量：', teams.length);
 teams.forEach((team, i) => {
-  console.log(`团队${i + 1}:`, team.name, 'uuid:', team.uuid, '身份ID:', team.identity);
+  console.log(`团队${i + 1}：`, team.name, 'uuid:', team.uuid, '身份 ID：', team.identity);
 });
 ```
 
@@ -183,7 +183,7 @@ It will get the detailed properties of the team that the project belongs to, ass
 const team = await eda.dmt_Team.getCurrentTeamInfo();
 
 // 2. 输出当前团队属性（uuid 常用作后续 DMT_Folder/Project API 的 teamUuid 参数）
-console.log('当前团队名称:', team?.name);
-console.log('当前团队uuid:', team?.uuid);
-console.log('当前团队身份ID:', team?.identity);
+console.log('当前团队名称：', team?.name);
+console.log('当前团队 uuid：', team?.uuid);
+console.log('当前团队身份 ID：', team?.identity);
 ```

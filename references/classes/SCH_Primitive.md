@@ -148,6 +148,26 @@ Promise&lt;[ISCH\_Primitive](../interfaces/ISCH_Primitive.md) \| undefined&gt;
 
 All properties of the primitive
 
+## Example
+
+
+```javascript
+// 1. 创建一个测试矩形作为查询目标（SCH 坐标单位 10mil）
+const rect = await eda.sch_PrimitiveRectangle.create(1000, 1000, 200, 100);
+const id = rect.getState_PrimitiveId();
+
+// 2. 用图元 ID 反查，返回该图元的完整属性对象（图元实例）
+const primitive = await eda.sch_Primitive.getPrimitiveByPrimitiveId(id);
+
+// 3. 清理测试图元（查询类需要清理）
+await eda.sch_PrimitiveRectangle.delete([id]);
+
+console.log('primitiveType:', primitive.getState_PrimitiveType());
+console.log('width:', primitive.getState_Width());
+console.log('height:', primitive.getState_Height());
+console.log('id match:', primitive.getState_PrimitiveId() === id);
+```
+
 ### getprimitivesbbox
 
 # SCH\_Primitive.getPrimitivesBBox() method
@@ -205,6 +225,32 @@ Array of Primitive ID array or primitive objects
 Promise&lt;{ minX: number; minY: number; maxX: number; maxY: number } \| undefined&gt;
 
 The BBox of the primitive. If the primitive does not exist or has no BBox, `undefined` will be returned
+
+## Example
+
+
+```javascript
+// 1. 创建两个测试矩形：左上角（1000,1000）尺寸 200x100，左上角（1600,1400）尺寸 150x80
+const rect1 = await eda.sch_PrimitiveRectangle.create(1000, 1000, 200, 100);
+const rect2 = await eda.sch_PrimitiveRectangle.create(1600, 1400, 150, 80);
+
+// 2. 计算两个矩形整体的 BBox（传图元 ID 数组，也支持直接传图元对象数组）
+const bbox = await eda.sch_Primitive.getPrimitivesBBox([
+  rect1.getState_PrimitiveId(),
+  rect2.getState_PrimitiveId(),
+]);
+
+// 3. 清理测试图元（查询类需要清理）
+await eda.sch_PrimitiveRectangle.delete([
+  rect1.getState_PrimitiveId(),
+  rect2.getState_PrimitiveId(),
+]);
+
+console.log('minX:', bbox.minX);
+console.log('minY:', bbox.minY);
+console.log('maxX:', bbox.maxX);
+console.log('maxY:', bbox.maxY);
+```
 
 ### getprimitivesbyprimitiveid
 
@@ -321,3 +367,19 @@ Primitive ID
 Promise&lt;[ESCH\_PrimitiveType](../enums/ESCH_PrimitiveType.md) \| undefined&gt;
 
 Primitive type
+
+## Example
+
+
+```javascript
+// 1. 创建一条测试导线作为查询目标（SCH 坐标单位 10mil）
+const wire = await eda.sch_PrimitiveWire.create([1000, 1000, 1400, 1000], 'SIG_A');
+
+// 2. 用图元 ID 查询类型
+const type = await eda.sch_Primitive.getPrimitiveTypeByPrimitiveId(wire.getState_PrimitiveId());
+
+// 3. 清理测试图元（查询类需要清理）
+await eda.sch_PrimitiveWire.delete([wire.getState_PrimitiveId()]);
+
+console.log('primitiveType:', type);
+```

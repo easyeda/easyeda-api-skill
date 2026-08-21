@@ -1,6 +1,6 @@
 {
   "name": "easyeda-api",
-  "version": "1.1.17",
+  "version": "1.1.18",
   "description": "EasyEDA Pro API Skill — WebSocket bridge & API reference",
   "type": "module",
   "scripts": {

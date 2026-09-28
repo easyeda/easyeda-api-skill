@@ -89,6 +89,21 @@ _(Optional)_ Registration method name (the method needs to be exported in the ex
 </td></tr>
 <tr><td>
 
+[shortcutKey?](./ISYS_HeaderMenuSub1MenuItem.md)
+
+</td><td>
+
+</td><td>
+
+[TSYS\_ShortcutKeys](../types/TSYS_ShortcutKeys.md)
+
+</td><td>
+
+_(Optional)_ 局部快捷键
+
+</td></tr>
+<tr><td>
+
 [title](./ISYS_HeaderMenuSub1MenuItem.md)
 
 </td><td>
@@ -143,6 +158,22 @@ Sub-menu item
 ```typescript
 menuItems?: Array<ISYS_HeaderMenuSub2MenuItem | null>;
 ```
+
+### shortcutkey
+
+# ISYS\_HeaderMenuSub1MenuItem.shortcutKey property
+
+局部快捷键
+
+## Signature
+
+```typescript
+shortcutKey?: TSYS_ShortcutKeys;
+```
+
+## Remarks
+
+ADD since EDA v5.0
 
 ### title
 

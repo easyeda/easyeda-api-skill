@@ -33,6 +33,8 @@ CLEAR\_SELECTED
 
 </td><td>
 
+取消选中
+
 </td></tr>
 <tr><td>
 
@@ -44,6 +46,8 @@ MOVE
 
 </td><td>
 
+移动
+
 </td></tr>
 <tr><td>
 
@@ -54,6 +58,8 @@ SELECTED
 `'selected'`
 
 </td><td>
+
+选中
 
 </td></tr>
 </tbody></table>

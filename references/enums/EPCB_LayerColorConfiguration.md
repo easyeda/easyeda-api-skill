@@ -33,6 +33,8 @@ ALTIUM\_DESIGNER
 
 </td><td>
 
+Altium Designer
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ EASYEDA
 `1`
 
 </td><td>
+
+EasyEDA
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ JLCEDA
 
 </td><td>
 
+嘉立创 EDA
+
 </td></tr>
 <tr><td>
 
@@ -66,6 +72,8 @@ KICAD
 
 </td><td>
 
+KiCAD
+
 </td></tr>
 <tr><td>
 
@@ -76,6 +84,8 @@ PADS
 `3`
 
 </td><td>
+
+PADS
 
 </td></tr>
 </tbody></table>

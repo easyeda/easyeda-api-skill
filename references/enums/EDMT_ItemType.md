@@ -33,6 +33,8 @@ BOARD
 
 </td><td>
 
+板子
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ CBB\_PCB
 `'CBB PCB'`
 
 </td><td>
+
+复用模块 PCB
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ CBB\_PROJECT
 
 </td><td>
 
+复用模块工程
+
 </td></tr>
 <tr><td>
 
@@ -65,6 +71,8 @@ CBB\_SCHEMATIC
 `'CBB Schematic'`
 
 </td><td>
+
+复用模块原理图
 
 </td></tr>
 <tr><td>
@@ -77,6 +85,8 @@ FOLDER
 
 </td><td>
 
+文件夹
+
 </td></tr>
 <tr><td>
 
@@ -87,6 +97,8 @@ PANEL
 `'Panel'`
 
 </td><td>
+
+面板
 
 </td></tr>
 <tr><td>
@@ -99,6 +111,8 @@ PCB
 
 </td><td>
 
+PCB
+
 </td></tr>
 <tr><td>
 
@@ -109,6 +123,8 @@ PROJECT
 `'Project'`
 
 </td><td>
+
+工程
 
 </td></tr>
 <tr><td>
@@ -121,6 +137,8 @@ SCHEMATIC
 
 </td><td>
 
+原理图
+
 </td></tr>
 <tr><td>
 
@@ -131,6 +149,8 @@ SCHEMATIC\_PAGE
 `'Schematic Page'`
 
 </td><td>
+
+原理图图页
 
 </td></tr>
 <tr><td>
@@ -143,6 +163,8 @@ TEAM
 
 </td><td>
 
+团队
+
 </td></tr>
 <tr><td>
 
@@ -153,6 +175,8 @@ WORKSPACE
 `'Workspace'`
 
 </td><td>
+
+工作区
 
 </td></tr>
 </tbody></table>

@@ -33,6 +33,8 @@ ARC
 
 </td><td>
 
+圆弧
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ CIRCLE
 `'circle'`
 
 </td><td>
+
+圆形
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ LINE
 
 </td><td>
 
+线段
+
 </td></tr>
 <tr><td>
 
@@ -66,6 +72,8 @@ POINT
 
 </td><td>
 
+点
+
 </td></tr>
 <tr><td>
 
@@ -76,6 +84,8 @@ RECTANGLE
 `'rectangle'`
 
 </td><td>
+
+矩形
 
 </td></tr>
 </tbody></table>

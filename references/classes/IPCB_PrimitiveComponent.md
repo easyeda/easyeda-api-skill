@@ -503,6 +503,35 @@ Promise&lt;[IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md)<!-- -->&gt;
 
 Device primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 20000 + Math.floor(Math.random() * 80000);
+const y = 20000 + Math.floor(Math.random() * 80000);
+
+// 2. 放置测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 3. 记录修改前的位号和旋转角度
+const designatorBefore = comp.getState_Designator();
+const rotationBefore = comp.getState_Rotation();
+
+// 4. 批量修改两个属性，一次 done() 提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_Designator('C101');
+asyncComp.setState_Rotation(90);
+await asyncComp.done();
+
+// 5. 从画布重新读取，确认批量修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveComponent.get([compId]);
+
+console.log('designator:', designatorBefore, '→', refetched[0].getState_Designator());
+console.log('rotation:', rotationBefore, '→', refetched[0].getState_Rotation());
+```
+
 ### getallpins
 
 # IPCB\_PrimitiveComponent.getAllPins() method
@@ -523,6 +552,31 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveComponentPad](./IPCB_PrimitiveComponentPad.m
 
 Device pad primitive array
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 获取器件关联的所有焊盘图元
+const pins = await comp.getAllPins();
+
+// 3. 逐个读取焊盘的归属器件和图元 ID
+const pinInfos = pins.map(pin => ({
+	parentMatch: pin.getState_ParentComponentPrimitiveId() === compId,
+	primitiveId: pin.getState_PrimitiveId(),
+}));
+
+// 4. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([compId]);
+
+console.log('pinCount:', pins.length);
+console.log('allBelongToComponent:', pinInfos.every(p => p.parentMatch));
+console.log('firstPinPrimitiveId:', pinInfos[0].primitiveId);
+```
+
 ### getstate_addintobom
 
 # IPCB\_PrimitiveComponent.getState\_AddIntoBom() method
@@ -540,6 +594,22 @@ function getState_AddIntoBom(): boolean;
 boolean
 
 Whether Add to BOM
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 读取是否加入 BOM
+const addIntoBom = comp.getState_AddIntoBom();
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('addIntoBom:', addIntoBom);
+```
 
 ### getstate_component
 
@@ -559,6 +629,24 @@ function getState_Component(): { libraryUuid: string; uuid: string; name?: strin
 
 Associate library device
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 读取关联的库器件信息
+const component = comp.getState_Component();
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('deviceName:', component.name);
+console.log('deviceUuid:', component.uuid);
+console.log('libraryUuid:', component.libraryUuid);
+```
+
 ### getstate_designator
 
 # IPCB\_PrimitiveComponent.getState\_Designator() method
@@ -576,6 +664,22 @@ function getState_Designator(): string | undefined;
 string \| undefined
 
 Designator
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件（位号由系统自动分配）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 读取位号
+const designator = comp.getState_Designator();
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('designator:', designator);
+```
 
 ### getstate_footprint
 
@@ -595,6 +699,24 @@ function getState_Footprint(): { libraryUuid: string; uuid: string; name?: strin
 
 Associate library footprint
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 读取关联的库封装信息
+const footprint = comp.getState_Footprint();
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('footprintName:', footprint.name);
+console.log('footprintUuid:', footprint.uuid);
+console.log('libraryUuid:', footprint.libraryUuid);
+```
+
 ### getstate_layer
 
 # IPCB\_PrimitiveComponent.getState\_Layer() method
@@ -612,6 +734,22 @@ function getState_Layer(): TPCB_LayersOfComponent;
 [TPCB\_LayersOfComponent](../types/TPCB_LayersOfComponent.md)
 
 Layer
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件（默认贴在顶面）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 读取所在面（1=顶面, 2=底面）
+const layer = comp.getState_Layer();
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('layer:', layer, layer === 1 ? '(顶面)' : '(底面)');
+```
 
 ### getstate_manufacturer
 
@@ -631,6 +769,22 @@ string \| undefined
 
 Manufacturer
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 读取制造商
+const manufacturer = comp.getState_Manufacturer();
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('manufacturer:', manufacturer);
+```
+
 ### getstate_manufacturerid
 
 # IPCB\_PrimitiveComponent.getState\_ManufacturerId() method
@@ -648,6 +802,22 @@ function getState_ManufacturerId(): string | undefined;
 string \| undefined
 
 Manufacturer ID
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 读取制造商编号
+const manufacturerId = comp.getState_ManufacturerId();
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('manufacturerId:', manufacturerId);
+```
 
 ### getstate_model3d
 
@@ -667,6 +837,23 @@ function getState_Model3D(): { libraryUuid: string; uuid: string; name?: string 
 
 Associate library 3D model
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 读取关联的 3D 模型信息（未关联时返回 undefined）
+const model3d = comp.getState_Model3D();
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('model3dName:', model3d ? model3d.name : '(未关联 3D 模型)');
+console.log('model3dUuid:', model3d ? model3d.uuid : '(未关联 3D 模型)');
+```
+
 ### getstate_name
 
 # IPCB\_PrimitiveComponent.getState\_Name() method
@@ -685,6 +872,22 @@ string \| undefined
 
 Name
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 读取名称
+const name = comp.getState_Name();
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('name:', name);
+```
+
 ### getstate_otherproperty
 
 # IPCB\_PrimitiveComponent.getState\_OtherProperty() method
@@ -694,14 +897,32 @@ Get the property state: other parameters
 ## Signature
 
 ```typescript
-function getState_OtherProperty(): { [key: string]: string | number | boolean } | undefined;
+function getState_OtherProperty(): Record<string, string | number | boolean> | undefined;
 ```
 
 ## Returns
 
-{ \[key: string\]: string \| number \| boolean } \| undefined
+Record&lt;string, string \| number \| boolean&gt; \| undefined
 
 Other parameters
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 读取其它参数字典
+const otherProperty = comp.getState_OtherProperty();
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('propertyCount:', Object.keys(otherProperty).length);
+console.log('value:', otherProperty.Value);
+console.log('description:', otherProperty.Description);
+```
 
 ### getstate_pads
 
@@ -722,6 +943,26 @@ Array&lt;{ primitiveId: string; net: string; padNumber: string }&gt; \| undefine
 
 Pad
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 读取焊盘摘要数据
+const pads = comp.getState_Pads();
+
+// 3. 摘要出每个焊盘的编号与网络
+const padSummaries = pads.map(pad => ({ padNumber: pad.padNumber, net: pad.net }));
+
+// 4. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('padCount:', pads.length);
+console.log('padSummaries:', JSON.stringify(padSummaries));
+```
+
 ### getstate_primitiveid
 
 # IPCB\_PrimitiveComponent.getState\_PrimitiveId() method
@@ -739,6 +980,22 @@ function getState_PrimitiveId(): string;
 string
 
 Primitive ID
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 读取图元 ID
+const primitiveId = comp.getState_PrimitiveId();
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([primitiveId]);
+
+console.log('primitiveId:', primitiveId);
+```
 
 ### getstate_primitivelock
 
@@ -758,6 +1015,22 @@ boolean
 
 Whether it is locked
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 读取锁定状态
+const primitiveLock = comp.getState_PrimitiveLock();
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('primitiveLock:', primitiveLock);
+```
+
 ### getstate_primitivetype
 
 # IPCB\_PrimitiveComponent.getState\_PrimitiveType() method
@@ -775,6 +1048,22 @@ function getState_PrimitiveType(): EPCB_PrimitiveType;
 [EPCB\_PrimitiveType](../enums/EPCB_PrimitiveType.md)
 
 Primitive type
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 读取图元类型
+const primitiveType = comp.getState_PrimitiveType();
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('primitiveType:', primitiveType);
+```
 
 ### getstate_rotation
 
@@ -794,6 +1083,22 @@ number
 
 Rotation angle
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件（默认 0 度）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 读取旋转角度
+const rotation = comp.getState_Rotation();
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('rotation:', rotation);
+```
+
 ### getstate_supplier
 
 # IPCB\_PrimitiveComponent.getState\_Supplier() method
@@ -811,6 +1116,22 @@ function getState_Supplier(): string | undefined;
 string \| undefined
 
 Supplier
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 读取供应商
+const supplier = comp.getState_Supplier();
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('supplier:', supplier);
+```
 
 ### getstate_supplierid
 
@@ -830,6 +1151,22 @@ string \| undefined
 
 Supplier ID
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 读取供应商编号
+const supplierId = comp.getState_SupplierId();
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('supplierId:', supplierId);
+```
+
 ### getstate_uniqueid
 
 # IPCB\_PrimitiveComponent.getState\_UniqueId() method
@@ -847,6 +1184,22 @@ function getState_UniqueId(): string | undefined;
 string \| undefined
 
 Unique ID
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 读取唯一 ID
+const uniqueId = comp.getState_UniqueId();
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('uniqueId:', JSON.stringify(uniqueId));
+```
 
 ### getstate_x
 
@@ -866,6 +1219,22 @@ number
 
 X coordinate
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 读取锚点 X 坐标
+const x = comp.getState_X();
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('x:', x);
+```
+
 ### getstate_y
 
 # IPCB\_PrimitiveComponent.getState\_Y() method
@@ -884,6 +1253,22 @@ number
 
 Y coordinate
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 读取锚点 Y 坐标
+const y = comp.getState_Y();
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('y:', y);
+```
+
 ### isasync
 
 # IPCB\_PrimitiveComponent.isAsync() method
@@ -901,6 +1286,22 @@ function isAsync(): boolean;
 boolean
 
 Whether Is async primitive
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+
+// 2. 查询异步状态
+const isAsync = comp.isAsync();
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([comp.getState_PrimitiveId()]);
+
+console.log('isAsync:', isAsync);
+```
 
 ### reset
 
@@ -921,6 +1322,32 @@ function reset(): Promise<IPCB_PrimitiveComponent>;
 Promise&lt;[IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md)<!-- -->&gt;
 
 Device primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 20000 + Math.floor(Math.random() * 80000);
+const y = 20000 + Math.floor(Math.random() * 80000);
+
+// 2. 放置测试器件（默认 0 度）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 3. 记录画布上的原始旋转角度
+const original = comp.getState_Rotation();
+
+// 4. 异步模式下改一个错误值，但不提交，直接 reset() 丢弃
+const asyncComp = comp.toAsync();
+asyncComp.setState_Rotation(270);
+await asyncComp.reset();
+
+// 5. 从画布重新读取，确认值仍是原始值（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveComponent.get([compId]);
+
+console.log('rotation:', original, '→', refetched[0].getState_Rotation(), '(修改已丢弃)');
+```
 
 ### setattribute
 
@@ -1016,6 +1443,30 @@ Promise&lt;[IPCB\_PrimitiveAttribute](./IPCB_PrimitiveAttribute.md)<!-- -->&gt;
 
 Attribute primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 20000 + Math.floor(Math.random() * 80000);
+const y = 20000 + Math.floor(Math.random() * 80000);
+
+// 2. 放置测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 3. 设置自定义属性（属性名、属性值、名称可见、值可见）
+await comp.setAttribute('嘉立创示例_Tolerance', '1%', true, true);
+
+// 4. 通过属性图元接口确认属性已写入（保留现场供观察）
+const attrIds = await eda.pcb_PrimitiveAttribute.getAllPrimitiveId(compId);
+const attrs = await eda.pcb_PrimitiveAttribute.get(attrIds);
+const added = attrs.find(a => a.getState_Key() === '嘉立创示例_Tolerance');
+
+console.log('attrKey:', added.getState_Key());
+console.log('attrValue:', added.getState_Value());
+```
+
 ### setstate_addintobom
 
 # IPCB\_PrimitiveComponent.setState\_AddIntoBom() method
@@ -1065,6 +1516,32 @@ Whether Add to BOM
 [IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md)
 
 Device primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 20000 + Math.floor(Math.random() * 80000);
+const y = 20000 + Math.floor(Math.random() * 80000);
+
+// 2. 放置测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 3. 读取修改前的值
+const before = comp.getState_AddIntoBom();
+
+// 4. 异步模式改为不加入 BOM 并提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_AddIntoBom(false);
+await asyncComp.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveComponent.get([compId]);
+
+console.log('addIntoBom:', before, '→', refetched[0].getState_AddIntoBom());
+```
 
 ### setstate_designator
 
@@ -1116,6 +1593,32 @@ Designator
 
 Device primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 20000 + Math.floor(Math.random() * 80000);
+const y = 20000 + Math.floor(Math.random() * 80000);
+
+// 2. 放置测试器件（位号由系统自动分配）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 3. 读取修改前的位号
+const before = comp.getState_Designator();
+
+// 4. 异步模式改位号并提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_Designator('C101');
+await asyncComp.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveComponent.get([compId]);
+
+console.log('designator:', before, '→', refetched[0].getState_Designator());
+```
+
 ### setstate_layer
 
 # IPCB\_PrimitiveComponent.setState\_Layer() method
@@ -1165,6 +1668,32 @@ Layer
 [IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md)
 
 Device primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 20000 + Math.floor(Math.random() * 80000);
+const y = 20000 + Math.floor(Math.random() * 80000);
+
+// 2. 放置测试器件（默认贴顶面）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 3. 读取修改前的所在面
+const before = comp.getState_Layer();
+
+// 4. 异步模式翻到底面并提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_Layer(2);
+await asyncComp.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveComponent.get([compId]);
+
+console.log('layer:', before, '→', refetched[0].getState_Layer());
+```
 
 ### setstate_manufacturer
 
@@ -1216,6 +1745,32 @@ Manufacturer
 
 Device primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 20000 + Math.floor(Math.random() * 80000);
+const y = 20000 + Math.floor(Math.random() * 80000);
+
+// 2. 放置测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 3. 读取修改前的制造商
+const before = comp.getState_Manufacturer();
+
+// 4. 异步模式修改制造商并提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_Manufacturer('嘉立创示例_MFR');
+await asyncComp.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveComponent.get([compId]);
+
+console.log('manufacturer:', before, '→', refetched[0].getState_Manufacturer());
+```
+
 ### setstate_manufacturerid
 
 # IPCB\_PrimitiveComponent.setState\_ManufacturerId() method
@@ -1265,6 +1820,32 @@ Manufacturer ID
 [IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md)
 
 Device primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 20000 + Math.floor(Math.random() * 80000);
+const y = 20000 + Math.floor(Math.random() * 80000);
+
+// 2. 放置测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 3. 读取修改前的制造商编号
+const before = comp.getState_ManufacturerId();
+
+// 4. 异步模式修改制造商编号并提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_ManufacturerId('MFR-DEMO-001');
+await asyncComp.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveComponent.get([compId]);
+
+console.log('manufacturerId:', before, '→', refetched[0].getState_ManufacturerId());
+```
 
 ### setstate_name
 
@@ -1316,6 +1897,32 @@ Name
 
 Device primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 20000 + Math.floor(Math.random() * 80000);
+const y = 20000 + Math.floor(Math.random() * 80000);
+
+// 2. 放置测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 3. 读取修改前的名称（模板表达式）
+const before = comp.getState_Name();
+
+// 4. 异步模式改为固定名称并提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_Name('嘉立创示例_Name');
+await asyncComp.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveComponent.get([compId]);
+
+console.log('name:', before, '→', refetched[0].getState_Name());
+```
+
 ### setstate_otherproperty
 
 # IPCB\_PrimitiveComponent.setState\_OtherProperty() method
@@ -1327,9 +1934,9 @@ Set the property state: other parameters
 ## Signature
 
 ```typescript
-function setState_OtherProperty(otherProperty: {
-	[key: string]: string | number | boolean;
-}): IPCB_PrimitiveComponent;
+function setState_OtherProperty(
+	otherProperty: Record<string, string | number | boolean>,
+): IPCB_PrimitiveComponent;
 ```
 
 ## Parameters
@@ -1353,7 +1960,7 @@ otherProperty
 
 </td><td>
 
-\{ \[key: string\]: string \| number \| boolean \}
+Record&lt;string, string \| number \| boolean&gt;
 
 </td><td>
 
@@ -1367,6 +1974,34 @@ Other parameters
 [IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md)
 
 Device primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 20000 + Math.floor(Math.random() * 80000);
+const y = 20000 + Math.floor(Math.random() * 80000);
+
+// 2. 放置测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 3. 读取修改前的参数数量
+const beforeCount = Object.keys(comp.getState_OtherProperty() || {}).length;
+
+// 4. 异步模式写入新的参数字典并提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_OtherProperty({ 嘉立创示例_Custom: 'ABC', Count: 3 });
+await asyncComp.done();
+
+// 5. 从画布重新读取，确认参数已写入（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveComponent.get([compId]);
+const after = refetched[0].getState_OtherProperty();
+
+console.log('propertyCount:', beforeCount, '→', Object.keys(after).length);
+console.log('customValue:', after['嘉立创示例_Custom']);
+```
 
 ### setstate_primitivelock
 
@@ -1418,6 +2053,32 @@ Whether it is locked
 
 Device primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 20000 + Math.floor(Math.random() * 80000);
+const y = 20000 + Math.floor(Math.random() * 80000);
+
+// 2. 放置测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 3. 读取修改前的锁定状态
+const before = comp.getState_PrimitiveLock();
+
+// 4. 异步模式锁定器件并提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_PrimitiveLock(true);
+await asyncComp.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveComponent.get([compId]);
+
+console.log('primitiveLock:', before, '→', refetched[0].getState_PrimitiveLock());
+```
+
 ### setstate_rotation
 
 # IPCB\_PrimitiveComponent.setState\_Rotation() method
@@ -1467,6 +2128,32 @@ Rotation angle
 [IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md)
 
 Device primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 20000 + Math.floor(Math.random() * 80000);
+const y = 20000 + Math.floor(Math.random() * 80000);
+
+// 2. 放置测试器件（默认 0 度）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 3. 读取修改前的旋转角度
+const before = comp.getState_Rotation();
+
+// 4. 异步模式旋转 90 度并提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_Rotation(90);
+await asyncComp.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveComponent.get([compId]);
+
+console.log('rotation:', before, '→', refetched[0].getState_Rotation());
+```
 
 ### setstate_supplier
 
@@ -1518,6 +2205,32 @@ Supplier
 
 Device primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 20000 + Math.floor(Math.random() * 80000);
+const y = 20000 + Math.floor(Math.random() * 80000);
+
+// 2. 放置测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 3. 读取修改前的供应商
+const before = comp.getState_Supplier();
+
+// 4. 异步模式修改供应商并提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_Supplier('嘉立创示例_SUP');
+await asyncComp.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveComponent.get([compId]);
+
+console.log('supplier:', before, '→', refetched[0].getState_Supplier());
+```
+
 ### setstate_supplierid
 
 # IPCB\_PrimitiveComponent.setState\_SupplierId() method
@@ -1567,6 +2280,32 @@ Supplier ID
 [IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md)
 
 Device primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 20000 + Math.floor(Math.random() * 80000);
+const y = 20000 + Math.floor(Math.random() * 80000);
+
+// 2. 放置测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 3. 读取修改前的供应商编号
+const before = comp.getState_SupplierId();
+
+// 4. 异步模式修改供应商编号并提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_SupplierId('SUP-DEMO-001');
+await asyncComp.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveComponent.get([compId]);
+
+console.log('supplierId:', before, '→', refetched[0].getState_SupplierId());
+```
 
 ### setstate_uniqueid
 
@@ -1618,6 +2357,32 @@ Unique ID
 
 Device primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 20000 + Math.floor(Math.random() * 80000);
+const y = 20000 + Math.floor(Math.random() * 80000);
+
+// 2. 放置测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 3. 读取修改前的唯一 ID（默认空字符串）
+const before = comp.getState_UniqueId();
+
+// 4. 异步模式设置分组唯一 ID 并提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_UniqueId('JLC-DEMO-001');
+await asyncComp.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveComponent.get([compId]);
+
+console.log('uniqueId:', JSON.stringify(before), '→', JSON.stringify(refetched[0].getState_UniqueId()));
+```
+
 ### setstate_x
 
 # IPCB\_PrimitiveComponent.setState\_X() method
@@ -1667,6 +2432,32 @@ X coordinate
 [IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md)
 
 Device primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 20000 + Math.floor(Math.random() * 80000);
+const y = 20000 + Math.floor(Math.random() * 80000);
+
+// 2. 放置测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 3. 读取修改前的锚点 X 坐标
+const before = comp.getState_X();
+
+// 4. 异步模式向右移动 300mil 并提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_X(before + 300);
+await asyncComp.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveComponent.get([compId]);
+
+console.log('x:', before, '→', refetched[0].getState_X());
+```
 
 ### setstate_y
 
@@ -1718,6 +2509,32 @@ Y coordinate
 
 Device primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 20000 + Math.floor(Math.random() * 80000);
+const y = 20000 + Math.floor(Math.random() * 80000);
+
+// 2. 放置测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 3. 读取修改前的锚点 Y 坐标
+const before = comp.getState_Y();
+
+// 4. 异步模式向上移动 300mil 并提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_Y(before + 300);
+await asyncComp.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveComponent.get([compId]);
+
+console.log('y:', before, '→', refetched[0].getState_Y());
+```
+
 ### toasync
 
 # IPCB\_PrimitiveComponent.toAsync() method
@@ -1736,6 +2553,33 @@ function toAsync(): IPCB_PrimitiveComponent;
 
 Device primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 20000 + Math.floor(Math.random() * 80000);
+const y = 20000 + Math.floor(Math.random() * 80000);
+
+// 2. 放置测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 3. 转换为异步图元
+const asyncComp = comp.toAsync();
+const isAsyncNow = asyncComp.isAsync();
+
+// 4. 在异步模式下修改位号并提交
+asyncComp.setState_Designator('C102');
+await asyncComp.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveComponent.get([compId]);
+
+console.log('isAsync:', isAsyncNow);
+console.log('designator:', refetched[0].getState_Designator());
+```
+
 ### tosync
 
 # IPCB\_PrimitiveComponent.toSync() method
@@ -1753,3 +2597,28 @@ function toSync(): IPCB_PrimitiveComponent;
 [IPCB\_PrimitiveComponent](./IPCB_PrimitiveComponent.md)
 
 Device primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 20000 + Math.floor(Math.random() * 80000);
+const y = 20000 + Math.floor(Math.random() * 80000);
+
+// 2. 放置测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 3. 读取修改前的位号
+const before = comp.getState_Designator();
+
+// 4. 转换为同步图元后直接修改，立即生效（无需 done()）
+const syncComp = comp.toSync();
+syncComp.setState_Designator('C103');
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveComponent.get([compId]);
+
+console.log('designator:', before, '→', refetched[0].getState_Designator());
+```

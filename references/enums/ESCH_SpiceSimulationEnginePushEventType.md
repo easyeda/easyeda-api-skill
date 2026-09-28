@@ -33,6 +33,8 @@ ERROR\_RESULT
 
 </td><td>
 
+错误
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ LOG\_RESULT
 `'LOG_RESULT'`
 
 </td><td>
+
+日志
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ SIMULATION\_RESULT
 
 </td><td>
 
+仿真结果
+
 </td></tr>
 <tr><td>
 
@@ -65,6 +71,8 @@ VALIDATION\_RESULT
 `'VALIDATION_RESULT'`
 
 </td><td>
+
+验证结果
 
 </td></tr>
 </tbody></table>

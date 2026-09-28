@@ -33,6 +33,8 @@ CHANGE
 
 </td><td>
 
+属性变更（除位置外的属性变更）
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ CREATE
 `'create'`
 
 </td><td>
+
+创建
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ DELETE
 
 </td><td>
 
+删除
+
 </td></tr>
 <tr><td>
 
@@ -65,6 +71,8 @@ MOVE
 `'move'`
 
 </td><td>
+
+移动
 
 </td></tr>
 </tbody></table>

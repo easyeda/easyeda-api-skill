@@ -33,6 +33,8 @@ CENTER
 
 </td><td>
 
+中心
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ CENTER\_BOTTOM
 `6`
 
 </td><td>
+
+中下
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ CENTER\_TOP
 
 </td><td>
 
+中上
+
 </td></tr>
 <tr><td>
 
@@ -65,6 +71,8 @@ LEFT\_BOTTOM
 `3`
 
 </td><td>
+
+左下
 
 </td></tr>
 <tr><td>
@@ -77,6 +85,8 @@ LEFT\_MIDDLE
 
 </td><td>
 
+左中
+
 </td></tr>
 <tr><td>
 
@@ -87,6 +97,8 @@ LEFT\_TOP
 `1`
 
 </td><td>
+
+左上
 
 </td></tr>
 <tr><td>
@@ -99,6 +111,8 @@ RIGHT\_BOTTOM
 
 </td><td>
 
+右下
+
 </td></tr>
 <tr><td>
 
@@ -110,6 +124,8 @@ RIGHT\_MIDDLE
 
 </td><td>
 
+右中
+
 </td></tr>
 <tr><td>
 
@@ -120,6 +136,8 @@ RIGHT\_TOP
 `7`
 
 </td><td>
+
+右上
 
 </td></tr>
 </tbody></table>

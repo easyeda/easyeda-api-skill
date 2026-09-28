@@ -33,6 +33,8 @@ FOLLOW\_REGION\_RULE
 
 </td><td>
 
+约束区域
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ NO\_COMPONENTS
 `2`
 
 </td><td>
+
+禁止元件
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ NO\_FILLS
 
 </td><td>
 
+禁止填充
+
 </td></tr>
 <tr><td>
 
@@ -65,6 +71,8 @@ NO\_INNER\_ELECTRICAL\_LAYERS
 `8`
 
 </td><td>
+
+禁止内电层
 
 </td></tr>
 <tr><td>
@@ -77,6 +85,8 @@ NO\_POURS
 
 </td><td>
 
+禁止覆铜
+
 </td></tr>
 <tr><td>
 
@@ -87,6 +97,8 @@ NO\_WIRES
 `5`
 
 </td><td>
+
+禁止布线
 
 </td></tr>
 </tbody></table>

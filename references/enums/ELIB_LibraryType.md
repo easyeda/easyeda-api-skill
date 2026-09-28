@@ -33,6 +33,8 @@ CBB
 
 </td><td>
 
+复用模块
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ DEVICE
 `'3'`
 
 </td><td>
+
+器件
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ FOOTPRINT
 
 </td><td>
 
+封装
+
 </td></tr>
 <tr><td>
 
@@ -65,6 +71,8 @@ MODEL
 `'5'`
 
 </td><td>
+
+3D 模型
 
 </td></tr>
 <tr><td>
@@ -77,6 +85,8 @@ PANEL\_LIBRARY
 
 </td><td>
 
+面板库
+
 </td></tr>
 <tr><td>
 
@@ -87,6 +97,8 @@ SIMULATION\_MODEL\_NGSPICE
 `'32'`
 
 </td><td>
+
+仿真模型：Ngspice
 
 </td></tr>
 <tr><td>
@@ -99,6 +111,8 @@ SIMULATION\_MODEL\_SIMULIDE
 
 </td><td>
 
+仿真模型：SimulIDE
+
 </td></tr>
 <tr><td>
 
@@ -109,6 +123,8 @@ SYMBOL
 `'2'`
 
 </td><td>
+
+符号
 
 </td></tr>
 </tbody></table>

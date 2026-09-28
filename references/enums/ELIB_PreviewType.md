@@ -33,6 +33,8 @@ FOOTPRINT
 
 </td><td>
 
+封装预览
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ MODEL\_3D
 `'3D'`
 
 </td><td>
+
+3D 预览
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ PRODUCT
 
 </td><td>
 
+产品实物预览
+
 </td></tr>
 <tr><td>
 
@@ -65,6 +71,8 @@ SYMBOL
 `'S'`
 
 </td><td>
+
+符号预览
 
 </td></tr>
 </tbody></table>

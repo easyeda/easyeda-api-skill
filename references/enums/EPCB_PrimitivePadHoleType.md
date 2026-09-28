@@ -33,6 +33,8 @@ RECTANGLE
 
 </td><td>
 
+矩形（暂未开发）
+
 </td></tr>
 <tr><td>
 
@@ -44,6 +46,8 @@ ROUND
 
 </td><td>
 
+圆形
+
 </td></tr>
 <tr><td>
 
@@ -54,6 +58,8 @@ SLOT
 `'SLOT'`
 
 </td><td>
+
+插槽
 
 </td></tr>
 </tbody></table>

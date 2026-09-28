@@ -33,6 +33,8 @@ KEEP
 
 </td><td>
 
+保留已有导线和过孔（在其基础上继续布线）
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ REMOVE
 `'remove'`
 
 </td><td>
+
+移除已有导线和过孔（推倒重布）
 
 </td></tr>
 </tbody></table>

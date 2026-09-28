@@ -33,6 +33,8 @@ EXTRACT\_LIBRARIES
 
 </td><td>
 
+提取库文件
+
 </td></tr>
 <tr><td>
 
@@ -44,6 +46,8 @@ IMPORT\_DOCUMENT
 
 </td><td>
 
+导入文档
+
 </td></tr>
 <tr><td>
 
@@ -54,6 +58,8 @@ IMPORT\_DOCUMENT\_EXTRACT\_LIBRARIES
 `'ImportDocumentExtractLibraries'`
 
 </td><td>
+
+导入文档并提取库
 
 </td></tr>
 </tbody></table>

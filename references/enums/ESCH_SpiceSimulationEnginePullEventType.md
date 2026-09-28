@@ -33,6 +33,8 @@ SIMULATE\_NETLIST
 
 </td><td>
 
+仿真网表
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ VALIDATE\_NETLIST
 `'VALIDATE_NETLIST'`
 
 </td><td>
+
+验证网表
 
 </td></tr>
 </tbody></table>

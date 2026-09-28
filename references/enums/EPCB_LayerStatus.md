@@ -33,6 +33,8 @@ HIDDEN
 
 </td><td>
 
+使用但不展示
+
 </td></tr>
 <tr><td>
 
@@ -44,6 +46,8 @@ NOT\_USED
 
 </td><td>
 
+不使用
+
 </td></tr>
 <tr><td>
 
@@ -54,6 +58,8 @@ SHOW
 `1`
 
 </td><td>
+
+使用并展示
 
 </td></tr>
 </tbody></table>

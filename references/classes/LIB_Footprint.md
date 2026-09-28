@@ -36,7 +36,7 @@ Description
 </td></tr>
 <tr><td>
 
-[create(libraryUuid, footprintName, classification, description, otherProperty)](./LIB_Footprint.md)
+[create(libraryUuid, footprintName, classification, description, otherProperty, model3D)](./LIB_Footprint.md)
 
 </td><td>
 
@@ -69,6 +69,17 @@ Description
 </td></tr>
 <tr><td>
 
+[getDocumentSource(footprintUuid, libraryUuid)](./LIB_Footprint.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 获取封装的文档源码
+
+</td></tr>
+<tr><td>
+
 [getRenderImage(source)](./LIB_Footprint.md)
 
 </td><td>
@@ -80,7 +91,7 @@ Description
 </td></tr>
 <tr><td>
 
-[modify(footprintUuid, libraryUuid, footprintName, classification, description, otherProperty)](./LIB_Footprint.md)
+[modify(footprintUuid, libraryUuid, footprintName, classification, description, otherProperty, model3D)](./LIB_Footprint.md)
 
 </td><td>
 
@@ -247,6 +258,32 @@ Promise&lt;string \| undefined&gt;
 
 UUID of the new footprint in the target library
 
+## Example
+
+```javascript
+// 1. 搜索系统库，取一个封装作为复制来源
+const [source] = await eda.lib_Footprint.search('0402', undefined, undefined, 1, 1);
+
+// 2. 获取个人库 UUID
+const targetLibraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+
+// 3. 从系统库复制到个人库，指定新名称避免同名冲突（分类传 [] = 不分类）
+const newName = `嘉立创示例_封装副本_${Date.now()}`;
+const copiedUuid = await eda.lib_Footprint.copy(
+	source.uuid,
+	source.libraryUuid,
+	targetLibraryUuid,
+	[],
+	newName
+);
+
+// 创建类保留现场（副本留在个人库中供观察）
+
+console.log('sourceUuid:', source.uuid);
+console.log('copiedUuid:', copiedUuid);
+console.log('newName:', newName);
+```
+
 ### create
 
 # LIB\_Footprint.create() method
@@ -264,6 +301,7 @@ function create(
 	classification?: ILIB_ClassificationIndex | Array<string>,
 	description?: string,
 	otherProperty?: Record<string, boolean | number | string | undefined>,
+	model3D?: { name: string; uuid: string; libraryUuid: string },
 ): Promise<string | undefined>;
 ```
 
@@ -347,6 +385,19 @@ Record&lt;string, boolean \| number \| string \| undefined&gt;
 _(Optional)_ 其它属性
 
 </td></tr>
+<tr><td>
+
+model3D
+
+</td><td>
+
+\{ name: string; uuid: string; libraryUuid: string \}
+
+</td><td>
+
+_(Optional)_ 关联 3D 模型 ADD since EDA v4.1.22
+
+</td></tr>
 </tbody></table>
 
 ## Returns
@@ -354,6 +405,22 @@ _(Optional)_ 其它属性
 Promise&lt;string \| undefined&gt;
 
 Footprint UUID
+
+## Example
+
+```javascript
+// 1. 获取个人库 UUID
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+
+// 2. 创建封装（分类传 [] = 不分类）
+const footprintName = `嘉立创示例_新封装_${Date.now()}`;
+const footprintUuid = await eda.lib_Footprint.create(libraryUuid, footprintName, [], '示例封装描述');
+
+// 创建类保留现场（新封装留在个人库中供观察）
+
+console.log('footprintUuid:', footprintUuid);
+console.log('footprintName:', footprintName);
+```
 
 ### delete
 
@@ -366,7 +433,7 @@ Delete Footprint
 ## Signature
 
 ```typescript
-function delete(footprintUuid: string, libraryUuid: string): Promise<boolean>;
+function delete(footprintUuid: string, libraryUuid: string): Promise<boolean | undefined>;
 ```
 
 ## Parameters
@@ -414,9 +481,27 @@ Library UUID, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 ## Returns
 
-Promise&lt;boolean&gt;
+Promise&lt;boolean \| undefined&gt;
 
 Whether the operation is successful
+
+## Example
+
+```javascript
+// 1. 获取个人库 UUID 并新建删除对象
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const footprintUuid = await eda.lib_Footprint.create(
+	libraryUuid,
+	`嘉立创示例_待删除封装_${Date.now()}`,
+	[]
+);
+
+// 2. 删除该封装
+const deleted = await eda.lib_Footprint.delete(footprintUuid, libraryUuid);
+
+console.log('footprintUuid:', footprintUuid);
+console.log('deleted:', deleted);
+```
 
 ### get
 
@@ -481,6 +566,80 @@ Promise&lt;[ILIB\_FootprintItem](../interfaces/ILIB_FootprintItem.md) \| undefin
 
 Footprint property
 
+### getdocumentsource
+
+# LIB\_Footprint.getDocumentSource() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+获取封装的文档源码
+
+## Signature
+
+```typescript
+function getDocumentSource(
+	footprintUuid: string,
+	libraryUuid?: string,
+): Promise<string | undefined>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+footprintUuid
+
+</td><td>
+
+string
+
+</td><td>
+
+封装 UUID
+
+</td></tr>
+<tr><td>
+
+libraryUuid
+
+</td><td>
+
+string
+
+</td><td>
+
+_(Optional)_ 库 UUID，默认为系统库，可以使用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;string \| undefined&gt;
+
+封装的 3.0 文档源码（efoo JSON 字符串），获取失败返回 `undefined`
+
+## Remarks
+
+与 [LIB\_Footprint.updateDocumentSource()](./LIB_Footprint.md) 对称的读取接口；返回 \*\*3.0 格式\*\*（efoo）的封装源数据， 可直接用于组装 PCB 源数据（如 AI 生成 eprj3 工程）。
+
+支持工程库 / 非工程库（系统库 / 个人库 / 扩展库）： - 工程库：从当前打开的工程 worker 读取（含未保存内容）； - 非工程库：从 lib.worker 读取（含未保存内容），worker 无缓存时回退网络获取， 自动处理 `history_uuid`<!-- -->（历史版本）、`dataStrId`<!-- -->（远程存储）与 2.0 → 3.0 格式转换。
+
+获取失败（如库条目不存在）将返回 `undefined`
+
 ### getrenderimage
 
 # LIB\_Footprint.getRenderImage() method
@@ -532,6 +691,24 @@ Promise&lt;Blob \| undefined&gt;
 
 Footprint render image
 
+## Example
+
+```javascript
+// 1. 搜索系统库，取一个封装作为渲染来源
+const [source] = await eda.lib_Footprint.search('0402', undefined, undefined, 1, 1);
+
+// 2. 获取渲染图（PNG Blob）
+const blob = await eda.lib_Footprint.getRenderImage({
+	footprintUuid: source.uuid,
+	libraryUuid: source.libraryUuid,
+});
+
+// 3. Blob 可转成 URL 直接展示：URL.createObjectURL(blob)
+console.log('sourceName:', source.name);
+console.log('imageSize:', blob.size);
+console.log('imageType:', blob.type);
+```
+
 ### modify
 
 # LIB\_Footprint.modify() method
@@ -550,6 +727,7 @@ function modify(
 	classification?: ILIB_ClassificationIndex | Array<string> | null,
 	description?: string | null,
 	otherProperty?: Record<string, boolean | number | string | undefined | null>,
+	model3D?: { name: string; uuid: string; libraryUuid: string },
 ): Promise<boolean>;
 ```
 
@@ -646,6 +824,19 @@ Record&lt;string, boolean \| number \| string \| undefined \| null&gt;
 _(Optional)_ 其它属性，如希望清除某些属性，则将其的值设置为 `null`
 
 </td></tr>
+<tr><td>
+
+model3D
+
+</td><td>
+
+\{ name: string; uuid: string; libraryUuid: string \}
+
+</td><td>
+
+_(Optional)_ 关联 3D 模型 ADD since v4.1.22
+
+</td></tr>
 </tbody></table>
 
 ## Returns
@@ -657,6 +848,29 @@ Whether the operation is successful
 ## Remarks
 
 If you want to clear certain properties, set their values to `null`
+
+## Example
+
+```javascript
+// 1. 获取个人库 UUID 并新建修改对象
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const footprintUuid = await eda.lib_Footprint.create(
+	libraryUuid,
+	`嘉立创示例_封装修改前_${Date.now()}`,
+	[],
+	'修改前的描述'
+);
+
+// 2. 修改名称和描述（分类保持不变传 []）
+const newName = `嘉立创示例_封装修改后_${Date.now()}`;
+const modified = await eda.lib_Footprint.modify(footprintUuid, libraryUuid, newName, [], '修改后的描述');
+
+// 修改类保留现场
+
+console.log('footprintUuid:', footprintUuid);
+console.log('modified:', modified);
+console.log('newName:', newName);
+```
 
 ### openineditor
 
@@ -737,6 +951,27 @@ _(Optional)_ Split screen ID. If not filled in, it opens in the split screen wit
 Promise&lt;string \| undefined&gt;
 
 Tab ID, corresponding to [IDMT\_EditorTabItem.tabId](../interfaces/IDMT_EditorTabItem.md)<!-- -->. You can use [DMT\_EditorControl.getSplitScreenIdByTabId()](./DMT_EditorControl.md) to get the split screen ID
+
+## Example
+
+```javascript
+// 1. 获取个人库 UUID 并新建封装
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const footprintUuid = await eda.lib_Footprint.create(
+	libraryUuid,
+	`嘉立创示例_编辑封装_${Date.now()}`,
+	[]
+);
+
+// 2. 在编辑器中打开该封装，返回标签页 ID（uuid@libraryUuid 格式）
+const tabId = await eda.lib_Footprint.openInEditor(footprintUuid, libraryUuid);
+
+// 打开后保留现场（编辑器停留在新封装页供观察；不需要时可传 tabId 给
+// dmt_EditorControl.closeDocument 关闭）
+
+console.log('footprintUuid:', footprintUuid);
+console.log('tabId:', tabId);
+```
 
 ### search
 
@@ -846,6 +1081,19 @@ Promise&lt;Array&lt;[ILIB\_FootprintSearchItem](../interfaces/ILIB_FootprintSear
 
 List of searched footprint properties
 
+## Example
+
+```javascript
+// 1. 按关键字搜索系统库中的封装，每页 5 条
+const results = await eda.lib_Footprint.search('0402', undefined, undefined, 5, 1);
+
+// 2. 输出搜索结果
+console.log('count:', results.length);
+results.forEach((item, i) => {
+	console.log(`[${i}] name:`, item.name, 'uuid:', item.uuid, 'libraryUuid:', item.libraryUuid);
+});
+```
+
 ### searchbyproperties
 
 # LIB\_Footprint.searchByProperties() method
@@ -911,6 +1159,28 @@ _(Optional)_ Library UUID, default is system library, you can use [LIB\_Librarie
 Promise&lt;Array&lt;[ILIB\_FootprintSearchItem](../interfaces/ILIB_FootprintSearchItem.md)<!-- -->&gt;&gt;
 
 List of searched footprint properties
+
+## Example
+
+```javascript
+// 1. 按名称精确搜索（官方属性集合目前仅支持 name）
+// 当前版本该接口不稳定：可能抛错，也可能正常返回 undefined，两种都要兼容
+let results;
+try {
+	results = await eda.lib_Footprint.searchByProperties({ name: '0402' });
+}
+catch (e) {
+	console.log('当前版本按 name 搜索抛错：', e.message);
+}
+if (!Array.isArray(results))
+	results = [];
+
+// 2. 输出搜索结果
+console.log('count:', results.length);
+results.forEach((item, i) => {
+	console.log(`[${i}] name:`, item.name, 'uuid:', item.uuid, 'libraryUuid:', item.libraryUuid);
+});
+```
 
 ### updatedocumentsource
 
@@ -991,3 +1261,34 @@ Document source code
 Promise&lt;boolean \| undefined&gt;
 
 Whether the update is successful
+
+## Example
+
+```javascript
+// 1. 获取个人库 UUID 并新建封装
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const footprintUuid = await eda.lib_Footprint.create(
+	libraryUuid,
+	`嘉立创示例_源码封装_${Date.now()}`,
+	[]
+);
+
+// 2. 在编辑器中打开封装，等待文档加载完成
+const tabId = await eda.lib_Footprint.openInEditor(footprintUuid, libraryUuid);
+await new Promise(r => setTimeout(r, 1500));
+
+// 3. 读取当前打开封装的文档源码
+const documentSource = await eda.sys_FileManager.getDocumentSource();
+
+// 4. 把源码写回库中的封装（此处原样写回；实际使用时可先改写 documentSource）
+const updated = await eda.lib_Footprint.updateDocumentSource(footprintUuid, libraryUuid, documentSource);
+
+// 5. 关闭编辑器标签页（封装本体保留在库中）
+await eda.dmt_EditorControl.closeDocument(tabId);
+
+// 修改类保留现场
+
+console.log('footprintUuid:', footprintUuid);
+console.log('sourceLength:', documentSource.length);
+console.log('updated:', updated);
+```

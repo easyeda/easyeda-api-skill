@@ -33,6 +33,8 @@ FROM\_KEEPOUT\_LAYER
 
 </td><td>
 
+从 Keepout 层
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ FROM\_MECHANICAL\_LAYER\_1
 `'mechanical'`
 
 </td><td>
+
+从机械层 1
 
 </td></tr>
 </tbody></table>

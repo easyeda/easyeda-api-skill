@@ -49,6 +49,17 @@ Description
 </td></tr>
 <tr><td>
 
+[isIFrameAlreadyExist(id)](./SYS_IFrame.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** Whether the iframe already exists
+
+</td></tr>
+<tr><td>
+
 [openIFrame(htmlFileName, width, height, id, props)](./SYS_IFrame.md)
 
 </td><td>
@@ -131,6 +142,29 @@ Close the iframe window with the specified ID
 
 Note: This API is only valid for extensions. Calling it in a standalone script environment will always `throw Error`
 
+控制其它扩展打开的内联框架窗口时，`id` 需传入完整 ID 格式：`<其它扩展UUID>.<窗口ID>`<!-- -->（点分隔，窗口 ID 为打开时传入的 `id` 参数）
+
+## Example
+
+```javascript
+// 1. 打开两个内联框架窗口（自建 fixture，演示按 ID 定向关闭）
+await eda.sys_IFrame.openIFrame('/extension.json', 300, 200, '嘉立创示例_窗口A', { title: '嘉立创示例 窗口A' });
+await eda.sys_IFrame.openIFrame('/extension.json', 300, 200, '嘉立创示例_窗口B', { title: '嘉立创示例 窗口B' });
+console.log('已打开两个窗口：嘉立创示例_窗口A / 嘉立创示例_窗口B');
+
+// 2. 按 ID 关闭指定窗口
+const closedById = await eda.sys_IFrame.closeIFrame('嘉立创示例_窗口A');
+console.log('按 ID 关闭窗口 A 结果：', closedById);
+
+// 3. 不传 id，关闭本扩展打开的全部剩余窗口（清理窗口 B，还原界面）
+const closedAll = await eda.sys_IFrame.closeIFrame();
+console.log('关闭全部剩余窗口结果：', closedAll);
+
+// 4. 对已不存在的窗口再关闭一次，验证幂等语义（返回 true 而非 false）
+const closedAgain = await eda.sys_IFrame.closeIFrame('嘉立创示例_窗口A');
+console.log('重复关闭已关窗口结果：', closedAgain);
+```
+
 ### hideiframe
 
 # SYS\_IFrame.hideIFrame() method
@@ -186,6 +220,90 @@ Whether the operation is successful
 This API is result-oriented: If the specified iframe window is not found, the API returns `false`<!-- -->; if the iframe window was already hidden before the operation, the API returns `true`
 
 Note: This API is only valid for extensions. Calling it in a standalone script environment will always `throw Error`
+
+控制其它扩展打开的内联框架窗口时，`id` 需传入完整 ID 格式：`<其它扩展UUID>.<窗口ID>`<!-- -->（点分隔，窗口 ID 为打开时传入的 `id` 参数）
+
+## Example
+
+```javascript
+// 1. 打开一个内联框架窗口（自建 fixture）
+const opened = await eda.sys_IFrame.openIFrame('/extension.json', 320, 200, '嘉立创示例_隐藏演示', {
+	title: '嘉立创示例 隐藏演示窗口',
+});
+console.log('打开结果：', opened);
+
+// 2. 隐藏该窗口（窗口从界面消失，但未被销毁）
+const hidden = await eda.sys_IFrame.hideIFrame('嘉立创示例_隐藏演示');
+console.log('隐藏结果：', hidden);
+
+// 3. 对已隐藏的窗口再次隐藏，验证幂等语义（返回 true）
+const hideAgain = await eda.sys_IFrame.hideIFrame('嘉立创示例_隐藏演示');
+console.log('重复隐藏结果：', hideAgain);
+
+// 4. 对不存在的窗口 ID 隐藏，结果导向返回 false（不抛错）
+const hideMissing = await eda.sys_IFrame.hideIFrame('嘉立创示例_不存在的窗口');
+console.log('不存在的窗口 ID →', hideMissing);
+
+// 5. 关闭隐藏状态的窗口还原界面（隐藏的窗口可直接关闭）
+const closed = await eda.sys_IFrame.closeIFrame('嘉立创示例_隐藏演示');
+console.log('关闭隐藏窗口结果：', closed);
+```
+
+### isiframealreadyexist
+
+# SYS\_IFrame.isIFrameAlreadyExist() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+Whether the iframe already exists
+
+## Signature
+
+```typescript
+function isIFrameAlreadyExist(id: string): Promise<boolean>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+id
+
+</td><td>
+
+string
+
+</td><td>
+
+Iframe ID
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;boolean&gt;
+
+Whether Exists
+
+## Remarks
+
+Note: This API is only valid for extensions. Calling it in a standalone script environment will always `throw Error`
+
+控制其它扩展打开的内联框架窗口时，`id` 需传入完整 ID 格式：`<其它扩展UUID>.<窗口ID>`<!-- -->（点分隔，窗口 ID 为打开时传入的 `id` 参数） ADD since EDA v4.2
 
 ### openiframe
 
@@ -290,7 +408,7 @@ props
 
 </td><td>
 
-{ maximizeButton?: boolean; minimizeButton?: boolean; minimizeStyle?: 'collapsed' \| 'constricted'; buttonCallbackFn?: (button: 'close' \| 'minimize' \| 'maximize') =&gt; void \| Promise&lt;void&gt;; onBeforeCloseCallFn?: () =&gt; boolean \| undefined \| Promise&lt;boolean \| undefined&gt;; grayscaleMask?: boolean; title?: string; x?: number; y?: number }
+{ maximizeButton?: boolean; minimizeButton?: boolean; minimizeStyle?: 'collapsed' \| 'constricted'; buttonCallbackFn?: (button: 'close' \| 'minimize' \| 'maximize') =&gt; void \| Promise&lt;void&gt;; onBeforeCloseCallFn?: () =&gt; boolean \| undefined \| Promise&lt;boolean \| undefined&gt;; grayscaleMask?: boolean; title?: string; x?: number; y?: number; }
 
 </td><td>
 
@@ -316,6 +434,23 @@ The body is an iframe. `width` and `height` are the width and height of the ifra
 The iframe needs to display the content of `htmlFileName`<!-- -->. This HTML is obtained from the extension package and has been stored in IndexedDB during installation
 
 Note: This API is only valid for extensions. Calling it in a standalone script environment will always `throw Error`
+
+## Example
+
+```javascript
+// 1. 打开一个带标题和最大化/最小化按钮的内联框架窗口（自建 ID 便于后续定位）
+const opened = await eda.sys_IFrame.openIFrame('/extension.json', 360, 240, '嘉立创示例_窗口', {
+	title: '嘉立创示例 内联框架窗口',
+	minimizeButton: true,
+	maximizeButton: true,
+	grayscaleMask: false,
+});
+console.log('打开结果：', opened);
+
+// 2. 关闭刚才打开的窗口还原界面（自建自删，保证案例可重复运行）
+const closed = await eda.sys_IFrame.closeIFrame('嘉立创示例_窗口');
+console.log('关闭结果：', closed);
+```
 
 ### showiframe
 
@@ -372,3 +507,35 @@ Whether the operation is successful
 This API is result-oriented: If the specified iframe window is not found, the API returns `false`<!-- -->; if the iframe window was already in the shown state before the operation, the API returns `true`
 
 Note: This API is only valid for extensions. Calling it in a standalone script environment will always `throw Error`
+
+控制其它扩展打开的内联框架窗口时，`id` 需传入完整 ID 格式：`<其它扩展UUID>.<窗口ID>`<!-- -->（点分隔，窗口 ID 为打开时传入的 `id` 参数）
+
+## Example
+
+```javascript
+// 1. 打开一个内联框架窗口（自建 fixture）
+const opened = await eda.sys_IFrame.openIFrame('/extension.json', 320, 200, '嘉立创示例_显示演示', {
+	title: '嘉立创示例 显示演示窗口',
+});
+console.log('打开结果：', opened);
+
+// 2. 先隐藏窗口，制造"待恢复"状态
+await eda.sys_IFrame.hideIFrame('嘉立创示例_显示演示');
+console.log('已隐藏窗口，准备恢复显示');
+
+// 3. 显示该窗口（从隐藏状态恢复，界面重新可见）
+const shown = await eda.sys_IFrame.showIFrame('嘉立创示例_显示演示');
+console.log('显示结果：', shown);
+
+// 4. 对已显示的窗口再次显示，验证幂等语义（返回 true）
+const showAgain = await eda.sys_IFrame.showIFrame('嘉立创示例_显示演示');
+console.log('重复显示结果：', showAgain);
+
+// 5. 对不存在的窗口 ID 显示，结果导向返回 false（不抛错）
+const showMissing = await eda.sys_IFrame.showIFrame('嘉立创示例_不存在的窗口');
+console.log('不存在的窗口 ID →', showMissing);
+
+// 6. 关闭窗口还原界面
+const closed = await eda.sys_IFrame.closeIFrame('嘉立创示例_显示演示');
+console.log('关闭结果：', closed);
+```

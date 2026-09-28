@@ -159,6 +159,50 @@ Get a file from the extension
 </td></tr>
 <tr><td>
 
+[openReadFilePathDialog(filenameExtensions, multiFiles)](./SYS_FileSystem.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 打开读取文件路径窗口
+
+</td></tr>
+<tr><td>
+
+[openReadFilePathDialog(filenameExtensions, multiFiles)](./SYS_FileSystem.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 打开读取文件路径窗口
+
+</td></tr>
+<tr><td>
+
+[openReadFolderDialog()](./SYS_FileSystem.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** Open the read-folder dialog
+
+</td></tr>
+<tr><td>
+
+[openReadFolderPathDialog()](./SYS_FileSystem.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 打开读取目录路径窗口
+
+</td></tr>
+<tr><td>
+
 [readFileFromFileSystem(uri)](./SYS_FileSystem.md)
 
 </td><td>
@@ -316,6 +360,18 @@ ObjectURL string
 ## Remarks
 
 Create an ObjectURL pointing to the passed-in Blob / File object ADD since EDA v3.2.162
+
+## Example
+
+```javascript
+// 1. 构造一段文本数据
+const blob = new Blob(['嘉立创示例数据'], { type: 'text/plain' });
+
+// 2. 创建 ObjectURL（同步方法，直接返回字符串）
+const url = eda.sys_FileSystem.createObjectURL(blob);
+
+console.log('ObjectURL：', url);
+```
 
 ### deletefileinfilesystem
 
@@ -546,6 +602,17 @@ Promise&lt;File \| undefined&gt;
 
 File format file
 
+## Example
+
+```javascript
+// 1. 读取扩展安装目录下的 extension.json
+const file = await eda.sys_FileSystem.getExtensionFile('extension.json');
+
+// 2. 输出文件信息（size 单位为字节，内容可用 file.text() 读取）
+console.log('文件名：', file.name);
+console.log('文件大小：', file.size);
+```
+
 ### getlibrariespaths
 
 # SYS\_FileSystem.getLibrariesPaths() method
@@ -736,6 +803,25 @@ Promise&lt;Array&lt;File&gt; \| undefined&gt;
 
 File format file array
 
+## Remarks
+
+本接口需要打开浏览器模态窗口，在用户于页面上进行最后一次操作的时间节点开始计算， 达到 5000ms（部分浏览器时效）后将无法使用 JavaScript 脚本唤起窗口，这是浏览器的限制
+
+## Example
+
+```javascript
+// 1. 打开选择窗口（限定 .json 文件，单选；用户选择前 Promise 一直挂起）
+eda.sys_FileSystem.openReadFileDialog('.json').then((file) => {
+	// 用户完成选择后触发；直接关闭窗口时 file 为 undefined
+	if (file) {
+		console.log('已选择文件：', file.name);
+	}
+});
+
+// 2. 窗口已弹出，主流程不等待用户操作
+console.log('已打开文件选择窗口');
+```
+
 ### openreadfiledialog_1
 
 # SYS\_FileSystem.openReadFileDialog() method
@@ -801,6 +887,200 @@ _(Optional)_ Whether multiple files are allowed to be read
 Promise&lt;File \| undefined&gt;
 
 File format file
+
+### openreadfilepathdialog
+
+# SYS\_FileSystem.openReadFilePathDialog() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+打开读取文件路径窗口
+
+## Signature
+
+```typescript
+function openReadFilePathDialog(
+	filenameExtensions?: string | Array<string>,
+	multiFiles?: true,
+): Promise<Array<string>>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+filenameExtensions
+
+</td><td>
+
+string \| Array&lt;string&gt;
+
+</td><td>
+
+_(Optional)_ 文件扩展名
+
+</td></tr>
+<tr><td>
+
+multiFiles
+
+</td><td>
+
+true
+
+</td><td>
+
+_(Optional)_ 是否允许读取多文件；受客户端协议限制，当前仅支持单选，`multiFiles=true` 时将返回单元素数组
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;Array&lt;string&gt;&gt;
+
+文件路径数组
+
+## Remarks
+
+ADD since EDA v3.2.201 注意：本接口仅客户端有效，在浏览器环境内调用将始终 `throw Error`
+
+/ EDA v4.1.54
+
+### openreadfilepathdialog_1
+
+# SYS\_FileSystem.openReadFilePathDialog() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+打开读取文件路径窗口
+
+## Signature
+
+```typescript
+function openReadFilePathDialog(
+	filenameExtensions?: string | Array<string>,
+	multiFiles?: false,
+): Promise<string | undefined>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+filenameExtensions
+
+</td><td>
+
+string \| Array&lt;string&gt;
+
+</td><td>
+
+_(Optional)_ 文件扩展名
+
+</td></tr>
+<tr><td>
+
+multiFiles
+
+</td><td>
+
+false
+
+</td><td>
+
+_(Optional)_ 是否允许读取多文件；受客户端协议限制，当前仅支持单选，`multiFiles=true` 时将返回单元素数组
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;string \| undefined&gt;
+
+文件路径
+
+## Remarks
+
+ADD since EDA v3.2.201 注意：本接口仅客户端有效，在浏览器环境内调用将始终 `throw Error`
+
+/ EDA v4.1.54
+
+### openreadfolderdialog
+
+# SYS\_FileSystem.openReadFolderDialog() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+Open the read-folder dialog
+
+## Signature
+
+```typescript
+function openReadFolderDialog(): Promise<Array<{ relativePath: string; file: File }>>;
+```
+
+## Returns
+
+Promise&lt;Array&lt;{ relativePath: string; file: File }&gt;&gt;
+
+All read files and their path information
+
+## Remarks
+
+developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory \| MDN<!-- -->} ADD since EDA v4.2
+
+### openreadfolderpathdialog
+
+# SYS\_FileSystem.openReadFolderPathDialog() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+打开读取目录路径窗口
+
+## Signature
+
+```typescript
+function openReadFolderPathDialog(): Promise<string | undefined>;
+```
+
+## Returns
+
+Promise&lt;string \| undefined&gt;
+
+目录路径
+
+## Remarks
+
+ADD since EDA v3.2.201 注意：本接口仅客户端有效，在浏览器环境内调用将始终 `throw Error`
+
+/ EDA v4.1.54
 
 ### readfilefromfilesystem
 
@@ -908,6 +1188,19 @@ void
 
 Revoke the specified ObjectURL ADD since EDA v3.2.162
 
+## Example
+
+```javascript
+// 1. 先创建一个 ObjectURL
+const blob = new Blob(['嘉立创示例数据']);
+const url = eda.sys_FileSystem.createObjectURL(blob);
+console.log('创建的 ObjectURL：', url);
+
+// 2. 用完后吊销（同步方法，无返回值）
+eda.sys_FileSystem.revokeObjectURL(url);
+console.log('已吊销');
+```
+
 ### savefile
 
 # SYS\_FileSystem.saveFile() method
@@ -970,6 +1263,19 @@ Promise&lt;void&gt;
 ## Remarks
 
 Calls the browser download API or the Electron save-file API to save the passed-in file stream locally
+
+## Example
+
+```javascript
+// 1. 构造要保存的 CSV 内容
+const content = '编号,器件,数量\n1,C0402,10\n2,C0603,20';
+const blob = new Blob([content], { type: 'text/csv' });
+
+// 2. 保存到本地（完成后 Promise 才结束）
+await eda.sys_FileSystem.saveFile(blob, '嘉立创示例_BOM导出.csv');
+
+console.log('已保存文件：', '嘉立创示例_BOM导出.csv', blob.size, '字节');
+```
 
 ### savefiletofilesystem
 

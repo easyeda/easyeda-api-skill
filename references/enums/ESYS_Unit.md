@@ -33,6 +33,8 @@ CENTIMETER
 
 </td><td>
 
+厘米
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ DECIMETER
 `'dm'`
 
 </td><td>
+
+分米
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ IN
 
 </td><td>
 
+英尺
+
 </td></tr>
 <tr><td>
 
@@ -65,6 +71,8 @@ INCH
 `'inch'`
 
 </td><td>
+
+英寸
 
 </td></tr>
 <tr><td>
@@ -77,6 +85,8 @@ METER
 
 </td><td>
 
+米
+
 </td></tr>
 <tr><td>
 
@@ -88,6 +98,8 @@ MIL
 
 </td><td>
 
+密尔
+
 </td></tr>
 <tr><td>
 
@@ -98,6 +110,8 @@ MILLIMETER
 `'mm'`
 
 </td><td>
+
+毫米
 
 </td></tr>
 </tbody></table>

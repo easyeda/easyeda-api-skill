@@ -33,6 +33,8 @@ HORIZONTAL
 
 </td><td>
 
+水平
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ VERTICAL
 `'vertical'`
 
 </td><td>
+
+垂直
 
 </td></tr>
 </tbody></table>

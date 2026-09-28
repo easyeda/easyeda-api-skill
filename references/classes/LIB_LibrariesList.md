@@ -121,6 +121,19 @@ Library information list
 
 This does not get the information of the system library, personal library, project library, or favorite library. To get their information, use the [getSystemLibraryUuid](./LIB_LibrariesList.md)<!-- -->, [getPersonalLibraryUuid](./LIB_LibrariesList.md)<!-- -->, [getProjectLibraryUuid](./LIB_LibrariesList.md)<!-- -->, and [getFavoriteLibraryUuid](./LIB_LibrariesList.md) APIs
 
+## Example
+
+```javascript
+// 1. 获取所有库的列表
+const libraries = await eda.lib_LibrariesList.getAllLibrariesList();
+
+// 2. 输出库数量及每个库的名称、UUID
+console.log('count:', libraries.length);
+libraries.forEach((lib, i) => {
+	console.log(`[${i}] name:`, lib.name, 'uuid:', lib.uuid);
+});
+```
+
 ### getfavoritelibraryuuid
 
 # LIB\_LibrariesList.getFavoriteLibraryUuid() method
@@ -278,3 +291,39 @@ Library UUID
 ## Remarks
 
 Note: This API is only valid for extensions. Calling it in a standalone script environment will always `throw Error`
+
+## Example
+
+```javascript
+// 1. 实现外部库的符号数据回调（真实场景中在此对接自己的数据源）
+const symbolFunctions = {
+	// 分类树：库面板左侧的分类目录
+	getClassificationTree: async () => [
+		{ name: '电阻', uuid: 'resistor' },
+		{ name: '电容', uuid: 'capacitor' }
+	],
+	// 列表搜索：响应用户的关键字搜索与分页，返回分页结构
+	getList: async (props) => {
+		const all = [{ uuid: 'demo_0402', title: '示例符号 0402' }];
+		return {
+			count: all.length,
+			lists: all,
+			page: props.page || 1,
+			pageSize: props.pageSize || 10,
+			totalPage: 1
+		};
+	},
+	// 详情：用户选中条目后获取完整信息
+	getDetail: async (uuid) => {
+		return { uuid, title: '示例符号 0402' };
+	}
+};
+
+// 2. 以指定标题注册外部库，挂载符号类型资源
+const libUuid = await eda.lib_LibrariesList.registerExtendLibrary('嘉立创示例_外部库', {
+	symbol: symbolFunctions
+});
+
+// 3. 输出注册结果，库面板中即可看到「嘉立创示例_外部库」
+console.log('libUuid:', libUuid);
+```

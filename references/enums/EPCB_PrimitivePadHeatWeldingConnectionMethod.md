@@ -33,6 +33,8 @@ DIRECT\_CONNECTED
 
 </td><td>
 
+直连
+
 </td></tr>
 <tr><td>
 
@@ -44,6 +46,8 @@ DIVERGENT
 
 </td><td>
 
+发散
+
 </td></tr>
 <tr><td>
 
@@ -54,6 +58,8 @@ NON\_CONNECTED
 `'Non-connected'`
 
 </td><td>
+
+无连接
 
 </td></tr>
 </tbody></table>

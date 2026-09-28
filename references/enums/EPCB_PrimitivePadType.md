@@ -33,6 +33,8 @@ MARK\_POINT
 
 </td><td>
 
+标识点
+
 </td></tr>
 <tr><td>
 
@@ -44,6 +46,8 @@ NORMAL
 
 </td><td>
 
+焊盘
+
 </td></tr>
 <tr><td>
 
@@ -54,6 +58,8 @@ TEST
 `1`
 
 </td><td>
+
+测试点
 
 </td></tr>
 </tbody></table>

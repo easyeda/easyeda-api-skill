@@ -44,6 +44,21 @@ _(Optional)_ Background color. Accepts any CSS color value
 </td></tr>
 <tr><td>
 
+[backgroundImage?](./StyleProps.md)
+
+</td><td>
+
+</td><td>
+
+string
+
+</td><td>
+
+_(Optional)_ CSS background-image（如 url(data:...)棋盘格背景）
+
+</td></tr>
+<tr><td>
+
 [borderColor?](./StyleProps.md)
 
 </td><td>
@@ -55,6 +70,21 @@ string
 </td><td>
 
 _(Optional)_ Border color. Only takes effect when borderWidth &gt; 0
+
+</td></tr>
+<tr><td>
+
+[borderStyle?](./StyleProps.md)
+
+</td><td>
+
+</td><td>
+
+'solid' \| 'dashed' \| 'dotted'
+
+</td><td>
+
+_(Optional)_ 边框线型，默认 solid（borderWidth<!-- -->&gt;<!-- -->0 时生效）
 
 </td></tr>
 <tr><td>
@@ -240,6 +270,18 @@ Background color. Accepts any CSS color value
 backgroundColor?: string;
 ```
 
+### backgroundimage
+
+# StyleProps.backgroundImage property
+
+CSS background-image（如 url(data:...)棋盘格背景）
+
+## Signature
+
+```typescript
+backgroundImage?: string;
+```
+
 ### bordercolor
 
 # StyleProps.borderColor property
@@ -250,6 +292,18 @@ Border color. Only takes effect when borderWidth &gt; 0
 
 ```typescript
 borderColor?: string;
+```
+
+### borderstyle
+
+# StyleProps.borderStyle property
+
+边框线型，默认 solid（borderWidth<!-- -->&gt;<!-- -->0 时生效）
+
+## Signature
+
+```typescript
+borderStyle?: 'solid' | 'dashed' | 'dotted';
 ```
 
 ### borderwidth

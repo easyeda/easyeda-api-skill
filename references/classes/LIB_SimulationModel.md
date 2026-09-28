@@ -207,6 +207,35 @@ UUID of the new simulation model in the target library
 
 ADD since EDA v3.2.167
 
+## Example
+
+```javascript
+// 1. 获取个人库 UUID，并新建一个仿真模型作为复制来源
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const sourceName = `嘉立创示例_仿真模型来源_${Date.now()}`;
+const sourceUuid = await eda.lib_SimulationModel.create(libraryUuid, {
+	modelType: 'Ngspice',
+	modelData: '* 示例电阻模型\n.model EXAMPLE_RES RES(R=1k)\n',
+	modelName: sourceName,
+});
+
+// 2. 同库复制，指定新名称避免同名冲突（分类传 [] = 不分类）
+const newName = `嘉立创示例_仿真模型副本_${Date.now()}`;
+const copiedUuid = await eda.lib_SimulationModel.copy(
+	sourceUuid,
+	libraryUuid,
+	libraryUuid,
+	[],
+	newName
+);
+
+// 创建类保留现场（副本留在个人库中供观察）
+
+console.log('sourceUuid:', sourceUuid);
+console.log('copiedUuid:', copiedUuid);
+console.log('newName:', newName);
+```
+
 ### create
 
 # LIB\_SimulationModel.create() method
@@ -308,6 +337,32 @@ Simulation model UUID
 
 ADD since EDA v3.2.167
 
+## Example
+
+```javascript
+// 1. 获取个人库 UUID
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+
+// 2. 创建 Ngspice 仿真模型（modelData 传 .model 语句文本，分类传 [] = 不分类）
+const modelName = `嘉立创示例_新仿真模型_${Date.now()}`;
+const simulationModelUuid = await eda.lib_SimulationModel.create(
+	libraryUuid,
+	{
+		modelType: 'Ngspice',
+		modelData: '* 示例电阻模型\n.model EXAMPLE_RES RES(R=1k)\n',
+		modelName,
+		modelPin: '1,2',
+	},
+	[],
+	'示例仿真模型描述'
+);
+
+// 创建类保留现场（新仿真模型留在个人库中供观察）
+
+console.log('simulationModelUuid:', simulationModelUuid);
+console.log('modelName:', modelName);
+```
+
 ### delete
 
 # LIB\_SimulationModel.delete() method
@@ -319,7 +374,7 @@ Delete the simulation model
 ## Signature
 
 ```typescript
-function delete(simulationModelUuid: string, libraryUuid: string): Promise<boolean>;
+function delete(simulationModelUuid: string, libraryUuid: string): Promise<boolean | undefined>;
 ```
 
 ## Parameters
@@ -367,13 +422,35 @@ Library UUID, you can use [LIB\_LibrariesList](./LIB_LibrariesList.md) APIs in
 
 ## Returns
 
-Promise&lt;boolean&gt;
+Promise&lt;boolean \| undefined&gt;
 
 Whether the operation is successful
 
 ## Remarks
 
 ADD since EDA v3.2.167
+
+## Example
+
+```javascript
+// 1. 获取个人库 UUID 并新建删除对象
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const simulationModelUuid = await eda.lib_SimulationModel.create(
+	libraryUuid,
+	{
+		modelType: 'Ngspice',
+		modelData: '* 示例电阻模型\n.model EXAMPLE_RES RES(R=1k)\n',
+		modelName: `嘉立创示例_待删除仿真模型_${Date.now()}`,
+	},
+	[]
+);
+
+// 2. 删除该仿真模型
+const deleted = await eda.lib_SimulationModel.delete(simulationModelUuid, libraryUuid);
+
+console.log('simulationModelUuid:', simulationModelUuid);
+console.log('deleted:', deleted);
+```
 
 ### get
 
@@ -557,6 +634,39 @@ Whether the operation is successful
 
 If you want to clear certain properties, set their values to `null` ADD since EDA v3.2.167
 
+## Example
+
+```javascript
+// 1. 获取个人库 UUID 并新建修改对象
+const libraryUuid = await eda.lib_LibrariesList.getPersonalLibraryUuid();
+const simulationModelUuid = await eda.lib_SimulationModel.create(
+	libraryUuid,
+	{
+		modelType: 'Ngspice',
+		modelData: '* 示例电阻模型\n.model EXAMPLE_RES RES(R=1k)\n',
+		modelName: `嘉立创示例_仿真模型修改前_${Date.now()}`,
+	},
+	[],
+	'修改前的描述'
+);
+
+// 2. 修改名称和描述（分类保持不变传 []）
+const newName = `嘉立创示例_仿真模型修改后_${Date.now()}`;
+const modified = await eda.lib_SimulationModel.modify(
+	simulationModelUuid,
+	libraryUuid,
+	{ modelName: newName },
+	[],
+	'修改后的描述'
+);
+
+// 修改类保留现场
+
+console.log('simulationModelUuid:', simulationModelUuid);
+console.log('modified:', modified);
+console.log('newName:', newName);
+```
+
 ### search
 
 # LIB\_SimulationModel.search() method
@@ -682,3 +792,16 @@ List of searched simulation model properties
 ## Remarks
 
 ADD since EDA v3.2.167
+
+## Example
+
+```javascript
+// 1. 按空关键字列出系统库中的仿真模型，每页 5 条，只看 Ngspice 类型（换成 '2N3904' 等关键字即为按名称过滤）
+const results = await eda.lib_SimulationModel.search('', undefined, undefined, 'Ngspice', 5, 1);
+
+// 2. 输出搜索结果
+console.log('count:', results.length);
+results.forEach((item, i) => {
+	console.log(`[${i}] name:`, item.name, 'uuid:', item.uuid, 'libraryUuid:', item.libraryUuid);
+});
+```

@@ -33,6 +33,8 @@ DASHED
 
 </td><td>
 
+短划线
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ DOT\_DASHED
 `3`
 
 </td><td>
+
+点划线
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ DOTTED
 
 </td><td>
 
+点线
+
 </td></tr>
 <tr><td>
 
@@ -65,6 +71,8 @@ SOLID
 `0`
 
 </td><td>
+
+实线
 
 </td></tr>
 </tbody></table>

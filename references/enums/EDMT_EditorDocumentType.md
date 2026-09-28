@@ -33,6 +33,8 @@ BLANK
 
 </td><td>
 
+空白页
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ FOOTPRINT
 `4`
 
 </td><td>
+
+封装
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ HOME
 
 </td><td>
 
+开始页
+
 </td></tr>
 <tr><td>
 
@@ -65,6 +71,8 @@ PANEL
 `26`
 
 </td><td>
+
+面板
 
 </td></tr>
 <tr><td>
@@ -77,6 +85,8 @@ PANEL\_3D\_PREVIEW
 
 </td><td>
 
+面板 3D 预览
+
 </td></tr>
 <tr><td>
 
@@ -87,6 +97,8 @@ PANEL\_LIBRARY
 `29`
 
 </td><td>
+
+面板库
 
 </td></tr>
 <tr><td>
@@ -99,6 +111,8 @@ PCB
 
 </td><td>
 
+PCB
+
 </td></tr>
 <tr><td>
 
@@ -109,6 +123,8 @@ PCB\_2D\_PREVIEW
 `12`
 
 </td><td>
+
+PCB 2D 预览
 
 </td></tr>
 <tr><td>
@@ -121,6 +137,8 @@ PCB\_3D\_PREVIEW
 
 </td><td>
 
+PCB 3D 预览
+
 </td></tr>
 <tr><td>
 
@@ -131,6 +149,8 @@ PROJECT
 `5`
 
 </td><td>
+
+工程
 
 </td></tr>
 <tr><td>
@@ -143,6 +163,8 @@ SCHEMATIC\_PAGE
 
 </td><td>
 
+原理图图页
+
 </td></tr>
 <tr><td>
 
@@ -153,6 +175,8 @@ SIMULATION\_SCHEMATIC\_PAGE\_NGSPICE
 `8`
 
 </td><td>
+
+仿真原理图图页：Ngspice
 
 </td></tr>
 <tr><td>
@@ -165,6 +189,8 @@ SIMULATION\_SCHEMATIC\_PAGE\_SIMULIDE
 
 </td><td>
 
+仿真原理图图页：SimulIDE
+
 </td></tr>
 <tr><td>
 
@@ -175,6 +201,8 @@ SIMULATION\_SYMBOL\_COMPONENT\_NGSPICE
 `7`
 
 </td><td>
+
+仿真元件符号：Ngspice
 
 </td></tr>
 <tr><td>
@@ -187,6 +215,8 @@ SIMULATION\_SYMBOL\_COMPONENT\_SIMULIDE
 
 </td><td>
 
+仿真元件符号：SimulIDE
+
 </td></tr>
 <tr><td>
 
@@ -197,6 +227,8 @@ SYMBOL\_CBB
 `17`
 
 </td><td>
+
+复用模块符号
 
 </td></tr>
 <tr><td>
@@ -209,6 +241,8 @@ SYMBOL\_COMPONENT
 
 </td><td>
 
+元件符号
+
 </td></tr>
 <tr><td>
 
@@ -219,6 +253,8 @@ SYMBOL\_DRAWING
 `20`
 
 </td><td>
+
+图纸符号
 
 </td></tr>
 <tr><td>
@@ -231,6 +267,8 @@ SYMBOL\_NET\_FLAG
 
 </td><td>
 
+网络标识符号
+
 </td></tr>
 <tr><td>
 
@@ -241,6 +279,8 @@ SYMBOL\_NET\_PORT
 `19`
 
 </td><td>
+
+网络端口符号
 
 </td></tr>
 <tr><td>
@@ -253,6 +293,8 @@ SYMBOL\_NON\_ELECTRICAL
 
 </td><td>
 
+无电气符号
+
 </td></tr>
 <tr><td>
 
@@ -264,6 +306,8 @@ SYMBOL\_OFF\_PAGE\_CONNECTOR\_FLAG
 
 </td><td>
 
+跨页连接标识符号
+
 </td></tr>
 <tr><td>
 
@@ -274,6 +318,8 @@ SYMBOL\_SHORT\_CIRCUIT\_FLAG
 `22`
 
 </td><td>
+
+短接标识符号
 
 </td></tr>
 </tbody></table>

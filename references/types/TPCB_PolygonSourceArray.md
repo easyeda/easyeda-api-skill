@@ -81,3 +81,5 @@ The data of a single polygon is composed of the following modes:
 - `{number}` `xy` - center point Y
 
 - `{number}` `radius` - radius
+
+- `{number}` `radius` - 半径

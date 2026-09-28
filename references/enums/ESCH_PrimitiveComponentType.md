@@ -33,6 +33,8 @@ CBB\_SYMBOL
 
 </td><td>
 
+复用模块符号
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ COMPONENT
 `'part'`
 
 </td><td>
+
+元件符号
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ DIFFERENTIAL\_PAIRS\_FLAG
 
 </td><td>
 
+差分对标识
+
 </td></tr>
 <tr><td>
 
@@ -65,6 +71,8 @@ DRAWING
 `'sheet'`
 
 </td><td>
+
+图纸
 
 </td></tr>
 <tr><td>
@@ -77,6 +85,8 @@ NET\_FLAG
 
 </td><td>
 
+网络标识
+
 </td></tr>
 <tr><td>
 
@@ -87,6 +97,8 @@ NET\_PORT
 `'netport'`
 
 </td><td>
+
+网络端口
 
 </td></tr>
 <tr><td>
@@ -99,6 +111,8 @@ NON\_ELECTRICAL\_FLAG
 
 </td><td>
 
+无电气标识
+
 </td></tr>
 <tr><td>
 
@@ -110,6 +124,8 @@ OFF\_PAGE\_CONNECTOR
 
 </td><td>
 
+跨页连接标识
+
 </td></tr>
 <tr><td>
 
@@ -120,6 +136,8 @@ SHORT\_CIRCUIT\_FLAG
 `'short_symbol'`
 
 </td><td>
+
+短接标识
 
 </td></tr>
 </tbody></table>

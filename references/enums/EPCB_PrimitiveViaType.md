@@ -33,6 +33,8 @@ BLIND
 
 </td><td>
 
+盲埋孔
+
 </td></tr>
 <tr><td>
 
@@ -44,6 +46,8 @@ SUTURE
 
 </td><td>
 
+缝合孔
+
 </td></tr>
 <tr><td>
 
@@ -54,6 +58,8 @@ VIA
 `0`
 
 </td><td>
+
+通孔
 
 </td></tr>
 </tbody></table>

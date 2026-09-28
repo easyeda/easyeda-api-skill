@@ -33,6 +33,8 @@ BLANK
 
 </td><td>
 
+新标签页
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ SELF
 `'_self'`
 
 </td><td>
+
+当前页
 
 </td></tr>
 </tbody></table>

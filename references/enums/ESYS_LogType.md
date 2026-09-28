@@ -33,6 +33,8 @@ ERROR
 
 </td><td>
 
+错误
+
 </td></tr>
 <tr><td>
 
@@ -44,16 +46,7 @@ FATAL\_ERROR
 
 </td><td>
 
-</td></tr>
-<tr><td>
-
-FIND
-
-</td><td>
-
-`'find'`
-
-</td><td>
+致命错误
 
 </td></tr>
 <tr><td>
@@ -66,27 +59,7 @@ INFO
 
 </td><td>
 
-</td></tr>
-<tr><td>
-
-OPEN\_PROJECT
-
-</td><td>
-
-`'openProject'`
-
-</td><td>
-
-</td></tr>
-<tr><td>
-
-REPLACE
-
-</td><td>
-
-`'replace'`
-
-</td><td>
+信息
 
 </td></tr>
 <tr><td>
@@ -98,6 +71,8 @@ WARNING
 `'warn'`
 
 </td><td>
+
+警告
 
 </td></tr>
 </tbody></table>

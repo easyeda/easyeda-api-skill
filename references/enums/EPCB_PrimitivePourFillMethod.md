@@ -33,6 +33,8 @@ GRID
 
 </td><td>
 
+90 度网格
+
 </td></tr>
 <tr><td>
 
@@ -44,6 +46,8 @@ GRID45
 
 </td><td>
 
+45 度网格
+
 </td></tr>
 <tr><td>
 
@@ -54,6 +58,8 @@ SOLID
 `'solid'`
 
 </td><td>
+
+实心填充
 
 </td></tr>
 </tbody></table>

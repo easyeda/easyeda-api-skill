@@ -33,6 +33,8 @@ BLANK
 
 </td><td>
 
+空白页
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ FOOTPRINT
 `'footprint'`
 
 </td><td>
+
+封装
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ HOME
 
 </td><td>
 
+主页
+
 </td></tr>
 <tr><td>
 
@@ -65,6 +71,8 @@ PANEL
 `'panel'`
 
 </td><td>
+
+面板
 
 </td></tr>
 <tr><td>
@@ -77,6 +85,8 @@ PANEL\_LIBRARY
 
 </td><td>
 
+面板库
+
 </td></tr>
 <tr><td>
 
@@ -87,6 +97,8 @@ PANEL\_VIEW
 `'panelView'`
 
 </td><td>
+
+面板预览
 
 </td></tr>
 <tr><td>
@@ -99,6 +111,8 @@ PCB
 
 </td><td>
 
+PCB
+
 </td></tr>
 <tr><td>
 
@@ -109,6 +123,8 @@ PCB\_VIEW
 `'pcbView'`
 
 </td><td>
+
+PCB 预览（包括 2D、3D 预览）
 
 </td></tr>
 <tr><td>
@@ -121,6 +137,8 @@ SCHEMATIC
 
 </td><td>
 
+原理图
+
 </td></tr>
 <tr><td>
 
@@ -131,6 +149,8 @@ SIMULATION\_SCHEMATIC\_NGSPICE
 `'simulationSchematicNgspice'`
 
 </td><td>
+
+仿真原理图：Ngspice
 
 </td></tr>
 <tr><td>
@@ -143,6 +163,8 @@ SIMULATION\_SCHEMATIC\_SIMULIDE
 
 </td><td>
 
+仿真原理图：SimulIDE
+
 </td></tr>
 <tr><td>
 
@@ -153,6 +175,8 @@ SYMBOL
 `'symbol'`
 
 </td><td>
+
+符号（包括 CBB 符号）
 
 </td></tr>
 </tbody></table>

@@ -75,7 +75,7 @@ Discretize a single polygon into point data
 ## Signature
 
 ```typescript
-function discretize(options?: IPCB_DiscretizeOptions): Array<IPCB_DiscretizedPoint>;
+function discretize(options?: IPCB_DiscretizeOptions): Promise<Array<IPCB_DiscretizedPoint> | null>;
 ```
 
 ## Parameters
@@ -110,7 +110,7 @@ _(Optional)_ Discretization options
 
 ## Returns
 
-Array&lt;[IPCB\_DiscretizedPoint](../interfaces/IPCB_DiscretizedPoint.md)<!-- -->&gt;
+Promise&lt;Array&lt;[IPCB\_DiscretizedPoint](../interfaces/IPCB_DiscretizedPoint.md)<!-- -->&gt; \| null&gt;
 
 Discretized point data
 
@@ -155,3 +155,21 @@ function getSource(): TPCB_PolygonSourceArray;
 [TPCB\_PolygonSourceArray](../types/TPCB_PolygonSourceArray.md)
 
 Single polygon data
+
+## Example
+
+```javascript
+// 1. 用矩形模式（R x y width height rot round）创建一块单多边形
+const rectPolygon = eda.pcb_MathPolygon.createPolygon(['R', 1000, 1000, 500, 300, 0, 0]);
+
+// 2. 再用圆形模式（CIRCLE x y radius）创建一块，展示不同模式的源数据形态
+const circlePolygon = eda.pcb_MathPolygon.createPolygon(['CIRCLE', 2000, 1150, 100]);
+
+// 3. 读取源数组：矩形是 "R" 打头的参数序列，圆形是 "CIRCLE" 打头
+console.log('rectSource:', JSON.stringify(rectPolygon.getSource()));
+console.log('circleSource:', JSON.stringify(circlePolygon.getSource()));
+
+// 4. 源数组可以直接喂回 createPolygon 复制出一块等价的多边形（数据回环）
+const copied = eda.pcb_MathPolygon.createPolygon(rectPolygon.getSource());
+console.log('roundTripMatch:', JSON.stringify(copied.getSource()) === JSON.stringify(rectPolygon.getSource()));
+```

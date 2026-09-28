@@ -33,6 +33,8 @@ PDF
 
 </td><td>
 
+PDF 文档
+
 </td></tr>
 <tr><td>
 
@@ -44,6 +46,8 @@ PNG
 
 </td><td>
 
+PNG 位图
+
 </td></tr>
 <tr><td>
 
@@ -54,6 +58,8 @@ SVG
 `'SVG'`
 
 </td><td>
+
+SVG 矢量图
 
 </td></tr>
 </tbody></table>

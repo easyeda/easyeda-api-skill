@@ -33,6 +33,21 @@ BLUR
 
 </td><td>
 
+失去焦点
+
+</td></tr>
+<tr><td>
+
+DROP
+
+</td><td>
+
+`'drop'`
+
+</td><td>
+
+文件拖入浏览器区域
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +58,8 @@ FOCUS
 `'focus'`
 
 </td><td>
+
+获取焦点
 
 </td></tr>
 </tbody></table>

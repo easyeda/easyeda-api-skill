@@ -33,6 +33,8 @@ CLOSE
 
 </td><td>
 
+关闭
+
 </td></tr>
 <tr><td>
 
@@ -44,6 +46,8 @@ OPEN
 
 </td><td>
 
+打开
+
 </td></tr>
 <tr><td>
 
@@ -54,6 +58,8 @@ TOGGLE
 `'toggle'`
 
 </td><td>
+
+切换
 
 </td></tr>
 </tbody></table>

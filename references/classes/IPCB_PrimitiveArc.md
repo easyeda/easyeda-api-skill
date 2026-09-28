@@ -384,6 +384,31 @@ Promise&lt;[IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md)<!-- -->&gt;
 
 Arc line primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆弧重合
+const x = 42000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一段测试圆弧
+const arc = await eda.pcb_PrimitiveArc.create('', 1, x, y, x + 500, y + 300, 90, 10, 1, false);
+
+// 3. 切换异步模式，连续累计两处修改（线宽 + 换层）
+const asyncArc = arc.toAsync();
+asyncArc.setState_LineWidth(24);
+asyncArc.setState_Layer(2);
+
+// 4. 一次性提交到画布
+await asyncArc.done();
+
+// 5. 从画布重新读取，确认两处修改都已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveArc.get(arc.getState_PrimitiveId());
+
+console.log('lineWidth:', 10, '→', refetched.getState_LineWidth());
+console.log('layer:', 1, '→', refetched.getState_Layer());
+```
+
 ### getadjacentprimitives
 
 # IPCB\_PrimitiveArc.getAdjacentPrimitives() method
@@ -409,6 +434,28 @@ Adjacent line, via, and arc-line primitive objects
 ## Remarks
 
 It will get the line, via, and arc-line primitive objects directly connected to the arc line
+
+## Example
+
+```javascript
+// 1. 创建一条直线走线，终点落在 (7500, 7000)
+const line = await eda.pcb_PrimitiveLine.create('', 1, 7000, 7000, 7500, 7000, 10);
+
+// 2. 创建一段圆弧，起点与直线终点重合，两段构成一整段导线
+const arc = await eda.pcb_PrimitiveArc.create('', 1, 7500, 7000, 7800, 7300, 90, 10, 1, false);
+
+// 3. 获取与圆弧直接相连的图元，并读出各自的类型
+const adjacent = await arc.getAdjacentPrimitives();
+
+// 4. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveLine.delete([line]);
+await eda.pcb_PrimitiveArc.delete([arc]);
+
+console.log('adjacent count:', adjacent.length);
+adjacent.forEach((p, i) => {
+	console.log(`adjacent[${i}] type:`, p.getState_PrimitiveType());
+});
+```
 
 ### getentiretrack
 
@@ -459,6 +506,32 @@ Whether to include the vias at both ends of the wire
 Promise&lt;Array&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md) \| [IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md)<!-- -->&gt;&gt;
 
 All lines and arc lines in the entire wire
+
+## Example
+
+```javascript
+// 1. 创建一条直线走线，终点落在 (7500, 7000)
+const line = await eda.pcb_PrimitiveLine.create('', 1, 7000, 7000, 7500, 7000, 10);
+
+// 2. 创建一段圆弧，起点与直线终点重合，两段构成一整段导线
+const arc = await eda.pcb_PrimitiveArc.create('', 1, 7500, 7000, 7800, 7300, 90, 10, 1, false);
+
+// 3. 只取导线内的直线和圆弧
+const trackOnly = await arc.getEntireTrack(false);
+
+// 4. 连两端过孔一起取（本例两端没有过孔，数量不变）
+const trackWithVias = await arc.getEntireTrack(true);
+
+// 5. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveLine.delete([line]);
+await eda.pcb_PrimitiveArc.delete([arc]);
+
+console.log('track(false) count:', trackOnly.length);
+trackOnly.forEach((p, i) => {
+	console.log(`track(false)[${i}] type:`, p.getState_PrimitiveType());
+});
+console.log('track(true) count:', trackWithVias.length);
+```
 
 ### getentiretrack_1
 
@@ -530,6 +603,21 @@ number
 
 Arc angle
 
+## Example
+
+```javascript
+// 1. 创建一段 90° 测试圆弧（PCB 坐标单位 mil）
+const arc = await eda.pcb_PrimitiveArc.create('', 1, 1000, 1000, 1500, 1300, 90, 10, 1, false);
+
+// 2. 读取圆弧角度
+const arcAngle = arc.getState_ArcAngle();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveArc.delete([arc.getState_PrimitiveId()]);
+
+console.log('arcAngle:', arcAngle);
+```
+
 ### getstate_endx
 
 # IPCB\_PrimitiveArc.getState\_EndX() method
@@ -547,6 +635,21 @@ function getState_EndX(): number;
 number
 
 End position X
+
+## Example
+
+```javascript
+// 1. 创建一段测试圆弧，终点 (1500, 1300)（PCB 坐标单位 mil）
+const arc = await eda.pcb_PrimitiveArc.create('', 1, 1000, 1000, 1500, 1300, 90, 10, 1, false);
+
+// 2. 读取终止位置 X
+const endX = arc.getState_EndX();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveArc.delete([arc.getState_PrimitiveId()]);
+
+console.log('endX:', endX);
+```
 
 ### getstate_endy
 
@@ -566,6 +669,21 @@ number
 
 End position Y
 
+## Example
+
+```javascript
+// 1. 创建一段测试圆弧，终点 (1500, 1300)（PCB 坐标单位 mil）
+const arc = await eda.pcb_PrimitiveArc.create('', 1, 1000, 1000, 1500, 1300, 90, 10, 1, false);
+
+// 2. 读取终止位置 Y
+const endY = arc.getState_EndY();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveArc.delete([arc.getState_PrimitiveId()]);
+
+console.log('endY:', endY);
+```
+
 ### getstate_interactivemode
 
 # IPCB\_PrimitiveArc.getState\_InteractiveMode() method
@@ -583,6 +701,21 @@ function getState_InteractiveMode(): EPCB_PrimitiveArcInteractiveMode;
 [EPCB\_PrimitiveArcInteractiveMode](../enums/EPCB_PrimitiveArcInteractiveMode.md)
 
 Interaction mode
+
+## Example
+
+```javascript
+// 1. 创建一段两点圆弧（交互模式 1）的测试圆弧
+const arc = await eda.pcb_PrimitiveArc.create('', 1, 1000, 1000, 1500, 1300, 90, 10, 1, false);
+
+// 2. 读取交互模式
+const interactiveMode = arc.getState_InteractiveMode();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveArc.delete([arc.getState_PrimitiveId()]);
+
+console.log('interactiveMode:', interactiveMode);
+```
 
 ### getstate_layer
 
@@ -602,6 +735,21 @@ function getState_Layer(): TPCB_LayersOfLine;
 
 Layer
 
+## Example
+
+```javascript
+// 1. 创建一段顶层（1）测试圆弧
+const arc = await eda.pcb_PrimitiveArc.create('', 1, 1000, 1000, 1500, 1300, 90, 10, 1, false);
+
+// 2. 读取所在层
+const layer = arc.getState_Layer();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveArc.delete([arc.getState_PrimitiveId()]);
+
+console.log('layer:', layer);
+```
+
 ### getstate_linewidth
 
 # IPCB\_PrimitiveArc.getState\_LineWidth() method
@@ -619,6 +767,21 @@ function getState_LineWidth(): number;
 number
 
 Line width
+
+## Example
+
+```javascript
+// 1. 创建一段 10mil 线宽的测试圆弧
+const arc = await eda.pcb_PrimitiveArc.create('', 1, 1000, 1000, 1500, 1300, 90, 10, 1, false);
+
+// 2. 读取线宽
+const lineWidth = arc.getState_LineWidth();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveArc.delete([arc.getState_PrimitiveId()]);
+
+console.log('lineWidth:', lineWidth);
+```
 
 ### getstate_net
 
@@ -638,6 +801,21 @@ string
 
 Net name
 
+## Example
+
+```javascript
+// 1. 创建一段指定网络的测试圆弧
+const arc = await eda.pcb_PrimitiveArc.create('嘉立创示例_NET', 1, 1000, 1000, 1500, 1300, 90, 10, 1, false);
+
+// 2. 读取网络名称
+const net = arc.getState_Net();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveArc.delete([arc.getState_PrimitiveId()]);
+
+console.log('net:', net);
+```
+
 ### getstate_primitiveid
 
 # IPCB\_PrimitiveArc.getState\_PrimitiveId() method
@@ -655,6 +833,25 @@ function getState_PrimitiveId(): string;
 string
 
 Primitive ID
+
+## Example
+
+```javascript
+// 1. 创建一段测试圆弧
+const arc = await eda.pcb_PrimitiveArc.create('', 1, 1000, 1000, 1500, 1300, 90, 10, 1, false);
+
+// 2. 读取图元 ID
+const primitiveId = arc.getState_PrimitiveId();
+
+// 3. 用该 ID 从画布重新取回圆弧，验证 ID 有效
+const refetched = await eda.pcb_PrimitiveArc.get(primitiveId);
+
+// 4. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveArc.delete([primitiveId]);
+
+console.log('primitiveId:', primitiveId);
+console.log('refetched type:', refetched.getState_PrimitiveType());
+```
 
 ### getstate_primitivelock
 
@@ -674,6 +871,21 @@ boolean
 
 Whether it is locked
 
+## Example
+
+```javascript
+// 1. 创建一段测试圆弧（默认不锁定）
+const arc = await eda.pcb_PrimitiveArc.create('', 1, 1000, 1000, 1500, 1300, 90, 10, 1, false);
+
+// 2. 读取锁定状态
+const locked = arc.getState_PrimitiveLock();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveArc.delete([arc.getState_PrimitiveId()]);
+
+console.log('locked:', locked);
+```
+
 ### getstate_primitivetype
 
 # IPCB\_PrimitiveArc.getState\_PrimitiveType() method
@@ -691,6 +903,21 @@ function getState_PrimitiveType(): EPCB_PrimitiveType;
 [EPCB\_PrimitiveType](../enums/EPCB_PrimitiveType.md)
 
 Primitive type
+
+## Example
+
+```javascript
+// 1. 创建一段测试圆弧
+const arc = await eda.pcb_PrimitiveArc.create('', 1, 1000, 1000, 1500, 1300, 90, 10, 1, false);
+
+// 2. 读取图元类型
+const type = arc.getState_PrimitiveType();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveArc.delete([arc.getState_PrimitiveId()]);
+
+console.log('type:', type);
+```
 
 ### getstate_startx
 
@@ -710,6 +937,21 @@ number
 
 Start position X
 
+## Example
+
+```javascript
+// 1. 创建一段测试圆弧，起点 (1000, 1000)（PCB 坐标单位 mil）
+const arc = await eda.pcb_PrimitiveArc.create('', 1, 1000, 1000, 1500, 1300, 90, 10, 1, false);
+
+// 2. 读取起始位置 X
+const startX = arc.getState_StartX();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveArc.delete([arc.getState_PrimitiveId()]);
+
+console.log('startX:', startX);
+```
+
 ### getstate_starty
 
 # IPCB\_PrimitiveArc.getState\_StartY() method
@@ -728,6 +970,21 @@ number
 
 Start position Y
 
+## Example
+
+```javascript
+// 1. 创建一段测试圆弧，起点 (1000, 1000)（PCB 坐标单位 mil）
+const arc = await eda.pcb_PrimitiveArc.create('', 1, 1000, 1000, 1500, 1300, 90, 10, 1, false);
+
+// 2. 读取起始位置 Y
+const startY = arc.getState_StartY();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveArc.delete([arc.getState_PrimitiveId()]);
+
+console.log('startY:', startY);
+```
+
 ### isasync
 
 # IPCB\_PrimitiveArc.isAsync() method
@@ -745,6 +1002,24 @@ function isAsync(): boolean;
 boolean
 
 Whether Is async primitive
+
+## Example
+
+```javascript
+// 1. 创建一段测试圆弧，创建后默认处于异步模式
+const arc = await eda.pcb_PrimitiveArc.create('', 1, 1000, 1000, 1500, 1300, 90, 10, 1, false);
+const asyncOnCreate = arc.isAsync();
+
+// 2. 切换到同步模式再查询一次，对比两种模式
+arc.toSync();
+const asyncAfterToSync = arc.isAsync();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveArc.delete([arc.getState_PrimitiveId()]);
+
+console.log('isAsync on create:', asyncOnCreate);
+console.log('isAsync after toSync:', asyncAfterToSync);
+```
 
 ### reset
 
@@ -765,6 +1040,29 @@ function reset(): Promise<IPCB_PrimitiveArc>;
 Promise&lt;[IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md)<!-- -->&gt;
 
 Arc line primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆弧重合
+const x = 46000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一段 10mil 线宽的测试圆弧
+const arc = await eda.pcb_PrimitiveArc.create('', 1, x, y, x + 500, y + 300, 90, 10, 1, false);
+
+// 3. 切换异步模式，累计一处未提交的线宽修改（10 → 99）
+const asyncArc = arc.toAsync();
+asyncArc.setState_LineWidth(99);
+
+// 4. 重置：丢弃未提交的修改，回到画布当前状态
+await asyncArc.reset();
+
+// 5. 从画布重新读取，线宽仍是 10（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveArc.get(arc.getState_PrimitiveId());
+
+console.log('lineWidth after reset:', refetched.getState_LineWidth());
+```
 
 ### setstate_arcangle
 
@@ -816,6 +1114,31 @@ Arc angle
 
 Arc line primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆弧重合
+const x = 2000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一段 90° 测试圆弧（PCB 坐标单位 mil，跨度 500×300）
+const arc = await eda.pcb_PrimitiveArc.create('', 1, x, y, x + 500, y + 300, 90, 10, 1, false);
+
+// 3. 读取修改前的角度
+const before = arc.getState_ArcAngle();
+
+// 4. 切换异步模式并修改角度（90° → 45°）
+const asyncArc = arc.toAsync();
+asyncArc.setState_ArcAngle(45);
+await asyncArc.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveArc.get(arc.getState_PrimitiveId());
+const after = refetched.getState_ArcAngle();
+
+console.log('arcAngle:', before, '→', after);
+```
+
 ### setstate_endx
 
 # IPCB\_PrimitiveArc.setState\_EndX() method
@@ -866,6 +1189,31 @@ End position X
 
 Arc line primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆弧重合
+const x = 14000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一段测试圆弧，终点 (x+500, y+300)
+const arc = await eda.pcb_PrimitiveArc.create('', 1, x, y, x + 500, y + 300, 90, 10, 1, false);
+
+// 3. 读取修改前的终点 X
+const before = arc.getState_EndX();
+
+// 4. 切换异步模式并平移终点 X（右移 300mil）
+const asyncArc = arc.toAsync();
+asyncArc.setState_EndX(x + 800);
+await asyncArc.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveArc.get(arc.getState_PrimitiveId());
+const after = refetched.getState_EndX();
+
+console.log('endX:', before, '→', after);
+```
+
 ### setstate_endy
 
 # IPCB\_PrimitiveArc.setState\_EndY() method
@@ -915,6 +1263,31 @@ End position Y
 [IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md)
 
 Arc line primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆弧重合
+const x = 18000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一段测试圆弧，终点 (x+500, y+300)
+const arc = await eda.pcb_PrimitiveArc.create('', 1, x, y, x + 500, y + 300, 90, 10, 1, false);
+
+// 3. 读取修改前的终点 Y
+const before = arc.getState_EndY();
+
+// 4. 切换异步模式并平移终点 Y（上移 300mil）
+const asyncArc = arc.toAsync();
+asyncArc.setState_EndY(y + 600);
+await asyncArc.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveArc.get(arc.getState_PrimitiveId());
+const after = refetched.getState_EndY();
+
+console.log('endY:', before, '→', after);
+```
 
 ### setstate_interactivemode
 
@@ -968,6 +1341,31 @@ Interaction mode
 
 Arc line primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆弧重合
+const x = 38000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一段两点圆弧（交互模式 1）测试圆弧
+const arc = await eda.pcb_PrimitiveArc.create('', 1, x, y, x + 500, y + 300, 90, 10, 1, false);
+
+// 3. 读取修改前的交互模式
+const before = arc.getState_InteractiveMode();
+
+// 4. 切换异步模式并改为中心圆弧（1 → 2）
+const asyncArc = arc.toAsync();
+asyncArc.setState_InteractiveMode(2);
+await asyncArc.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveArc.get(arc.getState_PrimitiveId());
+const after = refetched.getState_InteractiveMode();
+
+console.log('interactiveMode:', before, '→', after);
+```
+
 ### setstate_layer
 
 # IPCB\_PrimitiveArc.setState\_Layer() method
@@ -1017,6 +1415,31 @@ Layer
 [IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md)
 
 Arc line primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆弧重合
+const x = 22000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一段顶层（1）测试圆弧
+const arc = await eda.pcb_PrimitiveArc.create('', 1, x, y, x + 500, y + 300, 90, 10, 1, false);
+
+// 3. 读取修改前的层
+const before = arc.getState_Layer();
+
+// 4. 切换异步模式并换层（顶层 1 → 底层 2）
+const asyncArc = arc.toAsync();
+asyncArc.setState_Layer(2);
+await asyncArc.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveArc.get(arc.getState_PrimitiveId());
+const after = refetched.getState_Layer();
+
+console.log('layer:', before, '→', after);
+```
 
 ### setstate_linewidth
 
@@ -1068,6 +1491,31 @@ Line width
 
 Arc line primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆弧重合
+const x = 26000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一段 10mil 线宽的测试圆弧
+const arc = await eda.pcb_PrimitiveArc.create('', 1, x, y, x + 500, y + 300, 90, 10, 1, false);
+
+// 3. 读取修改前的线宽
+const before = arc.getState_LineWidth();
+
+// 4. 切换异步模式并加宽（10 → 24）
+const asyncArc = arc.toAsync();
+asyncArc.setState_LineWidth(24);
+await asyncArc.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveArc.get(arc.getState_PrimitiveId());
+const after = refetched.getState_LineWidth();
+
+console.log('lineWidth:', before, '→', after);
+```
+
 ### setstate_net
 
 # IPCB\_PrimitiveArc.setState\_Net() method
@@ -1117,6 +1565,31 @@ Net name
 [IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md)
 
 Arc line primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆弧重合
+const x = 30000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一段无网络的测试圆弧
+const arc = await eda.pcb_PrimitiveArc.create('', 1, x, y, x + 500, y + 300, 90, 10, 1, false);
+
+// 3. 读取修改前的网络名称
+const before = arc.getState_Net();
+
+// 4. 切换异步模式并指定网络（'' → '嘉立创示例_NET'）
+const asyncArc = arc.toAsync();
+asyncArc.setState_Net('嘉立创示例_NET');
+await asyncArc.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveArc.get(arc.getState_PrimitiveId());
+const after = refetched.getState_Net();
+
+console.log('net:', before, '→', after);
+```
 
 ### setstate_primitivelock
 
@@ -1168,6 +1641,31 @@ Whether it is locked
 
 Arc line primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆弧重合
+const x = 34000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一段测试圆弧（默认不锁定）
+const arc = await eda.pcb_PrimitiveArc.create('', 1, x, y, x + 500, y + 300, 90, 10, 1, false);
+
+// 3. 读取修改前的锁定状态
+const before = arc.getState_PrimitiveLock();
+
+// 4. 切换异步模式并锁定（false → true）
+const asyncArc = arc.toAsync();
+asyncArc.setState_PrimitiveLock(true);
+await asyncArc.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveArc.get(arc.getState_PrimitiveId());
+const after = refetched.getState_PrimitiveLock();
+
+console.log('locked:', before, '→', after);
+```
+
 ### setstate_startx
 
 # IPCB\_PrimitiveArc.setState\_StartX() method
@@ -1217,6 +1715,31 @@ Start position X
 [IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md)
 
 Arc line primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆弧重合
+const x = 6000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一段测试圆弧，起点 (x, y)
+const arc = await eda.pcb_PrimitiveArc.create('', 1, x, y, x + 500, y + 300, 90, 10, 1, false);
+
+// 3. 读取修改前的起点 X
+const before = arc.getState_StartX();
+
+// 4. 切换异步模式并平移起点 X（右移 300mil）
+const asyncArc = arc.toAsync();
+asyncArc.setState_StartX(x + 300);
+await asyncArc.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveArc.get(arc.getState_PrimitiveId());
+const after = refetched.getState_StartX();
+
+console.log('startX:', before, '→', after);
+```
 
 ### setstate_starty
 
@@ -1268,6 +1791,31 @@ Start position Y
 
 Arc line primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆弧重合
+const x = 10000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一段测试圆弧，起点 (x, y)
+const arc = await eda.pcb_PrimitiveArc.create('', 1, x, y, x + 500, y + 300, 90, 10, 1, false);
+
+// 3. 读取修改前的起点 Y
+const before = arc.getState_StartY();
+
+// 4. 切换异步模式并平移起点 Y（上移 300mil）
+const asyncArc = arc.toAsync();
+asyncArc.setState_StartY(y + 300);
+await asyncArc.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveArc.get(arc.getState_PrimitiveId());
+const after = refetched.getState_StartY();
+
+console.log('startY:', before, '→', after);
+```
+
 ### toasync
 
 # IPCB\_PrimitiveArc.toAsync() method
@@ -1286,6 +1834,31 @@ function toAsync(): IPCB_PrimitiveArc;
 
 Arc line primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆弧重合
+const x = 52000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一段测试圆弧，切换到同步模式，让模式变化可观察
+const arc = await eda.pcb_PrimitiveArc.create('', 1, x, y, x + 500, y + 300, 90, 10, 1, false);
+arc.toSync();
+
+// 3. 转换为异步图元
+const asyncArc = arc.toAsync();
+
+// 4. 异步模式下累计修改并提交
+asyncArc.setState_LineWidth(24);
+await asyncArc.done();
+
+// 5. 从画布重新读取，确认提交生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveArc.get(arc.getState_PrimitiveId());
+
+console.log('isAsync after toAsync:', arc.isAsync());
+console.log('lineWidth:', 10, '→', refetched.getState_LineWidth());
+```
+
 ### tosync
 
 # IPCB\_PrimitiveArc.toSync() method
@@ -1303,3 +1876,26 @@ function toSync(): IPCB_PrimitiveArc;
 [IPCB\_PrimitiveArc](./IPCB_PrimitiveArc.md)
 
 Arc line primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试圆弧重合
+const x = 56000 + (Math.floor(Math.random() * 100000));
+const y = 2000 + (Math.floor(Math.random() * 100000));
+
+// 2. 创建一段测试圆弧
+const arc = await eda.pcb_PrimitiveArc.create('', 1, x, y, x + 500, y + 300, 90, 10, 1, false);
+
+// 3. 转换为同步图元
+const syncArc = arc.toSync();
+
+// 4. 同步模式下修改线宽，立即生效（无需 done()）
+syncArc.setState_LineWidth(40);
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveArc.get(arc.getState_PrimitiveId());
+
+console.log('isSync after toSync:', !syncArc.isAsync());
+console.log('lineWidth:', 10, '→', refetched.getState_LineWidth());
+```

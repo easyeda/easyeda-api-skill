@@ -33,6 +33,8 @@ FPC
 
 </td><td>
 
+FPC 软板
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ NORMAL
 `1`
 
 </td><td>
+
+普通板材
 
 </td></tr>
 </tbody></table>

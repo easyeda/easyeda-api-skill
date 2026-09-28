@@ -33,6 +33,8 @@ NGSPICE
 
 </td><td>
 
+Ngspice
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ SIMULIDE
 `'SimulIDE'`
 
 </td><td>
+
+SimulIDE
 
 </td></tr>
 </tbody></table>

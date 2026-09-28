@@ -33,6 +33,8 @@ USE\_SOURCE\_FILE\_STYLE
 
 </td><td>
 
+使用源文件样式
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ USE\_SYSTEM\_THEME
 `'system'`
 
 </td><td>
+
+使用系统主题
 
 </td></tr>
 </tbody></table>

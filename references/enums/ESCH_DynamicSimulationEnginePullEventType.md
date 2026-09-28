@@ -33,6 +33,8 @@ COMPONENT\_UPDATE
 
 </td><td>
 
+更新元件属性
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ SESSION\_PAUSE
 `'SESSION_PAUSE'`
 
 </td><td>
+
+暂停
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ SESSION\_RESUME
 
 </td><td>
 
+恢复
+
 </td></tr>
 <tr><td>
 
@@ -65,6 +71,8 @@ SESSION\_START
 `'SESSION_START'`
 
 </td><td>
+
+开始动态仿真会话
 
 </td></tr>
 <tr><td>
@@ -77,6 +85,8 @@ SESSION\_STATE\_QUERY
 
 </td><td>
 
+查询动态仿真状态
+
 </td></tr>
 <tr><td>
 
@@ -88,6 +98,8 @@ SESSION\_STOP
 
 </td><td>
 
+停止并释放资源
+
 </td></tr>
 <tr><td>
 
@@ -98,6 +110,8 @@ SPEED\_SET
 `'SPEED_SET'`
 
 </td><td>
+
+设置速度
 
 </td></tr>
 </tbody></table>

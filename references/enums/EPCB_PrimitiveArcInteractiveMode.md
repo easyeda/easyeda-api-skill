@@ -33,6 +33,8 @@ CENTER\_ARC
 
 </td><td>
 
+中心圆弧交互
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ TWO\_POINT\_ARC
 `1`
 
 </td><td>
+
+两点圆弧交互
 
 </td></tr>
 </tbody></table>

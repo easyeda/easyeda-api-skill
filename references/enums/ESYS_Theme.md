@@ -33,6 +33,8 @@ DARK
 
 </td><td>
 
+深色
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ LIGHT
 `'light'`
 
 </td><td>
+
+浅色
 
 </td></tr>
 </tbody></table>

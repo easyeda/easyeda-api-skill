@@ -123,3 +123,33 @@ function done(): Promise<ISCH_PrimitiveComponentPin>;
 Promise&lt;[ISCH\_PrimitiveComponentPin](./ISCH_PrimitiveComponentPin.md)<!-- -->&gt;
 
 Device pin primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件并取其引脚
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const pins = await comp.getAllPins();
+const before = pins[0].getState_PinNumber();
+
+// 3. 异步模式改两个引脚的编号（此时画布尚未变化）
+const pin1 = pins[0].toAsync();
+pin1.setState_PinNumber('A1');
+const pin2 = pins[1].toAsync();
+pin2.setState_PinNumber('A2');
+
+// 4. 逐个提交，修改写入画布（保留现场供观察）
+await pin1.done();
+await pin2.done();
+
+// 5. 从画布重新取引脚，确认两脚编号都已更新
+const pinsAfter = await comp.getAllPins();
+
+console.log('pin1:', before, '→', pinsAfter[0].getState_PinNumber());
+console.log('pin2:', pinsAfter[1].getState_PinNumber());
+```

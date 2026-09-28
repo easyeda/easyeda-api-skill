@@ -1,5 +1,9 @@
 # EPCB\_DocumentRatlineCalculatingActiveStatus enum
 
+> Warning: This API is now obsolete.
+>
+> since EDA v4.2
+
 Document ratline calculation function status
 
 ## Signature
@@ -33,6 +37,8 @@ ACTIVE
 
 </td><td>
 
+启用
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +49,8 @@ INACTIVE
 `'inactive'`
 
 </td><td>
+
+停用
 
 </td></tr>
 </tbody></table>

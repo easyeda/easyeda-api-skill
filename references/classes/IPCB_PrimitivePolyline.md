@@ -272,6 +272,24 @@ Promise&lt;[IPCB\_PrimitiveFill](./IPCB_PrimitiveFill.md)<!-- -->&gt;
 
 Fill primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一条矩形闭合折线
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+
+// 3. 转换为填充图元（原折线保留，保留现场供观察）
+const fill = await polyline.convertToFill();
+
+console.log('primitiveType:', `${polyline.getState_PrimitiveType()} → ${fill.getState_PrimitiveType()}`);
+console.log('primitiveId:', fill.getState_PrimitiveId());
+```
+
 ### converttopour
 
 # IPCB\_PrimitivePolyline.convertToPour() method
@@ -291,6 +309,24 @@ function convertToPour(): Promise<IPCB_PrimitivePour>;
 Promise&lt;[IPCB\_PrimitivePour](./IPCB_PrimitivePour.md)<!-- -->&gt;
 
 Copper border primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一条矩形闭合折线
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+
+// 3. 转换为覆铜边框图元（原折线保留，保留现场供观察）
+const pour = await polyline.convertToPour();
+
+console.log('primitiveType:', `${polyline.getState_PrimitiveType()} → ${pour.getState_PrimitiveType()}`);
+console.log('primitiveId:', pour.getState_PrimitiveId());
+```
 
 ### converttoregion
 
@@ -312,6 +348,24 @@ Promise&lt;[IPCB\_PrimitiveRegion](./IPCB_PrimitiveRegion.md)<!-- -->&gt;
 
 Region primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一条矩形闭合折线
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+
+// 3. 转换为区域图元（原折线保留，保留现场供观察）
+const region = await polyline.convertToRegion();
+
+console.log('primitiveType:', `${polyline.getState_PrimitiveType()} → ${region.getState_PrimitiveType()}`);
+console.log('primitiveId:', region.getState_PrimitiveId());
+```
+
 ### done
 
 # IPCB\_PrimitivePolyline.done() method
@@ -332,6 +386,29 @@ Promise&lt;[IPCB\_PrimitivePolyline](./IPCB_PrimitivePolyline.md)<!-- -->&gt;
 
 Polyline primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一条顶层铜层的折线
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+const before = polyline.getState_Layer();
+
+// 3. 异步模式下把折线挪到底层铜层（此时画布还没变）
+const asyncPolyline = polyline.toAsync();
+asyncPolyline.setState_Layer(2);
+await asyncPolyline.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitivePolyline.get(polyline.getState_PrimitiveId());
+
+console.log('layer:', before, '→', refetched.getState_Layer());
+```
+
 ### getstate_layer
 
 # IPCB\_PrimitivePolyline.getState\_Layer() method
@@ -349,6 +426,24 @@ function getState_Layer(): TPCB_LayersOfLine;
 [TPCB\_LayersOfLine](../types/TPCB_LayersOfLine.md)
 
 Layer
+
+## Example
+
+```javascript
+// 1. 创建一条顶层铜层（1）的折线
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+
+// 2. 读取折线所在层
+const layer = polyline.getState_Layer();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitivePolyline.delete([polyline.getState_PrimitiveId()]);
+
+console.log('layer:', layer);
+```
 
 ### getstate_linewidth
 
@@ -368,6 +463,24 @@ number
 
 Line width
 
+## Example
+
+```javascript
+// 1. 创建一条 10mil 线宽的折线
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+
+// 2. 读取线宽
+const lineWidth = polyline.getState_LineWidth();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitivePolyline.delete([polyline.getState_PrimitiveId()]);
+
+console.log('lineWidth:', lineWidth);
+```
+
 ### getstate_net
 
 # IPCB\_PrimitivePolyline.getState\_Net() method
@@ -385,6 +498,24 @@ function getState_Net(): string;
 string
 
 Net name
+
+## Example
+
+```javascript
+// 1. 创建一条无网络的折线
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+
+// 2. 读取网络名称（无网络时为空字符串）
+const net = polyline.getState_Net();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitivePolyline.delete([polyline.getState_PrimitiveId()]);
+
+console.log('net:', JSON.stringify(net));
+```
 
 ### getstate_polygon
 
@@ -404,6 +535,25 @@ function getState_Polygon(): IPCB_Polygon;
 
 Single polygon
 
+## Example
+
+```javascript
+// 1. 创建一条已知轮廓的折线（500 → 拐弯 → 300）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+
+// 2. 读取多边形对象，再取它的轮廓源数组
+const currentPolygon = polyline.getState_Polygon();
+const source = currentPolygon.getSource();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitivePolyline.delete([polyline.getState_PrimitiveId()]);
+
+console.log('polygonSource:', JSON.stringify(source));
+```
+
 ### getstate_primitiveid
 
 # IPCB\_PrimitivePolyline.getState\_PrimitiveId() method
@@ -421,6 +571,24 @@ function getState_PrimitiveId(): string;
 string
 
 Primitive ID
+
+## Example
+
+```javascript
+// 1. 创建一条折线
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+
+// 2. 读取图元 ID
+const primitiveId = polyline.getState_PrimitiveId();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitivePolyline.delete([polyline.getState_PrimitiveId()]);
+
+console.log('primitiveId:', primitiveId);
+```
 
 ### getstate_primitivelock
 
@@ -440,6 +608,24 @@ boolean
 
 Whether it is locked
 
+## Example
+
+```javascript
+// 1. 创建一条未锁定的折线
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+
+// 2. 读取锁定状态
+const primitiveLock = polyline.getState_PrimitiveLock();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitivePolyline.delete([polyline.getState_PrimitiveId()]);
+
+console.log('primitiveLock:', primitiveLock);
+```
+
 ### getstate_primitivetype
 
 # IPCB\_PrimitivePolyline.getState\_PrimitiveType() method
@@ -458,6 +644,24 @@ function getState_PrimitiveType(): EPCB_PrimitiveType;
 
 Primitive type
 
+## Example
+
+```javascript
+// 1. 创建一条折线
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+
+// 2. 读取图元类型
+const primitiveType = polyline.getState_PrimitiveType();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitivePolyline.delete([polyline.getState_PrimitiveId()]);
+
+console.log('primitiveType:', primitiveType);
+```
+
 ### isasync
 
 # IPCB\_PrimitivePolyline.isAsync() method
@@ -475,6 +679,24 @@ function isAsync(): boolean;
 boolean
 
 Whether Is async primitive
+
+## Example
+
+```javascript
+// 1. 创建一条折线
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+
+// 2. 查询异步模式
+const isAsync = polyline.isAsync();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitivePolyline.delete([polyline.getState_PrimitiveId()]);
+
+console.log('isAsync:', isAsync);
+```
 
 ### reset
 
@@ -495,6 +717,31 @@ function reset(): Promise<IPCB_PrimitivePolyline>;
 Promise&lt;[IPCB\_PrimitivePolyline](./IPCB_PrimitivePolyline.md)<!-- -->&gt;
 
 Polyline primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一条顶层铜层的折线
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+const before = polyline.getState_Layer();
+
+// 3. 异步模式下把层改到底层（2），随后反悔
+const asyncPolyline = polyline.toAsync();
+asyncPolyline.setState_Layer(2);
+
+// 4. reset 丢弃未提交的修改（保留现场供观察）
+await asyncPolyline.reset();
+
+// 5. 从画布重新读取，确认层没有变
+const refetched = await eda.pcb_PrimitivePolyline.get(polyline.getState_PrimitiveId());
+
+console.log('layer:', before, '→', refetched.getState_Layer());
+```
 
 ### setstate_layer
 
@@ -546,6 +793,29 @@ Layer
 
 Polyline primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一条顶层铜层（1）的折线
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+const before = polyline.getState_Layer();
+
+// 3. 异步模式把折线挪到底层铜层（2）
+const asyncPolyline = polyline.toAsync();
+asyncPolyline.setState_Layer(2);
+await asyncPolyline.done();
+
+// 4. 从画布重新读取，确认层已切换（保留现场供观察）
+const refetched = await eda.pcb_PrimitivePolyline.get(polyline.getState_PrimitiveId());
+
+console.log('layer:', before, '→', refetched.getState_Layer());
+```
+
 ### setstate_linewidth
 
 # IPCB\_PrimitivePolyline.setState\_LineWidth() method
@@ -595,6 +865,29 @@ Line width
 [IPCB\_PrimitivePolyline](./IPCB_PrimitivePolyline.md)
 
 Polyline primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一条 10mil 线宽的折线
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+const before = polyline.getState_LineWidth();
+
+// 3. 切换异步模式，线宽加粗到 20mil
+const asyncPolyline = polyline.toAsync();
+asyncPolyline.setState_LineWidth(20);
+await asyncPolyline.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitivePolyline.get(polyline.getState_PrimitiveId());
+
+console.log('lineWidth:', before, '→', refetched.getState_LineWidth());
+```
 
 ### setstate_net
 
@@ -646,6 +939,29 @@ Net name
 
 Polyline primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一条无网络的折线
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+const before = polyline.getState_Net();
+
+// 3. 切换异步模式并指定网络（'' → '嘉立创示例_NET'）
+const asyncPolyline = polyline.toAsync();
+asyncPolyline.setState_Net('嘉立创示例_NET');
+await asyncPolyline.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitivePolyline.get(polyline.getState_PrimitiveId());
+
+console.log('net:', JSON.stringify(before), '→', JSON.stringify(refetched.getState_Net()));
+```
+
 ### setstate_polygon
 
 # IPCB\_PrimitivePolyline.setState\_Polygon() method
@@ -695,6 +1011,31 @@ Single polygon
 [IPCB\_PrimitivePolyline](./IPCB_PrimitivePolyline.md)
 
 Polyline primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一条 500 → 拐弯 → 300 的折线
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+const before = JSON.stringify(polyline.getState_Polygon().getSource());
+
+// 3. 构造新轮廓（拉长到 800 → 拐弯 → 600），异步模式提交
+const newPolygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 800, y, x + 800, y + 600]);
+const asyncPolyline = polyline.toAsync();
+asyncPolyline.setState_Polygon(newPolygon);
+await asyncPolyline.done();
+
+// 4. 从画布重新读取，确认轮廓已替换（保留现场供观察）
+const refetched = await eda.pcb_PrimitivePolyline.get(polyline.getState_PrimitiveId());
+const after = JSON.stringify(refetched.getState_Polygon().getSource());
+
+console.log('polygonSource:', before, '→', after);
+```
 
 ### setstate_primitivelock
 
@@ -746,6 +1087,29 @@ Whether it is locked
 
 Polyline primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一条未锁定的折线
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+const before = polyline.getState_PrimitiveLock();
+
+// 3. 切换异步模式并锁定折线
+const asyncPolyline = polyline.toAsync();
+asyncPolyline.setState_PrimitiveLock(true);
+await asyncPolyline.done();
+
+// 4. 从画布重新读取，确认已锁定（保留现场供观察）
+const refetched = await eda.pcb_PrimitivePolyline.get(polyline.getState_PrimitiveId());
+
+console.log('primitiveLock:', before, '→', refetched.getState_PrimitiveLock());
+```
+
 ### toasync
 
 # IPCB\_PrimitivePolyline.toAsync() method
@@ -764,6 +1128,30 @@ function toAsync(): IPCB_PrimitivePolyline;
 
 Polyline primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一条无网络的折线
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+
+// 3. 切换异步模式后批量修改：划归网络 + 挪到底层
+const asyncPolyline = polyline.toAsync();
+asyncPolyline.setState_Net('嘉立创示例_NET');
+asyncPolyline.setState_Layer(2);
+await asyncPolyline.done();
+
+// 4. 从画布重新读取，确认批量修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitivePolyline.get(polyline.getState_PrimitiveId());
+
+console.log('net:', JSON.stringify(refetched.getState_Net()));
+console.log('layer:', refetched.getState_Layer());
+```
+
 ### tosync
 
 # IPCB\_PrimitivePolyline.toSync() method
@@ -781,3 +1169,25 @@ function toSync(): IPCB_PrimitivePolyline;
 [IPCB\_PrimitivePolyline](./IPCB_PrimitivePolyline.md)
 
 Polyline primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 创建一条折线
+const polygon = eda.pcb_MathPolygon.createPolygon([x, y, 'L', x + 500, y, x + 500, y + 300]);
+const polyline = await eda.pcb_PrimitivePolyline.create('', 1, polygon, 10, false);
+const before = polyline.isAsync();
+
+// 3. 转换为同步图元（保留现场供观察）
+const syncPolyline = polyline.toSync();
+const after = syncPolyline.isAsync();
+
+// 4. 同步图元直接读取属性，无需提交
+console.log('isAsync:', before, '→', after);
+console.log('primitiveType:', syncPolyline.getState_PrimitiveType());
+console.log('layer:', syncPolyline.getState_Layer());
+```

@@ -33,6 +33,8 @@ ABOUT
 
 </td><td>
 
+关于
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ IMPORT\_ALTIUM
 `'Import Altium'`
 
 </td><td>
+
+导入 Altium 工程
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ IMPORT\_KICAD
 
 </td><td>
 
+导入 KiCad 工程
+
 </td></tr>
 <tr><td>
 
@@ -65,6 +71,8 @@ IMPORT\_OTHER
 `'Import Other'`
 
 </td><td>
+
+导入其他格式工程
 
 </td></tr>
 <tr><td>
@@ -77,6 +85,8 @@ IMPORT\_PROFESSIONAL
 
 </td><td>
 
+导入专业版工程
+
 </td></tr>
 <tr><td>
 
@@ -87,6 +97,8 @@ IMPORT\_STANDARD
 `'Import Standard'`
 
 </td><td>
+
+导入标准版工程
 
 </td></tr>
 <tr><td>
@@ -99,6 +111,8 @@ MIGRATE\_STANDARD
 
 </td><td>
 
+迁移标准版工程
+
 </td></tr>
 <tr><td>
 
@@ -109,6 +123,8 @@ NEW\_3D\_MODEL
 `'New 3D Model'`
 
 </td><td>
+
+新建 3D 模型
 
 </td></tr>
 <tr><td>
@@ -121,6 +137,8 @@ NEW\_COMPONENT
 
 </td><td>
 
+新建元件
+
 </td></tr>
 <tr><td>
 
@@ -131,6 +149,8 @@ NEW\_FOOTPRINT
 `'New Footprint'`
 
 </td><td>
+
+新建封装
 
 </td></tr>
 <tr><td>
@@ -143,6 +163,8 @@ NEW\_LIBRARY
 
 </td><td>
 
+新建库
+
 </td></tr>
 <tr><td>
 
@@ -153,6 +175,8 @@ NEW\_PROJECT
 `'New Project'`
 
 </td><td>
+
+新建工程
 
 </td></tr>
 <tr><td>
@@ -165,6 +189,8 @@ NEW\_REUSE\_BLOCK
 
 </td><td>
 
+新建复用块
+
 </td></tr>
 <tr><td>
 
@@ -175,6 +201,8 @@ NEW\_SYMBOL
 `'New Symbol'`
 
 </td><td>
+
+新建符号
 
 </td></tr>
 <tr><td>
@@ -187,6 +215,8 @@ OPEN\_PROJECT
 
 </td><td>
 
+打开工程
+
 </td></tr>
 <tr><td>
 
@@ -197,6 +227,8 @@ SETTING
 `'Setting'`
 
 </td><td>
+
+设置
 
 </td></tr>
 </tbody></table>

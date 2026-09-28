@@ -33,6 +33,8 @@ ENGINE\_ERROR
 
 </td><td>
 
+错误
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ ENGINE\_LOG
 `'ENGINE_LOG'`
 
 </td><td>
+
+实时日志
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ SESSION\_STATE
 
 </td><td>
 
+状态变化（RUNNING/PAUSED/STOPPED...）
+
 </td></tr>
 <tr><td>
 
@@ -66,6 +72,8 @@ STREAM\_DATA
 
 </td><td>
 
+实时数据帧（波形点/节点电压/内部量）
+
 </td></tr>
 <tr><td>
 
@@ -76,6 +84,8 @@ STREAM\_SNAPSHOT
 `'STREAM_SNAPSHOT'`
 
 </td><td>
+
+一次快照（可选，用于 UI 刷新）
 
 </td></tr>
 </tbody></table>

@@ -1,5 +1,9 @@
 # ESYS\_LeftPanelTab enum
 
+> Warning: This API is now obsolete.
+>
+> 请使用 `ESYS_PanelTab` 替代 since EDA v4.2
+
 Left panel tab
 
 ## Signature
@@ -33,6 +37,8 @@ BASIC\_LIBRARY
 
 </td><td>
 
+常用库
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +49,8 @@ DEVICE\_STANDARDIZATION
 `'device-standardization'`
 
 </td><td>
+
+器件标准化
 
 </td></tr>
 <tr><td>
@@ -55,6 +63,8 @@ LIB\_DESIGN
 
 </td><td>
 
+库设计
+
 </td></tr>
 <tr><td>
 
@@ -66,6 +76,8 @@ PROJECT\_DESIGN
 
 </td><td>
 
+工程设计
+
 </td></tr>
 <tr><td>
 
@@ -76,6 +88,8 @@ PROJECT\_LIST
 `'project_list'`
 
 </td><td>
+
+工程
 
 </td></tr>
 </tbody></table>

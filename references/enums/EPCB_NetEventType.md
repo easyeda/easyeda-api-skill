@@ -33,6 +33,8 @@ ADD
 
 </td><td>
 
+新增
+
 </td></tr>
 <tr><td>
 
@@ -44,6 +46,8 @@ REMOVE
 
 </td><td>
 
+移除
+
 </td></tr>
 <tr><td>
 
@@ -54,6 +58,8 @@ SELECTED
 `'selected'`
 
 </td><td>
+
+选中（仅当选中整个网络时触发）
 
 </td></tr>
 </tbody></table>

@@ -1,12 +1,18 @@
 # ISCH\_ExportPngResolution interface
 
-导出 PNG 分辨率
+原理图导出图片分辨率
 
 ## Signature
 
 ```typescript
 interface ISCH_ExportPngResolution
 ```
+
+## Remarks
+
+仅 PNG 导出支持分辨率参数，用于按长宽分辨率导出高清图片：
+
+- 支持只传入 `width` 或 `height` 中的任意一个，另一侧将按原始比例自动拉伸输出（保持长宽比例）； - `width` 与 `height` 均不传时，按当前一倍分辨率输出； - 单边最大支持 \*\*4096\*\*。
 
 ## Properties
 
@@ -39,7 +45,7 @@ number
 
 </td><td>
 
-_(Optional)_ 高度
+_(Optional)_ 输出图片高度（像素），最大 4096
 
 </td></tr>
 <tr><td>
@@ -54,7 +60,7 @@ number
 
 </td><td>
 
-_(Optional)_ 宽度
+_(Optional)_ 输出图片宽度（像素），最大 4096
 
 </td></tr>
 </tbody></table>
@@ -67,7 +73,7 @@ _(Optional)_ 宽度
 
 # ISCH\_ExportPngResolution.height property
 
-高度
+输出图片高度（像素），最大 4096
 
 ## Signature
 
@@ -79,7 +85,7 @@ height?: number;
 
 # ISCH\_ExportPngResolution.width property
 
-宽度
+输出图片宽度（像素），最大 4096
 
 ## Signature
 

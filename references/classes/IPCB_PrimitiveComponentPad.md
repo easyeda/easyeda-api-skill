@@ -166,6 +166,31 @@ Promise&lt;[IPCB\_PrimitiveComponentPad](./IPCB_PrimitiveComponentPad.md)<!-- --
 
 Device pad primitive object
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件并取第一个焊盘（随机坐标，避免与历史保留图元重合）
+const x = 5000 + Math.floor(Math.random() * 50000);
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, x, 5000);
+const pin = (await comp.getAllPins())[0];
+
+// 2. 读取修改前的位置
+const before = pin.getState_X();
+
+// 3. 异步模式修改焊盘 X 坐标后一次提交
+const asyncPin = pin.toAsync();
+asyncPin.setState_X(before + 100);
+await asyncPin.done();
+
+// 4. 重新获取器件焊盘，验证修改已在画布生效
+const refreshed = (await eda.pcb_PrimitiveComponent.get([comp.getState_PrimitiveId()]))[0];
+const after = (await refreshed.getAllPins())[0].getState_X();
+
+console.log('before:', before, '→ after:', after);
+console.log('moved:', after === before + 100);
+```
+
 ### getconnectedprimitives
 
 # IPCB\_PrimitiveComponentPad.getConnectedPrimitives() method
@@ -219,6 +244,36 @@ Promise&lt;Array&lt;[IPCB\_PrimitiveLine](./IPCB_PrimitiveLine.md) \| [IPCB\_Pri
 ## Remarks
 
 This API can get the primitives that are in direct contact with the pad
+
+## Example
+
+```javascript
+// 1. 放置测试器件，取第一个焊盘的中心坐标
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+const compId = comp.getState_PrimitiveId();
+const pin = (await comp.getAllPins())[0];
+const padX = pin.getState_X();
+const padY = pin.getState_Y();
+
+// 2. 从焊盘中心拉一段走线（起点正好落在中心 → 属于中心连接）
+const line = await eda.pcb_PrimitiveLine.create('', 1, padX, padY, padX + 600, padY, 10);
+const lineId = line.getState_PrimitiveId();
+
+// 3. 只查中心连接的图元
+const centreConnected = await pin.getConnectedPrimitives(true);
+
+// 4. 查所有接触的图元
+const allConnected = await pin.getConnectedPrimitives(false);
+
+// 5. 清理测试图元
+await eda.pcb_PrimitiveLine.delete([lineId]);
+await eda.pcb_PrimitiveComponent.delete([compId]);
+
+console.log('centreConnectedCount:', centreConnected.length);
+console.log('centreContainsLine:', centreConnected.some(p => p.getState_PrimitiveId() === lineId));
+console.log('allConnectedCount:', allConnected.length);
+```
 
 ### getconnectedprimitives_1
 
@@ -290,6 +345,26 @@ string
 
 Parent device primitive ID
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 获取器件的焊盘图元对象，读取每个焊盘的父器件 ID
+const pins = await comp.getAllPins();
+const parentIds = pins.map(pin => pin.getState_ParentComponentPrimitiveId());
+
+// 3. 清理测试器件
+await eda.pcb_PrimitiveComponent.delete([compId]);
+
+console.log('pinCount:', pins.length);
+console.log('allBelongToComponent:', parentIds.every(id => id === compId));
+console.log('firstPinParentId:', parentIds[0]);
+```
+
 ### setstate_parentcomponentprimitiveid
 
 # IPCB\_PrimitiveComponentPad.setState\_ParentComponentPrimitiveId() method
@@ -311,3 +386,25 @@ Device pad primitive object
 ## Remarks
 
 The properties of this device pad primitive do not support modification. Calling this API will have no effect
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件并获取焊盘图元对象
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.pcb_PrimitiveComponent.create(devices[0], 1, 5000, 5000);
+const compId = comp.getState_PrimitiveId();
+const pin = (await comp.getAllPins())[0];
+
+// 2. 调用前读取父器件 ID
+const before = pin.getState_ParentComponentPrimitiveId();
+
+// 3. 调用修改接口（无参数，实际不产生任何效果）
+pin.setState_ParentComponentPrimitiveId();
+
+// 4. 调用后再读一次，确认归属关系未变
+const after = pin.getState_ParentComponentPrimitiveId();
+
+console.log('parentUnchanged:', before === after);
+console.log('stillBelongToComponent:', after === compId);
+```

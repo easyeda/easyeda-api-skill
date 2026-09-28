@@ -33,6 +33,8 @@ INNER\_ELECTRICAL\_LAYER
 
 </td><td>
 
+内电层填充
+
 </td></tr>
 <tr><td>
 
@@ -44,6 +46,8 @@ MESH
 
 </td><td>
 
+网格填充
+
 </td></tr>
 <tr><td>
 
@@ -54,6 +58,8 @@ SOLID
 `0`
 
 </td><td>
+
+实心填充
 
 </td></tr>
 </tbody></table>

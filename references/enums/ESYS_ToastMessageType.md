@@ -33,6 +33,8 @@ ASK
 
 </td><td>
 
+问询
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ ERROR
 `'error'`
 
 </td><td>
+
+错误
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ INFO
 
 </td><td>
 
+信息
+
 </td></tr>
 <tr><td>
 
@@ -66,6 +72,8 @@ SUCCESS
 
 </td><td>
 
+成功
+
 </td></tr>
 <tr><td>
 
@@ -76,6 +84,8 @@ WARNING
 `'warn'`
 
 </td><td>
+
+警告
 
 </td></tr>
 </tbody></table>

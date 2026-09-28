@@ -140,7 +140,7 @@ _(Optional)_ Net
 
 </td><td>
 
-\{ \[key: string\]: boolean \| number \| string \| undefined \}
+Record&lt;string, boolean \| number \| string \| undefined&gt;
 
 </td><td>
 
@@ -276,7 +276,7 @@ Other property
 ## Signature
 
 ```typescript
-otherProperty?: { [key: string]: boolean | number | string | undefined };
+otherProperty?: Record<string, boolean | number | string | undefined>;
 ```
 
 ### supplier

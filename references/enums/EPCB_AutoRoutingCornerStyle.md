@@ -33,6 +33,8 @@ DEGREE\_45
 
 </td><td>
 
+45 度
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ DEGREE\_90
 `1`
 
 </td><td>
+
+90 度
 
 </td></tr>
 </tbody></table>

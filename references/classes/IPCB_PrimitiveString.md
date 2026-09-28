@@ -664,6 +664,30 @@ Promise&lt;[IPCB\_PrimitiveString](./IPCB_PrimitiveString.md)<!-- -->&gt;
 
 Text primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 在顶层丝印（3）放置一行文本
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+const before = str.getState_Text();
+
+// 3. 异步模式下批量改两个字段（此时画布还没变）
+const asyncStr = str.toAsync();
+asyncStr.setState_Text('嘉立创示例_DONE');
+asyncStr.setState_Rotation(90);
+await asyncStr.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveString.get(str.getState_PrimitiveId());
+
+console.log('text:', before, '→', refetched.getState_Text());
+console.log('rotation:', refetched.getState_Rotation());
+```
+
 ### getstate_alignmode
 
 # IPCB\_PrimitiveString.getState\_AlignMode() method
@@ -681,6 +705,23 @@ function getState_AlignMode(): EPCB_PrimitiveStringAlignMode;
 [EPCB\_PrimitiveStringAlignMode](../enums/EPCB_PrimitiveStringAlignMode.md)
 
 Alignment mode
+
+## Example
+
+```javascript
+// 1. 在顶层丝印（3）放置一行左下（3）对齐的文本
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+
+// 2. 读取对齐模式（1-9：3=左下、5=居中）
+const alignMode = str.getState_AlignMode();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveString.delete([str.getState_PrimitiveId()]);
+
+console.log('alignMode:', alignMode);
+```
 
 ### getstate_expansion
 
@@ -700,6 +741,23 @@ number
 
 Inverted expansion
 
+## Example
+
+```javascript
+// 1. 在顶层丝印（3）放置一行文本（反相扩展默认 0）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+
+// 2. 读取反相扩展值
+const expansion = str.getState_Expansion();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveString.delete([str.getState_PrimitiveId()]);
+
+console.log('expansion:', expansion);
+```
+
 ### getstate_fontfamily
 
 # IPCB\_PrimitiveString.getState\_FontFamily() method
@@ -717,6 +775,23 @@ function getState_FontFamily(): string;
 string
 
 Font
+
+## Example
+
+```javascript
+// 1. 在顶层丝印（3）放置一行默认字体的文本
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+
+// 2. 读取字体名
+const fontFamily = str.getState_FontFamily();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveString.delete([str.getState_PrimitiveId()]);
+
+console.log('fontFamily:', fontFamily);
+```
 
 ### getstate_fontsize
 
@@ -736,6 +811,23 @@ number
 
 Font size
 
+## Example
+
+```javascript
+// 1. 在顶层丝印（3）放置一行 45mil 字号的文本
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+
+// 2. 读取字号
+const fontSize = str.getState_FontSize();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveString.delete([str.getState_PrimitiveId()]);
+
+console.log('fontSize:', fontSize);
+```
+
 ### getstate_layer
 
 # IPCB\_PrimitiveString.getState\_Layer() method
@@ -753,6 +845,23 @@ function getState_Layer(): TPCB_LayersOfImage;
 [TPCB\_LayersOfImage](../types/TPCB_LayersOfImage.md)
 
 Layer
+
+## Example
+
+```javascript
+// 1. 在顶层丝印（3）放置一行文本
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+
+// 2. 读取所在层
+const layer = str.getState_Layer();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveString.delete([str.getState_PrimitiveId()]);
+
+console.log('layer:', layer);
+```
 
 ### getstate_linewidth
 
@@ -772,6 +881,23 @@ number
 
 Line width
 
+## Example
+
+```javascript
+// 1. 在顶层丝印（3）放置一行笔画 6mil 的文本
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+
+// 2. 读取笔画线宽
+const lineWidth = str.getState_LineWidth();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveString.delete([str.getState_PrimitiveId()]);
+
+console.log('lineWidth:', lineWidth);
+```
+
 ### getstate_mirror
 
 # IPCB\_PrimitiveString.getState\_Mirror() method
@@ -789,6 +915,23 @@ function getState_Mirror(): boolean;
 boolean
 
 Whether it is mirrored
+
+## Example
+
+```javascript
+// 1. 在顶层丝印（3）放置一行不镜像的文本
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+
+// 2. 读取镜像状态
+const mirror = str.getState_Mirror();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveString.delete([str.getState_PrimitiveId()]);
+
+console.log('mirror:', mirror);
+```
 
 ### getstate_primitiveid
 
@@ -808,6 +951,23 @@ string
 
 Primitive ID
 
+## Example
+
+```javascript
+// 1. 在顶层丝印（3）放置一行文本
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+
+// 2. 读取图元 ID
+const primitiveId = str.getState_PrimitiveId();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveString.delete([primitiveId]);
+
+console.log('primitiveId:', primitiveId);
+```
+
 ### getstate_primitivelock
 
 # IPCB\_PrimitiveString.getState\_PrimitiveLock() method
@@ -825,6 +985,23 @@ function getState_PrimitiveLock(): boolean;
 boolean
 
 Whether it is locked
+
+## Example
+
+```javascript
+// 1. 在顶层丝印（3）放置一行未锁定的文本
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+
+// 2. 读取锁定状态
+const primitiveLock = str.getState_PrimitiveLock();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveString.delete([str.getState_PrimitiveId()]);
+
+console.log('primitiveLock:', primitiveLock);
+```
 
 ### getstate_primitivetype
 
@@ -844,6 +1021,23 @@ function getState_PrimitiveType(): EPCB_PrimitiveType;
 
 Primitive type
 
+## Example
+
+```javascript
+// 1. 在顶层丝印（3）放置一行文本
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+
+// 2. 读取图元类型
+const primitiveType = str.getState_PrimitiveType();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveString.delete([str.getState_PrimitiveId()]);
+
+console.log('primitiveType:', primitiveType);
+```
+
 ### getstate_reverse
 
 # IPCB\_PrimitiveString.getState\_Reverse() method
@@ -861,6 +1055,23 @@ function getState_Reverse(): boolean;
 boolean
 
 Whether it is inverted
+
+## Example
+
+```javascript
+// 1. 在顶层丝印（3）放置一行不反相的文本
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+
+// 2. 读取反相状态
+const reverse = str.getState_Reverse();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveString.delete([str.getState_PrimitiveId()]);
+
+console.log('reverse:', reverse);
+```
 
 ### getstate_rotation
 
@@ -880,6 +1091,23 @@ number
 
 Rotation angle
 
+## Example
+
+```javascript
+// 1. 在顶层丝印（3）放置一行不旋转（0°）的文本
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+
+// 2. 读取旋转角度
+const rotation = str.getState_Rotation();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveString.delete([str.getState_PrimitiveId()]);
+
+console.log('rotation:', rotation);
+```
+
 ### getstate_text
 
 # IPCB\_PrimitiveString.getState\_Text() method
@@ -897,6 +1125,23 @@ function getState_Text(): string;
 string
 
 Text content
+
+## Example
+
+```javascript
+// 1. 在顶层丝印（3）放置一行文本
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+
+// 2. 读取文本内容
+const text = str.getState_Text();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveString.delete([str.getState_PrimitiveId()]);
+
+console.log('text:', text);
+```
 
 ### getstate_x
 
@@ -916,6 +1161,23 @@ number
 
 X coordinate
 
+## Example
+
+```javascript
+// 1. 在顶层丝印（3）放置一行文本
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+
+// 2. 读取锚点 X 坐标
+const anchorX = str.getState_X();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveString.delete([str.getState_PrimitiveId()]);
+
+console.log('x:', anchorX);
+```
+
 ### getstate_y
 
 # IPCB\_PrimitiveString.getState\_Y() method
@@ -934,6 +1196,23 @@ number
 
 Y coordinate
 
+## Example
+
+```javascript
+// 1. 在顶层丝印（3）放置一行文本
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+
+// 2. 读取锚点 Y 坐标
+const anchorY = str.getState_Y();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveString.delete([str.getState_PrimitiveId()]);
+
+console.log('y:', anchorY);
+```
+
 ### isasync
 
 # IPCB\_PrimitiveString.isAsync() method
@@ -951,6 +1230,23 @@ function isAsync(): boolean;
 boolean
 
 Whether Is async primitive
+
+## Example
+
+```javascript
+// 1. 在顶层丝印（3）放置一行文本
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+
+// 2. 查询异步模式
+const isAsync = str.isAsync();
+
+// 3. 清理测试图元（查询类案例不留测试对象）
+await eda.pcb_PrimitiveString.delete([str.getState_PrimitiveId()]);
+
+console.log('isAsync:', isAsync);
+```
 
 ### reset
 
@@ -971,6 +1267,30 @@ function reset(): Promise<IPCB_PrimitiveString>;
 Promise&lt;[IPCB\_PrimitiveString](./IPCB_PrimitiveString.md)<!-- -->&gt;
 
 This primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 在顶层丝印（3）放置一行不旋转的文本
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+const before = str.getState_Rotation();
+
+// 3. 异步模式下把文本旋转 90°，随后反悔（不调 done()）
+const asyncStr = str.toAsync();
+asyncStr.setState_Rotation(90);
+
+// 4. reset 丢弃未提交的修改（保留现场供观察）
+await asyncStr.reset();
+
+// 5. 从画布重新读取，确认旋转角度没有变
+const refetched = await eda.pcb_PrimitiveString.get(str.getState_PrimitiveId());
+
+console.log('rotation:', before, '→', refetched.getState_Rotation());
+```
 
 ### setstate_alignmode
 
@@ -1022,6 +1342,28 @@ Alignment mode
 
 Text primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 在顶层丝印（3）放置一行左下（3）对齐的文本
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+const before = str.getState_AlignMode();
+
+// 3. 异步模式把对齐模式改为居中（5）
+const asyncStr = str.toAsync();
+asyncStr.setState_AlignMode(5);
+await asyncStr.done();
+
+// 4. 从画布重新读取，确认修改生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveString.get(str.getState_PrimitiveId());
+
+console.log('alignMode:', before, '→', refetched.getState_AlignMode());
+```
+
 ### setstate_expansion
 
 # IPCB\_PrimitiveString.setState\_Expansion() method
@@ -1071,6 +1413,28 @@ Inverted expansion
 [IPCB\_PrimitiveString](./IPCB_PrimitiveString.md)
 
 Text primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 在顶层丝印（3）放置一行反相扩展为 0 的文本
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+const before = str.getState_Expansion();
+
+// 3. 异步模式把反相扩展加大到 10
+const asyncStr = str.toAsync();
+asyncStr.setState_Expansion(10);
+await asyncStr.done();
+
+// 4. 从画布重新读取，确认修改生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveString.get(str.getState_PrimitiveId());
+
+console.log('expansion:', before, '→', refetched.getState_Expansion());
+```
 
 ### setstate_fontfamily
 
@@ -1122,6 +1486,28 @@ Font
 
 Text primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 在顶层丝印（3）放置一行默认字体的文本
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+const before = str.getState_FontFamily();
+
+// 3. 异步模式把字体换成 Arial
+const asyncStr = str.toAsync();
+asyncStr.setState_FontFamily('Arial');
+await asyncStr.done();
+
+// 4. 从画布重新读取，确认修改生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveString.get(str.getState_PrimitiveId());
+
+console.log('fontFamily:', before, '→', refetched.getState_FontFamily());
+```
+
 ### setstate_fontsize
 
 # IPCB\_PrimitiveString.setState\_FontSize() method
@@ -1171,6 +1557,28 @@ Font size
 [IPCB\_PrimitiveString](./IPCB_PrimitiveString.md)
 
 Text primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 在顶层丝印（3）放置一行 45mil 字号的文本
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+const before = str.getState_FontSize();
+
+// 3. 异步模式把字号加大到 60
+const asyncStr = str.toAsync();
+asyncStr.setState_FontSize(60);
+await asyncStr.done();
+
+// 4. 从画布重新读取，确认修改生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveString.get(str.getState_PrimitiveId());
+
+console.log('fontSize:', before, '→', refetched.getState_FontSize());
+```
 
 ### setstate_layer
 
@@ -1222,6 +1630,28 @@ Layer
 
 Text primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 在顶层丝印（3）放置一行文本
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+const before = str.getState_Layer();
+
+// 3. 异步模式把文本挪到底层丝印（4）
+const asyncStr = str.toAsync();
+asyncStr.setState_Layer(4);
+await asyncStr.done();
+
+// 4. 从画布重新读取，确认层已切换（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveString.get(str.getState_PrimitiveId());
+
+console.log('layer:', before, '→', refetched.getState_Layer());
+```
+
 ### setstate_linewidth
 
 # IPCB\_PrimitiveString.setState\_LineWidth() method
@@ -1271,6 +1701,28 @@ Line width
 [IPCB\_PrimitiveString](./IPCB_PrimitiveString.md)
 
 Text primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 在顶层丝印（3）放置一行笔画 6mil 的文本
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+const before = str.getState_LineWidth();
+
+// 3. 异步模式把笔画加粗到 10
+const asyncStr = str.toAsync();
+asyncStr.setState_LineWidth(10);
+await asyncStr.done();
+
+// 4. 从画布重新读取，确认修改生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveString.get(str.getState_PrimitiveId());
+
+console.log('lineWidth:', before, '→', refetched.getState_LineWidth());
+```
 
 ### setstate_mirror
 
@@ -1322,6 +1774,28 @@ Whether it is mirrored
 
 Text primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 在顶层丝印（3）放置一行不镜像的文本
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+const before = str.getState_Mirror();
+
+// 3. 异步模式开启镜像
+const asyncStr = str.toAsync();
+asyncStr.setState_Mirror(true);
+await asyncStr.done();
+
+// 4. 从画布重新读取，确认修改生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveString.get(str.getState_PrimitiveId());
+
+console.log('mirror:', before, '→', refetched.getState_Mirror());
+```
+
 ### setstate_primitivelock
 
 # IPCB\_PrimitiveString.setState\_PrimitiveLock() method
@@ -1371,6 +1845,28 @@ Whether it is locked
 [IPCB\_PrimitiveString](./IPCB_PrimitiveString.md)
 
 Text primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 在顶层丝印（3）放置一行未锁定的文本
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+const before = str.getState_PrimitiveLock();
+
+// 3. 异步模式锁定文本
+const asyncStr = str.toAsync();
+asyncStr.setState_PrimitiveLock(true);
+await asyncStr.done();
+
+// 4. 从画布重新读取，确认修改生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveString.get(str.getState_PrimitiveId());
+
+console.log('primitiveLock:', before, '→', refetched.getState_PrimitiveLock());
+```
 
 ### setstate_reverse
 
@@ -1426,6 +1922,30 @@ Text primitive object
 
 The default font does not support inversion
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 在顶层丝印（3）放置一行默认字体的文本（默认字体不支持反相）
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+const before = str.getState_Reverse();
+
+// 3. 异步模式先换 Arial 字体再开启反相，一次 done() 同时提交两个修改
+const asyncStr = str.toAsync();
+asyncStr.setState_FontFamily('Arial');
+asyncStr.setState_Reverse(true);
+await asyncStr.done();
+
+// 4. 从画布重新读取，确认修改生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveString.get(str.getState_PrimitiveId());
+
+console.log('reverse:', before, '→', refetched.getState_Reverse());
+console.log('fontFamily:', refetched.getState_FontFamily());
+```
+
 ### setstate_rotation
 
 # IPCB\_PrimitiveString.setState\_Rotation() method
@@ -1475,6 +1995,28 @@ Rotation angle
 [IPCB\_PrimitiveString](./IPCB_PrimitiveString.md)
 
 Text primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 在顶层丝印（3）放置一行不旋转（0°）的文本
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+const before = str.getState_Rotation();
+
+// 3. 异步模式把文本旋转 90°（竖排）
+const asyncStr = str.toAsync();
+asyncStr.setState_Rotation(90);
+await asyncStr.done();
+
+// 4. 从画布重新读取，确认修改生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveString.get(str.getState_PrimitiveId());
+
+console.log('rotation:', before, '→', refetched.getState_Rotation());
+```
 
 ### setstate_text
 
@@ -1526,6 +2068,28 @@ Text content
 
 Text primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 在顶层丝印（3）放置一行文本
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_V1.0', 'default', 45, 6, 3, 0, false, 0, false, false);
+const before = str.getState_Text();
+
+// 3. 异步模式把内容改为新版本号
+const asyncStr = str.toAsync();
+asyncStr.setState_Text('嘉立创示例_V2.0');
+await asyncStr.done();
+
+// 4. 从画布重新读取，确认修改生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveString.get(str.getState_PrimitiveId());
+
+console.log('text:', before, '→', refetched.getState_Text());
+```
+
 ### setstate_x
 
 # IPCB\_PrimitiveString.setState\_X() method
@@ -1575,6 +2139,28 @@ X coordinate
 [IPCB\_PrimitiveString](./IPCB_PrimitiveString.md)
 
 Text primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 在顶层丝印（3）放置一行文本
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+const before = str.getState_X();
+
+// 3. 异步模式把锚点向右平移 500mil
+const asyncStr = str.toAsync();
+asyncStr.setState_X(before + 500);
+await asyncStr.done();
+
+// 4. 从画布重新读取，确认修改生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveString.get(str.getState_PrimitiveId());
+
+console.log('x:', before, '→', refetched.getState_X());
+```
 
 ### setstate_y
 
@@ -1626,6 +2212,28 @@ Y coordinate
 
 Text primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 在顶层丝印（3）放置一行文本
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+const before = str.getState_Y();
+
+// 3. 异步模式把锚点向上平移 500mil
+const asyncStr = str.toAsync();
+asyncStr.setState_Y(before + 500);
+await asyncStr.done();
+
+// 4. 从画布重新读取，确认修改生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveString.get(str.getState_PrimitiveId());
+
+console.log('y:', before, '→', refetched.getState_Y());
+```
+
 ### toasync
 
 # IPCB\_PrimitiveString.toAsync() method
@@ -1644,6 +2252,29 @@ function toAsync(): IPCB_PrimitiveString;
 
 Text primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 在顶层丝印（3）放置一行文本
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+
+// 3. 切换异步模式后批量修改：改内容 + 加大字号
+const asyncStr = str.toAsync();
+asyncStr.setState_Text('嘉立创示例_批量');
+asyncStr.setState_FontSize(60);
+await asyncStr.done();
+
+// 4. 从画布重新读取，确认批量修改已生效（保留现场供观察）
+const refetched = await eda.pcb_PrimitiveString.get(str.getState_PrimitiveId());
+
+console.log('text:', refetched.getState_Text());
+console.log('fontSize:', refetched.getState_FontSize());
+```
+
 ### tosync
 
 # IPCB\_PrimitiveString.toSync() method
@@ -1661,3 +2292,24 @@ function toSync(): IPCB_PrimitiveString;
 [IPCB\_PrimitiveString](./IPCB_PrimitiveString.md)
 
 Text primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试图元重合
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+
+// 2. 在顶层丝印（3）放置一行文本
+const str = await eda.pcb_PrimitiveString.create(3, x, y, '嘉立创示例_TEXT', 'default', 45, 6, 3, 0, false, 0, false, false);
+const before = str.isAsync();
+
+// 3. 转换为同步图元（保留现场供观察）
+const syncStr = str.toSync();
+const after = syncStr.isAsync();
+
+// 4. 同步图元直接读取属性，无需提交
+console.log('isAsync:', before, '→', after);
+console.log('primitiveType:', syncStr.getState_PrimitiveType());
+console.log('layer:', syncStr.getState_Layer());
+```

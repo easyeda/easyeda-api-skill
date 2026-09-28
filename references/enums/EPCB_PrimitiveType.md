@@ -33,6 +33,8 @@ ARC
 
 </td><td>
 
+圆弧线
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ ATTRIBUTE
 `'Attribute'`
 
 </td><td>
+
+属性
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ COMPONENT
 
 </td><td>
 
+器件
+
 </td></tr>
 <tr><td>
 
@@ -65,6 +71,8 @@ COMPONENT\_PAD
 `'ComponentPad'`
 
 </td><td>
+
+器件焊盘
 
 </td></tr>
 <tr><td>
@@ -77,6 +85,8 @@ DIMENSION
 
 </td><td>
 
+尺寸标注
+
 </td></tr>
 <tr><td>
 
@@ -87,6 +97,8 @@ FILL
 `'Fill'`
 
 </td><td>
+
+填充
 
 </td></tr>
 <tr><td>
@@ -99,6 +111,8 @@ IMAGE
 
 </td><td>
 
+图像
+
 </td></tr>
 <tr><td>
 
@@ -109,6 +123,8 @@ LINE
 `'Line'`
 
 </td><td>
+
+直线
 
 </td></tr>
 <tr><td>
@@ -121,6 +137,8 @@ OBJECT
 
 </td><td>
 
+二进制内嵌对象
+
 </td></tr>
 <tr><td>
 
@@ -131,6 +149,8 @@ PAD
 `'Pad'`
 
 </td><td>
+
+焊盘
 
 </td></tr>
 <tr><td>
@@ -143,6 +163,8 @@ POLYLINE
 
 </td><td>
 
+折线
+
 </td></tr>
 <tr><td>
 
@@ -153,6 +175,8 @@ POUR
 `'Pour'`
 
 </td><td>
+
+覆铜边框
 
 </td></tr>
 <tr><td>
@@ -165,6 +189,8 @@ POURED
 
 </td><td>
 
+覆铜填充
+
 </td></tr>
 <tr><td>
 
@@ -175,6 +201,8 @@ REGION
 `'Region'`
 
 </td><td>
+
+区域
 
 </td></tr>
 <tr><td>
@@ -187,6 +215,8 @@ STRING
 
 </td><td>
 
+文本
+
 </td></tr>
 <tr><td>
 
@@ -197,6 +227,8 @@ VIA
 `'Via'`
 
 </td><td>
+
+过孔
 
 </td></tr>
 </tbody></table>

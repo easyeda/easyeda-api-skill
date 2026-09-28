@@ -25,7 +25,7 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-[createProject(projectFriendlyName, projectName, teamUuid, folderUuid, description, collaborationMode)](./DMT_Project.md)
+[createProject(projectFriendlyName, projectName, teamUuid, folderUuid, description, collaborationMode, fileFormat)](./DMT_Project.md)
 
 </td><td>
 
@@ -113,6 +113,7 @@ function createProject(
 	folderUuid?: string,
 	description?: string,
 	collaborationMode?: EDMT_ProjectCollaborationMode,
+	fileFormat?: EDMT_ProjectFileFormat,
 ): Promise<string | undefined>;
 ```
 
@@ -209,6 +210,19 @@ collaborationMode
 _(Optional)_ Project collaboration mode. If the team permission does not require the project to set a collaboration mode, this parameter will be ignored
 
 </td></tr>
+<tr><td>
+
+fileFormat
+
+</td><td>
+
+[EDMT\_ProjectFileFormat](../enums/EDMT_ProjectFileFormat.md)
+
+</td><td>
+
+_(Optional)_ 工程文件格式，缺省为 `EPRJ3`<!-- -->；仅在客户端半离线 / 全离线模式生效，在线环境将忽略该参数
+
+</td></tr>
 </tbody></table>
 
 ## Returns
@@ -216,6 +230,29 @@ _(Optional)_ Project collaboration mode. If the team permission does not require
 Promise&lt;string \| undefined&gt;
 
 Project UUID, if it is `undefined` creation fails
+
+## Example
+
+```javascript
+// 1. 创建测试工程（友好名带时间戳避免重名，名称与团队留空走默认）
+const projectUuid = await eda.dmt_Project.createProject(
+	`嘉立创示例_工程 ${Date.now()}`,
+	undefined,
+	undefined,
+	undefined,
+	'嘉立创示例：工程创建演示',
+);
+
+// 2. 等待工作区同步后回读，确认工程已落地
+await new Promise(r => setTimeout(r, 1500));
+const brief = await eda.dmt_Project.getProjectInfo(projectUuid);
+
+const folderLabel = !brief?.folderUuid ? '(根目录)' : brief.folderUuid;
+
+console.log('projectUuid:', projectUuid);
+console.log('friendlyName:', brief?.friendlyName);
+console.log('folderUuid:', folderLabel);
+```
 
 ### getallprojectsuuid
 
@@ -304,6 +341,20 @@ If `folderUuid` is specified, all projects under the specified folder are obtain
 `teamUuid`<!-- -->, `folderUuid` only one of them may be specified, if both are specified, only `folderUuid`<!-- -->;
 
 If `workspaceUuid` is specified, all projects under the specified team/folder are obtained in the specified Workspace
+
+## Example
+
+```javascript
+// 1. 取当前工程所属团队
+const projectInfo = await eda.dmt_Project.getCurrentProjectInfo();
+const teamUuid = projectInfo.teamUuid;
+
+// 2. 获取该团队下所有工程的 UUID
+const projectUuids = await eda.dmt_Project.getAllProjectsUuid(teamUuid);
+
+console.log('projectCount:', projectUuids.length);
+console.log('projectUuids:', projectUuids.join(', '));
+```
 
 ### getcurrentprojectinfo
 
@@ -440,6 +491,36 @@ Promise&lt;boolean&gt;
 
 Whether the move is successful
 
+## Example
+
+```javascript
+// 1. 记录当前工程的位置，作为移动后恢复的锚点
+const info = await eda.dmt_Project.getCurrentProjectInfo();
+const projectUuid = info.uuid;
+const teamUuid = info.teamUuid;
+const originalFolderUuid = info.folderUuid; // 可能为 undefined（团队根目录）
+
+// 2. 创建目标文件夹，等待 1.5s 让工作区同步
+const targetFolderUuid = await eda.dmt_Folder.createFolder('嘉立创示例_目标文件夹', teamUuid);
+await new Promise(r => setTimeout(r, 1500));
+
+// 3. 把当前工程移到目标文件夹下
+const moved = await eda.dmt_Project.moveProjectToFolder(projectUuid, targetFolderUuid);
+await new Promise(r => setTimeout(r, 1000));
+
+// 4. 回读验证工程已落到目标文件夹
+const after = await eda.dmt_Project.getCurrentProjectInfo();
+const folderChanged = after?.folderUuid === targetFolderUuid;
+
+// 5. 恢复：移回原位置（原为根目录时传 undefined）
+const restored = await eda.dmt_Project.moveProjectToFolder(projectUuid, originalFolderUuid);
+await new Promise(r => setTimeout(r, 1000));
+
+console.log('moved:', moved);
+console.log('folderChanged:', folderChanged);
+console.log('restored:', restored);
+```
+
 ### openproject
 
 # DMT\_Project.openProject() method
@@ -491,3 +572,16 @@ Whether Successful open project
 ## Remarks
 
 This operation will open the specified project in the EDA front end. If another project was previously opened with unsaved changes, executing this operation will directly lose all unsaved data
+
+## Example
+
+```javascript
+// 1. 取当前工程 UUID（打开自身，避免切换到其它工程）
+const info = await eda.dmt_Project.getCurrentProjectInfo();
+const projectUuid = info.uuid;
+
+// 2. 打开该工程
+const opened = await eda.dmt_Project.openProject(projectUuid);
+
+console.log('opened:', opened);
+```

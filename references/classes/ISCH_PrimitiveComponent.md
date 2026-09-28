@@ -812,6 +812,32 @@ Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)<!-- -->&gt;
 
 Device primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+
+// 3. 切换异步模式，累计两处修改（写正式位号 + 旋转 90°）
+const asyncComp = comp.toAsync();
+asyncComp.setState_Designator('C200');
+asyncComp.setState_Rotation(90);
+
+// 4. 一次性提交到画布
+await asyncComp.done();
+
+// 5. 从画布重新读取，确认两处修改都已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveComponent.get(comp.getState_PrimitiveId());
+
+console.log('designator: C? →', refetched.getState_Designator());
+console.log('rotation: 0 →', refetched.getState_Rotation());
+```
+
 ### getallpins
 
 # ISCH\_PrimitiveComponent.getAllPins() method
@@ -832,6 +858,23 @@ Promise&lt;Array&lt;[ISCH\_PrimitiveComponentPin](./ISCH_PrimitiveComponentPin.m
 
 Device pin primitive array
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件（C0402 电容有两个引脚，SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 获取器件全部引脚（C0402 电容返回 2 个引脚图元）
+const pins = await comp.getAllPins();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('pinCount:', pins.length);
+```
+
 ### getstate_addintobom
 
 # ISCH\_PrimitiveComponent.getState\_AddIntoBom() method
@@ -849,6 +892,23 @@ function getState_AddIntoBom(): boolean | undefined;
 boolean \| undefined
 
 Whether Add to BOM
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取是否加入 BOM（默认 true）
+const addIntoBom = comp.getState_AddIntoBom();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('addIntoBom:', addIntoBom);
+```
 
 ### getstate_addintopcb
 
@@ -868,6 +928,23 @@ boolean \| undefined
 
 Whether Transfer to PCB
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取是否转到 PCB（默认 true）
+const addIntoPcb = comp.getState_AddIntoPcb();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('addIntoPcb:', addIntoPcb);
+```
+
 ### getstate_component
 
 # ISCH\_PrimitiveComponent.getState\_Component() method
@@ -885,6 +962,23 @@ function getState_Component(): { libraryUuid: string; uuid: string; name?: strin
 { libraryUuid: string; uuid: string; name?: string } \| undefined
 
 Associate library device
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取关联的库器件（含所属库 uuid 和器件 uuid）
+const component = comp.getState_Component();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('component:', JSON.stringify(component));
+```
 
 ### getstate_componenttype
 
@@ -904,6 +998,23 @@ function getState_ComponentType(): ESCH_PrimitiveComponentType;
 
 Device type
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件（普通元件，SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取器件类型（普通元件为 'part'）
+const componentType = comp.getState_ComponentType();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('componentType:', componentType);
+```
+
 ### getstate_designator
 
 # ISCH\_PrimitiveComponent.getState\_Designator() method
@@ -921,6 +1032,23 @@ function getState_Designator(): string | undefined;
 string \| undefined
 
 Designator
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取位号（未分配时是带问号的临时位号，如 C?）
+const designator = comp.getState_Designator();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('designator:', designator);
+```
 
 ### getstate_footprint
 
@@ -940,6 +1068,23 @@ function getState_Footprint(): { libraryUuid: string; uuid: string; name?: strin
 
 Associate library footprint
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取关联的库封装（器件未绑定封装时为 undefined）
+const footprint = comp.getState_Footprint();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('footprint:', JSON.stringify(footprint));
+```
+
 ### getstate_manufacturer
 
 # ISCH\_PrimitiveComponent.getState\_Manufacturer() method
@@ -957,6 +1102,23 @@ function getState_Manufacturer(): string | undefined;
 string \| undefined
 
 Manufacturer
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取制造商（库器件未填写时为 undefined）
+const manufacturer = comp.getState_Manufacturer();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('manufacturer:', manufacturer);
+```
 
 ### getstate_manufacturerid
 
@@ -976,6 +1138,23 @@ string \| undefined
 
 Manufacturer ID
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取制造商编号（库器件未填写时为 undefined）
+const manufacturerId = comp.getState_ManufacturerId();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('manufacturerId:', manufacturerId);
+```
+
 ### getstate_mirror
 
 # ISCH\_PrimitiveComponent.getState\_Mirror() method
@@ -993,6 +1172,23 @@ function getState_Mirror(): boolean;
 boolean
 
 Whether it is mirrored
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取镜像状态（默认 false）
+const mirror = comp.getState_Mirror();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('mirror:', mirror);
+```
 
 ### getstate_name
 
@@ -1012,6 +1208,23 @@ string \| undefined
 
 Name
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取名称（默认继承库器件名）
+const name = comp.getState_Name();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('name:', name);
+```
+
 ### getstate_net
 
 # ISCH\_PrimitiveComponent.getState\_Net() method
@@ -1029,6 +1242,23 @@ function getState_Net(): string | undefined;
 string \| undefined
 
 Net name
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取器件级网络名（普通元件为 undefined，引脚网络需查引脚对象）
+const net = comp.getState_Net();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('net:', net);
+```
 
 ### getstate_otherproperty
 
@@ -1048,6 +1278,23 @@ Record&lt;string, string \| number \| boolean&gt; \| undefined
 
 Other parameters
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取全部自定义参数（Record<键, 值>，未设置时为 undefined）
+const otherProperty = comp.getState_OtherProperty();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('otherProperty:', JSON.stringify(otherProperty));
+```
+
 ### getstate_primitiveid
 
 # ISCH\_PrimitiveComponent.getState\_PrimitiveId() method
@@ -1065,6 +1312,22 @@ function getState_PrimitiveId(): string;
 string
 
 Primitive ID
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+
+// 2. 读取图元 ID
+const compId = comp.getState_PrimitiveId();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('compId:', compId);
+```
 
 ### getstate_primitivetype
 
@@ -1084,6 +1347,23 @@ function getState_PrimitiveType(): ESCH_PrimitiveType;
 
 Primitive type
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取图元类型（器件图元为 'Component'）
+const primitiveType = comp.getState_PrimitiveType();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('primitiveType:', primitiveType);
+```
+
 ### getstate_rotation
 
 # ISCH\_PrimitiveComponent.getState\_Rotation() method
@@ -1101,6 +1381,23 @@ function getState_Rotation(): number;
 number
 
 Rotation angle
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取旋转角度（默认 0）
+const rotation = comp.getState_Rotation();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('rotation:', rotation);
+```
 
 ### getstate_subpartname
 
@@ -1120,6 +1417,23 @@ string \| undefined
 
 Sub-part name
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取子部件名称（单子部件器件为 undefined）
+const subPartName = comp.getState_SubPartName();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('subPartName:', subPartName);
+```
+
 ### getstate_supplier
 
 # ISCH\_PrimitiveComponent.getState\_Supplier() method
@@ -1137,6 +1451,23 @@ function getState_Supplier(): string | undefined;
 string \| undefined
 
 Supplier
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取供应商（库器件未填写时为 undefined）
+const supplier = comp.getState_Supplier();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('supplier:', supplier);
+```
 
 ### getstate_supplierid
 
@@ -1156,6 +1487,23 @@ string \| undefined
 
 Supplier ID
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取供应商编号（库器件未填写时为 undefined）
+const supplierId = comp.getState_SupplierId();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('supplierId:', supplierId);
+```
+
 ### getstate_symbol
 
 # ISCH\_PrimitiveComponent.getState\_Symbol() method
@@ -1173,6 +1521,23 @@ function getState_Symbol(): { libraryUuid: string; uuid: string; name?: string }
 { libraryUuid: string; uuid: string; name?: string } \| undefined
 
 Associate library symbol
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取关联的库符号
+const symbol = comp.getState_Symbol();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('symbol:', JSON.stringify(symbol));
+```
 
 ### getstate_uniqueid
 
@@ -1192,6 +1557,23 @@ string \| undefined
 
 Unique ID
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取唯一 ID
+const uniqueId = comp.getState_UniqueId();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('uniqueId:', uniqueId);
+```
+
 ### getstate_x
 
 # ISCH\_PrimitiveComponent.getState\_X() method
@@ -1209,6 +1591,23 @@ function getState_X(): number;
 number
 
 X coordinate
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil，100 ≈ 25.4mm）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取放置位置的 X 坐标
+const x = comp.getState_X();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('x:', x);
+```
 
 ### getstate_y
 
@@ -1228,6 +1627,23 @@ number
 
 Y coordinate
 
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil，100 ≈ 25.4mm）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 读取放置位置的 Y 坐标（与放置时传入值一致）
+const y = comp.getState_Y();
+
+// 3. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('y:', y);
+```
+
 ### isasync
 
 # ISCH\_PrimitiveComponent.isAsync() method
@@ -1245,6 +1661,28 @@ function isAsync(): boolean;
 boolean
 
 Whether Is async primitive
+
+## Example
+
+```javascript
+// 1. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], 600, 600);
+const compId = comp.getState_PrimitiveId();
+
+// 2. 查询创建后的默认模式（新创建的图元默认为异步）
+const isAsyncOnCreate = comp.isAsync();
+
+// 3. 转为同步后再查一次，对比两种模式
+const syncComp = comp.toSync();
+const isAsyncAfterToSync = syncComp.isAsync();
+
+// 4. 清理测试器件（查询类需要清理）
+await eda.sch_PrimitiveComponent.delete([compId]);
+
+console.log('isAsync on create:', isAsyncOnCreate);
+console.log('isAsync after toSync:', isAsyncAfterToSync);
+```
 
 ### reset
 
@@ -1265,6 +1703,30 @@ function reset(): Promise<ISCH_PrimitiveComponent>;
 Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)<!-- -->&gt;
 
 Device primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件，记录画布上的位号
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const compId = comp.getState_PrimitiveId();
+const before = comp.getState_Designator();
+
+// 3. 异步模式写入一个错误位号，但不提交，直接重置丢弃
+const asyncComp = comp.toAsync();
+asyncComp.setState_Designator('WRONG');
+await asyncComp.reset();
+
+// 4. 从画布重新读取，位号仍是重置前的值（保留现场供观察）
+const refetched = await eda.sch_PrimitiveComponent.get(compId);
+
+console.log('designator:', before, '→', refetched.getState_Designator());
+```
 
 ### setstate_addintobom
 
@@ -1316,6 +1778,29 @@ Whether Add to BOM
 
 Device primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const before = comp.getState_AddIntoBom();
+
+// 3. 切换异步模式，改为不加入 BOM 后提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_AddIntoBom(false);
+await asyncComp.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveComponent.get(comp.getState_PrimitiveId());
+
+console.log('addIntoBom:', before, '→', refetched.getState_AddIntoBom());
+```
+
 ### setstate_addintopcb
 
 # ISCH\_PrimitiveComponent.setState\_AddIntoPcb() method
@@ -1365,6 +1850,29 @@ Whether Transfer to PCB
 [ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)
 
 Device primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件（SCH 坐标单位 10mil）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const before = comp.getState_AddIntoPcb();
+
+// 3. 切换异步模式，改为不转 PCB 后提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_AddIntoPcb(false);
+await asyncComp.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveComponent.get(comp.getState_PrimitiveId());
+
+console.log('addIntoPcb:', before, '→', refetched.getState_AddIntoPcb());
+```
 
 ### setstate_designator
 
@@ -1416,6 +1924,29 @@ Designator
 
 Device primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件，读取自动分配的临时位号（如 C?）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const before = comp.getState_Designator();
+
+// 3. 切换异步模式，写入正式位号后提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_Designator('C100');
+await asyncComp.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveComponent.get(comp.getState_PrimitiveId());
+
+console.log('designator:', before, '→', refetched.getState_Designator());
+```
+
 ### setstate_manufacturer
 
 # ISCH\_PrimitiveComponent.setState\_Manufacturer() method
@@ -1465,6 +1996,29 @@ Manufacturer
 [ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)
 
 Device primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件，读取默认制造商
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const before = comp.getState_Manufacturer();
+
+// 3. 切换异步模式，写入制造商后提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_Manufacturer('YAGEO');
+await asyncComp.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveComponent.get(comp.getState_PrimitiveId());
+
+console.log('manufacturer:', before, '→', refetched.getState_Manufacturer());
+```
 
 ### setstate_manufacturerid
 
@@ -1516,6 +2070,29 @@ Manufacturer ID
 
 Device primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件，读取默认制造商编号
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const before = comp.getState_ManufacturerId();
+
+// 3. 切换异步模式，写入 MPN 后提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_ManufacturerId('CC0402KRX7R7BB104');
+await asyncComp.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveComponent.get(comp.getState_PrimitiveId());
+
+console.log('manufacturerId:', before, '→', refetched.getState_ManufacturerId());
+```
+
 ### setstate_mirror
 
 # ISCH\_PrimitiveComponent.setState\_Mirror() method
@@ -1565,6 +2142,29 @@ Whether it is mirrored
 [ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)
 
 Device primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件，读取默认镜像状态（false）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const before = comp.getState_Mirror();
+
+// 3. 切换异步模式，开启镜像后提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_Mirror(true);
+await asyncComp.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveComponent.get(comp.getState_PrimitiveId());
+
+console.log('mirror:', before, '→', refetched.getState_Mirror());
+```
 
 ### setstate_name
 
@@ -1616,6 +2216,29 @@ Name
 
 Device primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件，读取默认名称（继承库器件名）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const before = comp.getState_Name();
+
+// 3. 切换异步模式，写入用途名后提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_Name('12V 输入滤波电容');
+await asyncComp.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveComponent.get(comp.getState_PrimitiveId());
+
+console.log('name:', before, '→', refetched.getState_Name());
+```
+
 ### setstate_net
 
 # ISCH\_PrimitiveComponent.setState\_Net() method
@@ -1665,6 +2288,29 @@ Net name
 [ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)
 
 Device primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件，读取默认网络名
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const before = comp.getState_Net();
+
+// 3. 切换异步模式，写入网络名后提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_Net('VCC');
+await asyncComp.done();
+
+// 4. 从画布重新读取，普通元件读回空串（保留现场供观察）
+const refetched = await eda.sch_PrimitiveComponent.get(comp.getState_PrimitiveId());
+
+console.log('net:', before, '→', refetched.getState_Net());
+```
 
 ### setstate_otherproperty
 
@@ -1718,6 +2364,29 @@ Other parameters
 
 Device primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件，读取默认参数集
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const before = comp.getState_OtherProperty();
+
+// 3. 切换异步模式，写入规格参数组后提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_OtherProperty({ Capacitance: '100nF', Voltage: '50V', Tolerance: '±10%' });
+await asyncComp.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveComponent.get(comp.getState_PrimitiveId());
+
+console.log('otherProperty:', JSON.stringify(before), '→', JSON.stringify(refetched.getState_OtherProperty()));
+```
+
 ### setstate_rotation
 
 # ISCH\_PrimitiveComponent.setState\_Rotation() method
@@ -1767,6 +2436,29 @@ Rotation angle
 [ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)
 
 Device primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件，读取默认角度（0）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const before = comp.getState_Rotation();
+
+// 3. 切换异步模式，旋转 90° 后提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_Rotation(90);
+await asyncComp.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveComponent.get(comp.getState_PrimitiveId());
+
+console.log('rotation:', before, '→', refetched.getState_Rotation());
+```
 
 ### setstate_supplier
 
@@ -1818,6 +2510,29 @@ Supplier
 
 Device primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件，读取默认供应商
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const before = comp.getState_Supplier();
+
+// 3. 切换异步模式，写入供应商后提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_Supplier('LCSC');
+await asyncComp.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveComponent.get(comp.getState_PrimitiveId());
+
+console.log('supplier:', before, '→', refetched.getState_Supplier());
+```
+
 ### setstate_supplierid
 
 # ISCH\_PrimitiveComponent.setState\_SupplierId() method
@@ -1867,6 +2582,29 @@ Supplier ID
 [ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)
 
 Device primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件，读取默认供应商编号
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const before = comp.getState_SupplierId();
+
+// 3. 切换异步模式，写入编号后提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_SupplierId('C1546');
+await asyncComp.done();
+
+// 4. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveComponent.get(comp.getState_PrimitiveId());
+
+console.log('supplierId:', before, '→', refetched.getState_SupplierId());
+```
 
 ### setstate_uniqueid
 
@@ -1918,6 +2656,29 @@ Unique ID
 
 Device primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件，读取系统分配的唯一 ID
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const before = comp.getState_UniqueId();
+
+// 3. 切换异步模式，写入新唯一 ID 后提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_UniqueId('example-unique-id-001');
+await asyncComp.done();
+
+// 4. 从画布重新读取，观察写入结果（保留现场供观察）
+const refetched = await eda.sch_PrimitiveComponent.get(comp.getState_PrimitiveId());
+
+console.log('uniqueId:', before, '→', refetched.getState_UniqueId());
+```
+
 ### setstate_x
 
 # ISCH\_PrimitiveComponent.setState\_X() method
@@ -1967,6 +2728,28 @@ X coordinate
 [ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)
 
 Device primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件，记录初始 X 坐标
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+
+// 3. 切换异步模式，向右移动 200 单位（约 5mm）后提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_X(x + 200);
+await asyncComp.done();
+
+// 4. 从画布重新读取，确认移动已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveComponent.get(comp.getState_PrimitiveId());
+
+console.log('x:', x, '→', refetched.getState_X());
+```
 
 ### setstate_y
 
@@ -2018,6 +2801,28 @@ Y coordinate
 
 Device primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件，记录初始 Y 坐标
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+
+// 3. 切换异步模式，移动 200 单位（约 5mm）后提交
+const asyncComp = comp.toAsync();
+asyncComp.setState_Y(y + 200);
+await asyncComp.done();
+
+// 4. 从画布重新读取，确认移动已生效（读回值与设置值同号）
+const refetched = await eda.sch_PrimitiveComponent.get(comp.getState_PrimitiveId());
+
+console.log('y:', y, '+200 →', refetched.getState_Y());
+```
+
 ### toasync
 
 # ISCH\_PrimitiveComponent.toAsync() method
@@ -2036,6 +2841,31 @@ function toAsync(): ISCH_PrimitiveComponent;
 
 Arc line primitive object
 
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件（创建后默认处于异步模式）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+
+// 3. 显式转换为异步图元（同步图元由此回到异步模式）
+const asyncComp = comp.toAsync();
+asyncComp.setState_Designator('C300');
+
+// 4. 提交到画布
+await asyncComp.done();
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveComponent.get(comp.getState_PrimitiveId());
+
+console.log('isAsync:', comp.isAsync());
+console.log('designator: C? →', refetched.getState_Designator());
+```
+
 ### tosync
 
 # ISCH\_PrimitiveComponent.toSync() method
@@ -2053,3 +2883,28 @@ function toSync(): ISCH_PrimitiveComponent;
 [ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md)
 
 Arc line primitive object
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试器件重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 放置一个测试器件（创建后默认处于异步模式）
+const devices = await eda.lib_Device.search('C0402');
+const comp = await eda.sch_PrimitiveComponent.create(devices[0], x, y);
+const compId = comp.getState_PrimitiveId();
+
+// 3. 转换为同步图元
+const syncComp = comp.toSync();
+
+// 4. 同步模式下写位号，立即生效，无需 done()
+syncComp.setState_Designator('C400');
+
+// 5. 从画布重新读取，确认修改已生效（保留现场供观察）
+const refetched = await eda.sch_PrimitiveComponent.get(compId);
+
+console.log('isAsync after toSync:', syncComp.isAsync());
+console.log('designator: C? →', refetched.getState_Designator());
+```

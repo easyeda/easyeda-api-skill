@@ -269,6 +269,21 @@ _(Optional)_ Validation value for testing
 </td></tr>
 <tr><td>
 
+[textAlign?](./InputProps.md)
+
+</td><td>
+
+</td><td>
+
+'left' \| 'center' \| 'right'
+
+</td><td>
+
+_(Optional)_ 输入框内文字水平对齐（旧世界图片尺寸输入框数字居中用 textAlign: 'center'）
+
+</td></tr>
+<tr><td>
+
 [type](./InputProps.md)
 
 </td><td>
@@ -493,6 +508,18 @@ Validation value for testing
 
 ```typescript
 testVal?: string;
+```
+
+### textalign
+
+# InputProps.textAlign property
+
+输入框内文字水平对齐（旧世界图片尺寸输入框数字居中用 textAlign: 'center'）
+
+## Signature
+
+```typescript
+textAlign?: 'left' | 'center' | 'right';
 ```
 
 ### type

@@ -91,6 +91,23 @@ UUID of the library it belongs to
 </td></tr>
 <tr><td>
 
+[model3D?](./ILIB_FootprintItem.md)
+
+</td><td>
+
+</td><td>
+
+\{ name: string; uuid: string; libraryUuid: string \}
+
+</td><td>
+
+_(Optional)_ 关联 3D 模型
+
+ADD since v4.1.22
+
+</td></tr>
+<tr><td>
+
 [name](./ILIB_FootprintItem.md)
 
 </td><td>
@@ -186,6 +203,20 @@ UUID of the library it belongs to
 
 ```typescript
 libraryUuid: string;
+```
+
+### model3d
+
+# ILIB\_FootprintItem.model3D property
+
+关联 3D 模型
+
+ADD since v4.1.22
+
+## Signature
+
+```typescript
+model3D?: { name: string; uuid: string; libraryUuid: string };
 ```
 
 ### name

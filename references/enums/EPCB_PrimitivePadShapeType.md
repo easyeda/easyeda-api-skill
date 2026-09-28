@@ -33,6 +33,8 @@ ELLIPSE
 
 </td><td>
 
+圆形
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ OBLONG
 `'OVAL'`
 
 </td><td>
+
+长圆形
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ POLYLINE\_COMPLEX\_POLYGON
 
 </td><td>
 
+折线复杂多边形
+
 </td></tr>
 <tr><td>
 
@@ -66,6 +72,8 @@ RECTANGLE
 
 </td><td>
 
+矩形
+
 </td></tr>
 <tr><td>
 
@@ -76,6 +84,8 @@ REGULAR\_POLYGON
 `'NGON'`
 
 </td><td>
+
+正多边形
 
 </td></tr>
 </tbody></table>

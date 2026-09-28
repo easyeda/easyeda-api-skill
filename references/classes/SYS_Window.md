@@ -243,6 +243,29 @@ _(Optional)_ Optional parameters
 
 Event listener method, used to remove the event listener. If it is `undefined`<!-- -->, it means creating the event listener failed
 
+## Remarks
+
+监听直接挂载到原生 window 上，返回的可移除对象可传给 [SYS\_Window.removeEventListener()](./SYS_Window.md) 移除； 同一扩展重复注册相同 type 的监听会被替换（非累积），卸载扩展时注册的原生监听会被自动清理。
+
+## Example
+
+```javascript
+// 示例 1：注册 focus 监听（真实场景由用户切换窗口焦点触发，这里用合成事件模拟）
+const removable = eda.sys_Window.addEventListener('focus', () => {
+	console.log('窗口获得焦点');
+});
+
+// 检查返回的可移除对象，其中的 type 字段记录了监听的事件类型
+console.log('监听注册成功：', removable !== undefined, '，事件类型：', removable.type);
+
+// 模拟一次获得焦点事件，回调同步触发
+window.dispatchEvent(new Event('focus'));
+
+// 注销监听，恢复原状
+eda.sys_Window.removeEventListener(removable);
+console.log('监听已注销');
+```
+
 ### getcurrenttheme
 
 # SYS\_Window.getCurrentTheme() method
@@ -265,6 +288,16 @@ Current theme
 
 Get the current EDA theme, \*\*light\*\* or \*\*dark\*\*
 
+## Example
+
+```javascript
+// 1. 获取当前主题（异步方法，需要 await）
+const theme = await eda.sys_Window.getCurrentTheme();
+
+// 2. 展示结果
+console.log('当前主题：', theme === 'light' ? '浅色（light）' : '深色（dark）');
+```
+
 ### geturlanchor
 
 # SYS\_Window.getUrlAnchor() method
@@ -282,6 +315,24 @@ function getUrlAnchor(): string;
 string
 
 URL anchor value
+
+## Example
+
+```javascript
+// 1. 备份当前完整地址（用于演示后还原）
+const originalHref = location.href;
+
+// 2. 写入一个示例锚点（地址栏会临时变成示例锚点）
+eda.sys_Window.urlPushState(`${location.href.split('#')[0]}#嘉立创示例_锚点`);
+
+// 3. 读取锚点（返回的是编码后的字符串，解码后展示）
+const anchor = decodeURIComponent(eda.sys_Window.getUrlAnchor());
+console.log('当前锚点：', anchor);
+
+// 4. 还原原地址，保证编辑器锚点状态不受影响
+eda.sys_Window.urlReplaceState(originalHref);
+console.log('地址已还原');
+```
 
 ### geturlparam
 
@@ -331,6 +382,26 @@ string \| null
 
 Parameter value
 
+## Example
+
+```javascript
+// 1. 备份当前完整地址（用于演示后还原）
+const originalHref = location.href;
+
+// 2. 用 URL 对象追加示例参数并写入地址栏
+const url = new URL(location.href);
+url.searchParams.set('嘉立创示例_参数', '演示值');
+eda.sys_Window.urlPushState(url.href);
+
+// 3. 读取刚写入的参数，以及一个不存在的参数
+console.log('参数值：', eda.sys_Window.getUrlParam('嘉立创示例_参数'));
+console.log('不存在的参数返回：', eda.sys_Window.getUrlParam('嘉立创示例_不存在'));
+
+// 4. 还原原地址
+eda.sys_Window.urlReplaceState(originalHref);
+console.log('地址已还原');
+```
+
 ### getviewportsize
 
 # SYS\_Window.getViewportSize() method
@@ -352,6 +423,16 @@ Viewport width and height (in pixels)
 ## Remarks
 
 ADD since EDA v3.2.162
+
+## Example
+
+```javascript
+// 1. 获取视口大小（同步方法，直接取值）
+const size = eda.sys_Window.getViewportSize();
+
+// 2. 展示宽高
+console.log('视口宽：', size.width, 'px，视口高：', size.height, 'px');
+```
 
 ### hidestartpagequickstartitems
 
@@ -494,6 +575,16 @@ _(Optional)_ Context target
 
 void
 
+## Example
+
+```javascript
+// 1. 在新标签页打开目标地址（同步方法，无返回值）
+eda.sys_Window.open('http://localhost:49620/health', '_blank');
+
+// 2. 打开的标签页由用户自行关闭
+console.log('已在新标签页打开资源窗口');
+```
+
 ### openui
 
 # SYS\_Window.openUI() method
@@ -503,7 +594,7 @@ Open UI window
 ## Signature
 
 ```typescript
-function openUI(uiName: string, args?: { [key: string]: any }): Promise<void>;
+function openUI(uiName: string, args?: Record<string, any>): Promise<void>;
 ```
 
 ## Parameters
@@ -540,7 +631,7 @@ args
 
 </td><td>
 
-\{ \[key: string\]: any \}
+Record&lt;string, any&gt;
 
 </td><td>
 
@@ -556,6 +647,16 @@ Promise&lt;void&gt;
 ## Remarks
 
 Non-public API usage notice: This API is provided as-is without additional documentation for parameters. Parameters may be changed in a breaking manner in any version without notice.
+
+## Example
+
+```javascript
+// 1. 打开指定名称的内置 UI 窗口（异步方法，需要 await；这里用占位名称演示调用方式）
+await eda.sys_Window.openUI('嘉立创示例_UI窗口');
+
+// 2. 调用完成（未知 uiName 静默无效，不抛错）
+console.log('openUI 调用完成');
+```
 
 ### removeeventlistener
 
@@ -603,6 +704,24 @@ Window event listener can remove object
 
 void
 
+## Example
+
+```javascript
+// 1. 先注册一个 blur 监听，拿到可移除对象（removeEventListener 的入参）
+let fired = 0;
+const removable = eda.sys_Window.addEventListener('blur', () => {
+	fired++;
+});
+console.log('已注册 blur 监听，事件类型：', removable.type);
+
+// 2. 移除监听
+eda.sys_Window.removeEventListener(removable);
+
+// 3. 再触发一次失去焦点事件，验证回调不再执行
+window.dispatchEvent(new Event('blur'));
+console.log('移除后回调触发次数：', fired);
+```
+
 ### urlpushstate
 
 # SYS\_Window.urlPushState() method
@@ -649,6 +768,23 @@ URL
 
 void
 
+## Example
+
+```javascript
+// 1. 备份当前完整地址
+const originalHref = location.href;
+
+// 2. 追加一条带示例锚点的新历史记录
+eda.sys_Window.urlPushState(`${location.href.split('#')[0]}#嘉立创示例_新状态`);
+
+// 3. 验证地址栏已更新为新的锚点
+console.log('追加后的锚点：', decodeURIComponent(eda.sys_Window.getUrlAnchor()));
+
+// 4. 还原地址栏
+eda.sys_Window.urlReplaceState(originalHref);
+console.log('地址已还原');
+```
+
 ### urlreplacestate
 
 # SYS\_Window.urlReplaceState() method
@@ -694,3 +830,20 @@ URL
 ## Returns
 
 void
+
+## Example
+
+```javascript
+// 1. 备份当前完整地址
+const originalHref = location.href;
+
+// 2. 把当前历史记录的地址改写为带示例锚点的地址
+eda.sys_Window.urlReplaceState(`${location.href.split('#')[0]}#嘉立创示例_替换状态`);
+
+// 3. 验证改写生效（getUrlAnchor 返回编码后的锚点，解码后展示）
+console.log('改写后的锚点：', decodeURIComponent(eda.sys_Window.getUrlAnchor()));
+
+// 4. 改回原地址（replaceState 不新增历史记录，此处完全还原）
+eda.sys_Window.urlReplaceState(originalHref);
+console.log('地址已还原');
+```

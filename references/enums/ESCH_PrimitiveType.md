@@ -33,6 +33,8 @@ ARC
 
 </td><td>
 
+圆弧
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ ATTRIBUTE
 `'Attribute'`
 
 </td><td>
+
+属性
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ BEZIER
 
 </td><td>
 
+三阶贝塞尔线条
+
 </td></tr>
 <tr><td>
 
@@ -65,6 +71,8 @@ BUS
 `'Bus'`
 
 </td><td>
+
+总线
 
 </td></tr>
 <tr><td>
@@ -77,6 +85,8 @@ CIRCLE
 
 </td><td>
 
+圆
+
 </td></tr>
 <tr><td>
 
@@ -87,6 +97,8 @@ COMPONENT
 `'Component'`
 
 </td><td>
+
+器件
 
 </td></tr>
 <tr><td>
@@ -99,6 +111,8 @@ COMPONENT\_PIN
 
 </td><td>
 
+器件引脚
+
 </td></tr>
 <tr><td>
 
@@ -109,6 +123,8 @@ ELLIPSE
 `'Ellipse'`
 
 </td><td>
+
+椭圆
 
 </td></tr>
 <tr><td>
@@ -121,6 +137,8 @@ OBJECT
 
 </td><td>
 
+二进制内嵌对象
+
 </td></tr>
 <tr><td>
 
@@ -131,6 +149,8 @@ PIN
 `'Pin'`
 
 </td><td>
+
+引脚
 
 </td></tr>
 <tr><td>
@@ -143,6 +163,8 @@ POLYGON
 
 </td><td>
 
+多边形
+
 </td></tr>
 <tr><td>
 
@@ -153,6 +175,8 @@ RECTANGLE
 `'Rectangle'`
 
 </td><td>
+
+矩形
 
 </td></tr>
 <tr><td>
@@ -165,6 +189,8 @@ TEXT
 
 </td><td>
 
+文本
+
 </td></tr>
 <tr><td>
 
@@ -175,6 +201,8 @@ WIRE
 `'Wire'`
 
 </td><td>
+
+导线
 
 </td></tr>
 </tbody></table>

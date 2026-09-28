@@ -33,6 +33,8 @@ FREE
 
 </td><td>
 
+自由
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ STRICT
 `3`
 
 </td><td>
+
+严格
 
 </td></tr>
 </tbody></table>

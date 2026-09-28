@@ -33,6 +33,8 @@ ANGLE
 
 </td><td>
 
+角度
+
 </td></tr>
 <tr><td>
 
@@ -44,6 +46,8 @@ LENGTH
 
 </td><td>
 
+长度
+
 </td></tr>
 <tr><td>
 
@@ -54,6 +58,8 @@ RADIUS
 `'Radius Dimension'`
 
 </td><td>
+
+半径
 
 </td></tr>
 </tbody></table>

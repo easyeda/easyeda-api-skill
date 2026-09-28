@@ -33,6 +33,8 @@ EXTEND
 
 </td><td>
 
+扩展库
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ STANDARD
 `'standard'`
 
 </td><td>
+
+基础库
 
 </td></tr>
 </tbody></table>

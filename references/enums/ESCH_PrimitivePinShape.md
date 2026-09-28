@@ -33,6 +33,8 @@ CLOCK
 
 </td><td>
 
+时钟
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ INVERTED
 `'Inverted'`
 
 </td><td>
+
+反向
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ INVERTED\_CLOCK
 
 </td><td>
 
+反向时钟
+
 </td></tr>
 <tr><td>
 
@@ -65,6 +71,8 @@ NONE
 `'None'`
 
 </td><td>
+
+无
 
 </td></tr>
 </tbody></table>

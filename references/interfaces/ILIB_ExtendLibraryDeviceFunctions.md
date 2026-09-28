@@ -36,7 +36,7 @@ Description
 
 </td><td>
 
-(props: [ILIB\_ExtendLibrarySearchProperty](./ILIB_ExtendLibrarySearchProperty.md)<!-- -->&lt;{ attributes?: { \[key: string\]: string }; symbolType?: [ELIB\_SymbolType](../enums/ELIB_SymbolType.md) }&gt;) =&gt; Promise&lt;[ILIB\_ExtendLibrarySearchResult](./ILIB_ExtendLibrarySearchResult.md)<!-- -->&lt;[ILIB\_ExtendLibraryItemIndex](./ILIB_ExtendLibraryItemIndex.md) &amp; { classification?: [ILIB\_ExtendLibraryClassificationIndex](./ILIB_ExtendLibraryClassificationIndex.md) \| Array&lt;string&gt;; symbol?: [ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md) &amp; { symbolType: [ELIB\_SymbolType](../enums/ELIB_SymbolType.md) }; footprint?: [ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md)<!-- -->; model3d?: [ILIB\_ExtendLibraryItemIndex](./ILIB_ExtendLibraryItemIndex.md) &amp; { adjustment?: { size?: { x: number; y: number; z: number }; rotation?: { x: number; y: number; z: number }; offset?: { x: number; y: number; z: number } } }; images?: Array&lt;[ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md)<!-- -->&gt;; value?: string; supplierPart?: string; manufacturer?: string; description?: string; updateTime?: number; createTime?: number; attributes?: { \[key: string\]: string } }&gt;&gt;
+(props: [ILIB\_ExtendLibrarySearchProperty](./ILIB_ExtendLibrarySearchProperty.md)<!-- -->&lt;{ attributes?: Record&lt;string, string&gt;; symbolType?: [ELIB\_SymbolType](../enums/ELIB_SymbolType.md) }&gt;) =&gt; Promise&lt;[ILIB\_ExtendLibrarySearchResult](./ILIB_ExtendLibrarySearchResult.md)<!-- -->&lt;[ILIB\_ExtendLibraryItemIndex](./ILIB_ExtendLibraryItemIndex.md) &amp; { classification?: [ILIB\_ExtendLibraryClassificationIndex](./ILIB_ExtendLibraryClassificationIndex.md) \| Array&lt;string&gt;; symbol?: [ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md) &amp; { symbolType: [ELIB\_SymbolType](../enums/ELIB_SymbolType.md) }; footprint?: [ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md)<!-- -->; symbols?: Array&lt;[ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md) &amp; { symbolType: [ELIB\_SymbolType](../enums/ELIB_SymbolType.md) }&gt;; footprints?: Array&lt;[ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md)<!-- -->&gt;; model3d?: [ILIB\_ExtendLibraryItemIndex](./ILIB_ExtendLibraryItemIndex.md) &amp; { adjustment?: { size?: { x: number; y: number; z: number }; rotation?: { x: number; y: number; z: number }; offset?: { x: number; y: number; z: number } } }; images?: Array&lt;[ILIB\_ExtendLibraryItem](./ILIB_ExtendLibraryItem.md)<!-- -->&gt;; value?: string; supplierPart?: string; manufacturer?: string; description?: string; updateTime?: number; createTime?: number; attributes?: Record&lt;string, string&gt;; }&gt;&gt;
 
 </td><td>
 
@@ -86,7 +86,7 @@ Description
 ```typescript
 getList: (
 	props: ILIB_ExtendLibrarySearchProperty<{
-		attributes?: { [key: string]: string };
+		attributes?: Record<string, string>;
 		symbolType?: ELIB_SymbolType;
 	}>,
 ) =>
@@ -96,6 +96,8 @@ getList: (
 				classification?: ILIB_ExtendLibraryClassificationIndex | Array<string>;
 				symbol?: ILIB_ExtendLibraryItem & { symbolType: ELIB_SymbolType };
 				footprint?: ILIB_ExtendLibraryItem;
+				symbols?: Array<ILIB_ExtendLibraryItem & { symbolType: ELIB_SymbolType }>;
+				footprints?: Array<ILIB_ExtendLibraryItem>;
 				model3d?: ILIB_ExtendLibraryItemIndex & {
 					adjustment?: {
 						size?: { x: number; y: number; z: number };
@@ -110,7 +112,7 @@ getList: (
 				description?: string;
 				updateTime?: number;
 				createTime?: number;
-				attributes?: { [key: string]: string };
+				attributes?: Record<string, string>;
 			}
 		>
 	>;

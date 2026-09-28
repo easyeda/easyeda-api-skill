@@ -33,6 +33,8 @@ ALL\_COVER\_OIL
 
 </td><td>
 
+全部盖油
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ FOLLOW\_ORIGINAL\_SETTING
 `'custom'`
 
 </td><td>
+
+跟随源设置
 
 </td></tr>
 </tbody></table>

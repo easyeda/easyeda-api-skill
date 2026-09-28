@@ -33,6 +33,8 @@ CREATE
 
 </td><td>
 
+创建
+
 </td></tr>
 <tr><td>
 
@@ -44,6 +46,8 @@ DELETE
 
 </td><td>
 
+删除
+
 </td></tr>
 <tr><td>
 
@@ -54,6 +58,8 @@ MODIFY
 `'modify'`
 
 </td><td>
+
+属性变更
 
 </td></tr>
 </tbody></table>

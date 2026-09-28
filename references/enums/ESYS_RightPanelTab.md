@@ -1,5 +1,9 @@
 # ESYS\_RightPanelTab enum
 
+> Warning: This API is now obsolete.
+>
+> 请使用 `ESYS_PanelTab` 替代 since EDA v4.2
+
 Right panel tab
 
 ## Signature
@@ -33,6 +37,8 @@ ANNOTATION
 
 </td><td>
 
+批注
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +49,8 @@ PANEL\_3D\_PREVIEW\_ATTR
 `'panel3d-attr'`
 
 </td><td>
+
+面板 3D 预览：属性
 
 </td></tr>
 <tr><td>
@@ -55,6 +63,8 @@ PANEL\_3D\_PREVIEW\_LAYER
 
 </td><td>
 
+面板 3D 预览：图层
+
 </td></tr>
 <tr><td>
 
@@ -65,6 +75,8 @@ PANEL\_ATTR
 `'panel-attr'`
 
 </td><td>
+
+面板：属性
 
 </td></tr>
 <tr><td>
@@ -77,6 +89,8 @@ PANEL\_FILTER
 
 </td><td>
 
+面板：过滤
+
 </td></tr>
 <tr><td>
 
@@ -87,6 +101,8 @@ PANEL\_LAYER
 `'panel-layer'`
 
 </td><td>
+
+面板：图层
 
 </td></tr>
 <tr><td>
@@ -99,6 +115,8 @@ PCB\_2D\_PREVIEW\_ATTR
 
 </td><td>
 
+PCB 2D 预览：属性
+
 </td></tr>
 <tr><td>
 
@@ -109,6 +127,8 @@ PCB\_3D\_PREVIEW\_ATTR
 `'pcb3d-attr'`
 
 </td><td>
+
+PCB 3D 预览：属性
 
 </td></tr>
 <tr><td>
@@ -121,6 +141,8 @@ PCB\_3D\_PREVIEW\_LAYER
 
 </td><td>
 
+PCB 3D 预览：图层
+
 </td></tr>
 <tr><td>
 
@@ -131,6 +153,8 @@ PCB\_ATTR
 `'pcb-attr'`
 
 </td><td>
+
+PCB：属性
 
 </td></tr>
 <tr><td>
@@ -143,6 +167,8 @@ PCB\_FILTER
 
 </td><td>
 
+PCB：过滤
+
 </td></tr>
 <tr><td>
 
@@ -153,6 +179,8 @@ PCB\_LAYER
 `'pcb-layer'`
 
 </td><td>
+
+PCB：图层
 
 </td></tr>
 <tr><td>
@@ -165,6 +193,8 @@ PCB\_SKETCHER\_ATTR
 
 </td><td>
 
+PCB：测量对象属性
+
 </td></tr>
 <tr><td>
 
@@ -175,6 +205,8 @@ PROJECT\_ATTR
 `'project-attr'`
 
 </td><td>
+
+工程：属性
 
 </td></tr>
 <tr><td>
@@ -187,6 +219,8 @@ SCH\_ATTR
 
 </td><td>
 
+原理图：属性
+
 </td></tr>
 <tr><td>
 
@@ -197,6 +231,8 @@ SCH\_FILTER
 `'sch-filter'`
 
 </td><td>
+
+原理图：过滤
 
 </td></tr>
 </tbody></table>

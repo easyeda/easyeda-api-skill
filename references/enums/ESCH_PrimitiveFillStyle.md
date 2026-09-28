@@ -33,6 +33,8 @@ GRID
 
 </td><td>
 
+网格
+
 </td></tr>
 <tr><td>
 
@@ -43,6 +45,8 @@ HORIZONTAL\_LINE
 `'Horizontal Line'`
 
 </td><td>
+
+横线
 
 </td></tr>
 <tr><td>
@@ -55,6 +59,8 @@ LEFT\_SLASH\_LINE
 
 </td><td>
 
+左斜线
+
 </td></tr>
 <tr><td>
 
@@ -65,6 +71,8 @@ NONE
 `'None'`
 
 </td><td>
+
+无
 
 </td></tr>
 <tr><td>
@@ -77,6 +85,8 @@ RHOMBIC\_GRID
 
 </td><td>
 
+菱形网格
+
 </td></tr>
 <tr><td>
 
@@ -87,6 +97,8 @@ RIGHT\_SLASH\_LINE
 `'Right Slash Line'`
 
 </td><td>
+
+右斜线
 
 </td></tr>
 <tr><td>
@@ -99,6 +111,8 @@ SOLID
 
 </td><td>
 
+实心
+
 </td></tr>
 <tr><td>
 
@@ -109,6 +123,8 @@ VERTICAL\_LINE
 `'Vertical Line'`
 
 </td><td>
+
+竖线
 
 </td></tr>
 </tbody></table>

@@ -2,7 +2,7 @@
 
 In order to define the properties of an extension and the various functions that an extension can invoke, each extension should have an extension configuration file named `extension.json` in the root directory with the following default contents:
 
-<<< @/private/pro-api-sdk/extension.json{json}
+<<< @/private/easyeda-api-sdk/extension.json{json}
 
 ## name <Badge type="tip" text="string" />
 

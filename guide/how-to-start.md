@@ -24,7 +24,7 @@ Each extension requires a UUID as the uniquely identifiable name of the extensio
 
 ::: info
 
-If you are using [pro-api-sdk](./ancillary-projects/pro-api-sdk), a new UUID will be automatically generated for you the first time you run `npm run build`.
+If you are using [easyeda-api-sdk](./ancillary-projects/easyeda-api-sdk), a new UUID will be automatically generated for you the first time you run `npm run build`.
 
 If you wish to build the full development environment manually, you can also safely use <code id="generatedUuid"></code> as the UUID for the new extension, which is randomly generated when you visit the current page.
 
@@ -42,7 +42,7 @@ Extensions marketplace : [https://jlcext.com/](https://jlcext.com/)
 
 ## Development Environment (Computer)
 
-In order to facilitate the environment configuration, we provide [pro-api-sdk](https://gitee.com/jlceda/pro-api-sdk), and we recommend all developers to use this SDK for development, and this document will be based on this SDK to explain. You can get and configure the SDK environment in the following ways:
+In order to facilitate the environment configuration, we provide [easyeda-api-sdk](https://gitee.com/jlceda/easyeda-api-sdk), and we recommend all developers to use this SDK for development, and this document will be based on this SDK to explain. You can get and configure the SDK environment in the following ways:
 
 ### I. Install Visual Studio Code
 
@@ -111,7 +111,7 @@ Now you can choose either of the following two ways to get the SDK, you can choo
 4. Execute the following command:
 
     ```shell
-    npx github:easyeda/pro-api-sdk my-extension
+    npx github:easyeda/easyeda-api-sdk my-extension
     ```
 
 :::
@@ -141,7 +141,7 @@ Now you can choose either of the following two ways to get the SDK, you can choo
 4. Depending on your network environment, execute one of the following commands:
 
     ```shell
-    git clone --depth=1 https://github.com/easyeda/pro-api-sdk.git my-extension
+    git clone --depth=1 https://github.com/easyeda/easyeda-api-sdk.git my-extension
     ```
 
 :::
@@ -206,7 +206,7 @@ The SDK comes pre-configured with all the necessary components of the developmen
 
 EasyEDA Professional has a custom configuration file, i.e. `extension.json` file in the root directory of the SDK, the contents of which will be fully read by EasyEDA Professional and will be shown in the display and running process of the extension package, the following is the default contents of this file:
 
-<<< @/private/pro-api-sdk/extension.json{2,4-5,7,11 json}
+<<< @/private/easyeda-api-sdk/extension.json{2,4-5,7,11 json}
 
 Now, we only need to change a few of the key values:
 

@@ -15,7 +15,7 @@ When running the full workflow in this document, you should **install the [easye
 Read this document and follow its workflow when the user request matches one of the following intents:
 
 - "Initialize an EasyEDA Pro extension project"
-- "Create a new extension using pro-api-sdk"
+- "Create a new extension using easyeda-api-sdk"
 - "Set up an extension development environment and produce an importable extension package (.eext)"
 - Any other request to generate a buildable, importable extension project from scratch
 
@@ -29,7 +29,7 @@ Remember the following facts first — they determine how you should implement t
 | Language | Just follow the [ECMAScript Next](https://262.ecma-international.org/) specification; TypeScript is recommended (default entry `/src/index.ts`), with type definitions from `@jlceda/pro-api-types` |
 | Browser API limitations | Extensions run in the main thread, where calls to DOM, external requests, local file system, and other browser APIs are restricted; use the predefined interfaces provided by the extension API for such needs |
 | Node.js version | Must be no lower than `20.17.0` (per the `engines.node` declaration in the SDK's `package.json`; if any other document shows a different value, defer to the SDK declaration) |
-| UUID | Each extension needs a unique identifier in the form of a 32-character string. With pro-api-sdk, the first `npm run build` **automatically generates and backfills** the `uuid` in `extension.json` when it is empty or invalid — no manual generation needed |
+| UUID | Each extension needs a unique identifier in the form of a 32-character string. With easyeda-api-sdk, the first `npm run build` **automatically generates and backfills** the `uuid` in `extension.json` when it is empty or invalid — no manual generation needed |
 | Relationship between `name` and UUID | When an extension is not listed in the Extension Store and has no `uuid` filled in, `name` temporarily acts as the extension identifier. `name` can change at any time and may collide, so do not rely on it as a stable, unique identifier |
 | Artifact | Each build produces an `<name>_v<version>.eext` package under `build/dist/`, for importing into EasyEDA Pro |
 
@@ -68,12 +68,12 @@ Run one of the following in the target directory:
 
 ```shell
 # Option A: git clone (recommended, deterministic result)
-git clone --depth=1 https://github.com/easyeda/pro-api-sdk.git my-extension
+git clone --depth=1 https://github.com/easyeda/easyeda-api-sdk.git my-extension
 ```
 
 ```shell
 # Option B: npx initialization
-npx github:easyeda/pro-api-sdk my-extension
+npx github:easyeda/easyeda-api-sdk my-extension
 ```
 
 Notes:
@@ -236,4 +236,4 @@ After initialization, recommend the relevant sections of this guide based on the
 - [Extension Configuration File](./extension-json): full field reference for `extension.json`
 - [Invoking the Extension API](./invoke-apis): how to call editor APIs
 - [Multi-language Support](./i18n), [Inline Frame Support](./inline-frame), [Error Handling](./error-handling), [Interface Stabilization](./stability)
-- [Ancillary Projects](./ancillary-projects): pro-api-sdk, pro-api-types, Run API Gateway, easyeda-api-skill, etc.
+- [Ancillary Projects](./ancillary-projects): easyeda-api-sdk, pro-api-types, Run API Gateway, easyeda-api-skill, etc.

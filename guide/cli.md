@@ -41,12 +41,12 @@ Both the command-line client and the service are provided by the `easyeda-pro` e
 
 ### I. Obtaining the Client
 
-The command-line client is built into the EasyEDA Pro desktop client and does not need a separate installation. Download and install the EasyEDA Pro client for your system from the [client download page](https://easyeda.com/page/download).
+The command-line client is built into the EasyEDA Pro desktop client (need v4.1.60 and above)  and does not need a separate installation. Download and install the EasyEDA Pro client for your system from the [client download page](https://easyeda.com/page/download).
 
 After installation, the `easyeda-pro` executable is usually located at the following path (Windows x64 shown here):
 
 ```
-C:\Program Files (x86)\EasyEDA-Pro\easyeda-pro.exe
+C:\Program Files\EasyEDA-Pro\easyeda-pro.exe
 ```
 
 The installer adds that directory to the system `PATH` during installation, so you can normally use the `easyeda-pro` command directly in a terminal. If the command is reported as not found, check whether the installation directory has been added to `PATH`, or use the full path to the executable instead.
@@ -424,11 +424,13 @@ const DIR = 'C:/Users/username/Documents/EasyEDA-Pro/projects/MyBoard/';
 Some export APIs return `File` or `Blob` objects, for example screenshots, BOMs, STEP files, and netlists. If such content needs to be sent back through JSON, it can first be converted to a Base64 string:
 
 ```javascript
-const toB64 = (b) => new Promise((res) => {
-	const fr = new FileReader();
-	fr.onload = () => res(String(fr.result).split(',')[1] || '');
-	fr.readAsDataURL(b);
-});
+function toB64(b) {
+	return new Promise((res) => {
+		const fr = new FileReader();
+		fr.onload = () => res(String(fr.result).split(',')[1] || '');
+		fr.readAsDataURL(b);
+	});
+}
 ```
 
 The example below gets a schematic PNG file and converts it to Base64:

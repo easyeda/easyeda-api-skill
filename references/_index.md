@@ -281,6 +281,7 @@
 | [EPNL_PrimitiveType](enums/EPNL_PrimitiveType.md) | **_(ALPHA)_** 面板图元类型 |  |
 | [EPNL_PrintScope](enums/EPNL_PrintScope.md) | **_(ALPHA)_** 图元打印范围（打印 / 遮盖作用域） |  |
 | [EPNL_PrintSide](enums/EPNL_PrintSide.md) | **_(ALPHA)_** 面板打印面 |  |
+| [EPNL_ReferencePoint](enums/EPNL_ReferencePoint.md) | 面板图元参考点九宫格枚举 |  |
 | [EPNL_SelectionMode](enums/EPNL_SelectionMode.md) | **_(ALPHA)_** 框选模式 |  |
 | [EPNL_TextHAlign](enums/EPNL_TextHAlign.md) | **_(ALPHA)_** 文本水平对齐方式 |  |
 | [EPNL_TextVAlign](enums/EPNL_TextVAlign.md) | **_(ALPHA)_** 文本垂直对齐方式 |  |
@@ -523,6 +524,8 @@
 | [IPNL_DocumentInfo](interfaces/IPNL_DocumentInfo.md) | **_(ALPHA)_** 面板文档头属性 |  |
 | [IPNL_DocumentStatus](interfaces/IPNL_DocumentStatus.md) | **_(ALPHA)_** 面板文档状态快照 |  |
 | [IPNL_DrcCheckResult](interfaces/IPNL_DrcCheckResult.md) | **_(ALPHA)_** 面板设计规则检查结果 |  |
+| [IPNL_EllipseCreateParameters](interfaces/IPNL_EllipseCreateParameters.md) | 椭圆图元创建参数 |  |
+| [IPNL_EllipseData](interfaces/IPNL_EllipseData.md) | 椭圆图元数据 |  |
 | [IPNL_EventPayload](interfaces/IPNL_EventPayload.md) | **_(ALPHA)_** 面板事件数据 |  |
 | [IPNL_ExpandShapeOption](interfaces/IPNL_ExpandShapeOption.md) | **_(ALPHA)_** 形状扩展参数 |  |
 | [IPNL_FilterConfiguration](interfaces/IPNL_FilterConfiguration.md) | **_(ALPHA)_** 过滤方案 |  |
@@ -544,6 +547,8 @@
 | [IPNL_PrimitiveDimensionRadiusCoordinateSet](interfaces/IPNL_PrimitiveDimensionRadiusCoordinateSet.md) | **_(ALPHA)_** 半径标注坐标集 |  |
 | [IPNL_PrimitiveDimensionSmartCoordinateSet](interfaces/IPNL_PrimitiveDimensionSmartCoordinateSet.md) | **_(ALPHA)_** 智能尺寸标注坐标集 |  |
 | [IPNL_PrimitiveEventPayload](interfaces/IPNL_PrimitiveEventPayload.md) | **_(ALPHA)_** 图元事件数据 |  |
+| [IPNL_RectangleCreateParameters](interfaces/IPNL_RectangleCreateParameters.md) | 矩形图元创建参数 |  |
+| [IPNL_RectangleData](interfaces/IPNL_RectangleData.md) | 矩形图元数据 |  |
 | [IRawNet](interfaces/IRawNet.md) | 原始数据 - net |  |
 | [IRawPureSchematic](interfaces/IRawPureSchematic.md) | 原始数据 - pureSchematic |  |
 | [IRawSchematic](interfaces/IRawSchematic.md) | 原始数据 - schematic |  |

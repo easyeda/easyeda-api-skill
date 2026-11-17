@@ -90,7 +90,7 @@ number
 
 </td><td>
 
-**_(ALPHA)_** _(Optional)_ 旋转角度（度，顺时针为正），不传为 0
+**_(ALPHA)_** _(Optional)_ 旋转角度（度，逆时针为正），不传为 0
 
 </td></tr>
 <tr><td>
@@ -207,7 +207,7 @@ headY: number;
 
 > This API is provided as an alpha preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-旋转角度（度，顺时针为正），不传为 0
+旋转角度（度，逆时针为正），不传为 0
 
 ## Signature
 

@@ -47,7 +47,7 @@ Description
 
 </td><td>
 
-获取属性状态：圆心 X 坐标
+获取属性状态：椭圆心 X 坐标
 
 </td></tr>
 <tr><td>
@@ -58,7 +58,7 @@ Description
 
 </td><td>
 
-获取属性状态：圆心 Y 坐标
+获取属性状态：椭圆心 Y 坐标
 
 </td></tr>
 <tr><td>
@@ -201,7 +201,7 @@ Description
 
 </td><td>
 
-设置属性状态：圆心 X 坐标
+设置属性状态：椭圆心 X 坐标
 
 </td></tr>
 <tr><td>
@@ -212,7 +212,7 @@ Description
 
 </td><td>
 
-设置属性状态：圆心 Y 坐标
+设置属性状态：椭圆心 Y 坐标
 
 </td></tr>
 <tr><td>
@@ -353,7 +353,7 @@ Promise&lt;[IPNL\_PrimitiveEllipse](./IPNL_PrimitiveEllipse.md)<!-- -->&gt;
 
 # IPNL\_PrimitiveEllipse.getState\_CenterX() method
 
-获取属性状态：圆心 X 坐标
+获取属性状态：椭圆心 X 坐标
 
 ## Signature
 
@@ -365,13 +365,13 @@ function getState_CenterX(): number;
 
 number
 
-圆心 X 坐标（px）
+椭圆心 X 坐标（px）
 
 ### getstate_centery
 
 # IPNL\_PrimitiveEllipse.getState\_CenterY() method
 
-获取属性状态：圆心 Y 坐标
+获取属性状态：椭圆心 Y 坐标
 
 ## Signature
 
@@ -383,7 +383,7 @@ function getState_CenterY(): number;
 
 number
 
-圆心 Y 坐标（px，向上为正）
+椭圆心 Y 坐标（px，向上为正）
 
 ### getstate_fillcolor
 
@@ -527,7 +527,7 @@ function getState_Rotation(): number | undefined;
 
 number \| undefined
 
-旋转角度（度，顺时针为正），未设置返回 `undefined`
+旋转角度（度，绕椭圆心逆时针为正），未设置返回 `undefined`
 
 ### getstate_strokecolor
 
@@ -605,7 +605,7 @@ Promise&lt;[IPNL\_PrimitiveEllipse](./IPNL_PrimitiveEllipse.md)<!-- -->&gt;
 
 # IPNL\_PrimitiveEllipse.setState\_CenterX() method
 
-设置属性状态：圆心 X 坐标
+设置属性状态：椭圆心 X 坐标
 
 ## Signature
 
@@ -638,7 +638,7 @@ number
 
 </td><td>
 
-圆心 X 坐标（px）
+椭圆心 X 坐标（px）
 
 </td></tr>
 </tbody></table>
@@ -653,7 +653,7 @@ number
 
 # IPNL\_PrimitiveEllipse.setState\_CenterY() method
 
-设置属性状态：圆心 Y 坐标
+设置属性状态：椭圆心 Y 坐标
 
 ## Signature
 
@@ -686,7 +686,7 @@ number
 
 </td><td>
 
-圆心 Y 坐标（px，向上为正）
+椭圆心 Y 坐标（px，向上为正）
 
 </td></tr>
 </tbody></table>
@@ -974,7 +974,7 @@ number
 
 </td><td>
 
-_(Optional)_ 旋转角度（度，顺时针为正）
+_(Optional)_ 旋转角度（度，绕椭圆心逆时针为正）
 
 </td></tr>
 </tbody></table>

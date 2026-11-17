@@ -179,7 +179,7 @@ Description
 
 </td><td>
 
-获取属性状态：左上角 X 坐标
+获取属性状态：参考点 X 坐标
 
 </td></tr>
 <tr><td>
@@ -190,7 +190,7 @@ Description
 
 </td><td>
 
-获取属性状态：左上角 Y 坐标
+获取属性状态：参考点 Y 坐标
 
 </td></tr>
 <tr><td>
@@ -333,7 +333,7 @@ Description
 
 </td><td>
 
-设置属性状态：左上角 X 坐标
+设置属性状态：参考点 X 坐标
 
 </td></tr>
 <tr><td>
@@ -344,7 +344,7 @@ Description
 
 </td><td>
 
-设置属性状态：左上角 Y 坐标
+设置属性状态：参考点 Y 坐标
 
 </td></tr>
 <tr><td>
@@ -517,7 +517,7 @@ function getState_Rotation(): number | undefined;
 
 number \| undefined
 
-旋转角度（度，顺时针为正），未设置返回 `undefined`
+旋转角度（度，绕参考点逆时针为正），未设置返回 `undefined`
 
 ### getstate_rx
 
@@ -613,7 +613,7 @@ number
 
 # IPNL\_PrimitiveRectangle.getState\_X() method
 
-获取属性状态：左上角 X 坐标
+获取属性状态：参考点 X 坐标
 
 ## Signature
 
@@ -625,13 +625,13 @@ function getState_X(): number;
 
 number
 
-左上角 X 坐标（px）
+参考点 X 坐标（px，缺省参考点为左下角，rotation=0 时即包围盒左下角）
 
 ### getstate_y
 
 # IPNL\_PrimitiveRectangle.getState\_Y() method
 
-获取属性状态：左上角 Y 坐标
+获取属性状态：参考点 Y 坐标
 
 ## Signature
 
@@ -643,7 +643,7 @@ function getState_Y(): number;
 
 number
 
-左上角 Y 坐标（px，向上为正）
+参考点 Y 坐标（px，笛卡尔向上为正）
 
 ### isasync
 
@@ -910,7 +910,7 @@ number
 
 </td><td>
 
-_(Optional)_ 旋转角度（度，顺时针为正）
+_(Optional)_ 旋转角度（度，绕参考点逆时针为正）
 
 </td></tr>
 </tbody></table>
@@ -1165,7 +1165,7 @@ number
 
 # IPNL\_PrimitiveRectangle.setState\_X() method
 
-设置属性状态：左上角 X 坐标
+设置属性状态：参考点 X 坐标
 
 ## Signature
 
@@ -1198,7 +1198,7 @@ number
 
 </td><td>
 
-左上角 X 坐标（px）
+参考点 X 坐标（px）
 
 </td></tr>
 </tbody></table>
@@ -1213,7 +1213,7 @@ number
 
 # IPNL\_PrimitiveRectangle.setState\_Y() method
 
-设置属性状态：左上角 Y 坐标
+设置属性状态：参考点 Y 坐标
 
 ## Signature
 
@@ -1246,7 +1246,7 @@ number
 
 </td><td>
 
-左上角 Y 坐标（px，向上为正）
+参考点 Y 坐标（px，笛卡尔向上为正）
 
 </td></tr>
 </tbody></table>

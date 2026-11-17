@@ -180,7 +180,7 @@ number
 
 </td><td>
 
-**_(ALPHA)_** 旋转角度（度，顺时针为正），图元围绕自身包围盒中心旋转
+**_(ALPHA)_** 旋转角度（度，逆时针为正），图元围绕参考点逆时针旋转，参考点保持不动
 
 </td></tr>
 <tr><td>
@@ -411,7 +411,7 @@ primitiveLock: boolean;
 
 > This API is provided as an alpha preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-旋转角度（度，顺时针为正），图元围绕自身包围盒中心旋转
+旋转角度（度，逆时针为正），图元围绕参考点逆时针旋转，参考点保持不动
 
 ## Signature
 

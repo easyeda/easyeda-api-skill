@@ -429,7 +429,7 @@ function getState_Rotation(): number | undefined;
 
 number \| undefined
 
-旋转角度（度，顺时针为正），未设置返回 `undefined`
+旋转角度（度，逆时针为正），未设置返回 `undefined`
 
 ### getstate_width
 
@@ -758,7 +758,7 @@ number
 
 </td><td>
 
-_(Optional)_ 旋转角度（度，顺时针为正）
+_(Optional)_ 旋转角度（度，逆时针为正）
 
 </td></tr>
 </tbody></table>

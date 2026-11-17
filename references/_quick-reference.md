@@ -2880,6 +2880,13 @@ class PNL_PrimitiveDimension implements IPNL_PrimitiveAPI
 class PNL_PrimitiveEllipse implements IPNL_PrimitiveAPI
 ```
 
+- **create**: `function create(params: IPNL_EllipseCreateParameters): Promise<IPNL_PrimitiveEllipse | undefined>;`
+- **delete**: `function delete(primitiveIds: string | IPNL_PrimitiveEllipse | Array<string> | Array<IPNL_PrimitiveEllipse>): Promise<boolean>;`
+- **get**: `function get(primitiveIds: string): Promise<IPNL_PrimitiveEllipse | undefined>;`
+- **get_1**: `function get(primitiveIds: Array<string>): Promise<Array<IPNL_PrimitiveEllipse>>;`
+- **getall**: `function getAll( 	layer?: EPNL_LayerId, 	primitiveLock?: boolean, ): Promise<Array<IPNL_PrimitiveEllipse>>;`
+- **getallprimitiveid**: `function getAllPrimitiveId(): Promise<Array<string>>;`
+- **modify**: `function modify( 	primitiveId: string | IPNL_PrimitiveEllipse, 	property: { 		centerX?: number; 		centerY?: number; 		radiusX?: number; 		radiusY?: number; 		layer?: EPNL_LayerId; 		strokeColor?: string; 		fillColor?: string; 		strokeWidth?: number; 		rotation?: number; 		primitiveLock?: boolean; 	}, ): Promise<IPNL_PrimitiveEllipse | undefined>;`
 
 ---
 
@@ -2913,6 +2920,13 @@ class PNL_PrimitivePath implements IPNL_PrimitiveAPI
 class PNL_PrimitiveRectangle implements IPNL_PrimitiveAPI
 ```
 
+- **create**: `function create( 	params: IPNL_RectangleCreateParameters, ): Promise<IPNL_PrimitiveRectangle | undefined>;`
+- **delete**: `function delete(primitiveIds: string | IPNL_PrimitiveRectangle | Array<string> | Array<IPNL_PrimitiveRectangle>): Promise<boolean>;`
+- **get**: `function get(primitiveIds: string): Promise<IPNL_PrimitiveRectangle | undefined>;`
+- **get_1**: `function get(primitiveIds: Array<string>): Promise<Array<IPNL_PrimitiveRectangle>>;`
+- **getall**: `function getAll( 	layer?: EPNL_LayerId, 	primitiveLock?: boolean, ): Promise<Array<IPNL_PrimitiveRectangle>>;`
+- **getallprimitiveid**: `function getAllPrimitiveId(): Promise<Array<string>>;`
+- **modify**: `function modify( 	primitiveId: string | IPNL_PrimitiveRectangle, 	property: { 		x?: number; 		y?: number; 		width?: number; 		height?: number; 		rx?: number; 		ry?: number; 		layer?: EPNL_LayerId; 		strokeColor?: string; 		fillColor?: string; 		strokeWidth?: number; 		rotation?: number; 		primitiveLock?: boolean; 	}, ): Promise<IPNL_PrimitiveRectangle | undefined>;`
 
 ---
 

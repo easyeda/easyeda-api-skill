@@ -8,6 +8,10 @@ Device associated symbol, footprint property
 interface ILIB_DeviceAssociationItem
 ```
 
+## Remarks
+
+器件支持绑定\*\*多个\*\*符号与\*\*多个\*\*封装，其中主符号 / 主封装用于默认显示， 备选项可在画布内切换。完整的多绑定信息见 [symbols](./ILIB_DeviceAssociationItem.md) 与 [footprints](./ILIB_DeviceAssociationItem.md)<!-- -->。
+
 ## Properties
 
 <table><thead><tr><th>
@@ -39,7 +43,22 @@ Description
 
 </td><td>
 
-_(Optional)_ Footprint
+_(Optional)_ 主封装
+
+</td></tr>
+<tr><td>
+
+[footprints?](./ILIB_DeviceAssociationItem.md)
+
+</td><td>
+
+</td><td>
+
+Array&lt;[ILIB\_DeviceFootprintAssociationItem](./ILIB_DeviceFootprintAssociationItem.md)<!-- -->&gt;
+
+</td><td>
+
+_(Optional)_ 绑定的全部封装
 
 </td></tr>
 <tr><td>
@@ -84,7 +103,22 @@ _(Optional)_
 
 </td><td>
 
-Symbol
+主符号
+
+</td></tr>
+<tr><td>
+
+[symbols?](./ILIB_DeviceAssociationItem.md)
+
+</td><td>
+
+</td><td>
+
+Array&lt;[ILIB\_DeviceSymbolAssociationItem](./ILIB_DeviceSymbolAssociationItem.md)<!-- -->&gt;
+
+</td><td>
+
+_(Optional)_ 绑定的全部符号
 
 </td></tr>
 <tr><td>
@@ -127,7 +161,11 @@ string
 
 # ILIB\_DeviceAssociationItem.footprint property
 
-Footprint
+> Warning: This API is now obsolete.
+>
+> since EDA v5 请使用 [footprints](./ILIB_DeviceAssociationItem.md) 替代
+
+主封装
 
 ## Signature
 
@@ -135,13 +173,31 @@ Footprint
 footprint?: { uuid: string; libraryUuid: string };
 ```
 
+### footprints
+
+# ILIB\_DeviceAssociationItem.footprints property
+
+绑定的全部封装
+
+## Signature
+
+```typescript
+footprints?: Array<ILIB_DeviceFootprintAssociationItem>;
+```
+
+## Remarks
+
+可为空（器件不绑定封装）；含主封装与备选封装，备选封装可为\*\*纯文本\*\*。 主封装为其中 [isPrimary](./ILIB_DeviceFootprintAssociationItem.md) 为 `true` 的项
+
+ADD since EDA v5
+
 ### footprintuuid
 
 # ILIB\_DeviceAssociationItem.footprintUuid property
 
 > Warning: This API is now obsolete.
 >
-> 请使用 [footprint](./ILIB_DeviceSearchItem.md) 替代
+> since EDA v5 请使用 [footprints](./ILIB_DeviceAssociationItem.md) 替代
 
 封装 UUID
 
@@ -165,7 +221,11 @@ images?: Array<string>;
 
 # ILIB\_DeviceAssociationItem.symbol property
 
-Symbol
+> Warning: This API is now obsolete.
+>
+> since EDA v5 请使用 [symbols](./ILIB_DeviceAssociationItem.md) 替代
+
+主符号
 
 ## Signature
 
@@ -177,13 +237,31 @@ symbol: {
 }
 ```
 
+### symbols
+
+# ILIB\_DeviceAssociationItem.symbols property
+
+绑定的全部符号
+
+## Signature
+
+```typescript
+symbols?: Array<ILIB_DeviceSymbolAssociationItem>;
+```
+
+## Remarks
+
+至少一项，含主符号与备选符号；备选符号可为\*\*纯文本\*\*（只给 `name`<!-- -->）， 纯文本在原理图画布内切换时保留纯文本、不会被自动解析为 UUID。 主符号为其中 [isPrimary](./ILIB_DeviceSymbolAssociationItem.md) 为 `true` 的项
+
+ADD since EDA v5
+
 ### symboltype
 
 # ILIB\_DeviceAssociationItem.symbolType property
 
 > Warning: This API is now obsolete.
 >
-> 请使用 [symbol](./ILIB_DeviceSearchItem.md) 替代
+> since EDA v5 请使用 [symbols](./ILIB_DeviceAssociationItem.md) 替代
 
 符号类型
 
@@ -199,7 +277,7 @@ symbolType: ELIB_SymbolType;
 
 > Warning: This API is now obsolete.
 >
-> 请使用 [symbol](./ILIB_DeviceSearchItem.md) 替代
+> since EDA v5 请使用 [symbols](./ILIB_DeviceAssociationItem.md) 替代
 
 符号 UUID
 

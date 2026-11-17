@@ -45,6 +45,7 @@ class DMT_EditorControl
 - **createsplitscreen**: `function createSplitScreen( 	splitScreenType: EDMT_EditorSplitScreenDirection, 	tabId: string, ): Promise<{ sourceSplitScreenId: string; newSplitScreenId: string } | undefined>;`
 - **generateindicatormarkers**: `function generateIndicatorMarkers( 	markers: Array<IDMT_IndicatorMarkerShape>, 	color?: { r: number; g: number; b: number; alpha: number }, 	lineWidth?: number, 	zoom?: boolean, 	tabId?: string, ): Promise<boolean>;`
 - **getcurrentrenderedareaimage**: `function getCurrentRenderedAreaImage(tabId?: string): Promise<Blob | undefined>;`
+- **getdocumentreadystate**: `function getDocumentReadyState(documentUuidOrTabId: string): Promise<EDMT_ProjectReadyState>;`
 - **getsplitscreenidbytabid**: `function getSplitScreenIdByTabId(tabId: string): Promise<string | undefined>;`
 - **getsplitscreentree**: `function getSplitScreenTree(): Promise<IDMT_EditorSplitScreenItem | undefined>;`
 - **gettabsbysplitscreenid**: `function getTabsBySplitScreenId(splitScreenId: string): Promise<Array<IDMT_EditorTabItem>>;`
@@ -54,6 +55,7 @@ class DMT_EditorControl
 - **openlibrarydocument**: `function openLibraryDocument( 	libraryUuid: string, 	libraryType: ELIB_LibraryType.SYMBOL | ELIB_LibraryType.FOOTPRINT, 	uuid: string, 	splitScreenId?: string, ): Promise<string | undefined>;`
 - **removeindicatormarkers**: `function removeIndicatorMarkers(tabId?: string): Promise<boolean>;`
 - **tilealldocumenttosplitscreen**: `function tileAllDocumentToSplitScreen(): Promise<boolean>;`
+- **waitfordocumentready**: `function waitForDocumentReady(documentUuidOrTabId: string, timeoutMs?: number): Promise<boolean>;`
 - **zoomto**: `function zoomTo( 	x?: number, 	y?: number, 	scaleRatio?: number, 	tabId?: string, ): Promise<{ left: number; right: number; top: number; bottom: number } | false>;`
 - **zoomtoallprimitives**: `function zoomToAllPrimitives( 	tabId?: string, ): Promise<{ left: number; right: number; top: number; bottom: number } | false>;`
 - **zoomtoregion**: `function zoomToRegion( 	left: number, 	right: number, 	top: number, 	bottom: number, 	tabId?: string, ): Promise<boolean>;`
@@ -171,7 +173,7 @@ class DMT_Schematic
 - **getschematicpageinfo**: `function getSchematicPageInfo( 	schematicPageUuid: string, ): Promise<IDMT_SchematicPageItem | undefined>;`
 - **modifyschematicname**: `function modifySchematicName(schematicUuid: string, schematicName: string): Promise<boolean>;`
 - **modifyschematicpagename**: `function modifySchematicPageName( 	schematicPageUuid: string, 	schematicPageName: string, ): Promise<boolean>;`
-- **modifyschematicpagetitleblock**: `function modifySchematicPageTitleBlock( 	showTitleBlock?: boolean, 	titleBlockData?: Record<string, { showTitle?: boolean; showValue?: boolean; value?: any }>, ): Promise<boolean>;`
+- **modifyschematicpagetitleblock**: `function modifySchematicPageTitleBlock( 	showTitleBlock?: boolean, 	titleBlockData?: Record<string, { showTitle: boolean; showValue: boolean; value?: any }>, ): Promise<boolean>;`
 - **reorderschematicpages**: `function reorderSchematicPages( 	schematicUuid: string, 	schematicPageItemsArray: Array<IDMT_SchematicPageItem>, ): Promise<boolean>;`
 
 ---
@@ -185,6 +187,50 @@ class DMT_SelectControl
 ```
 
 - **getcurrentdocumentinfo**: `function getCurrentDocumentInfo(): Promise<IDMT_EditorDocumentItem | undefined>;`
+
+---
+
+## DMT_SourceBoard
+
+文档树 / 源数据板子类
+
+```typescript
+class DMT_SourceBoard
+```
+
+
+---
+
+## DMT_SourcePcb
+
+文档树 / 源数据 PCB 类
+
+```typescript
+class DMT_SourcePcb
+```
+
+
+---
+
+## DMT_SourceProject
+
+文档树 / 源数据工程类
+
+```typescript
+class DMT_SourceProject
+```
+
+
+---
+
+## DMT_SourceSchematic
+
+文档树 / 源数据原理图类
+
+```typescript
+class DMT_SourceSchematic
+```
+
 
 ---
 
@@ -233,6 +279,10 @@ eda: EDA;
 - **dmt_project**: `function dmt_Project: DMT_Project;`
 - **dmt_schematic**: `function dmt_Schematic: DMT_Schematic;`
 - **dmt_selectcontrol**: `function dmt_SelectControl: DMT_SelectControl;`
+- **dmt_sourceboard**: `function dmt_SourceBoard: DMT_SourceBoard;`
+- **dmt_sourcepcb**: `function dmt_SourcePcb: DMT_SourcePcb;`
+- **dmt_sourceproject**: `function dmt_SourceProject: DMT_SourceProject;`
+- **dmt_sourceschematic**: `function dmt_SourceSchematic: DMT_SourceSchematic;`
 - **dmt_team**: `function dmt_Team: DMT_Team;`
 - **dmt_workspace**: `function dmt_Workspace: DMT_Workspace;`
 - **lib_3dmodel**: `function lib_3DModel: LIB_3DModel;`
@@ -270,9 +320,28 @@ eda: EDA;
 - **pcb_primitivestring**: `function pcb_PrimitiveString: PCB_PrimitiveString;`
 - **pcb_primitivevia**: `function pcb_PrimitiveVia: PCB_PrimitiveVia;`
 - **pcb_raytracerengine**: `function pcb_RayTracerEngine: PCB_RayTracerEngine;`
+- **pcb_rightclickmenu**: `function pcb_RightClickMenu: PCB_RightClickMenu;`
 - **pcb_selectcontrol**: `function pcb_SelectControl: PCB_SelectControl;`
 - **pcb_tool**: `function pcb_Tool: PCB_Tool;`
+- **pnl_combination**: `function pnl_Combination: PNL_Combination;`
 - **pnl_document**: `function pnl_Document: PNL_Document;`
+- **pnl_drc**: `function pnl_Drc: PNL_Drc;`
+- **pnl_editcontrol**: `function pnl_EditControl: PNL_EditControl;`
+- **pnl_event**: `function pnl_Event: PNL_Event;`
+- **pnl_import**: `function pnl_Import: PNL_Import;`
+- **pnl_layer**: `function pnl_Layer: PNL_Layer;`
+- **pnl_manufacturedata**: `function pnl_ManufactureData: PNL_ManufactureData;`
+- **pnl_primitive**: `function pnl_Primitive: PNL_Primitive;`
+- **pnl_primitivearc**: `function pnl_PrimitiveArc: PNL_PrimitiveArc;`
+- **pnl_primitiveauxiliaryline**: `function pnl_PrimitiveAuxiliaryLine: PNL_PrimitiveAuxiliaryLine;`
+- **pnl_primitiveauxiliarypoint**: `function pnl_PrimitiveAuxiliaryPoint: PNL_PrimitiveAuxiliaryPoint;`
+- **pnl_primitivedimension**: `function pnl_PrimitiveDimension: PNL_PrimitiveDimension;`
+- **pnl_primitiveellipse**: `function pnl_PrimitiveEllipse: PNL_PrimitiveEllipse;`
+- **pnl_primitiveimage**: `function pnl_PrimitiveImage: PNL_PrimitiveImage;`
+- **pnl_primitivepath**: `function pnl_PrimitivePath: PNL_PrimitivePath;`
+- **pnl_primitiverectangle**: `function pnl_PrimitiveRectangle: PNL_PrimitiveRectangle;`
+- **pnl_primitivetext**: `function pnl_PrimitiveText: PNL_PrimitiveText;`
+- **pnl_selectcontrol**: `function pnl_SelectControl: PNL_SelectControl;`
 - **sch_document**: `function sch_Document: SCH_Document;`
 - **sch_drc**: `function sch_Drc: SCH_Drc;`
 - **sch_event**: `function sch_Event: SCH_Event;`
@@ -285,18 +354,34 @@ eda: EDA;
 - **sch_primitivebus**: `function sch_PrimitiveBus: SCH_PrimitiveBus;`
 - **sch_primitivecircle**: `function sch_PrimitiveCircle: SCH_PrimitiveCircle;`
 - **sch_primitivecomponent**: `function sch_PrimitiveComponent: SCH_PrimitiveComponent;`
+- **sch_primitivegenericport**: `function sch_PrimitiveGenericPort: SCH_PrimitiveGenericPort;`
 - **sch_primitiveobject**: `function sch_PrimitiveObject: SCH_PrimitiveObject;`
 - **sch_primitivepin**: `function sch_PrimitivePin: SCH_PrimitivePin;`
 - **sch_primitivepolygon**: `function sch_PrimitivePolygon: SCH_PrimitivePolygon;`
 - **sch_primitiverectangle**: `function sch_PrimitiveRectangle: SCH_PrimitiveRectangle;`
 - **sch_primitivetext**: `function sch_PrimitiveText: SCH_PrimitiveText;`
 - **sch_primitivewire**: `function sch_PrimitiveWire: SCH_PrimitiveWire;`
+- **sch_rightclickmenu**: `function sch_RightClickMenu: SCH_RightClickMenu;`
 - **sch_selectcontrol**: `function sch_SelectControl: SCH_SelectControl;`
 - **sch_simulationengine**: `function sch_SimulationEngine: SCH_SimulationEngine;`
+- **sch_sourcedocument**: `function sch_SourceDocument: SCH_SourceDocument;`
+- **sch_sourcedrc**: `function sch_SourceDrc: SCH_SourceDrc;`
+- **sch_sourcenet**: `function sch_SourceNet: SCH_SourceNet;`
+- **sch_sourcenetlist**: `function sch_SourceNetlist: SCH_SourceNetlist;`
+- **sch_sourcepin**: `function sch_SourcePin: SCH_SourcePin;`
+- **sch_sourceprimitivearc**: `function sch_SourcePrimitiveArc: SCH_SourcePrimitiveArc;`
+- **sch_sourceprimitiveattribute**: `function sch_SourcePrimitiveAttribute: SCH_SourcePrimitiveAttribute;`
+- **sch_sourceprimitivecircle**: `function sch_SourcePrimitiveCircle: SCH_SourcePrimitiveCircle;`
+- **sch_sourceprimitivecomponent**: `function sch_SourcePrimitiveComponent: SCH_SourcePrimitiveComponent;`
+- **sch_sourceprimitivepolygon**: `function sch_SourcePrimitivePolygon: SCH_SourcePrimitivePolygon;`
+- **sch_sourceprimitiverectangle**: `function sch_SourcePrimitiveRectangle: SCH_SourcePrimitiveRectangle;`
+- **sch_sourceprimitivetext**: `function sch_SourcePrimitiveText: SCH_SourcePrimitiveText;`
+- **sch_sourceprimitivewire**: `function sch_SourcePrimitiveWire: SCH_SourcePrimitiveWire;`
 - **sch_utils**: `function sch_Utils: SCH_Utils;`
 - **sys_clienturl**: `function sys_ClientUrl: SYS_ClientUrl;`
 - **sys_dialog**: `function sys_Dialog: SYS_Dialog;`
 - **sys_environment**: `function sys_Environment: SYS_Environment;`
+- **sys_event**: `function sys_Event: SYS_Event;`
 - **sys_externalapi**: `function sys_ExternalApi: SYS_ExternalApi;`
 - **sys_filemanager**: `function sys_FileManager: SYS_FileManager;`
 - **sys_filesystem**: `function sys_FileSystem: SYS_FileSystem;`
@@ -849,8 +934,9 @@ class IPCB_PrimitivePoured implements IPCB_Primitive
 - **addsoldermaskfill**: `function addSolderMaskFill( 	pourFillId: IPCB_PrimitivePouredPourFill['id'], ): Promise<IPCB_PrimitiveFill | undefined>;`
 - **converttofill**: `function convertToFill( 	pourFillId: IPCB_PrimitivePouredPourFill['id'], ): Promise<IPCB_PrimitiveFill | undefined>;`
 - **deletepourfills**: `function deletePourFills( 	pourFillIds: IPCB_PrimitivePouredPourFill['id'] | Array<IPCB_PrimitivePouredPourFill['id']>, ): Promise<boolean>;`
+- **getstate_layer**: `function getState_Layer(): TPCB_LayersOfCopper;`
 - **getstate_pourfills**: `function getState_PourFills(): Array<IPCB_PrimitivePouredPourFill>;`
-- **getstate_pourprimitiveid**: `function getState_PourPrimitiveId(): string;`
+- **getstate_pourprimitiveid**: `function getState_PourPrimitiveId(): string | undefined;`
 - **getstate_primitiveid**: `function getState_PrimitiveId(): string;`
 - **getstate_primitivetype**: `function getState_PrimitiveType(): EPCB_PrimitiveType;`
 - **reset**: `function reset(): Promise<IPCB_PrimitivePoured>;`
@@ -969,6 +1055,336 @@ class IPCB_PrimitiveVia implements IPCB_Primitive
 - **setstate_y**: `function setState_Y(y: number): IPCB_PrimitiveVia;`
 - **toasync**: `function toAsync(): IPCB_PrimitiveVia;`
 - **tosync**: `function toSync(): IPCB_PrimitiveVia;`
+
+---
+
+## IPNL_PrimitiveArc
+
+圆弧图元
+
+```typescript
+class IPNL_PrimitiveArc implements IPNL_Primitive
+```
+
+- **done**: `function done(): Promise<IPNL_PrimitiveArc>;`
+- **getstate_angle**: `function getState_Angle(): number;`
+- **getstate_arctype**: `function getState_ArcType(): EPNL_ArcType | undefined;`
+- **getstate_endx**: `function getState_EndX(): number;`
+- **getstate_endy**: `function getState_EndY(): number;`
+- **getstate_fillcolor**: `function getState_FillColor(): string | undefined;`
+- **getstate_large**: `function getState_Large(): EPNL_ArcLarge | undefined;`
+- **getstate_layer**: `function getState_Layer(): EPNL_LayerId | undefined;`
+- **getstate_primitiveid**: `function getState_PrimitiveId(): string;`
+- **getstate_primitivelock**: `function getState_PrimitiveLock(): boolean;`
+- **getstate_primitivetype**: `function getState_PrimitiveType(): EPNL_PrimitiveType;`
+- **getstate_radiusx**: `function getState_RadiusX(): number;`
+- **getstate_radiusy**: `function getState_RadiusY(): number;`
+- **getstate_startx**: `function getState_StartX(): number;`
+- **getstate_starty**: `function getState_StartY(): number;`
+- **getstate_strokecolor**: `function getState_StrokeColor(): string | undefined;`
+- **getstate_strokewidth**: `function getState_StrokeWidth(): number | undefined;`
+- **getstate_sweep**: `function getState_Sweep(): EPNL_ArcSweep | undefined;`
+- **isasync**: `function isAsync(): boolean;`
+- **reset**: `function reset(): Promise<IPNL_PrimitiveArc>;`
+- **setstate_angle**: `function setState_Angle(angle: number): IPNL_PrimitiveArc;`
+- **setstate_arctype**: `function setState_ArcType(arcType?: EPNL_ArcType): IPNL_PrimitiveArc;`
+- **setstate_endx**: `function setState_EndX(endX: number): IPNL_PrimitiveArc;`
+- **setstate_endy**: `function setState_EndY(endY: number): IPNL_PrimitiveArc;`
+- **setstate_fillcolor**: `function setState_FillColor(fillColor?: string): IPNL_PrimitiveArc;`
+- **setstate_large**: `function setState_Large(large?: EPNL_ArcLarge): IPNL_PrimitiveArc;`
+- **setstate_layer**: `function setState_Layer(layer?: EPNL_LayerId): IPNL_PrimitiveArc;`
+- **setstate_primitivelock**: `function setState_PrimitiveLock(primitiveLock: boolean): IPNL_PrimitiveArc;`
+- **setstate_radiusx**: `function setState_RadiusX(radiusX: number): IPNL_PrimitiveArc;`
+- **setstate_radiusy**: `function setState_RadiusY(radiusY: number): IPNL_PrimitiveArc;`
+- **setstate_startx**: `function setState_StartX(startX: number): IPNL_PrimitiveArc;`
+- **setstate_starty**: `function setState_StartY(startY: number): IPNL_PrimitiveArc;`
+- **setstate_strokecolor**: `function setState_StrokeColor(strokeColor?: string): IPNL_PrimitiveArc;`
+- **setstate_strokewidth**: `function setState_StrokeWidth(strokeWidth?: number): IPNL_PrimitiveArc;`
+- **setstate_sweep**: `function setState_Sweep(sweep?: EPNL_ArcSweep): IPNL_PrimitiveArc;`
+- **toasync**: `function toAsync(): IPNL_PrimitiveArc;`
+- **tosync**: `function toSync(): IPNL_PrimitiveArc;`
+
+---
+
+## IPNL_PrimitiveAuxiliaryLine
+
+辅助线图元
+
+```typescript
+class IPNL_PrimitiveAuxiliaryLine implements IPNL_Primitive
+```
+
+- **done**: `function done(): Promise<IPNL_PrimitiveAuxiliaryLine>;`
+- **getstate_layer**: `function getState_Layer(): EPNL_LayerId | undefined;`
+- **getstate_orientation**: `function getState_Orientation(): EPNL_PrimitiveAuxiliaryLineOrientation | undefined;`
+- **getstate_primitiveid**: `function getState_PrimitiveId(): string;`
+- **getstate_primitivelock**: `function getState_PrimitiveLock(): boolean;`
+- **getstate_primitivetype**: `function getState_PrimitiveType(): EPNL_PrimitiveType;`
+- **getstate_strokecolor**: `function getState_StrokeColor(): string | undefined;`
+- **getstate_strokestyle**: `function getState_StrokeStyle(): number | undefined;`
+- **getstate_x**: `function getState_X(): number;`
+- **getstate_y**: `function getState_Y(): number;`
+- **isasync**: `function isAsync(): boolean;`
+- **reset**: `function reset(): Promise<IPNL_PrimitiveAuxiliaryLine>;`
+- **setstate_layer**: `function setState_Layer(layer?: EPNL_LayerId): IPNL_PrimitiveAuxiliaryLine;`
+- **setstate_orientation**: `function setState_Orientation( 	orientation?: EPNL_PrimitiveAuxiliaryLineOrientation, ): IPNL_PrimitiveAuxiliaryLine;`
+- **setstate_primitivelock**: `function setState_PrimitiveLock(primitiveLock: boolean): IPNL_PrimitiveAuxiliaryLine;`
+- **setstate_strokecolor**: `function setState_StrokeColor(strokeColor?: string): IPNL_PrimitiveAuxiliaryLine;`
+- **setstate_strokestyle**: `function setState_StrokeStyle(strokeStyle?: number): IPNL_PrimitiveAuxiliaryLine;`
+- **setstate_x**: `function setState_X(x: number): IPNL_PrimitiveAuxiliaryLine;`
+- **setstate_y**: `function setState_Y(y: number): IPNL_PrimitiveAuxiliaryLine;`
+- **toasync**: `function toAsync(): IPNL_PrimitiveAuxiliaryLine;`
+- **tosync**: `function toSync(): IPNL_PrimitiveAuxiliaryLine;`
+
+---
+
+## IPNL_PrimitiveAuxiliaryPoint
+
+辅助点图元
+
+```typescript
+class IPNL_PrimitiveAuxiliaryPoint implements IPNL_Primitive
+```
+
+- **done**: `function done(): Promise<IPNL_PrimitiveAuxiliaryPoint>;`
+- **getstate_fillcolor**: `function getState_FillColor(): string | undefined;`
+- **getstate_layer**: `function getState_Layer(): EPNL_LayerId | undefined;`
+- **getstate_primitiveid**: `function getState_PrimitiveId(): string;`
+- **getstate_primitivelock**: `function getState_PrimitiveLock(): boolean;`
+- **getstate_primitivetype**: `function getState_PrimitiveType(): EPNL_PrimitiveType;`
+- **getstate_x**: `function getState_X(): number;`
+- **getstate_y**: `function getState_Y(): number;`
+- **isasync**: `function isAsync(): boolean;`
+- **reset**: `function reset(): Promise<IPNL_PrimitiveAuxiliaryPoint>;`
+- **setstate_fillcolor**: `function setState_FillColor(fillColor?: string): IPNL_PrimitiveAuxiliaryPoint;`
+- **setstate_layer**: `function setState_Layer(layer?: EPNL_LayerId): IPNL_PrimitiveAuxiliaryPoint;`
+- **setstate_primitivelock**: `function setState_PrimitiveLock(primitiveLock: boolean): IPNL_PrimitiveAuxiliaryPoint;`
+- **setstate_x**: `function setState_X(x: number): IPNL_PrimitiveAuxiliaryPoint;`
+- **setstate_y**: `function setState_Y(y: number): IPNL_PrimitiveAuxiliaryPoint;`
+- **toasync**: `function toAsync(): IPNL_PrimitiveAuxiliaryPoint;`
+- **tosync**: `function toSync(): IPNL_PrimitiveAuxiliaryPoint;`
+
+---
+
+## IPNL_PrimitiveDimension
+
+尺寸标注图元
+
+```typescript
+class IPNL_PrimitiveDimension implements IPNL_Primitive
+```
+
+- **done**: `function done(): Promise<IPNL_PrimitiveDimension>;`
+- **getstate_coordinateset**: `function getState_CoordinateSet(): TPNL_PrimitiveDimensionCoordinateSet;`
+- **getstate_dimensiontype**: `function getState_DimensionType(): EPNL_PrimitiveDimensionType;`
+- **getstate_layer**: `function getState_Layer(): EPNL_LayerId | undefined;`
+- **getstate_primitiveid**: `function getState_PrimitiveId(): string;`
+- **getstate_primitivelock**: `function getState_PrimitiveLock(): boolean;`
+- **getstate_primitivetype**: `function getState_PrimitiveType(): EPNL_PrimitiveType;`
+- **isasync**: `function isAsync(): boolean;`
+- **reset**: `function reset(): Promise<IPNL_PrimitiveDimension>;`
+- **setstate_coordinateset**: `function setState_CoordinateSet( 	coordinateSet: TPNL_PrimitiveDimensionCoordinateSet, ): IPNL_PrimitiveDimension;`
+- **setstate_dimensiontype**: `function setState_DimensionType( 	dimensionType: EPNL_PrimitiveDimensionType, ): IPNL_PrimitiveDimension;`
+- **setstate_layer**: `function setState_Layer(layer?: EPNL_LayerId): IPNL_PrimitiveDimension;`
+- **setstate_primitivelock**: `function setState_PrimitiveLock(primitiveLock: boolean): IPNL_PrimitiveDimension;`
+- **toasync**: `function toAsync(): IPNL_PrimitiveDimension;`
+- **tosync**: `function toSync(): IPNL_PrimitiveDimension;`
+
+---
+
+## IPNL_PrimitiveEllipse
+
+椭圆图元
+
+```typescript
+class IPNL_PrimitiveEllipse implements IPNL_Primitive
+```
+
+- **done**: `function done(): Promise<IPNL_PrimitiveEllipse>;`
+- **getstate_centerx**: `function getState_CenterX(): number;`
+- **getstate_centery**: `function getState_CenterY(): number;`
+- **getstate_fillcolor**: `function getState_FillColor(): string | undefined;`
+- **getstate_layer**: `function getState_Layer(): EPNL_LayerId | undefined;`
+- **getstate_primitiveid**: `function getState_PrimitiveId(): string;`
+- **getstate_primitivelock**: `function getState_PrimitiveLock(): boolean;`
+- **getstate_primitivetype**: `function getState_PrimitiveType(): EPNL_PrimitiveType;`
+- **getstate_radiusx**: `function getState_RadiusX(): number;`
+- **getstate_radiusy**: `function getState_RadiusY(): number;`
+- **getstate_rotation**: `function getState_Rotation(): number | undefined;`
+- **getstate_strokecolor**: `function getState_StrokeColor(): string | undefined;`
+- **getstate_strokewidth**: `function getState_StrokeWidth(): number | undefined;`
+- **isasync**: `function isAsync(): boolean;`
+- **reset**: `function reset(): Promise<IPNL_PrimitiveEllipse>;`
+- **setstate_centerx**: `function setState_CenterX(centerX: number): IPNL_PrimitiveEllipse;`
+- **setstate_centery**: `function setState_CenterY(centerY: number): IPNL_PrimitiveEllipse;`
+- **setstate_fillcolor**: `function setState_FillColor(fillColor?: string): IPNL_PrimitiveEllipse;`
+- **setstate_layer**: `function setState_Layer(layer?: EPNL_LayerId): IPNL_PrimitiveEllipse;`
+- **setstate_primitivelock**: `function setState_PrimitiveLock(primitiveLock: boolean): IPNL_PrimitiveEllipse;`
+- **setstate_radiusx**: `function setState_RadiusX(radiusX: number): IPNL_PrimitiveEllipse;`
+- **setstate_radiusy**: `function setState_RadiusY(radiusY: number): IPNL_PrimitiveEllipse;`
+- **setstate_rotation**: `function setState_Rotation(rotation?: number): IPNL_PrimitiveEllipse;`
+- **setstate_strokecolor**: `function setState_StrokeColor(strokeColor?: string): IPNL_PrimitiveEllipse;`
+- **setstate_strokewidth**: `function setState_StrokeWidth(strokeWidth?: number): IPNL_PrimitiveEllipse;`
+- **toasync**: `function toAsync(): IPNL_PrimitiveEllipse;`
+- **tosync**: `function toSync(): IPNL_PrimitiveEllipse;`
+
+---
+
+## IPNL_PrimitiveImage
+
+图片图元
+
+```typescript
+class IPNL_PrimitiveImage implements IPNL_Primitive
+```
+
+- **done**: `function done(): Promise<IPNL_PrimitiveImage>;`
+- **getstate_height**: `function getState_Height(): number;`
+- **getstate_imagefile**: `function getState_ImageFile(): File | undefined;`
+- **getstate_layer**: `function getState_Layer(): EPNL_LayerId | undefined;`
+- **getstate_primitiveid**: `function getState_PrimitiveId(): string;`
+- **getstate_primitivelock**: `function getState_PrimitiveLock(): boolean;`
+- **getstate_primitivetype**: `function getState_PrimitiveType(): EPNL_PrimitiveType;`
+- **getstate_rotation**: `function getState_Rotation(): number | undefined;`
+- **getstate_width**: `function getState_Width(): number;`
+- **getstate_x**: `function getState_X(): number;`
+- **getstate_y**: `function getState_Y(): number;`
+- **isasync**: `function isAsync(): boolean;`
+- **reset**: `function reset(): Promise<IPNL_PrimitiveImage>;`
+- **setstate_height**: `function setState_Height(height: number): IPNL_PrimitiveImage;`
+- **setstate_imagefile**: `function setState_ImageFile(imageFile?: File): IPNL_PrimitiveImage;`
+- **setstate_layer**: `function setState_Layer(layer?: EPNL_LayerId): IPNL_PrimitiveImage;`
+- **setstate_primitivelock**: `function setState_PrimitiveLock(primitiveLock: boolean): IPNL_PrimitiveImage;`
+- **setstate_rotation**: `function setState_Rotation(rotation?: number): IPNL_PrimitiveImage;`
+- **setstate_width**: `function setState_Width(width: number): IPNL_PrimitiveImage;`
+- **setstate_x**: `function setState_X(x: number): IPNL_PrimitiveImage;`
+- **setstate_y**: `function setState_Y(y: number): IPNL_PrimitiveImage;`
+- **toasync**: `function toAsync(): IPNL_PrimitiveImage;`
+- **tosync**: `function toSync(): IPNL_PrimitiveImage;`
+
+---
+
+## IPNL_PrimitivePath
+
+复合路径图元
+
+```typescript
+class IPNL_PrimitivePath implements IPNL_Primitive
+```
+
+- **done**: `function done(): Promise<IPNL_PrimitivePath>;`
+- **getstate_close**: `function getState_Close(): boolean | undefined;`
+- **getstate_fillcolor**: `function getState_FillColor(): string | undefined;`
+- **getstate_layer**: `function getState_Layer(): EPNL_LayerId | undefined;`
+- **getstate_pathdata**: `function getState_PathData(): string | undefined;`
+- **getstate_points**: `function getState_Points(): Array<number>;`
+- **getstate_primitiveid**: `function getState_PrimitiveId(): string;`
+- **getstate_primitivelock**: `function getState_PrimitiveLock(): boolean;`
+- **getstate_primitivetype**: `function getState_PrimitiveType(): EPNL_PrimitiveType;`
+- **getstate_rotation**: `function getState_Rotation(): number | undefined;`
+- **getstate_strokecolor**: `function getState_StrokeColor(): string | undefined;`
+- **getstate_strokewidth**: `function getState_StrokeWidth(): number | undefined;`
+- **isasync**: `function isAsync(): boolean;`
+- **reset**: `function reset(): Promise<IPNL_PrimitivePath>;`
+- **setstate_close**: `function setState_Close(close?: boolean): IPNL_PrimitivePath;`
+- **setstate_fillcolor**: `function setState_FillColor(fillColor?: string): IPNL_PrimitivePath;`
+- **setstate_layer**: `function setState_Layer(layer?: EPNL_LayerId): IPNL_PrimitivePath;`
+- **setstate_pathdata**: `function setState_PathData(pathData?: string): IPNL_PrimitivePath;`
+- **setstate_points**: `function setState_Points(points: Array<number>): IPNL_PrimitivePath;`
+- **setstate_primitivelock**: `function setState_PrimitiveLock(primitiveLock: boolean): IPNL_PrimitivePath;`
+- **setstate_rotation**: `function setState_Rotation(rotation?: number): IPNL_PrimitivePath;`
+- **setstate_strokecolor**: `function setState_StrokeColor(strokeColor?: string): IPNL_PrimitivePath;`
+- **setstate_strokewidth**: `function setState_StrokeWidth(strokeWidth?: number): IPNL_PrimitivePath;`
+- **toasync**: `function toAsync(): IPNL_PrimitivePath;`
+- **tosync**: `function toSync(): IPNL_PrimitivePath;`
+
+---
+
+## IPNL_PrimitiveRectangle
+
+矩形图元
+
+```typescript
+class IPNL_PrimitiveRectangle implements IPNL_Primitive
+```
+
+- **done**: `function done(): Promise<IPNL_PrimitiveRectangle>;`
+- **getstate_fillcolor**: `function getState_FillColor(): string | undefined;`
+- **getstate_height**: `function getState_Height(): number;`
+- **getstate_layer**: `function getState_Layer(): EPNL_LayerId | undefined;`
+- **getstate_primitiveid**: `function getState_PrimitiveId(): string;`
+- **getstate_primitivelock**: `function getState_PrimitiveLock(): boolean;`
+- **getstate_primitivetype**: `function getState_PrimitiveType(): EPNL_PrimitiveType;`
+- **getstate_rotation**: `function getState_Rotation(): number | undefined;`
+- **getstate_rx**: `function getState_Rx(): number | undefined;`
+- **getstate_ry**: `function getState_Ry(): number | undefined;`
+- **getstate_strokecolor**: `function getState_StrokeColor(): string | undefined;`
+- **getstate_strokewidth**: `function getState_StrokeWidth(): number | undefined;`
+- **getstate_width**: `function getState_Width(): number;`
+- **getstate_x**: `function getState_X(): number;`
+- **getstate_y**: `function getState_Y(): number;`
+- **isasync**: `function isAsync(): boolean;`
+- **reset**: `function reset(): Promise<IPNL_PrimitiveRectangle>;`
+- **setstate_fillcolor**: `function setState_FillColor(fillColor?: string): IPNL_PrimitiveRectangle;`
+- **setstate_height**: `function setState_Height(height: number): IPNL_PrimitiveRectangle;`
+- **setstate_layer**: `function setState_Layer(layer?: EPNL_LayerId): IPNL_PrimitiveRectangle;`
+- **setstate_primitivelock**: `function setState_PrimitiveLock(primitiveLock: boolean): IPNL_PrimitiveRectangle;`
+- **setstate_rotation**: `function setState_Rotation(rotation?: number): IPNL_PrimitiveRectangle;`
+- **setstate_rx**: `function setState_Rx(rx?: number): IPNL_PrimitiveRectangle;`
+- **setstate_ry**: `function setState_Ry(ry?: number): IPNL_PrimitiveRectangle;`
+- **setstate_strokecolor**: `function setState_StrokeColor(strokeColor?: string): IPNL_PrimitiveRectangle;`
+- **setstate_strokewidth**: `function setState_StrokeWidth(strokeWidth?: number): IPNL_PrimitiveRectangle;`
+- **setstate_width**: `function setState_Width(width: number): IPNL_PrimitiveRectangle;`
+- **setstate_x**: `function setState_X(x: number): IPNL_PrimitiveRectangle;`
+- **setstate_y**: `function setState_Y(y: number): IPNL_PrimitiveRectangle;`
+- **toasync**: `function toAsync(): IPNL_PrimitiveRectangle;`
+- **tosync**: `function toSync(): IPNL_PrimitiveRectangle;`
+
+---
+
+## IPNL_PrimitiveText
+
+文本图元
+
+```typescript
+class IPNL_PrimitiveText implements IPNL_Primitive
+```
+
+- **done**: `function done(): Promise<IPNL_PrimitiveText>;`
+- **getstate_bold**: `function getState_Bold(): boolean | undefined;`
+- **getstate_content**: `function getState_Content(): string;`
+- **getstate_fontfamily**: `function getState_FontFamily(): string | undefined;`
+- **getstate_fontsize**: `function getState_FontSize(): number | undefined;`
+- **getstate_halign**: `function getState_HAlign(): EPNL_TextHAlign | undefined;`
+- **getstate_italic**: `function getState_Italic(): boolean | undefined;`
+- **getstate_layer**: `function getState_Layer(): EPNL_LayerId | undefined;`
+- **getstate_primitiveid**: `function getState_PrimitiveId(): string;`
+- **getstate_primitivelock**: `function getState_PrimitiveLock(): boolean;`
+- **getstate_primitivetype**: `function getState_PrimitiveType(): EPNL_PrimitiveType;`
+- **getstate_rotation**: `function getState_Rotation(): number | undefined;`
+- **getstate_textcolor**: `function getState_TextColor(): string | undefined;`
+- **getstate_underline**: `function getState_Underline(): boolean | undefined;`
+- **getstate_valign**: `function getState_VAlign(): EPNL_TextVAlign | undefined;`
+- **getstate_x**: `function getState_X(): number;`
+- **getstate_y**: `function getState_Y(): number;`
+- **isasync**: `function isAsync(): boolean;`
+- **reset**: `function reset(): Promise<IPNL_PrimitiveText>;`
+- **setstate_bold**: `function setState_Bold(bold?: boolean): IPNL_PrimitiveText;`
+- **setstate_content**: `function setState_Content(content: string): IPNL_PrimitiveText;`
+- **setstate_fontfamily**: `function setState_FontFamily(fontFamily?: string): IPNL_PrimitiveText;`
+- **setstate_fontsize**: `function setState_FontSize(fontSize?: number): IPNL_PrimitiveText;`
+- **setstate_halign**: `function setState_HAlign(hAlign?: EPNL_TextHAlign): IPNL_PrimitiveText;`
+- **setstate_italic**: `function setState_Italic(italic?: boolean): IPNL_PrimitiveText;`
+- **setstate_layer**: `function setState_Layer(layer?: EPNL_LayerId): IPNL_PrimitiveText;`
+- **setstate_primitivelock**: `function setState_PrimitiveLock(primitiveLock: boolean): IPNL_PrimitiveText;`
+- **setstate_rotation**: `function setState_Rotation(rotation?: number): IPNL_PrimitiveText;`
+- **setstate_textcolor**: `function setState_TextColor(textColor?: string): IPNL_PrimitiveText;`
+- **setstate_underline**: `function setState_Underline(underline?: boolean): IPNL_PrimitiveText;`
+- **setstate_valign**: `function setState_VAlign(vAlign?: EPNL_TextVAlign): IPNL_PrimitiveText;`
+- **setstate_x**: `function setState_X(x: number): IPNL_PrimitiveText;`
+- **setstate_y**: `function setState_Y(y: number): IPNL_PrimitiveText;`
+- **toasync**: `function toAsync(): IPNL_PrimitiveText;`
+- **tosync**: `function toSync(): IPNL_PrimitiveText;`
 
 ---
 
@@ -1211,6 +1627,56 @@ class ISCH_PrimitiveComponentPin extends ISCH_PrimitivePin
 
 ---
 
+## ISCH_PrimitiveGenericPort
+
+网络端口图元
+
+```typescript
+class ISCH_PrimitiveGenericPort implements ISCH_Primitive
+```
+
+- **done**: `function done(): Promise<ISCH_PrimitiveGenericPort>;`
+- **getstate_fillcolor**: `function getState_FillColor(): string | null;`
+- **getstate_fontcolor**: `function getState_FontColor(): string | null;`
+- **getstate_fontfamily**: `function getState_FontFamily(): string | null;`
+- **getstate_fontsize**: `function getState_FontSize(): number | null;`
+- **getstate_harnesstype**: `function getState_HarnessType(): string | null;`
+- **getstate_height**: `function getState_Height(): number | null;`
+- **getstate_iotype**: `function getState_IoType(): ESCH_PrimitiveGenericPortIoType | null;`
+- **getstate_primitiveid**: `function getState_PrimitiveId(): string;`
+- **getstate_primitivetype**: `function getState_PrimitiveType(): ESCH_PrimitiveType;`
+- **getstate_rotation**: `function getState_Rotation(): number | null;`
+- **getstate_strokecolor**: `function getState_StrokeColor(): string | null;`
+- **getstate_strokestyle**: `function getState_StrokeStyle(): ESCH_PrimitiveGenericPortStrokeStyle | null;`
+- **getstate_strokewidth**: `function getState_StrokeWidth(): number | null;`
+- **getstate_textalign**: `function getState_TextAlign(): ESCH_PrimitiveGenericPortTextAlign | null;`
+- **getstate_value**: `function getState_Value(): string;`
+- **getstate_width**: `function getState_Width(): number | null;`
+- **getstate_x**: `function getState_X(): number;`
+- **getstate_y**: `function getState_Y(): number;`
+- **isasync**: `function isAsync(): boolean;`
+- **reset**: `function reset(): Promise<ISCH_PrimitiveGenericPort>;`
+- **setstate_fillcolor**: `function setState_FillColor(fillColor: string | null): ISCH_PrimitiveGenericPort;`
+- **setstate_fontcolor**: `function setState_FontColor(fontColor: string | null): ISCH_PrimitiveGenericPort;`
+- **setstate_fontfamily**: `function setState_FontFamily(fontFamily: string | null): ISCH_PrimitiveGenericPort;`
+- **setstate_fontsize**: `function setState_FontSize(fontSize: number | null): ISCH_PrimitiveGenericPort;`
+- **setstate_harnesstype**: `function setState_HarnessType(harnessType: string | null): ISCH_PrimitiveGenericPort;`
+- **setstate_height**: `function setState_Height(height: number | null): ISCH_PrimitiveGenericPort;`
+- **setstate_iotype**: `function setState_IoType(ioType: ESCH_PrimitiveGenericPortIoType | null): ISCH_PrimitiveGenericPort;`
+- **setstate_rotation**: `function setState_Rotation(rotation: number | null): ISCH_PrimitiveGenericPort;`
+- **setstate_strokecolor**: `function setState_StrokeColor(strokeColor: string | null): ISCH_PrimitiveGenericPort;`
+- **setstate_strokestyle**: `function setState_StrokeStyle( 	strokeStyle: ESCH_PrimitiveGenericPortStrokeStyle | null, ): ISCH_PrimitiveGenericPort;`
+- **setstate_strokewidth**: `function setState_StrokeWidth(strokeWidth: number | null): ISCH_PrimitiveGenericPort;`
+- **setstate_textalign**: `function setState_TextAlign( 	textAlign: ESCH_PrimitiveGenericPortTextAlign | null, ): ISCH_PrimitiveGenericPort;`
+- **setstate_value**: `function setState_Value(value: string): ISCH_PrimitiveGenericPort;`
+- **setstate_width**: `function setState_Width(width: number | null): ISCH_PrimitiveGenericPort;`
+- **setstate_x**: `function setState_X(x: number): ISCH_PrimitiveGenericPort;`
+- **setstate_y**: `function setState_Y(y: number): ISCH_PrimitiveGenericPort;`
+- **toasync**: `function toAsync(): ISCH_PrimitiveGenericPort;`
+- **tosync**: `function toSync(): ISCH_PrimitiveGenericPort;`
+
+---
+
 ## ISCH_PrimitiveObject
 
 Binary embedded object primitive
@@ -1336,6 +1802,7 @@ class ISCH_PrimitiveRectangle implements ISCH_Primitive
 ```
 
 - **done**: `function done(): Promise<ISCH_PrimitiveRectangle>;`
+- **getstate_bindschematicpageuuid**: `function getState_BindSchematicPageUuid(): string | null;`
 - **getstate_color**: `function getState_Color(): string | null;`
 - **getstate_cornerradius**: `function getState_CornerRadius(): number;`
 - **getstate_fillcolor**: `function getState_FillColor(): string | null;`
@@ -1351,6 +1818,7 @@ class ISCH_PrimitiveRectangle implements ISCH_Primitive
 - **getstate_width**: `function getState_Width(): number;`
 - **isasync**: `function isAsync(): boolean;`
 - **reset**: `function reset(): Promise<ISCH_PrimitiveRectangle>;`
+- **setstate_bindschematicpageuuid**: `function setState_BindSchematicPageUuid( 	bindSchematicPageUuid: string | null, ): ISCH_PrimitiveRectangle;`
 - **setstate_color**: `function setState_Color(color: string | null): ISCH_PrimitiveRectangle;`
 - **setstate_cornerradius**: `function setState_CornerRadius(cornerRadius: number): ISCH_PrimitiveRectangle;`
 - **setstate_fillcolor**: `function setState_FillColor(fillColor: string | null): ISCH_PrimitiveRectangle;`
@@ -1522,6 +1990,7 @@ class LIB_Footprint
 - **delete**: `function delete(footprintUuid: string, libraryUuid: string): Promise<boolean | undefined>;`
 - **get**: `function get(footprintUuid: string, libraryUuid?: string): Promise<ILIB_FootprintItem | undefined>;`
 - **getdocumentsource**: `function getDocumentSource( 	footprintUuid: string, 	libraryUuid?: string, ): Promise<string | undefined>;`
+- **getgeometry**: `function getGeometry( 	footprintUuid: string, 	libraryUuid: string, ): Promise<ILIB_FootprintGeometry | undefined>;`
 - **getrenderimage**: `function getRenderImage(source: { 	footprintUuid: string; 	libraryUuid: string; }): Promise<Blob | undefined>;`
 - **modify**: `function modify( 	footprintUuid: string, 	libraryUuid: string, 	footprintName?: string, 	classification?: ILIB_ClassificationIndex | Array<string> | null, 	description?: string | null, 	otherProperty?: Record<string, boolean | number | string | undefined | null>, 	model3D?: { name: string; uuid: string; libraryUuid: string }, ): Promise<boolean>;`
 - **openineditor**: `function openInEditor( 	footprintUuid: string, 	libraryUuid: string, 	splitScreenId?: string, ): Promise<string | undefined>;`
@@ -1608,12 +2077,27 @@ class LIB_Symbol
 - **delete**: `function delete(symbolUuid: string, libraryUuid: string): Promise<boolean | undefined>;`
 - **get**: `function get(symbolUuid: string, libraryUuid?: string): Promise<ILIB_SymbolItem | undefined>;`
 - **getdocumentsource**: `function getDocumentSource(symbolUuid: string, libraryUuid?: string): Promise<string | undefined>;`
+- **getgeometry**: `function getGeometry( 	symbolUuid: string, 	libraryUuid: string, 	subPartName?: string, ): Promise<ILIB_SymbolGeometry | undefined>;`
 - **getrenderimage**: `function getRenderImage(source: { 	symbolUuid: string; 	libraryUuid: string; 	subPartName?: string; }): Promise<Blob | undefined>;`
 - **modify**: `function modify( 	symbolUuid: string, 	libraryUuid: string, 	symbolName?: string, 	classification?: ILIB_ClassificationIndex | Array<string> | null, 	description?: string | null, 	otherProperty?: Record<string, boolean | number | string | undefined | null>, ): Promise<boolean>;`
 - **openineditor**: `function openInEditor( 	symbolUuid: string, 	libraryUuid: string, 	splitScreenId?: string, ): Promise<string | undefined>;`
 - **search**: `function search( 	key: string, 	libraryUuid?: string, 	classification?: ILIB_ClassificationIndex | Array<string>, 	symbolType?: ELIB_SymbolType, 	itemsOfPage?: number, 	page?: number, ): Promise<Array<ILIB_SymbolSearchItem>>;`
 - **searchbyproperties**: `function searchByProperties( 	properties: ILIB_SymbolPropertiesForSearch, 	libraryUuid?: string, ): Promise<Array<ILIB_SymbolSearchItem>>;`
 - **updatedocumentsource**: `function updateDocumentSource( 	symbolUuid: string, 	libraryUuid: string, 	documentSource: string, ): Promise<boolean | undefined>;`
+
+---
+
+## PCB_Dfm
+
+PCB &amp; 封装 / 可制造性设计（DFM）类
+
+```typescript
+class PCB_Dfm
+```
+
+- **checkdfm**: `function checkDfm(options?: IPCB_DfmCheckOptions): Promise<IPCB_DfmCheckResult>;`
+- **getdfmavailability**: `function getDfmAvailability(): Promise<IPCB_DfmAvailability>;`
+- **getdfmrules**: `function getDfmRules(): Promise<Array<IPCB_DfmRule>>;`
 
 ---
 
@@ -1627,28 +2111,40 @@ class PCB_Document
 
 - **autolayout**: `function autoLayout(): Promise<IPCB_AutoLayoutResult>;`
 - **autorouting**: `function autoRouting(props?: IPCB_AutoRoutingProps): Promise<IPCB_AutoRoutingResult>;`
+- **begincommandgroup**: `function beginCommandGroup(name?: string): Promise<IPCB_CommandGroupResult>;`
+- **cancelautojob**: `function cancelAutoJob(jobId: string): Promise<boolean>;`
 - **clearrouting**: `function clearRouting(type?: 'all' | 'net' | 'connection'): Promise<boolean>;`
+- **commitcommandgroup**: `function commitCommandGroup(groupId: string): Promise<boolean>;`
 - **convertcanvasorigintodataorigin**: `function convertCanvasOriginToDataOrigin(x: number, y: number): Promise<{ x: number; y: number }>;`
 - **convertdataorigintocanvasorigin**: `function convertDataOriginToCanvasOrigin(x: number, y: number): Promise<{ x: number; y: number }>;`
+- **fanout**: `function fanout(options: IPCB_FanoutOptions): Promise<IPCB_FanoutResult>;`
+- **getautojoblog**: `function getAutoJobLog(jobId: string): Promise<IPCB_AutoJobSnapshot>;`
+- **getautojobstatus**: `function getAutoJobStatus(jobId: string): Promise<ISYS_JobStatus | undefined>;`
 - **getcalculatingratlinestatus**: `function getCalculatingRatlineStatus(): Promise< 	EPCB_DocumentRatlineCalculatingActiveStatus | undefined >;`
 - **getcanvasorigin**: `function getCanvasOrigin(): Promise<{ offsetX: number; offsetY: number }>;`
 - **getcanvasupdatecalculationstatus**: `function getCanvasUpdateCalculationStatus(): Promise< 	EPCB_DocumentCanvasUpdateCalculationActiveStatus | undefined >;`
 - **getcurrentfilterconfiguration**: `function getCurrentFilterConfiguration(): Promise<Record<string, any> | undefined>;`
 - **getprimitiveatpoint**: `function getPrimitiveAtPoint(x: number, y: number): Promise<IPCB_Primitive | undefined>;`
 - **getprimitivesinregion**: `function getPrimitivesInRegion( 	left: number, 	right: number, 	top: number, 	bottom: number, 	leftToRight?: boolean, ): Promise<Array<IPCB_Primitive>>;`
+- **getratlines**: `function getRatlines(options?: IPCB_RatlineQueryOptions): Promise<IPCB_PageResult<IPCB_Ratline>>;`
 - **importautolayoutjsonfile**: `function importAutoLayoutJsonFile(autoLayoutFile: File): Promise<boolean>;`
 - **importautoroutejsonfile**: `function importAutoRouteJsonFile(autoRouteFile: File): Promise<boolean>;`
 - **importautoroutesesfile**: `function importAutoRouteSesFile(autoRouteFile: File): Promise<boolean>;`
 - **importchanges**: `function importChanges(uuid?: string): Promise<boolean>;`
 - **navigatetocoordinates**: `function navigateToCoordinates(x: number, y: number): Promise<boolean>;`
 - **navigatetoregion**: `function navigateToRegion( 	left: number, 	right: number, 	top: number, 	bottom: number, ): Promise<boolean>;`
+- **redolastcommandgroup**: `function redoLastCommandGroup(): Promise<boolean>;`
+- **rollbackcommandgroup**: `function rollbackCommandGroup(groupId: string): Promise<boolean>;`
 - **save**: `function save(): Promise<boolean>;`
 - **setcanvasorigin**: `function setCanvasOrigin(offsetX: number, offsetY: number): Promise<boolean>;`
+- **startautolayout**: `function startAutoLayout(): Promise<ISYS_JobHandle>;`
+- **startautorouting**: `function startAutoRouting(props?: IPCB_AutoRoutingProps): Promise<ISYS_JobHandle>;`
 - **startcalculatingratline**: `function startCalculatingRatline(): Promise<boolean>;`
 - **startcanvasupdatecalculation**: `function startCanvasUpdateCalculation(): Promise<boolean>;`
 - **stopcalculatingratline**: `function stopCalculatingRatline(): Promise<boolean>;`
 - **stopcanvasupdatecalculation**: `function stopCanvasUpdateCalculation(): Promise<boolean>;`
 - **triggercanvasupdatecalculation**: `function triggerCanvasUpdateCalculation(): Promise<boolean>;`
+- **undolastcommandgroup**: `function undoLastCommandGroup(): Promise<boolean>;`
 - **zoomtoboardoutline**: `function zoomToBoardOutline(): Promise<boolean>;`
 
 ---
@@ -1666,6 +2162,7 @@ class PCB_Drc
 - **addpadpairtopadpairgroup**: `function addPadPairToPadPairGroup( 	padPairGroupName: string, 	padPair: [string, string] | Array<[string, string]>, ): Promise<boolean>;`
 - **check**: `function check( 	strict: boolean, 	userInterface: boolean, 	includeVerboseError: false, ): Promise<boolean>;`
 - **check_1**: `function check( 	strict: boolean, 	userInterface: boolean, 	includeVerboseError: true, ): Promise<Array<any>>;`
+- **checkdetailed**: `function checkDetailed(options?: IPCB_DrcCheckDetailedOptions): Promise<IPCB_DrcResult>;`
 - **createdifferentialpair**: `function createDifferentialPair( 	differentialPairName: string, 	positiveNet: string, 	negativeNet: string, ): Promise<boolean>;`
 - **createequallengthnetgroup**: `function createEqualLengthNetGroup( 	equalLengthNetGroupName: string, 	nets: Array<string>, 	color: IPCB_EqualLengthNetGroupItem['color'], ): Promise<boolean>;`
 - **createnetclass**: `function createNetClass( 	netClassName: string, 	nets: Array<string>, 	color: IPCB_EqualLengthNetGroupItem['color'], ): Promise<boolean>;`
@@ -1683,6 +2180,7 @@ class PCB_Drc
 - **getcurrentruleconfiguration**: `function getCurrentRuleConfiguration(): Promise<Record<string, any> | undefined>;`
 - **getcurrentruleconfigurationname**: `function getCurrentRuleConfigurationName(): Promise<string | undefined>;`
 - **getdefaultruleconfigurationname**: `function getDefaultRuleConfigurationName(): Promise<string | undefined>;`
+- **getdrcresult**: `function getDrcResult(): Promise<IPCB_DrcResult>;`
 - **getnetbynetrules**: `function getNetByNetRules(): Promise<Record<string, any>>;`
 - **getnetrules**: `function getNetRules(): Promise<Array<Record<string, any>>>;`
 - **getpadpairgroupminwirelength**: `function getPadPairGroupMinWireLength( 	padPairGroupName: string, ): Promise<Array<IPCB_PadPairMinWireLengthItem>>;`
@@ -1763,6 +2261,7 @@ class PCB_Layer
 - **getcurrentphysicalstackingconfigurationname**: `function getCurrentPhysicalStackingConfigurationName(): Promise<string | undefined>;`
 - **getdefaultphysicalstackingconfigurationname**: `function getDefaultPhysicalStackingConfigurationName( 	physicalProps?: IPCB_SubstratePhysicalProperties, ): Promise<string | undefined>;`
 - **getphysicalstackingconfiguration**: `function getPhysicalStackingConfiguration( 	configurationName: string, 	physicalProps?: IPCB_SubstratePhysicalProperties, ): Promise<IPCB_PhysicalStackingConfiguration | undefined>;`
+- **getstackup**: `function getStackup(): Promise<IPCB_Stackup>;`
 - **locklayer**: `function lockLayer( 	layer?: TPCB_LayersInTheSelectable | Array<TPCB_LayersInTheSelectable>, ): Promise<boolean>;`
 - **modifylayer**: `function modifyLayer( 	layer: TPCB_LayersInTheSelectable, 	property: { 		name?: string; 		type?: TPCB_LayerTypesOfInnerLayer; 		color?: string; 		transparency?: number; 	}, ): Promise<boolean>;`
 - **overwritecurrentphysicalstackingconfiguration**: `function overwriteCurrentPhysicalStackingConfiguration( 	physicalStackingConfiguration: IPCB_PhysicalStackingConfiguration, ): Promise<boolean>;`
@@ -1879,6 +2378,7 @@ PCB &amp; footprint / primitive class
 class PCB_Primitive
 ```
 
+- **findprimitives**: `function findPrimitives( 	options: IPCB_FindPrimitivesOptions, ): Promise<IPCB_PageResult<IPCB_PrimitiveSummary>>;`
 - **getprimitiveboardline**: `function getPrimitiveBoardLine( 	primitiveId: string, 	layers?: Array<EPCB_LayerId>, ): Promise<IPCB_ComplexPolygon | undefined>;`
 - **getprimitivesbbox**: `function getPrimitivesBBox( 	primitiveIds: Array<string | IPCB_Primitive>, ): Promise<{ minX: number; minY: number; maxX: number; maxY: number } | undefined>;`
 
@@ -2082,6 +2582,9 @@ class PCB_PrimitivePour implements IPCB_PrimitiveAPI
 - **getall**: `function getAll( 	net?: string, 	layer?: TPCB_LayersOfCopper, 	primitiveLock?: boolean, ): Promise<Array<IPCB_PrimitivePour>>;`
 - **getallprimitiveid**: `function getAllPrimitiveId( 	net?: string, 	layer?: TPCB_LayersOfCopper, 	primitiveLock?: boolean, ): Promise<Array<string>>;`
 - **modify**: `function modify( 	primitiveId: string | IPCB_PrimitivePour, 	property: { 		net?: string; 		layer?: TPCB_LayersOfCopper; 		complexPolygon?: IPCB_Polygon; 		pourFillMethod?: EPCB_PrimitivePourFillMethod; 		preserveSilos?: boolean; 		pourName?: string; 		pourPriority?: number; 		lineWidth?: number; 		primitiveLock?: boolean; 	}, ): Promise<IPCB_PrimitivePour | undefined>;`
+- **rebuildallcopperregions**: `function rebuildAllCopperRegions(): Promise<Array<IPCB_PrimitivePoured>>;`
+- **rebuildcopperregions**: `function rebuildCopperRegions(primitiveIds?: Array<string>): Promise<Array<IPCB_PrimitivePoured>>;`
+- **rebuildcopperregionsbylayer**: `function rebuildCopperRegionsByLayer( 	layer: TPCB_LayersOfCopper | Array<TPCB_LayersOfCopper>, ): Promise<Array<IPCB_PrimitivePoured>>;`
 
 ---
 
@@ -2165,15 +2668,34 @@ class PCB_RayTracerEngine
 
 - **addsceneelement**: `function addSceneElement(file: Blob): Promise<IPCB_RayTracerSceneElement>;`
 - **dispose**: `function dispose(): Promise<void>;`
-- **exportimage**: `function exportImage(): Promise<Blob>;`
+- **exportimage**: `function exportImage(): Promise<Blob | null>;`
+- **exportpackage**: `function exportPackage(preset: 'geometry' | 'asset' | 'scene'): Promise<Blob>;`
 - **getlightconfigurations**: `function getLightConfigurations(lightName: string): Promise<any>;`
 - **getrenderconfigurations**: `function getRenderConfigurations(): Promise<IPCB_RayTracerRenderConfigurations>;`
 - **getsceneelements**: `function getSceneElements(): Promise<IPCB_RayTracerSceneElement[]>;`
-- **init**: `function init(resourceProvider?: (path: string) => Promise<Blob>): Promise<void>;`
+- **importpackage**: `function importPackage(file: Blob): Promise<void>;`
+- **init**: `function init(): Promise<void>;`
 - **pauserender**: `function pauseRender(): Promise<void>;`
 - **removesceneelement**: `function removeSceneElement(id: string): Promise<void>;`
 - **setrenderconfigurations**: `function setRenderConfigurations(configurations: IPCB_RayTracerRenderConfigurations): Promise<void>;`
 - **setsceneelementtransform**: `function setSceneElementTransform( 	id: string, 	transform: IPCB_RayTracerSceneElementTransform, ): Promise<void>;`
+
+---
+
+## PCB_RightClickMenu
+
+PCB / 右键菜单类
+
+```typescript
+class PCB_RightClickMenu
+```
+
+- **getmenu**: `function getMenu(target: EPCB_RightClickMenuTarget): Promise<Array<ISYS_RightClickMenuItem | null>>;`
+- **insertmenuitem**: `function insertMenuItem( 	target: EPCB_RightClickMenuTarget, 	menuItem: ISYS_RightClickMenuItem, 	position: ISYS_RightClickMenuItemPosition, ): Promise<boolean>;`
+- **removemenuitem**: `function removeMenuItem(target: EPCB_RightClickMenuTarget, menuItemId: string): Promise<boolean>;`
+- **replacemenu**: `function replaceMenu( 	target: EPCB_RightClickMenuTarget, 	menuItems: Array<ISYS_RightClickMenuItem | null>, ): Promise<boolean>;`
+- **resetmenu**: `function resetMenu(target: EPCB_RightClickMenuTarget): Promise<boolean>;`
+- **updatemenuitem**: `function updateMenuItem( 	target: EPCB_RightClickMenuTarget, 	menuItemId: string, 	patch: Partial<Omit<ISYS_RightClickMenuItem, 'id'>>, ): Promise<boolean>;`
 
 ---
 
@@ -2206,6 +2728,17 @@ class PCB_Tool
 
 ---
 
+## PNL_Combination
+
+面板 / 组合类
+
+```typescript
+class PNL_Combination
+```
+
+
+---
+
 ## PNL_Document
 
 Panel / document operation class
@@ -2215,6 +2748,193 @@ class PNL_Document
 ```
 
 - **save**: `function save(): Promise<boolean>;`
+
+---
+
+## PNL_Drc
+
+面板 / 设计规则检查类
+
+```typescript
+class PNL_Drc
+```
+
+
+---
+
+## PNL_EditControl
+
+面板 / 编辑命令类
+
+```typescript
+class PNL_EditControl
+```
+
+
+---
+
+## PNL_Event
+
+面板 / 事件类
+
+```typescript
+class PNL_Event
+```
+
+
+---
+
+## PNL_Import
+
+面板导入类
+
+```typescript
+class PNL_Import
+```
+
+
+---
+
+## PNL_Layer
+
+面板 / 工艺图层类
+
+```typescript
+class PNL_Layer
+```
+
+
+---
+
+## PNL_ManufactureData
+
+面板 / 制造数据类
+
+```typescript
+class PNL_ManufactureData
+```
+
+
+---
+
+## PNL_Primitive
+
+面板 / 图元类
+
+```typescript
+class PNL_Primitive
+```
+
+
+---
+
+## PNL_PrimitiveArc
+
+面板 / 圆弧图元类
+
+```typescript
+class PNL_PrimitiveArc implements IPNL_PrimitiveAPI
+```
+
+
+---
+
+## PNL_PrimitiveAuxiliaryLine
+
+面板 / 辅助线图元类
+
+```typescript
+class PNL_PrimitiveAuxiliaryLine implements IPNL_PrimitiveAPI
+```
+
+
+---
+
+## PNL_PrimitiveAuxiliaryPoint
+
+面板 / 辅助点图元类
+
+```typescript
+class PNL_PrimitiveAuxiliaryPoint implements IPNL_PrimitiveAPI
+```
+
+
+---
+
+## PNL_PrimitiveDimension
+
+面板 / 尺寸标注图元类
+
+```typescript
+class PNL_PrimitiveDimension implements IPNL_PrimitiveAPI
+```
+
+
+---
+
+## PNL_PrimitiveEllipse
+
+面板 / 椭圆图元类
+
+```typescript
+class PNL_PrimitiveEllipse implements IPNL_PrimitiveAPI
+```
+
+
+---
+
+## PNL_PrimitiveImage
+
+面板 / 图片图元类
+
+```typescript
+class PNL_PrimitiveImage implements IPNL_PrimitiveAPI
+```
+
+
+---
+
+## PNL_PrimitivePath
+
+面板 / 复合路径图元类
+
+```typescript
+class PNL_PrimitivePath implements IPNL_PrimitiveAPI
+```
+
+
+---
+
+## PNL_PrimitiveRectangle
+
+面板 / 矩形图元类
+
+```typescript
+class PNL_PrimitiveRectangle implements IPNL_PrimitiveAPI
+```
+
+
+---
+
+## PNL_PrimitiveText
+
+面板 / 文本图元类
+
+```typescript
+class PNL_PrimitiveText implements IPNL_PrimitiveAPI
+```
+
+
+---
+
+## PNL_SelectControl
+
+面板 / 选择控制类
+
+```typescript
+class PNL_SelectControl
+```
+
 
 ---
 
@@ -2229,11 +2949,13 @@ class SCH_Document
 - **autolayout**: `function autoLayout(props?: { 	uuids?: Array<string>; 	netlist?: { 		component: Record< 			string, 			{ 				pinInfoMap: Record< 					string, 					{ name: string; number: string; net: string; props: { 'Pin Number': string } } 				>; 			} 		>; 	}; 	designatorDeviceTypeMap?: Record< 		string, 		| 'resistor' 		| 'capacitor' 		| 'inductive' 		| 'diode' 		| 'triode' 		| 'oscillator' 		| 'chip' 		| 'otherDevice' 	>; }): Promise<any>;`
 - **autorouting**: `function autoRouting(props?: { 	uuids?: Array<string>; 	netlist?: { 		component: Record< 			string, 			{ 				pinInfoMap: Record< 					string, 					{ name: string; number: string; net: string; props: { 'Pin Number': string } } 				>; 			} 		>; 	}; 	designatorDeviceTypeMap?: Record< 		string, 		| 'resistor' 		| 'capacitor' 		| 'inductive' 		| 'diode' 		| 'triode' 		| 'oscillator' 		| 'chip' 		| 'otherDevice' 	>; }): Promise<any>;`
 - **getcurrentfilterconfiguration**: `function getCurrentFilterConfiguration(): Promise<Record<string, boolean> | undefined>;`
+- **getelementsinregion**: `function getElementsInRegion( 	options: ISCH_DocumentGetElementsInRegionOptions, ): Promise<TSCH_SourceResult<Array<ISCH_DocumentRegionElement>>>;`
 - **getprimitiveatpoint**: `function getPrimitiveAtPoint(x: number, y: number): Promise<ISCH_Primitive | undefined>;`
 - **getprimitivesinregion**: `function getPrimitivesInRegion( 	left: number, 	right: number, 	top: number, 	bottom: number, ): Promise<Array<ISCH_Primitive>>;`
 - **importchanges**: `function importChanges(): Promise<boolean>;`
 - **navigatetocoordinates**: `function navigateToCoordinates(x: number, y: number): Promise<boolean>;`
 - **navigatetoregion**: `function navigateToRegion( 	left: number, 	right: number, 	top: number, 	bottom: number, ): Promise<boolean>;`
+- **renderregion**: `function renderRegion(options: ISCH_DocumentRenderRegionOptions): Promise<TSCH_SourceResult<File>>;`
 - **save**: `function save(): Promise<boolean>;`
 
 ---
@@ -2413,7 +3135,7 @@ Schematic &amp; symbol / device primitive class
 class SCH_PrimitiveComponent implements ISCH_PrimitiveAPI
 ```
 
-- **create**: `function create( 	component: 		| { libraryType?: ELIB_LibraryType.DEVICE; libraryUuid: string; uuid: string } 		| ILIB_DeviceItem 		| ILIB_DeviceSearchItem 		| { libraryType: ELIB_LibraryType.SYMBOL; libraryUuid: string; uuid: string } 		| ILIB_SymbolItem 		| ILIB_SymbolSearchItem, 	x: number, 	y: number, 	subPartName?: string, 	rotation?: number, 	mirror?: boolean, 	addIntoBom?: boolean, 	addIntoPcb?: boolean, ): Promise<ISCH_PrimitiveComponent | undefined>;`
+- **create**: *(签名过长，请查看详细文档)*
 - **createcbbsymbol**: `function createCbbSymbol( 	cbbSymbol: { libraryUuid: string; cbbUuid: string; uuid?: string }, 	x: number, 	y: number, 	rotation?: number, 	mirror?: boolean, ): Promise<ISCH_PrimitiveCbbSymbolComponent | undefined>;`
 - **createnetflag**: `function createNetFlag( 	identification: 'Power' | 'Ground' | 'AnalogGround' | 'ProtectGround', 	net: string, 	x: number, 	y: number, 	rotation?: number, 	mirror?: boolean, ): Promise<ISCH_PrimitiveComponent | undefined>;`
 - **createnetport**: `function createNetPort( 	direction: 'IN' | 'OUT' | 'BI', 	net: string, 	x: number, 	y: number, 	rotation?: number, 	mirror?: boolean, ): Promise<ISCH_PrimitiveComponent | undefined>;`
@@ -2436,6 +3158,24 @@ class SCH_PrimitiveComponent implements ISCH_PrimitiveAPI
 - **setnetportcomponentuuid_bi**: `function setNetPortComponentUuid_BI( 	component: { libraryUuid: string; uuid: string } | ILIB_DeviceItem | ILIB_DeviceSearchItem, ): Promise<boolean>;`
 - **setnetportcomponentuuid_in**: `function setNetPortComponentUuid_IN( 	component: { libraryUuid: string; uuid: string } | ILIB_DeviceItem | ILIB_DeviceSearchItem, ): Promise<boolean>;`
 - **setnetportcomponentuuid_out**: `function setNetPortComponentUuid_OUT( 	component: { libraryUuid: string; uuid: string } | ILIB_DeviceItem | ILIB_DeviceSearchItem, ): Promise<boolean>;`
+
+---
+
+## SCH_PrimitiveGenericPort
+
+原理图 &amp; 符号 / 网络端口图元类
+
+```typescript
+class SCH_PrimitiveGenericPort implements ISCH_PrimitiveAPI
+```
+
+- **create**: *(签名过长，请查看详细文档)*
+- **delete**: `function delete(primitiveIds: string | ISCH_PrimitiveGenericPort | Array<string> | Array<ISCH_PrimitiveGenericPort>): Promise<boolean>;`
+- **get**: `function get(primitiveIds: string): Promise<ISCH_PrimitiveGenericPort | undefined>;`
+- **get_1**: `function get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitiveGenericPort>>;`
+- **getall**: `function getAll(): Promise<Array<ISCH_PrimitiveGenericPort>>;`
+- **getallprimitiveid**: `function getAllPrimitiveId(): Promise<Array<string>>;`
+- **modify**: `function modify( 	primitiveId: string | ISCH_PrimitiveGenericPort, 	property: ISCH_PrimitiveGenericPortProps, ): Promise<ISCH_PrimitiveGenericPort | undefined>;`
 
 ---
 
@@ -2501,13 +3241,13 @@ Schematic &amp; symbol / rectangle primitive class
 class SCH_PrimitiveRectangle implements ISCH_PrimitiveAPI
 ```
 
-- **create**: `function create( 	topLeftX: number, 	topLeftY: number, 	width: number, 	height: number, 	cornerRadius?: number, 	rotation?: number, 	color?: string | null, 	fillColor?: string | null, 	lineWidth?: number | null, 	lineType?: ESCH_PrimitiveLineType | null, 	fillStyle?: ESCH_PrimitiveFillStyle | null, ): Promise<ISCH_PrimitiveRectangle | undefined>;`
+- **create**: `function create( 	topLeftX: number, 	topLeftY: number, 	width: number, 	height: number, 	cornerRadius?: number, 	rotation?: number, 	color?: string | null, 	fillColor?: string | null, 	lineWidth?: number | null, 	lineType?: ESCH_PrimitiveLineType | null, 	fillStyle?: ESCH_PrimitiveFillStyle | null, 	bindSchematicPageUuid?: string | null, ): Promise<ISCH_PrimitiveRectangle | undefined>;`
 - **delete**: `function delete(primitiveIds: string | ISCH_PrimitiveRectangle | Array<string> | Array<ISCH_PrimitiveRectangle>): Promise<boolean>;`
 - **get**: `function get(primitiveIds: string): Promise<ISCH_PrimitiveRectangle | undefined>;`
 - **get_1**: `function get(primitiveIds: Array<string>): Promise<Array<ISCH_PrimitiveRectangle>>;`
 - **getall**: `function getAll(): Promise<Array<ISCH_PrimitiveRectangle>>;`
 - **getallprimitiveid**: `function getAllPrimitiveId(): Promise<Array<string>>;`
-- **modify**: `function modify( 	primitiveId: string | ISCH_PrimitiveRectangle, 	property: { 		topLeftX?: number; 		topLeftY?: number; 		width?: number; 		height?: number; 		cornerRadius?: number; 		rotation?: number; 		color?: string | null; 		fillColor?: string | null; 		lineWidth?: number | null; 		lineType?: ESCH_PrimitiveLineType | null; 		fillStyle?: ESCH_PrimitiveFillStyle | null; 	}, ): Promise<ISCH_PrimitiveRectangle | undefined>;`
+- **modify**: `function modify( 	primitiveId: string | ISCH_PrimitiveRectangle, 	property: { 		topLeftX?: number; 		topLeftY?: number; 		width?: number; 		height?: number; 		cornerRadius?: number; 		rotation?: number; 		color?: string | null; 		fillColor?: string | null; 		lineWidth?: number | null; 		lineType?: ESCH_PrimitiveLineType | null; 		fillStyle?: ESCH_PrimitiveFillStyle | null; 		bindSchematicPageUuid?: string | null; 	}, ): Promise<ISCH_PrimitiveRectangle | undefined>;`
 
 ---
 
@@ -2547,6 +3287,23 @@ class SCH_PrimitiveWire implements ISCH_PrimitiveAPI
 
 ---
 
+## SCH_RightClickMenu
+
+原理图 / 右键菜单类
+
+```typescript
+class SCH_RightClickMenu
+```
+
+- **getmenu**: `function getMenu(target: ESCH_RightClickMenuTarget): Promise<Array<ISYS_RightClickMenuItem | null>>;`
+- **insertmenuitem**: `function insertMenuItem( 	target: ESCH_RightClickMenuTarget, 	menuItem: ISYS_RightClickMenuItem, 	position: ISYS_RightClickMenuItemPosition, ): Promise<boolean>;`
+- **removemenuitem**: `function removeMenuItem(target: ESCH_RightClickMenuTarget, menuItemId: string): Promise<boolean>;`
+- **replacemenu**: `function replaceMenu( 	target: ESCH_RightClickMenuTarget, 	menuItems: Array<ISYS_RightClickMenuItem | null>, ): Promise<boolean>;`
+- **resetmenu**: `function resetMenu(target: ESCH_RightClickMenuTarget): Promise<boolean>;`
+- **updatemenuitem**: `function updateMenuItem( 	target: ESCH_RightClickMenuTarget, 	menuItemId: string, 	patch: Partial<Omit<ISYS_RightClickMenuItem, 'id'>>, ): Promise<boolean>;`
+
+---
+
 ## SCH_SelectControl
 
 Schematic &amp; symbol / selection control class
@@ -2578,6 +3335,177 @@ class SCH_SimulationEngine
 
 ---
 
+## SCH_SourceDocument
+
+原理图 &amp; 符号 / 源数据文档类
+
+```typescript
+class SCH_SourceDocument
+```
+
+- **getfunctiongroups**: `function getFunctionGroups( 	options: ISCH_SourceIdentity, ): Promise<TSCH_SourceResult<Array<ISCH_SourceDocumentFunctionGroup>>>;`
+- **removefunctiongroup**: `function removeFunctionGroup( 	options: ISCH_SourceDocumentRemoveFunctionGroupOptions, ): Promise<TSCH_SourceResult<ISCH_SourceDocumentRemoveFunctionGroupResult>>;`
+- **transformfunctiongroup**: `function transformFunctionGroup( 	options: ISCH_SourceDocumentTransformFunctionGroupOptions, ): Promise<TSCH_SourceResult<ISCH_SourceDocumentTransformFunctionGroupResult>>;`
+
+---
+
+## SCH_SourceDrc
+
+原理图 &amp; 符号 / 源数据 DRC 类
+
+```typescript
+class SCH_SourceDrc
+```
+
+
+---
+
+## SCH_SourceNet
+
+原理图 &amp; 符号 / 源数据网络类
+
+```typescript
+class SCH_SourceNet
+```
+
+
+---
+
+## SCH_SourceNetlist
+
+原理图 &amp; 符号 / 源数据网表类
+
+```typescript
+class SCH_SourceNetlist
+```
+
+
+---
+
+## SCH_SourcePin
+
+原理图 &amp; 符号 / 源数据引脚类
+
+```typescript
+class SCH_SourcePin
+```
+
+- **getgeometry**: `function getGeometry( 	options: ISCH_SourcePinGetGeometryOptions, ): Promise<TSCH_SourceResult<Array<ISCH_SourcePinGeometryItem>>>;`
+
+---
+
+## SCH_SourcePrimitiveArc
+
+原理图 &amp; 符号 / 源数据圆弧类
+
+```typescript
+class SCH_SourcePrimitiveArc
+```
+
+- **add**: `function add( 	options: ISCH_SourcePrimitiveArcAddOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveResult>>;`
+- **remove**: `function remove( 	options: ISCH_SourcePrimitiveIdOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveResult>>;`
+
+---
+
+## SCH_SourcePrimitiveAttribute
+
+原理图 &amp; 符号 / 源数据属性类
+
+```typescript
+class SCH_SourcePrimitiveAttribute
+```
+
+- **addnetlabel**: `function addNetLabel( 	options: ISCH_SourcePrimitiveAttributeAddNetLabelOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveAttributeNetLabelResult>>;`
+- **removenetlabel**: `function removeNetLabel( 	options: ISCH_SourcePrimitiveAttributeUpdateNetLabelOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveAttributeNetLabelResult>>;`
+- **updatenetlabel**: `function updateNetLabel( 	options: ISCH_SourcePrimitiveAttributeUpdateNetLabelOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveAttributeNetLabelResult>>;`
+
+---
+
+## SCH_SourcePrimitiveCircle
+
+原理图 &amp; 符号 / 源数据圆形类
+
+```typescript
+class SCH_SourcePrimitiveCircle
+```
+
+- **add**: `function add( 	options: ISCH_SourcePrimitiveCircleAddOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveResult>>;`
+- **remove**: `function remove( 	options: ISCH_SourcePrimitiveIdOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveResult>>;`
+
+---
+
+## SCH_SourcePrimitiveComponent
+
+原理图 &amp; 符号 / 源数据器件类
+
+```typescript
+class SCH_SourcePrimitiveComponent
+```
+
+- **add**: `function add( 	options: ISCH_SourcePrimitiveComponentAddOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveComponentAddResult>>;`
+- **addnetflag**: `function addNetFlag( 	options: ISCH_SourcePrimitiveComponentAddNetFlagOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveResult>>;`
+- **get**: `function get( 	options: ISCH_SourcePrimitiveComponentGetOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveComponentDetail>>;`
+- **remove**: `function remove( 	options: ISCH_SourcePrimitiveComponentRemoveOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveComponentRemoveResult>>;`
+- **removenetflag**: `function removeNetFlag( 	options: ISCH_SourcePrimitiveIdOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveResult>>;`
+- **replace**: `function replace( 	options: ISCH_SourcePrimitiveComponentReplaceOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveComponentAddResult>>;`
+- **update**: `function update( 	options: ISCH_SourcePrimitiveComponentUpdateOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveComponentAddResult>>;`
+- **updateattribute**: `function updateAttribute( 	options: ISCH_SourcePrimitiveComponentUpdateAttributeOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveComponentUpdateAttributeResult>>;`
+
+---
+
+## SCH_SourcePrimitivePolygon
+
+原理图 &amp; 符号 / 源数据多边形类
+
+```typescript
+class SCH_SourcePrimitivePolygon
+```
+
+- **add**: `function add( 	options: ISCH_SourcePrimitivePolygonAddOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveResult>>;`
+- **remove**: `function remove( 	options: ISCH_SourcePrimitiveIdOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveResult>>;`
+
+---
+
+## SCH_SourcePrimitiveRectangle
+
+原理图 &amp; 符号 / 源数据矩形类
+
+```typescript
+class SCH_SourcePrimitiveRectangle
+```
+
+- **add**: `function add( 	options: ISCH_SourcePrimitiveRectangleAddOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveResult>>;`
+- **remove**: `function remove( 	options: ISCH_SourcePrimitiveIdOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveResult>>;`
+
+---
+
+## SCH_SourcePrimitiveText
+
+原理图 &amp; 符号 / 源数据文本类
+
+```typescript
+class SCH_SourcePrimitiveText
+```
+
+- **add**: `function add( 	options: ISCH_SourcePrimitiveTextAddOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveResult>>;`
+- **remove**: `function remove( 	options: ISCH_SourcePrimitiveIdOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveResult>>;`
+
+---
+
+## SCH_SourcePrimitiveWire
+
+原理图 &amp; 符号 / 源数据导线类
+
+```typescript
+class SCH_SourcePrimitiveWire
+```
+
+- **add**: `function add( 	options: ISCH_SourcePrimitiveWireAddOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveWireAddResult>>;`
+- **remove**: `function remove( 	options: ISCH_SourcePrimitiveIdOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveResult>>;`
+- **removepinwires**: `function removePinWires( 	options: ISCH_SourcePrimitiveWireRemovePinWiresOptions, ): Promise<TSCH_SourceResult<ISCH_SourcePrimitiveWireRemovePinWiresResult>>;`
+
+---
+
 ## SCH_Utils
 
 Schematic &amp; symbol / utility class
@@ -2587,6 +3515,20 @@ class SCH_Utils
 ```
 
 - **splitlines**: `function splitLines( 	lines: Array<number | Array<number>>, ): Array<Array<number | Array<number>>> | undefined;`
+
+---
+
+## SYS_ApiError
+
+扩展 API 错误
+
+```typescript
+class SYS_ApiError extends Error
+```
+
+- **_constructor_**: `function constructor(code: ESYS_ApiErrorCode, message?: string, details?: Record<string, unknown>);`
+- **code**: `function readonly code: ESYS_ApiErrorCode;`
+- **details**: `function readonly details?: Record<string, unknown>;`
 
 ---
 
@@ -2640,6 +3582,20 @@ class SYS_Environment
 - **isonlinemode**: `function isOnlineMode(): boolean;`
 - **isproprivateedition**: `function isProPrivateEdition(): boolean;`
 - **isweb**: `function isWeb(): boolean;`
+
+---
+
+## SYS_Event
+
+系统 / 事件类
+
+```typescript
+class SYS_Event
+```
+
+- **addprogressbareventlistener**: `function addProgressBarEventListener( 	id: string, 	callFn: (props: ISYS_ProgressBarEventProps) => void | Promise<void>, 	onlyOnce?: boolean, 	actions?: ESYS_ProgressBarAction[], ): void;`
+- **iseventlisteneralreadyexist**: `function isEventListenerAlreadyExist(id: string): boolean;`
+- **removeeventlistener**: `function removeEventListener(id: string): boolean;`
 
 ---
 
@@ -2803,6 +3759,7 @@ class SYS_IFrame
 - **closeiframe**: `function closeIFrame(id?: string): Promise<boolean>;`
 - **hideiframe**: `function hideIFrame(id?: string): Promise<boolean>;`
 - **isiframealreadyexist**: `function isIFrameAlreadyExist(id: string): Promise<boolean>;`
+- **modifyiframe**: `function modifyIFrame( 	id: string, 	props: { 		title?: string; 		width?: number; 		height?: number; 		x?: number; 		y?: number; 	}, ): Promise<boolean>;`
 - **openiframe**: `function openIFrame( 	htmlFileName: string, 	width?: number, 	height?: number, 	id?: string, 	props?: { 		maximizeButton?: boolean; 		minimizeButton?: boolean; 		minimizeStyle?: 'collapsed' | 'constricted'; 		buttonCallbackFn?: (button: 'close' | 'minimize' | 'maximize') => void | Promise<void>; 		onBeforeCloseCallFn?: () => boolean | undefined | Promise<boolean | undefined>; 		grayscaleMask?: boolean; 		title?: string; 		x?: number; 		y?: number; 	}, ): Promise<boolean>;`
 - **showiframe**: `function showIFrame(id?: string): Promise<boolean>;`
 
@@ -2874,9 +3831,11 @@ System / message notification class
 class SYS_Message
 ```
 
+- **closetoastmessage**: `function closeToastMessage(id: string): void;`
 - **removefollowmousetip**: `function removeFollowMouseTip(tip?: string): Promise<void>;`
 - **showfollowmousetip**: `function showFollowMouseTip(tip: string, msTimeout?: number): Promise<void>;`
-- **showtoastmessage**: `function showToastMessage( 	message: string, 	messageType?: ESYS_ToastMessageType, 	timer?: number, 	bottomPanel?: ESYS_BottomPanelTab, 	buttonTitle?: string, 	buttonCallbackFn?: string, ): void;`
+- **showtoastmessage**: `function showToastMessage( 	message: string, 	messageType?: ESYS_ToastMessageType, 	timer?: number, 	bottomPanel?: ESYS_BottomPanelTab, 	buttonTitle?: string, 	buttonCallbackFn?: string, 	id?: string, ): void;`
+- **updatetoastmessage**: `function updateToastMessage(id: string, message: string): void;`
 
 ---
 
@@ -2954,6 +3913,12 @@ class SYS_RightClickMenu
 ```
 
 - **changemenu**: `function changeMenu( 	menuId: string, 	menuItems: Array<ISYS_RightClickMenuItem | null>, ): Promise<void>;`
+- **getmenu**: `function getMenu(target: ESYS_RightClickMenuTarget): Promise<Array<ISYS_RightClickMenuItem | null>>;`
+- **insertmenuitem**: `function insertMenuItem( 	target: ESYS_RightClickMenuTarget, 	menuItem: ISYS_RightClickMenuItem, 	position: ISYS_RightClickMenuItemPosition, ): Promise<boolean>;`
+- **removemenuitem**: `function removeMenuItem(target: ESYS_RightClickMenuTarget, menuItemId: string): Promise<boolean>;`
+- **replacemenu**: `function replaceMenu( 	target: ESYS_RightClickMenuTarget, 	menuItems: Array<ISYS_RightClickMenuItem | null>, ): Promise<boolean>;`
+- **resetmenu**: `function resetMenu(target: ESYS_RightClickMenuTarget): Promise<boolean>;`
+- **updatemenuitem**: `function updateMenuItem( 	target: ESYS_RightClickMenuTarget, 	menuItemId: string, 	patch: Partial<Omit<ISYS_RightClickMenuItem, 'id'>>, ): Promise<boolean>;`
 
 ---
 

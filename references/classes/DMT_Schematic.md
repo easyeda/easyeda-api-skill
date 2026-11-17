@@ -287,6 +287,8 @@ New schematic UUID. If it is `undefined`<!-- -->, the copy failed
 
 If the schematic is already associated with a reuse block (a reuse block symbol with the same name exists in the project library), copying the schematic will also create a new reuse block symbol
 
+\*\*工程树异步更新\*\*：写操作后左侧工程树异步刷新，如仍读到旧值，请调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -379,6 +381,10 @@ Promise&lt;string \| undefined&gt;
 
 New schematic sheet UUID. If it is `undefined`<!-- -->, the copy failed
 
+## Remarks
+
+\*\*工程树异步更新\*\*：写操作后左侧工程树异步刷新，如仍读到旧值，请调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -458,6 +464,8 @@ Schematic UUID, if it is `undefined` creation fails
 
 不传 `boardName` 时 \*\*会自动创建一块 Board\*\*（此后直接调用 `createBoard()` 会得到 2 块板）， 如需游离原理图请显式管理 Board 归属
 
+\*\*工程树异步更新\*\*：左侧工程树是强制异步刷新的，创建 / 改名 / 删除后如仍读到旧值，请调用 [waitForReady](./DMT_Project.md) 等待后重试 `getAllSchematicsInfo` / `getAllSchematicPagesInfo` 或按名称访问；立即读取可能拿到旧名称或旧列表
+
 ## Example
 
 ```javascript
@@ -527,6 +535,10 @@ UUID of the schematic it belongs to
 Promise&lt;string \| undefined&gt;
 
 Schematic sheet UUID, if it is `undefined` creation fails
+
+## Remarks
+
+\*\*工程树异步更新\*\*：左侧工程树是强制异步刷新的，创建 / 改名 / 删除后如仍读到旧值，请调用 [waitForReady](./DMT_Project.md) 等待后重试 `getAllSchematicsInfo` / `getAllSchematicPagesInfo` 或按名称访问；立即读取可能拿到旧名称或旧列表
 
 ## Example
 
@@ -605,6 +617,8 @@ Whether the operation is successful
 
 If the schematic is already associated with a reuse block (a reuse block symbol with the same name exists in the project library), deleting the schematic will also delete the associated PCB and reuse block symbol. If the reuse block symbol cannot be deleted, it will be skipped
 
+\*\*工程树异步更新\*\*：写操作后左侧工程树异步刷新，如仍读到旧值，请调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -672,6 +686,10 @@ Promise&lt;boolean&gt;
 
 Whether the operation is successful
 
+## Remarks
+
+\*\*工程树异步更新\*\*：写操作后左侧工程树异步刷新，如仍读到旧值，请调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -720,6 +738,10 @@ Promise&lt;Array&lt;[IDMT\_SchematicPageItem](../interfaces/IDMT_SchematicPageIt
 
 Array of detailed properties of all schematic sheets
 
+## Remarks
+
+\*\*工程树异步更新\*\*：返回的是当前工程树快照；创建 / 改名 / 删除后立即调用可能拿到旧列表， 如仍读到旧值，请调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -765,6 +787,10 @@ Promise&lt;Array&lt;[IDMT\_SchematicItem](../interfaces/IDMT_SchematicItem.md)<!
 
 Array of detailed properties of all schematics
 
+## Remarks
+
+\*\*工程树异步更新\*\*：返回的是当前工程树快照；创建 / 改名 / 删除后立即调用可能拿到旧列表， 如仍读到旧值，请调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -807,6 +833,10 @@ function getCurrentSchematicAllSchematicPagesInfo(): Promise<Array<IDMT_Schemati
 Promise&lt;Array&lt;[IDMT\_SchematicPageItem](../interfaces/IDMT_SchematicPageItem.md)<!-- -->&gt;&gt;
 
 Array of detailed properties of all schematic sheets
+
+## Remarks
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 
@@ -862,6 +892,8 @@ Schematic detailed properties of; if it is `undefined`<!-- -->, the retrieval fa
 
 It will get the detailed properties of the schematic associated with the currently open schematic sheet that has the last input focus
 
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -910,6 +942,8 @@ Schematic sheet detailed properties of; if it is `undefined`<!-- -->, the retrie
 ## Remarks
 
 It will get the detailed properties of the currently open schematic sheet that has the last input focus
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 
@@ -988,6 +1022,10 @@ Promise&lt;[IDMT\_SchematicItem](../interfaces/IDMT_SchematicItem.md) \| undefin
 
 Schematic detailed properties of; if it is `undefined`<!-- -->, the retrieval failed
 
+## Remarks
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -1061,6 +1099,10 @@ Schematic sheet UUID
 Promise&lt;[IDMT\_SchematicPageItem](../interfaces/IDMT_SchematicPageItem.md) \| undefined&gt;
 
 Schematic sheet detailed properties of; if it is `undefined`<!-- -->, the retrieval failed
+
+## Remarks
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 
@@ -1153,6 +1195,8 @@ Whether Modify Successful
 ## Remarks
 
 If the schematic is already associated with a reuse block (a reuse block symbol with the same name exists in the project library), modifying the name will also modify the reuse block symbol name and the associated PCB name
+
+\*\*工程树异步更新\*\*：左侧工程树是强制异步刷新的，创建 / 改名 / 删除后如仍读到旧值，请调用 [waitForReady](./DMT_Project.md) 等待后重试 `getAllSchematicsInfo` / `getAllSchematicPagesInfo` 或按名称访问；立即读取可能拿到旧名称或旧列表
 
 ## Example
 
@@ -1249,6 +1293,10 @@ Promise&lt;boolean&gt;
 
 Whether Modify Successful
 
+## Remarks
+
+\*\*工程树异步更新\*\*：左侧工程树是强制异步刷新的，创建 / 改名 / 删除后如仍读到旧值，请调用 [waitForReady](./DMT_Project.md) 等待后重试 `getAllSchematicsInfo` / `getAllSchematicPagesInfo` 或按名称访问；立即读取可能拿到旧名称或旧列表
+
 ## Example
 
 ```javascript
@@ -1288,7 +1336,7 @@ Modify the title block of a schematic sheet
 ```typescript
 function modifySchematicPageTitleBlock(
 	showTitleBlock?: boolean,
-	titleBlockData?: Record<string, { showTitle?: boolean; showValue?: boolean; value?: any }>,
+	titleBlockData?: Record<string, { showTitle: boolean; showValue: boolean; value?: any }>,
 ): Promise<boolean>;
 ```
 
@@ -1326,7 +1374,7 @@ titleBlockData
 
 </td><td>
 
-Record&lt;string, { showTitle?: boolean; showValue?: boolean; value?: any }&gt;
+Record&lt;string, { showTitle: boolean; showValue: boolean; value?: any }&gt;
 
 </td><td>
 
@@ -1448,6 +1496,8 @@ Sorting whether the operation is successful
 ## Remarks
 
 Here, the array of source schematic sheet properties needs to be obtained through [DMT\_Schematic.getAllSchematicPagesInfo()](./DMT_Schematic.md) or other upstream methods. After sorting the array, pass it in
+
+\*\*工程树异步更新\*\*：写操作后左侧工程树异步刷新，如仍读到旧值，请调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 

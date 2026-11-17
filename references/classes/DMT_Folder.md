@@ -8,6 +8,12 @@ Document tree / Folder class
 class DMT_Folder
 ```
 
+## Remarks
+
+本类接口仅在 \*\*在线模式\*\* 下可用，客户端半离线 / 全离线环境下调用将失败
+
+工程树异步刷新；写操作或读取列表后得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Methods
 
 <table><thead><tr><th>
@@ -200,6 +206,10 @@ Promise&lt;string \| undefined&gt;
 
 Folder UUID, if it is `undefined` creation fails
 
+## Remarks
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -280,6 +290,10 @@ Promise&lt;boolean&gt;
 
 Whether the operation is successful
 
+## Remarks
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -353,6 +367,8 @@ Folder UUID array
 ## Remarks
 
 This API ignores hierarchy information. It will return the UUIDs of folders at all levels and place them in a one-dimensional array
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 
@@ -440,6 +456,8 @@ Folder property; if it is `undefined`<!-- -->, the retrieval failed
 ## Remarks
 
 When [parentFolderUuid](../interfaces/IDMT_FolderItem.md) equals [teamUuid](../interfaces/IDMT_FolderItem.md)<!-- -->, it means the current folder is a first-level folder under the specified team
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 
@@ -551,6 +569,8 @@ Whether Modify Successful
 
 Modifying the folder description requires interaction with the workspace system. The modification is delayed and takes effect only after a short wait
 
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -651,6 +671,10 @@ Promise&lt;boolean&gt;
 
 Whether Modify Successful
 
+## Remarks
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -750,6 +774,10 @@ _(Optional)_ Parent folder UUID. If not specified, it defaults to the root folde
 Promise&lt;boolean&gt;
 
 Whether the move is successful
+
+## Remarks
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 

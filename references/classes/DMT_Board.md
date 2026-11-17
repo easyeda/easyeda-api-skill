@@ -12,6 +12,8 @@ class DMT_Board
 
 Operations related to board management in the currently open project
 
+工程树异步刷新；写操作或读取列表后得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Methods
 
 <table><thead><tr><th>
@@ -158,6 +160,10 @@ Promise&lt;string \| undefined&gt;
 
 New board name, if it is `undefined` the copy fails
 
+## Remarks
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -242,6 +248,8 @@ Board name, if it is `undefined` creation fails
 
 `schematicUuid` 必须传 \*\*原理图实体 UUID\*\*（传图页 UUID 将会 \*\*返回 `undefined`<!-- -->\*\*）
 
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -306,6 +314,8 @@ Whether the operation is successful
 
 If the specified board does not exist, the API will return `false`<!-- -->, indicating that the operation failed
 
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -336,6 +346,10 @@ function getAllBoardsInfo(): Promise<Array<IDMT_BoardItem>>;
 Promise&lt;Array&lt;[IDMT\_BoardItem](../interfaces/IDMT_BoardItem.md)<!-- -->&gt;&gt;
 
 Array of detailed properties of all Board
+
+## Remarks
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 
@@ -399,6 +413,10 @@ Promise&lt;[IDMT\_BoardItem](../interfaces/IDMT_BoardItem.md) \| undefined&gt;
 
 Board detailed properties of; if it is `undefined`<!-- -->, the retrieval failed
 
+## Remarks
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -437,6 +455,8 @@ Board detailed properties of; if it is `undefined`<!-- -->, the retrieval failed
 ## Remarks
 
 It will get the detailed properties of the board associated with the currently open schematic or PCB that has the last input focus
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 
@@ -515,6 +535,10 @@ New board name
 Promise&lt;boolean&gt;
 
 Whether Modify Successful
+
+## Remarks
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 

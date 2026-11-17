@@ -8,6 +8,10 @@ Document tree / Workspace class
 class DMT_Workspace
 ```
 
+## Remarks
+
+本类接口仅在 \*\*在线模式\*\* 下可用，客户端半离线 / 全离线环境下调用将失败
+
 ## Methods
 
 <table><thead><tr><th>

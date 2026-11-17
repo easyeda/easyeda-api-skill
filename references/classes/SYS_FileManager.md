@@ -1358,7 +1358,11 @@ function importProjectByProjectFile(
 			newProjectCollaborationMode?: EDMT_ProjectCollaborationMode;
 		}
 		| { operation: 'Existing Project'; existingProjectUuid: IDMT_BriefProjectItem['uuid'] }
-		| { operation: 'Offline Client Local Path'; folderPath: string },
+		| {
+			operation: 'Offline Client Local Path';
+			folderPath: string;
+			fileFormat?: EDMT_ProjectFileFormat;
+		},
 	librariesImportSetting?: {
 		ownerTeamUuid: IDMT_TeamItem['uuid'];
 		deviceClassification?: Array<string>;
@@ -1430,7 +1434,7 @@ saveTo
 
 </td><td>
 
-{ operation: 'New Project'; newProjectOwnerTeamUuid: [IDMT\_TeamItem](../interfaces/IDMT_TeamItem.md)<!-- -->\['uuid'\]; newProjectOwnerFolderUuid?: [IDMT\_FolderItem](../interfaces/IDMT_FolderItem.md)<!-- -->\['uuid'\]; newProjectName?: string; newProjectFriendlyName?: string; newProjectDescription?: string; newProjectCollaborationMode?: [EDMT\_ProjectCollaborationMode](../enums/EDMT_ProjectCollaborationMode.md) } \| { operation: 'Existing Project'; existingProjectUuid: [IDMT\_BriefProjectItem](../interfaces/IDMT_BriefProjectItem.md)<!-- -->\['uuid'\] } \| { operation: 'Offline Client Local Path'; folderPath: string }
+{ operation: 'New Project'; newProjectOwnerTeamUuid: [IDMT\_TeamItem](../interfaces/IDMT_TeamItem.md)<!-- -->\['uuid'\]; newProjectOwnerFolderUuid?: [IDMT\_FolderItem](../interfaces/IDMT_FolderItem.md)<!-- -->\['uuid'\]; newProjectName?: string; newProjectFriendlyName?: string; newProjectDescription?: string; newProjectCollaborationMode?: [EDMT\_ProjectCollaborationMode](../enums/EDMT_ProjectCollaborationMode.md) } \| { operation: 'Existing Project'; existingProjectUuid: [IDMT\_BriefProjectItem](../interfaces/IDMT_BriefProjectItem.md)<!-- -->\['uuid'\] } \| { operation: 'Offline Client Local Path'; folderPath: string; fileFormat?: [EDMT\_ProjectFileFormat](../enums/EDMT_ProjectFileFormat.md) }
 
 </td><td>
 
@@ -1496,7 +1500,11 @@ function importProjectByProjectFile(
 			newProjectCollaborationMode?: EDMT_ProjectCollaborationMode;
 		}
 		| { operation: 'Existing Project'; existingProjectUuid: IDMT_BriefProjectItem['uuid'] }
-		| { operation: 'Offline Client Local Path'; folderPath: string },
+		| {
+			operation: 'Offline Client Local Path';
+			folderPath: string;
+			fileFormat?: EDMT_ProjectFileFormat;
+		},
 	librariesImportSetting?: {
 		ownerTeamUuid: IDMT_TeamItem['uuid'];
 		deviceClassification?: Array<string>;
@@ -1568,7 +1576,7 @@ saveTo
 
 </td><td>
 
-{ operation: 'New Project'; newProjectOwnerTeamUuid: [IDMT\_TeamItem](../interfaces/IDMT_TeamItem.md)<!-- -->\['uuid'\]; newProjectOwnerFolderUuid?: [IDMT\_FolderItem](../interfaces/IDMT_FolderItem.md)<!-- -->\['uuid'\]; newProjectName?: string; newProjectFriendlyName?: string; newProjectDescription?: string; newProjectCollaborationMode?: [EDMT\_ProjectCollaborationMode](../enums/EDMT_ProjectCollaborationMode.md) } \| { operation: 'Existing Project'; existingProjectUuid: [IDMT\_BriefProjectItem](../interfaces/IDMT_BriefProjectItem.md)<!-- -->\['uuid'\] } \| { operation: 'Offline Client Local Path'; folderPath: string }
+{ operation: 'New Project'; newProjectOwnerTeamUuid: [IDMT\_TeamItem](../interfaces/IDMT_TeamItem.md)<!-- -->\['uuid'\]; newProjectOwnerFolderUuid?: [IDMT\_FolderItem](../interfaces/IDMT_FolderItem.md)<!-- -->\['uuid'\]; newProjectName?: string; newProjectFriendlyName?: string; newProjectDescription?: string; newProjectCollaborationMode?: [EDMT\_ProjectCollaborationMode](../enums/EDMT_ProjectCollaborationMode.md) } \| { operation: 'Existing Project'; existingProjectUuid: [IDMT\_BriefProjectItem](../interfaces/IDMT_BriefProjectItem.md)<!-- -->\['uuid'\] } \| { operation: 'Offline Client Local Path'; folderPath: string; fileFormat?: [EDMT\_ProjectFileFormat](../enums/EDMT_ProjectFileFormat.md) }
 
 </td><td>
 

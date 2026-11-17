@@ -273,7 +273,7 @@ _(Optional)_ Pin type
 
 Promise&lt;[ISCH\_PrimitivePin](./ISCH_PrimitivePin.md) \| undefined&gt;
 
-Pin primitive object
+Pin primitive object  cli - 画布图元创建需前端已打开对应图页；Source API 暂未提供对应 add 接口
 
 ## Example
 

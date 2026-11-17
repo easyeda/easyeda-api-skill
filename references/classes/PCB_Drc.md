@@ -84,6 +84,17 @@ Description
 </td></tr>
 <tr><td>
 
+[checkDetailed(options)](./PCB_Drc.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 执行 DRC 检查并返回展平明细
+
+</td></tr>
+<tr><td>
+
 [createDifferentialPair(differentialPairName, positiveNet, negativeNet)](./PCB_Drc.md)
 
 </td><td>
@@ -267,6 +278,17 @@ Get Current design rule configuration name
 </td><td>
 
 **_(BETA)_** Get the name of the default design rule configuration for new PCBs
+
+</td></tr>
+<tr><td>
+
+[getDrcResult()](./PCB_Drc.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 读取最近一次 DRC 结果（不触发重新检查）
 
 </td></tr>
 <tr><td>
@@ -952,6 +974,60 @@ Whether to include detailed error information in the return value. If it is `tru
 Promise&lt;Array&lt;any&gt;&gt;
 
 Detailed results of the DRC check
+
+### checkdetailed
+
+# PCB\_Drc.checkDetailed() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+执行 DRC 检查并返回展平明细
+
+## Signature
+
+```typescript
+function checkDetailed(options?: IPCB_DrcCheckDetailedOptions): Promise<IPCB_DrcResult>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+options
+
+</td><td>
+
+[IPCB\_DrcCheckDetailedOptions](../interfaces/IPCB_DrcCheckDetailedOptions.md)
+
+</td><td>
+
+_(Optional)_ 检查参数
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;[IPCB\_DrcResult](../interfaces/IPCB_DrcResult.md)<!-- -->&gt;
+
+DRC 结果
+
+## Remarks
+
+结果可能不完整：存在检查失败的规则时，将以 `INCOMPLETE_RESULT` 错误抛出，不得视为检查通过 ADD since EDA v4.1.93
 
 ### createdifferentialpair
 
@@ -1897,6 +1973,32 @@ function getDefaultRuleConfigurationName(): Promise<string | undefined>;
 Promise&lt;string \| undefined&gt;
 
 Default design rule configuration name of; `undefined` indicates that the retrieval failed
+
+### getdrcresult
+
+# PCB\_Drc.getDrcResult() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+读取最近一次 DRC 结果（不触发重新检查）
+
+## Signature
+
+```typescript
+function getDrcResult(): Promise<IPCB_DrcResult>;
+```
+
+## Returns
+
+Promise&lt;[IPCB\_DrcResult](../interfaces/IPCB_DrcResult.md)<!-- -->&gt;
+
+DRC 结果
+
+## Remarks
+
+不重新执行 DRC，仅返回最近一次检查的结果
+
+尚未执行过检查时 `state` 为 `notChecked` ADD since EDA v4.1.93
 
 ### getnetbynetrules
 

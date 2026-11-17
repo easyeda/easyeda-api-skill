@@ -8,6 +8,10 @@ Auto routing result
 interface IPCB_AutoRoutingResult
 ```
 
+## Remarks
+
+布通率应按 `successNetsCount / totalNetsCount` 计算，两者是同一统计口径的分子与分母，请勿与全板网络总数混用
+
 ## Properties
 
 <table><thead><tr><th>
@@ -69,7 +73,7 @@ boolean
 
 </td><td>
 
-Whether auto routing started successfully
+自动布线是否成功启动
 
 </td></tr>
 <tr><td>
@@ -99,7 +103,7 @@ number
 
 </td><td>
 
-Total number of nets participating in auto routing
+参与本次自动布线的网络总数
 
 </td></tr>
 </tbody></table>
@@ -136,13 +140,17 @@ failedNets: Array<string>;
 
 # IPCB\_AutoRoutingResult.success property
 
-Whether auto routing started successfully
+自动布线是否成功启动
 
 ## Signature
 
 ```typescript
 success: boolean;
 ```
+
+## Remarks
+
+仅表示布线流程是否正常发起并走完，不代表所有网络都布通；判断布通情况请看 `successNetsCount` 与 `failedNets`
 
 ### successnetscount
 
@@ -160,10 +168,14 @@ successNetsCount: number;
 
 # IPCB\_AutoRoutingResult.totalNetsCount property
 
-Total number of nets participating in auto routing
+参与本次自动布线的网络总数
 
 ## Signature
 
 ```typescript
 totalNetsCount: number;
 ```
+
+## Remarks
+
+统计口径受入参过滤影响：`props.layers` 会剔除停用层上的网络，`props.RoutingNets` / `ignoreNets` 会收窄或排除网络， 因此该值可能小于全板网络总数，不能直接当作全板网络数使用

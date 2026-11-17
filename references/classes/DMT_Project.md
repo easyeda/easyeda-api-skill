@@ -75,7 +75,7 @@ Get Project property
 
 </td><td>
 
-**_(BETA)_** 获取工程的就绪状态
+获取工程的就绪状态
 
 </td></tr>
 <tr><td>
@@ -108,7 +108,7 @@ Open project
 
 </td><td>
 
-**_(BETA)_** 等待工程就绪
+等待工程就绪
 
 </td></tr>
 </tbody></table>
@@ -255,7 +255,9 @@ Project UUID, if it is `undefined` creation fails
 
 ## Remarks
 
-新建工程 \*\*不初始化任何文档\*\*（`getAllBoardsInfo` 等返回空数组）， 需显式创建 schematic / pcb / board / 首页后再使用
+新建工程 \*\*不初始化任何文档\*\*（[getAllBoardsInfo](./DMT_Board.md) 等返回空数组）， 需显式创建 schematic / pcb / board / 首页后再使用
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 
@@ -368,6 +370,8 @@ If `folderUuid` is specified, all projects under the specified folder are obtain
 
 If `workspaceUuid` is specified, all projects under the specified team/folder are obtained in the specified Workspace
 
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -403,6 +407,8 @@ Project property; if it is `undefined`<!-- -->, the retrieval failed
 ## Remarks
 
 It will get the detailed properties of the project associated with the currently open schematic, PCB, or panel that has the last input focus
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ### getprojectinfo
 
@@ -456,11 +462,11 @@ Brief project properties. If it is `undefined`<!-- -->, the retrieval failed
 
 This API can only read brief project properties. For the detailed project tree, use the [getCurrentProjectInfo](./DMT_Project.md) API
 
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ### getreadystate
 
 # DMT\_Project.getReadyState() method
-
-> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
 获取工程的就绪状态
 
@@ -508,7 +514,7 @@ Promise&lt;[EDMT\_ProjectReadyState](../enums/EDMT_ProjectReadyState.md)<!-- -->
 
 ## Remarks
 
-返回工程的就绪阶段（未加载 / 加载中 / 就绪 / 失败），无需依赖业务数据推断 ADD since EDA v4.1.79
+返回工程数据层的就绪阶段（未加载 / 加载中 / 就绪 / 失败），无需依赖业务数据推断； 不含工程树构建状态，等待工程树请使用 [waitForReady](./DMT_Project.md) ADD since EDA v4.1.79
 
 ### moveprojecttofolder
 
@@ -570,6 +576,10 @@ _(Optional)_ Folder UUID, which can only be a folder under the team or personal 
 Promise&lt;boolean&gt;
 
 Whether the move is successful
+
+## Remarks
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 
@@ -653,6 +663,14 @@ Whether Successful open project
 
 This operation will open the specified project in the EDA front end. If another project was previously opened with unsaved changes, executing this operation will directly lose all unsaved data
 
+\*\*画布 API 前置条件\*\*：仅打开工程不会激活任何文档
+
+调用 [SCH\_Netlist.getNetlist()](./SCH_Netlist.md)<!-- -->、[SCH\_PrimitiveComponent.getAllPrimitiveId()](./SCH_PrimitiveComponent.md)<!-- -->、<!-- -->、[PCB\_Drc](./PCB_Drc.md)<!-- -->、[PCB\_Document](./PCB_Document.md) 等画布 API 前，必须先通过 [openDocument](./DMT_EditorControl.md) 打开目标文档，并等待 [waitForDocumentReady](./DMT_EditorControl.md) 完成
+
+Source 系列接口不要求打开文档，但仍需遵守其异步落盘时序
+
+\*\*工程树异步更新\*\*：[openProject](./DMT_Project.md) 返回后工程树可能仍在刷新；读取列表或按名称访问得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -669,8 +687,6 @@ console.log('opened:', opened);
 ### waitforready
 
 # DMT\_Project.waitForReady() method
-
-> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
 等待工程就绪
 
@@ -731,4 +747,10 @@ Promise&lt;boolean&gt;
 
 ## Remarks
 
-阻塞等待目标工程数据加载完成，返回前不会误判「工程为空」；超过 `timeoutMs` 仍未就绪时返回 `false` ADD since EDA v4.1.79
+阻塞等待目标工程数据加载完成，且工程树（左侧树）数据构建完成（不含界面渲染）
+
+工程树刷新为异步过程；创建、修改、删除、复制或移动文档后读取得到旧数据时，应调用本接口等待工程树就绪后重试
+
+接口不可用时按工程数据就绪返回；超过 `timeoutMs` 仍未就绪，或显式指定的工程不再是当前工程时返回 `false`
+
+未指定 `projectUuid` 时以当前工程为准，工程切换过程中应显式传入目标工程 UUID  cli - 工程树相关读写得到旧数据时，先等待本接口再重试

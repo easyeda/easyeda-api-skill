@@ -12,6 +12,8 @@ class DMT_Pcb
 
 Operations related to PCB management in the currently open project
 
+工程树异步刷新；写操作或读取列表后得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Methods
 
 <table><thead><tr><th>
@@ -175,6 +177,8 @@ New PCB UUID. If it is `undefined`<!-- -->, the copy failed
 
 Even if the PCB here is already associated with a reuse block (a reuse block symbol with the same name exists in the project library), no new reuse block symbol will be created. This operation logic is consistent with the current editor front end
 
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -251,6 +255,8 @@ PCB UUID, if it is `undefined` creation fails
 
 不传 `boardName` 时 \*\*会自动创建一块 Board\*\*（此后直接调用 `createBoard()` 会得到 2 块板）， 如需游离 PCB 请显式管理 Board 归属
 
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -321,6 +327,8 @@ Whether the operation is successful
 
 If the PCB is already associated with a reuse block (a reuse block symbol with the same name exists in the project library), deleting the PCB will also delete the associated schematic and reuse block symbol. If the reuse block symbol cannot be deleted, it will be skipped
 
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -354,6 +362,10 @@ function getAllPcbsInfo(): Promise<Array<IDMT_PcbItem>>;
 Promise&lt;Array&lt;[IDMT\_PcbItem](../interfaces/IDMT_PcbItem.md)<!-- -->&gt;&gt;
 
 Array of detailed properties of all PCBs
+
+## Remarks
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 
@@ -397,6 +409,8 @@ PCB detailed properties of; if it is `undefined`<!-- -->, the retrieval failed
 ## Remarks
 
 It will get the detailed properties of the currently open PCB that has the last input focus
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 
@@ -466,6 +480,10 @@ PCB UUID
 Promise&lt;[IDMT\_PcbItem](../interfaces/IDMT_PcbItem.md) \| undefined&gt;
 
 PCB detailed properties of; if it is `undefined`<!-- -->, the retrieval failed
+
+## Remarks
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 
@@ -551,6 +569,8 @@ Whether Modify Successful
 ## Remarks
 
 If the PCB is already associated with a reuse block (a reuse block symbol with the same name exists in the project library), modifying the name will also modify the reuse block symbol name and the associated schematic name
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 

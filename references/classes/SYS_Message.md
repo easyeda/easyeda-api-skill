@@ -29,6 +29,17 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+[closeToastMessage(id)](./SYS_Message.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 按 id 关闭吐司消息
+
+</td></tr>
+<tr><td>
+
 [removeFollowMouseTip(tip)](./SYS_Message.md)
 
 </td><td>
@@ -51,7 +62,7 @@ Description
 </td></tr>
 <tr><td>
 
-[showToastMessage(message, messageType, timer, bottomPanel, buttonTitle, buttonCallbackFn)](./SYS_Message.md)
+[showToastMessage(message, messageType, timer, bottomPanel, buttonTitle, buttonCallbackFn, id)](./SYS_Message.md)
 
 </td><td>
 
@@ -60,11 +71,91 @@ Description
 Show a toast message
 
 </td></tr>
+<tr><td>
+
+[updateToastMessage(id, message)](./SYS_Message.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 按 id 更新吐司消息内容
+
+</td></tr>
 </tbody></table>
 
 ---
 
 ## 方法详情
+
+### closetoastmessage
+
+# SYS\_Message.closeToastMessage() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+按 id 关闭吐司消息
+
+## Signature
+
+```typescript
+function closeToastMessage(id: string): void;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+id
+
+</td><td>
+
+string
+
+</td><td>
+
+`showToastMessage` 时传入的业务标识
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+void
+
+## Remarks
+
+配合 [showToastMessage](./SYS_Message.md) 的 `id` 参数使用
+
+对不存在或已被关闭的 `id` 调用是安全的，将静默忽略
+
+省略 `id` 或传入空字符串时不执行任何操作 ADD since EDA v4.1.102
+
+## Example
+
+```javascript
+// 1. 以不自动关闭的方式展示一条带 id 的吐司
+eda.sys_Message.showToastMessage('嘉立创示例 下载中...', 'info', 0, undefined, undefined, undefined, 'demo-download');
+
+// 2. 完成后按 id 关闭该吐司（自建自删，保证案例可重复运行）
+eda.sys_Message.closeToastMessage('demo-download');
+
+// 3. 对已关闭的 id 再次关闭，验证静默忽略语义（不抛错）
+eda.sys_Message.closeToastMessage('demo-download');
+```
 
 ### removefollowmousetip
 
@@ -237,6 +328,7 @@ function showToastMessage(
 	bottomPanel?: ESYS_BottomPanelTab,
 	buttonTitle?: string,
 	buttonCallbackFn?: string,
+	id?: string,
 ): void;
 ```
 
@@ -333,6 +425,19 @@ string
 _(Optional)_ Callback function content, in string form. It will be automatically parsed and executed
 
 </td></tr>
+<tr><td>
+
+id
+
+</td><td>
+
+string
+
+</td><td>
+
+_(Optional)_ 业务标识，传入后可通过 [updateToastMessage](./SYS_Message.md) 更新内容或 [closeToastMessage](./SYS_Message.md) 关闭；省略则无法按 id 操作该吐司
+
+</td></tr>
 </tbody></table>
 
 ## Returns
@@ -360,4 +465,92 @@ eda.sys_Message.showToastMessage(
 	'console.log("嘉立创示例 按钮回调被执行")'
 );
 console.log('警告吐司已显示，附带查看日志按钮，5 秒后自动关闭');
+
+// 4. 传入业务 id，配合 updateToastMessage / closeToastMessage 按 id 原地更新或关闭
+eda.sys_Message.showToastMessage('嘉立创示例 下载中... 0 %', 'info', 0, undefined, undefined, undefined, 'demo-download');
+eda.sys_Message.updateToastMessage('demo-download', '嘉立创示例 下载中... 100 %');
+eda.sys_Message.closeToastMessage('demo-download');
+console.log('已按 id 更新并关闭吐司');
+```
+
+### updatetoastmessage
+
+# SYS\_Message.updateToastMessage() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+按 id 更新吐司消息内容
+
+## Signature
+
+```typescript
+function updateToastMessage(id: string, message: string): void;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+id
+
+</td><td>
+
+string
+
+</td><td>
+
+`showToastMessage` 时传入的业务标识
+
+</td></tr>
+<tr><td>
+
+message
+
+</td><td>
+
+string
+
+</td><td>
+
+新的消息内容
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+void
+
+## Remarks
+
+配合 [showToastMessage](./SYS_Message.md) 的 `id` 参数使用，在同一条吐司上原地刷新文案
+
+吐司已被关闭时静默忽略，包含倒计时到期、主动关闭与超出最大显示数量三种情形
+
+省略 `id` 或传入空字符串时不执行任何操作 ADD since EDA v4.1.102
+
+## Example
+
+```javascript
+// 1. 以不自动关闭的方式展示一条带 id 的吐司
+eda.sys_Message.showToastMessage('嘉立创示例 下载中... 0 %', 'info', 0, undefined, undefined, undefined, 'demo-download');
+
+// 2. 按 id 原地刷新文案，吐司不会重新弹出
+eda.sys_Message.updateToastMessage('demo-download', '嘉立创示例 下载中... 50 %');
+
+// 3. 完成后按 id 关闭（自建自删，保证案例可重复运行）
+eda.sys_Message.closeToastMessage('demo-download');
 ```

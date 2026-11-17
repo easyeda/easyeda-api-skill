@@ -129,6 +129,19 @@ ELLIPSE
 </td></tr>
 <tr><td>
 
+GENERIC\_PORT
+
+</td><td>
+
+`'GenericPort'`
+
+</td><td>
+
+网络端口
+
+</td></tr>
+<tr><td>
+
 OBJECT
 
 </td><td>

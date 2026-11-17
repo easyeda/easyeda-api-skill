@@ -100,6 +100,46 @@ function dmt_Schematic: DMT_Schematic;
 function dmt_SelectControl: DMT_SelectControl;
 ```
 
+### dmt_sourceboard
+
+# EDA.dmt\_SourceBoard property
+
+## Signature
+
+```typescript
+function dmt_SourceBoard: DMT_SourceBoard;
+```
+
+### dmt_sourcepcb
+
+# EDA.dmt\_SourcePcb property
+
+## Signature
+
+```typescript
+function dmt_SourcePcb: DMT_SourcePcb;
+```
+
+### dmt_sourceproject
+
+# EDA.dmt\_SourceProject property
+
+## Signature
+
+```typescript
+function dmt_SourceProject: DMT_SourceProject;
+```
+
+### dmt_sourceschematic
+
+# EDA.dmt\_SourceSchematic property
+
+## Signature
+
+```typescript
+function dmt_SourceSchematic: DMT_SourceSchematic;
+```
+
 ### dmt_team
 
 # EDA.dmt\_Team property
@@ -470,6 +510,16 @@ function pcb_PrimitiveVia: PCB_PrimitiveVia;
 function pcb_RayTracerEngine: PCB_RayTracerEngine;
 ```
 
+### pcb_rightclickmenu
+
+# EDA.pcb\_RightClickMenu property
+
+## Signature
+
+```typescript
+function pcb_RightClickMenu: PCB_RightClickMenu;
+```
+
 ### pcb_selectcontrol
 
 # EDA.pcb\_SelectControl property
@@ -490,6 +540,16 @@ function pcb_SelectControl: PCB_SelectControl;
 function pcb_Tool: PCB_Tool;
 ```
 
+### pnl_combination
+
+# EDA.pnl\_Combination property
+
+## Signature
+
+```typescript
+function pnl_Combination: PNL_Combination;
+```
+
 ### pnl_document
 
 # EDA.pnl\_Document property
@@ -498,6 +558,176 @@ function pcb_Tool: PCB_Tool;
 
 ```typescript
 function pnl_Document: PNL_Document;
+```
+
+### pnl_drc
+
+# EDA.pnl\_Drc property
+
+## Signature
+
+```typescript
+function pnl_Drc: PNL_Drc;
+```
+
+### pnl_editcontrol
+
+# EDA.pnl\_EditControl property
+
+## Signature
+
+```typescript
+function pnl_EditControl: PNL_EditControl;
+```
+
+### pnl_event
+
+# EDA.pnl\_Event property
+
+## Signature
+
+```typescript
+function pnl_Event: PNL_Event;
+```
+
+### pnl_import
+
+# EDA.pnl\_Import property
+
+## Signature
+
+```typescript
+function pnl_Import: PNL_Import;
+```
+
+### pnl_layer
+
+# EDA.pnl\_Layer property
+
+## Signature
+
+```typescript
+function pnl_Layer: PNL_Layer;
+```
+
+### pnl_manufacturedata
+
+# EDA.pnl\_ManufactureData property
+
+## Signature
+
+```typescript
+function pnl_ManufactureData: PNL_ManufactureData;
+```
+
+### pnl_primitive
+
+# EDA.pnl\_Primitive property
+
+## Signature
+
+```typescript
+function pnl_Primitive: PNL_Primitive;
+```
+
+### pnl_primitivearc
+
+# EDA.pnl\_PrimitiveArc property
+
+## Signature
+
+```typescript
+function pnl_PrimitiveArc: PNL_PrimitiveArc;
+```
+
+### pnl_primitiveauxiliaryline
+
+# EDA.pnl\_PrimitiveAuxiliaryLine property
+
+## Signature
+
+```typescript
+function pnl_PrimitiveAuxiliaryLine: PNL_PrimitiveAuxiliaryLine;
+```
+
+### pnl_primitiveauxiliarypoint
+
+# EDA.pnl\_PrimitiveAuxiliaryPoint property
+
+## Signature
+
+```typescript
+function pnl_PrimitiveAuxiliaryPoint: PNL_PrimitiveAuxiliaryPoint;
+```
+
+### pnl_primitivedimension
+
+# EDA.pnl\_PrimitiveDimension property
+
+## Signature
+
+```typescript
+function pnl_PrimitiveDimension: PNL_PrimitiveDimension;
+```
+
+### pnl_primitiveellipse
+
+# EDA.pnl\_PrimitiveEllipse property
+
+## Signature
+
+```typescript
+function pnl_PrimitiveEllipse: PNL_PrimitiveEllipse;
+```
+
+### pnl_primitiveimage
+
+# EDA.pnl\_PrimitiveImage property
+
+## Signature
+
+```typescript
+function pnl_PrimitiveImage: PNL_PrimitiveImage;
+```
+
+### pnl_primitivepath
+
+# EDA.pnl\_PrimitivePath property
+
+## Signature
+
+```typescript
+function pnl_PrimitivePath: PNL_PrimitivePath;
+```
+
+### pnl_primitiverectangle
+
+# EDA.pnl\_PrimitiveRectangle property
+
+## Signature
+
+```typescript
+function pnl_PrimitiveRectangle: PNL_PrimitiveRectangle;
+```
+
+### pnl_primitivetext
+
+# EDA.pnl\_PrimitiveText property
+
+## Signature
+
+```typescript
+function pnl_PrimitiveText: PNL_PrimitiveText;
+```
+
+### pnl_selectcontrol
+
+# EDA.pnl\_SelectControl property
+
+## Signature
+
+```typescript
+function pnl_SelectControl: PNL_SelectControl;
 ```
 
 ### sch_document
@@ -620,6 +850,16 @@ function sch_PrimitiveCircle: SCH_PrimitiveCircle;
 function sch_PrimitiveComponent: SCH_PrimitiveComponent;
 ```
 
+### sch_primitivegenericport
+
+# EDA.sch\_PrimitiveGenericPort property
+
+## Signature
+
+```typescript
+function sch_PrimitiveGenericPort: SCH_PrimitiveGenericPort;
+```
+
 ### sch_primitiveobject
 
 # EDA.sch\_PrimitiveObject property
@@ -680,6 +920,16 @@ function sch_PrimitiveText: SCH_PrimitiveText;
 function sch_PrimitiveWire: SCH_PrimitiveWire;
 ```
 
+### sch_rightclickmenu
+
+# EDA.sch\_RightClickMenu property
+
+## Signature
+
+```typescript
+function sch_RightClickMenu: SCH_RightClickMenu;
+```
+
 ### sch_selectcontrol
 
 # EDA.sch\_SelectControl property
@@ -698,6 +948,136 @@ function sch_SelectControl: SCH_SelectControl;
 
 ```typescript
 function sch_SimulationEngine: SCH_SimulationEngine;
+```
+
+### sch_sourcedocument
+
+# EDA.sch\_SourceDocument property
+
+## Signature
+
+```typescript
+function sch_SourceDocument: SCH_SourceDocument;
+```
+
+### sch_sourcedrc
+
+# EDA.sch\_SourceDrc property
+
+## Signature
+
+```typescript
+function sch_SourceDrc: SCH_SourceDrc;
+```
+
+### sch_sourcenet
+
+# EDA.sch\_SourceNet property
+
+## Signature
+
+```typescript
+function sch_SourceNet: SCH_SourceNet;
+```
+
+### sch_sourcenetlist
+
+# EDA.sch\_SourceNetlist property
+
+## Signature
+
+```typescript
+function sch_SourceNetlist: SCH_SourceNetlist;
+```
+
+### sch_sourcepin
+
+# EDA.sch\_SourcePin property
+
+## Signature
+
+```typescript
+function sch_SourcePin: SCH_SourcePin;
+```
+
+### sch_sourceprimitivearc
+
+# EDA.sch\_SourcePrimitiveArc property
+
+## Signature
+
+```typescript
+function sch_SourcePrimitiveArc: SCH_SourcePrimitiveArc;
+```
+
+### sch_sourceprimitiveattribute
+
+# EDA.sch\_SourcePrimitiveAttribute property
+
+## Signature
+
+```typescript
+function sch_SourcePrimitiveAttribute: SCH_SourcePrimitiveAttribute;
+```
+
+### sch_sourceprimitivecircle
+
+# EDA.sch\_SourcePrimitiveCircle property
+
+## Signature
+
+```typescript
+function sch_SourcePrimitiveCircle: SCH_SourcePrimitiveCircle;
+```
+
+### sch_sourceprimitivecomponent
+
+# EDA.sch\_SourcePrimitiveComponent property
+
+## Signature
+
+```typescript
+function sch_SourcePrimitiveComponent: SCH_SourcePrimitiveComponent;
+```
+
+### sch_sourceprimitivepolygon
+
+# EDA.sch\_SourcePrimitivePolygon property
+
+## Signature
+
+```typescript
+function sch_SourcePrimitivePolygon: SCH_SourcePrimitivePolygon;
+```
+
+### sch_sourceprimitiverectangle
+
+# EDA.sch\_SourcePrimitiveRectangle property
+
+## Signature
+
+```typescript
+function sch_SourcePrimitiveRectangle: SCH_SourcePrimitiveRectangle;
+```
+
+### sch_sourceprimitivetext
+
+# EDA.sch\_SourcePrimitiveText property
+
+## Signature
+
+```typescript
+function sch_SourcePrimitiveText: SCH_SourcePrimitiveText;
+```
+
+### sch_sourceprimitivewire
+
+# EDA.sch\_SourcePrimitiveWire property
+
+## Signature
+
+```typescript
+function sch_SourcePrimitiveWire: SCH_SourcePrimitiveWire;
 ```
 
 ### sch_utils
@@ -738,6 +1118,16 @@ function sys_Dialog: SYS_Dialog;
 
 ```typescript
 function sys_Environment: SYS_Environment;
+```
+
+### sys_event
+
+# EDA.sys\_Event property
+
+## Signature
+
+```typescript
+function sys_Event: SYS_Event;
 ```
 
 ### sys_externalapi

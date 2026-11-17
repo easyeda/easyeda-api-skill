@@ -278,6 +278,8 @@ function create(
 		symbol?: { uuid: string; libraryUuid: string };
 		footprintUuid?: string;
 		footprint?: { uuid: string; libraryUuid: string };
+		symbols?: Array<ILIB_DeviceSymbolAssociationItem>;
+		footprints?: Array<ILIB_DeviceFootprintAssociationItem>;
 		model3D?: { uuid: string; libraryUuid: string };
 		imageData?: File | Blob;
 	},
@@ -346,7 +348,7 @@ association
 
 </td><td>
 
-{ symbolType?: [ELIB\_SymbolType](../enums/ELIB_SymbolType.md)<!-- -->; symbolUuid?: string; symbol?: { uuid: string; libraryUuid: string }; footprintUuid?: string; footprint?: { uuid: string; libraryUuid: string }; model3D?: { uuid: string; libraryUuid: string }; imageData?: File \| Blob }
+{ symbolType?: [ELIB\_SymbolType](../enums/ELIB_SymbolType.md)<!-- -->; symbolUuid?: string; symbol?: { uuid: string; libraryUuid: string }; footprintUuid?: string; footprint?: { uuid: string; libraryUuid: string }; symbols?: Array&lt;[ILIB\_DeviceSymbolAssociationItem](../interfaces/ILIB_DeviceSymbolAssociationItem.md)<!-- -->&gt;; footprints?: Array&lt;[ILIB\_DeviceFootprintAssociationItem](../interfaces/ILIB_DeviceFootprintAssociationItem.md)<!-- -->&gt;; model3D?: { uuid: string; libraryUuid: string }; imageData?: File \| Blob; }
 
 </td><td>
 
@@ -772,6 +774,8 @@ function modify(
 		symbol?: { uuid: string; libraryUuid: string };
 		footprintUuid?: string | null;
 		footprint?: { uuid: string; libraryUuid: string } | null;
+		symbols?: Array<ILIB_DeviceSymbolAssociationItem> | null;
+		footprints?: Array<ILIB_DeviceFootprintAssociationItem> | null;
 		model3D?: { uuid: string; libraryUuid: string } | null;
 		imageData?: File | Blob | null;
 	},
@@ -864,7 +868,7 @@ association
 
 </td><td>
 
-\{ symbolUuid?: string; symbol?: \{ uuid: string; libraryUuid: string \}; footprintUuid?: string \| null; footprint?: \{ uuid: string; libraryUuid: string \} \| null; model3D?: \{ uuid: string; libraryUuid: string \} \| null; imageData?: File \| Blob \| null \}
+{ symbolUuid?: string; symbol?: { uuid: string; libraryUuid: string }; footprintUuid?: string \| null; footprint?: { uuid: string; libraryUuid: string } \| null; symbols?: Array&lt;[ILIB\_DeviceSymbolAssociationItem](../interfaces/ILIB_DeviceSymbolAssociationItem.md)<!-- -->&gt; \| null; footprints?: Array&lt;[ILIB\_DeviceFootprintAssociationItem](../interfaces/ILIB_DeviceFootprintAssociationItem.md)<!-- -->&gt; \| null; model3D?: { uuid: string; libraryUuid: string } \| null; imageData?: File \| Blob \| null; }
 
 </td><td>
 

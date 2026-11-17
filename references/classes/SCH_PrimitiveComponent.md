@@ -298,7 +298,13 @@ Create Device
 ```typescript
 function create(
 	component:
-		| { libraryType?: ELIB_LibraryType.DEVICE; libraryUuid: string; uuid: string }
+		| {
+			libraryType?: ELIB_LibraryType.DEVICE;
+			libraryUuid: string;
+			uuid: string;
+			symbol?: { uuid: string; libraryUuid: string };
+			symbolName?: string;
+		}
 		| ILIB_DeviceItem
 		| ILIB_DeviceSearchItem
 		| { libraryType: ELIB_LibraryType.SYMBOL; libraryUuid: string; uuid: string }
@@ -335,7 +341,7 @@ component
 
 </td><td>
 
-{ libraryType?: [ELIB\_LibraryType.DEVICE](../enums/ELIB_LibraryType.md)<!-- -->; libraryUuid: string; uuid: string } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md) \| { libraryType: [ELIB\_LibraryType.SYMBOL](../enums/ELIB_LibraryType.md)<!-- -->; libraryUuid: string; uuid: string } \| [ILIB\_SymbolItem](../interfaces/ILIB_SymbolItem.md) \| [ILIB\_SymbolSearchItem](../interfaces/ILIB_SymbolSearchItem.md)
+{ libraryType?: [ELIB\_LibraryType.DEVICE](../enums/ELIB_LibraryType.md)<!-- -->; libraryUuid: string; uuid: string; symbol?: { uuid: string; libraryUuid: string }; symbolName?: string; } \| [ILIB\_DeviceItem](../interfaces/ILIB_DeviceItem.md) \| [ILIB\_DeviceSearchItem](../interfaces/ILIB_DeviceSearchItem.md) \| { libraryType: [ELIB\_LibraryType.SYMBOL](../enums/ELIB_LibraryType.md)<!-- -->; libraryUuid: string; uuid: string } \| [ILIB\_SymbolItem](../interfaces/ILIB_SymbolItem.md) \| [ILIB\_SymbolSearchItem](../interfaces/ILIB_SymbolSearchItem.md)
 
 </td><td>
 
@@ -439,11 +445,17 @@ _(Optional)_ Whether Transfer to PCB
 
 Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined&gt;
 
-Device primitive object
+Device primitive object  cli - 画布图元创建需前端已打开对应图页；写盘场景请改用 [add](./SCH_SourcePrimitiveComponent.md)
 
 ## Remarks
 
-- 引脚坐标可能不在布线栅格上（如出现 `698.5` 半格值），连接导线时两端须使用\*\*原始坐标\*\*，四舍五入会使端点散落为大量 `$xNnn` 短线； - `rotation` / `mirror` 必须填写\*\*真实值\*\*，硬编码 0 会使 90° 器件的引脚整体错位
+- 引脚坐标可能不在布线栅格上（如出现 `698.5` 半格值），连接导线时两端须使用\*\*原始坐标\*\*，四舍五入会使端点散落为大量 `$xNnn` 短线； - `rotation` / `mirror` 必须填写\*\*真实值\*\*，硬编码 0 会使 90° 器件的引脚整体错位； - `x` / `y` 是器件锚点，不是外形中心；放置前应先用 [LIB\_Symbol.getGeometry()](./LIB_Symbol.md) 获取符号外形与引脚相对坐标， 放置后再用 [SCH\_SourcePin.getGeometry()](./SCH_SourcePin.md) 复核引脚绝对位置。
+
+\*\*指定具体符号\*\*：一个器件可绑定多个符号，放置时可指定使用哪一个：
+
+- 指定 `component.symbol`<!-- -->（含 `uuid` + `libraryUuid`<!-- -->）时使用该库内符号； - 指定 `component.symbolName`<!-- -->（纯文本）时，按设置内的\*\*优先库路径\*\*（见 ） 依次匹配库中同名符号，首个命中项即为实际符号； - 两者均省略时使用器件的主符号； - 同时给出 `symbol` 与 `symbolName` 时以 `symbol` 为准。
+
+符号为纯文本且优先库路径中无同名符号时，创建失败并返回 `undefined`<!-- -->。
 
 ## Example
 
@@ -730,6 +742,10 @@ _(Optional)_ Whether it is mirrored
 Promise&lt;[ISCH\_PrimitiveComponent](./ISCH_PrimitiveComponent.md) \| undefined&gt;
 
 Device primitive object
+
+## Remarks
+
+\*\*方向约定\*\*：`rotation = 0` 时，电源标识（`Power`<!-- -->，如 VCC）默认朝上、引脚在下方； 地标识（`Ground` / `AnalogGround` / `ProtectGround`<!-- -->，如 GND）默认朝下、引脚在上方。 需要反向连接时显式设置 `rotation: 180`<!-- -->。
 
 ## Example
 
@@ -1551,6 +1567,9 @@ function modify(
 		manufacturerId?: string | null;
 		supplier?: string | null;
 		supplierId?: string | null;
+		subPartName?: string;
+		symbol?: { uuid?: string; libraryUuid?: string; name?: string } | null;
+		footprint?: { uuid?: string; libraryUuid?: string; name?: string } | null;
 		otherProperty?: Record<string, string | number | boolean>;
 	},
 ): Promise<ISCH_PrimitiveComponent | undefined>;
@@ -1590,7 +1609,7 @@ property
 
 </td><td>
 
-{ x?: number; y?: number; rotation?: number; mirror?: boolean; addIntoBom?: boolean; addIntoPcb?: boolean; designator?: string \| null; name?: string \| null; uniqueId?: string \| null; manufacturer?: string \| null; manufacturerId?: string \| null; supplier?: string \| null; supplierId?: string \| null; otherProperty?: Record&lt;string, string \| number \| boolean&gt; }
+{ x?: number; y?: number; rotation?: number; mirror?: boolean; addIntoBom?: boolean; addIntoPcb?: boolean; designator?: string \| null; name?: string \| null; uniqueId?: string \| null; manufacturer?: string \| null; manufacturerId?: string \| null; supplier?: string \| null; supplierId?: string \| null; subPartName?: string; symbol?: { uuid?: string; libraryUuid?: string; name?: string } \| null; footprint?: { uuid?: string; libraryUuid?: string; name?: string } \| null; otherProperty?: Record&lt;string, string \| number \| boolean&gt;; }
 
 </td><td>
 
@@ -1606,6 +1625,10 @@ Device primitive object
 ## Remarks
 
 This method can only be used for modification when the device type is [COMPONENT](../enums/ESCH_PrimitiveComponentType.md)
+
+\*\*切换符号与封装\*\*：器件支持绑定多个符号与封装，可通过  的 `property.symbol` / `property.footprint` 切换：
+
+- 给出 `uuid` + `libraryUuid` 时切换到该库内的符号 / 封装； - 只给 `name`<!-- -->（纯文本）时按设置内的\*\*优先库路径\*\* （见 ）匹配同名资源； - \*\*主符号\*\*为纯文本时会被自动解析为库内 UUID，\*\*备选符号\*\*为纯文本时保留纯文本、不解析； - 传 `null` 表示不修改该项（与其它可清空属性的 `null` 语义不同，符号 / 封装不可清空为空）。
 
 ## Example
 

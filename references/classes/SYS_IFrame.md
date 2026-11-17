@@ -60,6 +60,17 @@ Description
 </td></tr>
 <tr><td>
 
+[modifyIFrame(id, props)](./SYS_IFrame.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 调整内联框架窗口的标题、宽高与位置
+
+</td></tr>
+<tr><td>
+
 [openIFrame(htmlFileName, width, height, id, props)](./SYS_IFrame.md)
 
 </td><td>
@@ -304,6 +315,112 @@ Whether Exists
 Note: This API is only valid for extensions. Calling it in a standalone script environment will always `throw Error`
 
 控制其它扩展打开的内联框架窗口时，`id` 需传入完整 ID 格式：`<其它扩展UUID>.<窗口ID>`<!-- -->（点分隔，窗口 ID 为打开时传入的 `id` 参数） ADD since EDA v4.2
+
+### modifyiframe
+
+# SYS\_IFrame.modifyIFrame() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+调整内联框架窗口的标题、宽高与位置
+
+## Signature
+
+```typescript
+function modifyIFrame(
+	id: string,
+	props: {
+		title?: string;
+		width?: number;
+		height?: number;
+		x?: number;
+		y?: number;
+	},
+): Promise<boolean>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+id
+
+</td><td>
+
+string
+
+</td><td>
+
+内联框架窗口 ID；控制其它扩展的窗口时需传 `<其它扩展UUID>.<窗口ID>`
+
+</td></tr>
+<tr><td>
+
+props
+
+</td><td>
+
+\{ title?: string; width?: number; height?: number; x?: number; y?: number; \}
+
+</td><td>
+
+调整参数
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;boolean&gt;
+
+操作是否成功
+
+## Remarks
+
+本接口用于在窗口运行期间动态调整，无需关闭后重新打开，调整过程中内联框架内的页面状态保持不变
+
+标题、宽高与位置均为可选，仅传入的项会被调整；`title` 对应窗口标题栏的文本，`width` 和 `height` 与 [openIFrame](./SYS_IFrame.md) 一致，均为正文部分内联框架的宽高
+
+本接口为结果导向的：`id` 无法解析为合法窗口 ID，或未找到指定内联框架窗口时返回 `false`<!-- -->；传入的参数与窗口当前状态一致时返回 `true`
+
+注意：本接口仅扩展有效，在独立脚本环境内调用将始终 `throw Error`
+
+控制其它扩展打开的内联框架窗口时，`id` 需传入完整 ID 格式：`<其它扩展UUID>.<窗口ID>`<!-- -->（点分隔，窗口 ID 为打开时传入的 `id` 参数） ADD since EDA v4.1.102
+
+## Example
+
+```javascript
+// 1. 打开一个内联框架窗口（自建 ID 便于后续定位）
+await eda.sys_IFrame.openIFrame('/extension.json', 360, 240, '嘉立创示例_窗口', { title: '嘉立创示例 内联框架窗口' });
+console.log('已打开窗口：嘉立创示例_窗口');
+
+// 2. 在窗口运行期间调整标题、宽高与位置，窗口内的页面状态保持不变
+const modified = await eda.sys_IFrame.modifyIFrame('嘉立创示例_窗口', {
+	title: '嘉立创示例 调整后的窗口',
+	width: 480,
+	height: 320,
+	x: 120,
+	y: 80,
+});
+console.log('调整结果：', modified);
+
+// 3. 关闭窗口还原界面（自建自删，保证案例可重复运行）
+const closed = await eda.sys_IFrame.closeIFrame('嘉立创示例_窗口');
+console.log('关闭结果：', closed);
+```
 
 ### openiframe
 

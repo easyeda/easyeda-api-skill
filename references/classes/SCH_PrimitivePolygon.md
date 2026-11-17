@@ -213,7 +213,7 @@ _(Optional)_ Line type. `null` indicates the default
 
 Promise&lt;[ISCH\_PrimitivePolygon](./ISCH_PrimitivePolygon.md) \| undefined&gt;
 
-Polygon primitive object
+Polygon primitive object  cli - 画布图元创建需前端已打开对应图页；写盘场景请改用 [add](./SCH_SourcePrimitivePolygon.md)
 
 ## Example
 

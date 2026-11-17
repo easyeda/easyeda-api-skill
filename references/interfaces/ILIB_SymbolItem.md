@@ -142,7 +142,7 @@ _(Optional)_ 其它属性
 
 </td><td>
 
-\[\]
+Array&lt;string&gt;
 
 </td><td>
 
@@ -278,7 +278,7 @@ Sub-part name array
 ## Signature
 
 ```typescript
-subPartNames: [];
+subPartNames: Array<string>;
 ```
 
 ### type

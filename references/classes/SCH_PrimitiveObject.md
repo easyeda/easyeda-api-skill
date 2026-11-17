@@ -255,7 +255,7 @@ _(Optional)_ File name
 
 Promise&lt;[ISCH\_PrimitiveObject](./ISCH_PrimitiveObject.md) \| undefined&gt;
 
-Binary embedded object primitive object
+Binary embedded object primitive object  cli - 画布图元创建需前端已打开对应图页；Source API 暂未提供对应 add 接口
 
 ## Example
 

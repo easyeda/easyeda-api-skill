@@ -61,6 +61,17 @@ Description
 </td></tr>
 <tr><td>
 
+[getState\_Layer()](./IPCB_PrimitivePoured.md)
+
+</td><td>
+
+</td><td>
+
+获取属性状态：所属铜箔层
+
+</td></tr>
+<tr><td>
+
 [getState\_PourFills()](./IPCB_PrimitivePoured.md)
 
 </td><td>
@@ -361,6 +372,44 @@ console.log('deleted:', deleted);
 console.log('删除后子区域数量：', after);
 ```
 
+### getstate_layer
+
+# IPCB\_PrimitivePoured.getState\_Layer() method
+
+获取属性状态：所属铜箔层
+
+## Signature
+
+```typescript
+function getState_Layer(): TPCB_LayersOfCopper;
+```
+
+## Returns
+
+[TPCB\_LayersOfCopper](../types/TPCB_LayersOfCopper.md)
+
+所属铜箔层
+
+## Remarks
+
+本属性不可修改
+
+## Example
+
+```javascript
+// 1. 获取画布上已有的覆铜填充图元
+const pouredList = await eda.pcb_PrimitivePoured.getAll();
+if (!pouredList || pouredList.length === 0) {
+  console.log('说明：PCB 上没有覆铜填充，请先手动绘制覆铜并重建（设计 → 覆铜）');
+  return;
+}
+
+// 2. 查看每个覆铜填充所处的铜箔层
+pouredList.forEach(poured => {
+  console.log('primitiveId:', poured.getState_PrimitiveId(), 'layer:', poured.getState_Layer());
+});
+```
+
 ### getstate_pourfills
 
 # IPCB\_PrimitivePoured.getState\_PourFills() method
@@ -411,12 +460,12 @@ Get the property state: copper border primitive ID
 ## Signature
 
 ```typescript
-function getState_PourPrimitiveId(): string;
+function getState_PourPrimitiveId(): string | undefined;
 ```
 
 ## Returns
 
-string
+string \| undefined
 
 Copper border primitive ID
 
@@ -431,13 +480,15 @@ if (!pouredList || pouredList.length === 0) {
 }
 const poured = pouredList[0];
 
-// 2. 读取关联的覆铜边框图元 ID
+// 2. 读取关联的覆铜边框图元 ID（内电层覆铜为 undefined）
 const pourPrimitiveId = poured.getState_PourPrimitiveId();
 console.log('pourPrimitiveId:', pourPrimitiveId);
 
-// 3. 用该 ID 反查覆铜边框，验证关联有效
-const pour = await eda.pcb_PrimitivePour.get(pourPrimitiveId);
-console.log('对应覆铜边框：', pour ? pour.getState_PourName() : '（边框已被删除）');
+// 3. 仅在关联到覆铜边框时反查边框，验证关联有效
+if (pourPrimitiveId) {
+  const pour = await eda.pcb_PrimitivePour.get(pourPrimitiveId);
+  console.log('对应覆铜边框：', pour ? pour.getState_PourName() : '（边框已被删除）');
+}
 ```
 
 ### getstate_primitiveid

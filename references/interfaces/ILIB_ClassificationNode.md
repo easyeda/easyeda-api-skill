@@ -1,7 +1,5 @@
 # ILIB\_ClassificationNode interface
 
-> This API is provided as an alpha preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
-
 分类树节点（分类无 UUID，以名称为唯一标识）
 
 ## Signature
@@ -45,7 +43,7 @@ Array&lt;[ILIB\_ClassificationNode](./ILIB_ClassificationNode.md)<!-- -->&gt;
 
 </td><td>
 
-**_(ALPHA)_** _(Optional)_ 子分类节点数组
+_(Optional)_ 子分类节点数组
 
 </td></tr>
 <tr><td>
@@ -60,7 +58,7 @@ string
 
 </td><td>
 
-**_(ALPHA)_** 分类名称
+分类名称
 
 </td></tr>
 </tbody></table>
@@ -73,8 +71,6 @@ string
 
 # ILIB\_ClassificationNode.children property
 
-> This API is provided as an alpha preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
-
 子分类节点数组
 
 ## Signature
@@ -86,8 +82,6 @@ children?: Array<ILIB_ClassificationNode>;
 ### name
 
 # ILIB\_ClassificationNode.name property
-
-> This API is provided as an alpha preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
 分类名称
 

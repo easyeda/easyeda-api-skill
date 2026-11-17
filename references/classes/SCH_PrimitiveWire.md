@@ -213,11 +213,21 @@ _(Optional)_ Line type. `null` indicates the default
 
 Promise&lt;[ISCH\_PrimitiveWire](./ISCH_PrimitiveWire.md) \| undefined&gt;
 
-Wire primitive object
+Wire primitive object  cli - 画布图元创建需前端已打开对应图页；写盘场景请改用 [add](./SCH_SourcePrimitiveWire.md)
 
 ## Remarks
 
-WIRE 组即连通性模型：同网络折线若写成多个 WIRE 组，即使端点相同也不会连通； 编辑器 `create()` 会自动把同网络折线合并为一个 WIRE primitive group，跨组连通需确保段与段首尾相接
+WIRE 组即连通性模型：同网络折线若写成多个 WIRE 组，即使端点相同也不会连通
+
+编辑器 [create](./SCH_PrimitiveWire.md) 会自动把同网络折线合并为一个 WIRE primitive group，跨组连通需确保段与段首尾相接
+
+\*\*端点处理\*\*：需要连接的引脚或连接点必须作为传入折线的端点
+
+若连接点落在某段导线中部，调用方必须先在该点拆成两段再传入，不应依赖接口自动打断
+
+\*\*交叉与连通\*\*：导线交叉处默认不连通，以允许导线交叉而不相连
+
+需要连通时必须在交叉点显式拆段并形成共享端点
 
 ## Example
 

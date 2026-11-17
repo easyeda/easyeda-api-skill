@@ -80,6 +80,19 @@ Description
 </td></tr>
 <tr><td>
 
+[getGeometry(symbolUuid, libraryUuid, subPartName)](./LIB_Symbol.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 获取符号的几何信息
+
+ cli - 一次调用拿到符号的包围盒、引脚坐标与文本锚点，可在写入原理图前完成布局与压线校验
+
+</td></tr>
+<tr><td>
+
 [getRenderImage(source)](./LIB_Symbol.md)
 
 </td><td>
@@ -664,6 +677,100 @@ console.log('symbolUuid:', symbolUuid);
 console.log('returns:', typeof pending.then === 'function' ? 'Promise' : typeof pending);
 console.log('settled:', settled);
 ```
+
+### getgeometry
+
+# LIB\_Symbol.getGeometry() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+获取符号的几何信息
+
+ cli - 一次调用拿到符号的包围盒、引脚坐标与文本锚点，可在写入原理图前完成布局与压线校验
+
+## Signature
+
+```typescript
+function getGeometry(
+	symbolUuid: string,
+	libraryUuid: string,
+	subPartName?: string,
+): Promise<ILIB_SymbolGeometry | undefined>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+symbolUuid
+
+</td><td>
+
+string
+
+</td><td>
+
+符号 UUID
+
+</td></tr>
+<tr><td>
+
+libraryUuid
+
+</td><td>
+
+string
+
+</td><td>
+
+库地址，必传；`'project'` 表示当前工程的工程库，可用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+
+</td></tr>
+<tr><td>
+
+subPartName
+
+</td><td>
+
+string
+
+</td><td>
+
+_(Optional)_ 子部件名称，省略时取第一个部件
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;[ILIB\_SymbolGeometry](../interfaces/ILIB_SymbolGeometry.md) \| undefined&gt;
+
+符号几何信息，获取失败返回 `undefined`
+
+## Remarks
+
+返回符号的包围盒、全部引脚的连接点坐标与所在边，以及位号 / 值等文本的默认锚点， 供外部布局器在写入原理图前完成定位、避让与压线检查
+
+与 [LIB\_Symbol.getDocumentSource()](./LIB_Symbol.md) 的区别：本接口直接给出结构化几何，调用方无需解析符号源码
+
+`libraryUuid` 必传，传 `'project'` 表示当前打开工程的工程库
+
+多子部件符号需通过 `subPartName` 指定部件，省略时取第一个部件
+
+收藏库与扩展库暂不支持；获取失败（库条目不存在、工程未打开、库不可用）时返回 `undefined`<!-- -->，不抛异常 ADD since EDA v4.1.91
 
 ### getrenderimage
 

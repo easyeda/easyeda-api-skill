@@ -124,6 +124,17 @@ Description
 </td></tr>
 <tr><td>
 
+[getStackup()](./PCB_Layer.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 读取当前 PCB 的物理叠层与铜厚
+
+</td></tr>
+<tr><td>
+
 [lockLayer(layer)](./PCB_Layer.md)
 
 </td><td>
@@ -713,6 +724,30 @@ Physical stacking configuration, `undefined` is does not exist this physical sta
 ## Remarks
 
 ADD since EDA v4.2
+
+### getstackup
+
+# PCB\_Layer.getStackup() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+读取当前 PCB 的物理叠层与铜厚
+
+## Signature
+
+```typescript
+function getStackup(): Promise<IPCB_Stackup>;
+```
+
+## Returns
+
+Promise&lt;[IPCB\_Stackup](../interfaces/IPCB_Stackup.md)<!-- -->&gt;
+
+物理叠层数据
+
+## Remarks
+
+返回层序、铜厚、介质厚度、材料与介电常数等物理参数 ADD since EDA v4.1.93
 
 ### locklayer
 

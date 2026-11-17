@@ -33,6 +33,10 @@
 | [DMT_Project](classes/DMT_Project.md) | Document tree / Project management class |  |
 | [DMT_Schematic](classes/DMT_Schematic.md) | Document tree / Schematic management class |  |
 | [DMT_SelectControl](classes/DMT_SelectControl.md) | Document tree / selection control class |  |
+| [DMT_SourceBoard](classes/DMT_SourceBoard.md) | 文档树 / 源数据板子类 |  |
+| [DMT_SourcePcb](classes/DMT_SourcePcb.md) | 文档树 / 源数据 PCB 类 |  |
+| [DMT_SourceProject](classes/DMT_SourceProject.md) | 文档树 / 源数据工程类 |  |
+| [DMT_SourceSchematic](classes/DMT_SourceSchematic.md) | 文档树 / 源数据原理图类 |  |
 | [DMT_Team](classes/DMT_Team.md) | Document tree / Team class |  |
 | [DMT_Workspace](classes/DMT_Workspace.md) | Document tree / Workspace class |  |
 | [EDA](classes/EDA.md) | EasyEDA Pro user API interface |  |
@@ -54,6 +58,15 @@
 | [IPCB_PrimitiveRegion](classes/IPCB_PrimitiveRegion.md) | Region primitive |  |
 | [IPCB_PrimitiveString](classes/IPCB_PrimitiveString.md) | Text primitive |  |
 | [IPCB_PrimitiveVia](classes/IPCB_PrimitiveVia.md) | Via primitive |  |
+| [IPNL_PrimitiveArc](classes/IPNL_PrimitiveArc.md) | 圆弧图元 |  |
+| [IPNL_PrimitiveAuxiliaryLine](classes/IPNL_PrimitiveAuxiliaryLine.md) | 辅助线图元 |  |
+| [IPNL_PrimitiveAuxiliaryPoint](classes/IPNL_PrimitiveAuxiliaryPoint.md) | 辅助点图元 |  |
+| [IPNL_PrimitiveDimension](classes/IPNL_PrimitiveDimension.md) | 尺寸标注图元 |  |
+| [IPNL_PrimitiveEllipse](classes/IPNL_PrimitiveEllipse.md) | 椭圆图元 |  |
+| [IPNL_PrimitiveImage](classes/IPNL_PrimitiveImage.md) | 图片图元 |  |
+| [IPNL_PrimitivePath](classes/IPNL_PrimitivePath.md) | 复合路径图元 |  |
+| [IPNL_PrimitiveRectangle](classes/IPNL_PrimitiveRectangle.md) | 矩形图元 |  |
+| [IPNL_PrimitiveText](classes/IPNL_PrimitiveText.md) | 文本图元 |  |
 | [ISCH_PrimitiveArc](classes/ISCH_PrimitiveArc.md) | Arc primitive |  |
 | [ISCH_PrimitiveAttribute](classes/ISCH_PrimitiveAttribute.md) | Property primitive |  |
 | [ISCH_PrimitiveBus](classes/ISCH_PrimitiveBus.md) | Bus primitive |  |
@@ -61,6 +74,7 @@
 | [ISCH_PrimitiveCircle](classes/ISCH_PrimitiveCircle.md) | Circle primitive |  |
 | [ISCH_PrimitiveComponent](classes/ISCH_PrimitiveComponent.md) | Device primitive |  |
 | [ISCH_PrimitiveComponentPin](classes/ISCH_PrimitiveComponentPin.md) | Device pin primitive |  |
+| [ISCH_PrimitiveGenericPort](classes/ISCH_PrimitiveGenericPort.md) | 网络端口图元 |  |
 | [ISCH_PrimitiveObject](classes/ISCH_PrimitiveObject.md) | Binary embedded object primitive |  |
 | [ISCH_PrimitivePin](classes/ISCH_PrimitivePin.md) | Pin primitive |  |
 | [ISCH_PrimitivePolygon](classes/ISCH_PrimitivePolygon.md) | Polygon (polyline) primitive |  |
@@ -77,6 +91,7 @@
 | [LIB_SelectControl](classes/LIB_SelectControl.md) | Comprehensive library / selection control class |  |
 | [LIB_SimulationModel](classes/LIB_SimulationModel.md) | Comprehensive library / simulation model class |  |
 | [LIB_Symbol](classes/LIB_Symbol.md) | Comprehensive library / symbol class |  |
+| [PCB_Dfm](classes/PCB_Dfm.md) | PCB &amp; 封装 / 可制造性设计（DFM）类 |  |
 | [PCB_Document](classes/PCB_Document.md) | PCB &amp; footprint / document operation class |  |
 | [PCB_Drc](classes/PCB_Drc.md) | PCB &amp; footprint / design rule check (DRC) class |  |
 | [PCB_Event](classes/PCB_Event.md) | PCB &amp; footprint / event class |  |
@@ -102,9 +117,28 @@
 | [PCB_PrimitiveString](classes/PCB_PrimitiveString.md) | PCB &amp; footprint / text primitive class |  |
 | [PCB_PrimitiveVia](classes/PCB_PrimitiveVia.md) | PCB &amp; footprint / via primitive class |  |
 | [PCB_RayTracerEngine](classes/PCB_RayTracerEngine.md) | PCB &amp; footprint / ray tracer engine class |  |
+| [PCB_RightClickMenu](classes/PCB_RightClickMenu.md) | PCB / 右键菜单类 |  |
 | [PCB_SelectControl](classes/PCB_SelectControl.md) | PCB &amp; footprint / selection control class |  |
 | [PCB_Tool](classes/PCB_Tool.md) | PCB / 设计工具类 |  |
+| [PNL_Combination](classes/PNL_Combination.md) | 面板 / 组合类 |  |
 | [PNL_Document](classes/PNL_Document.md) | Panel / document operation class |  |
+| [PNL_Drc](classes/PNL_Drc.md) | 面板 / 设计规则检查类 |  |
+| [PNL_EditControl](classes/PNL_EditControl.md) | 面板 / 编辑命令类 |  |
+| [PNL_Event](classes/PNL_Event.md) | 面板 / 事件类 |  |
+| [PNL_Import](classes/PNL_Import.md) | 面板导入类 |  |
+| [PNL_Layer](classes/PNL_Layer.md) | 面板 / 工艺图层类 |  |
+| [PNL_ManufactureData](classes/PNL_ManufactureData.md) | 面板 / 制造数据类 |  |
+| [PNL_Primitive](classes/PNL_Primitive.md) | 面板 / 图元类 |  |
+| [PNL_PrimitiveArc](classes/PNL_PrimitiveArc.md) | 面板 / 圆弧图元类 |  |
+| [PNL_PrimitiveAuxiliaryLine](classes/PNL_PrimitiveAuxiliaryLine.md) | 面板 / 辅助线图元类 |  |
+| [PNL_PrimitiveAuxiliaryPoint](classes/PNL_PrimitiveAuxiliaryPoint.md) | 面板 / 辅助点图元类 |  |
+| [PNL_PrimitiveDimension](classes/PNL_PrimitiveDimension.md) | 面板 / 尺寸标注图元类 |  |
+| [PNL_PrimitiveEllipse](classes/PNL_PrimitiveEllipse.md) | 面板 / 椭圆图元类 |  |
+| [PNL_PrimitiveImage](classes/PNL_PrimitiveImage.md) | 面板 / 图片图元类 |  |
+| [PNL_PrimitivePath](classes/PNL_PrimitivePath.md) | 面板 / 复合路径图元类 |  |
+| [PNL_PrimitiveRectangle](classes/PNL_PrimitiveRectangle.md) | 面板 / 矩形图元类 |  |
+| [PNL_PrimitiveText](classes/PNL_PrimitiveText.md) | 面板 / 文本图元类 |  |
+| [PNL_SelectControl](classes/PNL_SelectControl.md) | 面板 / 选择控制类 |  |
 | [SCH_Document](classes/SCH_Document.md) | Schematic &amp; symbol / document operation class |  |
 | [SCH_Drc](classes/SCH_Drc.md) | Schematic &amp; symbol / design rule check (DRC) class |  |
 | [SCH_Event](classes/SCH_Event.md) | Schematic &amp; symbol / event class |  |
@@ -117,18 +151,35 @@
 | [SCH_PrimitiveBus](classes/SCH_PrimitiveBus.md) | Schematic &amp; symbol / bus primitive class |  |
 | [SCH_PrimitiveCircle](classes/SCH_PrimitiveCircle.md) | Schematic &amp; symbol / circle primitive class |  |
 | [SCH_PrimitiveComponent](classes/SCH_PrimitiveComponent.md) | Schematic &amp; symbol / device primitive class |  |
+| [SCH_PrimitiveGenericPort](classes/SCH_PrimitiveGenericPort.md) | 原理图 &amp; 符号 / 网络端口图元类 |  |
 | [SCH_PrimitiveObject](classes/SCH_PrimitiveObject.md) | Schematic &amp; symbol / binary embedded object primitive class |  |
 | [SCH_PrimitivePin](classes/SCH_PrimitivePin.md) | Schematic &amp; symbol / pin primitive class |  |
 | [SCH_PrimitivePolygon](classes/SCH_PrimitivePolygon.md) | Schematic &amp; symbol / polygon (polyline) primitive class |  |
 | [SCH_PrimitiveRectangle](classes/SCH_PrimitiveRectangle.md) | Schematic &amp; symbol / rectangle primitive class |  |
 | [SCH_PrimitiveText](classes/SCH_PrimitiveText.md) | Schematic &amp; symbol / text primitive class |  |
 | [SCH_PrimitiveWire](classes/SCH_PrimitiveWire.md) | Schematic &amp; symbol / wire primitive class |  |
+| [SCH_RightClickMenu](classes/SCH_RightClickMenu.md) | 原理图 / 右键菜单类 |  |
 | [SCH_SelectControl](classes/SCH_SelectControl.md) | Schematic &amp; symbol / selection control class |  |
 | [SCH_SimulationEngine](classes/SCH_SimulationEngine.md) | Schematic &amp; symbol / simulation engine class |  |
+| [SCH_SourceDocument](classes/SCH_SourceDocument.md) | 原理图 &amp; 符号 / 源数据文档类 |  |
+| [SCH_SourceDrc](classes/SCH_SourceDrc.md) | 原理图 &amp; 符号 / 源数据 DRC 类 |  |
+| [SCH_SourceNet](classes/SCH_SourceNet.md) | 原理图 &amp; 符号 / 源数据网络类 |  |
+| [SCH_SourceNetlist](classes/SCH_SourceNetlist.md) | 原理图 &amp; 符号 / 源数据网表类 |  |
+| [SCH_SourcePin](classes/SCH_SourcePin.md) | 原理图 &amp; 符号 / 源数据引脚类 |  |
+| [SCH_SourcePrimitiveArc](classes/SCH_SourcePrimitiveArc.md) | 原理图 &amp; 符号 / 源数据圆弧类 |  |
+| [SCH_SourcePrimitiveAttribute](classes/SCH_SourcePrimitiveAttribute.md) | 原理图 &amp; 符号 / 源数据属性类 |  |
+| [SCH_SourcePrimitiveCircle](classes/SCH_SourcePrimitiveCircle.md) | 原理图 &amp; 符号 / 源数据圆形类 |  |
+| [SCH_SourcePrimitiveComponent](classes/SCH_SourcePrimitiveComponent.md) | 原理图 &amp; 符号 / 源数据器件类 |  |
+| [SCH_SourcePrimitivePolygon](classes/SCH_SourcePrimitivePolygon.md) | 原理图 &amp; 符号 / 源数据多边形类 |  |
+| [SCH_SourcePrimitiveRectangle](classes/SCH_SourcePrimitiveRectangle.md) | 原理图 &amp; 符号 / 源数据矩形类 |  |
+| [SCH_SourcePrimitiveText](classes/SCH_SourcePrimitiveText.md) | 原理图 &amp; 符号 / 源数据文本类 |  |
+| [SCH_SourcePrimitiveWire](classes/SCH_SourcePrimitiveWire.md) | 原理图 &amp; 符号 / 源数据导线类 |  |
 | [SCH_Utils](classes/SCH_Utils.md) | Schematic &amp; symbol / utility class |  |
+| [SYS_ApiError](classes/SYS_ApiError.md) | 扩展 API 错误 |  |
 | [SYS_ClientUrl](classes/SYS_ClientUrl.md) | System / external request class |  |
 | [SYS_Dialog](classes/SYS_Dialog.md) | System / dialog class |  |
 | [SYS_Environment](classes/SYS_Environment.md) | System / runtime environment class |  |
+| [SYS_Event](classes/SYS_Event.md) | 系统 / 事件类 |  |
 | [SYS_ExternalApi](classes/SYS_ExternalApi.md) | 外部接口注入管理类 |  |
 | [SYS_FileManager](classes/SYS_FileManager.md) | System / file manager class |  |
 | [SYS_FileSystem](classes/SYS_FileSystem.md) | System / file system interaction class |  |
@@ -172,9 +223,13 @@
 | [EDMT_ProjectFileFormat](enums/EDMT_ProjectFileFormat.md) | 工程文件格式 |  |
 | [EDMT_ProjectReadyState](enums/EDMT_ProjectReadyState.md) | 工程就绪状态 |  |
 | [ELIB_DeviceJlcLibraryCategory](enums/ELIB_DeviceJlcLibraryCategory.md) | EasyEDA SMT library category |  |
+| [ELIB_FootprintPadShape](enums/ELIB_FootprintPadShape.md) | 封装焊盘形状 |  |
+| [ELIB_FootprintPadType](enums/ELIB_FootprintPadType.md) | 封装焊盘功能 |  |
 | [ELIB_LibraryType](enums/ELIB_LibraryType.md) | Comprehensive library library type |  |
 | [ELIB_PreviewType](enums/ELIB_PreviewType.md) | Preview view type |  |
+| [ELIB_ProjectLibraryUpdateMode](enums/ELIB_ProjectLibraryUpdateMode.md) | 工程库更新方式 |  |
 | [ELIB_SimulationModelType](enums/ELIB_SimulationModelType.md) | Simulation model type |  |
+| [ELIB_SymbolPinSide](enums/ELIB_SymbolPinSide.md) | 符号引脚所在边 |  |
 | [ELIB_SymbolType](enums/ELIB_SymbolType.md) | Symbol type |  |
 | [EPCB_AutoRoutingCornerStyle](enums/EPCB_AutoRoutingCornerStyle.md) | Auto routing corner style |  |
 | [EPCB_AutoRoutingExistingPrimitiveMode](enums/EPCB_AutoRoutingExistingPrimitiveMode.md) | How auto routing handles existing wires/vias |  |
@@ -203,6 +258,32 @@
 | [EPCB_PrimitiveStringAlignMode](enums/EPCB_PrimitiveStringAlignMode.md) | Text alignment mode |  |
 | [EPCB_PrimitiveType](enums/EPCB_PrimitiveType.md) | Primitive type |  |
 | [EPCB_PrimitiveViaType](enums/EPCB_PrimitiveViaType.md) | Via type |  |
+| [EPCB_RightClickMenuTarget](enums/EPCB_RightClickMenuTarget.md) | PCB / 右键菜单目标位置 |  |
+| [EPNL_AlignType](enums/EPNL_AlignType.md) | **_(ALPHA)_** 面板图元对齐方式 |  |
+| [EPNL_ArcLarge](enums/EPNL_ArcLarge.md) | 优弧 / 劣弧 |  |
+| [EPNL_ArcSweep](enums/EPNL_ArcSweep.md) | 圆弧方向 |  |
+| [EPNL_ArcType](enums/EPNL_ArcType.md) | **_(ALPHA)_** 圆弧绘制方式 |  |
+| [EPNL_BooleanOperationType](enums/EPNL_BooleanOperationType.md) | **_(ALPHA)_** 面板图元布尔运算类型 |  |
+| [EPNL_CoverColor](enums/EPNL_CoverColor.md) | **_(ALPHA)_** 面板遮盖颜色 |  |
+| [EPNL_EventType](enums/EPNL_EventType.md) | **_(ALPHA)_** 面板事件类型 |  |
+| [EPNL_ExpandShapeType](enums/EPNL_ExpandShapeType.md) | **_(ALPHA)_** 形状扩展方式 |  |
+| [EPNL_GridType](enums/EPNL_GridType.md) | **_(ALPHA)_** 栅格类型 |  |
+| [EPNL_LayerFixedScheme](enums/EPNL_LayerFixedScheme.md) | **_(ALPHA)_** 固定图层方案 |  |
+| [EPNL_LayerId](enums/EPNL_LayerId.md) | **_(ALPHA)_** 面板工艺图层 |  |
+| [EPNL_LayerMode](enums/EPNL_LayerMode.md) | **_(ALPHA)_** 图层方案模式 |  |
+| [EPNL_Material](enums/EPNL_Material.md) | **_(ALPHA)_** 面板材质 |  |
+| [EPNL_MouseEventType](enums/EPNL_MouseEventType.md) | **_(ALPHA)_** 鼠标事件类型 |  |
+| [EPNL_PrimitiveAuxiliaryLineOrientation](enums/EPNL_PrimitiveAuxiliaryLineOrientation.md) | **_(ALPHA)_** 辅助线方向 |  |
+| [EPNL_PrimitiveDimensionCategory](enums/EPNL_PrimitiveDimensionCategory.md) | **_(ALPHA)_** 尺寸标注类别 |  |
+| [EPNL_PrimitiveDimensionDirection](enums/EPNL_PrimitiveDimensionDirection.md) | **_(ALPHA)_** 尺寸标注测量方向 |  |
+| [EPNL_PrimitiveDimensionType](enums/EPNL_PrimitiveDimensionType.md) | **_(ALPHA)_** 尺寸标注类型 |  |
+| [EPNL_PrimitiveEventType](enums/EPNL_PrimitiveEventType.md) | **_(ALPHA)_** 图元事件类型 |  |
+| [EPNL_PrimitiveType](enums/EPNL_PrimitiveType.md) | **_(ALPHA)_** 面板图元类型 |  |
+| [EPNL_PrintScope](enums/EPNL_PrintScope.md) | **_(ALPHA)_** 图元打印范围（打印 / 遮盖作用域） |  |
+| [EPNL_PrintSide](enums/EPNL_PrintSide.md) | **_(ALPHA)_** 面板打印面 |  |
+| [EPNL_SelectionMode](enums/EPNL_SelectionMode.md) | **_(ALPHA)_** 框选模式 |  |
+| [EPNL_TextHAlign](enums/EPNL_TextHAlign.md) | **_(ALPHA)_** 文本水平对齐方式 |  |
+| [EPNL_TextVAlign](enums/EPNL_TextVAlign.md) | **_(ALPHA)_** 文本垂直对齐方式 |  |
 | [ESCH_DynamicSimulationEnginePullEventType](enums/ESCH_DynamicSimulationEnginePullEventType.md) | Dynamic simulation engine pull event type |  |
 | [ESCH_DynamicSimulationEnginePushEventType](enums/ESCH_DynamicSimulationEnginePushEventType.md) | Dynamic simulation engine push event type |  |
 | [ESCH_ExportDocumentFileType](enums/ESCH_ExportDocumentFileType.md) | Export document file type |  |
@@ -210,14 +291,23 @@
 | [ESCH_PrimitiveComponentType](enums/ESCH_PrimitiveComponentType.md) | Device type |  |
 | [ESCH_PrimitiveEventType](enums/ESCH_PrimitiveEventType.md) | Primitive event type |  |
 | [ESCH_PrimitiveFillStyle](enums/ESCH_PrimitiveFillStyle.md) | Fill style |  |
+| [ESCH_PrimitiveGenericPortIoType](enums/ESCH_PrimitiveGenericPortIoType.md) | 网络端口方向 |  |
+| [ESCH_PrimitiveGenericPortStrokeStyle](enums/ESCH_PrimitiveGenericPortStrokeStyle.md) | 网络端口线型 |  |
+| [ESCH_PrimitiveGenericPortTextAlign](enums/ESCH_PrimitiveGenericPortTextAlign.md) | 网络端口文本对齐方式 |  |
 | [ESCH_PrimitiveLineType](enums/ESCH_PrimitiveLineType.md) | Line type |  |
 | [ESCH_PrimitivePinShape](enums/ESCH_PrimitivePinShape.md) | Pin shape |  |
 | [ESCH_PrimitivePinType](enums/ESCH_PrimitivePinType.md) | Pin type |  |
 | [ESCH_PrimitiveTextAlignMode](enums/ESCH_PrimitiveTextAlignMode.md) | Text alignment mode |  |
 | [ESCH_PrimitiveType](enums/ESCH_PrimitiveType.md) | Primitive type |  |
+| [ESCH_RightClickMenuTarget](enums/ESCH_RightClickMenuTarget.md) | 原理图 / 右键菜单目标位置 |  |
 | [ESCH_SimulationNetlistType](enums/ESCH_SimulationNetlistType.md) | Simulation netlist type |  |
+| [ESCH_SourceElementType](enums/ESCH_SourceElementType.md) | 源数据元素类型 |  |
+| [ESCH_SourceErrorCode](enums/ESCH_SourceErrorCode.md) | 源数据接口错误码 |  |
+| [ESCH_SourcePinSide](enums/ESCH_SourcePinSide.md) | 引脚所在边 |  |
+| [ESCH_SourcePrimitiveComponentNetFlagType](enums/ESCH_SourcePrimitiveComponentNetFlagType.md) | 网络符号类型 |  |
 | [ESCH_SpiceSimulationEnginePullEventType](enums/ESCH_SpiceSimulationEnginePullEventType.md) | Spice simulation engine pull event type |  |
 | [ESCH_SpiceSimulationEnginePushEventType](enums/ESCH_SpiceSimulationEnginePushEventType.md) | Spice simulation engine push event type |  |
+| [ESYS_ApiErrorCode](enums/ESYS_ApiErrorCode.md) | 扩展 API 错误码 |  |
 | [ESYS_BottomPanelTab](enums/ESYS_BottomPanelTab.md) | Bottom panel tab |  |
 | [ESYS_HeaderMenuEnvironment](enums/ESYS_HeaderMenuEnvironment.md) | Header menu environment |  |
 | [ESYS_ImportProjectBoardOutlineSource](enums/ESYS_ImportProjectBoardOutlineSource.md) | Import project board outline source |  |
@@ -226,10 +316,13 @@
 | [ESYS_ImportProjectViaSolderMaskExpansion](enums/ESYS_ImportProjectViaSolderMaskExpansion.md) | Import project via solder mask extension |  |
 | [ESYS_JobState](enums/ESYS_JobState.md) | 作业状态 |  |
 | [ESYS_LeftPanelTab](enums/ESYS_LeftPanelTab.md) | Left panel tab |  |
+| [ESYS_LibraryFileImportMode](enums/ESYS_LibraryFileImportMode.md) | 库文件导入方式 |  |
 | [ESYS_LogType](enums/ESYS_LogType.md) | Log type |  |
 | [ESYS_NetlistType](enums/ESYS_NetlistType.md) | Netlist type |  |
 | [ESYS_PanelPosition](enums/ESYS_PanelPosition.md) | 面板标签页位置 |  |
 | [ESYS_PanelTab](enums/ESYS_PanelTab.md) | 面板标签页（不区分标签页所处面板） |  |
+| [ESYS_ProgressBarAction](enums/ESYS_ProgressBarAction.md) | 进度条事件操作类型 |  |
+| [ESYS_RightClickMenuTarget](enums/ESYS_RightClickMenuTarget.md) | 系统 / 右键菜单目标位置 |  |
 | [ESYS_RightPanelTab](enums/ESYS_RightPanelTab.md) | Right panel tab |  |
 | [ESYS_ShortcutKeyEffectiveEditorRange](enums/ESYS_ShortcutKeyEffectiveEditorRange.md) | 快捷键生效页面范围 |  |
 | [ESYS_ShortcutKeyEffectiveEditorScene](enums/ESYS_ShortcutKeyEffectiveEditorScene.md) | Effective scene range of the shortcut key |  |
@@ -289,6 +382,34 @@
 | [IDMT_ProjectItem](interfaces/IDMT_ProjectItem.md) | Project property |  |
 | [IDMT_SchematicItem](interfaces/IDMT_SchematicItem.md) | Schematic property |  |
 | [IDMT_SchematicPageItem](interfaces/IDMT_SchematicPageItem.md) | Schematic sheet property |  |
+| [IDMT_SourceBoardAddOptions](interfaces/IDMT_SourceBoardAddOptions.md) | 创建板子选项 |  |
+| [IDMT_SourceBoardAddResult](interfaces/IDMT_SourceBoardAddResult.md) | 创建板子结果 |  |
+| [IDMT_SourceBoardGetAllOptions](interfaces/IDMT_SourceBoardGetAllOptions.md) | 板子列表查询选项 |  |
+| [IDMT_SourceBoardGetOptions](interfaces/IDMT_SourceBoardGetOptions.md) | 板子查询选项 |  |
+| [IDMT_SourceBoardRemoveOptions](interfaces/IDMT_SourceBoardRemoveOptions.md) | 删除板子选项 |  |
+| [IDMT_SourceBoardRemoveResult](interfaces/IDMT_SourceBoardRemoveResult.md) | 删除板子结果 |  |
+| [IDMT_SourcePcbAddOptions](interfaces/IDMT_SourcePcbAddOptions.md) | 创建 PCB 选项 |  |
+| [IDMT_SourcePcbAddResult](interfaces/IDMT_SourcePcbAddResult.md) | 创建 PCB 结果 |  |
+| [IDMT_SourcePcbRemoveOptions](interfaces/IDMT_SourcePcbRemoveOptions.md) | 删除 PCB 选项 |  |
+| [IDMT_SourcePcbRemoveResult](interfaces/IDMT_SourcePcbRemoveResult.md) | 删除 PCB 结果 |  |
+| [IDMT_SourcePcbUpdateOptions](interfaces/IDMT_SourcePcbUpdateOptions.md) | 修改 PCB 选项 |  |
+| [IDMT_SourcePcbUpdateResult](interfaces/IDMT_SourcePcbUpdateResult.md) | 修改 PCB 结果 |  |
+| [IDMT_SourceProjectCloseVirtualOptions](interfaces/IDMT_SourceProjectCloseVirtualOptions.md) | 关闭虚拟打开工程的选项 |  |
+| [IDMT_SourceProjectCloseVirtualResult](interfaces/IDMT_SourceProjectCloseVirtualResult.md) | 关闭虚拟打开工程的结果 |  |
+| [IDMT_SourceProjectVirtualOpenedItem](interfaces/IDMT_SourceProjectVirtualOpenedItem.md) | 已虚拟打开的工程条目 |  |
+| [IDMT_SourceProjectVirtualOpenOptions](interfaces/IDMT_SourceProjectVirtualOpenOptions.md) | 虚拟打开工程选项 |  |
+| [IDMT_SourceProjectVirtualOpenResult](interfaces/IDMT_SourceProjectVirtualOpenResult.md) | 虚拟打开工程结果 |  |
+| [IDMT_SourceSchematicAddPageOptions](interfaces/IDMT_SourceSchematicAddPageOptions.md) | 创建原理图图页选项 |  |
+| [IDMT_SourceSchematicAddPageResult](interfaces/IDMT_SourceSchematicAddPageResult.md) | 创建原理图图页结果 |  |
+| [IDMT_SourceSchematicAddSchematicOptions](interfaces/IDMT_SourceSchematicAddSchematicOptions.md) | 创建原理图选项 |  |
+| [IDMT_SourceSchematicAddSchematicResult](interfaces/IDMT_SourceSchematicAddSchematicResult.md) | 创建原理图结果 |  |
+| [IDMT_SourceSchematicGrid](interfaces/IDMT_SourceSchematicGrid.md) | 图页格栅属性 |  |
+| [IDMT_SourceSchematicRemovePageOptions](interfaces/IDMT_SourceSchematicRemovePageOptions.md) | 删除原理图图页选项 |  |
+| [IDMT_SourceSchematicRemovePageResult](interfaces/IDMT_SourceSchematicRemovePageResult.md) | 删除原理图图页结果 |  |
+| [IDMT_SourceSchematicRemoveSchematicOptions](interfaces/IDMT_SourceSchematicRemoveSchematicOptions.md) | 删除原理图选项 |  |
+| [IDMT_SourceSchematicRemoveSchematicResult](interfaces/IDMT_SourceSchematicRemoveSchematicResult.md) | 删除原理图结果 |  |
+| [IDMT_SourceSchematicUpdatePageOptions](interfaces/IDMT_SourceSchematicUpdatePageOptions.md) | 图页属性修改选项 |  |
+| [IDMT_SourceSchematicUpdatePageResult](interfaces/IDMT_SourceSchematicUpdatePageResult.md) | 图页属性修改结果 |  |
 | [IDMT_TeamItem](interfaces/IDMT_TeamItem.md) | Team properties |  |
 | [IDMT_WorkspaceItem](interfaces/IDMT_WorkspaceItem.md) | Workspace properties |  |
 | [ILIB_3DModelItem](interfaces/ILIB_3DModelItem.md) | 3D model property |  |
@@ -296,12 +417,15 @@
 | [ILIB_CbbItem](interfaces/ILIB_CbbItem.md) | Reuse block property |  |
 | [ILIB_CbbSearchItem](interfaces/ILIB_CbbSearchItem.md) | Searched reuse block properties |  |
 | [ILIB_ClassificationIndex](interfaces/ILIB_ClassificationIndex.md) | Classification index |  |
-| [ILIB_ClassificationNode](interfaces/ILIB_ClassificationNode.md) | **_(ALPHA)_** 分类树节点（分类无 UUID，以名称为唯一标识） |  |
+| [ILIB_ClassificationNode](interfaces/ILIB_ClassificationNode.md) | 分类树节点（分类无 UUID，以名称为唯一标识） |  |
 | [ILIB_DeviceAssociationItem](interfaces/ILIB_DeviceAssociationItem.md) | Device associated symbol, footprint property |  |
+| [ILIB_DeviceAssociationItems](interfaces/ILIB_DeviceAssociationItems.md) | 器件关联符号、封装 |  |
 | [ILIB_DeviceExtendPropertyItem](interfaces/ILIB_DeviceExtendPropertyItem.md) | Device extension property |  |
+| [ILIB_DeviceFootprintAssociationItem](interfaces/ILIB_DeviceFootprintAssociationItem.md) | 器件关联封装项 |  |
 | [ILIB_DeviceItem](interfaces/ILIB_DeviceItem.md) | Device property |  |
 | [ILIB_DevicePropertiesForSearch](interfaces/ILIB_DevicePropertiesForSearch.md) | Device parameters that can be used for precise search |  |
 | [ILIB_DeviceSearchItem](interfaces/ILIB_DeviceSearchItem.md) | Searched device properties |  |
+| [ILIB_DeviceSymbolAssociationItem](interfaces/ILIB_DeviceSymbolAssociationItem.md) | 器件关联符号项 |  |
 | [ILIB_ExtendLibrary3DModelFunctions](interfaces/ILIB_ExtendLibrary3DModelFunctions.md) | External library 3D model functions |  |
 | [ILIB_ExtendLibraryCbbFunctions](interfaces/ILIB_ExtendLibraryCbbFunctions.md) | External library reuse block functions |  |
 | [ILIB_ExtendLibraryClassificationIndex](interfaces/ILIB_ExtendLibraryClassificationIndex.md) | External library classification index |  |
@@ -315,41 +439,71 @@
 | [ILIB_ExtendLibrarySearchResultDataLine](interfaces/ILIB_ExtendLibrarySearchResultDataLine.md) | External library search result data line |  |
 | [ILIB_ExtendLibrarySymbolFunctions](interfaces/ILIB_ExtendLibrarySymbolFunctions.md) | External library symbol functions |  |
 | [ILIB_ExtendLibraryUserIndex](interfaces/ILIB_ExtendLibraryUserIndex.md) | External library user index |  |
+| [ILIB_FootprintGeometry](interfaces/ILIB_FootprintGeometry.md) | 封装几何 |  |
 | [ILIB_FootprintItem](interfaces/ILIB_FootprintItem.md) | Footprint property |  |
+| [ILIB_FootprintPadGeometry](interfaces/ILIB_FootprintPadGeometry.md) | 封装焊盘几何 |  |
 | [ILIB_FootprintPropertiesForSearch](interfaces/ILIB_FootprintPropertiesForSearch.md) | Footprint parameters that can be used for precise search |  |
 | [ILIB_FootprintSearchItem](interfaces/ILIB_FootprintSearchItem.md) | Searched footprint properties |  |
+| [ILIB_LibraryFileImportResult](interfaces/ILIB_LibraryFileImportResult.md) | 库文件导入结果 |  |
 | [ILIB_LibraryInfo](interfaces/ILIB_LibraryInfo.md) | Library information |  |
 | [ILIB_LibraryItem](interfaces/ILIB_LibraryItem.md) | Library property |  |
 | [ILIB_PanelLibraryItem](interfaces/ILIB_PanelLibraryItem.md) | Panel library property |  |
 | [ILIB_PanelLibrarySearchItem](interfaces/ILIB_PanelLibrarySearchItem.md) | Searched panel library properties |  |
+| [ILIB_ProjectLibraryUpdateOptions](interfaces/ILIB_ProjectLibraryUpdateOptions.md) | 工程库更新选项 |  |
+| [ILIB_ProjectLibraryUpdateResult](interfaces/ILIB_ProjectLibraryUpdateResult.md) | 工程库更新结果 |  |
 | [ILIB_RegisterExtendLibraryProps](interfaces/ILIB_RegisterExtendLibraryProps.md) | 注册外部库的附加配置 |  |
 | [ILIB_SimulationModelItem](interfaces/ILIB_SimulationModelItem.md) | Simulation model properties |  |
 | [ILIB_SimulationModelSearchItem](interfaces/ILIB_SimulationModelSearchItem.md) | Searched simulation model properties |  |
+| [ILIB_SymbolGeometry](interfaces/ILIB_SymbolGeometry.md) | 符号几何 |  |
 | [ILIB_SymbolItem](interfaces/ILIB_SymbolItem.md) | Symbol property |  |
+| [ILIB_SymbolPinGeometry](interfaces/ILIB_SymbolPinGeometry.md) | 符号引脚几何 |  |
 | [ILIB_SymbolPropertiesForSearch](interfaces/ILIB_SymbolPropertiesForSearch.md) | Symbol parameters that can be used for precise search |  |
 | [ILIB_SymbolSearchItem](interfaces/ILIB_SymbolSearchItem.md) | Searched symbol properties |  |
+| [ILIB_SymbolTextAnchor](interfaces/ILIB_SymbolTextAnchor.md) | 符号文本锚点 |  |
 | [ImageProps](interfaces/ImageProps.md) | 图片组件：展示单张图片 |  |
 | [InputEditConfig](interfaces/InputEditConfig.md) |  |  |
 | [InputProps](interfaces/InputProps.md) | 输入框组件：支持下拉、搜索、清除、前后缀等多种形态 |  |
+| [IPCB_AutoJobProgress](interfaces/IPCB_AutoJobProgress.md) | 自动布线 / 自动布局作业进度统计 |  |
+| [IPCB_AutoJobSnapshot](interfaces/IPCB_AutoJobSnapshot.md) | 自动布线 / 自动布局作业实时快照 |  |
+| [IPCB_AutoLayoutIterationData](interfaces/IPCB_AutoLayoutIterationData.md) | 自动布局引擎当前迭代阶段的最优解 |  |
 | [IPCB_AutoLayoutResult](interfaces/IPCB_AutoLayoutResult.md) | Auto layout result |  |
+| [IPCB_AutoRouteIterationData](interfaces/IPCB_AutoRouteIterationData.md) | 自动布线引擎当前迭代阶段的最优解 |  |
 | [IPCB_AutoRoutingProps](interfaces/IPCB_AutoRoutingProps.md) | Auto routing props |  |
 | [IPCB_AutoRoutingResult](interfaces/IPCB_AutoRoutingResult.md) | Auto routing result |  |
+| [IPCB_BBox](interfaces/IPCB_BBox.md) | 包围盒 |  |
 | [IPCB_BomPropertiesTableColumns](interfaces/IPCB_BomPropertiesTableColumns.md) | BOM column properties and sorting rules |  |
+| [IPCB_CommandGroupResult](interfaces/IPCB_CommandGroupResult.md) | 命令组开启结果 |  |
+| [IPCB_DfmAvailability](interfaces/IPCB_DfmAvailability.md) | DFM 可用性 |  |
+| [IPCB_DfmCheckOptions](interfaces/IPCB_DfmCheckOptions.md) | DFM 检查入参 |  |
+| [IPCB_DfmCheckResult](interfaces/IPCB_DfmCheckResult.md) | DFM 检查结果 |  |
+| [IPCB_DfmIssue](interfaces/IPCB_DfmIssue.md) | DFM 问题项 |  |
+| [IPCB_DfmRule](interfaces/IPCB_DfmRule.md) | DFM 规则项 |  |
 | [IPCB_DifferentialPairItem](interfaces/IPCB_DifferentialPairItem.md) | Differential pair properties |  |
 | [IPCB_DiscretizedPoint](interfaces/IPCB_DiscretizedPoint.md) | Discretized point |  |
 | [IPCB_DiscretizeOptions](interfaces/IPCB_DiscretizeOptions.md) | Discretization options |  |
+| [IPCB_DocumentBBox](interfaces/IPCB_DocumentBBox.md) |  |  |
+| [IPCB_DrcCheckDetailedOptions](interfaces/IPCB_DrcCheckDetailedOptions.md) | DRC 详细检查入参 |  |
+| [IPCB_DrcResult](interfaces/IPCB_DrcResult.md) | DRC 结果 |  |
+| [IPCB_DrcViolation](interfaces/IPCB_DrcViolation.md) | DRC 违规项 |  |
 | [IPCB_EqualLengthNetGroupItem](interfaces/IPCB_EqualLengthNetGroupItem.md) | Equal-length net group properties |  |
+| [IPCB_FanoutOptions](interfaces/IPCB_FanoutOptions.md) | 扇出入参 |  |
+| [IPCB_FanoutResult](interfaces/IPCB_FanoutResult.md) | 扇出结果 |  |
+| [IPCB_FindPrimitivesOptions](interfaces/IPCB_FindPrimitivesOptions.md) | 空间查询入参 |  |
 | [IPCB_LayerItem](interfaces/IPCB_LayerItem.md) | Layer properties |  |
 | [IPCB_NetClassItem](interfaces/IPCB_NetClassItem.md) | Net class property |  |
 | [IPCB_NetInfo](interfaces/IPCB_NetInfo.md) | Net property |  |
 | [IPCB_PadPairGroupItem](interfaces/IPCB_PadPairGroupItem.md) | Pad pair group properties |  |
 | [IPCB_PadPairMinWireLengthItem](interfaces/IPCB_PadPairMinWireLengthItem.md) | Pad pair minimum wire length properties |  |
+| [IPCB_PageResult](interfaces/IPCB_PageResult.md) | 分页结果 |  |
 | [IPCB_PhysicalStackingConfiguration](interfaces/IPCB_PhysicalStackingConfiguration.md) | 物理叠层配置 |  |
 | [IPCB_Primitive](interfaces/IPCB_Primitive.md) | PCB primitive |  |
 | [IPCB_PrimitiveAPI](interfaces/IPCB_PrimitiveAPI.md) | PCB primitive API |  |
 | [IPCB_PrimitivePadHeatWelding](interfaces/IPCB_PrimitivePadHeatWelding.md) | Pad thermal relief optimization parameters |  |
 | [IPCB_PrimitivePouredPourFill](interfaces/IPCB_PrimitivePouredPourFill.md) | Copper fill region |  |
 | [IPCB_PrimitiveSolderMaskAndPasteMaskExpansion](interfaces/IPCB_PrimitiveSolderMaskAndPasteMaskExpansion.md) | Solder mask / paste mask expansion |  |
+| [IPCB_PrimitiveSummary](interfaces/IPCB_PrimitiveSummary.md) | 图元摘要 |  |
+| [IPCB_Ratline](interfaces/IPCB_Ratline.md) | 飞线 |  |
+| [IPCB_RatlineQueryOptions](interfaces/IPCB_RatlineQueryOptions.md) | 飞线查询入参 |  |
 | [IPCB_RayTracerBackgroundConfig](interfaces/IPCB_RayTracerBackgroundConfig.md) | 光追背景配置 |  |
 | [IPCB_RayTracerLightConfig](interfaces/IPCB_RayTracerLightConfig.md) | 光追光源配置 |  |
 | [IPCB_RayTracerMaterialConfig](interfaces/IPCB_RayTracerMaterialConfig.md) | 光追选中材质（PBR）配置 |  |
@@ -359,18 +513,101 @@
 | [IPCB_RayTracerSceneElement](interfaces/IPCB_RayTracerSceneElement.md) | 光追场景元素 |  |
 | [IPCB_RayTracerSceneElementTransform](interfaces/IPCB_RayTracerSceneElementTransform.md) | 光追场景元素变换参数 |  |
 | [IPCB_RayTracerTexture](interfaces/IPCB_RayTracerTexture.md) | 光追贴图（名称 + 缩放） |  |
+| [IPCB_Stackup](interfaces/IPCB_Stackup.md) | 物理叠层数据 |  |
+| [IPCB_StackupLayer](interfaces/IPCB_StackupLayer.md) | 物理叠层单层数据 |  |
 | [IPCB_SubstratePhysicalProperties](interfaces/IPCB_SubstratePhysicalProperties.md) | 基板物理属性 |  |
+| [IPCB_ViolationBase](interfaces/IPCB_ViolationBase.md) | 检查违规项公共字段 |  |
+| [IPNL_CombinationItem](interfaces/IPNL_CombinationItem.md) | **_(ALPHA)_** 面板组合信息 |  |
+| [IPNL_CombinationModifyProperty](interfaces/IPNL_CombinationModifyProperty.md) | **_(ALPHA)_** 面板组合修改属性 |  |
+| [IPNL_CombinationTreeNode](interfaces/IPNL_CombinationTreeNode.md) | **_(ALPHA)_** 面板组合树节点 |  |
+| [IPNL_DocumentInfo](interfaces/IPNL_DocumentInfo.md) | **_(ALPHA)_** 面板文档头属性 |  |
+| [IPNL_DocumentStatus](interfaces/IPNL_DocumentStatus.md) | **_(ALPHA)_** 面板文档状态快照 |  |
+| [IPNL_DrcCheckResult](interfaces/IPNL_DrcCheckResult.md) | **_(ALPHA)_** 面板设计规则检查结果 |  |
+| [IPNL_EventPayload](interfaces/IPNL_EventPayload.md) | **_(ALPHA)_** 面板事件数据 |  |
+| [IPNL_ExpandShapeOption](interfaces/IPNL_ExpandShapeOption.md) | **_(ALPHA)_** 形状扩展参数 |  |
+| [IPNL_FilterConfiguration](interfaces/IPNL_FilterConfiguration.md) | **_(ALPHA)_** 过滤方案 |  |
+| [IPNL_FilterGroup](interfaces/IPNL_FilterGroup.md) | **_(ALPHA)_** 过滤分组 |  |
+| [IPNL_FilterItem](interfaces/IPNL_FilterItem.md) | **_(ALPHA)_** 过滤项 |  |
+| [IPNL_GridSetting](interfaces/IPNL_GridSetting.md) | **_(ALPHA)_** 栅格设置 |  |
+| [IPNL_ImportLayerInfo](interfaces/IPNL_ImportLayerInfo.md) | **_(ALPHA)_** DXF 文件里的图层信息 |  |
+| [IPNL_ImportLayerOption](interfaces/IPNL_ImportLayerOption.md) | **_(ALPHA)_** DXF 导入的图层映射项 |  |
+| [IPNL_LayerItem](interfaces/IPNL_LayerItem.md) | **_(ALPHA)_** 面板图层信息 |  |
+| [IPNL_LayerScheme](interfaces/IPNL_LayerScheme.md) | **_(ALPHA)_** 图层方案 |  |
+| [IPNL_LayerSchemeOption](interfaces/IPNL_LayerSchemeOption.md) | **_(ALPHA)_** 图层方案里某一层的状态 |  |
+| [IPNL_MouseEventPayload](interfaces/IPNL_MouseEventPayload.md) | **_(ALPHA)_** 鼠标事件数据 |  |
+| [IPNL_Primitive](interfaces/IPNL_Primitive.md) | **_(ALPHA)_** Panel 图元 |  |
+| [IPNL_PrimitiveAPI](interfaces/IPNL_PrimitiveAPI.md) | **_(ALPHA)_** Panel 图元接口 |  |
+| [IPNL_PrimitiveCommonState](interfaces/IPNL_PrimitiveCommonState.md) | **_(ALPHA)_** 面板图元公共属性 |  |
+| [IPNL_PrimitiveDimensionAngleCoordinateSet](interfaces/IPNL_PrimitiveDimensionAngleCoordinateSet.md) | **_(ALPHA)_** 角度标注坐标集 |  |
+| [IPNL_PrimitiveDimensionLengthCoordinateSet](interfaces/IPNL_PrimitiveDimensionLengthCoordinateSet.md) | **_(ALPHA)_** 长度标注坐标集 |  |
+| [IPNL_PrimitiveDimensionNode](interfaces/IPNL_PrimitiveDimensionNode.md) | **_(ALPHA)_** 智能尺寸标注节点 |  |
+| [IPNL_PrimitiveDimensionRadiusCoordinateSet](interfaces/IPNL_PrimitiveDimensionRadiusCoordinateSet.md) | **_(ALPHA)_** 半径标注坐标集 |  |
+| [IPNL_PrimitiveDimensionSmartCoordinateSet](interfaces/IPNL_PrimitiveDimensionSmartCoordinateSet.md) | **_(ALPHA)_** 智能尺寸标注坐标集 |  |
+| [IPNL_PrimitiveEventPayload](interfaces/IPNL_PrimitiveEventPayload.md) | **_(ALPHA)_** 图元事件数据 |  |
 | [IRawNet](interfaces/IRawNet.md) | 原始数据 - net |  |
 | [IRawPureSchematic](interfaces/IRawPureSchematic.md) | 原始数据 - pureSchematic |  |
 | [IRawSchematic](interfaces/IRawSchematic.md) | 原始数据 - schematic |  |
 | [IRawWire](interfaces/IRawWire.md) | 原始数据 - wire |  |
+| [ISCH_DocumentBBox](interfaces/ISCH_DocumentBBox.md) | 轴对齐包围盒 |  |
+| [ISCH_DocumentGetElementsInRegionOptions](interfaces/ISCH_DocumentGetElementsInRegionOptions.md) | 区域查询选项 |  |
+| [ISCH_DocumentRegionElement](interfaces/ISCH_DocumentRegionElement.md) | 区域查询结果条目 |  |
+| [ISCH_DocumentRegionGeometry](interfaces/ISCH_DocumentRegionGeometry.md) | 区域查询图形几何 |  |
+| [ISCH_DocumentRenderRegionOptions](interfaces/ISCH_DocumentRenderRegionOptions.md) | 区域渲染选项 |  |
 | [ISCH_DrcError](interfaces/ISCH_DrcError.md) | DRC 错误条目 |  |
 | [ISCH_DrcErrorPrimitive](interfaces/ISCH_DrcErrorPrimitive.md) | DRC 错误涉及的图元 |  |
 | [ISCH_ExportPngResolution](interfaces/ISCH_ExportPngResolution.md) | 原理图导出图片分辨率 |  |
 | [ISCH_NetInfo](interfaces/ISCH_NetInfo.md) | Net property |  |
 | [ISCH_Primitive](interfaces/ISCH_Primitive.md) | Schematic primitive |  |
 | [ISCH_PrimitiveAPI](interfaces/ISCH_PrimitiveAPI.md) | Schematic primitive API |  |
+| [ISCH_PrimitiveGenericPortProps](interfaces/ISCH_PrimitiveGenericPortProps.md) | 网络端口修改参数 |  |
 | [ISCH_ProjectNetInfo](interfaces/ISCH_ProjectNetInfo.md) | Project net property |  |
+| [ISCH_SourceDocumentFunctionGroup](interfaces/ISCH_SourceDocumentFunctionGroup.md) | 功能分组信息 |  |
+| [ISCH_SourceDocumentRemoveFunctionGroupOptions](interfaces/ISCH_SourceDocumentRemoveFunctionGroupOptions.md) | 功能分组删除选项 |  |
+| [ISCH_SourceDocumentRemoveFunctionGroupResult](interfaces/ISCH_SourceDocumentRemoveFunctionGroupResult.md) | 功能分组删除结果 |  |
+| [ISCH_SourceDocumentTransformFunctionGroupOptions](interfaces/ISCH_SourceDocumentTransformFunctionGroupOptions.md) | 功能分组转换选项 |  |
+| [ISCH_SourceDocumentTransformFunctionGroupResult](interfaces/ISCH_SourceDocumentTransformFunctionGroupResult.md) | 功能分组转换结果 |  |
+| [ISCH_SourceDrcCheckResult](interfaces/ISCH_SourceDrcCheckResult.md) | 业务层 DRC 检查结果 |  |
+| [ISCH_SourceDrcViolation](interfaces/ISCH_SourceDrcViolation.md) | 业务层 DRC 违规项 |  |
+| [ISCH_SourceError](interfaces/ISCH_SourceError.md) | 源数据接口错误信息 |  |
+| [ISCH_SourceIdentity](interfaces/ISCH_SourceIdentity.md) | 源数据接口目标标识 |  |
+| [ISCH_SourceNetConnection](interfaces/ISCH_SourceNetConnection.md) | 网络连接点 |  |
+| [ISCH_SourceNetConnectionsResult](interfaces/ISCH_SourceNetConnectionsResult.md) | 网络连接关系 |  |
+| [ISCH_SourceNetlistGetNetlistInRegionOptions](interfaces/ISCH_SourceNetlistGetNetlistInRegionOptions.md) | 区域网表查询选项 |  |
+| [ISCH_SourceNetlistNet](interfaces/ISCH_SourceNetlistNet.md) | 网表网络 |  |
+| [ISCH_SourceNetlistNetFlag](interfaces/ISCH_SourceNetlistNetFlag.md) | 网表网络中的网络符号 |  |
+| [ISCH_SourceNetlistNetPin](interfaces/ISCH_SourceNetlistNetPin.md) | 网表网络中的连接引脚 |  |
+| [ISCH_SourceNetlistRegionResult](interfaces/ISCH_SourceNetlistRegionResult.md) | 网表查询结果 |  |
+| [ISCH_SourcePinGeometryItem](interfaces/ISCH_SourcePinGeometryItem.md) | 引脚几何信息 |  |
+| [ISCH_SourcePinGetGeometryOptions](interfaces/ISCH_SourcePinGetGeometryOptions.md) | 引脚几何查询选项 |  |
+| [ISCH_SourcePinNoConnectOptions](interfaces/ISCH_SourcePinNoConnectOptions.md) | 设置引脚 No-Connect 属性选项 |  |
+| [ISCH_SourcePinNoConnectResult](interfaces/ISCH_SourcePinNoConnectResult.md) | 引脚 No-Connect 属性结果 |  |
+| [ISCH_SourcePrimitiveArcAddOptions](interfaces/ISCH_SourcePrimitiveArcAddOptions.md) | 圆弧创建选项 |  |
+| [ISCH_SourcePrimitiveAttributeAddNetLabelOptions](interfaces/ISCH_SourcePrimitiveAttributeAddNetLabelOptions.md) | 网络标签创建选项 |  |
+| [ISCH_SourcePrimitiveAttributeNetLabelResult](interfaces/ISCH_SourcePrimitiveAttributeNetLabelResult.md) | 网络标签结果 |  |
+| [ISCH_SourcePrimitiveAttributeUpdateNetLabelOptions](interfaces/ISCH_SourcePrimitiveAttributeUpdateNetLabelOptions.md) | 网络标签修改选项 |  |
+| [ISCH_SourcePrimitiveCircleAddOptions](interfaces/ISCH_SourcePrimitiveCircleAddOptions.md) | 圆形创建选项 |  |
+| [ISCH_SourcePrimitiveComponentAddNetFlagOptions](interfaces/ISCH_SourcePrimitiveComponentAddNetFlagOptions.md) | 网络符号放置选项 |  |
+| [ISCH_SourcePrimitiveComponentAddOptions](interfaces/ISCH_SourcePrimitiveComponentAddOptions.md) | 器件放置选项 |  |
+| [ISCH_SourcePrimitiveComponentAddResult](interfaces/ISCH_SourcePrimitiveComponentAddResult.md) | 器件放置结果 |  |
+| [ISCH_SourcePrimitiveComponentDetail](interfaces/ISCH_SourcePrimitiveComponentDetail.md) | 器件详细属性 |  |
+| [ISCH_SourcePrimitiveComponentGetOptions](interfaces/ISCH_SourcePrimitiveComponentGetOptions.md) | 器件查询选项 |  |
+| [ISCH_SourcePrimitiveComponentPinItem](interfaces/ISCH_SourcePrimitiveComponentPinItem.md) | 器件引脚属性 |  |
+| [ISCH_SourcePrimitiveComponentRemoveOptions](interfaces/ISCH_SourcePrimitiveComponentRemoveOptions.md) | 器件删除选项 |  |
+| [ISCH_SourcePrimitiveComponentRemoveResult](interfaces/ISCH_SourcePrimitiveComponentRemoveResult.md) | 器件删除结果 |  |
+| [ISCH_SourcePrimitiveComponentReplaceOptions](interfaces/ISCH_SourcePrimitiveComponentReplaceOptions.md) | 器件替换选项 |  |
+| [ISCH_SourcePrimitiveComponentUpdateAttributeOptions](interfaces/ISCH_SourcePrimitiveComponentUpdateAttributeOptions.md) | 器件属性显示与位置修改选项 |  |
+| [ISCH_SourcePrimitiveComponentUpdateAttributeResult](interfaces/ISCH_SourcePrimitiveComponentUpdateAttributeResult.md) | 器件属性修改结果 |  |
+| [ISCH_SourcePrimitiveComponentUpdateOptions](interfaces/ISCH_SourcePrimitiveComponentUpdateOptions.md) | 器件修改选项 |  |
+| [ISCH_SourcePrimitiveIdOptions](interfaces/ISCH_SourcePrimitiveIdOptions.md) | 源数据接口目标标识（含单个图元 ID） |  |
+| [ISCH_SourcePrimitivePolygonAddOptions](interfaces/ISCH_SourcePrimitivePolygonAddOptions.md) | 多边形创建选项 |  |
+| [ISCH_SourcePrimitiveRectangleAddOptions](interfaces/ISCH_SourcePrimitiveRectangleAddOptions.md) | 矩形创建选项 |  |
+| [ISCH_SourcePrimitiveResult](interfaces/ISCH_SourcePrimitiveResult.md) | 源数据图元标识结果 |  |
+| [ISCH_SourcePrimitiveTextAddOptions](interfaces/ISCH_SourcePrimitiveTextAddOptions.md) | 文本创建选项 |  |
+| [ISCH_SourcePrimitiveWireAddOptions](interfaces/ISCH_SourcePrimitiveWireAddOptions.md) | 导线创建选项 |  |
+| [ISCH_SourcePrimitiveWireAddResult](interfaces/ISCH_SourcePrimitiveWireAddResult.md) | 导线创建结果 |  |
+| [ISCH_SourcePrimitiveWireRemovePinWiresOptions](interfaces/ISCH_SourcePrimitiveWireRemovePinWiresOptions.md) | 引脚走线删除选项 |  |
+| [ISCH_SourcePrimitiveWireRemovePinWiresResult](interfaces/ISCH_SourcePrimitiveWireRemovePinWiresResult.md) | 引脚走线删除结果 |  |
+| [ISCH_SourceRegion](interfaces/ISCH_SourceRegion.md) | 源数据区域 |  |
 | [ISCH_WireInfo](interfaces/ISCH_WireInfo.md) | Wire property |  |
 | [ISYS_ComparisonResponse](interfaces/ISYS_ComparisonResponse.md) | 对比响应返回结果 |  |
 | [ISYS_ExtensionExternalApiIndex](interfaces/ISYS_ExtensionExternalApiIndex.md) | external API 扁平索引（按命名空间分组） |  |
@@ -395,7 +632,9 @@
 | [ISYS_MathPolygonWithHoles](interfaces/ISYS_MathPolygonWithHoles.md) | Polygon with holes |  |
 | [ISYS_MessageBusTask](interfaces/ISYS_MessageBusTask.md) | Message bus task |  |
 | [ISYS_MultilingualLanguagesData](interfaces/ISYS_MultilingualLanguagesData.md) | Multilingual data |  |
+| [ISYS_ProgressBarEventProps](interfaces/ISYS_ProgressBarEventProps.md) | 进度条事件参数 |  |
 | [ISYS_RightClickMenuItem](interfaces/ISYS_RightClickMenuItem.md) | Right-click menu item |  |
+| [ISYS_RightClickMenuItemPosition](interfaces/ISYS_RightClickMenuItemPosition.md) | 右键菜单项插入位置 |  |
 | [ISYS_ShortcutKeyData](interfaces/ISYS_ShortcutKeyData.md) | 快捷键数据 |  |
 | [ISYS_ShortcutKeyDataWithCallFn](interfaces/ISYS_ShortcutKeyDataWithCallFn.md) | 包含 CallFn 的快捷键数据 |  |
 | [ISYS_ShortcutKeyDataWithUserDefinedShortcutKey](interfaces/ISYS_ShortcutKeyDataWithUserDefinedShortcutKey.md) | 包含 userDefinedShortcutKey 的快捷键数据 |  |
@@ -440,10 +679,13 @@
 | [ColumnType](types/ColumnType.md) | 列数据类型，默认 'text'。决定默认排序类型（sortType）和筛选匹配模式（filterMatchMode） |  |
 | [DataChangeType](types/DataChangeType.md) | 数据变更类型 |  |
 | [FilterMatchMode](types/FilterMatchMode.md) | 筛选匹配模式 |  |
+| [ISCH_PrimitiveGenericPortData](types/ISCH_PrimitiveGenericPortData.md) | 网络端口查询结果 |  |
 | [RichTableRow](types/RichTableRow.md) | 行数据：业务数据 + 行元数据（rowMeta） |  |
 | [Serializable](types/Serializable.md) |  |  |
 | [SerializablePrimitive](types/SerializablePrimitive.md) | 可序列化纯数据（可跨 BroadcastChannel 结构化克隆）。 编译期拒绝函数 / Date / React 元素等不可序列化值——slotProps 等跨广播字段必须用它。 |  |
 | [SortOrder](types/SortOrder.md) | 排序方向 |  |
+| [TDMT_SourceProjectDocumentTree](types/TDMT_SourceProjectDocumentTree.md) | 源数据工程文档树 |  |
+| [TPCB_FanoutType](types/TPCB_FanoutType.md) | 扇出方式 |  |
 | [TPCB_LayersInTheSelectable](types/TPCB_LayersInTheSelectable.md) | Selectable layers |  |
 | [TPCB_LayersOfComponent](types/TPCB_LayersOfComponent.md) | Layers of the device |  |
 | [TPCB_LayersOfCopper](types/TPCB_LayersOfCopper.md) | Layers of copper |  |
@@ -463,9 +705,13 @@
 | [TPCB_PrimitivePadHole](types/TPCB_PrimitivePadHole.md) | Pad drilling |  |
 | [TPCB_PrimitivePadShape](types/TPCB_PrimitivePadShape.md) | Pad shape |  |
 | [TPCB_PrimitiveSpecialPadShape](types/TPCB_PrimitiveSpecialPadShape.md) | Special pad shape |  |
+| [TPNL_PrimitiveDimensionCoordinateSet](types/TPNL_PrimitiveDimensionCoordinateSet.md) | **_(ALPHA)_** 尺寸标注坐标集 |  |
+| [TSCH_SourceResult](types/TSCH_SourceResult.md) | 源数据接口返回信封 |  |
 | [TSYS_ComparisonErrorCode](types/TSYS_ComparisonErrorCode.md) | 对比失败错误码 |  |
 | [TSYS_LanguageKeyValuePairs](types/TSYS_LanguageKeyValuePairs.md) | 语言数据键值对 |  |
 | [TSYS_MathPolygonGroup](types/TSYS_MathPolygonGroup.md) | Polygon group |  |
 | [TSYS_MathPolygonInput](types/TSYS_MathPolygonInput.md) | Polygon input type |  |
+| [TSYS_RightClickMenuItemAction](types/TSYS_RightClickMenuItemAction.md) | 右键菜单项动作 |  |
+| [TSYS_RightClickMenuItemIcon](types/TSYS_RightClickMenuItemIcon.md) | 右键菜单项图标 |  |
 | [TSYS_ShortcutKeys](types/TSYS_ShortcutKeys.md) | Shortcut key |  |
 

@@ -283,7 +283,7 @@ _(Optional)_ Line type. `null` indicates the default
 
 Promise&lt;[ISCH\_PrimitiveArc](./ISCH_PrimitiveArc.md) \| undefined&gt;
 
-Arc primitive object
+Arc primitive object  cli - 画布图元创建需前端已打开对应图页；写盘场景请改用 [add](./SCH_SourcePrimitiveArc.md)
 
 ## Example
 

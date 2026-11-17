@@ -95,6 +95,17 @@ Create Split screen
 </td></tr>
 <tr><td>
 
+[getDocumentReadyState(documentUuidOrTabId)](./DMT_EditorControl.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 获取文档的就绪状态
+
+</td></tr>
+<tr><td>
+
 [getSplitScreenIdByTabId(tabId)](./DMT_EditorControl.md)
 
 </td><td>
@@ -190,6 +201,17 @@ Open document
 </td><td>
 
 Tile all documents
+
+</td></tr>
+<tr><td>
+
+[waitForDocumentReady(documentUuidOrTabId, timeoutMs)](./DMT_EditorControl.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 等待文档就绪
 
 </td></tr>
 <tr><td>
@@ -750,6 +772,80 @@ console.log('size:', image.size);
 console.log('mimeType:', image.type);
 ```
 
+### getdocumentreadystate
+
+# DMT\_EditorControl.getDocumentReadyState() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+获取文档的就绪状态
+
+## Signature
+
+```typescript
+function getDocumentReadyState(documentUuidOrTabId: string): Promise<EDMT_ProjectReadyState>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+documentUuidOrTabId
+
+</td><td>
+
+string
+
+</td><td>
+
+文档 UUID 或标签页 ID
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;[EDMT\_ProjectReadyState](../enums/EDMT_ProjectReadyState.md)<!-- -->&gt;
+
+指定文档的就绪状态
+
+## Remarks
+
+返回指定文档的就绪阶段（未加载 / 加载中 / 就绪 / 失败），可用于多文档顺序加载的流程编排； 文档未打开、不存在或已关闭时返回 `notLoaded`
+
+输入支持范围与就绪语义同 [waitForDocumentReady](./DMT_EditorControl.md) ADD since EDA v4.1.79
+
+## Example
+
+```javascript
+// 1. 打开一个原理图图页
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+const tabId = await eda.dmt_EditorControl.openDocument(pages[0].uuid);
+
+// 2. 轮询就绪状态直到就绪或超时
+const deadline = Date.now() + 60000;
+while (Date.now() < deadline) {
+	const state = await eda.dmt_EditorControl.getDocumentReadyState(tabId);
+	console.log('state:', state);
+	if (state === 'ready')
+		break;
+	await new Promise(r => setTimeout(r, 200));
+}
+```
+
 ### getsplitscreenidbytabid
 
 # DMT\_EditorControl.getSplitScreenIdByTabId() method
@@ -1116,6 +1212,16 @@ Promise&lt;string \| undefined&gt;
 
 Tab ID, if it is `undefined`<!-- -->, then open document failed
 
+## Remarks
+
+打开文档是调用画布 API 的前置条件
+
+网表、DRC、图元遍历、区域查询等接口仅对已打开并激活的文档有效
+
+打开文档后仍需调用 [waitForDocumentReady](./DMT_EditorControl.md) 等待文档就绪
+
+Source 系列接口不要求打开文档，但仍需遵守其异步落盘时序
+
 ## Example
 
 ```javascript
@@ -1353,6 +1459,91 @@ console.log('tiled:', tiled);
 // 4. 合并所有分屏，恢复单屏布局
 const merged = await eda.dmt_EditorControl.mergeAllDocumentFromSplitScreen();
 console.log('merged:', merged);
+```
+
+### waitfordocumentready
+
+# DMT\_EditorControl.waitForDocumentReady() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+等待文档就绪
+
+## Signature
+
+```typescript
+function waitForDocumentReady(documentUuidOrTabId: string, timeoutMs?: number): Promise<boolean>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+documentUuidOrTabId
+
+</td><td>
+
+string
+
+</td><td>
+
+文档 UUID 或标签页 ID
+
+</td></tr>
+<tr><td>
+
+timeoutMs
+
+</td><td>
+
+number
+
+</td><td>
+
+_(Optional)_ 最长等待时间（毫秒），缺省为 60000
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;boolean&gt;
+
+文档是否已在超时前就绪
+
+## Remarks
+
+阻塞等待指定文档可操作（数据加载完成）后再返回，避免在文档未就绪时发起读写导致静默失败或 `create` 挂起； 超过 `timeoutMs` 仍未就绪时返回 `false`
+
+支持：
+
+- 图页文档 UUID：原理图图页、PCB、面板，以及原理图文档 UUID（自动映射到其已打开的图页标签页） - 库文档 UUID：符号、封装、面板库 - 标签页 ID：画布标签页、2D 预览、3D 预览、面板 3D 预览标签页
+
+就绪语义：图页 / 库文档为文档数据加载完成（后台打开的文档在数据加载完成后同样就绪）；预览标签页为预览窗口加载完成（不追踪 3D 模型资源加载进度）； lazy 打开的标签页在激活前不会加载，等待将超时返回 `false`<!-- -->；文档打开失败时将快速返回 `false` ADD since EDA v4.1.79
+
+## Example
+
+```javascript
+// 1. 打开一个 PCB，拿到标签页 ID
+const pcbs = await eda.dmt_Pcb.getAllPcbsInfo();
+const tabId = await eda.dmt_EditorControl.openDocument(pcbs[0].uuid);
+
+// 2. 等待文档就绪（数据加载完成）后再继续操作画布
+const ready = await eda.dmt_EditorControl.waitForDocumentReady(tabId);
+console.log('ready:', ready);
 ```
 
 ### zoomto

@@ -62,6 +62,19 @@ Description
 </td></tr>
 <tr><td>
 
+[getElementsInRegion(options)](./SCH_Document.md)
+
+</td><td>
+
+</td><td>
+
+获取区域内的元素
+
+ cli - 一次调用取回区域内全部元素的业务属性，无需逐图元查询
+
+</td></tr>
+<tr><td>
+
 [getPrimitiveAtPoint(x, y)](./SCH_Document.md)
 
 </td><td>
@@ -113,6 +126,19 @@ Import changes from the PCB
 </td><td>
 
 **_(BETA)_** Locate to canvas region
+
+</td></tr>
+<tr><td>
+
+[renderRegion(options)](./SCH_Document.md)
+
+</td><td>
+
+</td><td>
+
+渲染区域
+
+ cli - 一次调用取回指定区域的图像文件，无需前端截图
 
 </td></tr>
 <tr><td>
@@ -368,6 +394,64 @@ Current canvas filter configuration; `undefined` indicates that the retrieval fa
 ## Remarks
 
 ADD since EDA v4.2
+
+### getelementsinregion
+
+# SCH\_Document.getElementsInRegion() method
+
+获取区域内的元素
+
+ cli - 一次调用取回区域内全部元素的业务属性，无需逐图元查询
+
+## Signature
+
+```typescript
+function getElementsInRegion(
+	options: ISCH_DocumentGetElementsInRegionOptions,
+): Promise<TSCH_SourceResult<Array<ISCH_DocumentRegionElement>>>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+options
+
+</td><td>
+
+[ISCH\_DocumentGetElementsInRegionOptions](../interfaces/ISCH_DocumentGetElementsInRegionOptions.md)
+
+</td><td>
+
+区域查询选项
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;[TSCH\_SourceResult](../types/TSCH_SourceResult.md)<!-- -->&lt;Array&lt;[ISCH\_DocumentRegionElement](../interfaces/ISCH_DocumentRegionElement.md)<!-- -->&gt;&gt;&gt;
+
+区域内的元素列表，失败时通过 `error.code` 返回错误码
+
+## Remarks
+
+全页唯一的区域 / 过滤入口；返回不定长集合，集合大小由区域内元素决定，与入参无关。
+
+\*\*本接口要求工程已在前端打开\*\*：工程未打开时由原理图侧返回 [PROJECT\_NOT\_FOUND](../enums/ESCH_SourceErrorCode.md)<!-- -->；原理图编辑器 / 扩展 API 未就绪或调用超时返回 [INTERNAL\_ERROR](../enums/ESCH_SourceErrorCode.md)<!-- -->；未提供 `branchUuid` 且无法回退当前激活工程分支时返回 [PARAM\_REQUIRED](../enums/ESCH_SourceErrorCode.md)<!-- -->。 客户端会先校验区域：坐标非有限数值或 `minX >= maxX`<!-- -->、`minY >= maxY` 时直接返回 [REGION\_INVALID](../enums/ESCH_SourceErrorCode.md)<!-- -->。 返回结果中若出现未知元素类型，会跳过该元素并 `console.warn`<!-- -->，不影响其余已知元素返回。 与 `sch_SourceDocument` 下直接操作工程源数据、不依赖前端已打开图页的接口不同。 ADD since EDA v4.1.83
 
 ### getprimitiveatpoint
 
@@ -754,6 +838,62 @@ For example: the passed-in data is `{left: 0, right: 60, top: 100, bottom: -20}`
 This API does not perform zooming, but it will generate a rectangle frame indicating the positioning center and the region range;
 
 The unit span here is 0.01inch ADD since EDA v4.2
+
+### renderregion
+
+# SCH\_Document.renderRegion() method
+
+渲染区域
+
+ cli - 一次调用取回指定区域的图像文件，无需前端截图
+
+## Signature
+
+```typescript
+function renderRegion(options: ISCH_DocumentRenderRegionOptions): Promise<TSCH_SourceResult<File>>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+options
+
+</td><td>
+
+[ISCH\_DocumentRenderRegionOptions](../interfaces/ISCH_DocumentRenderRegionOptions.md)
+
+</td><td>
+
+区域渲染选项
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;[TSCH\_SourceResult](../types/TSCH_SourceResult.md)<!-- -->&lt;File&gt;&gt;
+
+渲染结果文件；失败时通过 `error.code` 返回 `INTERNAL_ERROR` / `PARAM_REQUIRED` / `REGION_INVALID`
+
+## Remarks
+
+本接口是文档级接口中唯一返回非 JSON 值的方法，也是唯一会触发渲染的方法。
+
+\*\*本接口要求工程已在前端打开\*\*。pro-sch 的 typed 契约是 `File | undefined`<!-- -->： 成功返回 `File`<!-- -->；目标工程 / 图页不可用、参数非法或渲染失败时一律返回 `undefined` （错误细节只记录在 pro-sch 控制台，不回传业务错误码，因此没有 `PROJECT_NOT_FOUND` 等业务错误码）。 pro-api 收到 `undefined` 或通道 / 传输异常时返回 [INTERNAL\_ERROR](../enums/ESCH_SourceErrorCode.md)<!-- -->；未提供 `branchUuid` 且无法回退当前激活工程分支时返回 [PARAM\_REQUIRED](../enums/ESCH_SourceErrorCode.md)<!-- -->。 客户端会先校验区域：坐标非有限数值或 `minX >= maxX`<!-- -->、`minY >= maxY` 时直接返回 [REGION\_INVALID](../enums/ESCH_SourceErrorCode.md)<!-- -->，不会透传给原理图侧。 与 `sch_SourceDocument` 下直接操作工程源数据、不依赖前端已打开图页的接口不同。 ADD since EDA v4.1.83
 
 ### save
 

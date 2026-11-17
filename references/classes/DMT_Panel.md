@@ -12,6 +12,8 @@ class DMT_Panel
 
 Operations related to panel management in the currently open project
 
+工程树异步刷新；写操作或读取列表后得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Methods
 
 <table><thead><tr><th>
@@ -158,6 +160,10 @@ Promise&lt;string \| undefined&gt;
 
 New panel UUID. If it is `undefined`<!-- -->, the copy failed
 
+## Remarks
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -200,6 +206,10 @@ function createPanel(): Promise<string | undefined>;
 Promise&lt;string \| undefined&gt;
 
 Panel UUID, if it is `undefined` creation fails
+
+## Remarks
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 
@@ -266,6 +276,10 @@ Promise&lt;boolean&gt;
 
 Whether the operation is successful
 
+## Remarks
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
+
 ## Example
 
 ```javascript
@@ -299,6 +313,10 @@ function getAllPanelsInfo(): Promise<Array<IDMT_PanelItem>>;
 Promise&lt;Array&lt;[IDMT\_PanelItem](../interfaces/IDMT_PanelItem.md)<!-- -->&gt;&gt;
 
 Array of detailed properties of all panels
+
+## Remarks
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 
@@ -342,6 +360,8 @@ Panel detailed properties of; if it is `undefined`<!-- -->, the retrieval failed
 ## Remarks
 
 It will get the detailed properties of the currently open panel that has the last input focus
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 
@@ -411,6 +431,10 @@ Panel UUID
 Promise&lt;[IDMT\_PanelItem](../interfaces/IDMT_PanelItem.md) \| undefined&gt;
 
 Panel detailed properties of; if it is `undefined`<!-- -->, the retrieval failed
+
+## Remarks
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 
@@ -491,6 +515,10 @@ Panel name
 Promise&lt;boolean&gt;
 
 Whether Modify Successful
+
+## Remarks
+
+\*\*工程树异步更新\*\*：创建、修改、删除、复制或移动文档后读取得到旧数据时，先调用 [waitForReady](./DMT_Project.md) 等待后重试
 
 ## Example
 

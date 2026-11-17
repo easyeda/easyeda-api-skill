@@ -26,7 +26,7 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-[create(topLeftX, topLeftY, width, height, cornerRadius, rotation, color, fillColor, lineWidth, lineType, fillStyle)](./SCH_PrimitiveRectangle.md)
+[create(topLeftX, topLeftY, width, height, cornerRadius, rotation, color, fillColor, lineWidth, lineType, fillStyle, bindSchematicPageUuid)](./SCH_PrimitiveRectangle.md)
 
 </td><td>
 
@@ -128,6 +128,7 @@ function create(
 	lineWidth?: number | null,
 	lineType?: ESCH_PrimitiveLineType | null,
 	fillStyle?: ESCH_PrimitiveFillStyle | null,
+	bindSchematicPageUuid?: string | null,
 ): Promise<ISCH_PrimitiveRectangle | undefined>;
 ```
 
@@ -289,13 +290,26 @@ fillStyle
 _(Optional)_ Fill style, `null` indicates the default
 
 </td></tr>
+<tr><td>
+
+bindSchematicPageUuid
+
+</td><td>
+
+string \| null
+
+</td><td>
+
+_(Optional)_ 绑定的原理图图页 UUID，绑定后可在画布上点击该矩形跳转到对应图页，`null` 表示不绑定
+
+</td></tr>
 </tbody></table>
 
 ## Returns
 
 Promise&lt;[ISCH\_PrimitiveRectangle](./ISCH_PrimitiveRectangle.md) \| undefined&gt;
 
-Rectangle primitive object
+Rectangle primitive object  cli - 画布图元创建需前端已打开对应图页；写盘场景请改用 [add](./SCH_SourcePrimitiveRectangle.md)
 
 ## Example
 
@@ -319,6 +333,12 @@ console.log('fillColor:', rect.getState_FillColor());
 console.log('fillStyle:', rect.getState_FillStyle());
 console.log('lineWidth:', rect.getState_LineWidth());
 console.log('lineType:', rect.getState_LineType());
+
+// 4. 创建时直接绑定图页：取第一个原理图图页的 UUID 作为第 12 个参数
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+const boundRect = await eda.sch_PrimitiveRectangle.create(x, y + 400, 200, 100, undefined, undefined, undefined, undefined, undefined, undefined, undefined, pages[0]?.uuid ?? null);
+
+console.log('boundRect 绑定的图页：', boundRect.getState_BindSchematicPageUuid() ?? '(未绑定)');
 ```
 
 ### delete
@@ -624,6 +644,7 @@ function modify(
 		lineWidth?: number | null;
 		lineType?: ESCH_PrimitiveLineType | null;
 		fillStyle?: ESCH_PrimitiveFillStyle | null;
+		bindSchematicPageUuid?: string | null;
 	},
 ): Promise<ISCH_PrimitiveRectangle | undefined>;
 ```
@@ -662,7 +683,7 @@ property
 
 </td><td>
 
-{ topLeftX?: number; topLeftY?: number; width?: number; height?: number; cornerRadius?: number; rotation?: number; color?: string \| null; fillColor?: string \| null; lineWidth?: number \| null; lineType?: [ESCH\_PrimitiveLineType](../enums/ESCH_PrimitiveLineType.md) \| null; fillStyle?: [ESCH\_PrimitiveFillStyle](../enums/ESCH_PrimitiveFillStyle.md) \| null }
+{ topLeftX?: number; topLeftY?: number; width?: number; height?: number; cornerRadius?: number; rotation?: number; color?: string \| null; fillColor?: string \| null; lineWidth?: number \| null; lineType?: [ESCH\_PrimitiveLineType](../enums/ESCH_PrimitiveLineType.md) \| null; fillStyle?: [ESCH\_PrimitiveFillStyle](../enums/ESCH_PrimitiveFillStyle.md) \| null; bindSchematicPageUuid?: string \| null }
 
 </td><td>
 

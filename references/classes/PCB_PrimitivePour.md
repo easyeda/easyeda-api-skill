@@ -101,6 +101,39 @@ Description
 **_(BETA)_** Modify Copper border
 
 </td></tr>
+<tr><td>
+
+[rebuildAllCopperRegions()](./PCB_PrimitivePour.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 重建所有覆铜区域
+
+</td></tr>
+<tr><td>
+
+[rebuildCopperRegions(primitiveIds)](./PCB_PrimitivePour.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 重建覆铜区域
+
+</td></tr>
+<tr><td>
+
+[rebuildCopperRegionsByLayer(layer)](./PCB_PrimitivePour.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 按层重建覆铜区域
+
+</td></tr>
 </tbody></table>
 
 ---
@@ -805,4 +838,220 @@ const refreshed = await eda.pcb_PrimitivePour.get(pourId);
 console.log('primitiveId:', pourId);
 console.log('layer:', beforeLayer, '→', refreshed.getState_Layer());
 console.log('pourPriority:', beforePriority, '→', refreshed.getState_PourPriority());
+```
+
+### rebuildallcopperregions
+
+# PCB\_PrimitivePour.rebuildAllCopperRegions() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+重建所有覆铜区域
+
+## Signature
+
+```typescript
+function rebuildAllCopperRegions(): Promise<Array<IPCB_PrimitivePoured>>;
+```
+
+## Returns
+
+Promise&lt;Array&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md)<!-- -->&gt;&gt;
+
+覆铜填充图元数组（按覆铜边框分组），无重建结果的覆铜边框不会出现在返回值中；画布上没有覆铜区域时返回空数组
+
+## Remarks
+
+对当前 PCB 画布上的全部覆铜区域执行重建，无需传入任何参数
+
+与 [rebuildCopperRegions](./PCB_PrimitivePour.md) 的区别在于覆盖范围：本接口除覆铜边框图元生成的覆铜外，还包含内电层的覆铜
+
+当前文档未激活或没有编辑权限时，本接口会抛出错误而非静默返回空数组
+
+覆铜区域较多时本接口耗时较长，建议单独调用或在 [beginCommandGroup](./PCB_Document.md) 内成组执行 ADD since EDA v4.1.103
+
+## Example
+
+```javascript
+// 1. 创建一条测试覆铜边框（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+await eda.pcb_PrimitivePour.create('GND', 1, polygon, 'solid', false, '嘉立创示例_重建全部', 5, 10, false);
+
+// 2. 重建画布上全部覆铜区域（含内电层覆铜）
+const pouredList = await eda.pcb_PrimitivePour.rebuildAllCopperRegions();
+console.log('重建数量:', pouredList.length);
+```
+
+### rebuildcopperregions
+
+# PCB\_PrimitivePour.rebuildCopperRegions() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+重建覆铜区域
+
+## Signature
+
+```typescript
+function rebuildCopperRegions(primitiveIds?: Array<string>): Promise<Array<IPCB_PrimitivePoured>>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+primitiveIds
+
+</td><td>
+
+Array&lt;string&gt;
+
+</td><td>
+
+_(Optional)_ 覆铜边框图元 ID 数组，如若未传入则重建当前覆铜边框关联的全部覆铜区域
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;Array&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md)<!-- -->&gt;&gt;
+
+覆铜填充图元数组（按覆铜边框分组），无重建结果的覆铜边框不会出现在返回值中
+
+## Remarks
+
+只重建\*\*覆铜边框图元关联\*\*的覆铜区域，即由 [create](./PCB_PrimitivePour.md) 放置的覆铜边框所生成的填充
+
+\*\*不包含内电层覆铜\*\*：内层信号层的覆铜不在本接口的重建范围内，需要重建内层覆铜请使用 [rebuildAllCopperRegions](./PCB_PrimitivePour.md) 或 [rebuildCopperRegionsByLayer](./PCB_PrimitivePour.md) ADD since EDA v5
+
+## Example
+
+```javascript
+// 1. 创建两条待重建的测试覆铜边框（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon1 = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const polygon2 = eda.pcb_MathPolygon.createPolygon(['R', x, y + 500, 500, 300, 0, 0]);
+const pour1 = await eda.pcb_PrimitivePour.create('GND', 1, polygon1, 'solid', false, '嘉立创示例_批量重建1', 5, 10, false);
+const pour2 = await eda.pcb_PrimitivePour.create('GND', 1, polygon2, 'solid', false, '嘉立创示例_批量重建2', 5, 10, false);
+
+// 2. 传入图元 ID 数组：只重建这两条覆铜的填充
+const pouredList = await eda.pcb_PrimitivePour.rebuildCopperRegions([
+	pour1.getState_PrimitiveId(),
+	pour2.getState_PrimitiveId(),
+]);
+
+// 3. 不传参：重建画布上所有覆铜边框关联的覆铜区域（不含内电层覆铜）
+const allPouredList = await eda.pcb_PrimitivePour.rebuildCopperRegions();
+
+// 4. 读取重建结果（按覆铜边框分组，重建不出填充的覆铜不在返回值中）
+console.log('pouredList length:', pouredList.length);
+console.log('allPouredList length:', allPouredList.length);
+if (pouredList.length > 0) {
+	console.log('所属覆铜边框 ID:', pouredList[0].getState_PourPrimitiveId());
+	console.log('所属铜箔层:', pouredList[0].getState_Layer());
+	console.log('填充子区域数量:', pouredList[0].getState_PourFills().length);
+}
+```
+
+### rebuildcopperregionsbylayer
+
+# PCB\_PrimitivePour.rebuildCopperRegionsByLayer() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+按层重建覆铜区域
+
+## Signature
+
+```typescript
+function rebuildCopperRegionsByLayer(
+	layer: TPCB_LayersOfCopper | Array<TPCB_LayersOfCopper>,
+): Promise<Array<IPCB_PrimitivePoured>>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+layer
+
+</td><td>
+
+[TPCB\_LayersOfCopper](../types/TPCB_LayersOfCopper.md) \| Array&lt;[TPCB\_LayersOfCopper](../types/TPCB_LayersOfCopper.md)<!-- -->&gt;
+
+</td><td>
+
+铜箔层，取值与 [getAll](./PCB_PrimitivePour.md) 的 `layer` 参数一致；可传单个层或多个层
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;Array&lt;[IPCB\_PrimitivePoured](./IPCB_PrimitivePoured.md)<!-- -->&gt;&gt;
+
+覆铜填充图元数组（按覆铜边框分组），无重建结果的覆铜边框不会出现在返回值中
+
+## Remarks
+
+只重建指定铜箔层上的覆铜区域，其余层的覆铜保持不变
+
+可传入单层或多层：传数组时按其中全部层重建，同一层的覆铜只重建一次；传入空数组时不执行任何重建并返回空数组
+
+目标层上没有覆铜区域时返回空数组，不产生任何改动；如需重建画布上全部层，请使用 [rebuildAllCopperRegions](./PCB_PrimitivePour.md)
+
+传入的层中包含内层时，这些内层的内电层覆铜也会一并重建
+
+当前文档未激活或没有编辑权限时，本接口会抛出错误而非静默返回空数组；传入的层上没有覆铜区域属于正常情况，此时返回空数组
+
+覆铜区域较多时本接口耗时较长，建议单独调用或在 [beginCommandGroup](./PCB_Document.md) 内成组执行 ADD since EDA v4.1.103
+
+## Example
+
+```javascript
+// 1. 创建两条位于顶层（层 ID 1）的测试覆铜边框（随机坐标避免重合）
+const x = 2000 + Math.floor(Math.random() * 100000);
+const y = 2000 + Math.floor(Math.random() * 100000);
+const polygon1 = eda.pcb_MathPolygon.createPolygon(['R', x, y, 500, 300, 0, 0]);
+const polygon2 = eda.pcb_MathPolygon.createPolygon(['R', x, y + 500, 500, 300, 0, 0]);
+await eda.pcb_PrimitivePour.create('GND', 1, polygon1, 'solid', false, '嘉立创示例_按层重建1', 5, 10, false);
+await eda.pcb_PrimitivePour.create('GND', 1, polygon2, 'solid', false, '嘉立创示例_按层重建2', 5, 10, false);
+
+// 2. 只重建顶层（层 ID 1）上的覆铜区域
+const pouredList = await eda.pcb_PrimitivePour.rebuildCopperRegionsByLayer(1);
+console.log('顶层重建数量:', pouredList.length);
+
+// 3. 一次重建多个层（层数组中包含内层时，内层的内电层覆铜也会一并重建）
+const multiLayerPouredList = await eda.pcb_PrimitivePour.rebuildCopperRegionsByLayer([1, 15]);
+console.log('多层重建数量:', multiLayerPouredList.length);
 ```

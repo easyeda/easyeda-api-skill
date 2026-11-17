@@ -51,6 +51,28 @@ Description
 </td></tr>
 <tr><td>
 
+[beginCommandGroup(name)](./PCB_Document.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 打开命令组
+
+</td></tr>
+<tr><td>
+
+[cancelAutoJob(jobId)](./PCB_Document.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 取消自动布线 / 自动布局作业
+
+</td></tr>
+<tr><td>
+
 [clearRouting(type)](./PCB_Document.md)
 
 </td><td>
@@ -58,6 +80,17 @@ Description
 </td><td>
 
 **_(BETA)_** Clear routing
+
+</td></tr>
+<tr><td>
+
+[commitCommandGroup(groupId)](./PCB_Document.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 提交命令组
 
 </td></tr>
 <tr><td>
@@ -80,6 +113,39 @@ Input a canvas coordinate and return the data coordinate corresponding to that c
 </td><td>
 
 Input a data coordinate and return the canvas coordinate corresponding to that coordinate
+
+</td></tr>
+<tr><td>
+
+[fanout(options)](./PCB_Document.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 批量扇出
+
+</td></tr>
+<tr><td>
+
+[getAutoJobLog(jobId)](./PCB_Document.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 获取自动布线 / 自动布局作业实时快照
+
+</td></tr>
+<tr><td>
+
+[getAutoJobStatus(jobId)](./PCB_Document.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 查询自动布线 / 自动布局作业状态
 
 </td></tr>
 <tr><td>
@@ -150,6 +216,17 @@ Get the offset coordinate of the canvas origin relative to the data origin
 </td></tr>
 <tr><td>
 
+[getRatlines(options)](./PCB_Document.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 分页读取飞线
+
+</td></tr>
+<tr><td>
+
 [importAutoLayoutJsonFile(autoLayoutFile)](./PCB_Document.md)
 
 </td><td>
@@ -216,6 +293,28 @@ Locate to canvas coordinate
 </td></tr>
 <tr><td>
 
+[redoLastCommandGroup()](./PCB_Document.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 重做最近一个命令组
+
+</td></tr>
+<tr><td>
+
+[rollbackCommandGroup(groupId)](./PCB_Document.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 回滚未提交的命令组
+
+</td></tr>
+<tr><td>
+
 [save()](./PCB_Document.md)
 
 </td><td>
@@ -234,6 +333,28 @@ Save Document
 </td><td>
 
 Set the offset coordinate of the canvas origin relative to the data origin
+
+</td></tr>
+<tr><td>
+
+[startAutoLayout()](./PCB_Document.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 以作业模型启动自动布局
+
+</td></tr>
+<tr><td>
+
+[startAutoRouting(props)](./PCB_Document.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 以作业模型启动自动布线
 
 </td></tr>
 <tr><td>
@@ -289,6 +410,17 @@ Stop the ratline calculation function
 </td><td>
 
 **_(BETA)_** 触发一次画布更新计算
+
+</td></tr>
+<tr><td>
+
+[undoLastCommandGroup()](./PCB_Document.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 撤销最近一个命令组
 
 </td></tr>
 <tr><td>
@@ -390,7 +522,7 @@ ADD since EDA v3.2.150 If no parameters are passed in, auto routing will be perf
 
 本接口预期将会执行较长时间，可以尝试异步处理或增加超时时限
 
-注意事项： - 本接口内部存在固定的 900 秒（15 分钟）硬上限，CLI 的 `--timeout` 参数无法覆盖该上限； - 超时或失败后，中间几何结果不会提交（超时后调用 `save()` 图元可能仍为 0/0），如需保留中间结果请改用  作业模型； - `props.layers` 必须传入\*\*启用层\*\*（`layerStatus !== NOT_USED`<!-- -->），传停用层会被静默忽略
+注意事项： - 本接口内部存在固定的 900 秒（15 分钟）硬上限，CLI 的 `--timeout` 参数无法覆盖该上限； - 超时或失败后，中间几何结果不会提交（超时后调用 `save()` 图元可能仍为 0/0），如需保留中间结果请改用 [startAutoRouting](./PCB_Document.md) 作业模型； - `props.layers` 必须传入\*\*启用层\*\*（`layerStatus !== NOT_USED`<!-- -->），传停用层会被静默忽略
 
 / EDA v4.1.66
 
@@ -399,16 +531,139 @@ ADD since EDA v3.2.150 If no parameters are passed in, auto routing will be perf
 ```javascript
 // 对所有未布线的网络进行自动布线
 const result = await eda.pcb_Document.autoRouting();
-console.log(`布线完成：${result.routedNets}/${result.totalNets}`);
+console.log('是否走完布线流程：', result.success);
+console.log(`布通网络：${result.successNetsCount}/${result.totalNetsCount}`);
+console.log('未布通网络：', result.failedNets.join('、'));
+console.log('耗时（毫秒）：', result.duration);
 
 // 指定网络进行自动布线，并忽略部分网络
-const result = await eda.pcb_Document.autoRouting({
-    nets: ['VCC', 'GND', 'SDA', 'SCL'],
-    ignoreNets: ['NC'],
-    cornerStyle: EPCB_AutoRoutingCornerStyle.DEGREE_45,
-    optimization: EPCB_AutoRoutingOptimization.COMPLETION,
+const result2 = await eda.pcb_Document.autoRouting({
+	RoutingNets: ['VCC', 'GND', 'SDA', 'SCL'],
+	ignoreNets: ['NC'],
+	cornerStyle: EPCB_AutoRoutingCornerStyle.DEGREE_45,
+	optimization: EPCB_AutoRoutingOptimization.COMPLETION,
 });
 ```
+
+### begincommandgroup
+
+# PCB\_Document.beginCommandGroup() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+打开命令组
+
+## Signature
+
+```typescript
+function beginCommandGroup(name?: string): Promise<IPCB_CommandGroupResult>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+name
+
+</td><td>
+
+string
+
+</td><td>
+
+_(Optional)_ 命令组名称
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;[IPCB\_CommandGroupResult](../interfaces/IPCB_CommandGroupResult.md)<!-- -->&gt;
+
+命令组开启结果
+
+## Remarks
+
+打开后执行的所有写操作进入同一历史组，直到调用 [commitCommandGroup](./PCB_Document.md) 固化，或调用 [rollbackCommandGroup](./PCB_Document.md) 撤销
+
+同一时间只允许存在一个打开的命令组 ADD since EDA v4.1.93
+
+## Example
+
+```javascript
+const { groupId } = await eda.pcb_Document.beginCommandGroup('批量铺铜');
+// ... 执行多项写操作 ...
+await eda.pcb_Document.commitCommandGroup(groupId);
+// 一次撤销整组
+await eda.pcb_Document.undoLastCommandGroup();
+```
+
+### cancelautojob
+
+# PCB\_Document.cancelAutoJob() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+取消自动布线 / 自动布局作业
+
+## Signature
+
+```typescript
+function cancelAutoJob(jobId: string): Promise<boolean>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+jobId
+
+</td><td>
+
+string
+
+</td><td>
+
+作业 ID
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;boolean&gt;
+
+是否成功发起取消
+
+## Remarks
+
+终止失控的自动布线 / 自动布局作业，无需等待内部截止时间； 仅适用于 [startAutoRouting](./PCB_Document.md) 与 [startAutoLayout](./PCB_Document.md) 启动的作业 ADD since EDA v4.1.79
 
 ### clearrouting
 
@@ -457,6 +712,60 @@ _(Optional)_ Clear type. If you need to specify a clear type, select the specifi
 ## Returns
 
 Promise&lt;boolean&gt;
+
+### commitcommandgroup
+
+# PCB\_Document.commitCommandGroup() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+提交命令组
+
+## Signature
+
+```typescript
+function commitCommandGroup(groupId: string): Promise<boolean>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+groupId
+
+</td><td>
+
+string
+
+</td><td>
+
+命令组 ID
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;boolean&gt;
+
+是否提交成功
+
+## Remarks
+
+提交后该组内的写操作固化为一个可撤销单元 ADD since EDA v4.1.93
 
 ### convertcanvasorigintodataorigin
 
@@ -627,6 +936,170 @@ console.log('after:', JSON.stringify(after));
 // 4. 清理测试 PCB（偏移随文档一起删除）
 await eda.dmt_Pcb.deletePcb(pcbUuid);
 ```
+
+### fanout
+
+# PCB\_Document.fanout() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+批量扇出
+
+## Signature
+
+```typescript
+function fanout(options: IPCB_FanoutOptions): Promise<IPCB_FanoutResult>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+options
+
+</td><td>
+
+[IPCB\_FanoutOptions](../interfaces/IPCB_FanoutOptions.md)
+
+</td><td>
+
+扇出参数
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;[IPCB\_FanoutResult](../interfaces/IPCB_FanoutResult.md)<!-- -->&gt;
+
+扇出结果
+
+## Remarks
+
+为指定焊盘批量生成扇出过孔与引出线 ADD since EDA v4.1.93
+
+### getautojoblog
+
+# PCB\_Document.getAutoJobLog() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+获取自动布线 / 自动布局作业实时快照
+
+## Signature
+
+```typescript
+function getAutoJobLog(jobId: string): Promise<IPCB_AutoJobSnapshot>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+jobId
+
+</td><td>
+
+string
+
+</td><td>
+
+作业 ID
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;[IPCB\_AutoJobSnapshot](../interfaces/IPCB_AutoJobSnapshot.md)<!-- -->&gt;
+
+作业实时快照
+
+## Remarks
+
+被调用时立刻返回，数据取自编辑器主线程缓存，不等待布线进程、布线进行中亦可调用： - `logs`<!-- -->：布线引擎基础日志（随布线过程持续累积） - `result`<!-- -->：引擎当前迭代阶段的最优解格式化数据（每次迭代替换为最新最优解） - `progress`<!-- -->：当前进度、布通率等统计数据
+
+仅适用于 [startAutoRouting](./PCB_Document.md) 与 [startAutoLayout](./PCB_Document.md) 启动的作业； 作业不存在（含编辑器页面刷新后旧 jobId 失效）时返回空快照（`logs` 为空数组、`result` / `progress` 为 `null`<!-- -->） ADD since EDA v4.1.79
+
+### getautojobstatus
+
+# PCB\_Document.getAutoJobStatus() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+查询自动布线 / 自动布局作业状态
+
+## Signature
+
+```typescript
+function getAutoJobStatus(jobId: string): Promise<ISYS_JobStatus | undefined>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+jobId
+
+</td><td>
+
+string
+
+</td><td>
+
+作业 ID
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;[ISYS\_JobStatus](../interfaces/ISYS_JobStatus.md) \| undefined&gt;
+
+作业状态详情，作业不存在时为 `undefined`
+
+## Remarks
+
+返回指定作业的进度、结构化错误与中间结果是否已提交，无需靠超时猜测状态； 仅适用于 [startAutoRouting](./PCB_Document.md) 与 [startAutoLayout](./PCB_Document.md) 启动的作业 ADD since EDA v4.1.79
 
 ### getcalculatingratlinestatus
 
@@ -952,6 +1425,60 @@ console.log('bigRegionCount:', big.length);
 await eda.pcb_PrimitivePad.delete([padA.getState_PrimitiveId(), padB.getState_PrimitiveId()]);
 await eda.dmt_Pcb.deletePcb(pcbUuid);
 ```
+
+### getratlines
+
+# PCB\_Document.getRatlines() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+分页读取飞线
+
+## Signature
+
+```typescript
+function getRatlines(options?: IPCB_RatlineQueryOptions): Promise<IPCB_PageResult<IPCB_Ratline>>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+options
+
+</td><td>
+
+[IPCB\_RatlineQueryOptions](../interfaces/IPCB_RatlineQueryOptions.md)
+
+</td><td>
+
+_(Optional)_ 查询参数
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;[IPCB\_PageResult](../interfaces/IPCB_PageResult.md)<!-- -->&lt;[IPCB\_Ratline](../interfaces/IPCB_Ratline.md)<!-- -->&gt;&gt;
+
+飞线分页结果
+
+## Remarks
+
+纯只读：不写入选区，也不触发界面事件 ADD since EDA v4.1.93
 
 ### importautolayoutjsonfile
 
@@ -1441,6 +1968,84 @@ console.log('navigated:', navigated);
 await eda.dmt_Pcb.deletePcb(pcbUuid);
 ```
 
+### redolastcommandgroup
+
+# PCB\_Document.redoLastCommandGroup() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+重做最近一个命令组
+
+## Signature
+
+```typescript
+function redoLastCommandGroup(): Promise<boolean>;
+```
+
+## Returns
+
+Promise&lt;boolean&gt;
+
+是否重做成功
+
+## Remarks
+
+重做最近一个被撤销的命令组 ADD since EDA v4.1.93
+
+### rollbackcommandgroup
+
+# PCB\_Document.rollbackCommandGroup() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+回滚未提交的命令组
+
+## Signature
+
+```typescript
+function rollbackCommandGroup(groupId: string): Promise<boolean>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+groupId
+
+</td><td>
+
+string
+
+</td><td>
+
+命令组 ID
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;boolean&gt;
+
+是否回滚成功
+
+## Remarks
+
+按逆序撤销组内已执行的写操作 ADD since EDA v4.1.93
+
 ### save
 
 # PCB\_Document.save() method
@@ -1571,6 +2176,84 @@ console.log('origin:', JSON.stringify(origin));
 // 4. 清理测试 PCB（偏移随文档一起删除）
 await eda.dmt_Pcb.deletePcb(pcbUuid);
 ```
+
+### startautolayout
+
+# PCB\_Document.startAutoLayout() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+以作业模型启动自动布局
+
+## Signature
+
+```typescript
+function startAutoLayout(): Promise<ISYS_JobHandle>;
+```
+
+## Returns
+
+Promise&lt;[ISYS\_JobHandle](../interfaces/ISYS_JobHandle.md)<!-- -->&gt;
+
+自动布局作业句柄
+
+## Remarks
+
+立即返回作业句柄（`jobId`<!-- -->），布局过程可用 [getAutoJobStatus](./PCB_Document.md) 查询、 [cancelAutoJob](./PCB_Document.md) 取消 ADD since EDA v4.1.79
+
+### startautorouting
+
+# PCB\_Document.startAutoRouting() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+以作业模型启动自动布线
+
+## Signature
+
+```typescript
+function startAutoRouting(props?: IPCB_AutoRoutingProps): Promise<ISYS_JobHandle>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+props
+
+</td><td>
+
+[IPCB\_AutoRoutingProps](../interfaces/IPCB_AutoRoutingProps.md)
+
+</td><td>
+
+_(Optional)_ 自动布线参数
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;[ISYS\_JobHandle](../interfaces/ISYS_JobHandle.md)<!-- -->&gt;
+
+自动布线作业句柄
+
+## Remarks
+
+立即返回作业句柄（`jobId`<!-- -->），任务寿命与本次调用寿命解耦；后续用 [getAutoJobStatus](./PCB_Document.md) 查询进度、 [cancelAutoJob](./PCB_Document.md) 取消作业、[getAutoJobLog](./PCB_Document.md) 读取日志； 入参语义与 [autoRouting](./PCB_Document.md) 一致 ADD since EDA v4.1.79
 
 ### startcalculatingratline
 
@@ -1731,6 +2414,30 @@ Promise&lt;boolean&gt;
 画布更新计算包括画布渲染更新、属性面板更新等
 
 如若不理解该开关的含义，请勿调用本接口进行任何操作 ADD since EDA v4.2
+
+### undolastcommandgroup
+
+# PCB\_Document.undoLastCommandGroup() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+撤销最近一个命令组
+
+## Signature
+
+```typescript
+function undoLastCommandGroup(): Promise<boolean>;
+```
+
+## Returns
+
+Promise&lt;boolean&gt;
+
+是否撤销成功
+
+## Remarks
+
+撤销最近一个已提交的命令组 ADD since EDA v4.1.93
 
 ### zoomtoboardoutline
 

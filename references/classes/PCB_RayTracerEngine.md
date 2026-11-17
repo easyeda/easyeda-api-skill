@@ -62,6 +62,17 @@ Description
 </td></tr>
 <tr><td>
 
+[exportPackage(preset)](./PCB_RayTracerEngine.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 导出光追场景资源包
+
+</td></tr>
+<tr><td>
+
 [getLightConfigurations(lightName)](./PCB_RayTracerEngine.md)
 
 </td><td>
@@ -95,7 +106,18 @@ Description
 </td></tr>
 <tr><td>
 
-[init(resourceProvider)](./PCB_RayTracerEngine.md)
+[importPackage(file)](./PCB_RayTracerEngine.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 加载光追资源包
+
+</td></tr>
+<tr><td>
+
+[init()](./PCB_RayTracerEngine.md)
 
 </td><td>
 
@@ -241,18 +263,107 @@ ADD since EDA v4.1.79
 ## Signature
 
 ```typescript
-function exportImage(): Promise<Blob>;
+function exportImage(): Promise<Blob | null>;
 ```
+
+## Returns
+
+Promise&lt;Blob \| null&gt;
+
+图片数据；无可导出光追帧时返回 `null`
+
+## Remarks
+
+光追未初始化或当前没有可导出的光追帧时返回 `null` ADD since EDA v4.1.79
+
+## Example
+
+```javascript
+// 1. 初始化光追引擎并等待首帧渲染完成
+await eda.pcb_RayTracerEngine.init();
+
+// 2. 导出当前画布的光追渲染效果图，无可用帧时返回 null
+const blob = await eda.pcb_RayTracerEngine.exportImage();
+if (!blob) {
+  console.log('说明：当前没有可导出的光追帧，请等待首帧渲染完成后再试');
+  return;
+}
+
+// 3. 保存到本地磁盘
+await eda.sys_FileSystem.saveFile(blob, 'raytracer.png');
+console.log('已导出光追效果图，大小：', blob.size);
+```
+
+### exportpackage
+
+# PCB\_RayTracerEngine.exportPackage() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+导出光追场景资源包
+
+## Signature
+
+```typescript
+function exportPackage(preset: 'geometry' | 'asset' | 'scene'): Promise<Blob>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+preset
+
+</td><td>
+
+'geometry' \| 'asset' \| 'scene'
+
+</td><td>
+
+导出档位，取值 `geometry` / `asset` / `scene`
+
+</td></tr>
+</tbody></table>
 
 ## Returns
 
 Promise&lt;Blob&gt;
 
-图片数据
+场景资源包 ZIP 数据
 
 ## Remarks
 
-ADD since EDA v4.1.79
+将当前光追场景按指定档位打包为 ZIP 数据，包含几何、材质与附属资源文件
+
+支持的导出档位：
+
+- `geometry`<!-- -->：几何包，包含主几何与材质索引 - `asset`<!-- -->：资源包，包含材质表、纹理与渲染参数 - `scene`<!-- -->：场景包，包含几何、材质、渲染参数与相机
+
+返回的 ZIP 数据由调用方处理，例如通过 [saveFile](./SYS_FileSystem.md) 保存到本地 ADD since EDA v4.1.103
+
+## Example
+
+```javascript
+// 1. 导出完整场景包（几何 + 材质 + 渲染参数 + 相机）
+const blob = await eda.pcb_RayTracerEngine.exportPackage('scene');
+
+// 2. 保存到本地磁盘，文件名由调用方指定
+await eda.sys_FileSystem.saveFile(blob, 'raytracer-scene.zip');
+console.log('场景资源包已导出，大小：', blob.size);
+```
 
 ### getlightconfigurations
 
@@ -356,18 +467,18 @@ Promise&lt;[IPCB\_RayTracerSceneElement](../interfaces/IPCB_RayTracerSceneElemen
 
 ADD since EDA v4.1.79
 
-### init
+### importpackage
 
-# PCB\_RayTracerEngine.init() method
+# PCB\_RayTracerEngine.importPackage() method
 
 > This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-Initialize the ray tracer engine
+加载光追资源包
 
 ## Signature
 
 ```typescript
-function init(resourceProvider?: (path: string) => Promise<Blob>): Promise<void>;
+function importPackage(file: Blob): Promise<void>;
 ```
 
 ## Parameters
@@ -387,18 +498,54 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-resourceProvider
+file
 
 </td><td>
 
-(path: string) =&gt; Promise&lt;Blob&gt;
+Blob
 
 </td><td>
 
-_(Optional)_ 可选的光线追踪资源提供者：引擎按需以文件路径向扩展请求单个资源，扩展读取后返回
+资源包 ZIP 数据
 
 </td></tr>
 </tbody></table>
+
+## Returns
+
+Promise&lt;void&gt;
+
+## Remarks
+
+在光追渲染运行期间加载资源包，包内的材质表、纹理、背景与场景模型立即生效，无需重新初始化光追渲染
+
+资源包需由 [exportPackage](./PCB_RayTracerEngine.md) 导出，或符合其目录结构与材质表格式 ADD since EDA v4.1.103
+
+## Example
+
+```javascript
+// 1. 从远端获取资源包（本接口需启用扩展的外部交互权限）
+const response = await eda.sys_ClientUrl.request('https://example.com/raytracer-scene.zip', 'GET');
+const blob = await response.blob();
+
+// 2. 加载资源包，材质表、纹理、背景与场景模型立即生效
+await eda.pcb_RayTracerEngine.importPackage(blob);
+console.log('资源包已加载：', blob.size);
+```
+
+### init
+
+# PCB\_RayTracerEngine.init() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+Initialize the ray tracer engine
+
+## Signature
+
+```typescript
+function init(): Promise<void>;
+```
 
 ## Returns
 

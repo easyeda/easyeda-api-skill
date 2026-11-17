@@ -80,6 +80,19 @@ Description
 </td></tr>
 <tr><td>
 
+[getGeometry(footprintUuid, libraryUuid)](./LIB_Footprint.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 获取封装的几何信息
+
+ cli - 一次调用拿到全部焊盘的位置、尺寸、层与包围盒，可在写入 PCB 前完成摆放与间距校验
+
+</td></tr>
+<tr><td>
+
 [getRenderImage(source)](./LIB_Footprint.md)
 
 </td><td>
@@ -639,6 +652,84 @@ Promise&lt;string \| undefined&gt;
 支持工程库 / 非工程库（系统库 / 个人库 / 扩展库）： - 工程库：从当前打开的工程 worker 读取（含未保存内容）； - 非工程库：从 lib.worker 读取（含未保存内容），worker 无缓存时回退网络获取， 自动处理 `history_uuid`<!-- -->（历史版本）、`dataStrId`<!-- -->（远程存储）与 2.0 → 3.0 格式转换。
 
 获取失败（如库条目不存在）将返回 `undefined`
+
+### getgeometry
+
+# LIB\_Footprint.getGeometry() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+获取封装的几何信息
+
+ cli - 一次调用拿到全部焊盘的位置、尺寸、层与包围盒，可在写入 PCB 前完成摆放与间距校验
+
+## Signature
+
+```typescript
+function getGeometry(
+	footprintUuid: string,
+	libraryUuid: string,
+): Promise<ILIB_FootprintGeometry | undefined>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+footprintUuid
+
+</td><td>
+
+string
+
+</td><td>
+
+封装 UUID
+
+</td></tr>
+<tr><td>
+
+libraryUuid
+
+</td><td>
+
+string
+
+</td><td>
+
+库 UUID，必传；`'project'` 表示当前工程的工程库，可用 [LIB\_LibrariesList](./LIB_LibrariesList.md) 内的接口获取
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;[ILIB\_FootprintGeometry](../interfaces/ILIB_FootprintGeometry.md) \| undefined&gt;
+
+封装几何信息，获取失败返回 `undefined`
+
+## Remarks
+
+返回封装的本体 / 整体包围盒，以及全部焊盘的位置、尺寸、层与各自包围盒， 供外部布局器与自动布线器在写入 PCB 前完成摆放、间距校验与路径规划
+
+与 [LIB\_Footprint.getDocumentSource()](./LIB_Footprint.md) 的区别：本接口直接给出结构化几何，调用方无需解析封装源码
+
+`libraryUuid` 必传，传 `'project'` 表示当前打开工程的工程库
+
+收藏库与扩展库暂不支持；获取失败（库条目不存在、工程未打开、库不可用）时返回 `undefined`<!-- -->，不抛异常 ADD since EDA v4.1.91
 
 ### getrenderimage
 

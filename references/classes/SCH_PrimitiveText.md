@@ -297,7 +297,7 @@ _(Optional)_ Alignment mode
 
 Promise&lt;[ISCH\_PrimitiveText](./ISCH_PrimitiveText.md) \| undefined&gt;
 
-Text primitive object
+Text primitive object  cli - 画布图元创建需前端已打开对应图页；写盘场景请改用 [add](./SCH_SourcePrimitiveText.md)
 
 ## Example
 

@@ -29,6 +29,17 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+[findPrimitives(options)](./PCB_Primitive.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 按条件分页查询局部图元
+
+</td></tr>
+<tr><td>
+
 [getPrimitiveBoardLine(primitiveId, layers)](./PCB_Primitive.md)
 
 </td><td>
@@ -54,6 +65,62 @@ Description
 ---
 
 ## 方法详情
+
+### findprimitives
+
+# PCB\_Primitive.findPrimitives() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+按条件分页查询局部图元
+
+## Signature
+
+```typescript
+function findPrimitives(
+	options: IPCB_FindPrimitivesOptions,
+): Promise<IPCB_PageResult<IPCB_PrimitiveSummary>>;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+options
+
+</td><td>
+
+[IPCB\_FindPrimitivesOptions](../interfaces/IPCB_FindPrimitivesOptions.md)
+
+</td><td>
+
+查询条件，至少传入一个过滤条件
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+Promise&lt;[IPCB\_PageResult](../interfaces/IPCB_PageResult.md)<!-- -->&lt;[IPCB\_PrimitiveSummary](../interfaces/IPCB_PrimitiveSummary.md)<!-- -->&gt;&gt;
+
+图元摘要分页结果
+
+## Remarks
+
+纯只读：不写入选区，也不触发界面事件；不受当前界面过滤器影响 ADD since EDA v4.1.93
 
 ### getprimitiveboardline
 

@@ -255,7 +255,7 @@ _(Optional)_ Fill style, `null` indicates the default
 
 Promise&lt;[ISCH\_PrimitiveCircle](./ISCH_PrimitiveCircle.md) \| undefined&gt;
 
-Circle primitive object
+Circle primitive object  cli - 画布图元创建需前端已打开对应图页；写盘场景请改用 [add](./SCH_SourcePrimitiveCircle.md)
 
 ## Example
 

@@ -139,6 +139,10 @@ Whether the DRC check passed
 
 `includeVerboseError=true` 时返回 \*\*分组树\*\*，顶层数组长度是错误 \*\*类别数\*\* 而非错误总数； `includeVerboseError=false` 直接返回门禁布尔值（非交互执行方式：`check(strict, false, false)`<!-- -->）
 
+\*\*布尔模式下 warning 也计为不通过\*\*：`strict=true` 时，`warning` 级别的违规项与 `error` 一样会使返回值为 `false`<!-- -->， 因此「只有 warning 却返回 `false`<!-- -->」是符合预期的行为，不是缺陷；需要区分 error / warning 时可改用 `includeVerboseError=true` 拿到 [ISCH\_DrcError](../interfaces/ISCH_DrcError.md) 列表，自行按  过滤（`'fatalError'` / `'error'` / `'warn'`<!-- -->）
+
+典型场景：原理图中存在刻意保留的未连接引脚（`CHECKFLOATPIN`<!-- -->）时，即便零 error，布尔门禁仍为 `false`<!-- -->； 这类工程若只关心 error，应以详细模式的过滤结果为准，不要直接依赖布尔返回值
+
 ## Example
 
 ```javascript
@@ -244,3 +248,7 @@ Whether to include detailed error information in the return value. If it is `tru
 Promise&lt;Array&lt;[ISCH\_DrcError](../interfaces/ISCH_DrcError.md)<!-- -->&gt;&gt;
 
 Detailed results of the DRC check
+
+## Remarks
+
+`strict=true` 时 `warning` 同样计入不通过，因此本重载返回的列表可能全部是 `type: 'warn'` 的项； 调用方需自行按  过滤后判定

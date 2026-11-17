@@ -39,6 +39,17 @@ Description
 </td></tr>
 <tr><td>
 
+[getState\_BindSchematicPageUuid()](./ISCH_PrimitiveRectangle.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 获取属性状态：绑定的原理图图页 UUID
+
+</td></tr>
+<tr><td>
+
 [getState\_Color()](./ISCH_PrimitiveRectangle.md)
 
 </td><td>
@@ -200,6 +211,17 @@ Query whether the primitive is an async primitive
 </td><td>
 
 **_(BETA)_** Reset the async primitive to the current canvas state
+
+</td></tr>
+<tr><td>
+
+[setState\_BindSchematicPageUuid(bindSchematicPageUuid)](./ISCH_PrimitiveRectangle.md)
+
+</td><td>
+
+</td><td>
+
+**_(BETA)_** 设置属性状态：绑定的原理图图页 UUID
 
 </td></tr>
 <tr><td>
@@ -394,6 +416,45 @@ const refetched = await eda.sch_PrimitiveRectangle.get(rect.getState_PrimitiveId
 
 console.log('width:', 200, '→', refetched.getState_Width());
 console.log('color:', '#00AA00', '→', refetched.getState_Color());
+```
+
+### getstate_bindschematicpageuuid
+
+# ISCH\_PrimitiveRectangle.getState\_BindSchematicPageUuid() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+获取属性状态：绑定的原理图图页 UUID
+
+## Signature
+
+```typescript
+function getState_BindSchematicPageUuid(): string | null;
+```
+
+## Returns
+
+string \| null
+
+绑定的原理图图页 UUID，`null` 表示未绑定
+
+## Remarks
+
+本属性仅在原理图文档中有效；未绑定或刚解除绑定时返回 `null` ADD since EDA v4.1.103
+
+## Example
+
+```javascript
+// 1. 读取当前选中矩形绑定到的图页 UUID
+const selected = await eda.sch_SelectControl.getAllSelectedPrimitives();
+const rect = selected.find(item => item.getState_PrimitiveType() === 'Rectangle');
+if (!rect) {
+  console.log('说明：请先在画布上选中一个矩形图元');
+  return;
+}
+
+const pageUuid = rect.getState_BindSchematicPageUuid();
+console.log('bindSchematicPageUuid:', pageUuid ?? '(未绑定)');
 ```
 
 ### getstate_color
@@ -906,6 +967,93 @@ await asyncRect.reset();
 const refetched = await eda.sch_PrimitiveRectangle.get(rect.getState_PrimitiveId());
 
 console.log('lineWidth after reset:', refetched.getState_LineWidth());
+```
+
+### setstate_bindschematicpageuuid
+
+# ISCH\_PrimitiveRectangle.setState\_BindSchematicPageUuid() method
+
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+设置属性状态：绑定的原理图图页 UUID
+
+## Signature
+
+```typescript
+function setState_BindSchematicPageUuid(
+	bindSchematicPageUuid: string | null,
+): ISCH_PrimitiveRectangle;
+```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+bindSchematicPageUuid
+
+</td><td>
+
+string \| null
+
+</td><td>
+
+原理图图页 UUID，`null` 表示解除绑定
+
+</td></tr>
+</tbody></table>
+
+## Returns
+
+[ISCH\_PrimitiveRectangle](./ISCH_PrimitiveRectangle.md)
+
+矩形图元对象
+
+## Remarks
+
+绑定后可在画布上点击该矩形跳转到对应图页
+
+仅在原理图文档中生效，图页 UUID 需为项目树中真实存在的图页节点
+
+本接口对传入值做类型校验，非字符串且非 `null` 时将抛出错误 ADD since EDA v4.1.103
+
+## Example
+
+```javascript
+// 1. 生成本次运行专用的坐标，避免与之前保留的测试矩形重合
+const x = 2000 + Math.floor(Math.random() * 8000);
+const y = 2000 + Math.floor(Math.random() * 8000);
+
+// 2. 创建一个测试矩形
+const rect = await eda.sch_PrimitiveRectangle.create(x, y, 400, 300);
+
+// 3. 获取目标图页的 UUID（取第一个原理图图页）
+const pages = await eda.dmt_Schematic.getAllSchematicPagesInfo();
+const pageUuid = pages[0]?.uuid ?? null;
+
+// 4. 绑定图页并提交，绑定后可在画布上点击该矩形跳转到对应图页
+const asyncRect = rect.toAsync();
+asyncRect.setState_BindSchematicPageUuid(pageUuid);
+await asyncRect.done();
+
+// 5. 从画布重新读取，确认绑定已生效
+const refetched = await eda.sch_PrimitiveRectangle.get(rect.getState_PrimitiveId());
+console.log('bindSchematicPageUuid:', pageUuid, '→', refetched.getState_BindSchematicPageUuid());
+
+// 6. 清理测试图元
+await eda.sch_PrimitiveRectangle.delete([rect.getState_PrimitiveId()]);
 ```
 
 ### setstate_color

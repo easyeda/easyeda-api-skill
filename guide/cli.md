@@ -51,7 +51,7 @@ C:\Program Files\EasyEDA-Pro\easyeda-pro.exe
 
 The installer adds that directory to the system `PATH` during installation, so you can normally use the `easyeda-pro` command directly in a terminal. If the command is reported as not found, check whether the installation directory has been added to `PATH`, or use the full path to the executable instead.
 
-You can also get installation packages for specific versions from the [client release history](../../faq/client-version) page.
+You can also get installation packages for specific versions from the [client release history](../../faq/client-version/) page.
 
 ::: warning
 
@@ -86,6 +86,7 @@ A `connected` value of `false` means no editor is currently running. Open any ed
 
 You can likewise query the attributes of the current runtime environment from inside a script:
 
+<!-- eslint-skip -->
 ```javascript
 return {
 	isClient: eda.sys_Environment.isClient(),
@@ -107,10 +108,12 @@ In semi-offline / fully-offline mode, the client data directory is located at:
 The `config.json` file in that directory records the various path settings, among which `APP_PROJECT_DIR` is the project directory list:
 
 ```json
-"APP_PROJECT_DIR": [
-	"C:\\Users\\username\\Documents\\EasyEDA-Pro\\projects",
-	"C:\\Users\\username\\Documents\\EasyEDA-Pro\\example-projects"
-]
+{
+	"APP_PROJECT_DIR": [
+		"C:\\Users\\username\\Documents\\EasyEDA-Pro\\projects",
+		"C:\\Users\\username\\Documents\\EasyEDA-Pro\\example-projects"
+	]
+}
 ```
 
 The read/write range of the [SYS_FileSystem](../reference/pro-api.sys_filesystem) APIs is exactly those directories and their subdirectories. You can also obtain the path list inside a script through [SYS_FileSystem.getProjectsPaths()](../reference/pro-api.sys_filesystem.getprojectspaths). Writing exported artifacts into the `projects\<project name>\` directory is the least troublesome approach.
@@ -435,6 +438,7 @@ function toB64(b) {
 
 The example below gets a schematic PNG file and converts it to Base64:
 
+<!-- eslint-skip -->
 ```javascript
 const f = await eda.sch_ManufactureData.getPngFile('MySchematic', { width: 1400 });
 return { name: f.name, size: f.size, b64: await toB64(f) };
@@ -587,6 +591,7 @@ export S=9aca2242-79bb-4e2b-9d03-754316927f96
 
 [`DMT_Project.createProject()`](../reference/pro-api.dmt_project.createproject) creates a project, and [`DMT_Project.openProject()`](../reference/pro-api.dmt_project.openproject) then opens it:
 
+<!-- eslint-skip -->
 ```javascript
 // step1_create_proj.js
 const uuid = await eda.dmt_Project.createProject(
@@ -645,6 +650,7 @@ projects/MyBoard/
 
 [`LIB_LibrariesList.getSystemLibraryUuid()`](../reference/pro-api.lib_librarieslist.getsystemlibraryuuid) returns the system library UUID, and [`LIB_Device.search()`](../reference/pro-api.lib_device.search) searches for devices inside a library:
 
+<!-- eslint-skip -->
 ```javascript
 // step2_search.js
 const sysLib = await eda.lib_LibrariesList.getSystemLibraryUuid();
@@ -696,6 +702,7 @@ First open the schematic page with [`DMT_EditorControl.openDocument()`](../refer
 
 The recommended approach is to read a snapshot of the component properties right after `create()`, then write `designator` and `otherProperty` back together in a single [`SCH_PrimitiveComponent.modify()`](../reference/pro-api.sch_primitivecomponent.modify) call. That way the designator and all device properties are set in one pass:
 
+<!-- eslint-skip -->
 ```javascript
 // step3_place.js
 const pageUuid = '429e4af1f4a665c3'; // the page returned by the previous step
@@ -790,6 +797,7 @@ Each component should be `create()`d first and then have its pin coordinates rea
 
 [`SCH_PrimitiveComponent.createNetFlag()`](../reference/pro-api.sch_primitivecomponent.createnetflag) places net flags. The supported types are `Power` `Ground` `AnalogGround` `ProtectGround`:
 
+<!-- eslint-skip -->
 ```javascript
 // step4_flags.js
 const vcc = await eda.sch_PrimitiveComponent.createNetFlag('Power', 'VCC', 400, 660, 0, false);
@@ -818,6 +826,7 @@ return {
 
 [`SCH_PrimitiveWire.create()`](../reference/pro-api.sch_primitivewire.create) draws wires. A wire is an orthogonal polyline; a single `create()` call can draw several segments, but consecutive segments must meet end to end and each segment must be horizontal or vertical:
 
+<!-- eslint-skip -->
 ```javascript
 // step5_wire.js
 const plan = [
@@ -864,6 +873,7 @@ Adjacent segments are merged by the editor into a single `WIRE` primitive group.
 | `userInterface` | Whether to open the bottom DRC panel; pass `false` in scripts |
 | `includeVerboseError` | Pass `true` to get an array of violation details, `false` to get only a pass/fail boolean |
 
+<!-- eslint-skip -->
 ```javascript
 // step6_drc.js
 await eda.sch_Document.save();
@@ -899,6 +909,7 @@ Wait 8 to 10 seconds after `save()` before running the DRC check, so the editor 
 
 [`SCH_ManufactureData.getNetlistFile()`](../reference/pro-api.sch_manufacturedata.getnetlistfile) exports a netlist file:
 
+<!-- eslint-skip -->
 ```javascript
 // step7_netlist.js
 const f = await eda.sch_ManufactureData.getNetlistFile('MyBoard_NET', 'Protel2');
@@ -923,6 +934,7 @@ The exported netlist matches the design intent exactly, so the connections can b
 
 [`SCH_ManufactureData.getBomFile()`](../reference/pro-api.sch_manufacturedata.getbomfile) exports the BOM, in `csv` or `xlsx` format:
 
+<!-- eslint-skip -->
 ```javascript
 // step8_bom.js
 const DIR = 'C:/Users/username/Documents/EasyEDA-Pro/projects/MyBoard/';
@@ -956,6 +968,7 @@ R1 and R3, which share the same part number, are merged into one row with a quan
 
 [`DMT_EditorControl.getCurrentRenderedAreaImage()`](../reference/pro-api.dmt_editorcontrol.getcurrentrenderedareaimage) returns an image of the currently rendered area:
 
+<!-- eslint-skip -->
 ```javascript
 // step9_shot.js
 const tabId = await eda.dmt_EditorControl.openDocument('429e4af1f4a665c3');
@@ -989,6 +1002,7 @@ await eda.pcb_Document.save(); // PCB
 
 The PCB side follows a flow similar to the schematic: draw the board outline, import changes from the schematic, auto-place, and autoroute.
 
+<!-- eslint-skip -->
 ```javascript
 // step10_pcb.js
 const pcbUuid = '509258b8ebfffb42';
@@ -1303,6 +1317,7 @@ After writing the file into the project directory, wait for the editor to reload
 cp build/P1.esch2 "C:\Users\username\Documents\EasyEDA-Pro\projects\MyBoard\sch\Schematic1\P1.esch2"
 ```
 
+<!-- eslint-skip -->
 ```javascript
 // Verification script: object counts + DRC + screenshot
 const comps = (await eda.sch_PrimitiveComponent.getAll()).map((c) => c.getState_Designator() || c.getState_ComponentType());

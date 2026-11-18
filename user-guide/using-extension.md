@@ -4,7 +4,7 @@
 
 EasyEDA Pro now provides the official [Extensions Marketplace](https://jlcext.com), where you can conveniently obtain a wide range of EasyEDA Pro extensions provided by both official and third-party developers.
 
-![](/storage/images/cn/api/guide/how-to-install/how-to-install_20250427_164224.jpg)
+![Getting Extensions](/storage/images/cn/api/guide/how-to-install/how-to-install_20250427_164224.jpg)
 
 ## Installing Extensions
 

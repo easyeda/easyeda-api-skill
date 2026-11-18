@@ -4,9 +4,9 @@ This document only describes data that belongs to the project but not to the can
 
 ## Contents
 
-- [Common Data](/en/format/project/common.md) - Includes basic information, creation information, modification information, etc.
-- [Basic Information](/en/format/project/meta.md) - Includes metadata for project config, board, schematic, PCB, panel, symbol, footprint, device, etc.
-- [BLOB True-Color Image](/en/format/project/blob.md) - True-color image data format.
-- [Instance Attribute Override](/en/format/project/instance.md) - Instance attribute override format.
-- [Variant](/en/format/project/variant.md) - Variant data format.
-- [Component Grouping](/en/format/project/group.md) - Component grouping data format.
+- [Common Data](/en/format/project/common/) - Includes basic information, creation information, modification information, etc.
+- [Basic Information](/en/format/project/meta/) - Includes metadata for project config, board, schematic, PCB, panel, symbol, footprint, device, etc.
+- [BLOB True-Color Image](/en/format/project/blob/) - True-color image data format.
+- [Instance Attribute Override](/en/format/project/instance/) - Instance attribute override format.
+- [Variant](/en/format/project/variant/) - Variant data format.
+- [Component Grouping](/en/format/project/group/) - Component grouping data format.

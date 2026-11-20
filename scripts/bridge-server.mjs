@@ -254,6 +254,17 @@ wss.on('connection', (ws, req) => {
         const msg = JSON.parse(raw.toString());
         if (msg.type === 'register' && msg.windowId) {
           // EDA client registering with window ID
+          // The extension keeps windowId stable per tab, so a reconnecting tab
+          // reuses it. Close the superseded socket first; its later 'close'
+          // event must not evict the new connection (guarded below).
+          const previous = edaClients.get(msg.windowId);
+          if (previous && previous !== ws) {
+            try {
+              previous.close(1000, 'superseded by new connection');
+            } catch (err) {
+              console.warn(`[WS] Failed to close superseded socket for ${msg.windowId}: ${err.message}`);
+            }
+          }
           registeredWindowId = msg.windowId;
           edaClients.set(registeredWindowId, ws);
           // Auto-select if first window or if no active window
@@ -273,19 +284,26 @@ wss.on('connection', (ws, req) => {
 
     ws.on('close', (code, reason) => {
       console.log(`[WS] EDA window disconnected: ${registeredWindowId} (${code} ${reason})`);
-      if (registeredWindowId) {
-        edaClients.delete(registeredWindowId);
-        if (activeEdaWindowId === registeredWindowId) {
-          // Select another window if available
-          activeEdaWindowId = edaClients.keys().next().value || null;
-        }
-        // Reject pending requests for this window
-        for (const [id, req] of pendingRequests) {
-          if (req.windowId === registeredWindowId) {
-            clearTimeout(req.timer);
-            req.reject(new Error(`EDA window "${registeredWindowId}" disconnected`));
-            pendingRequests.delete(id);
-          }
+      if (!registeredWindowId) {
+        return;
+      }
+      // A stale socket's close event may arrive after the same tab has already
+      // re-registered with a new socket. Only the current owner may clean up.
+      if (edaClients.get(registeredWindowId) !== ws) {
+        console.log(`[WS] Stale close ignored for window: ${registeredWindowId}`);
+        return;
+      }
+      edaClients.delete(registeredWindowId);
+      if (activeEdaWindowId === registeredWindowId) {
+        // Select another window if available
+        activeEdaWindowId = edaClients.keys().next().value || null;
+      }
+      // Reject pending requests for this window
+      for (const [id, req] of pendingRequests) {
+        if (req.windowId === registeredWindowId) {
+          clearTimeout(req.timer);
+          req.reject(new Error(`EDA window "${registeredWindowId}" disconnected`));
+          pendingRequests.delete(id);
         }
       }
     });
